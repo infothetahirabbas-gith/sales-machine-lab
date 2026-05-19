@@ -216,14 +216,14 @@ function Home() {
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((s) => (
-            <Link key={s.to} to={s.to}>
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 justify-items-center mx-auto">
+          {services.map((s, i) => (
+            <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-none mx-auto" : ""}`}>
               <Card>
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
-                <h3 className="mt-3 font-semibold text-lg">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{s.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary">Explore →</div>
+                <div className="mx-auto w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
+                <h3 className="mt-3 font-semibold text-lg text-center">{s.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1 text-center">{s.body}</p>
+                <div className="mt-4 text-sm font-semibold text-primary text-center">Explore →</div>
               </Card>
             </Link>
           ))}
