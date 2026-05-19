@@ -85,44 +85,6 @@ function Contact() {
         </div>
       </Section>
 
-      <Section eyebrow="FAQ" title="What people ask before booking.">
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            { q: "Is the audit really free?", a: "Yes. No card, no obligation. We use it to qualify ourselves to you." },
-            { q: "Do you guarantee results?", a: "No. We guarantee the system and the execution. Sales follow when the math works." },
-            { q: "How long is the call?", a: "About 45 minutes. We share screen, walk through the plan, take questions." },
-            { q: "What if we're a fit?", a: "We send a custom scope. Typically 90-day engagements minimum." },
-          ].map(f=>(
-            <Card key={f.q}><h4 className="font-semibold">{f.q}</h4><p className="text-sm text-muted-foreground mt-2">{f.a}</p></Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Calendar" title="Pick a time that works.">
-        <div className="rounded-3xl border border-border bg-card/60 p-8 text-center">
-          <div className="text-5xl mb-4 float">🗓️</div>
-          <p className="text-muted-foreground">Calendly / Cal.com integration goes here once connected.</p>
-        </div>
-      </Section>
-
-      <Section eyebrow="Testimonials" title="Recent founders we've helped.">
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            { q: "The audit alone changed how we look at our store.", a: "Arjun M." },
-            { q: "Honest, sharp, zero fluff. Rare combo.", a: "Sara K." },
-            { q: "Worth the call even if you don't engage.", a: "David L." },
-          ].map(t=>(
-            <Card key={t.a}><div className="text-primary text-2xl">“</div><p className="text-sm">{t.q}</p><div className="mt-3 text-xs text-muted-foreground">- {t.a}</div></Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Honest promise" title="No fake guarantees.">
-        <p className="text-lg text-muted-foreground max-w-3xl">
-          We will not promise sales. We will promise honest diagnostics, real execution, and a system that has worked
-          across 100+ ecommerce brands. If we're not the right fit, we'll tell you on the call.
-        </p>
-      </Section>
     </PageLayout>
   );
 }
