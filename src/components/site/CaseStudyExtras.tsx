@@ -444,19 +444,76 @@ const quotes = [
 
 function QuoteCarousel() {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchDeltaX = useRef(0);
+
+  const go = (next: number) => setIdx((next + quotes.length) % quotes.length);
+  const prev = () => go(idx - 1);
+  const next = () => go(idx + 1);
+
   useEffect(() => {
+    if (paused) return;
     const id = setInterval(() => setIdx((i) => (i + 1) % quotes.length), 5000);
     return () => clearInterval(id);
-  }, []);
+  }, [paused]);
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    else if (e.key === "Home") { e.preventDefault(); go(0); }
+    else if (e.key === "End") { e.preventDefault(); go(quotes.length - 1); }
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchDeltaX.current = 0;
+    setPaused(true);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+  };
+  const onTouchEnd = () => {
+    const dx = touchDeltaX.current;
+    touchStartX.current = null;
+    touchDeltaX.current = 0;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) next(); else prev();
+    }
+    setPaused(false);
+  };
+
   return (
-    <div className="relative">
+    <div
+      className="relative group"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Client testimonials"
+      tabIndex={0}
+      onKeyDown={onKeyDown}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <div className="relative overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${idx * 100}%)` }}
         >
           {quotes.map((q, i) => (
-            <div key={q.n} className="w-full shrink-0 px-1">
+            <div
+              key={q.n}
+              className="w-full shrink-0 px-1"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${quotes.length}`}
+              aria-hidden={i !== idx}
+            >
               <div className="card-surface p-6 md:p-8 relative">
                 <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/10" />
                 <p className="text-lg md:text-xl text-ink leading-relaxed font-medium">"{q.q}"</p>
@@ -477,16 +534,61 @@ function QuoteCarousel() {
           ))}
         </div>
       </div>
-      <div className="mt-5 flex items-center justify-center gap-2">
-        {quotes.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            aria-label={`Show testimonial ${i + 1}`}
-            className={`h-2 rounded-full transition-all ${i === idx ? "w-8 bg-primary" : "w-2 bg-primary/25 hover:bg-primary/50"}`}
-          />
-        ))}
+
+      {/* Prev / Next arrows */}
+      <button
+        type="button"
+        onClick={prev}
+        aria-label="Previous testimonial"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        type="button"
+        onClick={next}
+        aria-label="Next testimonial"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Mobile arrow + dots row */}
+      <div className="mt-5 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous testimonial"
+          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        <div className="flex items-center gap-2" role="tablist" aria-label="Select testimonial">
+          {quotes.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-selected={i === idx}
+              aria-label={`Show testimonial ${i + 1}`}
+              onClick={() => go(i)}
+              className={`h-2 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${i === idx ? "w-8 bg-primary" : "w-2 bg-primary/25 hover:bg-primary/50"}`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next testimonial"
+          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
+
+      <span className="sr-only" aria-live="polite">
+        Testimonial {idx + 1} of {quotes.length}: {quotes[idx].n}
+      </span>
     </div>
   );
 }
