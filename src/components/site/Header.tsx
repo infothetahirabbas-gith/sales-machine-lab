@@ -23,6 +23,7 @@ export default function Header() {
           BeingEcom
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm">
+          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
           <div className="relative group">
             <button className="text-muted-foreground hover:text-foreground transition">Services ▾</button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
