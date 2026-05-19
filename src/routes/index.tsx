@@ -190,26 +190,32 @@ function Home() {
         </div>
       </Section>
 
-      {/* 6. BEFORE / AFTER */}
-      <Section center eyebrow="Before vs After" title="Same store. Different system.">
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
-            <div className="text-xs font-bold uppercase text-destructive mb-3">Before</div>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+      {/* 6. BEFORE / AFTER — interactive slider */}
+      <Section
+        center
+        eyebrow="Before vs After"
+        title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
+        intro="Drag the slider. Same store, same product, same audience — different system."
+      >
+        <Reveal>
+          <BeforeAfter />
+        </Reveal>
+        <div className="grid sm:grid-cols-2 gap-4 mt-6">
+          <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-5">
+            <div className="text-xs font-bold uppercase text-destructive mb-2">Before</div>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               <li>— 1.1% conversion rate</li>
               <li>— ROAS stuck at 1.4×</li>
-              <li>— $4 AOV uplift, no automations</li>
               <li>— 70% checkout abandonment</li>
               <li>— Zero organic ranking</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-primary/40 bg-primary/5 p-6">
-            <div className="text-xs font-bold uppercase text-primary mb-3">After 90 days</div>
-            <ul className="space-y-2 text-sm">
+          <div className="rounded-2xl border border-primary/40 bg-primary/5 p-5">
+            <div className="text-xs font-bold uppercase text-primary mb-2">After 90 days</div>
+            <ul className="space-y-1.5 text-sm">
               <li>✓ 4.6% conversion rate</li>
               <li>✓ 3.8× blended ROAS</li>
               <li>✓ 32% revenue from email & SMS</li>
-              <li>✓ Checkout abandonment cut in half</li>
               <li>✓ Top-3 rankings on core products</li>
             </ul>
           </div>
