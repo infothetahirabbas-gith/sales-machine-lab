@@ -442,19 +442,19 @@ function CaseStudies() {
       <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Case Studies
           </div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl leading-[1.04] text-ink">
+          <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04] text-ink">
             Real <span className="text-gradient">ecommerce growth</span> results.
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
+          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
             {studies.length}+ wins across Ads, SEO and CRO. Click any card to see the problem, strategy and full results.
           </p>
 
           {/* Stat strip */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
             {[
               { v: "$48M+", l: "Tracked revenue" },
               { v: "120+", l: "Stores scaled" },
