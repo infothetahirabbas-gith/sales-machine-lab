@@ -141,8 +141,6 @@ function Home() {
         </div>
       </Section>
 
-      {/* 4. SOLUTION 4 PILLARS */}
-      <Section center eyebrow="Our growth system" title="We fix everything that stops your store from selling.">
       {/* 4. SOLUTION — 4 PILLARS */}
       <Section
         center
