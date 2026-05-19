@@ -43,7 +43,7 @@ export default function Footer() {
             <li><Link to="/services/cro" className="hover:text-white transition-colors">Conversion Optimization</Link></li>
             <li><Link to="/services/paid-ads" className="hover:text-white transition-colors">Paid Advertising</Link></li>
             <li><Link to="/services/seo" className="hover:text-white transition-colors">Ecommerce SEO</Link></li>
-            <li><Link to="/services/email-sms" className="hover:text-white transition-colors">Email & SMS</Link></li>
+            <li><Link to="/services/email-sms" className="hover:text-white transition-colors">Email Marketing</Link></li>
           </ul>
         </div>
 
