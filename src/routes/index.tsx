@@ -11,15 +11,15 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", icon: "🛒" },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", icon: "📈" },
-  { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", icon: "📣" },
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google — free traffic forever.", icon: "🔍" },
-  { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", icon: "📧" },
-  { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", icon: "🎨" },
-  { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", icon: "🧲" },
-  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards — set up correctly.", icon: "📊" },
-  { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", icon: "🚀" },
+  { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", Icon: ShoppingCart },
+  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", Icon: TrendingUp },
+  { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", Icon: Megaphone },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google — free traffic forever.", Icon: Search },
+  { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", Icon: Mail },
+  { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", Icon: Palette },
+  { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", Icon: Magnet },
+  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards — set up correctly.", Icon: BarChart3 },
+  { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", Icon: Rocket },
 ];
 
 function Home() {
