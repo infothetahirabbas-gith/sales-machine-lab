@@ -449,7 +449,7 @@ function AuditPage() {
               <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
                 BeingEcom turns audits like this into real revenue. Book a free 30-minute strategy call and we'll walk you through the exact plan to ship these fixes.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <div className="mt-6 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">Book Free Strategy Call <ArrowRight className="w-4 h-4" /></a>
                 <a href="/services" className="btn btn-dark">Get Full Growth Service</a>
               </div>
