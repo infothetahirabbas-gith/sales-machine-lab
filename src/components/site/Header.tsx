@@ -6,7 +6,7 @@ const services = [
   { to: "/services/cro", label: "CRO" },
   { to: "/services/paid-ads", label: "Paid Ads" },
   { to: "/services/seo", label: "Ecommerce SEO" },
-  { to: "/services/email-sms", label: "Email & SMS" },
+  { to: "/services/email-sms", label: "Email Marketing" },
   { to: "/services/creative", label: "Creative Production" },
   { to: "/services/scaling", label: "Scaling Strategy" },
   { to: "/services/analytics", label: "Analytics & Tracking" },
