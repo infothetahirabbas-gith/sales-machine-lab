@@ -13,7 +13,7 @@ export default function CaseStudyForm({ initial, onSubmit, onCancel }: Props) {
       slug: "",
       title: "",
       brand: "",
-      category: "ads",
+      category: "Ads",
       hero_metric: "",
       hero_metric_label: "",
       published: true,
