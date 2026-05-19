@@ -124,7 +124,7 @@ function About() {
 
       {/* WHAT MAKES US DIFFERENT */}
       <Section eyebrow="What makes us different" title="No theory. Just systems that ship revenue.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
           {differentiators.map((d) => (
             <div key={d.t} className="card-surface card-hover p-6 group">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
@@ -139,7 +139,7 @@ function About() {
 
       {/* CORE VALUES */}
       <Section eyebrow="Core Values" title="The operating principles">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {values.map((v) => (
             <div key={v.n} className="card-surface card-hover p-7 relative overflow-hidden">
               <div className="text-6xl font-display font-bold text-primary/15 leading-none">{v.n}</div>
@@ -152,7 +152,7 @@ function About() {
 
       {/* THE TEAM */}
       <Section eyebrow="The Team" title="A small, senior, ecommerce-only crew">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {team.map((m) => (
             <div key={m.i} className="card-surface card-hover p-6 text-center">
               <img
