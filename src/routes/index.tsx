@@ -7,6 +7,7 @@ import GrowthChart from "../components/site/GrowthChart";
 import BeforeAfter from "../components/site/BeforeAfter";
 import ContactFaq from "../components/site/ContactFaq";
 import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
+import GrowthPathPlanner from "../components/site/GrowthPathPlanner";
 import { Reveal } from "../hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -201,6 +202,9 @@ function Home() {
           ))}
         </div>
       </Section>
+
+      {/* 4.5 GROWTH PATH PLANNER */}
+      <GrowthPathPlanner />
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
