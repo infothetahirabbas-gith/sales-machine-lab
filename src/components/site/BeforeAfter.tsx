@@ -31,7 +31,7 @@ export default function BeforeAfter() {
   return (
     <div
       ref={wrapRef}
-      className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
+      className="relative w-full rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
       onPointerDown={(e) => { dragging.current = true; document.body.style.userSelect = "none"; setFromClientX(e.clientX); }}
     >
       {/* AFTER (full bg) */}
