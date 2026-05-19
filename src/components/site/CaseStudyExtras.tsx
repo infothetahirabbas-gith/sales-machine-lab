@@ -98,7 +98,7 @@ export function FeaturedStoresSection() {
               className="flex transition-transform duration-700 ease-out"
               style={{ transform: `translateX(-${page * 100}%)` }}
             >
-              {Array.from({ length: pages }).map((_, p) => (
+              {Array.from({ length: pages }).map((_: unknown, p: number) => (
                 <div key={p} className="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6">
                   {featuredStores.slice(p * pageSize, p * pageSize + pageSize).map((s, i) => (
                     <StoreCard key={`${p}-${i}`} s={s} />
