@@ -52,6 +52,18 @@ export const Route = createFileRoute("/services/cro")({
         metrics: [{ label: "CR", value: "+192%" }, { label: "ROAS", value: "1.9× → 3.6×" }, { label: "Revenue", value: "+228%" }],
       },
       ctaTitle: "Stop sending paid traffic to a leaking funnel.",
+      impactStats: [
+        { value: "+192%", label: "CR lift (avg)" },
+        { value: "3.6×", label: "ROAS achieved" },
+        { value: "-32%", label: "Cart abandonment" },
+      ],
+      metricBars: [
+        { label: "Conversion rate", before: 1.4, after: 4.1, unit: "%", description: "Visitor → buyer rate after PDP rewrite, social-proof, and checkout reduction." },
+        { label: "Checkout completion", before: 28, after: 64, unit: "%", description: "Share of started checkouts that complete payment. Target: 60%+." },
+        { label: "AOV", before: 48, after: 79, unit: "$", description: "Average order value lifted via bundles, sticky-ATC, and post-purchase upsells." },
+        { label: "Mobile CR", before: 1.1, after: 3.4, unit: "%", description: "Mobile conversion — where 70% of ecommerce traffic actually buys." },
+        { label: "Revenue / visitor", before: 0.62, after: 2.41, unit: "$", description: "RPV: the truest single number measuring CRO impact." },
+      ],
     }} />
   ),
 });
