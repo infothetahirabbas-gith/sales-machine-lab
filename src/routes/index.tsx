@@ -158,7 +158,7 @@ function Home() {
       </Section>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section center eyebrow="What we do" title="Six growth services, one operating system.">
+      <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s) => (
             <Link key={s.to} to={s.to}>
