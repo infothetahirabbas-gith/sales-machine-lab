@@ -63,9 +63,6 @@ function Home() {
         <Link to="/contact" className="inline-flex absolute top-6 right-4 md:top-24 md:right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors z-10">
           <span className="text-primary">●</span> Book Strategy Call →
         </Link>
-        <div className="hidden md:block absolute top-1/2 right-[3%] card-surface px-3 py-2 text-xs font-semibold float-slow" style={{ animationDelay: "1.5s" }}>
-          <span className="text-primary">●</span> $214K MRR
-        </div>
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
