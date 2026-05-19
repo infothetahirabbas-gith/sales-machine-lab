@@ -201,29 +201,35 @@ function CaseStudies() {
       {/* FILTER + GRID */}
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          {/* Filter chips */}
-          <div className="flex flex-wrap gap-2 mb-8 justify-center">
-            {(["All", "Ads", "SEO", "CRO"] as const).map((f) => {
-              const Icon = categoryIcon[f];
-              const isActive = filter === f;
-              return (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f)}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-                    isActive
-                      ? "bg-primary text-white shadow-lg shadow-primary/30 scale-105"
-                      : "bg-white border border-border text-ink/70 hover:border-primary hover:text-primary"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {f}
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? "bg-white/20" : "bg-primary/10 text-primary"}`}>
-                    {counts[f]}
-                  </span>
-                </button>
-              );
-            })}
+          {/* Filter segmented control */}
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm">
+              {(["All", "Ads", "SEO", "CRO"] as const).map((f) => {
+                const Icon = categoryIcon[f];
+                const isActive = filter === f;
+                return (
+                  <button
+                    key={f}
+                    onClick={() => setFilter(f)}
+                    className={`relative inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                      isActive
+                        ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
+                        : "text-ink/65 hover:text-ink hover:bg-secondary/60"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {f}
+                    <span
+                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums ${
+                        isActive ? "bg-white/25 text-white" : "bg-primary/10 text-primary"
+                      }`}
+                    >
+                      {counts[f]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Grid */}
@@ -236,29 +242,46 @@ function CaseStudies() {
                   onClick={() => setActive(s)}
                   className="text-left card-surface card-hover overflow-hidden group flex flex-col"
                 >
-                  {/* Chart header */}
-                  <div className={`relative h-32 bg-gradient-to-br ${s.color} text-white p-4 overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-40">
-                      <Sparkline data={s.chart} gradient={s.color} />
+                  {/* Website mockup preview */}
+                  <div className={`relative h-44 bg-gradient-to-br ${s.color} p-3 overflow-hidden`}>
+                    <div className="relative h-full w-full rounded-lg bg-white/95 shadow-xl overflow-hidden flex flex-col">
+                      {/* Browser chrome */}
+                      <div className="flex items-center gap-1.5 px-3 py-2 bg-secondary/60 border-b border-border">
+                        <span className="w-2 h-2 rounded-full bg-red-400" />
+                        <span className="w-2 h-2 rounded-full bg-yellow-400" />
+                        <span className="w-2 h-2 rounded-full bg-green-400" />
+                        <div className="ml-2 flex-1 h-3.5 rounded-sm bg-white border border-border/60" />
+                      </div>
+                      {/* Mock website content */}
+                      <div className="relative flex-1 p-2.5 flex gap-2">
+                        <div className="flex flex-col gap-1.5 w-1/3">
+                          <div className="h-2 rounded bg-ink/15 w-3/4" />
+                          <div className="h-1.5 rounded bg-ink/10 w-full" />
+                          <div className="h-1.5 rounded bg-ink/10 w-2/3" />
+                          <div className={`mt-1 h-4 rounded bg-gradient-to-r ${s.color} w-2/3`} />
+                        </div>
+                        <div className={`flex-1 rounded-md bg-gradient-to-br ${s.color} opacity-90 relative overflow-hidden text-white`}>
+                          <div className="absolute inset-0">
+                            <Sparkline data={s.chart} gradient={s.color} />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="relative flex items-start justify-between">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-white/20 backdrop-blur px-2 py-1 rounded-full">
-                        <Icon className="w-3 h-3" /> {s.category}
-                      </span>
-                      <span className="text-[10px] font-semibold opacity-80">{s.duration}</span>
-                    </div>
-                    <div className="relative mt-4">
-                      <div className="text-3xl font-bold leading-none">{s.metric}</div>
-                      <div className="text-[11px] uppercase tracking-wide opacity-80 mt-1">{s.metricLabel}</div>
+                    {/* Floating category badge + metric pill */}
+                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg">
+                      <Icon className="w-3 h-3" /> {s.category}
+                    </span>
+                    <div className="absolute bottom-5 right-5 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
+                      <div className="text-lg font-bold leading-none text-gradient">{s.metric}</div>
+                      <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{s.metricLabel}</div>
                     </div>
                   </div>
 
                   {/* Body */}
                   <div className="p-5 flex-1 flex flex-col">
-                    <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{s.industry}</div>
-                    <h3 className="mt-1.5 font-bold text-ink leading-snug">{s.title}</h3>
+                    <h3 className="font-bold text-ink leading-snug">{s.title}</h3>
                     <div className="mt-auto pt-4 flex items-center justify-between text-xs">
-                      <span className="font-semibold text-ink/60">{s.brand}</span>
+                      <span className="text-muted-foreground">{s.duration}</span>
                       <span className="inline-flex items-center gap-1 text-primary font-semibold group-hover:gap-2 transition-all">
                         View details <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
