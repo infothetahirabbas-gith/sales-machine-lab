@@ -35,9 +35,6 @@ function Home() {
         <div className="hidden md:block absolute top-24 right-[8%] card-surface px-3 py-2 text-xs font-semibold float">
           <span className="text-primary">●</span> ROAS 3.8×
         </div>
-        <div className="hidden md:block absolute bottom-24 left-[6%] card-surface px-3 py-2 text-xs font-semibold float-slow">
-          <span className="text-primary">●</span> CR +285%
-        </div>
         <div className="hidden md:block absolute top-1/2 right-[3%] card-surface px-3 py-2 text-xs font-semibold float-slow" style={{ animationDelay: "1.5s" }}>
           <span className="text-primary">●</span> $214K MRR
         </div>
@@ -60,9 +57,6 @@ function Home() {
               </Link>
               <Link to="/contact" className="btn btn-dark btn-shimmer">
                 Book Strategy Call
-              </Link>
-              <Link to="/case-studies" className="btn btn-ghost">
-                See Results
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
