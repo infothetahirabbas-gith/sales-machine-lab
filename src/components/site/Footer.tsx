@@ -52,9 +52,9 @@ export default function Footer() {
         </div>
 
         {/* Get in touch */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-3 text-center lg:text-left">
           <div className="text-white font-bold tracking-wide mb-5">GET IN TOUCH</div>
-          <ul className="space-y-3 text-white/60">
+          <ul className="space-y-3 text-white/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-primary" />
               <a href="mailto:hello@beingecom.com" className="hover:text-white transition-colors">hello@beingecom.com</a>
