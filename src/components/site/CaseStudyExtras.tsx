@@ -25,7 +25,7 @@ const featuredStores = [
 
 function StoreCard({ s }: { s: typeof featuredStores[number] }) {
   return (
-    <div className="group flex-none w-[320px] md:w-[380px]">
+    <div className="group w-full">
       <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-white relative">
         {/* Browser chrome (no URL) */}
         <div className="flex items-center gap-1.5 px-3 py-2.5 bg-[#f1f3f5] border-b border-border">
