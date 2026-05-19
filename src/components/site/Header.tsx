@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import logo from "@/assets/beingecom-logo.png";
 
 const services = [
   { to: "/services/store-development", label: "Store Development" },
