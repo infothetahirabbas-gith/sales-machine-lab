@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/cro")({
         { title: "Heatmap & behavior analysis", body: "Hotjar, Microsoft Clarity. Where users click, scroll, rage-tap.", tags: ["Hotjar","Clarity","Session replay"] },
         { title: "Product page optimization", body: "Hero, gallery, USPs, reviews, sticky ATC, bundle module.", tags: ["PDP","ATC","Reviews"] },
         { title: "Checkout funnel fixing", body: "Reduce steps, surface trust, express payment, address autocomplete.", tags: ["Checkout","Express pay","Trust"] },
-        { title: "Cart abandonment reduction", body: "On-site exit intent + post-cart flows + SMS triggers.", tags: ["Exit intent","Email","SMS"] },
+        { title: "Cart abandonment reduction", body: "On-site exit intent + post-cart email flows + retargeting triggers.", tags: ["Exit intent","Email","Retargeting"] },
         { title: "A/B testing system", body: "Hypothesis docs, sample size, statistical significance, learning library.", tags: ["A/B","Stat sig","Learnings"] },
         { title: "UX improvement strategy", body: "Mobile-first refactor of navigation, filters, search, and product cards.", tags: ["Mobile","Nav","Search"] },
       ],

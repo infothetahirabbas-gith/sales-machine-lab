@@ -11,7 +11,7 @@ const all = [
   { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimize" },
   { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", tag: "Acquire" },
   { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections - free traffic forever.", tag: "Acquire" },
-  { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
+  { to: "/services/email-sms", title: "Email Marketing Automation", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/creative", title: "Creative & Ad Production", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
   { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond $10K-$100K/month, profitably.", tag: "Scale" },
   { to: "/services/analytics", title: "Analytics & Tracking", body: "Track every sale, click, and behavior.", tag: "Measure" },

@@ -20,7 +20,7 @@ export const Route = createFileRoute("/services/funnel")({
       systemSteps: [
         { title: "Journey map", body: "Map current touchpoints, find drop-off and friction." },
         { title: "Stage assets", body: "Build the right asset for each stage - ads, pages, flows." },
-        { title: "Triggers", body: "Behavioral triggers across web, email, SMS, ads." },
+        { title: "Triggers", body: "Behavioral triggers across web, email, and ads." },
         { title: "Compounding", body: "Each loop feeds the next - retention fuels acquisition." },
       ],
       pillarsTitle: "Stages we engineer.",
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/services/funnel")({
         { title: "Retargeting funnels", body: "Layered retargeting + dynamic product ads + email triggers.", tags: ["DPA","Layered","Email"] },
       ],
       triggersTitle: "Behavioral triggers we use.",
-      triggers: ["Exit intent popups","Cart abandonment SMS","Browse abandonment email","Post-purchase upsell","Stock-back alerts","Replenishment reminders","Time-on-site offers"],
+      triggers: ["Exit intent popups","Cart abandonment email","Browse abandonment email","Post-purchase upsell","Stock-back alerts","Replenishment reminders","Time-on-site offers"],
       beforeAfter: {
         before: ["Ad → PDP → 90% bounce","No retargeting","No journey mapping","No upsell"],
         after: ["Ad → advertorial → PDP","Multi-touch retargeting","Mapped journey + KPIs","Post-purchase upsell stack"],
