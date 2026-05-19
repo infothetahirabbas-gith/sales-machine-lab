@@ -162,7 +162,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
       <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
             { t: "High ad spend, low ROAS", b: "You're burning budget on bad creatives and lazy targeting." },
