@@ -18,6 +18,8 @@ import PageLayout from "./PageLayout";
 import { Section, Pill, CTA } from "./Section";
 import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
+import { CountUp } from "../../hooks/useCountUp";
+import RevenueBars from "./RevenueBars";
 
 export type ServiceConfig = {
   slug: string;
@@ -102,7 +104,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   key={s.l}
                   className="card-surface card-hover p-4 text-center group"
                 >
-                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
+                  <div className="text-2xl font-bold text-gradient"><CountUp value={s.v} /></div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                     {s.l}
                   </div>
@@ -352,6 +354,63 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
+      {/* 14b. WHY IT MATTERS FOR SALES — animated revenue impact */}
+      <Section eyebrow="Why this matters for sales" title="Small shifts compound into big revenue." alt>
+        <div className="grid lg:grid-cols-5 gap-8 items-stretch">
+          <Reveal className="lg:col-span-2">
+            <div className="card-surface p-6 md:p-7 h-full">
+              <p className="text-ink/80 leading-relaxed">
+                A 1% conversion lift on a store doing <span className="font-bold text-ink">$100K/mo</span> is not 1% more sales — it's
+                <span className="text-gradient font-bold"> compounding revenue </span>
+                every month, on the same ad spend. That's why every module in this system is engineered to move the metrics that print money.
+              </p>
+              <div className="grid grid-cols-3 gap-3 mt-6">
+                {[
+                  { v: "+34%", l: "Avg revenue lift" },
+                  { v: "2.7×", l: "ROAS improvement" },
+                  { v: "62%", l: "Repeat buyer rate" },
+                ].map((s) => (
+                  <div key={s.l} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
+                    <div className="text-xl md:text-2xl font-bold text-gradient">
+                      <CountUp value={s.v} />
+                    </div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
+                      {s.l}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={1} className="lg:col-span-3">
+            <div className="card-surface p-6 md:p-8 h-full">
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+                  Revenue impact — Before vs After
+                </div>
+                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider">
+                  <span className="inline-flex items-center gap-1.5 text-destructive/80">
+                    <span className="w-2 h-2 rounded-full bg-destructive/40" /> Before
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-primary">
+                    <span className="w-2 h-2 rounded-full bg-primary" /> After
+                  </span>
+                </div>
+              </div>
+              <RevenueBars
+                bars={[
+                  { label: "Conversion rate", before: 1.4, after: 3.8, unit: "%" },
+                  { label: "ROAS", before: 1.9, after: 4.2, unit: "×" },
+                  { label: "AOV", before: 42, after: 71, unit: "$" },
+                  { label: "Repeat rate", before: 18, after: 47, unit: "%" },
+                  { label: "Monthly revenue (k)", before: 38, after: 142, unit: "k" },
+                ]}
+              />
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
       {/* 15. CASE STUDY */}
       <Section eyebrow="Case study" title={cfg.caseStudy.title} alt>
         <div className="grid lg:grid-cols-5 gap-8 items-stretch">
@@ -374,7 +433,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   {cfg.caseStudy.metrics.map((m, i) => (
                     <Reveal key={m.label} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                       <div className="group rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-4 text-center transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                        <div className="text-2xl md:text-3xl font-bold text-gradient">{m.value}</div>
+                        <div className="text-2xl md:text-3xl font-bold text-gradient"><CountUp value={m.value} /></div>
                         <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                           {m.label}
                         </div>
