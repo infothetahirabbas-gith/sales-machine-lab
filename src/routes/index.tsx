@@ -259,16 +259,17 @@ function Home() {
       {/* 11. OFFER */}
       <section className="py-14">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <div className="rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/10 via-card to-accent/10 p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
-            <div>
+          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/8 via-white to-accent/20 p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+            <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/15 blur-3xl rounded-full float" />
+            <div className="relative">
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
-              <h3 className="mt-2 text-2xl md:text-3xl font-bold">Free Ecommerce Growth Audit</h3>
+              <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
                 We'll review your store, ads, and analytics — and send back a 12-point loss-recovery plan. No pitch deck.
               </p>
             </div>
-            <Link to="/contact" className="relative inline-flex shrink-0 rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">
-              <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+            <Link to="/contact" className="relative shrink-0 btn btn-primary btn-shimmer">
+              <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
               <span className="relative">Claim Audit →</span>
             </Link>
           </div>
