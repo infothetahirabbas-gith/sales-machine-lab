@@ -181,7 +181,8 @@
   .float { animation: floatY 6s ease-in-out infinite; }
   .float-slow { animation: floatY 9s ease-in-out infinite; }
 
-  .marquee-track { display: flex; gap: 3rem; animation: marquee 28s linear infinite; }
+  .marquee-track { display: flex; gap: 3rem; animation: marquee 28s linear infinite; width: max-content; }
+  .marquee-fast { animation-duration: 14s; }
 
   .draw-line { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: drawLine 2.4s ease-out forwards; }
   .draw-line-delay { animation-delay: 0.3s; }
