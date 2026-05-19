@@ -1,251 +1,295 @@
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Zap, Search, TrendingUp, DollarSign, Target, ArrowRight } from "lucide-react";
+import { Zap, Search, TrendingUp, DollarSign, Target, ArrowRight, Check, Clock, Infinity as InfinityIcon, Flame } from "lucide-react";
 
 type Path = "ads" | "seo" | null;
 type Goal = "sales" | "mrr" | "revenue";
 
-const goals: { key: Goal; label: string; unit: string }[] = [
-  { key: "sales", label: "More Sales / month", unit: "orders" },
-  { key: "mrr", label: "Recurring Revenue (MRR)", unit: "$/mo" },
-  { key: "revenue", label: "Total Revenue / month", unit: "$/mo" },
+const goals: { key: Goal; label: string; sub: string }[] = [
+  { key: "sales", label: "Sales", sub: "orders / month" },
+  { key: "mrr", label: "MRR", sub: "recurring $ / mo" },
+  { key: "revenue", label: "Revenue", sub: "total $ / mo" },
 ];
 
 export default function GrowthPathPlanner() {
   const [path, setPath] = useState<Path>(null);
   const [goal, setGoal] = useState<Goal>("revenue");
-  const [target, setTarget] = useState(50000); // target $/mo or orders
+  const [target, setTarget] = useState(50000);
   const [budget, setBudget] = useState(5000);
+
+  const step = !path ? 1 : 4;
 
   const plan = useMemo(() => {
     if (!path) return null;
-    // Normalize target to revenue $
     const aov = 75;
     const targetRevenue = goal === "sales" ? target * aov : target;
-
     if (path === "ads") {
-      const roas = 3.2; // conservative blended
+      const roas = 3.2;
       const requiredSpend = Math.round(targetRevenue / roas);
       const months = requiredSpend <= budget ? 1 : Math.ceil(requiredSpend / budget);
       const cac = 28;
       const newCustomers = Math.round(budget / cac);
       return {
-        timeline: months <= 1 ? "30 days" : `${months} months`,
+        timeline: months <= 1 ? "30 days" : `${months} mo`,
         spend: requiredSpend,
         monthlySpend: Math.min(budget, requiredSpend),
         kpi: `${roas}× ROAS`,
-        sub: `~${newCustomers} new customers / month at $${cac} CAC`,
+        sub: `~${newCustomers} new customers/mo at $${cac} CAC`,
         speed: "Fast - results in weeks",
-        warning: requiredSpend > budget ? `Budget is $${budget.toLocaleString()}/mo. You'll need ${months} months to hit $${targetRevenue.toLocaleString()}/mo.` : null,
+        warning: requiredSpend > budget ? `Your ${budget.toLocaleString()}/mo budget needs ${months} months to hit $${targetRevenue.toLocaleString()}/mo.` : null,
       };
     }
-    // SEO
     const cpc = 1.8;
-    const monthlyClicks = Math.round(targetRevenue / (0.03 * aov)); // 3% CR
+    const monthlyClicks = Math.round(targetRevenue / (0.03 * aov));
     const adEquivalent = Math.round(monthlyClicks * cpc);
     const months = 6;
-    const investment = budget * months;
     return {
-      timeline: `${months} months to rank, lifetime traffic`,
-      spend: investment,
+      timeline: `${months} mo to rank`,
+      spend: budget * months,
       monthlySpend: budget,
       kpi: `${monthlyClicks.toLocaleString()} clicks/mo`,
-      sub: `Worth ~$${adEquivalent.toLocaleString()}/mo in free traffic`,
-      speed: "Slow start - compounds forever",
+      sub: `Worth ~$${adEquivalent.toLocaleString()}/mo in free traffic. Compounds forever.`,
+      speed: "Slow start, lifetime asset",
       warning: null,
     };
   }, [path, goal, target, budget]);
 
+  const accent = path === "ads" ? "oklch(0.7 0.2 35)" : "oklch(0.55 0.2 248)";
+
   return (
-    <section className="relative py-20 lg:py-28">
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
+    <section className="relative py-20 lg:py-28 overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[160px] rounded-full" />
+
       <div className="mx-auto max-w-6xl px-5 lg:px-8 relative">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
             <Target className="w-3.5 h-3.5" /> Growth Path Planner
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-bold text-ink">
-            Want to grow your business? <span className="text-gradient">It's your choice.</span>
+          <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
+            Want to grow your business?<br />
+            <span className="text-gradient">It's your choice.</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Pick a path, set your goal, see what it really takes.
+          <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
+            Pick a path, set your goal, see what it actually takes.
           </p>
         </div>
 
+        {/* Step pills */}
+        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+          {["Choose engine", "Set goal", "Pick target", "See plan"].map((label, i) => {
+            const active = i + 1 <= step;
+            return (
+              <div key={label} className="flex items-center gap-2">
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${active ? "bg-primary text-primary-foreground shadow-[0_8px_24px_-8px_oklch(0.55_0.2_248/0.6)]" : "bg-secondary text-muted-foreground"}`}>
+                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${active ? "bg-white/20" : "bg-background"}`}>{active && i + 1 < step ? <Check className="w-3 h-3" /> : i + 1}</span>
+                  {label}
+                </div>
+                {i < 3 && <div className={`w-6 h-px ${active && i + 1 < step ? "bg-primary" : "bg-border"}`} />}
+              </div>
+            );
+          })}
+        </div>
+
         {/* STEP 1: Path */}
-        <div className="mb-8">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-semibold">Step 1 · Choose your growth engine</div>
-          <div className="grid md:grid-cols-2 gap-4">
-            <button
-              onClick={() => setPath("ads")}
-              className={`text-left card-surface p-6 transition-all hover:-translate-y-1 ${path === "ads" ? "ring-2 ring-primary shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.5)]" : ""}`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center"><Zap className="w-6 h-6" /></div>
-                <div>
-                  <div className="font-bold text-ink text-lg">Paid Ads</div>
-                  <div className="text-xs text-muted-foreground">Quick · Costly · Results in weeks</div>
+        <div className="grid md:grid-cols-2 gap-5">
+          <button
+            onClick={() => setPath("ads")}
+            className={`group relative overflow-hidden rounded-3xl p-7 text-left transition-all duration-500 ${path === "ads" ? "bg-gradient-to-br from-orange-500/15 via-card to-card ring-2 ring-orange-500/60 shadow-[0_30px_80px_-30px_oklch(0.7_0.2_35/0.5)] -translate-y-1" : "card-surface hover:-translate-y-1 hover:shadow-xl"}`}
+          >
+            <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-orange-500/20 blur-3xl group-hover:bg-orange-500/40 transition-colors" />
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="w-14 h-14 rounded-2xl bg-orange-500/15 text-orange-500 flex items-center justify-center shadow-inner">
+                  <Zap className="w-7 h-7" strokeWidth={2.2} />
                 </div>
+                <div className={`text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full ${path === "ads" ? "bg-orange-500 text-white" : "bg-orange-500/10 text-orange-500"}`}>Quick</div>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">Buy traffic. Test creatives. Scale winners. Sales start flowing in 7-30 days.</p>
-              <div className="mt-3 flex gap-2 text-[11px] font-semibold">
-                <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5">⚡ Fast</span>
-                <span className="rounded-full bg-secondary text-muted-foreground px-2 py-0.5">$$$ Spend-driven</span>
-              </div>
-            </button>
-            <button
-              onClick={() => setPath("seo")}
-              className={`text-left card-surface p-6 transition-all hover:-translate-y-1 ${path === "seo" ? "ring-2 ring-primary shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.5)]" : ""}`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center"><Search className="w-6 h-6" /></div>
-                <div>
-                  <div className="font-bold text-ink text-lg">SEO</div>
-                  <div className="text-xs text-muted-foreground">Slow · Affordable · Lifetime traffic</div>
+              <h3 className="mt-5 text-2xl font-bold text-ink">Paid Ads</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Costly, but sales start flowing in days.</p>
+              <ul className="mt-5 space-y-2 text-sm">
+                {["Results in 7-30 days", "Meta · Google · TikTok", "Scales with your budget"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-ink/80"><Flame className="w-3.5 h-3.5 text-orange-500" />{t}</li>
+                ))}
+              </ul>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setPath("seo")}
+            className={`group relative overflow-hidden rounded-3xl p-7 text-left transition-all duration-500 ${path === "seo" ? "bg-gradient-to-br from-primary/15 via-card to-card ring-2 ring-primary/60 shadow-[0_30px_80px_-30px_oklch(0.55_0.2_248/0.5)] -translate-y-1" : "card-surface hover:-translate-y-1 hover:shadow-xl"}`}
+          >
+            <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-primary/20 blur-3xl group-hover:bg-primary/40 transition-colors" />
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="w-14 h-14 rounded-2xl bg-primary/15 text-primary flex items-center justify-center shadow-inner">
+                  <Search className="w-7 h-7" strokeWidth={2.2} />
                 </div>
+                <div className={`text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full ${path === "seo" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>Lifetime</div>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">Rank on Google. Compound free traffic. Takes 3-6 months but pays forever.</p>
-              <div className="mt-3 flex gap-2 text-[11px] font-semibold">
-                <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5">∞ Lifetime</span>
-                <span className="rounded-full bg-secondary text-muted-foreground px-2 py-0.5">⏳ Patient</span>
-              </div>
-            </button>
-          </div>
+              <h3 className="mt-5 text-2xl font-bold text-ink">SEO</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Patient. Affordable. Pays you forever.</p>
+              <ul className="mt-5 space-y-2 text-sm">
+                {["Compounds for years", "Free traffic from Google", "3-6 mo to break through"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-ink/80"><InfinityIcon className="w-3.5 h-3.5 text-primary" />{t}</li>
+                ))}
+              </ul>
+            </div>
+          </button>
         </div>
 
         {path && (
-          <div className="space-y-6" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
-            {/* STEP 2: Goal */}
-            <div>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3 font-semibold">Step 2 · What do you want to grow?</div>
-              <div className="grid grid-cols-3 gap-3">
-                {goals.map((g) => (
-                  <button
-                    key={g.key}
-                    onClick={() => setGoal(g.key)}
-                    className={`card-surface p-4 text-sm font-semibold transition-all ${goal === g.key ? "ring-2 ring-primary text-primary" : "text-ink hover:-translate-y-0.5"}`}
-                  >
-                    {g.label}
-                  </button>
-                ))}
+          <div className="mt-10 grid lg:grid-cols-5 gap-6" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+            {/* Left: Configurator */}
+            <div className="lg:col-span-3 space-y-5">
+              {/* Goal selector */}
+              <div className="card-surface p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Step 2</div>
+                    <div className="font-semibold text-ink mt-0.5">What do you want to grow?</div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  {goals.map((g) => (
+                    <button
+                      key={g.key}
+                      onClick={() => setGoal(g.key)}
+                      className={`relative rounded-xl p-3 text-left transition-all ${goal === g.key ? "bg-primary text-primary-foreground shadow-md" : "bg-secondary text-ink hover:bg-secondary/70"}`}
+                    >
+                      <div className="font-bold text-sm">{g.label}</div>
+                      <div className={`text-[10px] ${goal === g.key ? "text-primary-foreground/80" : "text-muted-foreground"} mt-0.5`}>{g.sub}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Target slider with curve */}
+              <div className="card-surface p-6">
+                <div className="flex items-end justify-between mb-4">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Step 3</div>
+                    <div className="font-semibold text-ink mt-0.5">Your monthly target</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold text-sky-gradient leading-none">
+                      {goal === "sales" ? target.toLocaleString() : `$${(target / 1000).toFixed(0)}K`}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">{goals.find(g => g.key === goal)?.sub}</div>
+                  </div>
+                </div>
+                <div className="relative h-28 mb-3">
+                  <svg viewBox="0 0 400 110" className="w-full h-full" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="gpFill2" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stopColor={accent} stopOpacity="0.4" />
+                        <stop offset="100%" stopColor={accent} stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4 L 400 110 L 0 110 Z" fill="url(#gpFill2)" />
+                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4" stroke={accent} strokeWidth="2.5" fill="none" />
+                    {(() => {
+                      const max = goal === "sales" ? 5000 : 500000;
+                      const min = goal === "sales" ? 100 : 5000;
+                      const pct = (target - min) / (max - min);
+                      const x = pct * 400;
+                      const y = 100 - pct * pct * 96;
+                      return (
+                        <>
+                          <line x1={x} y1={y} x2={x} y2={110} stroke={accent} strokeWidth="1" strokeDasharray="2 3" opacity="0.5" />
+                          <circle cx={x} cy={y} r="14" fill={accent} fillOpacity="0.15">
+                            <animate attributeName="r" values="10;16;10" dur="2s" repeatCount="indefinite" />
+                          </circle>
+                          <circle cx={x} cy={y} r="6" fill={accent} stroke="white" strokeWidth="2" />
+                        </>
+                      );
+                    })()}
+                  </svg>
+                </div>
+                <input
+                  type="range"
+                  min={goal === "sales" ? 100 : 5000}
+                  max={goal === "sales" ? 5000 : 500000}
+                  step={goal === "sales" ? 50 : 1000}
+                  value={target}
+                  onChange={(e) => setTarget(Number(e.target.value))}
+                  className="w-full accent-primary cursor-pointer"
+                />
+                <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
+                  <span>{goal === "sales" ? "100" : "$5K"}</span>
+                  <span>{goal === "sales" ? "5K orders" : "$500K"}</span>
+                </div>
+              </div>
+
+              {/* Budget slider */}
+              <div className="card-surface p-6">
+                <div className="flex items-end justify-between mb-4">
+                  <div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Step 4</div>
+                    <div className="font-semibold text-ink mt-0.5">{path === "ads" ? "Monthly ad budget" : "Monthly SEO investment"}</div>
+                  </div>
+                  <div className="text-3xl font-bold text-sky-gradient leading-none">${budget.toLocaleString()}<span className="text-xs text-muted-foreground font-normal">/mo</span></div>
+                </div>
+                <input
+                  type="range"
+                  min={path === "ads" ? 500 : 1000}
+                  max={path === "ads" ? 50000 : 15000}
+                  step={250}
+                  value={budget}
+                  onChange={(e) => setBudget(Number(e.target.value))}
+                  className="w-full accent-primary cursor-pointer"
+                />
+                <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
+                  <span>${(path === "ads" ? 500 : 1000).toLocaleString()}</span>
+                  <span>${(path === "ads" ? 50000 : 15000).toLocaleString()}</span>
+                </div>
               </div>
             </div>
 
-            {/* STEP 3: Target on curve */}
-            <div className="card-surface p-6">
-              <div className="flex items-end justify-between mb-3">
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Step 3 · Your target</div>
-                  <div className="text-sm text-muted-foreground mt-1">Where on the growth curve do you want to be?</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient">
-                    {goal === "sales" ? target.toLocaleString() : `$${target.toLocaleString()}`}
-                  </div>
-                  <div className="text-xs text-muted-foreground">{goals.find(g => g.key === goal)?.unit}</div>
-                </div>
-              </div>
-              {/* Visual curve */}
-              <div className="relative h-32 mb-4">
-                <svg viewBox="0 0 400 120" className="w-full h-full">
-                  <defs>
-                    <linearGradient id="gpFill" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="oklch(0.65 0.18 245)" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="oklch(0.65 0.18 245)" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 110 C 100 105, 180 80, 260 55 S 360 15, 400 5 L 400 120 L 0 120 Z" fill="url(#gpFill)" />
-                  <path d="M0 110 C 100 105, 180 80, 260 55 S 360 15, 400 5" stroke="oklch(0.55 0.2 248)" strokeWidth="2.5" fill="none" />
-                  {(() => {
-                    const max = goal === "sales" ? 5000 : 500000;
-                    const min = goal === "sales" ? 100 : 5000;
-                    const pct = (target - min) / (max - min);
-                    const x = pct * 400;
-                    // Approximate y on curve
-                    const y = 110 - pct * pct * 105;
-                    return (
-                      <>
-                        <line x1={x} y1={y} x2={x} y2={120} stroke="oklch(0.55 0.2 248)" strokeWidth="1.5" strokeDasharray="3 3" />
-                        <circle cx={x} cy={y} r="7" fill="oklch(0.55 0.2 248)" />
-                        <circle cx={x} cy={y} r="11" fill="oklch(0.55 0.2 248)" fillOpacity="0.2" />
-                      </>
-                    );
-                  })()}
-                </svg>
-              </div>
-              <input
-                type="range"
-                min={goal === "sales" ? 100 : 5000}
-                max={goal === "sales" ? 5000 : 500000}
-                step={goal === "sales" ? 50 : 1000}
-                value={target}
-                onChange={(e) => setTarget(Number(e.target.value))}
-                className="w-full accent-primary"
-              />
-            </div>
-
-            {/* STEP 4: Budget */}
-            <div className="card-surface p-6">
-              <div className="flex items-end justify-between mb-3">
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-                    Step 4 · {path === "ads" ? "Monthly ad budget" : "Monthly SEO investment"}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    {path === "ads" ? "How much can you spend on ads per month?" : "Content, links, technical SEO."}
-                  </div>
-                </div>
-                <div className="text-2xl md:text-3xl font-bold text-sky-gradient">${budget.toLocaleString()}<span className="text-sm text-muted-foreground font-normal">/mo</span></div>
-              </div>
-              <input
-                type="range"
-                min={path === "ads" ? 500 : 1000}
-                max={path === "ads" ? 50000 : 15000}
-                step={path === "ads" ? 250 : 250}
-                value={budget}
-                onChange={(e) => setBudget(Number(e.target.value))}
-                className="w-full accent-primary"
-              />
-            </div>
-
-            {/* RESULT */}
-            {plan && (
-              <div className="relative overflow-hidden rounded-3xl p-8 bg-gradient-to-br from-primary/10 via-card to-card border border-primary/20">
-                <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/15 blur-[100px] rounded-full" />
+            {/* Right: Sticky result */}
+            <div className="lg:col-span-2">
+              <div className="sticky top-24 relative overflow-hidden rounded-3xl p-7 bg-gradient-to-br from-ink to-ink/90 text-background shadow-[0_40px_100px_-30px_oklch(0.16_0.02_250/0.6)]">
+                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style={{ background: `${accent}55` }} />
                 <div className="relative">
-                  <div className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Your growth plan</div>
-                  <div className="grid md:grid-cols-4 gap-6">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold opacity-70">
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: accent }} />
+                    Your growth plan
+                  </div>
+                  <div className="mt-5 space-y-5">
                     <div>
-                      <div className="text-xs text-muted-foreground mb-1 flex items-center gap-1"><TrendingUp className="w-3 h-3" /> Timeline</div>
-                      <div className="text-xl font-bold text-ink">{plan.timeline}</div>
+                      <div className="text-xs opacity-60 flex items-center gap-1.5"><Clock className="w-3 h-3" /> Timeline</div>
+                      <div className="text-3xl font-bold mt-1">{plan?.timeline}</div>
                     </div>
-                    <div>
-                      <div className="text-xs text-muted-foreground mb-1 flex items-center gap-1"><DollarSign className="w-3 h-3" /> Total investment</div>
-                      <div className="text-xl font-bold text-ink">${plan.spend.toLocaleString()}</div>
+                    <div className="h-px bg-white/10" />
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-xs opacity-60 flex items-center gap-1.5"><DollarSign className="w-3 h-3" /> Total spend</div>
+                        <div className="text-xl font-bold mt-1">${plan?.spend.toLocaleString()}</div>
+                      </div>
+                      <div>
+                        <div className="text-xs opacity-60">Monthly</div>
+                        <div className="text-xl font-bold mt-1">${plan?.monthlySpend.toLocaleString()}</div>
+                      </div>
                     </div>
+                    <div className="h-px bg-white/10" />
                     <div>
-                      <div className="text-xs text-muted-foreground mb-1">Monthly spend</div>
-                      <div className="text-xl font-bold text-ink">${plan.monthlySpend.toLocaleString()}</div>
-                    </div>
-                    <div>
-                      <div className="text-xs text-muted-foreground mb-1">Projected outcome</div>
-                      <div className="text-xl font-bold text-sky-gradient">{plan.kpi}</div>
+                      <div className="text-xs opacity-60 flex items-center gap-1.5"><TrendingUp className="w-3 h-3" /> Projected outcome</div>
+                      <div className="text-2xl font-bold mt-1" style={{ color: accent }}>{plan?.kpi}</div>
+                      <div className="text-xs opacity-70 mt-1.5">{plan?.sub}</div>
                     </div>
                   </div>
-                  <p className="mt-5 text-sm text-muted-foreground">{plan.sub} · <span className="text-ink font-semibold">{plan.speed}</span></p>
-                  {plan.warning && (
-                    <div className="mt-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300 px-4 py-3 text-sm">
+                  {plan?.warning && (
+                    <div className="mt-5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-200 px-3 py-2.5 text-xs">
                       ⚠ {plan.warning}
                     </div>
                   )}
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link to="/contact" className="btn btn-primary btn-shimmer">
-                      Book Strategy Call <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                  <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-white text-ink font-semibold py-3 px-5 hover:bg-white/90 transition-all hover:-translate-y-0.5 hover:shadow-xl">
+                    Book Strategy Call <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         )}
       </div>
