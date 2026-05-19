@@ -126,9 +126,9 @@ export default function ContactFaq() {
             </form>
 
             <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /> hello@yourco.com</div>
-              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> +1 (415) 555-0199</div>
-              <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /> Remote · Global</div>
+              <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@yourco.com</span></div>
+              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /><span>+1 (415) 555-0199</span></div>
+              <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
             </div>
           </div>
 
