@@ -4,7 +4,7 @@ import { Sparkles, Mail, Instagram, Linkedin, Twitter, Youtube } from "lucide-re
 export default function Footer() {
   return (
     <footer className="mt-24 bg-[#0a0d14] text-white/80">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid lg:grid-cols-12 gap-12 text-sm">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 lg:py-16 grid lg:grid-cols-12 gap-10 lg:gap-12 text-sm">
         {/* Brand */}
         <div className="lg:col-span-4">
           <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-xl text-white">
