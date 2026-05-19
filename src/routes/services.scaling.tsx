@@ -52,6 +52,18 @@ export const Route = createFileRoute("/services/scaling")({
         metrics: [{ label: "MRR", value: "8.5×" }, { label: "MER", value: "3.8×" }, { label: "CM", value: "+11pp" }],
       },
       ctaTitle: "Ready to scale - profitably?",
+      impactStats: [
+        { value: "$1.2M+", label: "Monthly run-rate" },
+        { value: "3.4×", label: "Sustained ROAS" },
+        { value: "+42%", label: "Contribution margin" },
+      ],
+      metricBars: [
+        { label: "Monthly revenue", before: 86, after: 412, unit: "$k", description: "Top-line monthly revenue once the scaling system stabilises." },
+        { label: "Blended ROAS", before: 2.1, after: 3.4, unit: "×", description: "Total revenue ÷ total marketing spend across every channel." },
+        { label: "Contribution margin", before: 18, after: 34, unit: "%", description: "Revenue minus COGS + shipping + ad cost — the real profit lever." },
+        { label: "Repeat revenue share", before: 22, after: 48, unit: "%", description: "Share of monthly revenue coming from returning customers." },
+        { label: "Channel diversification", before: 1, after: 4, description: "Profitable revenue channels (Meta, Google, TikTok, Email, Organic)." },
+      ],
     }} />
   ),
 });
