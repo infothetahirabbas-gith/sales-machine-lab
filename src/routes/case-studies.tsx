@@ -433,6 +433,7 @@ function CaseStudies() {
     Ads: studies.filter((s) => s.category === "Ads").length,
     SEO: studies.filter((s) => s.category === "SEO").length,
     CRO: studies.filter((s) => s.category === "CRO").length,
+    Website: studies.filter((s) => s.category === "Website").length,
   };
 
   return (
