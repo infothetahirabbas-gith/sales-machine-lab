@@ -388,7 +388,7 @@ function Home() {
                 We'll review your store, ads, and analytics - and send back a 12-point loss-recovery plan. No pitch deck.
               </p>
             </div>
-            <Link to="/contact" className="relative shrink-0 btn btn-primary btn-shimmer">
+            <Link to="/contact" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
               <span className="relative">Claim Audit →</span>
             </Link>
