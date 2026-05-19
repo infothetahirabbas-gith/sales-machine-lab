@@ -4,7 +4,7 @@ import type { DbCaseStudy } from "@/lib/case-studies.functions";
 type Props = {
   initial?: DbCaseStudy | null;
   onSubmit: (data: Partial<DbCaseStudy>) => void | Promise<void>;
-  onCancel: () => void;
+  onCancel?: () => void;
 };
 
 export default function CaseStudyForm({ initial, onSubmit, onCancel }: Props) {
