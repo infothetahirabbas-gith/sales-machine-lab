@@ -70,12 +70,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             </div>
           </Reveal>
           <Reveal delay={1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl leading-[1.02] text-ink">
+            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl mx-auto lg:mx-0 leading-[1.02] text-ink">
               {cfg.heroTitle}
             </h1>
           </Reveal>
           <Reveal delay={2}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               {cfg.heroSub}
             </p>
           </Reveal>
