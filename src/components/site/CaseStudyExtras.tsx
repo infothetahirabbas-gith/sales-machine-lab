@@ -476,25 +476,8 @@ export function ProofSection() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 grid gap-5">
-            {quotes.map((q, i) => (
-              <div key={q.n} className="card-surface p-6 md:p-8 relative">
-                <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/10" />
-                <p className="text-lg md:text-xl text-ink leading-relaxed font-medium">"{q.q}"</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${i === 0 ? "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" : i === 1 ? "from-[oklch(0.7_0.16_245)] to-[oklch(0.55_0.2_265)]" : "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]"} text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-white`}>
-                    {q.n.split(" ").map((p) => p[0]).join("")}
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-ink">{q.n}</div>
-                    <div className="text-[11px] text-muted-foreground">{q.r}</div>
-                  </div>
-                  <a className="ml-auto text-xs font-bold text-primary inline-flex items-center gap-1 hover:gap-2 transition-all">
-                    Read story <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
+          <div className="lg:col-span-2">
+            <QuoteCarousel />
           </div>
         </div>
       </div>
