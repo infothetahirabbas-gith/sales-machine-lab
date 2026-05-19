@@ -351,6 +351,8 @@ function CaseStudies() {
         </DialogContent>
       </Dialog>
 
+      <CaseStudyExtras />
+
       <CTA heading="Want your store to be the next case study?" />
     </PageLayout>
   );
