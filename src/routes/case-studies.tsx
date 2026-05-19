@@ -19,7 +19,7 @@ const studies = [
   {
     title: "Dropshipping Gadget Store · 0 → $62K/mo",
     industry: "Shopify · Dropshipping",
-    problem: "Cold launch, no offer–audience fit, creatives flat.",
+    problem: "Cold launch, no offer-audience fit, creatives flat.",
     strategy: "Tight creative testing framework, UGC angles, ASC scaling.",
     result: "62K/mo in 90 days, 2.6× ROAS at scale.",
     metrics: [{ v: "$62K", l: "MRR" }, { v: "2.6×", l: "ROAS" }, { v: "90d", l: "to scale" }],
@@ -45,7 +45,7 @@ function CaseStudies() {
             Real <span className="text-gradient">ecommerce growth</span> results.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-            No vanity metrics. Just revenue, ROAS, and CR – before and after.
+            No vanity metrics. Just revenue, ROAS, and CR - before and after.
           </p>
         </div>
       </section>
@@ -128,7 +128,7 @@ function CaseStudies() {
 
       <Section eyebrow="Lessons learned" title="Patterns we see in every winning store.">
         <ul className="grid md:grid-cols-2 gap-3 text-sm">
-          {["Hero PDP beats a hero homepage every time.","Creatives carry 80% of paid performance.","Email/SMS adds 25–35% of revenue when done right.","Offers > optimization. Fix the offer first.","Reviews on PDP move CR more than any A/B test."].map(x=>(
+          {["Hero PDP beats a hero homepage every time.","Creatives carry 80% of paid performance.","Email/SMS adds 25-35% of revenue when done right.","Offers > optimization. Fix the offer first.","Reviews on PDP move CR more than any A/B test."].map(x=>(
             <li key={x} className="rounded-xl border border-border bg-card/60 p-4">✓ {x}</li>
           ))}
         </ul>

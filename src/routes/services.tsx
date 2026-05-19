@@ -8,12 +8,12 @@ export const Route = createFileRoute("/services")({
 
 const all = [
   { to: "/services/store-development", title: "Ecommerce Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", tag: "Build" },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", tag: "Optimize" },
+  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimize" },
   { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", tag: "Acquire" },
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections – free traffic forever.", tag: "Acquire" },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections - free traffic forever.", tag: "Acquire" },
   { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/creative", title: "Creative & Ad Production", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
-  { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond $10K–$100K/month, profitably.", tag: "Scale" },
+  { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond $10K-$100K/month, profitably.", tag: "Scale" },
   { to: "/services/analytics", title: "Analytics & Tracking", body: "Track every sale, click, and behavior.", tag: "Measure" },
   { to: "/services/funnel", title: "Funnel & Journey Optimization", body: "Turn visitors into buyers automatically.", tag: "Optimize" },
 ];
@@ -26,7 +26,7 @@ function ServicesIndex() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Services</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl leading-[1.04]">
-            A <span className="text-gradient">complete ecommerce growth system</span> – not 9 random services.
+            A <span className="text-gradient">complete ecommerce growth system</span> - not 9 random services.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
             Each module fixes a specific revenue leak. Together they compound into a sales-machine for Shopify and WooCommerce brands.
