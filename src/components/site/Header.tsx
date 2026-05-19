@@ -37,11 +37,12 @@ export default function Header() {
             </div>
           </div>
           <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
+          <Link to="/audit" className="text-muted-foreground hover:text-foreground transition">Store Audit</Link>
           <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
-          <Link to="/contact" className="hidden sm:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
+          <Link to="/audit" className="hidden sm:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
             Free Audit →
           </Link>
           <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground" aria-label="menu">
@@ -57,6 +58,7 @@ export default function Header() {
               <Link key={s.to} to={s.to} className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>{s.label}</Link>
             ))}
             <Link to="/case-studies" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Case Studies</Link>
+            <Link to="/audit" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Store Audit</Link>
             <Link to="/about" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>About</Link>
             <Link to="/contact" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Contact</Link>
           </div>
