@@ -121,7 +121,7 @@ function AdminCaseStudies() {
 {`INSERT INTO public.user_roles (user_id, role)
 VALUES ('${userId}', 'admin');`}
           </pre>
-          <button onClick={handleSignOut} className="btn btn-outline mt-6">
+          <button onClick={handleSignOut} className="flex btn btn-outline mt-6">
             Sign out
           </button>
         </div>
@@ -162,13 +162,13 @@ VALUES ('${userId}', 'admin');`}
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <Link to="/case-studies" className="btn btn-outline text-sm">
+            <Link to="/case-studies" className="flex btn btn-outline text-sm">
               <ExternalLink className="w-4 h-4" /> View live
             </Link>
-            <button onClick={() => setCreating(true)} className="btn btn-primary text-sm">
+            <button onClick={() => setCreating(true)} className="flex btn btn-primary text-sm">
               <Plus className="w-4 h-4" /> New
             </button>
-            <button onClick={handleSignOut} className="btn btn-outline text-sm">
+            <button onClick={handleSignOut} className="flex btn btn-outline text-sm">
               <LogOut className="w-4 h-4" />
             </button>
           </div>
