@@ -80,9 +80,23 @@ function Home() {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-8 flex flex-wrap gap-3 items-center" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
+              </Link>
+              <Link
+                to="/audit"
+                className="group relative inline-flex items-center gap-2 rounded-full border-2 border-primary/40 bg-white/70 backdrop-blur px-5 py-2.5 text-sm font-bold text-ink hover:border-primary hover:-translate-y-0.5 transition-all overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/15 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <span className="relative flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  Free Store Audit
+                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                </span>
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
