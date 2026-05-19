@@ -139,7 +139,7 @@ function About() {
 
       {/* CORE VALUES */}
       <Section eyebrow="Core Values" title="The operating principles">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {values.map((v) => (
             <div key={v.n} className="card-surface card-hover p-7 relative overflow-hidden">
               <div className="text-6xl font-display font-bold text-primary/15 leading-none">{v.n}</div>
