@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import ServicePage from "../../components/site/ServicePage";
+import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/cro")({
   component: () => (
