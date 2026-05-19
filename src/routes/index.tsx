@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench } from "lucide-react";
+import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
@@ -11,15 +11,15 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", icon: "🛒" },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", icon: "📈" },
-  { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", icon: "📣" },
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google — free traffic forever.", icon: "🔍" },
-  { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", icon: "📧" },
-  { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", icon: "🎨" },
-  { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", icon: "🧲" },
-  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards — set up correctly.", icon: "📊" },
-  { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", icon: "🚀" },
+  { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", Icon: ShoppingCart },
+  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", Icon: TrendingUp },
+  { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", Icon: Megaphone },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google — free traffic forever.", Icon: Search },
+  { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", Icon: Mail },
+  { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", Icon: Palette },
+  { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", Icon: Magnet },
+  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards — set up correctly.", Icon: BarChart3 },
+  { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", Icon: Rocket },
 ];
 
 function Home() {
@@ -178,7 +178,7 @@ function Home() {
           {services.map((s) => (
             <Link key={s.to} to={s.to}>
               <Card>
-                <div className="text-3xl">{s.icon}</div>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
                 <h3 className="mt-3 font-semibold text-lg">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{s.body}</p>
                 <div className="mt-4 text-sm font-semibold text-primary">Explore →</div>
