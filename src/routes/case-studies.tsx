@@ -71,7 +71,7 @@ export const Route = createFileRoute("/case-studies")({
   component: CaseStudies,
 });
 
-type Category = "Ads" | "SEO" | "CRO";
+type Category = "Ads" | "SEO" | "CRO" | "Website";
 
 type Study = {
   id: string;
