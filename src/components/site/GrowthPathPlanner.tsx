@@ -239,10 +239,9 @@ export default function GrowthPathPlanner() {
                     </div>
                   )}
                   <div className="mt-6 flex flex-wrap gap-3">
-                    <Link to="/audit" className="btn btn-primary btn-shimmer">
-                      Get a real plan - Free audit <ArrowRight className="w-4 h-4" />
+                    <Link to="/contact" className="btn btn-primary btn-shimmer">
+                      Book Strategy Call <ArrowRight className="w-4 h-4" />
                     </Link>
-                    <Link to="/contact" className="btn btn-dark">Book strategy call</Link>
                   </div>
                 </div>
               </div>
