@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { ArrowUpRight, TrendingUp, TrendingDown, Facebook, Instagram, MousePointerClick, Eye, DollarSign, Target, Award, Quote, Globe, ShoppingBag, Shirt, Coffee, Watch, Sparkles, Dog, Sofa, Dumbbell } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, TrendingUp, TrendingDown, Facebook, Instagram, MousePointerClick, Eye, DollarSign, Target, Award, Quote, Globe, ShoppingBag, Shirt, Coffee, Watch, Sparkles, Dog, Sofa, Dumbbell } from "lucide-react";
 import showcaseApparel from "@/assets/showcase-apparel.jpg";
 import showcaseCoffee from "@/assets/showcase-coffee.jpg";
 import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
