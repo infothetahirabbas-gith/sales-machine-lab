@@ -108,14 +108,14 @@ function Home() {
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
                   <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
-                  Revenue · Last 30 days
+                  <span key={`t-${dash.key}`} style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.title}</span>
                 </div>
-                <span className="text-primary font-bold">+312%</span>
+                <span key={`b-${dash.key}`} className="text-primary font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
               </div>
-              <GrowthChart className="w-full h-auto" />
+              <GrowthChart key={dash.key} className="w-full h-auto" variant={dash.key} />
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {[{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"$72"}].map((m)=>(
-                  <div key={m.l} className="rounded-xl bg-secondary p-3 transition hover:bg-primary/10 hover:-translate-y-0.5">
+                {dash.metrics.map((m)=>(
+                  <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-primary/10 hover:-translate-y-0.5" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                     <div className="text-xs text-muted-foreground">{m.l}</div>
                     <div className="font-bold text-ink">{m.v}</div>
                   </div>
@@ -123,6 +123,7 @@ function Home() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
