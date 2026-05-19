@@ -5,6 +5,27 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
 import CaseStudyExtras from "../components/site/CaseStudyExtras";
+import showcaseApparel from "@/assets/showcase-apparel.jpg";
+import showcaseCoffee from "@/assets/showcase-coffee.jpg";
+import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
+import showcaseBeauty from "@/assets/showcase-beauty.jpg";
+import showcaseFurniture from "@/assets/showcase-furniture.jpg";
+import showcaseActivewear from "@/assets/showcase-activewear.jpg";
+import showcasePet from "@/assets/showcase-pet.jpg";
+import showcaseEyewear from "@/assets/showcase-eyewear.jpg";
+import showcaseSupplements from "@/assets/showcase-supplements.jpg";
+
+const showcaseImages = [
+  showcaseApparel,
+  showcaseCoffee,
+  showcaseJewelry,
+  showcaseBeauty,
+  showcaseFurniture,
+  showcaseActivewear,
+  showcasePet,
+  showcaseEyewear,
+  showcaseSupplements,
+];
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -110,10 +131,11 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "c12", title: "Outdoor: filter UX +24% collection CR", brand: "TrailGear", industry: "Shopify · Outdoor", category: "CRO", metric: "+24%", metricLabel: "CR", duration: "4 weeks", problem: "Filters opened modal, lost context, slow.", strategy: ["Inline left-rail filters", "Instant results (no apply button)", "Filter chips above grid"], results: [{ v: "+24%", l: "CR" }, { v: "-18%", l: "Bounce" }, { v: "+19%", l: "Rev" }], takeaway: "Filter friction is collection-page revenue leaving the building." },
 ];
 
-const studies: Study[] = RAW.map((s, i) => ({
+const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
   ...s,
   color: gradients[i % gradients.length],
   chart: makeChart(i + 1, s.category === "Ads" ? 2.0 : s.category === "SEO" ? 1.4 : 1.7),
+  screenshot: showcaseImages[i % showcaseImages.length],
 }));
 
 const categoryIcon: Record<Category | "All", typeof Megaphone> = {
@@ -242,40 +264,35 @@ function CaseStudies() {
                   onClick={() => setActive(s)}
                   className="text-left card-surface card-hover overflow-hidden group flex flex-col"
                 >
-                  {/* Website mockup preview */}
-                  <div className={`relative h-44 bg-gradient-to-br ${s.color} p-3 overflow-hidden`}>
-                    <div className="relative h-full w-full rounded-lg bg-white/95 shadow-xl overflow-hidden flex flex-col">
+                  {/* Live site showcase */}
+                  <div className={`relative h-48 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
+                    <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
                       {/* Browser chrome */}
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-secondary/60 border-b border-border">
-                        <span className="w-2 h-2 rounded-full bg-red-400" />
-                        <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                        <span className="w-2 h-2 rounded-full bg-green-400" />
-                        <div className="ml-2 flex-1 h-3.5 rounded-sm bg-white border border-border/60" />
+                      <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f1f3f5] border-b border-border shrink-0">
+                        <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+                        <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
+                        <span className="w-2 h-2 rounded-full bg-[#28c840]" />
                       </div>
-                      {/* Mock website content */}
-                      <div className="relative flex-1 p-2.5 flex gap-2">
-                        <div className="flex flex-col gap-1.5 w-1/3">
-                          <div className="h-2 rounded bg-ink/15 w-3/4" />
-                          <div className="h-1.5 rounded bg-ink/10 w-full" />
-                          <div className="h-1.5 rounded bg-ink/10 w-2/3" />
-                          <div className={`mt-1 h-4 rounded bg-gradient-to-r ${s.color} w-2/3`} />
-                        </div>
-                        <div className={`flex-1 rounded-md bg-gradient-to-br ${s.color} opacity-90 relative overflow-hidden text-white`}>
-                          <div className="absolute inset-0">
-                            <Sparkline data={s.chart} gradient={s.color} />
-                          </div>
-                        </div>
+                      {/* Real site screenshot */}
+                      <div className="relative flex-1 overflow-hidden">
+                        <img
+                          src={s.screenshot}
+                          alt="Live store showcase"
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
+                        />
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
                     <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
-                    <div className="absolute bottom-5 right-5 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
+                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
                       <div className="text-lg font-bold leading-none text-gradient">{s.metric}</div>
                       <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{s.metricLabel}</div>
                     </div>
                   </div>
+
 
                   {/* Body */}
                   <div className="p-5 flex-1 flex flex-col">
