@@ -12,7 +12,7 @@ const goals: { key: Goal; label: string; sub: string }[] = [
 ];
 
 export default function GrowthPathPlanner() {
-  const [path, setPath] = useState<Path>(null);
+  const [path, setPath] = useState<Path>("ads");
   const [goal, setGoal] = useState<Goal>("revenue");
   const [target, setTarget] = useState(50000);
   const [budget, setBudget] = useState(5000);
