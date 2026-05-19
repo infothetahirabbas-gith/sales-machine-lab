@@ -50,6 +50,18 @@ export const Route = createFileRoute("/services/analytics")({
         metrics: [{ label: "ROAS", value: "+28%" }, { label: "EMQ", value: "9.6/10" }, { label: "Attribution", value: "100% deduped" }],
       },
       ctaTitle: "Stop scaling on broken data.",
+      impactStats: [
+        { value: "98%", label: "Event-tracking accuracy" },
+        { value: "+41%", label: "iOS conversion match" },
+        { value: "3.2×", label: "Faster decisions" },
+      ],
+      metricBars: [
+        { label: "Event accuracy", before: 62, after: 98, unit: "%", description: "Share of purchases/add-to-carts correctly captured by GA4 + Meta CAPI." },
+        { label: "iOS attribution match", before: 41, after: 82, unit: "%", description: "Conversions matched server-side after iOS 14.5 + cookie loss." },
+        { label: "Data-to-decision lag", before: 7, after: 1, unit: " d", description: "Days from event → dashboard → action. Faster loops = faster compounding." },
+        { label: "ROAS reporting variance", before: 38, after: 6, unit: "%", description: "Gap between Meta-reported ROAS and true server-side ROAS." },
+        { label: "Tracked monthly revenue", before: 124, after: 312, unit: "$k", description: "Revenue correctly attributed back to its channel each month." },
+      ],
     }} />
   ),
 });
