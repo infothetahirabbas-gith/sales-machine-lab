@@ -84,8 +84,8 @@ function Home() {
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
             <div className="mt-8 flex flex-wrap gap-3" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
-              <Link to="/audit" className="btn btn-primary btn-shimmer">
-                Get Free Store Audit <span>→</span>
+              <Link to="/contact" className="btn btn-primary btn-shimmer">
+                Book Strategy Call <span>→</span>
               </Link>
               <Link to="/contact" className="btn btn-dark btn-shimmer">
                 Book Strategy Call
