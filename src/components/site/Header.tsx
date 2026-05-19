@@ -1,0 +1,65 @@
+import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+
+const services = [
+  { to: "/services/store-development", label: "Store Development" },
+  { to: "/services/cro", label: "CRO" },
+  { to: "/services/paid-ads", label: "Paid Ads" },
+  { to: "/services/seo", label: "Ecommerce SEO" },
+  { to: "/services/email-sms", label: "Email & SMS" },
+  { to: "/services/creative", label: "Creative Production" },
+  { to: "/services/scaling", label: "Scaling Strategy" },
+  { to: "/services/analytics", label: "Analytics & Tracking" },
+  { to: "/services/funnel", label: "Funnel Optimization" },
+];
+
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
+          <span className="relative inline-block w-2.5 h-2.5 rounded-full bg-primary pulse-dot" />
+          BeingEcom
+        </Link>
+        <nav className="hidden lg:flex items-center gap-7 text-sm">
+          <div className="relative group">
+            <button className="text-muted-foreground hover:text-foreground transition">Services ▾</button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              <div className="w-72 rounded-xl border border-border bg-card p-2 shadow-2xl">
+                {services.map((s) => (
+                  <Link key={s.to} to={s.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-secondary">
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+          <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
+          <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
+          <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
+        </nav>
+        <div className="flex items-center gap-3">
+          <Link to="/contact" className="hidden sm:inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
+            Free Audit →
+          </Link>
+          <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground" aria-label="menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+        </div>
+      </div>
+      {open && (
+        <div className="lg:hidden border-t border-border bg-card">
+          <div className="px-5 py-3 grid gap-1 text-sm">
+            {services.map((s) => (
+              <Link key={s.to} to={s.to} className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>{s.label}</Link>
+            ))}
+            <Link to="/case-studies" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Case Studies</Link>
+            <Link to="/about" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>About</Link>
+            <Link to="/contact" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Contact</Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
