@@ -2,6 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarSign, HandshakeIcon, Shield } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
+import teamAR from "@/assets/team-ar.jpg";
+import teamSP from "@/assets/team-sp.jpg";
+import teamJK from "@/assets/team-jk.jpg";
+import teamMN from "@/assets/team-mn.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -32,10 +36,10 @@ const values = [
 ];
 
 const team = [
-  { i: "AR", r: "Growth Strategy Lead", n: "Ex-DTC founder", c: "from-[oklch(0.7_0.16_245)] to-[oklch(0.5_0.2_250)]" },
-  { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", c: "from-[oklch(0.7_0.16_30)] to-[oklch(0.55_0.2_25)]" },
-  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", c: "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" },
-  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", c: "from-[oklch(0.72_0.15_300)] to-[oklch(0.5_0.2_300)]" },
+  { i: "AR", r: "Growth Strategy Lead", n: "Ex-DTC founder", img: teamAR },
+  { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: teamSP },
+  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: teamJK },
+  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: teamMN },
 ];
 
 function About() {
@@ -151,9 +155,14 @@ function About() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {team.map((m) => (
             <div key={m.i} className="card-surface card-hover p-6 text-center">
-              <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br ${m.c} text-white font-bold text-2xl flex items-center justify-center shadow-lg ring-4 ring-white`}>
-                {m.i}
-              </div>
+              <img
+                src={m.img}
+                alt={`${m.r} headshot`}
+                loading="lazy"
+                width={640}
+                height={640}
+                className="mx-auto w-24 h-24 rounded-full object-cover shadow-lg ring-4 ring-white"
+              />
               <h3 className="mt-4 font-bold text-ink">{m.r}</h3>
               <p className="mt-1 text-xs text-muted-foreground">{m.n}</p>
             </div>
