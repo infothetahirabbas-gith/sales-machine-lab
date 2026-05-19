@@ -5,6 +5,27 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
 import CaseStudyExtras from "../components/site/CaseStudyExtras";
+import showcaseApparel from "@/assets/showcase-apparel.jpg";
+import showcaseCoffee from "@/assets/showcase-coffee.jpg";
+import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
+import showcaseBeauty from "@/assets/showcase-beauty.jpg";
+import showcaseFurniture from "@/assets/showcase-furniture.jpg";
+import showcaseActivewear from "@/assets/showcase-activewear.jpg";
+import showcasePet from "@/assets/showcase-pet.jpg";
+import showcaseEyewear from "@/assets/showcase-eyewear.jpg";
+import showcaseSupplements from "@/assets/showcase-supplements.jpg";
+
+const showcaseImages = [
+  showcaseApparel,
+  showcaseCoffee,
+  showcaseJewelry,
+  showcaseBeauty,
+  showcaseFurniture,
+  showcaseActivewear,
+  showcasePet,
+  showcaseEyewear,
+  showcaseSupplements,
+];
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
