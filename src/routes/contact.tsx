@@ -13,12 +13,12 @@ function Contact() {
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Contact</div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl leading-[1.04]">
+          <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04]">
             Get your <span className="text-gradient">free ecommerce growth audit</span>.
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
+          <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
             Send us your store. We'll send back a 12-point loss-recovery plan within 48 hours. No pitch deck.
           </p>
         </div>
