@@ -112,23 +112,23 @@
   }
 
   /* Buttons */
-  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform; }
+  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base; }
   .btn-primary {
     background: linear-gradient(135deg, oklch(0.65 0.18 245), oklch(0.55 0.2 248));
     color: var(--primary-foreground);
     box-shadow: 0 10px 30px -10px oklch(0.65 0.18 245 / 0.55), inset 0 1px 0 oklch(1 0 0 / 0.3);
-    @apply px-6 py-3 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_oklch(0.65_0.18_245/0.7)] active:translate-y-0;
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_oklch(0.65_0.18_245/0.7)] active:translate-y-0;
   }
   .btn-dark {
     background: oklch(0.16 0.02 250);
     color: oklch(1 0 0);
-    @apply px-6 py-3 hover:-translate-y-0.5 hover:bg-[oklch(0.22_0.02_250)] hover:shadow-[0_18px_40px_-18px_oklch(0.16_0.02_250/0.55)] active:translate-y-0;
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[oklch(0.22_0.02_250)] hover:shadow-[0_18px_40px_-18px_oklch(0.16_0.02_250/0.55)] active:translate-y-0;
   }
   .btn-ghost {
     background: oklch(1 0 0);
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-6 py-3 hover:-translate-y-0.5 hover:border-[oklch(0.65_0.18_245)] hover:text-[oklch(0.55_0.2_248)] hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)];
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-[oklch(0.65_0.18_245)] hover:text-[oklch(0.55_0.2_248)] hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)];
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
