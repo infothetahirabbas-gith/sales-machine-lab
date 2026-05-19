@@ -53,49 +53,49 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
 } as any)
 const ServicesStoreDevelopmentRoute =
   ServicesStoreDevelopmentRouteImport.update({
-    id: '/store-development',
-    path: '/store-development',
-    getParentRoute: () => ServicesRoute,
+    id: '/services/store-development',
+    path: '/services/store-development',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesSeoRoute = ServicesSeoRouteImport.update({
-  id: '/seo',
-  path: '/seo',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/seo',
+  path: '/services/seo',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesScalingRoute = ServicesScalingRouteImport.update({
-  id: '/scaling',
-  path: '/scaling',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/scaling',
+  path: '/services/scaling',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesPaidAdsRoute = ServicesPaidAdsRouteImport.update({
-  id: '/paid-ads',
-  path: '/paid-ads',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/paid-ads',
+  path: '/services/paid-ads',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesFunnelRoute = ServicesFunnelRouteImport.update({
-  id: '/funnel',
-  path: '/funnel',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/funnel',
+  path: '/services/funnel',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesEmailSmsRoute = ServicesEmailSmsRouteImport.update({
-  id: '/email-sms',
-  path: '/email-sms',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/email-sms',
+  path: '/services/email-sms',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesCroRoute = ServicesCroRouteImport.update({
-  id: '/cro',
-  path: '/cro',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/cro',
+  path: '/services/cro',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesCreativeRoute = ServicesCreativeRouteImport.update({
-  id: '/creative',
-  path: '/creative',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/creative',
+  path: '/services/creative',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => ServicesRoute,
+  id: '/services/analytics',
+  path: '/services/analytics',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
@@ -227,6 +227,15 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesCreativeRoute: typeof ServicesCreativeRoute
+  ServicesCroRoute: typeof ServicesCroRoute
+  ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
+  ServicesFunnelRoute: typeof ServicesFunnelRoute
+  ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
+  ServicesScalingRoute: typeof ServicesScalingRoute
+  ServicesSeoRoute: typeof ServicesSeoRoute
+  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -269,66 +278,66 @@ declare module '@tanstack/react-router' {
     }
     '/services/store-development': {
       id: '/services/store-development'
-      path: '/store-development'
+      path: '/services/store-development'
       fullPath: '/services/store-development'
       preLoaderRoute: typeof ServicesStoreDevelopmentRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/seo': {
       id: '/services/seo'
-      path: '/seo'
+      path: '/services/seo'
       fullPath: '/services/seo'
       preLoaderRoute: typeof ServicesSeoRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/scaling': {
       id: '/services/scaling'
-      path: '/scaling'
+      path: '/services/scaling'
       fullPath: '/services/scaling'
       preLoaderRoute: typeof ServicesScalingRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/paid-ads': {
       id: '/services/paid-ads'
-      path: '/paid-ads'
+      path: '/services/paid-ads'
       fullPath: '/services/paid-ads'
       preLoaderRoute: typeof ServicesPaidAdsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/funnel': {
       id: '/services/funnel'
-      path: '/funnel'
+      path: '/services/funnel'
       fullPath: '/services/funnel'
       preLoaderRoute: typeof ServicesFunnelRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/email-sms': {
       id: '/services/email-sms'
-      path: '/email-sms'
+      path: '/services/email-sms'
       fullPath: '/services/email-sms'
       preLoaderRoute: typeof ServicesEmailSmsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/cro': {
       id: '/services/cro'
-      path: '/cro'
+      path: '/services/cro'
       fullPath: '/services/cro'
       preLoaderRoute: typeof ServicesCroRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/creative': {
       id: '/services/creative'
-      path: '/creative'
+      path: '/services/creative'
       fullPath: '/services/creative'
       preLoaderRoute: typeof ServicesCreativeRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/analytics': {
       id: '/services/analytics'
-      path: '/analytics'
+      path: '/services/analytics'
       fullPath: '/services/analytics'
       preLoaderRoute: typeof ServicesAnalyticsRouteImport
-      parentRoute: typeof ServicesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/login': {
       id: '/admin/login'
@@ -354,6 +363,15 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesCreativeRoute: ServicesCreativeRoute,
+  ServicesCroRoute: ServicesCroRoute,
+  ServicesEmailSmsRoute: ServicesEmailSmsRoute,
+  ServicesFunnelRoute: ServicesFunnelRoute,
+  ServicesPaidAdsRoute: ServicesPaidAdsRoute,
+  ServicesScalingRoute: ServicesScalingRoute,
+  ServicesSeoRoute: ServicesSeoRoute,
+  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
