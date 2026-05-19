@@ -87,9 +87,6 @@ function Home() {
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
               </Link>
-              <Link to="/contact" className="btn btn-dark btn-shimmer">
-                Book Strategy Call
-              </Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
