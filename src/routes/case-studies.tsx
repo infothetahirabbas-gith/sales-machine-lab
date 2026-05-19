@@ -264,40 +264,35 @@ function CaseStudies() {
                   onClick={() => setActive(s)}
                   className="text-left card-surface card-hover overflow-hidden group flex flex-col"
                 >
-                  {/* Website mockup preview */}
-                  <div className={`relative h-44 bg-gradient-to-br ${s.color} p-3 overflow-hidden`}>
-                    <div className="relative h-full w-full rounded-lg bg-white/95 shadow-xl overflow-hidden flex flex-col">
+                  {/* Live site showcase */}
+                  <div className={`relative h-48 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
+                    <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
                       {/* Browser chrome */}
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-secondary/60 border-b border-border">
-                        <span className="w-2 h-2 rounded-full bg-red-400" />
-                        <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                        <span className="w-2 h-2 rounded-full bg-green-400" />
-                        <div className="ml-2 flex-1 h-3.5 rounded-sm bg-white border border-border/60" />
+                      <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f1f3f5] border-b border-border shrink-0">
+                        <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+                        <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
+                        <span className="w-2 h-2 rounded-full bg-[#28c840]" />
                       </div>
-                      {/* Mock website content */}
-                      <div className="relative flex-1 p-2.5 flex gap-2">
-                        <div className="flex flex-col gap-1.5 w-1/3">
-                          <div className="h-2 rounded bg-ink/15 w-3/4" />
-                          <div className="h-1.5 rounded bg-ink/10 w-full" />
-                          <div className="h-1.5 rounded bg-ink/10 w-2/3" />
-                          <div className={`mt-1 h-4 rounded bg-gradient-to-r ${s.color} w-2/3`} />
-                        </div>
-                        <div className={`flex-1 rounded-md bg-gradient-to-br ${s.color} opacity-90 relative overflow-hidden text-white`}>
-                          <div className="absolute inset-0">
-                            <Sparkline data={s.chart} gradient={s.color} />
-                          </div>
-                        </div>
+                      {/* Real site screenshot */}
+                      <div className="relative flex-1 overflow-hidden">
+                        <img
+                          src={s.screenshot}
+                          alt="Live store showcase"
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
+                        />
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
                     <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
-                    <div className="absolute bottom-5 right-5 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
+                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
                       <div className="text-lg font-bold leading-none text-gradient">{s.metric}</div>
                       <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{s.metricLabel}</div>
                     </div>
                   </div>
+
 
                   {/* Body */}
                   <div className="p-5 flex-1 flex flex-col">
