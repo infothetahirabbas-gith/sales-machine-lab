@@ -42,7 +42,7 @@ export default function Header() {
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
-          <Link to="/contact" className="hidden sm:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
+          <Link to="/contact" className="hidden lg:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
             Book Strategy Call →
           </Link>
           <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground" aria-label="menu">
