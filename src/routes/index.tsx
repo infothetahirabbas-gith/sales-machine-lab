@@ -95,16 +95,16 @@ function Home() {
       </section>
 
       {/* 2. TRUST BAR — running marquee */}
-      <section className="border-y border-border bg-card/30 py-6 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center gap-6">
-          <div className="shrink-0 text-xs uppercase tracking-widest text-muted-foreground hidden md:block">
+      <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
+          <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
             Trusted by ecommerce operators on
           </div>
           <div
-            className="relative flex-1 overflow-hidden"
+            className="relative w-full overflow-hidden"
             style={{ maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)" }}
           >
-            <div className="marquee-track text-muted-foreground font-semibold whitespace-nowrap">
+            <div className="marquee-track marquee-fast text-muted-foreground font-semibold whitespace-nowrap">
               {Array.from({ length: 2 }).flatMap((_, k) =>
                 ["Shopify","WooCommerce","Meta Ads","Google Ads","Klaviyo","GA4","TikTok Ads","Triple Whale","Recharge","Yotpo","Hotjar","Shogun"].map((t, i) => (
                   <span key={`${k}-${i}`} className="inline-flex items-center gap-8">
