@@ -52,6 +52,18 @@ export const Route = createFileRoute("/services/funnel")({
         metrics: [{ label: "CVR", value: "2.7×" }, { label: "AOV", value: "+24%" }, { label: "ROAS", value: "+78%" }],
       },
       ctaTitle: "Engineer your full buyer journey.",
+      impactStats: [
+        { value: "+218%", label: "Funnel CR" },
+        { value: "+64%", label: "LP → ATC rate" },
+        { value: "-46%", label: "Drop-off at checkout" },
+      ],
+      metricBars: [
+        { label: "Landing → ATC", before: 6, after: 18, unit: "%", description: "Share of LP visitors who add to cart — measures hook + offer fit." },
+        { label: "ATC → Checkout", before: 42, after: 71, unit: "%", description: "How well your cart drawer + ATC modal pushes shoppers forward." },
+        { label: "Checkout → Buy", before: 38, after: 74, unit: "%", description: "Final friction stage. Express pay + trust + clarity unlock the close." },
+        { label: "Full funnel CR", before: 0.9, after: 2.9, unit: "%", description: "Compound rate from LP visit to purchase — the truest funnel score." },
+        { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "$", description: "RPV across the engineered funnel — the metric scale operators live by." },
+      ],
     }} />
   ),
 });

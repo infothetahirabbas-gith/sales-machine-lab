@@ -52,6 +52,18 @@ export const Route = createFileRoute("/services/store-development")({
         metrics: [{ label: "CR", value: "3.8×" }, { label: "AOV", value: "+18%" }, { label: "Bounce", value: "-41%" }],
       },
       ctaTitle: "Get your store built for sales.",
+      impactStats: [
+        { value: "+128%", label: "Launch-week CR" },
+        { value: "1.4s", label: "Avg page load" },
+        { value: "98", label: "PageSpeed score" },
+      ],
+      metricBars: [
+        { label: "Conversion rate", before: 1.2, after: 3.6, unit: "%", description: "Default-theme CR vs a store engineered with PDP system + trust + ATC patterns." },
+        { label: "Page load (s)", before: 4.8, after: 1.4, unit: "s", description: "Largest Contentful Paint. Every 1s faster ≈ 7% more conversions." },
+        { label: "Mobile CR", before: 0.9, after: 3.2, unit: "%", description: "Mobile conversion rate — where 70% of ecommerce traffic actually buys." },
+        { label: "AOV", before: 46, after: 78, unit: "$", description: "Average order value lifted with bundles, upsells, and tiered offers built-in." },
+        { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed score (0–100). Directly affects SEO + ad quality." },
+      ],
     }} />
   ),
 });

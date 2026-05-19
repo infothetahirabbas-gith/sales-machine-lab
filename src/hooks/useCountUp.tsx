@@ -1,17 +1,54 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Parses a metric string like "+192%", "1.9× → 3.6×", "$48M+", "4.8/5"
- * into { prefix, number, suffix } for animation.
+ * Parses values like "+192%", "1.9× → 3.6×", "$48M+", "4.8/5", "120+", "$48,200"
+ * into { prefix, num, suffix, decimals } for animated formatting.
+ * For arrow values ("a → b") we animate to the final number and preserve the "a → " prefix.
  */
-function parseValue(value: string): { prefix: string; num: number; suffix: string } | null {
-  // For arrow values "1.9× → 3.6×" animate to the second number
+function parseValue(value: string): {
+  prefix: string;
+  num: number;
+  suffix: string;
+  decimals: number;
+} | null {
   const arrowSplit = value.split(/→|->/);
   const target = arrowSplit[arrowSplit.length - 1].trim();
-  const match = target.match(/^([^\d\-]*)(-?\d+(?:\.\d+)?)(.*)$/);
+  // Allow currency / sign prefix, then digits with optional commas + decimals
+  const match = target.match(/^([^\d\-]*)(-?\d[\d,]*(?:\.\d+)?)(.*)$/);
   if (!match) return null;
-  const prefix = arrowSplit.length > 1 ? arrowSplit[0].trim() + " → " + (match[1] || "") : match[1] || "";
-  return { prefix, num: parseFloat(match[2]), suffix: match[3] || "" };
+  const rawNum = match[2].replace(/,/g, "");
+  const num = parseFloat(rawNum);
+  if (!Number.isFinite(num)) return null;
+  const decimalsMatch = rawNum.split(".")[1];
+  const decimals = decimalsMatch ? decimalsMatch.length : 0;
+  const prefix =
+    arrowSplit.length > 1
+      ? `${arrowSplit[0].trim()} → ${match[1] || ""}`
+      : match[1] || "";
+  return { prefix, num, suffix: match[3] || "", decimals };
+}
+
+function formatNumber(n: number, decimals: number): string {
+  if (decimals > 0) {
+    return n.toLocaleString(undefined, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
+  }
+  return Math.round(n).toLocaleString();
+}
+
+export function usePrefersReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+  return reduced;
 }
 
 export function useInView<T extends HTMLElement>(once = true) {
@@ -50,28 +87,47 @@ export function CountUp({
   className?: string;
 }) {
   const { ref, inView } = useInView<HTMLSpanElement>();
+  const reduced = usePrefersReducedMotion();
   const parsed = parseValue(value);
-  const [display, setDisplay] = useState<string>(parsed ? `${parsed.prefix}0${parsed.suffix}` : value);
+
+  // When motion is reduced, render the final formatted value immediately.
+  const finalDisplay = parsed
+    ? `${parsed.prefix}${formatNumber(parsed.num, parsed.decimals)}${parsed.suffix}`
+    : value;
+
+  const [display, setDisplay] = useState<string>(
+    reduced || !parsed
+      ? finalDisplay
+      : `${parsed.prefix}${formatNumber(0, parsed.decimals)}${parsed.suffix}`
+  );
 
   useEffect(() => {
-    if (!inView || !parsed) return;
+    if (!parsed) {
+      setDisplay(value);
+      return;
+    }
+    if (reduced) {
+      setDisplay(finalDisplay);
+      return;
+    }
+    if (!inView) return;
     const start = performance.now();
-    const isInt = Number.isInteger(parsed.num);
     let raf = 0;
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
       const current = parsed.num * eased;
-      const formatted = isInt
-        ? Math.round(current).toLocaleString()
-        : current.toFixed(1);
-      setDisplay(`${parsed.prefix}${formatted}${parsed.suffix}`);
+      setDisplay(`${parsed.prefix}${formatNumber(current, parsed.decimals)}${parsed.suffix}`);
       if (t < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, parsed?.num, parsed?.prefix, parsed?.suffix, duration]);
+  }, [inView, reduced, parsed?.num, parsed?.prefix, parsed?.suffix, parsed?.decimals, duration, finalDisplay, value]);
 
   if (!parsed) return <span ref={ref} className={className}>{value}</span>;
-  return <span ref={ref} className={className}>{display}</span>;
+  return (
+    <span ref={ref} className={className} aria-label={finalDisplay}>
+      {display}
+    </span>
+  );
 }

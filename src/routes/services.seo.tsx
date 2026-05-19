@@ -50,6 +50,18 @@ export const Route = createFileRoute("/services/seo")({
         metrics: [{ label: "Sessions", value: "180×" }, { label: "Rankings", value: "60+" }, { label: "Org. rev", value: "$24K/mo" }],
       },
       ctaTitle: "Compound free traffic. Forever.",
+      impactStats: [
+        { value: "+312%", label: "Organic sessions" },
+        { value: "+148%", label: "Organic revenue" },
+        { value: "82", label: "Top-10 keywords" },
+      ],
+      metricBars: [
+        { label: "Organic sessions / mo", before: 4.2, after: 18.6, unit: "k", description: "Monthly Google + Bing organic visits to the store." },
+        { label: "Keywords in top 10", before: 14, after: 96, description: "Number of commercial keywords ranked in positions 1–10 on Google." },
+        { label: "Organic revenue", before: 6, after: 38, unit: "$k", description: "Direct revenue attributed to organic search in Google Analytics." },
+        { label: "Domain authority", before: 18, after: 41, description: "Aggregate backlink strength score (Ahrefs / Moz DR/DA scale 0–100)." },
+        { label: "Indexed product pages", before: 122, after: 1840, description: "PDPs + collection pages indexed by Google after schema + crawl fixes." },
+      ],
     }} />
   ),
 });
