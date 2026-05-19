@@ -81,7 +81,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           </Reveal>
           <Reveal delay={3}>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn btn-primary btn-shimmer group px-7 py-3.5">
+              <Link to="/audit" className="btn btn-primary btn-shimmer group px-7 py-3.5">
                 Get Free Audit
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
