@@ -20,58 +20,72 @@ function Home() {
   return (
     <PageLayout>
       {/* 1. HERO */}
-      <section className="relative overflow-hidden pt-20 pb-20 lg:pt-28 lg:pb-28">
-        <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 blur-[120px] rounded-full" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent/20 blur-[120px] rounded-full" />
+      <section className="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <div className="absolute inset-0 grid-bg opacity-70 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
+        <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
+        {/* Floating chips */}
+        <div className="hidden md:block absolute top-24 right-[8%] card-surface px-3 py-2 text-xs font-semibold float">
+          <span className="text-primary">●</span> ROAS 3.8×
+        </div>
+        <div className="hidden md:block absolute bottom-24 left-[6%] card-surface px-3 py-2 text-xs font-semibold float-slow">
+          <span className="text-primary">●</span> CR +285%
+        </div>
+        <div className="hidden md:block absolute top-1/2 right-[3%] card-surface px-3 py-2 text-xs font-semibold float-slow" style={{ animationDelay: "1.5s" }}>
+          <span className="text-primary">●</span> $214K MRR
+        </div>
+
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+          <div className="lg:col-span-7" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
-            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02]">
-              We Turn <span className="text-gradient">Struggling Ecommerce Stores</span> Into Scalable Revenue Machines
+            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-ink">
+              We Turn <span className="text-sky-gradient">Struggling Ecommerce Stores</span> Into <span className="text-gradient">Scalable Revenue Machines</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system — Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold hover:opacity-90">
-                Get Free Store Audit →
+            <div className="mt-8 flex flex-wrap gap-3" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+              <Link to="/contact" className="btn btn-primary btn-shimmer">
+                Get Free Store Audit <span>→</span>
               </Link>
-              <Link to="/contact" className="rounded-full border border-border bg-card/60 px-6 py-3 font-semibold hover:bg-card">
+              <Link to="/contact" className="btn btn-dark btn-shimmer">
                 Book Strategy Call
               </Link>
+              <Link to="/case-studies" className="btn btn-ghost">
+                See Results
+              </Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
+            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
                 { v: "+300%", l: "avg sales growth" },
                 { v: "2.5×", l: "ROAS improvement" },
                 { v: "100+", l: "stores scaled" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div className="text-2xl md:text-3xl font-bold text-gradient">{s.v}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient">{s.v}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl border border-border bg-card/70 backdrop-blur p-5 shadow-2xl float">
+          <div className="lg:col-span-5" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)] float">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
                   Revenue · Last 30 days
                 </div>
-                <span className="text-primary font-semibold">+312%</span>
+                <span className="text-primary font-bold">+312%</span>
               </div>
               <GrowthChart className="w-full h-auto" />
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {[{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"$72"}].map((m)=>(
-                  <div key={m.l} className="rounded-xl bg-secondary/60 p-3">
+                  <div key={m.l} className="rounded-xl bg-secondary p-3 transition hover:bg-primary/10 hover:-translate-y-0.5">
                     <div className="text-xs text-muted-foreground">{m.l}</div>
-                    <div className="font-bold">{m.v}</div>
+                    <div className="font-bold text-ink">{m.v}</div>
                   </div>
                 ))}
               </div>
