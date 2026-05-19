@@ -61,7 +61,7 @@ function About() {
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             Not an SEO agency. Not a Facebook ads shop. An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-row flex-nowrap items-center justify-between sm:justify-start gap-3">
             <Link to="/contact" className="btn btn-primary btn-shimmer">Book Strategy Call <span>→</span></Link>
             <Link to="/case-studies" className="btn btn-dark btn-shimmer">See Case Studies</Link>
           </div>
