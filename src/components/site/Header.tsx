@@ -19,9 +19,9 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/75 border-b border-border">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="BeingEcom home">
-          <img src={logo} alt="BeingEcom" className="h-8 w-auto" />
+          <img src={logo} alt="BeingEcom" className="h-12 md:h-14 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
