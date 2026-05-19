@@ -33,12 +33,24 @@ const rotatingPhrases = [
   "Stagnant WooCommerce Stores",
 ];
 
+const dashboards = [
+  { key: "revenue", title: "Revenue · Last 30 days", badge: "+312%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"$72"}] },
+  { key: "seo", title: "SEO · Organic traffic", badge: "+218%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", metrics: [{l:"Spend",v:"$48K"},{l:"Revenue",v:"$182K"},{l:"CPA",v:"$21"}] },
+  { key: "email", title: "Email · Klaviyo flows", badge: "+41% rev", metrics: [{l:"Open",v:"52%"},{l:"Click",v:"6.4%"},{l:"Rev/Recip",v:"$2.10"}] },
+  { key: "cro", title: "Store CRO · Shopify", badge: "+186% CR", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"$84"},{l:"Bounce",v:"-32%"}] },
+] as const;
+
 function Home() {
   const [phraseIdx, setPhraseIdx] = useState(0);
+  const [dashIdx, setDashIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setPhraseIdx((i) => (i + 1) % rotatingPhrases.length), 3000);
-    return () => clearInterval(id);
+    const id2 = setInterval(() => setDashIdx((i) => (i + 1) % dashboards.length), 3500);
+    return () => { clearInterval(id); clearInterval(id2); };
   }, []);
+  const dash = dashboards[dashIdx];
+
   return (
     <PageLayout>
       {/* 1. HERO */}
