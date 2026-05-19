@@ -133,7 +133,7 @@ export default function ContactFaq() {
           </div>
 
           {/* RIGHT - FAQ */}
-          <div>
+          <div className="order-1 lg:order-2">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
               Common Questions
             </div>
