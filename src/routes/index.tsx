@@ -234,7 +234,7 @@ function Home() {
       <Section eyebrow="Stack" title="The tools we run on every store.">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {["Shopify","WooCommerce","Meta Ads","Google Ads","TikTok Ads","GA4","Hotjar","Klaviyo","Triple Whale","Recharge","Yotpo","Shogun"].map((t)=>(
-            <div key={t} className="rounded-xl border border-border bg-card/60 px-4 py-3 text-sm font-medium text-center">{t}</div>
+            <div key={t} className="rounded-xl border border-border bg-white px-4 py-3 text-sm font-medium text-center text-ink transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)]">{t}</div>
           ))}
         </div>
       </Section>
