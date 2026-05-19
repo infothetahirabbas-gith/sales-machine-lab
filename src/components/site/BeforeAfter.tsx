@@ -31,18 +31,18 @@ export default function BeforeAfter() {
   return (
     <div
       ref={wrapRef}
-      className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
+      className="relative w-full rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
       onPointerDown={(e) => { dragging.current = true; document.body.style.userSelect = "none"; setFromClientX(e.clientX); }}
     >
-      {/* AFTER (full bg) */}
-      <Panel kind="after" />
+      {/* AFTER (sets height) */}
+      <Panel kind="after" absolute={false} />
 
-      {/* BEFORE (clipped) */}
+      {/* BEFORE (clipped overlay) */}
       <div
         className="absolute inset-0"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       >
-        <Panel kind="before" />
+        <Panel kind="before" absolute />
       </div>
 
       {/* Divider + handle */}
@@ -58,7 +58,7 @@ export default function BeforeAfter() {
   );
 }
 
-function Panel({ kind }: { kind: "before" | "after" }) {
+function Panel({ kind, absolute = true }: { kind: "before" | "after"; absolute?: boolean }) {
   const isBefore = kind === "before";
   const bg = isBefore ? "bg-white" : "bg-gradient-to-br from-accent/40 via-white to-primary/15";
   const badge = isBefore
@@ -80,7 +80,7 @@ function Panel({ kind }: { kind: "before" | "after" }) {
     : "M20 95 C 80 88, 140 78, 200 55 S 320 28, 380 18";
 
   return (
-    <div className={`absolute inset-0 p-5 md:p-7 ${bg}`}>
+    <div className={`${absolute ? "absolute inset-0" : "relative"} p-5 md:p-7 ${bg}`}>
       <div className="flex items-center gap-2">
         <span className={`text-[10px] font-bold tracking-widest px-2 py-1 rounded-md ${badge.tone}`}>{badge.label}</span>
         <span className="text-xs text-muted-foreground">{badge.sub}</span>
