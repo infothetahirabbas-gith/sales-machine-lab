@@ -66,8 +66,15 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
 }
 
 export function FeaturedStoresSection() {
-  // duplicate the list for a seamless infinite marquee loop
-  const loop = [...featuredStores, ...featuredStores];
+  // 9 stores → 3 pages of 3, auto-advance every 4s
+  const pageSize = 3;
+  const pages = Math.ceil(featuredStores.length / pageSize);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setPage((p) => (p + 1) % pages), 4000);
+    return () => clearInterval(id);
+  }, [pages]);
 
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden">
@@ -81,19 +88,37 @@ export function FeaturedStoresSection() {
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
             The websites <span className="text-gradient">behind the numbers</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">Real stores. Real screenshots. Real results we shipped.</p>
         </div>
 
-        {/* Marquee track */}
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+        {/* Paginated slider — 3 at a time, 3 pages */}
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="overflow-hidden">
-            <div className="flex gap-6 animate-marquee-x py-2 pl-6 pr-6 w-max">
-              {loop.map((s, i) => (
-                <StoreCard key={i} s={s} />
+            <div
+              className="flex transition-transform duration-700 ease-out"
+              style={{ transform: `translateX(-${page * 100}%)` }}
+            >
+              {Array.from({ length: pages }).map((_, p) => (
+                <div key={p} className="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {featuredStores.slice(p * pageSize, p * pageSize + pageSize).map((s, i) => (
+                    <StoreCard key={`${p}-${i}`} s={s} />
+                  ))}
+                </div>
               ))}
             </div>
+          </div>
+
+          {/* Dots */}
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {Array.from({ length: pages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === page ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/40"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
