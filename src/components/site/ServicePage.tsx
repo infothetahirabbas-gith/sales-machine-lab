@@ -104,7 +104,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   key={s.l}
                   className="card-surface card-hover p-4 text-center group"
                 >
-                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
+                  <div className="text-2xl font-bold text-gradient"><CountUp value={s.v} /></div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                     {s.l}
                   </div>
