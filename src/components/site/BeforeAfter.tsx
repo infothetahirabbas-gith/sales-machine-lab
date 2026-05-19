@@ -58,7 +58,7 @@ export default function BeforeAfter() {
   );
 }
 
-function Panel({ kind }: { kind: "before" | "after" }) {
+function Panel({ kind, absolute = true }: { kind: "before" | "after"; absolute?: boolean }) {
   const isBefore = kind === "before";
   const bg = isBefore ? "bg-white" : "bg-gradient-to-br from-accent/40 via-white to-primary/15";
   const badge = isBefore
@@ -80,7 +80,7 @@ function Panel({ kind }: { kind: "before" | "after" }) {
     : "M20 95 C 80 88, 140 78, 200 55 S 320 28, 380 18";
 
   return (
-    <div className={`absolute inset-0 p-5 md:p-7 ${bg}`}>
+    <div className={`${absolute ? "absolute inset-0" : "relative"} p-5 md:p-7 ${bg}`}>
       <div className="flex items-center gap-2">
         <span className={`text-[10px] font-bold tracking-widest px-2 py-1 rounded-md ${badge.tone}`}>{badge.label}</span>
         <span className="text-xs text-muted-foreground">{badge.sub}</span>
