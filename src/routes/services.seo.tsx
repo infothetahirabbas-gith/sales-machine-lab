@@ -6,7 +6,7 @@ export const Route = createFileRoute("/services/seo")({
     <ServicePage cfg={{
       slug: "seo",
       eyebrow: "Ecommerce SEO",
-      heroTitle: "Get free sales from Google — every day.",
+      heroTitle: "Get free sales from Google – every day.",
       heroSub: "Rank your products, collections, and content so traffic compounds month over month.",
       problemTitle: "Most ecommerce stores are invisible on Google.",
       problemBullets: [
@@ -15,10 +15,10 @@ export const Route = createFileRoute("/services/seo")({
         "Zero internal linking, zero topical authority.",
       ],
       whatIsTitle: "SEO for ecommerce is different.",
-      whatIsBody: "Forget generic SEO playbooks. Ecommerce SEO is product page architecture, collection strategy, structured data, and content built around buyer intent — not generic 'blog posts'.",
+      whatIsBody: "Forget generic SEO playbooks. Ecommerce SEO is product page architecture, collection strategy, structured data, and content built around buyer intent – not generic 'blog posts'.",
       systemTitle: "Our ecommerce SEO system.",
       systemSteps: [
-        { title: "Keyword & intent map", body: "Product, collection, info, and comparison intent — separated cleanly." },
+        { title: "Keyword & intent map", body: "Product, collection, info, and comparison intent – separated cleanly." },
         { title: "On-page rebuild", body: "Titles, metas, H-structure, schema, content blocks." },
         { title: "Technical fixes", body: "Speed, crawl, indexation, canonicals, sitemap." },
         { title: "Authority building", body: "Internal links, content hubs, real backlinks." },

@@ -4,13 +4,13 @@ import { Mail, Phone, MapPin, Plus, Minus, Send } from "lucide-react";
 import { toast } from "sonner";
 
 const faqs = [
-  { q: "Do you guarantee more sales?", a: "We don't sell promises — we sell systems. What we do guarantee is a measurable, data-backed growth plan tied to revenue KPIs, not vanity metrics." },
-  { q: "Do you work with small stores?", a: "Yes — if you have a real product and basic traffic. We won't take stores with nothing to optimize, but early-stage brands with momentum are welcome." },
+  { q: "Do you guarantee more sales?", a: "We don't sell promises – we sell systems. What we do guarantee is a measurable, data-backed growth plan tied to revenue KPIs, not vanity metrics." },
+  { q: "Do you work with small stores?", a: "Yes – if you have a real product and basic traffic. We won't take stores with nothing to optimize, but early-stage brands with momentum are welcome." },
   { q: "What ad budget do I need?", a: "We typically work with stores spending $3K+/mo on ads. Smaller is fine if we're focusing on CRO, SEO or email first." },
   { q: "How long until I see results?", a: "CRO and email flows lift in 2–4 weeks. Paid ads stabilize in 30–60 days. SEO compounds over 3–6 months. We attack the fastest wins first." },
-  { q: "Shopify or WooCommerce — does it matter?", a: "Both. We don't push a platform — we push what scales for your business and your team's skill set." },
+  { q: "Shopify or WooCommerce – does it matter?", a: "Both. We don't push a platform – we push what scales for your business and your team's skill set." },
   { q: "Do you sign long contracts?", a: "90-day initial engagement so we can actually execute a system, then month-to-month. No 12-month lock-ins." },
-  { q: "Who owns the assets you build?", a: "You do. Ad accounts, creatives, funnels, code, automations — everything is yours from day one." },
+  { q: "Who owns the assets you build?", a: "You do. Ad accounts, creatives, funnels, code, automations – everything is yours from day one." },
 ];
 
 const schema = z.object({
@@ -59,12 +59,12 @@ export default function ContactFaq() {
             Get in touch & <span className="text-gradient">get answers</span>
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Send us your store details — or scroll the most common questions founders ask before booking.
+            Send us your store details – or scroll the most common questions founders ask before booking.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* LEFT — CONTACT FORM */}
+          {/* LEFT – CONTACT FORM */}
           <div className="card-surface p-6 md:p-8 rounded-3xl shadow-xl">
             <h3 className="text-xl font-bold text-ink">Tell us about your store</h3>
             <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours, every weekday.</p>
@@ -132,7 +132,7 @@ export default function ContactFaq() {
             </div>
           </div>
 
-          {/* RIGHT — FAQ */}
+          {/* RIGHT – FAQ */}
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
               Common Questions

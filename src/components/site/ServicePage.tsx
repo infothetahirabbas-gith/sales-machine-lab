@@ -115,7 +115,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
             <div className="text-xs font-bold uppercase text-destructive">Before</div>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {cfg.beforeAfter.before.map((b, i) => <li key={i}>— {b}</li>)}
+              {cfg.beforeAfter.before.map((b, i) => <li key={i}>- {b}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl border border-primary/40 bg-primary/5 p-6">

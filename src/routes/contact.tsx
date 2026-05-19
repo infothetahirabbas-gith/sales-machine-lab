@@ -112,7 +112,7 @@ function Contact() {
             { q: "Honest, sharp, zero fluff. Rare combo.", a: "Sara K." },
             { q: "Worth the call even if you don't engage.", a: "David L." },
           ].map(t=>(
-            <Card key={t.a}><div className="text-primary text-2xl">“</div><p className="text-sm">{t.q}</p><div className="mt-3 text-xs text-muted-foreground">— {t.a}</div></Card>
+            <Card key={t.a}><div className="text-primary text-2xl">“</div><p className="text-sm">{t.q}</p><div className="mt-3 text-xs text-muted-foreground">- {t.a}</div></Card>
           ))}
         </div>
       </Section>

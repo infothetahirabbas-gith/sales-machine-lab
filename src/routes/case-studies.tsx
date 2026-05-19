@@ -45,7 +45,7 @@ function CaseStudies() {
             Real <span className="text-gradient">ecommerce growth</span> results.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-            No vanity metrics. Just revenue, ROAS, and CR — before and after.
+            No vanity metrics. Just revenue, ROAS, and CR – before and after.
           </p>
         </div>
       </section>

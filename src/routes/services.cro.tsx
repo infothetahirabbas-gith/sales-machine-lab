@@ -7,7 +7,7 @@ export const Route = createFileRoute("/services/cro")({
       slug: "cro",
       eyebrow: "Conversion Rate Optimization",
       heroTitle: "Turn your existing traffic into more sales.",
-      heroSub: "Same visitors, same ad spend — 2–3× the revenue. That's what real CRO does.",
+      heroSub: "Same visitors, same ad spend – 2–3× the revenue. That's what real CRO does.",
       problemTitle: "Most stores leak revenue at every step.",
       problemBullets: [
         "Conversion rate stuck below 2%.",
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/cro")({
       pillars: [
         { title: "Diagnose", body: "Find the real leak, not the obvious one." },
         { title: "Decide", body: "Prioritize by revenue impact, not novelty." },
-        { title: "Ship", body: "Bias toward action — test small, fast." },
+        { title: "Ship", body: "Bias toward action – test small, fast." },
         { title: "Lock", body: "Winners become permanent system upgrades." },
       ],
       deepBlocks: [
