@@ -4,6 +4,7 @@ import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X } fro
 import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
+import CaseStudyExtras from "../components/site/CaseStudyExtras";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -349,6 +350,8 @@ function CaseStudies() {
           )}
         </DialogContent>
       </Dialog>
+
+      <CaseStudyExtras />
 
       <CTA heading="Want your store to be the next case study?" />
     </PageLayout>
