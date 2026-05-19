@@ -97,7 +97,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
           {/* Floating proof strip */}
           <Reveal delay={4}>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
               {[
                 { v: "120+", l: "Stores scaled" },
                 { v: "$48M+", l: "Tracked revenue" },
