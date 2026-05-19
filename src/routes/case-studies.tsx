@@ -523,13 +523,20 @@ function CaseStudies() {
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
                         <span className="ml-2 text-[9px] text-muted-foreground font-medium truncate">
-                          {s.category === "Ads" ? "ads-manager.dashboard" : s.category === "SEO" ? "search.google.com/search-console" : "analytics.cro-funnel"}
+                          {s.category === "Ads"
+                            ? "business.facebook.com/adsmanager"
+                            : s.category === "SEO"
+                            ? "search.google.com/search-console"
+                            : s.category === "CRO"
+                            ? "analytics.cro-funnel"
+                            : "store.example.com"}
                         </span>
                       </div>
                       <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
-                        {s.category === "Ads" && <AdsPreview data={s.chart} metric={s.metric} metricLabel={s.metricLabel} seed={parseInt(s.id.slice(1)) || 1} />}
+                        {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
                         {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
