@@ -16,7 +16,7 @@ const services = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
+    <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/75 border-b border-border">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg">
           <span className="relative inline-block w-2.5 h-2.5 rounded-full bg-primary pulse-dot" />
@@ -40,7 +40,7 @@ export default function Header() {
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
         <div className="flex items-center gap-3">
-          <Link to="/contact" className="hidden sm:inline-flex items-center rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition">
+          <Link to="/contact" className="hidden sm:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
             Free Audit →
           </Link>
           <button onClick={() => setOpen(!open)} className="lg:hidden text-foreground" aria-label="menu">
