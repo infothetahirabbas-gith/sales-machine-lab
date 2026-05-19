@@ -112,7 +112,7 @@
   }
 
   /* Buttons */
-  .btn { @apply items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base; }
+  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base w-auto max-w-full; }
   .btn-primary {
     background: linear-gradient(135deg, oklch(0.65 0.18 245), oklch(0.55 0.2 248));
     color: var(--primary-foreground);
