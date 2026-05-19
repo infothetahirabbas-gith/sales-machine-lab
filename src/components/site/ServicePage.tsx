@@ -18,6 +18,8 @@ import PageLayout from "./PageLayout";
 import { Section, Pill, CTA } from "./Section";
 import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
+import { CountUp } from "../../hooks/useCountUp";
+import RevenueBars from "./RevenueBars";
 
 export type ServiceConfig = {
   slug: string;
