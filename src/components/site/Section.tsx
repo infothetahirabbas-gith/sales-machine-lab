@@ -109,7 +109,7 @@ export function CTA({
                 <a href="/contact" className="btn btn-primary btn-shimmer">
                   Book Strategy Call <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
-                <a href="/audit" className="btn btn-ghost">Get Free Audit</a>
+                <a href="/contact" className="btn btn-ghost">Book Strategy Call</a>
               </div>
             </div>
           </div>
