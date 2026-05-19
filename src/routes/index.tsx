@@ -188,7 +188,7 @@ function Home() {
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
         intro="One integrated growth engine. No more disconnected agencies blaming each other."
       >
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "Traffic", b: "Profitable paid ads across Meta, Google, TikTok.", Icon: Megaphone },
             { t: "Conversion", b: "Store, product page & checkout optimized for sales.", Icon: MousePointerClick },
