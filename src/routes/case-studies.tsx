@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X } from "lucide-react";
+import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
