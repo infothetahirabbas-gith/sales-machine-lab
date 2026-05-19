@@ -59,7 +59,7 @@ function Home() {
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
         {/* Floating chips */}
-        <Link to="/contact" className="hidden md:inline-flex absolute top-24 right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors">
+        <Link to="/contact" className="inline-flex absolute top-6 right-4 md:top-24 md:right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors z-10">
           <span className="text-primary">●</span> Book Strategy Call →
         </Link>
         <div className="hidden md:block absolute top-1/2 right-[3%] card-surface px-3 py-2 text-xs font-semibold float-slow" style={{ animationDelay: "1.5s" }}>
