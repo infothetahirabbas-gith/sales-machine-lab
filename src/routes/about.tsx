@@ -62,7 +62,7 @@ function About() {
             Not an SEO agency. Not a Facebook ads shop. An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/audit" className="btn btn-primary btn-shimmer">Get Free Audit <span>→</span></Link>
+            <Link to="/contact" className="btn btn-primary btn-shimmer">Book Strategy Call <span>→</span></Link>
             <Link to="/case-studies" className="btn btn-dark btn-shimmer">See Case Studies</Link>
           </div>
         </div>
