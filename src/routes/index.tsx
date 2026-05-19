@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
@@ -23,7 +24,20 @@ const services = [
   { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", Icon: Rocket },
 ];
 
+const rotatingPhrases = [
+  "Struggling Ecommerce Stores",
+  "Underperforming Shopify Brands",
+  "Stuck DTC Businesses",
+  "Low-Converting Online Shops",
+  "Stagnant WooCommerce Stores",
+];
+
 function Home() {
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setPhraseIdx((i) => (i + 1) % rotatingPhrases.length), 3000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <PageLayout>
       {/* 1. HERO */}
@@ -46,7 +60,11 @@ function Home() {
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-ink">
-              We Turn <span className="text-sky-gradient">Struggling Ecommerce Stores</span> Into <span className="text-gradient">Scalable Revenue Machines</span>
+              We Turn{" "}
+              <span key={phraseIdx} className="text-sky-gradient inline-block" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
+                {rotatingPhrases[phraseIdx]}
+              </span>{" "}
+              Into <span className="text-gradient">Scalable Revenue Machines</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
