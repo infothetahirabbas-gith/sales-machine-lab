@@ -62,7 +62,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/20 blur-[140px] float" />
         <div className="absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-accent/30 blur-[120px] float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
               <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
