@@ -4,6 +4,7 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
 import BeforeAfter from "../components/site/BeforeAfter";
+import ContactFaq from "../components/site/ContactFaq";
 import { Reveal } from "../hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -354,24 +355,8 @@ function Home() {
         </div>
       </section>
 
-      {/* 12. FAQ */}
-      <Section center eyebrow="FAQ" title="Straight answers.">
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            { q: "Do you guarantee sales?", a: "No. Anyone who does is lying. We guarantee the system, the process, and the work — sales follow when the math is right." },
-            { q: "Do you work with small stores?", a: "Yes, if there's a real product and at least basic traffic. We won't take stores with nothing to optimize." },
-            { q: "What ad budget do I need?", a: "We typically work with stores spending $3K+/mo on ads. Smaller is okay if CRO/SEO is the focus first." },
-            { q: "Shopify or WooCommerce?", a: "Both. We don't push a platform — we push what scales for your business." },
-            { q: "How long until I see results?", a: "CRO and email lift in 2–4 weeks. Ads in 30–60 days. SEO in 3–6 months. We optimize the fastest wins first." },
-            { q: "Do you sign contracts?", a: "Yes — 90-day initial engagement so we can actually execute a system, not just dabble." },
-          ].map((f) => (
-            <Card key={f.q}>
-              <h4 className="font-semibold">{f.q}</h4>
-              <p className="text-sm text-muted-foreground mt-2">{f.a}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
+      {/* 12. CONTACT + FAQ */}
+      <ContactFaq />
 
       {/* 13. FINAL CTA */}
       <CTA />
