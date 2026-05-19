@@ -61,9 +61,9 @@ function About() {
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             Not an SEO agency. Not a Facebook ads shop. An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store.
           </p>
-          <div className="mt-8 flex flex-row flex-nowrap items-center justify-between sm:justify-start gap-3">
-            <Link to="/contact" className="btn btn-primary btn-shimmer text-sm px-4 py-2.5 whitespace-nowrap">Book Strategy Call <span>→</span></Link>
-            <Link to="/case-studies" className="btn btn-dark btn-shimmer text-sm px-4 py-2.5 whitespace-nowrap">See Case Studies</Link>
+          <div className="mt-8 btn-pair">
+            <Link to="/contact" className="btn btn-primary btn-shimmer">Book Strategy Call <span>→</span></Link>
+            <Link to="/case-studies" className="btn btn-dark btn-shimmer">See Case Studies</Link>
           </div>
         </div>
       </section>
@@ -179,7 +179,7 @@ function About() {
             <p className="relative mt-3 text-muted-foreground max-w-xl mx-auto">
               Get a free 12-point growth audit. No pitch deck, no obligations.
             </p>
-            <Link to="/contact" className="relative inline-flex mt-6 btn btn-primary btn-shimmer">
+            <Link to="/contact" className="relative flex mt-6 btn btn-primary btn-shimmer">
               Book Strategy Call <span>→</span>
             </Link>
           </div>

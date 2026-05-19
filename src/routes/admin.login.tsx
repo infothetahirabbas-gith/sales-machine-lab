@@ -86,7 +86,7 @@ function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary w-full justify-center disabled:opacity-50"
+            className="flex btn btn-primary w-full justify-center disabled:opacity-50"
           >
             {loading ? "..." : mode === "signin" ? "Sign in" : "Create account"}
           </button>

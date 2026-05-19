@@ -105,7 +105,7 @@ export function CTA({
             <div className="relative">
               <h3 className="text-3xl md:text-5xl font-bold text-ink">{heading}</h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{sub}</p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <div className="mt-8 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">
                   Book Strategy Call <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>

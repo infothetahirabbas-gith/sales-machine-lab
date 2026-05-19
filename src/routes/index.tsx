@@ -60,7 +60,7 @@ function Home() {
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
         {/* Floating chips */}
-        <Link to="/contact" className="inline-flex absolute top-6 right-4 md:top-24 md:right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors z-10">
+        <Link to="/contact" className="hidden md:inline-flex absolute top-6 right-4 md:top-24 md:right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors z-10">
           <span className="text-primary">●</span> Book Strategy Call →
         </Link>
 
@@ -80,13 +80,13 @@ function Home() {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
-            <div className="mt-8 flex flex-row flex-nowrap items-center justify-between sm:justify-start gap-3" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-8 btn-pair" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
               </Link>
               <Link
                 to="/audit"
-                className="group relative inline-flex items-center gap-2 rounded-full border-2 border-primary/40 bg-white/70 backdrop-blur px-5 py-2.5 text-sm font-bold text-ink hover:border-primary hover:-translate-y-0.5 transition-all overflow-hidden"
+                className="btn group relative border-2 border-primary/40 bg-white/70 backdrop-blur text-ink hover:border-primary hover:-translate-y-0.5 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/15 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <span className="relative flex items-center gap-2">
@@ -388,7 +388,7 @@ function Home() {
                 We'll review your store, ads, and analytics - and send back a 12-point loss-recovery plan. No pitch deck.
               </p>
             </div>
-            <Link to="/contact" className="relative shrink-0 btn btn-primary btn-shimmer">
+            <Link to="/contact" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
               <span className="relative">Claim Audit →</span>
             </Link>

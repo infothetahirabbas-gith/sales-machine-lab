@@ -112,7 +112,7 @@
   }
 
   /* Buttons */
-  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base; }
+  .btn { @apply items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base; }
   .btn-primary {
     background: linear-gradient(135deg, oklch(0.65 0.18 245), oklch(0.55 0.2 248));
     color: var(--primary-foreground);
@@ -139,6 +139,10 @@
     transition: transform 0.8s;
   }
   .btn-shimmer:hover::before { transform: translateX(100%); }
+
+  .btn-pair { @apply grid grid-cols-2 gap-3 items-stretch w-full sm:inline-flex sm:w-auto sm:items-center; }
+  .btn-pair .btn { @apply flex w-full min-w-0 h-full px-2.5 py-2.5 text-[12px] sm:w-auto sm:px-6 sm:py-3 sm:text-base; }
+  .btn-pair .btn svg { @apply w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0; }
 
   /* Cards */
   .card-surface {

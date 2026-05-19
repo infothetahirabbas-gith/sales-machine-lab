@@ -80,14 +80,14 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             </p>
           </Reveal>
           <Reveal delay={3}>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn btn-primary btn-shimmer group px-7 py-3.5">
+            <div className="mt-9 btn-pair">
+              <Link to="/contact" className="btn btn-primary btn-shimmer group">
                 Book Strategy Call
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/case-studies"
-                className="btn btn-ghost group px-7 py-3.5 border border-border bg-white/60 backdrop-blur hover:bg-white hover:-translate-y-0.5"
+                className="btn btn-ghost group border border-border bg-white/60 backdrop-blur hover:bg-white hover:-translate-y-0.5"
               >
                 See Real Results
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

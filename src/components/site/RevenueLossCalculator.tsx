@@ -177,7 +177,7 @@ export default function RevenueLossCalculator() {
                 </div>
               </div>
 
-              <a href="/contact" className="btn btn-primary btn-shimmer mt-6 w-full sm:w-auto">
+              <a href="/contact" className="flex btn btn-primary btn-shimmer mt-6 w-full sm:w-auto">
                 Stop losing {fmt(calc.totalMonthlyMiss)}/mo - Book Strategy Call →
               </a>
             </div>

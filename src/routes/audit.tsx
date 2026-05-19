@@ -165,7 +165,7 @@ function AuditPage() {
                   className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm" />
               </div>
             </div>
-            <button type="submit" disabled={loading || !url} className="btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
+            <button type="submit" disabled={loading || !url} className="flex btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
               {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analyzing...</> : <>Run free audit <ArrowRight className="w-4 h-4" /></>}
             </button>
             {error && (
@@ -449,7 +449,7 @@ function AuditPage() {
               <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
                 BeingEcom turns audits like this into real revenue. Book a free 30-minute strategy call and we'll walk you through the exact plan to ship these fixes.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <div className="mt-6 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">Book Free Strategy Call <ArrowRight className="w-4 h-4" /></a>
                 <a href="/services" className="btn btn-dark">Get Full Growth Service</a>
               </div>
