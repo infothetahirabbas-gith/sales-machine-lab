@@ -1,117 +1,181 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarSign, HandshakeIcon, Shield } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, Card, CTA, NumberedList } from "../components/site/Section";
+import { Section, Card } from "../components/site/Section";
 
 export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About BeingEcom - Ecommerce Growth Operators" },
+      { name: "description", content: "We build ecommerce growth systems for Shopify & WooCommerce brands. Operators, not talkers." },
+      { property: "og:title", content: "About BeingEcom" },
+      { property: "og:description", content: "An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store." },
+    ],
+  }),
   component: About,
 });
+
+const differentiators = [
+  { Icon: Target, t: "Ecommerce only", d: "We don't take SaaS, agency or B2B clients. Ecom math is different." },
+  { Icon: Database, t: "Data-first", d: "Every decision tied to a number. No 'we feel like' strategy decks." },
+  { Icon: Briefcase, t: "Operator mindset", d: "We act like equity-aligned co-founders, not vendors selling hours." },
+  { Icon: Users, t: "Senior teams only", d: "No juniors learning on your account. The work is done by operators." },
+  { Icon: TrendingUp, t: "Revenue as scoreboard", d: "If it doesn't move revenue, it doesn't go into the plan." },
+  { Icon: BarChart3, t: "Transparent reporting", d: "Live dashboards. Weekly numbers. Zero spin." },
+];
+
+const values = [
+  { n: "01", t: "Speed", d: "Ship weekly, not quarterly." },
+  { n: "02", t: "Profit", d: "ROAS, not vanity ROAS." },
+  { n: "03", t: "Ownership", d: "Your numbers are our numbers." },
+  { n: "04", t: "Honesty", d: "Hard truths beat soft sales decks." },
+];
+
+const team = [
+  { i: "AR", r: "Growth Strategy Lead", n: "Ex-DTC founder", c: "from-[oklch(0.7_0.16_245)] to-[oklch(0.5_0.2_250)]" },
+  { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", c: "from-[oklch(0.7_0.16_30)] to-[oklch(0.55_0.2_25)]" },
+  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", c: "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" },
+  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", c: "from-[oklch(0.72_0.15_300)] to-[oklch(0.5_0.2_300)]" },
+];
 
 function About() {
   return (
     <PageLayout>
-      <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
+      {/* HERO */}
+      <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-24 overflow-hidden">
+        <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
+        <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
+
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
-          <div className="text-xs font-semibold uppercase tracking-widest text-primary">About</div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl leading-[1.04]">
-            We build <span className="text-gradient">ecommerce growth systems</span> - not marketing services.
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+            About BeingEcom
+          </div>
+          <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04] text-ink max-w-4xl">
+            We build <span className="text-gradient">ecommerce growth systems</span>.
           </h1>
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+            Not an SEO agency. Not a Facebook ads shop. An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/contact" className="btn btn-primary btn-shimmer">Get Free Audit <span>→</span></Link>
+            <Link to="/case-studies" className="btn btn-dark btn-shimmer">See Case Studies</Link>
+          </div>
         </div>
       </section>
 
-      <Section eyebrow="Our story" title="BeingEcom started inside a Shopify store, not an agency.">
-        <p className="text-lg text-muted-foreground max-w-3xl">
-          We spent years scaling our own DTC brands. Every framework, dashboard, and playbook we use was forged from
-          our own P&Ls. That's why our work is operator-grade - not generic agency theory.
-        </p>
+      {/* OUR STORY */}
+      <Section eyebrow="Our Story" title="Built by operators, not by talkers">
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="space-y-5 text-muted-foreground text-lg leading-relaxed">
+            <p>
+              BeingEcom started inside ecommerce, not outside it. We ran stores, lost money on ads, fixed funnels, scaled brands and got tired of agencies that didn't understand the math of a real DTC business.
+            </p>
+            <p>
+              So we built the thing we wished existed: a single growth team that owns ads, CRO, SEO and retention as one connected system, with revenue as the only scoreboard.
+            </p>
+            <p>
+              Today we work with Shopify & WooCommerce brands that want to scale profitably not just spin up vanity metrics.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { k: "100+", v: "Stores scaled" },
+              { k: "$48M+", v: "Tracked revenue" },
+              { k: "400+", v: "A/B tests" },
+              { k: "12+", v: "Senior operators" },
+            ].map((s) => (
+              <div key={s.k} className="card-surface p-6 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-gradient">{s.k}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{s.v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </Section>
 
-      <Section eyebrow="Mission" title="Help ecommerce stores scale profitably.">
-        <p className="text-lg text-muted-foreground max-w-3xl">Make sustainable, profit-led growth the default for Shopify and WooCommerce brands - not the exception.</p>
+      {/* MISSION & VISION */}
+      <Section eyebrow="Mission & Vision" title="What we're building toward">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="card-surface p-8 rounded-3xl relative overflow-hidden group">
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-primary/15 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
+            <div className="relative">
+              <div className="text-xs font-bold uppercase tracking-widest text-primary">Mission</div>
+              <p className="mt-3 text-xl md:text-2xl font-semibold text-ink leading-snug">
+                Help 1,000 ecommerce stores scale profitably with a real growth system not guesses.
+              </p>
+            </div>
+          </div>
+          <div className="card-surface p-8 rounded-3xl relative overflow-hidden group">
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-accent/40 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
+            <div className="relative">
+              <div className="text-xs font-bold uppercase tracking-widest text-primary">Vision</div>
+              <p className="mt-3 text-xl md:text-2xl font-semibold text-ink leading-snug">
+                Become the default growth partner for Shopify and WooCommerce founders worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
       </Section>
 
-      <Section eyebrow="Vision" title="Become the global ecommerce growth partner.">
-        <p className="text-lg text-muted-foreground max-w-3xl">An operating system, not an agency. Owned by operators, built for operators.</p>
-      </Section>
-
-      <Section eyebrow="What makes us different" title="We obsess over revenue, not deliverables.">
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            { t: "Ecommerce-only", b: "We don't do SaaS, lead gen, or local. Only ecommerce." },
-            { t: "Full stack", b: "Ads, CRO, SEO, retention, analytics - one team, one system." },
-            { t: "Operator DNA", b: "Built by people who've actually scaled stores with their own money." },
-          ].map((p) => (
-            <Card key={p.t}>
-              <h3 className="font-semibold text-lg">{p.t}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{p.b}</p>
-            </Card>
+      {/* WHAT MAKES US DIFFERENT */}
+      <Section eyebrow="What makes us different" title="No theory. Just systems that ship revenue.">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {differentiators.map((d) => (
+            <div key={d.t} className="card-surface card-hover p-6 group">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                <d.Icon className="w-6 h-6" strokeWidth={2.2} />
+              </div>
+              <h3 className="mt-4 font-bold text-ink text-lg">{d.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{d.d}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Our approach" title="Data-driven, no fluff.">
-        <NumberedList items={[
-          { title: "Diagnose", body: "Audit your funnel, ads, and unit economics in week one." },
-          { title: "Prioritize", body: "Stack ranked by revenue impact. Quick wins first." },
-          { title: "Execute", body: "Sprints, not 'strategies'. Things ship every week." },
-          { title: "Compound", body: "Each module feeds the next. Growth becomes the default." },
-        ]} />
-      </Section>
-
-      <Section eyebrow="Values" title="What we won't compromise on.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {["Honesty over hype","Numbers over narratives","Systems over heroics","Compounding over chasing"].map(v=>(
-            <Card key={v}><h3 className="font-semibold">{v}</h3></Card>
+      {/* CORE VALUES */}
+      <Section eyebrow="Core Values" title="The operating principles">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {values.map((v) => (
+            <div key={v.n} className="card-surface card-hover p-7 relative overflow-hidden">
+              <div className="text-6xl font-display font-bold text-primary/15 leading-none">{v.n}</div>
+              <h3 className="mt-3 text-xl font-bold text-ink">{v.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{v.d}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Team" title="The operators behind your store.">
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { n: "Aman R.", r: "Founder · Growth Lead" },
-            { n: "Priya S.", r: "CRO & Design" },
-            { n: "Vikram T.", r: "Paid Media" },
-            { n: "Neha K.", r: "Lifecycle & SEO" },
-          ].map(m=>(
-            <Card key={m.n}>
-              <div className="aspect-square rounded-xl bg-gradient-to-br from-primary/30 to-accent/30" />
-              <div className="mt-3 font-semibold">{m.n}</div>
-              <div className="text-xs text-muted-foreground">{m.r}</div>
-            </Card>
+      {/* THE TEAM */}
+      <Section eyebrow="The Team" title="A small, senior, ecommerce-only crew">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {team.map((m) => (
+            <div key={m.i} className="card-surface card-hover p-6 text-center">
+              <div className={`mx-auto w-20 h-20 rounded-full bg-gradient-to-br ${m.c} text-white font-bold text-2xl flex items-center justify-center shadow-lg ring-4 ring-white`}>
+                {m.i}
+              </div>
+              <h3 className="mt-4 font-bold text-ink">{m.r}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{m.n}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="Tools" title="Our daily stack.">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {["Shopify","WooCommerce","Meta Ads","Google Ads","TikTok","GA4","Hotjar","Klaviyo","Triple Whale","Recharge","Yotpo","Shogun"].map(t=>(
-            <div key={t} className="rounded-xl border border-border bg-card/60 px-4 py-3 text-sm font-medium text-center">{t}</div>
-          ))}
+      {/* CTA */}
+      <section className="py-16">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/10 via-white to-accent/20 p-10 lg:p-14 text-center">
+            <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/15 blur-3xl rounded-full float" />
+            <h3 className="relative text-3xl md:text-4xl font-bold text-ink">Ready to scale profitably?</h3>
+            <p className="relative mt-3 text-muted-foreground max-w-xl mx-auto">
+              Get a free 12-point growth audit. No pitch deck, no obligations.
+            </p>
+            <Link to="/contact" className="relative inline-flex mt-6 btn btn-primary btn-shimmer">
+              Book Free Audit <span>→</span>
+            </Link>
+          </div>
         </div>
-      </Section>
-
-      <Section eyebrow="Focus" title="Why ecommerce, only ecommerce.">
-        <p className="text-lg text-muted-foreground max-w-3xl">
-          Ecommerce is its own world: AOV, ROAS, CR, CAC, LTV, MER, post-purchase, inventory - none of it transfers from
-          a SaaS or lead-gen playbook. We picked one lane so we'd be world-class in it.
-        </p>
-      </Section>
-
-      <Section eyebrow="Proof" title="By the numbers.">
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { v: "100+", l: "stores scaled" },
-            { v: "$48M+", l: "tracked revenue" },
-            { v: "3.2×", l: "avg ROAS lift" },
-            { v: "+260%", l: "avg CR uplift" },
-          ].map(s=>(
-            <Card key={s.l}><div className="text-3xl font-bold text-gradient">{s.v}</div><div className="text-sm text-muted-foreground mt-1">{s.l}</div></Card>
-          ))}
-        </div>
-      </Section>
-
-      <CTA heading="Want operators on your team?" />
+      </section>
     </PageLayout>
   );
 }
