@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Megaphone, MousePointerClick, Search, Rocket } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
+import { Reveal } from "../hooks/useReveal";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -139,20 +141,32 @@ function Home() {
         </div>
       </Section>
 
-      {/* 4. SOLUTION 4 PILLARS */}
-      <Section center eyebrow="Our growth system" title="We fix everything that stops your store from selling.">
+      {/* 4. SOLUTION — 4 PILLARS */}
+      <Section
+        center
+        eyebrow="The system"
+        title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
+        intro="One integrated growth engine. No more disconnected agencies blaming each other."
+      >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { t: "Ads", b: "Profitable traffic engine across Meta, Google, TikTok." },
-            { t: "CRO", b: "Turn every visit into more revenue without spending more." },
-            { t: "SEO", b: "Free ranking traffic that compounds month over month." },
-            { t: "Scaling System", b: "Email, automations, and structure to scale past $100K/mo." },
+            { t: "Traffic", b: "Profitable paid ads across Meta, Google, TikTok.", Icon: Megaphone },
+            { t: "Conversion", b: "Store, product page & checkout optimized for sales.", Icon: MousePointerClick },
+            { t: "Organic", b: "Ecommerce SEO that compounds free revenue.", Icon: Search },
+            { t: "Scale", b: "Email, retention & data systems that multiply LTV.", Icon: Rocket },
           ].map((p, i) => (
-            <Card key={p.t}>
-              <div className="font-display text-3xl text-gradient">{String(i + 1).padStart(2, "0")}</div>
-              <h3 className="mt-3 font-semibold text-lg">{p.t}</h3>
-              <p className="text-sm text-muted-foreground mt-1">{p.b}</p>
-            </Card>
+            <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Card className="relative overflow-hidden h-full">
+                <div className="absolute top-4 right-5 font-display font-bold text-5xl text-primary/10 select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                  <p.Icon className="w-6 h-6" strokeWidth={2.2} />
+                </div>
+                <h3 className="mt-6 font-semibold text-lg text-ink">{p.t}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{p.b}</p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Section>
