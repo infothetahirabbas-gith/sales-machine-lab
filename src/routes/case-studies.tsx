@@ -476,7 +476,7 @@ function CaseStudies() {
           {/* Filter segmented control */}
           <div className="flex justify-center mb-10">
             <div className="inline-flex items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm">
-              {(["All", "Ads", "SEO", "CRO"] as const).map((f) => {
+              {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
                 return (
