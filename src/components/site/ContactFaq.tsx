@@ -65,7 +65,7 @@ export default function ContactFaq() {
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* LEFT - CONTACT FORM */}
-          <div className="card-surface p-6 md:p-8 rounded-3xl shadow-xl">
+          <div className="order-2 lg:order-1 card-surface p-6 md:p-8 rounded-3xl shadow-xl">
             <h3 className="text-xl font-bold text-ink">Tell us about your store</h3>
             <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours, every weekday.</p>
 
