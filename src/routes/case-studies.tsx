@@ -469,34 +469,34 @@ function CaseStudies() {
                   onClick={() => setActive(s)}
                   className="text-left card-surface card-hover overflow-hidden group flex flex-col"
                 >
-                  {/* Live site showcase */}
-                  <div className={`relative h-48 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
+                  {/* Category-specific preview */}
+                  <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
                     <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
-                      {/* Browser chrome */}
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f1f3f5] border-b border-border shrink-0">
+                      {/* App-style chrome */}
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
                         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+                        <span className="ml-2 text-[9px] text-muted-foreground font-medium truncate">
+                          {s.category === "Ads" ? "ads-manager.dashboard" : s.category === "SEO" ? "search.google.com/search-console" : "analytics.cro-funnel"}
+                        </span>
                       </div>
-                      {/* Real site screenshot */}
-                      <div className="relative flex-1 overflow-hidden">
-                        <img
-                          src={s.screenshot}
-                          alt="Live store showcase"
-                          loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
-                        />
+                      <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
+                        {s.category === "Ads" && <AdsPreview data={s.chart} metric={s.metric} metricLabel={s.metricLabel} seed={parseInt(s.id.slice(1)) || 1} />}
+                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
-                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg">
+                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
-                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
+                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg z-10">
                       <div className="text-lg font-bold leading-none text-gradient">{s.metric}</div>
                       <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{s.metricLabel}</div>
                     </div>
                   </div>
+
 
 
                   {/* Body */}
