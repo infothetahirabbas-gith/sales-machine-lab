@@ -65,7 +65,7 @@ export default function ContactFaq() {
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* LEFT - CONTACT FORM */}
-          <div className="card-surface p-6 md:p-8 rounded-3xl shadow-xl">
+          <div className="order-2 lg:order-1 card-surface p-6 md:p-8 rounded-3xl shadow-xl">
             <h3 className="text-xl font-bold text-ink">Tell us about your store</h3>
             <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours, every weekday.</p>
 
@@ -133,7 +133,7 @@ export default function ContactFaq() {
           </div>
 
           {/* RIGHT - FAQ */}
-          <div>
+          <div className="order-1 lg:order-2">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
               Common Questions
             </div>
