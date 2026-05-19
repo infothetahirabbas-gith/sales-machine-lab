@@ -99,7 +99,7 @@ function Home() {
                 </span>
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
                 { v: "+300%", l: "avg sales growth" },
                 { v: "2.5×", l: "ROAS improvement" },
