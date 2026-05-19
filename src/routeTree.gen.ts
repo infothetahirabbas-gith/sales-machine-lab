@@ -23,6 +23,8 @@ import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sm
 import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -95,6 +97,16 @@ const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => ServicesRoute,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
+  id: '/admin/case-studies',
+  path: '/admin/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -102,6 +114,8 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRouteWithChildren
+  '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -118,6 +132,8 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRouteWithChildren
+  '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -135,6 +151,8 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRouteWithChildren
+  '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -153,6 +171,8 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/services'
+    | '/admin/case-studies'
+    | '/admin/login'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -169,6 +189,8 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/services'
+    | '/admin/case-studies'
+    | '/admin/login'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -185,6 +207,8 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/contact'
     | '/services'
+    | '/admin/case-studies'
+    | '/admin/login'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -202,6 +226,8 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -304,6 +330,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAnalyticsRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/case-studies': {
+      id: '/admin/case-studies'
+      path: '/admin/case-studies'
+      fullPath: '/admin/case-studies'
+      preLoaderRoute: typeof AdminCaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -341,6 +381,8 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  AdminCaseStudiesRoute: AdminCaseStudiesRoute,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
