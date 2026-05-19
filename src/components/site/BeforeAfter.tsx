@@ -34,15 +34,15 @@ export default function BeforeAfter() {
       className="relative w-full rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
       onPointerDown={(e) => { dragging.current = true; document.body.style.userSelect = "none"; setFromClientX(e.clientX); }}
     >
-      {/* AFTER (full bg) */}
-      <Panel kind="after" />
+      {/* AFTER (sets height) */}
+      <Panel kind="after" absolute={false} />
 
-      {/* BEFORE (clipped) */}
+      {/* BEFORE (clipped overlay) */}
       <div
         className="absolute inset-0"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       >
-        <Panel kind="before" />
+        <Panel kind="before" absolute />
       </div>
 
       {/* Divider + handle */}
