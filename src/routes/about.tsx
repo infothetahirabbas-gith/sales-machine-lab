@@ -124,7 +124,7 @@ function About() {
 
       {/* WHAT MAKES US DIFFERENT */}
       <Section eyebrow="What makes us different" title="No theory. Just systems that ship revenue.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
           {differentiators.map((d) => (
             <div key={d.t} className="card-surface card-hover p-6 group">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
