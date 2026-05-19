@@ -119,7 +119,7 @@ export default function ContactFaq() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="btn btn-primary btn-shimmer w-full justify-center disabled:opacity-60"
+                className="flex btn btn-primary btn-shimmer w-full justify-center disabled:opacity-60"
               >
                 {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
               </button>
