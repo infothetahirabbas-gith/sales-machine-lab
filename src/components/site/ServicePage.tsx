@@ -15,7 +15,7 @@ import {
   Star,
 } from "lucide-react";
 import PageLayout from "./PageLayout";
-import { Section, Card, Pill, CTA } from "./Section";
+import { Section, Pill, CTA } from "./Section";
 import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
 
