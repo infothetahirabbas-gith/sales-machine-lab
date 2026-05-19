@@ -52,6 +52,7 @@ export default function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-card">
           <div className="px-5 py-3 grid gap-1 text-sm">
+            <Link to="/" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Home</Link>
             {services.map((s) => (
               <Link key={s.to} to={s.to} className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>{s.label}</Link>
             ))}
