@@ -61,13 +61,13 @@ export default function CaseStudyForm({ initial, onSubmit, onCancel }: Props) {
         <label className="text-sm">
           Category
           <select
-            value={form.category ?? "ads"}
-            onChange={(e) => set("category", e.target.value)}
+            value={form.category ?? "Ads"}
+            onChange={(e) => set("category", e.target.value as "Ads" | "SEO" | "CRO")}
             className="mt-1 w-full rounded-md border border-border px-3 py-2"
           >
-            <option value="ads">Ads</option>
-            <option value="seo">SEO</option>
-            <option value="cro">CRO</option>
+            <option value="Ads">Ads</option>
+            <option value="SEO">SEO</option>
+            <option value="CRO">CRO</option>
           </select>
         </label>
         <label className="text-sm">
