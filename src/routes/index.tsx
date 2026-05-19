@@ -178,7 +178,7 @@ function Home() {
           {services.map((s) => (
             <Link key={s.to} to={s.to}>
               <Card>
-                <div className="text-3xl">{s.icon}</div>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
                 <h3 className="mt-3 font-semibold text-lg">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{s.body}</p>
                 <div className="mt-4 text-sm font-semibold text-primary">Explore →</div>
