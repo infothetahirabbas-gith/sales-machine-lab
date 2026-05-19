@@ -131,10 +131,11 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "c12", title: "Outdoor: filter UX +24% collection CR", brand: "TrailGear", industry: "Shopify · Outdoor", category: "CRO", metric: "+24%", metricLabel: "CR", duration: "4 weeks", problem: "Filters opened modal, lost context, slow.", strategy: ["Inline left-rail filters", "Instant results (no apply button)", "Filter chips above grid"], results: [{ v: "+24%", l: "CR" }, { v: "-18%", l: "Bounce" }, { v: "+19%", l: "Rev" }], takeaway: "Filter friction is collection-page revenue leaving the building." },
 ];
 
-const studies: Study[] = RAW.map((s, i) => ({
+const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
   ...s,
   color: gradients[i % gradients.length],
   chart: makeChart(i + 1, s.category === "Ads" ? 2.0 : s.category === "SEO" ? 1.4 : 1.7),
+  screenshot: showcaseImages[i % showcaseImages.length],
 }));
 
 const categoryIcon: Record<Category | "All", typeof Megaphone> = {
