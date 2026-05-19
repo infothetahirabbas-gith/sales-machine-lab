@@ -149,6 +149,10 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "s10", title: "Furniture: image SEO +28% organic", brand: "Mason Living", industry: "WooCommerce · Furniture", category: "SEO", metric: "+28%", metricLabel: "Image traffic", duration: "4 months", problem: "Massive product imagery, zero image search traffic.", strategy: ["Descriptive file names and alts", "Image sitemaps", "WebP + responsive sizes"], results: [{ v: "+28%", l: "Organic" }, { v: "12%", l: "From images" }, { v: "+19%", l: "Rev" }], takeaway: "Image search is free traffic furniture and decor brands ignore." },
   { id: "s11", title: "Outdoor: content cluster ranks 6 pillar terms", brand: "TrailGear", industry: "Shopify · Outdoor", category: "SEO", metric: "Top 3", metricLabel: "6 pillar terms", duration: "11 months", problem: "Random blog posts, no topical structure.", strategy: ["Mapped 6 pillar topics with 12 supporting articles each", "Hub-and-spoke internal linking", "Refreshed top 20 posts quarterly"], results: [{ v: "Top 3", l: "6 pillars" }, { v: "94K", l: "Visits" }, { v: "$36K", l: "MRR" }], takeaway: "Pillar pages need 10+ supporting articles to rank competitively." },
   { id: "s12", title: "Eyewear: international SEO 4 new markets", brand: "Frame & Co.", industry: "Shopify · Eyewear", category: "SEO", metric: "4", metricLabel: "New markets", duration: "9 months", problem: "US-only despite global demand.", strategy: ["Hreflang implementation for UK/AU/CA/DE", "Localized content per market", "Country-specific GMB profiles"], results: [{ v: "4", l: "Markets" }, { v: "+62%", l: "Global rev" }, { v: "$41K", l: "Intl MRR" }], takeaway: "Hreflang done right is the cheapest revenue unlock for global ecom." },
+  { id: "s13", title: "Streetwear: core web vitals fix +51% organic", brand: "Cypher Drop", industry: "Shopify · Streetwear", category: "SEO", metric: "+51%", metricLabel: "Organic sessions", duration: "3 months", problem: "Poor LCP/CLS scores killing rankings post-update.", strategy: ["LCP under 1.8s via image preloading", "Eliminated CLS from lazy-loaded reviews", "Edge caching for collection pages"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Core Web Vitals are now a ranking tax — pay it or fall." },
+  { id: "s14", title: "Tea brand: 'best of' content +74K clicks", brand: "Steepwell", industry: "Shopify · Beverage", category: "SEO", metric: "+74K", metricLabel: "Clicks/mo", duration: "7 months", problem: "Invisible for commercial intent comparison queries.", strategy: ["48 'best X tea for Y' comparison posts", "Embedded product comparison tables", "Affiliate-style CTA into own PDPs"], results: [{ v: "+74K", l: "Clicks" }, { v: "12.3%", l: "CTR" }, { v: "$26K", l: "MRR" }], takeaway: "Bottom-funnel comparison content converts 8× higher than how-to posts." },
+  { id: "s15", title: "Watches: GSC CTR optimization +44% clicks", brand: "Meridian Watch Co.", industry: "Shopify · Watches", category: "SEO", metric: "+44%", metricLabel: "GSC clicks", duration: "8 weeks", problem: "Ranking well but losing clicks to richer SERP snippets.", strategy: ["Rewrote 80 underperforming title tags via GSC data", "Power words + brackets + year in titles", "Meta descriptions with explicit benefit"], results: [{ v: "+44%", l: "Clicks" }, { v: "+18%", l: "Avg position" }, { v: "+29%", l: "Rev" }], takeaway: "Search Console is the highest-ROI SEO tool nobody fully uses." },
+  { id: "s16", title: "Candles: AI Overviews citations on 22 queries", brand: "Hearthwax", industry: "Shopify · Home", category: "SEO", metric: "22", metricLabel: "AI cites", duration: "5 months", problem: "Losing traffic to Google AI Overviews with no presence inside them.", strategy: ["Restructured posts into question/answer chunks", "Added definition blocks + sourced statistics", "Implemented Article + HowTo schema"], results: [{ v: "22", l: "AIO cites" }, { v: "+38%", l: "Referral" }, { v: "Top 3", l: "Avg cited" }], takeaway: "In the AI Overviews era, structure and citations matter more than length." },
 
   // CRO (12)
   { id: "c1", title: "Apparel PDP rebuild: 1.1% → 4.6% CR", brand: "Northwind Apparel", industry: "Shopify · Apparel", category: "CRO", metric: "4.2×", metricLabel: "CR lift", duration: "8 weeks", problem: "Below-industry CR, flat PDP, no social proof above fold.", strategy: ["Hero PDP with sticky ATC", "Review carousel + UGC gallery", "Size guide as inline modal"], results: [{ v: "4.2×", l: "CR" }, { v: "+38%", l: "AOV" }, { v: "+170%", l: "Rev/visitor" }], takeaway: "PDP is the single highest-leverage page in ecom." },
@@ -201,6 +205,173 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
       <path d={area} fill={`url(#${id})`} />
       <path d={path} fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
     </svg>
+  );
+}
+
+/* ---------- Category-specific card previews ---------- */
+
+function AdsPreview({ data, metric, metricLabel, seed }: { data: number[]; metric: string; metricLabel: string; seed: number }) {
+  const r = rng(seed + 11);
+  const metaBars = Array.from({ length: 7 }, () => 30 + r() * 60);
+  const googleBars = Array.from({ length: 7 }, () => 25 + r() * 65);
+  const days = ["M", "T", "W", "T", "F", "S", "S"];
+  const maxBar = Math.max(...metaBars, ...googleBars);
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header tabs: Meta + Google */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-3 text-[10px] font-semibold">
+          <span className="inline-flex items-center gap-1.5 text-ink">
+            <span className="w-2 h-2 rounded-sm bg-[#1877F2]" /> Meta Ads
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-ink">
+            <span className="w-2 h-2 rounded-sm bg-[#34A853]" /> Google Ads
+          </span>
+        </div>
+        <span className="text-[9px] font-bold text-emerald-600 tabular-nums">● LIVE</span>
+      </div>
+      {/* Stat strip */}
+      <div className="grid grid-cols-3 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">ROAS</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(2 + (seed % 5) * 0.7).toFixed(1)}×</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CPA</div>
+          <div className="text-xs font-bold text-ink tabular-nums">${10 + (seed % 9) * 3}</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CTR</div>
+          <div className="text-xs font-bold text-emerald-600 tabular-nums">{(1.4 + (seed % 6) * 0.4).toFixed(1)}%</div>
+        </div>
+      </div>
+      {/* Dual bar chart */}
+      <div className="flex-1 flex items-end gap-1.5 px-3 pb-2.5 pt-2 min-h-0">
+        {metaBars.map((m, i) => (
+          <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+            <div className="w-full flex items-end gap-[2px] h-full">
+              <div className="flex-1 bg-[#1877F2] rounded-sm" style={{ height: `${(m / maxBar) * 100}%` }} />
+              <div className="flex-1 bg-[#34A853] rounded-sm" style={{ height: `${(googleBars[i] / maxBar) * 100}%` }} />
+            </div>
+            <div className="text-[7px] text-muted-foreground font-medium leading-none">{days[i]}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
+  const r = rng(seed + 23);
+  // Trend area chart
+  const pts = Array.from({ length: 14 }, (_, i) => 20 + i * 4 + r() * 14);
+  const max = Math.max(...pts);
+  const min = Math.min(...pts);
+  const w = 100, h = 40;
+  const path = pts.map((v, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * w},${h - ((v - min) / (max - min || 1)) * h}`).join(" ");
+  const area = `${path} L${w},${h} L0,${h} Z`;
+  const queries = [
+    { kw: "best skincare routine", pos: 3, clicks: "2.4K" },
+    { kw: "vitamin c serum benefits", pos: 5, clicks: "1.8K" },
+    { kw: "anti aging cream review", pos: 2, clicks: "3.1K" },
+  ];
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="w-3 h-3"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
+          <span className="text-[10px] font-semibold text-ink">Search Console</span>
+        </div>
+        <span className="text-[8px] font-semibold text-muted-foreground">Last 28 days</span>
+      </div>
+      {/* Metric chips */}
+      <div className="grid grid-cols-2 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Clicks</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(8 + (seed % 12)).toFixed(0)}.{seed % 10}K</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Impr.</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(80 + (seed % 70))}.{seed % 10}K</div>
+        </div>
+      </div>
+      {/* Mini trend chart */}
+      <div className="px-3 pt-1.5 pb-1 shrink-0">
+        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-10" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id={`seo-${seed}`} x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor="#4285F4" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#4285F4" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d={area} fill={`url(#seo-${seed})`} />
+          <path d={path} fill="none" stroke="#4285F4" strokeWidth="1.5" />
+        </svg>
+      </div>
+      {/* Top queries list */}
+      <div className="flex-1 px-3 pb-2 space-y-0.5 min-h-0 overflow-hidden">
+        {queries.map((q, i) => (
+          <div key={i} className="flex items-center justify-between text-[9px]">
+            <span className="truncate text-ink/80 flex-1">{q.kw}</span>
+            <span className="text-emerald-600 font-bold tabular-nums ml-2">#{q.pos + (seed % 3)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
+  const r = rng(seed + 37);
+  const visitors = 10000 + Math.floor(r() * 4000);
+  const addToCart = Math.floor(visitors * (0.18 + r() * 0.08));
+  const checkout = Math.floor(addToCart * (0.55 + r() * 0.15));
+  const purchases = Math.floor(checkout * (0.42 + r() * 0.18));
+  const before = (1 + r() * 0.6).toFixed(2);
+  const after = (3.2 + r() * 1.6).toFixed(2);
+  const steps = [
+    { l: "Visitors", v: visitors.toLocaleString(), pct: 100 },
+    { l: "Add to cart", v: addToCart.toLocaleString(), pct: (addToCart / visitors) * 100 },
+    { l: "Checkout", v: checkout.toLocaleString(), pct: (checkout / visitors) * 100 },
+    { l: "Purchased", v: purchases.toLocaleString(), pct: (purchases / visitors) * 100 },
+  ];
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header A/B */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <span className="text-[10px] font-semibold text-ink">Conversion funnel</span>
+        <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">A/B WIN</span>
+      </div>
+      {/* Before/After */}
+      <div className="grid grid-cols-2 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Before</div>
+          <div className="text-xs font-bold text-ink/60 tabular-nums line-through">{before}%</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">After</div>
+          <div className="text-xs font-bold text-emerald-600 tabular-nums">{after}%</div>
+        </div>
+      </div>
+      {/* Funnel bars */}
+      <div className="flex-1 flex flex-col justify-center gap-1 px-3 pb-2.5 min-h-0">
+        {steps.map((s, i) => (
+          <div key={i} className="space-y-0.5">
+            <div className="flex items-center justify-between text-[8px] font-medium">
+              <span className="text-ink/70">{s.l}</span>
+              <span className="tabular-nums text-ink/60">{s.v}</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-secondary/60 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-primary to-[oklch(0.55_0.2_265)] rounded-full"
+                style={{ width: `${Math.max(8, s.pct)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -298,34 +469,34 @@ function CaseStudies() {
                   onClick={() => setActive(s)}
                   className="text-left card-surface card-hover overflow-hidden group flex flex-col"
                 >
-                  {/* Live site showcase */}
-                  <div className={`relative h-48 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
+                  {/* Category-specific preview */}
+                  <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
                     <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
-                      {/* Browser chrome */}
-                      <div className="flex items-center gap-1.5 px-3 py-2 bg-[#f1f3f5] border-b border-border shrink-0">
+                      {/* App-style chrome */}
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
                         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+                        <span className="ml-2 text-[9px] text-muted-foreground font-medium truncate">
+                          {s.category === "Ads" ? "ads-manager.dashboard" : s.category === "SEO" ? "search.google.com/search-console" : "analytics.cro-funnel"}
+                        </span>
                       </div>
-                      {/* Real site screenshot */}
-                      <div className="relative flex-1 overflow-hidden">
-                        <img
-                          src={s.screenshot}
-                          alt="Live store showcase"
-                          loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
-                        />
+                      <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
+                        {s.category === "Ads" && <AdsPreview data={s.chart} metric={s.metric} metricLabel={s.metricLabel} seed={parseInt(s.id.slice(1)) || 1} />}
+                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
-                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg">
+                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
-                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg">
+                    <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg z-10">
                       <div className="text-lg font-bold leading-none text-gradient">{s.metric}</div>
                       <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{s.metricLabel}</div>
                     </div>
                   </div>
+
 
 
                   {/* Body */}
