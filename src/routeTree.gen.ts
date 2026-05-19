@@ -14,6 +14,15 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
+import { Route as ServicesSeoRouteImport } from './routes/services.seo'
+import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
+import { Route as ServicesPaidAdsRouteImport } from './routes/services.paid-ads'
+import { Route as ServicesFunnelRouteImport } from './routes/services.funnel'
+import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sms'
+import { Route as ServicesCroRouteImport } from './routes/services.cro'
+import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
+import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -40,20 +49,84 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesStoreDevelopmentRoute =
+  ServicesStoreDevelopmentRouteImport.update({
+    id: '/store-development',
+    path: '/store-development',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesSeoRoute = ServicesSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesScalingRoute = ServicesScalingRouteImport.update({
+  id: '/scaling',
+  path: '/scaling',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPaidAdsRoute = ServicesPaidAdsRouteImport.update({
+  id: '/paid-ads',
+  path: '/paid-ads',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesFunnelRoute = ServicesFunnelRouteImport.update({
+  id: '/funnel',
+  path: '/funnel',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEmailSmsRoute = ServicesEmailSmsRouteImport.update({
+  id: '/email-sms',
+  path: '/email-sms',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCroRoute = ServicesCroRouteImport.update({
+  id: '/cro',
+  path: '/cro',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCreativeRoute = ServicesCreativeRouteImport.update({
+  id: '/creative',
+  path: '/creative',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/creative': typeof ServicesCreativeRoute
+  '/services/cro': typeof ServicesCroRoute
+  '/services/email-sms': typeof ServicesEmailSmsRoute
+  '/services/funnel': typeof ServicesFunnelRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/scaling': typeof ServicesScalingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/creative': typeof ServicesCreativeRoute
+  '/services/cro': typeof ServicesCroRoute
+  '/services/email-sms': typeof ServicesEmailSmsRoute
+  '/services/funnel': typeof ServicesFunnelRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/scaling': typeof ServicesScalingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +134,66 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/creative': typeof ServicesCreativeRoute
+  '/services/cro': typeof ServicesCroRoute
+  '/services/email-sms': typeof ServicesEmailSmsRoute
+  '/services/funnel': typeof ServicesFunnelRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/scaling': typeof ServicesScalingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/case-studies' | '/contact' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/services/analytics'
+    | '/services/creative'
+    | '/services/cro'
+    | '/services/email-sms'
+    | '/services/funnel'
+    | '/services/paid-ads'
+    | '/services/scaling'
+    | '/services/seo'
+    | '/services/store-development'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/case-studies' | '/contact' | '/services'
-  id: '__root__' | '/' | '/about' | '/case-studies' | '/contact' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/services/analytics'
+    | '/services/creative'
+    | '/services/cro'
+    | '/services/email-sms'
+    | '/services/funnel'
+    | '/services/paid-ads'
+    | '/services/scaling'
+    | '/services/seo'
+    | '/services/store-development'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/services/analytics'
+    | '/services/creative'
+    | '/services/cro'
+    | '/services/email-sms'
+    | '/services/funnel'
+    | '/services/paid-ads'
+    | '/services/scaling'
+    | '/services/seo'
+    | '/services/store-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,7 +201,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -116,15 +241,106 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/store-development': {
+      id: '/services/store-development'
+      path: '/store-development'
+      fullPath: '/services/store-development'
+      preLoaderRoute: typeof ServicesStoreDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/seo': {
+      id: '/services/seo'
+      path: '/seo'
+      fullPath: '/services/seo'
+      preLoaderRoute: typeof ServicesSeoRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/scaling': {
+      id: '/services/scaling'
+      path: '/scaling'
+      fullPath: '/services/scaling'
+      preLoaderRoute: typeof ServicesScalingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/paid-ads': {
+      id: '/services/paid-ads'
+      path: '/paid-ads'
+      fullPath: '/services/paid-ads'
+      preLoaderRoute: typeof ServicesPaidAdsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/funnel': {
+      id: '/services/funnel'
+      path: '/funnel'
+      fullPath: '/services/funnel'
+      preLoaderRoute: typeof ServicesFunnelRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/email-sms': {
+      id: '/services/email-sms'
+      path: '/email-sms'
+      fullPath: '/services/email-sms'
+      preLoaderRoute: typeof ServicesEmailSmsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/cro': {
+      id: '/services/cro'
+      path: '/cro'
+      fullPath: '/services/cro'
+      preLoaderRoute: typeof ServicesCroRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/creative': {
+      id: '/services/creative'
+      path: '/creative'
+      fullPath: '/services/creative'
+      preLoaderRoute: typeof ServicesCreativeRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/analytics': {
+      id: '/services/analytics'
+      path: '/analytics'
+      fullPath: '/services/analytics'
+      preLoaderRoute: typeof ServicesAnalyticsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesCreativeRoute: typeof ServicesCreativeRoute
+  ServicesCroRoute: typeof ServicesCroRoute
+  ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
+  ServicesFunnelRoute: typeof ServicesFunnelRoute
+  ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
+  ServicesScalingRoute: typeof ServicesScalingRoute
+  ServicesSeoRoute: typeof ServicesSeoRoute
+  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesCreativeRoute: ServicesCreativeRoute,
+  ServicesCroRoute: ServicesCroRoute,
+  ServicesEmailSmsRoute: ServicesEmailSmsRoute,
+  ServicesFunnelRoute: ServicesFunnelRoute,
+  ServicesPaidAdsRoute: ServicesPaidAdsRoute,
+  ServicesScalingRoute: ServicesScalingRoute,
+  ServicesSeoRoute: ServicesSeoRoute,
+  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
