@@ -13,13 +13,13 @@ export const Route = createFileRoute("/")({
 
 const services = [
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", Icon: ShoppingCart },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2–3× more sales.", Icon: TrendingUp },
+  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2-3× more sales.", Icon: TrendingUp },
   { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", Icon: Megaphone },
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google — free traffic forever.", Icon: Search },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google - free traffic forever.", Icon: Search },
   { to: "/services/email-sms", title: "Email & SMS Automation", body: "Recover lost sales. Multiply repeat customers.", Icon: Mail },
   { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", Icon: Palette },
   { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", Icon: Magnet },
-  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards — set up correctly.", Icon: BarChart3 },
+  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards - set up correctly.", Icon: BarChart3 },
   { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", Icon: Rocket },
 ];
 
@@ -52,7 +52,7 @@ function Home() {
               We Turn <span className="text-sky-gradient">Struggling Ecommerce Stores</span> Into <span className="text-gradient">Scalable Revenue Machines</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              Shopify & WooCommerce growth system — Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
+              Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
             <div className="mt-8 flex flex-wrap gap-3" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
               <Link to="/contact" className="btn btn-primary btn-shimmer">
@@ -101,7 +101,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 2. TRUST BAR — running marquee */}
+      {/* 2. TRUST BAR - running marquee */}
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
@@ -143,7 +143,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* 4. SOLUTION — 4 PILLARS */}
+      {/* 4. SOLUTION - 4 PILLARS */}
       <Section
         center
         eyebrow="The system"
@@ -192,12 +192,12 @@ function Home() {
         </div>
       </Section>
 
-      {/* 6. BEFORE / AFTER — interactive slider */}
+      {/* 6. BEFORE / AFTER - interactive slider */}
       <Section
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
-        intro="Drag the slider. Same store, same product, same audience — different system."
+        intro="Drag the slider. Same store, same product, same audience - different system."
       >
         <Reveal>
           <BeforeAfter />
@@ -206,10 +206,10 @@ function Home() {
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-5">
             <div className="text-xs font-bold uppercase text-destructive mb-2">Before</div>
             <ul className="space-y-1.5 text-sm text-muted-foreground">
-              <li>— 1.1% conversion rate</li>
-              <li>— ROAS stuck at 1.4×</li>
-              <li>— 70% checkout abandonment</li>
-              <li>— Zero organic ranking</li>
+              <li>- 1.1% conversion rate</li>
+              <li>- ROAS stuck at 1.4×</li>
+              <li>- 70% checkout abandonment</li>
+              <li>- Zero organic ranking</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-primary/40 bg-primary/5 p-5">
@@ -265,7 +265,7 @@ function Home() {
           {/* connector line */}
           <div className="hidden md:block absolute top-[68px] left-[16%] right-[16%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
           {[
-            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages — find every leak.", Icon: ClipboardCheck },
+            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages - find every leak.", Icon: ClipboardCheck },
             { step: "Step 2", title: "Fix", body: "Rebuild the highest-impact pieces: PDP, checkout, ad funnel, Klaviyo flows.", Icon: Wrench },
             { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together.", Icon: Rocket },
           ].map((s, i) => (
@@ -292,7 +292,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* 10. TESTIMONIALS — running marquee */}
+      {/* 10. TESTIMONIALS - running marquee */}
       <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
         <div
           className="relative overflow-hidden"
@@ -303,7 +303,7 @@ function Home() {
               [
                 { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Apparel Brand", a: "https://randomuser.me/api/portraits/men/32.jpg" },
                 { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Beauty DTC", a: "https://randomuser.me/api/portraits/women/44.jpg" },
-                { q: "Finally an agency that understands ecommerce — not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home & Living", a: "https://randomuser.me/api/portraits/men/15.jpg" },
+                { q: "Finally an agency that understands ecommerce - not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home & Living", a: "https://randomuser.me/api/portraits/men/15.jpg" },
                 { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Wellness Co.", a: "https://randomuser.me/api/portraits/women/68.jpg" },
                 { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Footwear Label", a: "https://randomuser.me/api/portraits/men/45.jpg" },
                 { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Skincare", a: "https://randomuser.me/api/portraits/women/22.jpg" },
@@ -344,7 +344,7 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                We'll review your store, ads, and analytics — and send back a 12-point loss-recovery plan. No pitch deck.
+                We'll review your store, ads, and analytics - and send back a 12-point loss-recovery plan. No pitch deck.
               </p>
             </div>
             <Link to="/contact" className="relative shrink-0 btn btn-primary btn-shimmer">

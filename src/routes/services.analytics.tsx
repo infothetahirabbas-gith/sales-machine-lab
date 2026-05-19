@@ -7,10 +7,10 @@ export const Route = createFileRoute("/services/analytics")({
       slug: "analytics",
       eyebrow: "Analytics & Tracking",
       heroTitle: "Track every sale, click, and customer behavior.",
-      heroSub: "GA4, Meta Pixel, conversion API, dashboards, and attribution — set up correctly, once.",
+      heroSub: "GA4, Meta Pixel, conversion API, dashboards, and attribution - set up correctly, once.",
       problemTitle: "Most stores are flying blind.",
       problemBullets: [
-        "GA4 set up wrong — missing 30%+ of conversions.",
+        "GA4 set up wrong - missing 30%+ of conversions.",
         "Meta Pixel without CAPI = broken attribution.",
         "No single dashboard. Decisions made on vibes.",
       ],
@@ -20,13 +20,13 @@ export const Route = createFileRoute("/services/analytics")({
       systemSteps: [
         { title: "Audit", body: "Find broken events, duplicate pixels, attribution gaps." },
         { title: "Rebuild", body: "GA4 + GTM + Meta CAPI + server-side where needed." },
-        { title: "Dashboard", body: "Single source of truth — daily, weekly, monthly views." },
-        { title: "Train", body: "Your team uses the data — not just stares at it." },
+        { title: "Dashboard", body: "Single source of truth - daily, weekly, monthly views." },
+        { title: "Train", body: "Your team uses the data - not just stares at it." },
       ],
       pillarsTitle: "Pillars of clean ecommerce data.",
       pillars: [
         { title: "Capture", body: "Every event, every channel, no gaps." },
-        { title: "Stitch", body: "Sessions, users, orders — joined cleanly." },
+        { title: "Stitch", body: "Sessions, users, orders - joined cleanly." },
         { title: "Report", body: "Dashboards that answer real questions." },
         { title: "Decide", body: "Weekly reviews → action items, not chart-watching." },
       ],
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/services/analytics")({
         { title: "Meta Pixel + CAPI", body: "Browser + server events, dedup, parameter quality, EMQ score.", tags: ["Pixel","CAPI","EMQ"] },
         { title: "Event tracking system", body: "Standard + custom events across PDP, checkout, post-purchase.", tags: ["GTM","Triggers","Tags"] },
         { title: "Conversion tracking setup", body: "Google Ads + Meta + TikTok, deduped against orders.", tags: ["Google","Meta","TikTok"] },
-        { title: "Dashboard creation", body: "Looker Studio / Triple Whale dashboards — daily P&L view.", tags: ["Looker","Triple Whale","P&L"] },
+        { title: "Dashboard creation", body: "Looker Studio / Triple Whale dashboards - daily P&L view.", tags: ["Looker","Triple Whale","P&L"] },
         { title: "Funnel + behavior analytics", body: "Hotjar heatmaps, session recordings, funnel reports.", tags: ["Hotjar","Funnel","Recordings"] },
       ],
       beforeAfter: {

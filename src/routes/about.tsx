@@ -14,7 +14,7 @@ function About() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">About</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl leading-[1.04]">
-            We build <span className="text-gradient">ecommerce growth systems</span> — not marketing services.
+            We build <span className="text-gradient">ecommerce growth systems</span> - not marketing services.
           </h1>
         </div>
       </section>
@@ -22,12 +22,12 @@ function About() {
       <Section eyebrow="Our story" title="BeingEcom started inside a Shopify store, not an agency.">
         <p className="text-lg text-muted-foreground max-w-3xl">
           We spent years scaling our own DTC brands. Every framework, dashboard, and playbook we use was forged from
-          our own P&Ls. That's why our work is operator-grade — not generic agency theory.
+          our own P&Ls. That's why our work is operator-grade - not generic agency theory.
         </p>
       </Section>
 
       <Section eyebrow="Mission" title="Help ecommerce stores scale profitably.">
-        <p className="text-lg text-muted-foreground max-w-3xl">Make sustainable, profit-led growth the default for Shopify and WooCommerce brands — not the exception.</p>
+        <p className="text-lg text-muted-foreground max-w-3xl">Make sustainable, profit-led growth the default for Shopify and WooCommerce brands - not the exception.</p>
       </Section>
 
       <Section eyebrow="Vision" title="Become the global ecommerce growth partner.">
@@ -38,7 +38,7 @@ function About() {
         <div className="grid md:grid-cols-3 gap-4">
           {[
             { t: "Ecommerce-only", b: "We don't do SaaS, lead gen, or local. Only ecommerce." },
-            { t: "Full stack", b: "Ads, CRO, SEO, retention, analytics — one team, one system." },
+            { t: "Full stack", b: "Ads, CRO, SEO, retention, analytics - one team, one system." },
             { t: "Operator DNA", b: "Built by people who've actually scaled stores with their own money." },
           ].map((p) => (
             <Card key={p.t}>
@@ -93,7 +93,7 @@ function About() {
 
       <Section eyebrow="Focus" title="Why ecommerce, only ecommerce.">
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Ecommerce is its own world: AOV, ROAS, CR, CAC, LTV, MER, post-purchase, inventory — none of it transfers from
+          Ecommerce is its own world: AOV, ROAS, CR, CAC, LTV, MER, post-purchase, inventory - none of it transfers from
           a SaaS or lead-gen playbook. We picked one lane so we'd be world-class in it.
         </p>
       </Section>

@@ -46,10 +46,10 @@ function Contact() {
                 <input required placeholder="Store URL (Shopify / WooCommerce)" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
                 <div className="grid sm:grid-cols-2 gap-3">
                   <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly revenue</option><option>$0 – $5K</option><option>$5K – $25K</option><option>$25K – $100K</option><option>$100K+</option>
+                    <option>Monthly revenue</option><option>$0 - $5K</option><option>$5K - $25K</option><option>$25K - $100K</option><option>$100K+</option>
                   </select>
                   <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly ad spend</option><option>$0 – $1K</option><option>$1K – $5K</option><option>$5K – $25K</option><option>$25K+</option>
+                    <option>Monthly ad spend</option><option>$0 - $1K</option><option>$1K - $5K</option><option>$5K - $25K</option><option>$25K+</option>
                   </select>
                 </div>
                 <textarea rows={4} placeholder="Where do you feel revenue is leaking?" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
@@ -112,7 +112,7 @@ function Contact() {
             { q: "Honest, sharp, zero fluff. Rare combo.", a: "Sara K." },
             { q: "Worth the call even if you don't engage.", a: "David L." },
           ].map(t=>(
-            <Card key={t.a}><div className="text-primary text-2xl">“</div><p className="text-sm">{t.q}</p><div className="mt-3 text-xs text-muted-foreground">— {t.a}</div></Card>
+            <Card key={t.a}><div className="text-primary text-2xl">“</div><p className="text-sm">{t.q}</p><div className="mt-3 text-xs text-muted-foreground">- {t.a}</div></Card>
           ))}
         </div>
       </Section>

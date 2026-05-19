@@ -16,7 +16,7 @@ export type ServiceConfig = {
   systemSteps: { title: string; body: string }[];
   pillarsTitle: string;
   pillars: { title: string; body: string }[];
-  deepBlocks: { title: string; body: string; tags?: string[] }[]; // 4–6 deeper sub-services
+  deepBlocks: { title: string; body: string; tags?: string[] }[]; // 4-6 deeper sub-services
   triggersTitle?: string;
   triggers?: string[];
   beforeAfter: { before: string[]; after: string[] };
@@ -82,7 +82,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
-      {/* 6–10. Deep blocks (4–6 detailed mini-sections) */}
+      {/* 6-10. Deep blocks (4-6 detailed mini-sections) */}
       {cfg.deepBlocks.map((b, i) => (
         <Section
           key={i}
@@ -115,7 +115,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
             <div className="text-xs font-bold uppercase text-destructive">Before</div>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {cfg.beforeAfter.before.map((b, i) => <li key={i}>— {b}</li>)}
+              {cfg.beforeAfter.before.map((b, i) => <li key={i}>- {b}</li>)}
             </ul>
           </div>
           <div className="rounded-2xl border border-primary/40 bg-primary/5 p-6">
