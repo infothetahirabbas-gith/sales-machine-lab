@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA } from "../components/site/Section";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
 });
 

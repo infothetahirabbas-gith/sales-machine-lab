@@ -9,11 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -26,11 +26,6 @@ import { Route as ServicesAnalyticsRouteImport } from './routes/services.analyti
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -49,6 +44,11 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesStoreDevelopmentRoute =
@@ -113,7 +113,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -125,13 +124,13 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -143,6 +142,7 @@ export interface FileRoutesByTo {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -150,7 +150,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -162,6 +161,7 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -170,7 +170,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/case-studies'
     | '/contact'
-    | '/services'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -182,13 +181,13 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/case-studies'
     | '/contact'
-    | '/services'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -200,13 +199,13 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/case-studies'
     | '/contact'
-    | '/services'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -218,6 +217,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -225,20 +225,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
-  ServicesRoute: typeof ServicesRouteWithChildren
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -265,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/store-development': {
@@ -347,43 +347,25 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface ServicesRouteChildren {
-  ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
-  ServicesCreativeRoute: typeof ServicesCreativeRoute
-  ServicesCroRoute: typeof ServicesCroRoute
-  ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
-  ServicesFunnelRoute: typeof ServicesFunnelRoute
-  ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
-  ServicesScalingRoute: typeof ServicesScalingRoute
-  ServicesSeoRoute: typeof ServicesSeoRoute
-  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
-}
-
-const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesAnalyticsRoute: ServicesAnalyticsRoute,
-  ServicesCreativeRoute: ServicesCreativeRoute,
-  ServicesCroRoute: ServicesCroRoute,
-  ServicesEmailSmsRoute: ServicesEmailSmsRoute,
-  ServicesFunnelRoute: ServicesFunnelRoute,
-  ServicesPaidAdsRoute: ServicesPaidAdsRoute,
-  ServicesScalingRoute: ServicesScalingRoute,
-  ServicesSeoRoute: ServicesSeoRoute,
-  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
-}
-
-const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
-  ServicesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
-  ServicesRoute: ServicesRouteWithChildren,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
