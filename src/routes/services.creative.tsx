@@ -52,6 +52,18 @@ export const Route = createFileRoute("/services/creative")({
         metrics: [{ label: "ROAS", value: "1.8× → 4.1×" }, { label: "Spend", value: "3×" }, { label: "CPM", value: "-22%" }],
       },
       ctaTitle: "Need creatives that actually print revenue?",
+      impactStats: [
+        { value: "+184%", label: "Hook rate" },
+        { value: "+92%", label: "Thumbstop rate" },
+        { value: "2.6×", label: "ROAS on new creative" },
+      ],
+      metricBars: [
+        { label: "Hook rate (3s view)", before: 18, after: 46, unit: "%", description: "Share of viewers who watch the first 3 seconds — the #1 creative signal in Meta." },
+        { label: "Thumbstop rate", before: 24, after: 52, unit: "%", description: "Hold-rate at the first frame. Strong thumbstops lower CPM by 30–50%." },
+        { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creative — measures concept + offer clarity." },
+        { label: "Creative ROAS", before: 1.5, after: 3.9, unit: "×", description: "ROAS isolated to new creative concepts (not winning evergreens)." },
+        { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "$", description: "How expensive each engaged view is. Lower = healthier funnel top." },
+      ],
     }} />
   ),
 });
