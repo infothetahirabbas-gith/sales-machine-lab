@@ -300,24 +300,27 @@ function Home() {
           <div className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
               [
-                { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Apparel · Shopify", c: "from-[oklch(0.7_0.16_30)] to-[oklch(0.55_0.2_30)]" },
-                { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Beauty · Shopify", c: "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]" },
-                { q: "Finally an agency that understands ecommerce — not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home · WooCommerce", c: "from-[oklch(0.7_0.16_245)] to-[oklch(0.5_0.2_248)]" },
-                { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Wellness · Shopify", c: "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" },
-                { q: "Checkout abandonment dropped 38%. They actually know Shopify under the hood.", n: "Marco T.", r: "CEO, Footwear · Shopify", c: "from-[oklch(0.72_0.15_60)] to-[oklch(0.55_0.18_50)]" },
-                { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth, Skincare · Shopify", c: "from-[oklch(0.72_0.15_300)] to-[oklch(0.5_0.2_300)]" },
-                { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Outdoor · WooCommerce", c: "from-[oklch(0.7_0.16_200)] to-[oklch(0.5_0.2_220)]" },
-                { q: "Scaled from $30K to $180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Jewelry · Shopify", c: "from-[oklch(0.72_0.15_15)] to-[oklch(0.55_0.2_10)]" },
-                { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, Electronics · Shopify", c: "from-[oklch(0.7_0.16_270)] to-[oklch(0.5_0.2_270)]" },
+                { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Apparel Brand", a: "https://randomuser.me/api/portraits/men/32.jpg" },
+                { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Beauty DTC", a: "https://randomuser.me/api/portraits/women/44.jpg" },
+                { q: "Finally an agency that understands ecommerce — not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home & Living", a: "https://randomuser.me/api/portraits/men/15.jpg" },
+                { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Wellness Co.", a: "https://randomuser.me/api/portraits/women/68.jpg" },
+                { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Footwear Label", a: "https://randomuser.me/api/portraits/men/45.jpg" },
+                { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Skincare", a: "https://randomuser.me/api/portraits/women/22.jpg" },
+                { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Outdoor Gear", a: "https://randomuser.me/api/portraits/men/76.jpg" },
+                { q: "Scaled from $30K to $180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Jewelry Studio", a: "https://randomuser.me/api/portraits/women/65.jpg" },
+                { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, Consumer Electronics", a: "https://randomuser.me/api/portraits/men/52.jpg" },
               ].map((t, i) => (
                 <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
                   <div className="card-surface card-hover p-6 h-full mx-2">
                     <div className="text-primary text-3xl font-display leading-none">“</div>
                     <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
                     <div className="mt-5 flex items-center gap-3">
-                      <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.c} text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-white`}>
-                        {t.n.split(" ").map(s => s[0]).join("")}
-                      </div>
+                      <img
+                        src={t.a}
+                        alt={t.n}
+                        loading="lazy"
+                        className="w-11 h-11 rounded-full object-cover shadow-md ring-2 ring-white"
+                      />
                       <div>
                         <div className="text-sm font-semibold text-ink">{t.n}</div>
                         <div className="text-[11px] text-muted-foreground">{t.r}</div>
