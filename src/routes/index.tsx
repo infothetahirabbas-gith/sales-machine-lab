@@ -94,17 +94,26 @@ function Home() {
         </div>
       </section>
 
-      {/* 2. TRUST BAR */}
-      <section className="border-y border-border bg-card/30 py-8">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-wrap items-center justify-between gap-6">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">Trusted by ecommerce operators on</div>
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-muted-foreground font-semibold">
-            <span>Shopify</span><span>·</span>
-            <span>WooCommerce</span><span>·</span>
-            <span>Meta Ads</span><span>·</span>
-            <span>Google Ads</span><span>·</span>
-            <span>Klaviyo</span><span>·</span>
-            <span>GA4</span>
+      {/* 2. TRUST BAR — running marquee */}
+      <section className="border-y border-border bg-card/30 py-6 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center gap-6">
+          <div className="shrink-0 text-xs uppercase tracking-widest text-muted-foreground hidden md:block">
+            Trusted by ecommerce operators on
+          </div>
+          <div
+            className="relative flex-1 overflow-hidden"
+            style={{ maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)" }}
+          >
+            <div className="marquee-track text-muted-foreground font-semibold whitespace-nowrap">
+              {Array.from({ length: 2 }).flatMap((_, k) =>
+                ["Shopify","WooCommerce","Meta Ads","Google Ads","Klaviyo","GA4","TikTok Ads","Triple Whale","Recharge","Yotpo","Hotjar","Shogun"].map((t, i) => (
+                  <span key={`${k}-${i}`} className="inline-flex items-center gap-8">
+                    <span className="hover:text-primary transition-colors">{t}</span>
+                    <span className="text-primary/40">•</span>
+                  </span>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>
