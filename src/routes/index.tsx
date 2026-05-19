@@ -217,7 +217,7 @@ function Home() {
             <ul className="space-y-1.5 text-sm">
               <li>✓ 4.6% conversion rate</li>
               <li>✓ 3.8× blended ROAS</li>
-              <li>✓ 32% revenue from email & SMS</li>
+              <li>✓ 32% revenue from email marketing</li>
               <li>✓ Top-3 rankings on core products</li>
             </ul>
           </div>
