@@ -165,7 +165,7 @@ function AuditPage() {
                   className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm" />
               </div>
             </div>
-            <button type="submit" disabled={loading || !url} className="btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
+            <button type="submit" disabled={loading || !url} className="flex btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
               {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analyzing...</> : <>Run free audit <ArrowRight className="w-4 h-4" /></>}
             </button>
             {error && (
