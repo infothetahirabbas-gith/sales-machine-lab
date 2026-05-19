@@ -223,53 +223,84 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
 
 /* ---------- Category-specific card previews ---------- */
 
-function AdsPreview({ data, metric, metricLabel, seed }: { data: number[]; metric: string; metricLabel: string; seed: number }) {
+function AdsPreview({ seed }: { seed: number }) {
   const r = rng(seed + 11);
-  const metaBars = Array.from({ length: 7 }, () => 30 + r() * 60);
-  const googleBars = Array.from({ length: 7 }, () => 25 + r() * 65);
-  const days = ["M", "T", "W", "T", "F", "S", "S"];
-  const maxBar = Math.max(...metaBars, ...googleBars);
+  // Realistic Facebook Ads Manager-style row data
+  const campaigns = [
+    { name: "ASC — Broad", status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
+    { name: "Retargeting 7D", status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
+    { name: "Creative test — UGC", status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
+  ];
   return (
-    <div className="h-full w-full bg-white flex flex-col">
-      {/* Header tabs: Meta + Google */}
-      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-center gap-3 text-[10px] font-semibold">
-          <span className="inline-flex items-center gap-1.5 text-ink">
-            <span className="w-2 h-2 rounded-sm bg-[#1877F2]" /> Meta Ads
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-ink">
-            <span className="w-2 h-2 rounded-sm bg-[#34A853]" /> Google Ads
-          </span>
+    <div className="h-full w-full bg-white flex flex-col text-ink">
+      {/* FB Ads Manager-style header */}
+      <div className="flex items-center justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12Z"/></svg>
+          <span className="text-[10px] font-semibold text-ink">Ads Manager</span>
+          <span className="text-[8px] text-muted-foreground">· Last 7 days</span>
         </div>
-        <span className="text-[9px] font-bold text-emerald-600 tabular-nums">● LIVE</span>
+        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Live
+        </span>
       </div>
-      {/* Stat strip */}
-      <div className="grid grid-cols-3 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+
+      {/* Account stats strip */}
+      <div className="grid grid-cols-3 gap-2 px-3 py-1.5 border-b border-border/70 shrink-0 bg-[#f7f8fa]">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Spend</div>
+          <div className="text-[11px] font-bold tabular-nums">${(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Purchases</div>
+          <div className="text-[11px] font-bold tabular-nums">{campaigns.reduce((a, c) => a + c.results, 0)}</div>
+        </div>
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">ROAS</div>
-          <div className="text-xs font-bold text-ink tabular-nums">{(2 + (seed % 5) * 0.7).toFixed(1)}×</div>
-        </div>
-        <div>
-          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CPA</div>
-          <div className="text-xs font-bold text-ink tabular-nums">${10 + (seed % 9) * 3}</div>
-        </div>
-        <div>
-          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CTR</div>
-          <div className="text-xs font-bold text-emerald-600 tabular-nums">{(1.4 + (seed % 6) * 0.4).toFixed(1)}%</div>
+          <div className="text-[11px] font-bold text-emerald-600 tabular-nums">
+            {(campaigns.reduce((a, c) => a + c.roas * c.spend, 0) / campaigns.reduce((a, c) => a + c.spend, 0)).toFixed(2)}×
+          </div>
         </div>
       </div>
-      {/* Dual bar chart */}
-      <div className="flex-1 flex items-end gap-1.5 px-3 pb-2.5 pt-2 min-h-0">
-        {metaBars.map((m, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
-            <div className="w-full flex items-end gap-[2px] h-full">
-              <div className="flex-1 bg-[#1877F2] rounded-sm" style={{ height: `${(m / maxBar) * 100}%` }} />
-              <div className="flex-1 bg-[#34A853] rounded-sm" style={{ height: `${(googleBars[i] / maxBar) * 100}%` }} />
+
+      {/* Column header */}
+      <div className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1 border-b border-border/70 text-[7.5px] uppercase tracking-wider text-muted-foreground font-semibold shrink-0">
+        <span>Campaign</span>
+        <span className="text-right">Spend</span>
+        <span className="text-right">Results</span>
+        <span className="text-right">ROAS</span>
+      </div>
+
+      {/* Campaign rows */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        {campaigns.map((c, i) => (
+          <div
+            key={i}
+            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-center border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
+          >
+            <div className="flex items-center gap-1 min-w-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+              <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
-            <div className="text-[7px] text-muted-foreground font-medium leading-none">{days[i]}</div>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">${c.spend.toLocaleString()}</span>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">{c.results}</span>
+            <span className="text-[9px] tabular-nums text-right font-bold text-emerald-600">{c.roas.toFixed(2)}×</span>
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function WebsitePreview({ screenshot }: { screenshot: string }) {
+  return (
+    <div className="h-full w-full bg-white overflow-hidden">
+      <img
+        src={screenshot}
+        alt="Website homepage"
+        loading="lazy"
+        className="w-full h-full object-cover object-top transition-transform duration-[2400ms] ease-linear hover:[transform:translateY(-30%)]"
+      />
     </div>
   );
 }
