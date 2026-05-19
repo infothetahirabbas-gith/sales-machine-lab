@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Megaphone, MousePointerClick, Search, Rocket } from "lucide-react";
+import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
