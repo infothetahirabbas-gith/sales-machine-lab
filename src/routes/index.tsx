@@ -119,7 +119,7 @@ function Home() {
       </section>
 
       {/* 3. PROBLEM */}
-      <Section eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
+      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -137,7 +137,7 @@ function Home() {
       </Section>
 
       {/* 4. SOLUTION 4 PILLARS */}
-      <Section eyebrow="Our growth system" title="We fix everything that stops your store from selling.">
+      <Section center eyebrow="Our growth system" title="We fix everything that stops your store from selling.">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { t: "Ads", b: "Profitable traffic engine across Meta, Google, TikTok." },
@@ -155,7 +155,7 @@ function Home() {
       </Section>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section eyebrow="What we do" title="Six growth services, one operating system.">
+      <Section center eyebrow="What we do" title="Six growth services, one operating system.">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s) => (
             <Link key={s.to} to={s.to}>
@@ -174,7 +174,7 @@ function Home() {
       </Section>
 
       {/* 6. BEFORE / AFTER */}
-      <Section eyebrow="Before vs After" title="Same store. Different system.">
+      <Section center eyebrow="Before vs After" title="Same store. Different system.">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
             <div className="text-xs font-bold uppercase text-destructive mb-3">Before</div>
@@ -200,7 +200,7 @@ function Home() {
       </Section>
 
       {/* 7. CASE STUDY */}
-      <Section eyebrow="Real result" title="From $18K to $214K/month in 6 months.">
+      <Section center eyebrow="Real result" title="From $18K to $214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="rounded-2xl border border-border bg-card/60 p-4">
             <GrowthChart className="w-full h-auto" />
@@ -231,7 +231,7 @@ function Home() {
       </Section>
 
       {/* 8. HOW IT WORKS */}
-      <Section eyebrow="How it works" title="Three steps. Zero fluff.">
+      <Section center eyebrow="How it works" title="Three steps. Zero fluff.">
         <NumberedList items={[
           { title: "Audit your store", body: "We tear down your funnel, ads, analytics, and product pages — find where revenue is leaking." },
           { title: "Fix conversion + ads", body: "Rebuild the highest-impact pieces first: PDP, checkout, ad funnel, Klaviyo flows." },
@@ -240,7 +240,7 @@ function Home() {
       </Section>
 
       {/* 9. TOOLS */}
-      <Section eyebrow="Stack" title="The tools we run on every store.">
+      <Section center eyebrow="Stack" title="The tools we run on every store.">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {["Shopify","WooCommerce","Meta Ads","Google Ads","TikTok Ads","GA4","Hotjar","Klaviyo","Triple Whale","Recharge","Yotpo","Shogun"].map((t)=>(
             <div key={t} className="rounded-xl border border-border bg-white px-4 py-3 text-sm font-medium text-center text-ink transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)]">{t}</div>
@@ -249,7 +249,7 @@ function Home() {
       </Section>
 
       {/* 10. TESTIMONIALS */}
-      <Section eyebrow="What store owners say" title="Operators. Not influencers.">
+      <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
         <div className="grid md:grid-cols-3 gap-4">
           {[
             { q: "We went from praying for sales to forecasting them. The CRO work alone paid for the engagement in 3 weeks.", a: "Arjun M., Apparel · Shopify" },
@@ -286,7 +286,7 @@ function Home() {
       </section>
 
       {/* 12. FAQ */}
-      <Section eyebrow="FAQ" title="Straight answers.">
+      <Section center eyebrow="FAQ" title="Straight answers.">
         <div className="grid md:grid-cols-2 gap-4">
           {[
             { q: "Do you guarantee sales?", a: "No. Anyone who does is lying. We guarantee the system, the process, and the work — sales follow when the math is right." },
