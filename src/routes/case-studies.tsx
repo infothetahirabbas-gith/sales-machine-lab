@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X } from "lucide-react";
+import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
@@ -71,7 +71,7 @@ export const Route = createFileRoute("/case-studies")({
   component: CaseStudies,
 });
 
-type Category = "Ads" | "SEO" | "CRO";
+type Category = "Ads" | "SEO" | "CRO" | "Website";
 
 type Study = {
   id: string;
@@ -167,6 +167,18 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "c10", title: "Coffee: subscription page +88% CR", brand: "Roast & Co.", industry: "Shopify · Beverage", category: "CRO", metric: "+88%", metricLabel: "CR", duration: "5 weeks", problem: "Subscription page text-heavy, no visual hierarchy.", strategy: ["Hero with delivery preview animation", "FAQ collapsed by default", "Customer photos throughout"], results: [{ v: "+88%", l: "CR" }, { v: "+34%", l: "Sub starts" }, { v: "+22%", l: "MRR" }], takeaway: "Subscription pages need to feel like a product, not a contract." },
   { id: "c11", title: "Furniture: configurator +44% rev", brand: "Mason Living", industry: "WooCommerce · Furniture", category: "CRO", metric: "+44%", metricLabel: "Rev", duration: "10 weeks", problem: "Customers couldn't visualize options.", strategy: ["3D product configurator", "Live price update", "Save-and-share design link"], results: [{ v: "+44%", l: "Rev" }, { v: "+62%", l: "AOV" }, { v: "+28%", l: "Time on site" }], takeaway: "Visualization tools turn browsers into buyers in high-AOV categories." },
   { id: "c12", title: "Outdoor: filter UX +24% collection CR", brand: "TrailGear", industry: "Shopify · Outdoor", category: "CRO", metric: "+24%", metricLabel: "CR", duration: "4 weeks", problem: "Filters opened modal, lost context, slow.", strategy: ["Inline left-rail filters", "Instant results (no apply button)", "Filter chips above grid"], results: [{ v: "+24%", l: "CR" }, { v: "-18%", l: "Bounce" }, { v: "+19%", l: "Rev" }], takeaway: "Filter friction is collection-page revenue leaving the building." },
+
+  // WEBSITE (10) — full-site builds / redesigns. Card preview = homepage screenshot.
+  { id: "w1", title: "Apparel brand: full Shopify rebuild", brand: "Northwind Apparel", industry: "Shopify · Apparel", category: "Website", metric: "+182%", metricLabel: "Site CR", duration: "5 weeks", problem: "Old theme, slow PDP, no mobile-first design.", strategy: ["Custom Shopify 2.0 theme", "Mobile-first PDP with sticky ATC", "Speed: LCP under 1.6s"], results: [{ v: "+182%", l: "CR" }, { v: "+44%", l: "AOV" }, { v: "1.4s", l: "LCP" }], takeaway: "A fast, focused homepage is the single best CRO investment." },
+  { id: "w2", title: "Gadgets store: headless storefront", brand: "GearLoop", industry: "Hydrogen · Gadgets", category: "Website", metric: "0.9s", metricLabel: "LCP", duration: "7 weeks", problem: "Liquid theme couldn't keep up with traffic spikes.", strategy: ["Hydrogen + Oxygen migration", "Edge-rendered PDPs", "Persistent cart drawer"], results: [{ v: "0.9s", l: "LCP" }, { v: "+71%", l: "Mobile CR" }, { v: "+38%", l: "Rev" }], takeaway: "Headless pays back when traffic and SKU count both scale." },
+  { id: "w3", title: "Skincare: brand-led redesign", brand: "Pure Botanica", industry: "Shopify · Skincare", category: "Website", metric: "+96%", metricLabel: "AOV", duration: "6 weeks", problem: "Generic theme, no brand storytelling, weak hierarchy.", strategy: ["Editorial homepage with story sections", "Routine builder on collection page", "Press logo + ingredient deep dives"], results: [{ v: "+96%", l: "AOV" }, { v: "+62%", l: "CR" }, { v: "+44%", l: "Time on site" }], takeaway: "Brand storytelling on the homepage compounds every channel below it." },
+  { id: "w4", title: "Footwear: PDP-first redesign", brand: "Stride Co.", industry: "Shopify · Footwear", category: "Website", metric: "+128%", metricLabel: "PDP CR", duration: "4 weeks", problem: "PDP buried features below the fold.", strategy: ["Above-fold size + reviews + ATC", "AI fit recommendation widget", "Inline video for each colorway"], results: [{ v: "+128%", l: "PDP CR" }, { v: "-22%", l: "Returns" }, { v: "+41%", l: "Rev" }], takeaway: "Footwear PDPs live or die above the fold on mobile." },
+  { id: "w5", title: "Beauty DTC: quiz-driven homepage", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "Website", metric: "6.4%", metricLabel: "Site-wide CR", duration: "5 weeks", problem: "Too many SKUs, no clear entry path.", strategy: ["Quiz as primary homepage CTA", "Routine results page = personalized PLP", "Email + SMS capture mid-quiz"], results: [{ v: "6.4%", l: "CR" }, { v: "+88%", l: "Email list" }, { v: "+52%", l: "AOV" }], takeaway: "Quizzes turn the homepage into a sales associate that scales." },
+  { id: "w6", title: "Pet brand: subscription site rebuild", brand: "Pawform", industry: "Shopify · Pet", category: "Website", metric: "+74%", metricLabel: "Sub starts", duration: "6 weeks", problem: "Subscription buried 3 clicks deep.", strategy: ["Subscription hero on homepage", "Visual delivery preview", "One-page subscription checkout"], results: [{ v: "+74%", l: "Subs" }, { v: "+62%", l: "LTV" }, { v: "+34%", l: "MRR" }], takeaway: "If subscription is the business model, it belongs on the homepage." },
+  { id: "w7", title: "Furniture: 3D configurator site", brand: "Mason Living", industry: "WooCommerce · Furniture", category: "Website", metric: "+44%", metricLabel: "Rev", duration: "10 weeks", problem: "High AOV, no way to visualize options.", strategy: ["Three.js product configurator", "Live price + save-and-share", "AR view on mobile"], results: [{ v: "+44%", l: "Rev" }, { v: "+62%", l: "AOV" }, { v: "+28%", l: "Time on site" }], takeaway: "Visualization tools turn browsers into buyers in high-AOV verticals." },
+  { id: "w8", title: "Jewelry: luxury Shopify Plus build", brand: "Auralune", industry: "Shopify Plus · Jewelry", category: "Website", metric: "+212%", metricLabel: "Q4 rev", duration: "8 weeks", problem: "Old Magento, slow, poor gifting flow.", strategy: ["Plus migration with custom checkout", "Gift toggle + free engraving widget", "Editorial homepage with collections"], results: [{ v: "+212%", l: "Q4 rev" }, { v: "+56%", l: "AOV" }, { v: "+91%", l: "Repeat" }], takeaway: "Luxury sites should feel like a flagship store, not a catalog." },
+  { id: "w9", title: "Coffee brand: subscription-first site", brand: "Roast & Co.", industry: "Shopify · Beverage", category: "Website", metric: "+88%", metricLabel: "Sub CR", duration: "5 weeks", problem: "One-time purchase model, high CAC.", strategy: ["Subscription hero animation", "Roast quiz funneling into subs", "Customer photo grid throughout"], results: [{ v: "+88%", l: "Sub CR" }, { v: "+34%", l: "Sub starts" }, { v: "+22%", l: "MRR" }], takeaway: "Subscription sites need to feel like a product, not a contract." },
+  { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimized hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
 ];
 
 const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
@@ -181,6 +193,7 @@ const categoryIcon: Record<Category | "All", typeof Megaphone> = {
   Ads: Megaphone,
   SEO: Search,
   CRO: MousePointerClick,
+  Website: Globe,
 };
 
 function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
@@ -210,53 +223,84 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
 
 /* ---------- Category-specific card previews ---------- */
 
-function AdsPreview({ data, metric, metricLabel, seed }: { data: number[]; metric: string; metricLabel: string; seed: number }) {
+function AdsPreview({ seed }: { seed: number }) {
   const r = rng(seed + 11);
-  const metaBars = Array.from({ length: 7 }, () => 30 + r() * 60);
-  const googleBars = Array.from({ length: 7 }, () => 25 + r() * 65);
-  const days = ["M", "T", "W", "T", "F", "S", "S"];
-  const maxBar = Math.max(...metaBars, ...googleBars);
+  // Realistic Facebook Ads Manager-style row data
+  const campaigns = [
+    { name: "ASC — Broad", status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
+    { name: "Retargeting 7D", status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
+    { name: "Creative test — UGC", status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
+  ];
   return (
-    <div className="h-full w-full bg-white flex flex-col">
-      {/* Header tabs: Meta + Google */}
-      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-center gap-3 text-[10px] font-semibold">
-          <span className="inline-flex items-center gap-1.5 text-ink">
-            <span className="w-2 h-2 rounded-sm bg-[#1877F2]" /> Meta Ads
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-ink">
-            <span className="w-2 h-2 rounded-sm bg-[#34A853]" /> Google Ads
-          </span>
+    <div className="h-full w-full bg-white flex flex-col text-ink">
+      {/* FB Ads Manager-style header */}
+      <div className="flex items-center justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12Z"/></svg>
+          <span className="text-[10px] font-semibold text-ink">Ads Manager</span>
+          <span className="text-[8px] text-muted-foreground">· Last 7 days</span>
         </div>
-        <span className="text-[9px] font-bold text-emerald-600 tabular-nums">● LIVE</span>
+        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Live
+        </span>
       </div>
-      {/* Stat strip */}
-      <div className="grid grid-cols-3 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+
+      {/* Account stats strip */}
+      <div className="grid grid-cols-3 gap-2 px-3 py-1.5 border-b border-border/70 shrink-0 bg-[#f7f8fa]">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Spend</div>
+          <div className="text-[11px] font-bold tabular-nums">${(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Purchases</div>
+          <div className="text-[11px] font-bold tabular-nums">{campaigns.reduce((a, c) => a + c.results, 0)}</div>
+        </div>
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">ROAS</div>
-          <div className="text-xs font-bold text-ink tabular-nums">{(2 + (seed % 5) * 0.7).toFixed(1)}×</div>
-        </div>
-        <div>
-          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CPA</div>
-          <div className="text-xs font-bold text-ink tabular-nums">${10 + (seed % 9) * 3}</div>
-        </div>
-        <div>
-          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CTR</div>
-          <div className="text-xs font-bold text-emerald-600 tabular-nums">{(1.4 + (seed % 6) * 0.4).toFixed(1)}%</div>
+          <div className="text-[11px] font-bold text-emerald-600 tabular-nums">
+            {(campaigns.reduce((a, c) => a + c.roas * c.spend, 0) / campaigns.reduce((a, c) => a + c.spend, 0)).toFixed(2)}×
+          </div>
         </div>
       </div>
-      {/* Dual bar chart */}
-      <div className="flex-1 flex items-end gap-1.5 px-3 pb-2.5 pt-2 min-h-0">
-        {metaBars.map((m, i) => (
-          <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
-            <div className="w-full flex items-end gap-[2px] h-full">
-              <div className="flex-1 bg-[#1877F2] rounded-sm" style={{ height: `${(m / maxBar) * 100}%` }} />
-              <div className="flex-1 bg-[#34A853] rounded-sm" style={{ height: `${(googleBars[i] / maxBar) * 100}%` }} />
+
+      {/* Column header */}
+      <div className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1 border-b border-border/70 text-[7.5px] uppercase tracking-wider text-muted-foreground font-semibold shrink-0">
+        <span>Campaign</span>
+        <span className="text-right">Spend</span>
+        <span className="text-right">Results</span>
+        <span className="text-right">ROAS</span>
+      </div>
+
+      {/* Campaign rows */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        {campaigns.map((c, i) => (
+          <div
+            key={i}
+            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-center border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
+          >
+            <div className="flex items-center gap-1 min-w-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+              <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
-            <div className="text-[7px] text-muted-foreground font-medium leading-none">{days[i]}</div>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">${c.spend.toLocaleString()}</span>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">{c.results}</span>
+            <span className="text-[9px] tabular-nums text-right font-bold text-emerald-600">{c.roas.toFixed(2)}×</span>
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function WebsitePreview({ screenshot }: { screenshot: string }) {
+  return (
+    <div className="h-full w-full bg-white overflow-hidden">
+      <img
+        src={screenshot}
+        alt="Website homepage"
+        loading="lazy"
+        className="w-full h-full object-cover object-top transition-transform duration-[2400ms] ease-linear hover:[transform:translateY(-30%)]"
+      />
     </div>
   );
 }
@@ -389,6 +433,7 @@ function CaseStudies() {
     Ads: studies.filter((s) => s.category === "Ads").length,
     SEO: studies.filter((s) => s.category === "SEO").length,
     CRO: studies.filter((s) => s.category === "CRO").length,
+    Website: studies.filter((s) => s.category === "Website").length,
   };
 
   return (
@@ -431,7 +476,7 @@ function CaseStudies() {
           {/* Filter segmented control */}
           <div className="flex justify-center mb-10">
             <div className="inline-flex items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm">
-              {(["All", "Ads", "SEO", "CRO"] as const).map((f) => {
+              {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
                 return (
@@ -478,13 +523,20 @@ function CaseStudies() {
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
                         <span className="ml-2 text-[9px] text-muted-foreground font-medium truncate">
-                          {s.category === "Ads" ? "ads-manager.dashboard" : s.category === "SEO" ? "search.google.com/search-console" : "analytics.cro-funnel"}
+                          {s.category === "Ads"
+                            ? "business.facebook.com/adsmanager"
+                            : s.category === "SEO"
+                            ? "search.google.com/search-console"
+                            : s.category === "CRO"
+                            ? "analytics.cro-funnel"
+                            : "store.example.com"}
                         </span>
                       </div>
                       <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
-                        {s.category === "Ads" && <AdsPreview data={s.chart} metric={s.metric} metricLabel={s.metricLabel} seed={parseInt(s.id.slice(1)) || 1} />}
+                        {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
                         {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
                     </div>
                     {/* Floating category badge + metric pill */}
