@@ -20,7 +20,7 @@ export const Route = createFileRoute("/services/funnel")({
       systemSteps: [
         { title: "Journey map", body: "Map current touchpoints, find drop-off and friction." },
         { title: "Stage assets", body: "Build the right asset for each stage - ads, pages, flows." },
-        { title: "Triggers", body: "Behavioral triggers across web, email, SMS, ads." },
+        { title: "Triggers", body: "Behavioral triggers across web, email, and ads." },
         { title: "Compounding", body: "Each loop feeds the next - retention fuels acquisition." },
       ],
       pillarsTitle: "Stages we engineer.",
