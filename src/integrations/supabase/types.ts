@@ -14,16 +14,117 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      case_studies: {
+        Row: {
+          ad_metrics: Json | null
+          after_image_url: string | null
+          before_image_url: string | null
+          brand: string
+          category: string
+          created_at: string
+          duration: string
+          hero_metric: string
+          hero_metric_label: string
+          id: string
+          industry: string
+          problem: string
+          published: boolean
+          results: Json
+          screenshot_url: string | null
+          slug: string
+          sort_order: number
+          strategy: Json
+          takeaway: string
+          title: string
+          updated_at: string
+          website_url: string | null
+        }
+        Insert: {
+          ad_metrics?: Json | null
+          after_image_url?: string | null
+          before_image_url?: string | null
+          brand: string
+          category: string
+          created_at?: string
+          duration?: string
+          hero_metric: string
+          hero_metric_label: string
+          id?: string
+          industry?: string
+          problem?: string
+          published?: boolean
+          results?: Json
+          screenshot_url?: string | null
+          slug: string
+          sort_order?: number
+          strategy?: Json
+          takeaway?: string
+          title: string
+          updated_at?: string
+          website_url?: string | null
+        }
+        Update: {
+          ad_metrics?: Json | null
+          after_image_url?: string | null
+          before_image_url?: string | null
+          brand?: string
+          category?: string
+          created_at?: string
+          duration?: string
+          hero_metric?: string
+          hero_metric_label?: string
+          id?: string
+          industry?: string
+          problem?: string
+          published?: boolean
+          results?: Json
+          screenshot_url?: string | null
+          slug?: string
+          sort_order?: number
+          strategy?: Json
+          takeaway?: string
+          title?: string
+          updated_at?: string
+          website_url?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +251,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
