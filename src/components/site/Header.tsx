@@ -15,6 +15,7 @@ const services = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/75 border-b border-border">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
