@@ -179,8 +179,8 @@ function About() {
             <p className="relative mt-3 text-muted-foreground max-w-xl mx-auto">
               Get a free 12-point growth audit. No pitch deck, no obligations.
             </p>
-            <Link to="/audit" className="relative inline-flex mt-6 btn btn-primary btn-shimmer">
-              Book Free Audit <span>→</span>
+            <Link to="/contact" className="relative inline-flex mt-6 btn btn-primary btn-shimmer">
+              Book Strategy Call <span>→</span>
             </Link>
           </div>
         </div>
