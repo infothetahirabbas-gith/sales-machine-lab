@@ -1,82 +1,80 @@
 import { ArrowUpRight, TrendingUp, TrendingDown, Facebook, Instagram, MousePointerClick, Eye, DollarSign, Target, Award, Quote, Globe, ShoppingBag, Shirt, Coffee, Watch, Sparkles, Dog, Sofa, Dumbbell } from "lucide-react";
+import showcaseApparel from "@/assets/showcase-apparel.jpg";
+import showcaseCoffee from "@/assets/showcase-coffee.jpg";
+import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
+import showcaseBeauty from "@/assets/showcase-beauty.jpg";
+import showcaseFurniture from "@/assets/showcase-furniture.jpg";
+import showcaseActivewear from "@/assets/showcase-activewear.jpg";
+import showcasePet from "@/assets/showcase-pet.jpg";
+import showcaseEyewear from "@/assets/showcase-eyewear.jpg";
+import showcaseSupplements from "@/assets/showcase-supplements.jpg";
 
-/* ------------------- 1. FEATURED STORE WEBSITES ------------------- */
-function BrowserFrame({ url, children, accent }: { url: string; children: React.ReactNode; accent: string }) {
+/* ------------------- 1. FEATURED STORE WEBSITES (auto-running carousel) ------------------- */
+const featuredStores = [
+  { img: showcaseApparel, metrics: [{ v: "11.9×", l: "Revenue lift" }, { v: "3.8×", l: "Blended ROAS" }, { v: "4.6%", l: "Conv. rate" }], live: "3.8×", summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows — $18K → $214K MRR." },
+  { img: showcaseCoffee, metrics: [{ v: "3.9×", l: "LTV growth" }, { v: "68%", l: "Sub-rate" }, { v: "+88%", l: "Page CR" }], live: "4.2×", summary: "Subscription-only funnel + new sub-page design — 68% of new buyers convert to recurring." },
+  { img: showcaseJewelry, metrics: [{ v: "5.6×", l: "BFCM ROAS" }, { v: "$420K", l: "Q4 revenue" }, { v: "+56%", l: "AOV" }], live: "5.6×", summary: "90-day pre-warm + gifting CRO — Q4 grew 212% YoY with 5.6× ROAS during BFCM." },
+  { img: showcaseBeauty, metrics: [{ v: "4.1×", l: "TikTok ROAS" }, { v: "+62%", l: "New customers" }, { v: "-28%", l: "CPM" }], live: "4.1×", summary: "Creator-led UGC stack on TikTok with 1:1 landing pages per angle — Meta no longer the only channel." },
+  { img: showcaseFurniture, metrics: [{ v: "$310K", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "$1.2K", l: "AOV" }], live: "4.1×", summary: "High-AOV Meta funnel with 21-day attribution and showroom-style video — scaled to $310K/mo." },
+  { img: showcaseActivewear, metrics: [{ v: "+$71K", l: "New rev" }, { v: "3.4×", l: "Affiliate ROAS" }, { v: "62", l: "Creators" }], live: "3.4×", summary: "TikTok Shop seeding + affiliate program — monetized massive organic into +$71K/mo." },
+  { img: showcasePet, metrics: [{ v: "$94K", l: "MRR" }, { v: "5.2×", l: "ROAS" }, { v: "+340%", l: "Non-brand" }], live: "5.2×", summary: "Google PMax + Standard Shopping split with weekly negative pruning — non-brand traffic up 340%." },
+  { img: showcaseEyewear, metrics: [{ v: "+180%", l: "CTR" }, { v: "-34%", l: "CPC" }, { v: "+71%", l: "ROAS" }], live: "4.7×", summary: "Hook-first creative storyboards, 30 hooks tested per concept — CTR up 180% and CPC down 34%." },
+  { img: showcaseSupplements, metrics: [{ v: "$180K", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], live: "3.1×", summary: "Bundle-focused offer architecture + subscription upsell — broke through $25K plateau to $180K/mo." },
+];
+
+function StoreCard({ s }: { s: typeof featuredStores[number] }) {
   return (
-    <div className="rounded-2xl overflow-hidden border border-border shadow-2xl bg-white">
-      <div className="flex items-center gap-2 px-3 py-2.5 bg-[#f1f3f5] border-b border-border">
-        <div className="flex gap-1.5">
+    <div className="group flex-none w-[320px] md:w-[380px]">
+      <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-white relative">
+        {/* Browser chrome (no URL) */}
+        <div className="flex items-center gap-1.5 px-3 py-2.5 bg-[#f1f3f5] border-b border-border">
           <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
         </div>
-        <div className="flex-1 mx-3 text-[11px] text-ink/60 bg-white rounded-full px-3 py-1 flex items-center gap-1.5 truncate">
-          <Globe className="w-3 h-3 shrink-0" />
-          <span className="truncate">{url}</span>
+        {/* Website screenshot */}
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <img
+            src={s.img}
+            alt="Live store showcase"
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+          {/* Floating live ROAS */}
+          <div className="absolute top-3 right-3 bg-white/95 backdrop-blur rounded-xl shadow-xl border border-border px-3 py-2 group-hover:-translate-y-1 transition-transform">
+            <div className="text-[9px] uppercase tracking-widest text-muted-foreground">Live ROAS</div>
+            <div className="text-sm font-bold text-primary flex items-center gap-1">
+              {s.live} <TrendingUp className="w-3 h-3" />
+            </div>
+          </div>
         </div>
       </div>
-      <div className={`relative aspect-[16/10] bg-gradient-to-br ${accent} overflow-hidden`}>
-        {children}
+
+      <div className="mt-4">
+        <p className="text-sm text-muted-foreground">{s.summary}</p>
+        <div className="mt-3 grid grid-cols-3 gap-2">
+          {s.metrics.map((m) => (
+            <div key={m.l} className="rounded-xl border border-border bg-white p-2.5 text-center">
+              <div className="text-base font-bold text-gradient">{m.v}</div>
+              <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{m.l}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-const featuredStores = [
-  {
-    name: "Northwind Apparel",
-    url: "northwind-apparel.com",
-    industry: "Shopify · Apparel",
-    accent: "from-[oklch(0.92_0.04_245)] to-[oklch(0.85_0.08_265)]",
-    hero: "Engineered Basics. Lifetime Guarantee.",
-    cta: "Shop the Drop",
-    Icon: Shirt,
-    metrics: [
-      { v: "11.9×", l: "Revenue lift" },
-      { v: "3.8×", l: "Blended ROAS" },
-      { v: "4.6%", l: "Conv. rate" },
-    ],
-    summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows — went from $18K to $214K MRR.",
-  },
-  {
-    name: "Roast & Co.",
-    url: "roastandco.com",
-    industry: "Shopify · Coffee",
-    accent: "from-[oklch(0.88_0.06_60)] to-[oklch(0.78_0.1_45)]",
-    hero: "Single-Origin. Subscription-First.",
-    cta: "Start your routine",
-    Icon: Coffee,
-    metrics: [
-      { v: "3.9×", l: "LTV growth" },
-      { v: "68%", l: "Sub-rate" },
-      { v: "+88%", l: "Page CR" },
-    ],
-    summary: "Subscription-only ad funnel + new sub page design — 68% of new buyers convert to recurring.",
-  },
-  {
-    name: "Auralune",
-    url: "auralune.co",
-    industry: "Shopify · Jewelry",
-    accent: "from-[oklch(0.9_0.04_330)] to-[oklch(0.82_0.08_320)]",
-    hero: "Heirloom-grade. Made to gift.",
-    cta: "Build a Gift",
-    Icon: Sparkles,
-    metrics: [
-      { v: "5.6×", l: "BFCM ROAS" },
-      { v: "$420K", l: "Q4 revenue" },
-      { v: "+56%", l: "AOV" },
-    ],
-    summary: "90-day pre-warm + gifting CRO — Q4 revenue grew 212% YoY with 5.6× ROAS during BFCM.",
-  },
-];
-
 export function FeaturedStoresSection() {
+  // duplicate the list for a seamless infinite marquee loop
+  const loop = [...featuredStores, ...featuredStores];
+
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.98_0.01_245)] to-white" />
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/10 blur-[140px] rounded-full" />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+      <div className="relative">
+        <div className="text-center max-w-2xl mx-auto mb-14 px-5">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Featured Stores
           </div>
@@ -86,63 +84,24 @@ export function FeaturedStoresSection() {
           <p className="mt-3 text-muted-foreground">Real stores. Real screenshots. Real results we shipped.</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {featuredStores.map((s) => (
-            <div key={s.name} className="group">
-              <BrowserFrame url={s.url} accent={s.accent}>
-                {/* Mock website content */}
-                <div className="absolute inset-0 p-5 flex flex-col">
-                  <div className="flex items-center justify-between text-[10px] text-ink/70">
-                    <div className="flex items-center gap-1.5 font-bold">
-                      <s.Icon className="w-3.5 h-3.5" /> {s.name}
-                    </div>
-                    <div className="flex gap-3 text-ink/50">
-                      <span>Shop</span><span>About</span><span>Cart</span>
-                    </div>
-                  </div>
-                  <div className="flex-1 flex flex-col justify-center max-w-[80%]">
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-ink/50">New collection</div>
-                    <div className="mt-1 text-xl md:text-2xl font-bold text-ink leading-tight">{s.hero}</div>
-                    <button className="mt-3 self-start text-[10px] font-bold bg-ink text-white px-3 py-1.5 rounded-full">{s.cta}</button>
-                  </div>
-                  <div className="flex gap-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="flex-1 aspect-square rounded-lg bg-white/60 backdrop-blur border border-white/80 flex items-center justify-center">
-                        <s.Icon className="w-4 h-4 text-ink/40" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Floating metric chip */}
-                <div className="absolute top-4 right-4 bg-white rounded-xl shadow-xl border border-border px-3 py-2 group-hover:-translate-y-1 transition-transform">
-                  <div className="text-[9px] uppercase tracking-widest text-muted-foreground">Live ROAS</div>
-                  <div className="text-sm font-bold text-primary flex items-center gap-1">
-                    {s.metrics[1].v} <TrendingUp className="w-3 h-3" />
-                  </div>
-                </div>
-              </BrowserFrame>
-
-              <div className="mt-5">
-                <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{s.industry}</div>
-                <h3 className="mt-1 font-bold text-ink text-lg">{s.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.summary}</p>
-                <div className="mt-4 grid grid-cols-3 gap-2">
-                  {s.metrics.map((m) => (
-                    <div key={m.l} className="rounded-xl border border-border bg-white p-2.5 text-center">
-                      <div className="text-base font-bold text-gradient">{m.v}</div>
-                      <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{m.l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* Marquee track */}
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+          <div className="overflow-hidden">
+            <div className="flex gap-6 animate-marquee-x py-2 pl-6 pr-6 w-max">
+              {loop.map((s, i) => (
+                <StoreCard key={i} s={s} />
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 /* ------------------- 2. ADS DASHBOARD ------------------- */
 const adsRows = [
