@@ -62,7 +62,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/20 blur-[140px] float" />
         <div className="absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-accent/30 blur-[120px] float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
               <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
@@ -70,12 +70,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             </div>
           </Reveal>
           <Reveal delay={1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl leading-[1.02] text-ink">
+            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl mx-auto lg:mx-0 leading-[1.02] text-ink">
               {cfg.heroTitle}
             </h1>
           </Reveal>
           <Reveal delay={2}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               {cfg.heroSub}
             </p>
           </Reveal>
@@ -97,7 +97,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
           {/* Floating proof strip */}
           <Reveal delay={4}>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
               {[
                 { v: "120+", l: "Stores scaled" },
                 { v: "$48M+", l: "Tracked revenue" },

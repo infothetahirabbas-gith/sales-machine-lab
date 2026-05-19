@@ -51,14 +51,14 @@ function About() {
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
 
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             About BeingEcom
           </div>
-          <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04] text-ink max-w-4xl">
+          <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04] text-ink max-w-4xl mx-auto lg:mx-0">
             We build <span className="text-gradient">ecommerce growth systems</span>.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
             Not an SEO agency. Not a Facebook ads shop. An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store.
           </p>
           <div className="mt-8 btn-pair">

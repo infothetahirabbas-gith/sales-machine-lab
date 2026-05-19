@@ -65,8 +65,8 @@ function Home() {
         </Link>
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+          <div className="lg:col-span-7 text-center lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mx-auto lg:mx-0">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
@@ -77,7 +77,7 @@ function Home() {
               </span>{" "}
               Into <span className="text-gradient">Scalable Revenue Machines</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
             </p>
             <div className="mt-8 btn-pair" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
@@ -99,7 +99,7 @@ function Home() {
                 </span>
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
                 { v: "+300%", l: "avg sales growth" },
                 { v: "2.5×", l: "ROAS improvement" },
