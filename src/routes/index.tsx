@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Megaphone, MousePointerClick, Search, Rocket } from "lucide-react";
+import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
@@ -255,12 +255,31 @@ function Home() {
       </Section>
 
       {/* 8. HOW IT WORKS */}
-      <Section center eyebrow="How it works" title="Three steps. Zero fluff.">
-        <NumberedList items={[
-          { title: "Audit your store", body: "We tear down your funnel, ads, analytics, and product pages — find where revenue is leaking." },
-          { title: "Fix conversion + ads", body: "Rebuild the highest-impact pieces first: PDP, checkout, ad funnel, Klaviyo flows." },
-          { title: "Scale revenue", body: "Once unit economics work, we scale spend, channels, and retention systems together." },
-        ]} />
+      <Section
+        center
+        eyebrow="The process"
+        title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
+      >
+        <div className="relative grid md:grid-cols-3 gap-4">
+          {/* connector line */}
+          <div className="hidden md:block absolute top-[68px] left-[16%] right-[16%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+          {[
+            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages — find every leak.", Icon: ClipboardCheck },
+            { step: "Step 2", title: "Fix", body: "Rebuild the highest-impact pieces: PDP, checkout, ad funnel, Klaviyo flows.", Icon: Wrench },
+            { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together.", Icon: Rocket },
+          ].map((s, i) => (
+            <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Card className="relative text-center h-full">
+                <div className="mx-auto w-14 h-14 rounded-full bg-gradient-to-br from-primary to-[oklch(0.55_0.2_248)] text-primary-foreground flex items-center justify-center shadow-[0_10px_30px_-10px_oklch(0.65_0.18_245/0.55)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                  <s.Icon className="w-6 h-6" strokeWidth={2.2} />
+                </div>
+                <div className="mt-4 text-[10px] font-bold tracking-[0.18em] uppercase text-primary">{s.step}</div>
+                <h3 className="mt-1 font-bold text-xl text-ink">{s.title}</h3>
+                <p className="text-sm text-muted-foreground mt-2">{s.body}</p>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       {/* 9. TOOLS */}
