@@ -6,6 +6,7 @@ import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
 import BeforeAfter from "../components/site/BeforeAfter";
 import ContactFaq from "../components/site/ContactFaq";
+import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
 import { Reveal } from "../hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -154,6 +155,9 @@ function Home() {
           ))}
         </div>
       </Section>
+
+      {/* REVENUE LOSS CALCULATOR */}
+      <RevenueLossCalculator />
 
       {/* 4. SOLUTION - 4 PILLARS */}
       <Section
