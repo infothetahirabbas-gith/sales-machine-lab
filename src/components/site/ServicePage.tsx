@@ -369,17 +369,17 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 every month, on the same ad spend. That's why every module in this system is engineered to move the metrics that print money.
               </p>
               <div className="grid grid-cols-3 gap-3 mt-6">
-                {[
-                  { v: "+34%", l: "Avg revenue lift" },
-                  { v: "2.7×", l: "ROAS improvement" },
-                  { v: "62%", l: "Repeat buyer rate" },
-                ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
+                {(cfg.impactStats ?? [
+                  { value: "+34%", label: "Avg revenue lift" },
+                  { value: "2.7×", label: "ROAS improvement" },
+                  { value: "62%", label: "Repeat buyer rate" },
+                ]).map((s) => (
+                  <div key={s.label} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
                     <div className="text-xl md:text-2xl font-bold text-gradient">
-                      <CountUp value={s.v} />
+                      <CountUp value={s.value} />
                     </div>
                     <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
-                      {s.l}
+                      {s.label}
                     </div>
                   </div>
                 ))}
@@ -402,14 +402,17 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 </div>
               </div>
               <RevenueBars
-                bars={[
-                  { label: "Conversion rate", before: 1.4, after: 3.8, unit: "%" },
-                  { label: "ROAS", before: 1.9, after: 4.2, unit: "×" },
-                  { label: "AOV", before: 42, after: 71, unit: "$" },
-                  { label: "Repeat rate", before: 18, after: 47, unit: "%" },
-                  { label: "Monthly revenue (k)", before: 38, after: 142, unit: "k" },
+                bars={cfg.metricBars ?? [
+                  { label: "Conversion rate", before: 1.4, after: 3.8, unit: "%", description: "Share of visitors who complete a purchase. Benchmark: top-quartile DTC stores hit 3.5–4.5%." },
+                  { label: "ROAS", before: 1.9, after: 4.2, unit: "×", description: "Revenue ÷ ad spend. Healthy paid-social ROAS for scaling brands sits at 3–4×." },
+                  { label: "AOV", before: 42, after: 71, unit: "$", description: "Average order value. Lifted via bundles, upsells, and post-purchase offers." },
+                  { label: "Repeat rate", before: 18, after: 47, unit: "%", description: "Customers who buy again within 90 days. The single biggest LTV lever." },
+                  { label: "Monthly revenue", before: 38, after: 142, unit: "$k", description: "Top-line monthly revenue once the full growth system is operating." },
                 ]}
               />
+              <p className="mt-4 text-[11px] text-muted-foreground leading-relaxed">
+                Benchmarks based on 120+ Shopify &amp; WooCommerce stores we've scaled. Hover any metric for the definition.
+              </p>
             </div>
           </Reveal>
         </div>
