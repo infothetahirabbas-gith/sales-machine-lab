@@ -208,6 +208,173 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
   );
 }
 
+/* ---------- Category-specific card previews ---------- */
+
+function AdsPreview({ data, metric, metricLabel, seed }: { data: number[]; metric: string; metricLabel: string; seed: number }) {
+  const r = rng(seed + 11);
+  const metaBars = Array.from({ length: 7 }, () => 30 + r() * 60);
+  const googleBars = Array.from({ length: 7 }, () => 25 + r() * 65);
+  const days = ["M", "T", "W", "T", "F", "S", "S"];
+  const maxBar = Math.max(...metaBars, ...googleBars);
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header tabs: Meta + Google */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-3 text-[10px] font-semibold">
+          <span className="inline-flex items-center gap-1.5 text-ink">
+            <span className="w-2 h-2 rounded-sm bg-[#1877F2]" /> Meta Ads
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-ink">
+            <span className="w-2 h-2 rounded-sm bg-[#34A853]" /> Google Ads
+          </span>
+        </div>
+        <span className="text-[9px] font-bold text-emerald-600 tabular-nums">● LIVE</span>
+      </div>
+      {/* Stat strip */}
+      <div className="grid grid-cols-3 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">ROAS</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(2 + (seed % 5) * 0.7).toFixed(1)}×</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CPA</div>
+          <div className="text-xs font-bold text-ink tabular-nums">${10 + (seed % 9) * 3}</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">CTR</div>
+          <div className="text-xs font-bold text-emerald-600 tabular-nums">{(1.4 + (seed % 6) * 0.4).toFixed(1)}%</div>
+        </div>
+      </div>
+      {/* Dual bar chart */}
+      <div className="flex-1 flex items-end gap-1.5 px-3 pb-2.5 pt-2 min-h-0">
+        {metaBars.map((m, i) => (
+          <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+            <div className="w-full flex items-end gap-[2px] h-full">
+              <div className="flex-1 bg-[#1877F2] rounded-sm" style={{ height: `${(m / maxBar) * 100}%` }} />
+              <div className="flex-1 bg-[#34A853] rounded-sm" style={{ height: `${(googleBars[i] / maxBar) * 100}%` }} />
+            </div>
+            <div className="text-[7px] text-muted-foreground font-medium leading-none">{days[i]}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
+  const r = rng(seed + 23);
+  // Trend area chart
+  const pts = Array.from({ length: 14 }, (_, i) => 20 + i * 4 + r() * 14);
+  const max = Math.max(...pts);
+  const min = Math.min(...pts);
+  const w = 100, h = 40;
+  const path = pts.map((v, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * w},${h - ((v - min) / (max - min || 1)) * h}`).join(" ");
+  const area = `${path} L${w},${h} L0,${h} Z`;
+  const queries = [
+    { kw: "best skincare routine", pos: 3, clicks: "2.4K" },
+    { kw: "vitamin c serum benefits", pos: 5, clicks: "1.8K" },
+    { kw: "anti aging cream review", pos: 2, clicks: "3.1K" },
+  ];
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="w-3 h-3"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
+          <span className="text-[10px] font-semibold text-ink">Search Console</span>
+        </div>
+        <span className="text-[8px] font-semibold text-muted-foreground">Last 28 days</span>
+      </div>
+      {/* Metric chips */}
+      <div className="grid grid-cols-2 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Clicks</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(8 + (seed % 12)).toFixed(0)}.{seed % 10}K</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Impr.</div>
+          <div className="text-xs font-bold text-ink tabular-nums">{(80 + (seed % 70))}.{seed % 10}K</div>
+        </div>
+      </div>
+      {/* Mini trend chart */}
+      <div className="px-3 pt-1.5 pb-1 shrink-0">
+        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-10" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id={`seo-${seed}`} x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor="#4285F4" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#4285F4" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d={area} fill={`url(#seo-${seed})`} />
+          <path d={path} fill="none" stroke="#4285F4" strokeWidth="1.5" />
+        </svg>
+      </div>
+      {/* Top queries list */}
+      <div className="flex-1 px-3 pb-2 space-y-0.5 min-h-0 overflow-hidden">
+        {queries.map((q, i) => (
+          <div key={i} className="flex items-center justify-between text-[9px]">
+            <span className="truncate text-ink/80 flex-1">{q.kw}</span>
+            <span className="text-emerald-600 font-bold tabular-nums ml-2">#{q.pos + (seed % 3)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
+  const r = rng(seed + 37);
+  const visitors = 10000 + Math.floor(r() * 4000);
+  const addToCart = Math.floor(visitors * (0.18 + r() * 0.08));
+  const checkout = Math.floor(addToCart * (0.55 + r() * 0.15));
+  const purchases = Math.floor(checkout * (0.42 + r() * 0.18));
+  const before = (1 + r() * 0.6).toFixed(2);
+  const after = (3.2 + r() * 1.6).toFixed(2);
+  const steps = [
+    { l: "Visitors", v: visitors.toLocaleString(), pct: 100 },
+    { l: "Add to cart", v: addToCart.toLocaleString(), pct: (addToCart / visitors) * 100 },
+    { l: "Checkout", v: checkout.toLocaleString(), pct: (checkout / visitors) * 100 },
+    { l: "Purchased", v: purchases.toLocaleString(), pct: (purchases / visitors) * 100 },
+  ];
+  return (
+    <div className="h-full w-full bg-white flex flex-col">
+      {/* Header A/B */}
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <span className="text-[10px] font-semibold text-ink">Conversion funnel</span>
+        <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">A/B WIN</span>
+      </div>
+      {/* Before/After */}
+      <div className="grid grid-cols-2 gap-2 px-3 py-2 border-b border-border/70 shrink-0">
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Before</div>
+          <div className="text-xs font-bold text-ink/60 tabular-nums line-through">{before}%</div>
+        </div>
+        <div>
+          <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">After</div>
+          <div className="text-xs font-bold text-emerald-600 tabular-nums">{after}%</div>
+        </div>
+      </div>
+      {/* Funnel bars */}
+      <div className="flex-1 flex flex-col justify-center gap-1 px-3 pb-2.5 min-h-0">
+        {steps.map((s, i) => (
+          <div key={i} className="space-y-0.5">
+            <div className="flex items-center justify-between text-[8px] font-medium">
+              <span className="text-ink/70">{s.l}</span>
+              <span className="tabular-nums text-ink/60">{s.v}</span>
+            </div>
+            <div className="h-1.5 rounded-full bg-secondary/60 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-primary to-[oklch(0.55_0.2_265)] rounded-full"
+                style={{ width: `${Math.max(8, s.pct)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseStudies() {
   const [filter, setFilter] = useState<Category | "All">("All");
   const [active, setActive] = useState<Study | null>(null);
