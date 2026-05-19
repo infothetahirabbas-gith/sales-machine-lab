@@ -214,7 +214,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 6. PILLARS */}
       <Section eyebrow="Core pillars" title={cfg.pillarsTitle} alt>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {cfg.pillars.map((p, i) => {
             const Icon = [Shield, Target, Zap, Sparkles][i % 4];
             return (
@@ -301,7 +301,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
       {/* 13. TRIGGERS */}
       {cfg.triggers && cfg.triggersTitle && (
         <Section eyebrow="Conversion levers" title={cfg.triggersTitle} alt>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {cfg.triggers.map((t, i) => (
               <Reveal key={t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <div className="group flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">

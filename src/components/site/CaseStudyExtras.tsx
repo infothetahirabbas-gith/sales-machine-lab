@@ -185,7 +185,7 @@ export function AdsDashboardSection() {
         </div>
 
         {/* KPI cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6">
           {[
             { l: "Spend (30D)", v: "$127,840", d: "+18%", Icon: DollarSign, up: true },
             { l: "Revenue (30D)", v: "$612,440", d: "+62%", Icon: TrendingUp, up: true },
@@ -419,7 +419,7 @@ export function IndustriesSection() {
           <p className="mt-3 text-muted-foreground">132+ stores across 8 categories. Ecom only, never SaaS or B2B.</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {industries.map((i) => (
             <div key={i.name} className="card-surface card-hover p-6 text-center group">
               <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
