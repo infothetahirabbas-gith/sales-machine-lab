@@ -6,25 +6,59 @@ import { Section, CTA } from "../components/site/Section";
 import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
 import CaseStudyExtras from "../components/site/CaseStudyExtras";
 import showcaseApparel from "@/assets/showcase-apparel.jpg";
-import showcaseCoffee from "@/assets/showcase-coffee.jpg";
-import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
+import showcaseGadgets from "@/assets/showcase-gadgets.jpg";
+import showcaseFootwear from "@/assets/showcase-footwear.jpg";
 import showcaseBeauty from "@/assets/showcase-beauty.jpg";
-import showcaseFurniture from "@/assets/showcase-furniture.jpg";
-import showcaseActivewear from "@/assets/showcase-activewear.jpg";
 import showcasePet from "@/assets/showcase-pet.jpg";
-import showcaseEyewear from "@/assets/showcase-eyewear.jpg";
+import showcaseHomegoods from "@/assets/showcase-homegoods.jpg";
 import showcaseSupplements from "@/assets/showcase-supplements.jpg";
+import showcaseJewelry from "@/assets/showcase-jewelry.jpg";
+import showcaseActivewear from "@/assets/showcase-activewear.jpg";
+import showcaseCoffee from "@/assets/showcase-coffee.jpg";
+import showcaseFurniture from "@/assets/showcase-furniture.jpg";
+import showcaseEyewear from "@/assets/showcase-eyewear.jpg";
+import showcaseOutdoor from "@/assets/showcase-outdoor.jpg";
+import showcaseToys from "@/assets/showcase-toys.jpg";
+import showcaseCosmetics from "@/assets/showcase-cosmetics.jpg";
+import showcaseSkincare from "@/assets/showcase-skincare.jpg";
+import showcaseStreetwear from "@/assets/showcase-streetwear.jpg";
+import showcaseVitamins from "@/assets/showcase-vitamins.jpg";
+import showcaseDogfood from "@/assets/showcase-dogfood.jpg";
+import showcaseSerum from "@/assets/showcase-serum.jpg";
+import showcaseKitchen from "@/assets/showcase-kitchen.jpg";
+import showcaseWatches from "@/assets/showcase-watches.jpg";
+import showcaseRunners from "@/assets/showcase-runners.jpg";
+import showcaseTea from "@/assets/showcase-tea.jpg";
+import showcaseDesk from "@/assets/showcase-desk.jpg";
+import showcaseBike from "@/assets/showcase-bike.jpg";
+import showcaseSunglasses from "@/assets/showcase-sunglasses.jpg";
+import showcaseDress from "@/assets/showcase-dress.jpg";
+import showcaseHeadphones from "@/assets/showcase-headphones.jpg";
+import showcaseCandles from "@/assets/showcase-candles.jpg";
+import showcaseSneakerdrop from "@/assets/showcase-sneakerdrop.jpg";
+import showcaseGrooming from "@/assets/showcase-grooming.jpg";
+import showcaseYoga from "@/assets/showcase-yoga.jpg";
+import showcaseChocolate from "@/assets/showcase-chocolate.jpg";
+import showcaseBags from "@/assets/showcase-bags.jpg";
+import showcasePlants from "@/assets/showcase-plants.jpg";
+import showcaseWine from "@/assets/showcase-wine.jpg";
+import showcaseBaby from "@/assets/showcase-baby.jpg";
+import showcaseSurf from "@/assets/showcase-surf.jpg";
 
+// One unique screenshot per case study, ordered to match RAW[] below (Ads a1-a15, SEO s1-s12, CRO c1-c12)
 const showcaseImages = [
-  showcaseApparel,
-  showcaseCoffee,
-  showcaseJewelry,
-  showcaseBeauty,
-  showcaseFurniture,
-  showcaseActivewear,
-  showcasePet,
-  showcaseEyewear,
-  showcaseSupplements,
+  // Ads (15)
+  showcaseApparel, showcaseGadgets, showcaseFootwear, showcaseBeauty, showcasePet,
+  showcaseHomegoods, showcaseSupplements, showcaseJewelry, showcaseActivewear, showcaseCoffee,
+  showcaseFurniture, showcaseEyewear, showcaseOutdoor, showcaseToys, showcaseCosmetics,
+  // SEO (12)
+  showcaseSkincare, showcaseStreetwear, showcaseVitamins, showcaseDogfood, showcaseSerum,
+  showcaseKitchen, showcaseWatches, showcaseRunners, showcaseTea, showcaseDesk,
+  showcaseBike, showcaseSunglasses,
+  // CRO (12)
+  showcaseDress, showcaseHeadphones, showcaseCandles, showcaseSneakerdrop, showcaseGrooming,
+  showcaseYoga, showcaseChocolate, showcaseBags, showcasePlants, showcaseWine,
+  showcaseBaby, showcaseSurf,
 ];
 
 export const Route = createFileRoute("/case-studies")({
