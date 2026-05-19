@@ -152,7 +152,7 @@ function About() {
 
       {/* THE TEAM */}
       <Section eyebrow="The Team" title="A small, senior, ecommerce-only crew">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {team.map((m) => (
             <div key={m.i} className="card-surface card-hover p-6 text-center">
               <img
