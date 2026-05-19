@@ -46,6 +46,10 @@ export type ServiceConfig = {
     metrics: { label: string; value: string }[];
   };
   ctaTitle?: string;
+  /** Per-service "Why this matters" headline metrics (animated count-up). */
+  impactStats?: { value: string; label: string }[];
+  /** Per-service Before vs After benchmark bars with tooltips. */
+  metricBars?: Bar[];
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
