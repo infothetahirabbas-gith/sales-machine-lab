@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/analytics")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/analytics" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "analytics", name: "Analytics & Tracking", description: "GA4, Meta Pixel, Conversion API and revenue dashboards for Shopify and WooCommerce." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Analytics & Tracking", path: "/services/analytics" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{

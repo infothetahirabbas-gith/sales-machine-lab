@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/store-development")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/store-development")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/store-development" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Store Development", description: "Custom Shopify and WooCommerce store development — themes, headless, migrations, apps and integrations." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Store Development", path: "/services/store-development" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{

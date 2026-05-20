@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/scaling")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/scaling" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "scaling", name: "Scaling & Revenue Strategy", description: "Profitable scaling from 6 to 7 figures with retention, LTV, channel mix and offer engineering." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Scaling & Revenue Strategy", path: "/services/scaling" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{

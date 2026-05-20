@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/email-sms")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/email-sms" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "email-sms", name: "Email & SMS Marketing", description: "Klaviyo email and SMS flows that recover lost sales and add 25-35% revenue for Shopify and WooCommerce." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Email & SMS Marketing", path: "/services/email-sms" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{

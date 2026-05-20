@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/funnel")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/funnel" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "funnel", name: "Funnel & Landing Pages", description: "High-converting ecommerce funnels and landing pages — bridge pages, retargeting and post-purchase journeys." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Funnel & Landing Pages", path: "/services/funnel" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{

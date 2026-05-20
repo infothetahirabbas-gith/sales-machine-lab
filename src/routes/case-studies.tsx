@@ -44,7 +44,7 @@ import showcasePlants from "@/assets/showcase-plants.jpg";
 import showcaseWine from "@/assets/showcase-wine.jpg";
 import showcaseBaby from "@/assets/showcase-baby.jpg";
 import showcaseSurf from "@/assets/showcase-surf.jpg";
-import { faqJsonLd, caseStudyFaqs } from "../lib/seo";
+import { faqJsonLd, caseStudyFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
 
@@ -78,6 +78,7 @@ export const Route = createFileRoute("/case-studies")({
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs, "/case-studies")) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }])) },
     ],
   }),
   component: CaseStudies,

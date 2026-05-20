@@ -6,7 +6,7 @@ import teamAR from "@/assets/team-ar.jpg";
 import teamSP from "@/assets/team-sp.jpg";
 import teamJK from "@/assets/team-jk.jpg";
 import teamMN from "@/assets/team-mn.jpg";
-import { faqJsonLd, aboutFaqs } from "../lib/seo";
+import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
 
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/about")({
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs, "/about")) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])) },
     ],
   }),
   component: About,

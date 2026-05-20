@@ -111,6 +111,35 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
+export function serviceJsonLd(opts: {
+  slug: string;
+  name: string;
+  description: string;
+  serviceType?: string;
+}) {
+  const url = `${SITE_URL}/services/${opts.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: opts.name,
+    serviceType: opts.serviceType ?? opts.name,
+    description: opts.description,
+    url,
+    provider: {
+      "@type": "Organization",
+      name: ORG_INFO.name,
+      url: ORG_INFO.url,
+    },
+    areaServed: "Worldwide",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Shopify and WooCommerce ecommerce brands",
+    },
+  };
+}
+
+
 // Page-specific FAQs
 export const aboutFaqs: FAQ[] = [
   { q: "What makes BeingEcom different from other agencies?", a: "We work only with ecommerce brands on Shopify and WooCommerce, operate like a fractional CMO/CRO team, and tie every decision to revenue - not vanity metrics." },
