@@ -5,7 +5,7 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
 import BeforeAfter from "../components/site/BeforeAfter";
-import ContactFaq from "../components/site/ContactFaq";
+import ContactFaq, { faqJsonLd } from "../components/site/ContactFaq";
 import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
 import GrowthPathPlanner from "../components/site/GrowthPathPlanner";
 import { Reveal } from "../hooks/useReveal";
