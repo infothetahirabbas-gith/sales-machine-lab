@@ -77,7 +77,7 @@ export const Route = createFileRoute("/case-studies")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs, "/case-studies")) },
     ],
   }),
   component: CaseStudies,
