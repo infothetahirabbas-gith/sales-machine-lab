@@ -185,7 +185,7 @@ VALUES ('${userId}', 'admin');`}
             {studies.map((s) => (
               <div key={s.id} className="card-surface p-4 flex items-center gap-4">
                 {s.screenshot_url ? (
-                  <img src={s.screenshot_url} alt="" className="w-20 h-14 object-cover rounded border border-border" />
+                  <img src={s.screenshot_url} alt="" loading="lazy" decoding="async" className="w-20 h-14 object-cover rounded border border-border" />
                 ) : (
                   <div className="w-20 h-14 rounded bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center text-xs font-bold text-primary">
                     {s.category}
