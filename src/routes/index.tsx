@@ -9,6 +9,7 @@ import ContactFaq, { faqs as homeFaqs } from "../components/site/ContactFaq";
 import { faqJsonLd } from "../lib/seo";
 
 import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
+import CountUp from "../components/site/CountUp";
 import GrowthPathPlanner from "../components/site/GrowthPathPlanner";
 import { Reveal } from "../hooks/useReveal";
 
