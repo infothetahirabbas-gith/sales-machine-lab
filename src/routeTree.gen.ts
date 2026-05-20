@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AuditRouteImport } from './routes/audit'
@@ -27,6 +28,11 @@ import { Route as ServicesAnalyticsRouteImport } from './routes/services.analyti
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -139,6 +146,7 @@ export interface FileRoutesByTo {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -159,6 +167,7 @@ export interface FileRoutesById {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -180,6 +189,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
     | '/services/analytics'
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   AuditRoute: typeof AuditRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
@@ -254,6 +267,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -382,6 +402,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuditRoute: AuditRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
