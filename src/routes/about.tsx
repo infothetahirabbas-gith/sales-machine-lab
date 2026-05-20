@@ -197,6 +197,14 @@ function About() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        faqs={aboutFaqs}
+        title="About BeingEcom —"
+        highlight="quick answers"
+        intro="What founders ask before working with us."
+      />
     </PageLayout>
+
   );
 }
