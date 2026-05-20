@@ -59,10 +59,6 @@ function Home() {
         <div className="absolute inset-0 grid-bg opacity-70 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
-        {/* Floating chips */}
-        <Link to="/contact" className="hidden md:inline-flex absolute top-6 right-4 md:top-24 md:right-[8%] card-surface px-4 py-2 text-xs font-semibold float items-center gap-1 hover:bg-primary hover:text-primary-foreground transition-colors z-10">
-          <span className="text-primary">●</span> Book Strategy Call →
-        </Link>
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-center lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
