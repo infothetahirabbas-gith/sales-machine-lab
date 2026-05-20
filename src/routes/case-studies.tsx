@@ -534,15 +534,6 @@ function CaseStudies() {
                         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-                        <span className="ml-2 text-[9px] text-muted-foreground font-medium truncate">
-                          {s.category === "Ads"
-                            ? "business.facebook.com/adsmanager"
-                            : s.category === "SEO"
-                            ? "search.google.com/search-console"
-                            : s.category === "CRO"
-                            ? "analytics.cro-funnel"
-                            : "store.example.com"}
-                        </span>
                       </div>
                       <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
                         {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
