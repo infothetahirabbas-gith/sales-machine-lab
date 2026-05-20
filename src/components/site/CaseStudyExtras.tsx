@@ -39,6 +39,7 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
             src={s.img}
             alt="Live store showcase"
             loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
           {/* Floating live ROAS */}
