@@ -5,6 +5,17 @@ import { Section, Card } from "../components/site/Section";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
+  head: () => ({
+    meta: [
+      { title: "Contact BeingEcom — Free Ecommerce Growth Audit" },
+      { name: "description", content: "Talk to BeingEcom about scaling your Shopify or WooCommerce store. Get a free 12-point ecommerce growth audit within 48 hours. No pitch deck." },
+      { name: "keywords", content: "contact ecommerce agency, free Shopify audit, ecommerce growth audit, WooCommerce consultation, DTC strategy call" },
+      { property: "og:title", content: "Contact BeingEcom — Free Ecommerce Growth Audit" },
+      { property: "og:description", content: "Send us your store. We send back a 12-point loss-recovery plan within 48 hours." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/contact" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/contact" }],
+  }),
 });
 
 function Contact() {
