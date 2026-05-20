@@ -103,6 +103,13 @@ function Contact() {
         </div>
       </Section>
 
+      <FaqSection
+        faqs={contactFaqs}
+        title="Contact —"
+        highlight="quick answers"
+        intro="What founders ask before sending us their store."
+      />
     </PageLayout>
+
   );
 }
