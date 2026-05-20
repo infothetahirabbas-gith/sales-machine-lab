@@ -471,6 +471,14 @@ function AuditPage() {
           </div>
         </section>
       )}
+
+      <FaqSection
+        faqs={auditFaqs}
+        title="Audit FAQ —"
+        highlight="what to expect"
+        intro="Everything founders ask before running the free audit."
+      />
     </PageLayout>
+
   );
 }
