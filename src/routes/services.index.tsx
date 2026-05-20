@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA } from "../components/site/Section";
 import { faqJsonLd, servicesFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
