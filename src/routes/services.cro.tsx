@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/cro")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce CRO — Conversion Rate Optimization for Shopify & WooCommerce | BeingEcom" },
+      { name: "description", content: "Turn existing traffic into 2-3× more sales with data-driven ecommerce CRO. Funnel audits, A/B testing, PDP and checkout optimization for Shopify & WooCommerce." },
+      { name: "keywords", content: "ecommerce CRO, Shopify CRO, WooCommerce CRO, conversion rate optimization, A/B testing, PDP optimization, checkout optimization, ecommerce funnel optimization" },
+      { property: "og:title", content: "Ecommerce CRO — Conversion Rate Optimization for Shopify & WooCommerce | BeingEcom" },
+      { property: "og:description", content: "Turn existing traffic into 2-3× more sales with data-driven ecommerce CRO. Funnel audits, A/B testing, PDP and checkout optimization for Shopify & WooCommerce." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/cro" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/cro" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "cro",

@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/analytics")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
+      { name: "description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
+      { name: "keywords", content: "ecommerce analytics, GA4 setup, Meta Pixel CAPI, Shopify tracking, ecommerce attribution, conversion tracking, GA4 ecommerce" },
+      { property: "og:title", content: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
+      { property: "og:description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/analytics" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/analytics" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "analytics",

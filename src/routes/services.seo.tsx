@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/seo")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce SEO — Shopify & WooCommerce SEO Agency | BeingEcom" },
+      { name: "description", content: "Rank products, collections and content on Google. Technical SEO, on-page, content and link building for Shopify & WooCommerce — free traffic forever." },
+      { name: "keywords", content: "ecommerce SEO, Shopify SEO, WooCommerce SEO, product page SEO, collection page SEO, ecommerce SEO agency, technical SEO, ecommerce link building" },
+      { property: "og:title", content: "Ecommerce SEO — Shopify & WooCommerce SEO Agency | BeingEcom" },
+      { property: "og:description", content: "Rank products, collections and content on Google. Technical SEO, on-page, content and link building for Shopify & WooCommerce — free traffic forever." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/seo" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/seo" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "seo",

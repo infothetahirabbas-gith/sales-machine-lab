@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/store-development")({
+  head: () => ({
+    meta: [
+      { title: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
+      { name: "description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
+      { name: "keywords", content: "Shopify development, WooCommerce development, Shopify theme development, headless Shopify, Shopify migration, ecommerce web development, custom Shopify store" },
+      { property: "og:title", content: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
+      { property: "og:description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/store-development" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/store-development" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "store-development",
