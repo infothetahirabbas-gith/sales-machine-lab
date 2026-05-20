@@ -22,7 +22,7 @@ export const Route = createFileRoute("/about")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs, "/about")) },
     ],
   }),
   component: About,
