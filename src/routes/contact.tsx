@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import { faqJsonLd, contactFaqs } from "../lib/seo";
+import { faqJsonLd, contactFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
 
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/contact")({
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/contact" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs, "/contact")) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])) },
     ],
   }),
 });
