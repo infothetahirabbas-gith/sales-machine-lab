@@ -29,6 +29,7 @@ import { Route as ServicesCreativeRouteImport } from './routes/services.creative
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
+import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -131,6 +132,11 @@ const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   path: '/admin/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicDebugFaqJsonldRoute = ApiPublicDebugFaqJsonldRouteImport.update({
+  id: '/api/public/debug/faq-jsonld',
+  path: '/api/public/debug/faq-jsonld',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -153,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -175,6 +182,7 @@ export interface FileRoutesByTo {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/services': typeof ServicesIndexRoute
+  '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -198,6 +206,7 @@ export interface FileRoutesById {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/services/'
+    | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/services'
+    | '/api/public/debug/faq-jsonld'
   id:
     | '__root__'
     | '/'
@@ -266,6 +277,7 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/services/'
+    | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -289,6 +301,7 @@ export interface RootRouteChildren {
   ServicesSeoRoute: typeof ServicesSeoRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -433,6 +446,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/debug/faq-jsonld': {
+      id: '/api/public/debug/faq-jsonld'
+      path: '/api/public/debug/faq-jsonld'
+      fullPath: '/api/public/debug/faq-jsonld'
+      preLoaderRoute: typeof ApiPublicDebugFaqJsonldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -457,6 +477,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesSeoRoute: ServicesSeoRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
