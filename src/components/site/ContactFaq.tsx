@@ -3,7 +3,7 @@ import { z } from "zod";
 import { Mail, Phone, MapPin, Plus, Minus, Send } from "lucide-react";
 import { toast } from "sonner";
 
-const faqs = [
+export const faqs = [
   { q: "Do you guarantee more sales?", a: "We don't sell promises - we sell systems. What we do guarantee is a measurable, data-backed growth plan tied to revenue KPIs, not vanity metrics." },
   { q: "Do you work with small stores?", a: "Yes - if you have a real product and basic traffic. We won't take stores with nothing to optimize, but early-stage brands with momentum are welcome." },
   { q: "What ad budget do I need?", a: "We typically work with stores spending $3K+/mo on ads. Smaller is fine if we're focusing on CRO, SEO or email first." },
@@ -12,6 +12,18 @@ const faqs = [
   { q: "Do you sign long contracts?", a: "90-day initial engagement so we can actually execute a system, then month-to-month. No 12-month lock-ins." },
   { q: "Who owns the assets you build?", a: "You do. Ad accounts, creatives, funnels, code, automations - everything is yours from day one." },
 ];
+
+export function faqJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
