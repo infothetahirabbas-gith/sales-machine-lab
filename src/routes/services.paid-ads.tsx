@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/paid-ads")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Paid Ads — Meta, Google & TikTok Ads Agency | BeingEcom" },
+      { name: "description", content: "Profitable Meta, Google and TikTok ads for Shopify & WooCommerce. Creative-led, CRO-aligned paid media built to scale ROAS, not vanity metrics." },
+      { name: "keywords", content: "ecommerce ads agency, Meta ads agency, Facebook ads agency, Google ads ecommerce, TikTok ads, Shopify ads, DTC paid media, ROAS, ecommerce PPC" },
+      { property: "og:title", content: "Ecommerce Paid Ads — Meta, Google & TikTok Ads Agency | BeingEcom" },
+      { property: "og:description", content: "Profitable Meta, Google and TikTok ads for Shopify & WooCommerce. Creative-led, CRO-aligned paid media built to scale ROAS, not vanity metrics." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/paid-ads" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/paid-ads" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "paid-ads",

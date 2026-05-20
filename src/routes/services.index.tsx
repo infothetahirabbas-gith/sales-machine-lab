@@ -4,6 +4,17 @@ import { Section, Card, CTA } from "../components/site/Section";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Services — Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "Nine ecommerce growth services in one operating system: store development, CRO, paid ads, SEO, email automation, creative, funnels, analytics and scaling." },
+      { name: "keywords", content: "ecommerce services, Shopify services, WooCommerce services, ecommerce CRO, Shopify SEO, ecommerce paid ads, Klaviyo email marketing, ecommerce funnel, ecommerce analytics" },
+      { property: "og:title", content: "Ecommerce Growth Services — Shopify & WooCommerce" },
+      { property: "og:description", content: "Nine growth services, one operating system for Shopify & WooCommerce brands." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services" }],
+  }),
 });
 
 const all = [

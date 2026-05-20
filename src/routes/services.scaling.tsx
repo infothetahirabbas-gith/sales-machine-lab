@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/scaling")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
+      { name: "description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
+      { name: "keywords", content: "scale Shopify store, 7-figure ecommerce, ecommerce scaling, LTV ecommerce, ecommerce retention, DTC scaling, offer engineering" },
+      { property: "og:title", content: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
+      { property: "og:description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/scaling" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/scaling" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "scaling",

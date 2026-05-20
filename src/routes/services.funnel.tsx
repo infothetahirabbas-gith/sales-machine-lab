@@ -2,6 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 
 export const Route = createFileRoute("/services/funnel")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Funnel & Landing Page Optimization | BeingEcom" },
+      { name: "description", content: "Build high-converting ecommerce funnels and landing pages for Shopify & WooCommerce — from cold-traffic bridge pages to retargeting and post-purchase journeys." },
+      { name: "keywords", content: "ecommerce funnel, Shopify landing pages, ecommerce landing page, customer journey, funnel optimization, bridge pages, retargeting funnel" },
+      { property: "og:title", content: "Ecommerce Funnel & Landing Page Optimization | BeingEcom" },
+      { property: "og:description", content: "Build high-converting ecommerce funnels and landing pages for Shopify & WooCommerce — from cold-traffic bridge pages to retargeting and post-purchase journeys." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/funnel" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/funnel" }],
+  }),
   component: () => (
     <ServicePage cfg={{
       slug: "funnel",

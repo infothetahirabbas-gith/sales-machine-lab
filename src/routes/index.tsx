@@ -12,6 +12,19 @@ import { Reveal } from "../hooks/useReveal";
 
 export const Route = createFileRoute("/")({
   component: Home,
+  head: () => ({
+    meta: [
+      { title: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
+      { name: "description", content: "BeingEcom is an ecommerce growth agency scaling Shopify & WooCommerce brands with paid ads, CRO, SEO, email automation, and analytics. Book a free growth audit." },
+      { name: "keywords", content: "ecommerce growth agency, Shopify agency, WooCommerce agency, ecommerce marketing, Shopify SEO, ecommerce CRO, Meta ads agency, Google ads ecommerce, Klaviyo email marketing, DTC growth" },
+      { property: "og:title", content: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
+      { property: "og:description", content: "Scale your Shopify or WooCommerce store profitably with ads, CRO, SEO, and email automation. Book a free 12-point growth audit." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/" }],
+  }),
 });
 
 const services = [

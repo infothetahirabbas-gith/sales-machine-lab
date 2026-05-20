@@ -10,11 +10,14 @@ import teamMN from "@/assets/team-mn.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom - Ecommerce Growth Operators" },
-      { name: "description", content: "We build ecommerce growth systems for Shopify & WooCommerce brands. Operators, not talkers." },
-      { property: "og:title", content: "About BeingEcom" },
-      { property: "og:description", content: "An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for your store." },
+      { title: "About BeingEcom — Shopify & WooCommerce Growth Operators" },
+      { name: "description", content: "BeingEcom is an ecommerce-only growth team for Shopify & WooCommerce brands — acting as your CMO, CRO and Head of Performance. Operators, not talkers." },
+      { name: "keywords", content: "about BeingEcom, ecommerce growth team, Shopify growth experts, WooCommerce specialists, DTC growth operators, fractional ecommerce CMO" },
+      { property: "og:title", content: "About BeingEcom — Ecommerce Growth Operators" },
+      { property: "og:description", content: "An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for Shopify & WooCommerce brands." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
   }),
   component: About,
 });

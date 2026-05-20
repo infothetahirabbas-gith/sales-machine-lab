@@ -64,9 +64,14 @@ const showcaseImages = [
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies - BeingEcom Ecommerce Growth Results" },
-      { name: "description", content: "40+ real ecommerce growth case studies across Ads, SEO and CRO. Revenue, ROAS and conversion lifts." },
+      { title: "Ecommerce Case Studies — Shopify & WooCommerce Growth Results | BeingEcom" },
+      { name: "description", content: "40+ real Shopify & WooCommerce case studies. See revenue, ROAS, SEO, and conversion lifts from BeingEcom's ecommerce growth system." },
+      { name: "keywords", content: "ecommerce case studies, Shopify case studies, WooCommerce case studies, DTC growth results, ROAS case study, ecommerce SEO results, CRO case study" },
+      { property: "og:title", content: "Ecommerce Case Studies — Real Shopify & WooCommerce Growth Results" },
+      { property: "og:description", content: "40+ wins across Ads, SEO and CRO for Shopify & WooCommerce brands." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/case-studies" },
     ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
   }),
   component: CaseStudies,
 });
