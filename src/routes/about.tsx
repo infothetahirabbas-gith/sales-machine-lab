@@ -7,6 +7,8 @@ import teamSP from "@/assets/team-sp.jpg";
 import teamJK from "@/assets/team-jk.jpg";
 import teamMN from "@/assets/team-mn.jpg";
 import { faqJsonLd, aboutFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
