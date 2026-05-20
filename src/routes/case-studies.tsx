@@ -663,6 +663,14 @@ function CaseStudies() {
       <CaseStudyExtras />
 
       <CTA heading="Want your store to be the next case study?" />
+
+      <FaqSection
+        faqs={caseStudyFaqs}
+        title="Case study —"
+        highlight="FAQ"
+        intro="The questions founders ask after browsing our wins."
+      />
     </PageLayout>
+
   );
 }
