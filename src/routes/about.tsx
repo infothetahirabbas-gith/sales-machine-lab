@@ -6,6 +6,7 @@ import teamAR from "@/assets/team-ar.jpg";
 import teamSP from "@/assets/team-sp.jpg";
 import teamJK from "@/assets/team-jk.jpg";
 import teamMN from "@/assets/team-mn.jpg";
+import { faqJsonLd, aboutFaqs } from "../lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -18,9 +19,13 @@ export const Route = createFileRoute("/about")({
       { property: "og:url", content: "https://sales-machine-lab.lovable.app/about" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs)) },
+    ],
   }),
   component: About,
 });
+
 
 const differentiators = [
   { Icon: Target, t: "Ecommerce only", d: "We don't take SaaS, agency or B2B clients. Ecom math is different." },
