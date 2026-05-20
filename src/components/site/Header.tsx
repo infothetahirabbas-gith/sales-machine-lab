@@ -21,7 +21,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/75 border-b border-border">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-3 lg:py-4 flex items-center justify-between gap-6">
         <Link to="/" className="flex items-center shrink-0 leading-none" aria-label="BeingEcom home">
-          <img src={logo} alt="BeingEcom" className="h-10 md:h-12 lg:h-14 w-auto block" />
+          <img src={logo} alt="BeingEcom" width="180" height="56" decoding="async" fetchPriority="high" className="h-10 md:h-12 lg:h-14 w-auto block" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
