@@ -74,6 +74,9 @@ export const Route = createFileRoute("/case-studies")({
       { property: "og:url", content: "https://sales-machine-lab.lovable.app/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs)) },
+    ],
   }),
   component: CaseStudies,
 });
