@@ -18,7 +18,7 @@ export const Route = createFileRoute("/services/")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs, "/services")) },
     ],
   }),
 });
