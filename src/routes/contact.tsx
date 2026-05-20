@@ -3,6 +3,8 @@ import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
