@@ -5,6 +5,8 @@ import { Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MouseP
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { faqJsonLd, auditFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/audit")({
   component: AuditPage,
