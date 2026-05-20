@@ -117,7 +117,7 @@ function Home() {
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
                 { end: 300, prefix: "+", suffix: "%", decimals: 0, l: "avg sales growth" },
-                { end: 2.5, prefix: "", suffix: "×", decimals: 1, l: "ROAS improvement" },
+                { end: 25, prefix: "", suffix: "%", decimals: 0, l: "ROAS improvement" },
                 { end: 1000, prefix: "", suffix: "+", decimals: 0, l: "stores scaled" },
               ].map((s) => (
                 <div key={s.l}>
