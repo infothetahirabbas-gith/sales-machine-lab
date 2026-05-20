@@ -4,3 +4,5 @@ Disallow: /admin
 Disallow: /admin/
 
 Sitemap: https://sales-machine-lab.lovable.app/sitemap.xml
+Sitemap: https://sales-machine-lab.lovable.app/sitemap-pages.xml
+Sitemap: https://sales-machine-lab.lovable.app/sitemap-services.xml
