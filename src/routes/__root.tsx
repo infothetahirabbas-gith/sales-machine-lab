@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
+
 
 function NotFoundComponent() {
   return (
