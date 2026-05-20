@@ -3,6 +3,8 @@ import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -17,7 +19,7 @@ export const Route = createFileRoute("/contact")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/contact" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs, "/contact")) },
     ],
   }),
 });
@@ -101,6 +103,13 @@ function Contact() {
         </div>
       </Section>
 
+      <FaqSection
+        faqs={contactFaqs}
+        title="Contact —"
+        highlight="quick answers"
+        intro="What founders ask before sending us their store."
+      />
     </PageLayout>
+
   );
 }

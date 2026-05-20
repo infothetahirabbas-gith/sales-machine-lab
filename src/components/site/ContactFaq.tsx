@@ -13,17 +13,8 @@ export const faqs = [
   { q: "Who owns the assets you build?", a: "You do. Ad accounts, creatives, funnels, code, automations - everything is yours from day one." },
 ];
 
-export function faqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-}
+export { faqJsonLd } from "@/lib/seo";
+
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),

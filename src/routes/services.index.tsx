@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA } from "../components/site/Section";
 import { faqJsonLd, servicesFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
@@ -16,7 +18,7 @@ export const Route = createFileRoute("/services/")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs, "/services")) },
     ],
   }),
 });
@@ -82,6 +84,14 @@ function ServicesIndex() {
       </Section>
 
       <CTA />
+
+      <FaqSection
+        faqs={servicesFaqs}
+        title="Services —"
+        highlight="common questions"
+        intro="Quick answers about how engagements work."
+      />
     </PageLayout>
+
   );
 }

@@ -7,6 +7,8 @@ import teamSP from "@/assets/team-sp.jpg";
 import teamJK from "@/assets/team-jk.jpg";
 import teamMN from "@/assets/team-mn.jpg";
 import { faqJsonLd, aboutFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -20,7 +22,7 @@ export const Route = createFileRoute("/about")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs, "/about")) },
     ],
   }),
   component: About,
@@ -195,6 +197,14 @@ function About() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        faqs={aboutFaqs}
+        title="About BeingEcom —"
+        highlight="quick answers"
+        intro="What founders ask before working with us."
+      />
     </PageLayout>
+
   );
 }

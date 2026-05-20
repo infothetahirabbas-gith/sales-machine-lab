@@ -45,6 +45,8 @@ import showcaseWine from "@/assets/showcase-wine.jpg";
 import showcaseBaby from "@/assets/showcase-baby.jpg";
 import showcaseSurf from "@/assets/showcase-surf.jpg";
 import { faqJsonLd, caseStudyFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 
 // One unique screenshot per case study, ordered to match RAW[] below (Ads a1-a15, SEO s1-s12, CRO c1-c12)
@@ -75,7 +77,7 @@ export const Route = createFileRoute("/case-studies")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs, "/case-studies")) },
     ],
   }),
   component: CaseStudies,
@@ -661,6 +663,14 @@ function CaseStudies() {
       <CaseStudyExtras />
 
       <CTA heading="Want your store to be the next case study?" />
+
+      <FaqSection
+        faqs={caseStudyFaqs}
+        title="Case study —"
+        highlight="FAQ"
+        intro="The questions founders ask after browsing our wins."
+      />
     </PageLayout>
+
   );
 }

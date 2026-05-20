@@ -5,6 +5,8 @@ import { Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MouseP
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { faqJsonLd, auditFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 export const Route = createFileRoute("/audit")({
   component: AuditPage,
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/audit")({
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/audit" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(auditFaqs)) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(auditFaqs, "/audit")) },
     ],
   }),
 });
@@ -469,6 +471,14 @@ function AuditPage() {
           </div>
         </section>
       )}
+
+      <FaqSection
+        faqs={auditFaqs}
+        title="Audit FAQ —"
+        highlight="what to expect"
+        intro="Everything founders ask before running the free audit."
+      />
     </PageLayout>
+
   );
 }
