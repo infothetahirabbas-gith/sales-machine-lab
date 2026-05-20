@@ -84,6 +84,14 @@ function ServicesIndex() {
       </Section>
 
       <CTA />
+
+      <FaqSection
+        faqs={servicesFaqs}
+        title="Services —"
+        highlight="common questions"
+        intro="Quick answers about how engagements work."
+      />
     </PageLayout>
+
   );
 }
