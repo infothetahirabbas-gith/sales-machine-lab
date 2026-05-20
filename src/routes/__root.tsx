@@ -93,31 +93,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "BeingEcom",
-          url: "https://sales-machine-lab.lovable.app",
-          logo: "https://sales-machine-lab.lovable.app/favicon.png",
-          description: "Ecommerce growth agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation and analytics.",
-          sameAs: [],
-        }),
+        children: JSON.stringify(organizationJsonLd()),
       },
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "BeingEcom",
-          url: "https://sales-machine-lab.lovable.app",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://sales-machine-lab.lovable.app/?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
-        }),
+        children: JSON.stringify(websiteJsonLd()),
       },
     ],
+
   }),
   shellComponent: RootShell,
   component: RootComponent,
