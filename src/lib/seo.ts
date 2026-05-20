@@ -70,17 +70,33 @@ export function websiteJsonLd() {
 
 export type FAQ = { q: string; a: string };
 
-export function faqJsonLd(faqs: FAQ[]) {
+export function faqSlug(q: string) {
+  return q
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+}
+
+export function faqJsonLd(faqs: FAQ[], pagePath: string) {
+  const base = `${SITE_URL}${pagePath}`;
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${base}#faq`,
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
+      "@id": `${base}#faq-${faqSlug(f.q)}`,
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
+      acceptedAnswer: {
+        "@type": "Answer",
+        "@id": `${base}#faq-${faqSlug(f.q)}-answer`,
+        text: f.a,
+      },
     })),
   };
 }
+
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {
