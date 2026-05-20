@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA } from "../components/site/Section";
+import { faqJsonLd, servicesFaqs } from "../lib/seo";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
@@ -14,8 +15,12 @@ export const Route = createFileRoute("/services/")({
       { property: "og:url", content: "https://sales-machine-lab.lovable.app/services" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs)) },
+    ],
   }),
 });
+
 
 const all = [
   { to: "/services/store-development", title: "Ecommerce Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", tag: "Build" },

@@ -44,6 +44,8 @@ import showcasePlants from "@/assets/showcase-plants.jpg";
 import showcaseWine from "@/assets/showcase-wine.jpg";
 import showcaseBaby from "@/assets/showcase-baby.jpg";
 import showcaseSurf from "@/assets/showcase-surf.jpg";
+import { faqJsonLd, caseStudyFaqs } from "../lib/seo";
+
 
 // One unique screenshot per case study, ordered to match RAW[] below (Ads a1-a15, SEO s1-s12, CRO c1-c12)
 const showcaseImages = [
@@ -72,6 +74,9 @@ export const Route = createFileRoute("/case-studies")({
       { property: "og:url", content: "https://sales-machine-lab.lovable.app/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs)) },
+    ],
   }),
   component: CaseStudies,
 });
