@@ -24,6 +24,9 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd()) },
+    ],
   }),
 });
 
