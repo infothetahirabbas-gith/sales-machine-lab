@@ -27,6 +27,7 @@ import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sm
 import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
+import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
@@ -122,6 +123,11 @@ const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
   path: '/services/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
+  id: '/debug/faq-jsonld',
+  path: '/debug/faq-jsonld',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -267,6 +278,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
@@ -291,6 +303,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
   ServicesCroRoute: typeof ServicesCroRoute
@@ -432,6 +445,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/debug/faq-jsonld': {
+      id: '/debug/faq-jsonld'
+      path: '/debug/faq-jsonld'
+      fullPath: '/debug/faq-jsonld'
+      preLoaderRoute: typeof DebugFaqJsonldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -467,6 +487,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  DebugFaqJsonldRoute: DebugFaqJsonldRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
   ServicesCroRoute: ServicesCroRoute,
