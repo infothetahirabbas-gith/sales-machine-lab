@@ -9,9 +9,14 @@ export const Route = createFileRoute("/audit")({
   component: AuditPage,
   head: () => ({
     meta: [
-      { title: "BeingEcom Store Audit — Free AI Ecommerce Growth Report" },
-      { name: "description", content: "Get a free AI-powered audit of your Shopify or WooCommerce store. Traffic, Ads, CRO, SEO, and a clear action plan in 60 seconds." },
+      { title: "Free Ecommerce Store Audit — AI Shopify & WooCommerce Growth Report | BeingEcom" },
+      { name: "description", content: "Get a free AI-powered audit of your Shopify or WooCommerce store. Traffic, ads, CRO, SEO scores and a 12-point growth action plan in 60 seconds." },
+      { name: "keywords", content: "free Shopify audit, WooCommerce audit, ecommerce store audit, AI ecommerce audit, CRO audit, ecommerce SEO audit, store conversion audit" },
+      { property: "og:title", content: "Free AI Ecommerce Store Audit — Shopify & WooCommerce" },
+      { property: "og:description", content: "AI-powered Shopify & WooCommerce audit. Traffic, ads, CRO, SEO, and a clear action plan in 60 seconds." },
+      { property: "og:url", content: "https://sales-machine-lab.lovable.app/audit" },
     ],
+    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/audit" }],
   }),
 });
 
