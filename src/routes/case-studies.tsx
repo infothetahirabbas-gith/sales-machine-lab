@@ -45,6 +45,8 @@ import showcaseWine from "@/assets/showcase-wine.jpg";
 import showcaseBaby from "@/assets/showcase-baby.jpg";
 import showcaseSurf from "@/assets/showcase-surf.jpg";
 import { faqJsonLd, caseStudyFaqs } from "../lib/seo";
+import FaqSection from "../components/site/FaqSection";
+
 
 
 // One unique screenshot per case study, ordered to match RAW[] below (Ads a1-a15, SEO s1-s12, CRO c1-c12)
