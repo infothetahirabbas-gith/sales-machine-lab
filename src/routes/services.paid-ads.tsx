@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
+import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
@@ -13,6 +14,10 @@ export const Route = createFileRoute("/services/paid-ads")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/paid-ads" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "paid-ads", name: "Paid Advertising", description: "Meta, Google and TikTok ads built to scale profitably for Shopify and WooCommerce brands." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Paid Advertising", path: "/services/paid-ads" }])) },
+    ],
   }),
   component: () => (
     <ServicePage cfg={{
