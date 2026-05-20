@@ -1,0 +1,32 @@
+# BeingEcom
+
+> Ecommerce growth system for Shopify and WooCommerce brands. Paid ads, CRO, SEO, email/SMS automation, creative production and analytics — delivered by a senior, ecommerce-only operator team that acts as your fractional CMO, CRO and Head of Performance.
+
+BeingEcom is not a generalist agency. Every engagement is ecommerce-only and revenue-accountable: weekly execution on ads, conversion rate optimization, SEO, retention and creative, with transparent reporting tied to ROAS, contribution margin and LTV. The site explains the operating system, the nine services, real client case studies (40+), and offers a free 60-second AI store audit.
+
+## Pages
+
+- [Home](/): Overview of the BeingEcom ecommerce growth system, headline outcomes (300% avg sales growth, 1000+ stores scaled), the 4-stage operating model and primary CTAs.
+- [About](/about): Team, mission, vision, operating principles and why BeingEcom is operator-led instead of agency-led.
+- [Case Studies](/case-studies): 40+ real Shopify and WooCommerce wins across Ads, SEO, CRO and Website rebuilds with revenue, ROAS and conversion-lift numbers.
+- [Contact](/contact): Book a strategy call or request a free 12-point growth audit; typical reply within 24 hours.
+- [Free AI Store Audit](/audit): 60-second AI-powered Shopify/WooCommerce audit returning traffic, ads, CRO and SEO scores plus a prioritized action plan.
+
+## Services
+
+- [All Services](/services): Index of the nine ecommerce growth services and how they combine into one operating system.
+- [Store Development](/services/store-development): Shopify and WooCommerce stores engineered for conversion, speed and scale.
+- [Conversion Rate Optimization](/services/cro): Funnel audits, A/B testing, PDP and checkout optimization to lift conversion 2–3×.
+- [Paid Advertising](/services/paid-ads): Profitable Meta, Google and TikTok ads built around ROAS and contribution margin, not vanity metrics.
+- [Ecommerce SEO](/services/seo): Technical, on-page, content and link building for product and collection pages — compounding free traffic.
+- [Email & SMS Marketing](/services/email-sms): Klaviyo flows (welcome, abandoned cart, post-purchase, winback) that typically add 25–35% revenue.
+- [Creative & Ad Production](/services/creative): UGC, video and static ad creatives with hooks, scripts and weekly creative testing.
+- [Funnel & Landing Pages](/services/funnel): High-converting bridge pages, retargeting funnels and post-purchase journeys.
+- [Analytics & Tracking](/services/analytics): GA4, Meta Pixel, Conversion API and revenue dashboards with clean attribution.
+- [Scaling & Revenue Strategy](/services/scaling): Profitable scaling from $10K to $100K+/month with full-funnel revenue strategy.
+
+## Optional
+
+- [Sitemap Index](/sitemap.xml): Machine-readable index of all sitemaps.
+- [Pages Sitemap](/sitemap-pages.xml): Static marketing pages.
+- [Services Sitemap](/sitemap-services.xml): All service pages.
