@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MousePointerClick, ShoppingBag, Smartphone, ShieldCheck, Target, Rocket, CheckCircle2, ArrowRight } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
+import { faqJsonLd, auditFaqs } from "../lib/seo";
 
 export const Route = createFileRoute("/audit")({
   component: AuditPage,
@@ -17,8 +18,12 @@ export const Route = createFileRoute("/audit")({
       { property: "og:url", content: "https://sales-machine-lab.lovable.app/audit" },
     ],
     links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/audit" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(auditFaqs)) },
+    ],
   }),
 });
+
 
 const loadingSteps = [
   "Scanning your store...",
