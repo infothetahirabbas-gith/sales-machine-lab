@@ -73,10 +73,10 @@ export default function RevenueLossCalculator() {
             <AlertTriangle className="w-3.5 h-3.5" />
             Revenue Loss Calculator
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight text-ink">
+          <h2 className="mt-5 text-[26px] sm:text-3xl md:text-5xl font-bold leading-tight text-ink break-words">
             How much is your store <span className="text-sky-gradient">leaving on the table</span> every month?
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <p className="mt-4 text-muted-foreground text-base sm:text-lg">
             Move the sliders to match your store. We'll show the exact monthly sales you're missing, the ad budget you're burning, and the yearly revenue gap - all because there's no proven growth system in place.
           </p>
         </div>
