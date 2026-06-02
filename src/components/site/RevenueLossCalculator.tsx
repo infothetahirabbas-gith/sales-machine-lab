@@ -12,9 +12,9 @@ function Slider({
 }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; suffix?: string; prefix?: string }) {
   return (
     <div>
-      <div className="flex items-center justify-between mb-2">
-        <label className="text-sm font-semibold text-ink">{label}</label>
-        <span className="text-sm font-bold text-primary tabular-nums">
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <label className="text-sm font-semibold text-ink min-w-0 flex-1">{label}</label>
+        <span className="text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap">
           {prefix}{value.toLocaleString()}{suffix}
         </span>
       </div>
