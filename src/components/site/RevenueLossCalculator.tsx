@@ -67,23 +67,23 @@ export default function RevenueLossCalculator() {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-destructive/10 blur-[140px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full" />
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-destructive">
             <AlertTriangle className="w-3.5 h-3.5" />
             Revenue Loss Calculator
           </div>
-          <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight text-ink">
+          <h2 className="mt-5 text-[26px] sm:text-3xl md:text-5xl font-bold leading-tight text-ink break-words">
             How much is your store <span className="text-sky-gradient">leaving on the table</span> every month?
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <p className="mt-4 text-muted-foreground text-base sm:text-lg">
             Move the sliders to match your store. We'll show the exact monthly sales you're missing, the ad budget you're burning, and the yearly revenue gap - all because there's no proven growth system in place.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
           {/* Inputs */}
-          <div className="lg:col-span-2 card-surface p-6 lg:p-8 space-y-6">
+          <div className="lg:col-span-2 card-surface p-5 sm:p-6 lg:p-8 space-y-6">
             <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <ShoppingCart className="w-4 h-4 text-primary" />
               Your store today
@@ -106,15 +106,15 @@ export default function RevenueLossCalculator() {
 
           {/* Results */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="card-surface p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
+            <div className="card-surface p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
                 <TrendingDown className="w-4 h-4" />
                 Total revenue you're losing
               </div>
-              <div className="mt-3 text-5xl md:text-6xl font-bold text-destructive tabular-nums">
-                {fmt(calc.totalMonthlyMiss)}<span className="text-2xl text-muted-foreground font-semibold">/month</span>
+              <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-bold text-destructive tabular-nums break-words">
+                {fmt(calc.totalMonthlyMiss)}<span className="text-xl sm:text-2xl text-muted-foreground font-semibold">/month</span>
               </div>
-              <div className="mt-2 text-muted-foreground">
+              <div className="mt-2 text-sm sm:text-base text-muted-foreground">
                 That's <span className="font-bold text-ink">{fmt(calc.yearlyMiss)}</span> walking out the door every year.
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function RevenueLossCalculator() {
               </div>
             </div>
 
-            <div className="card-surface p-6 lg:p-8">
+            <div className="card-surface p-5 sm:p-6 lg:p-8">
               <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
                 Current vs Potential monthly revenue
               </div>
@@ -177,8 +177,8 @@ export default function RevenueLossCalculator() {
                 </div>
               </div>
 
-              <a href="/contact" className="flex btn btn-primary btn-shimmer mt-6 w-full sm:w-auto">
-                Stop losing {fmt(calc.totalMonthlyMiss)}/mo - Book Strategy Call →
+              <a href="/contact" className="btn btn-primary btn-shimmer mt-6 w-full text-center text-sm sm:text-base whitespace-normal leading-snug px-4 py-3 break-words">
+                Stop losing {fmt(calc.totalMonthlyMiss)}/mo — Book Strategy Call →
               </a>
             </div>
           </div>
