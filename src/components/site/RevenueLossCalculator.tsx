@@ -67,7 +67,7 @@ export default function RevenueLossCalculator() {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-destructive/10 blur-[140px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full" />
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-destructive">
             <AlertTriangle className="w-3.5 h-3.5" />
