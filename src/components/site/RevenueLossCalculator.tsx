@@ -146,7 +146,7 @@ export default function RevenueLossCalculator() {
               </div>
             </div>
 
-            <div className="card-surface p-6 lg:p-8">
+            <div className="card-surface p-5 sm:p-6 lg:p-8">
               <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
                 Current vs Potential monthly revenue
               </div>
