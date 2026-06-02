@@ -106,15 +106,15 @@ export default function RevenueLossCalculator() {
 
           {/* Results */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="card-surface p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
+            <div className="card-surface p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
                 <TrendingDown className="w-4 h-4" />
                 Total revenue you're losing
               </div>
-              <div className="mt-3 text-5xl md:text-6xl font-bold text-destructive tabular-nums">
-                {fmt(calc.totalMonthlyMiss)}<span className="text-2xl text-muted-foreground font-semibold">/month</span>
+              <div className="mt-3 text-4xl sm:text-5xl md:text-6xl font-bold text-destructive tabular-nums break-words">
+                {fmt(calc.totalMonthlyMiss)}<span className="text-xl sm:text-2xl text-muted-foreground font-semibold">/month</span>
               </div>
-              <div className="mt-2 text-muted-foreground">
+              <div className="mt-2 text-sm sm:text-base text-muted-foreground">
                 That's <span className="font-bold text-ink">{fmt(calc.yearlyMiss)}</span> walking out the door every year.
               </div>
             </div>
