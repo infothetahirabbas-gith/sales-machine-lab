@@ -83,7 +83,7 @@ export default function RevenueLossCalculator() {
 
         <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
           {/* Inputs */}
-          <div className="lg:col-span-2 card-surface p-6 lg:p-8 space-y-6">
+          <div className="lg:col-span-2 card-surface p-5 sm:p-6 lg:p-8 space-y-6">
             <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <ShoppingCart className="w-4 h-4 text-primary" />
               Your store today
