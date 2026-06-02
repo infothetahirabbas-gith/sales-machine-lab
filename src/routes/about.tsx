@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarSign, HandshakeIcon, Shield } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import teamAR from "@/assets/team-ar.jpg";
+import teamAR from "@/assets/founder-ceo.jpg.asset.json";
 import teamSP from "@/assets/team-sp.jpg";
 import teamJK from "@/assets/team-jk.jpg";
 import teamMN from "@/assets/team-mn.jpg";
@@ -47,7 +47,7 @@ const values = [
 ];
 
 const team = [
-  { i: "AR", r: "Growth Strategy Lead", n: "Ex-DTC founder", img: teamAR },
+  { i: "AR", r: "Founder & CEO", n: "Ecommerce growth operator", img: teamAR.url },
   { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: teamSP },
   { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: teamJK },
   { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: teamMN },
