@@ -6,7 +6,7 @@ import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
 import BeforeAfter from "../components/site/BeforeAfter";
 import ContactFaq, { faqs as homeFaqs } from "../components/site/ContactFaq";
-import { faqJsonLd } from "../lib/seo";
+import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 
 import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
 import CountUp from "../components/site/CountUp";
