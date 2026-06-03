@@ -105,6 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify(websiteJsonLd()),
       },
+      {
+        children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();`,
+      },
     ],
 
   }),
@@ -121,6 +124,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+        </noscript>
         {children}
         <Scripts />
       </body>
