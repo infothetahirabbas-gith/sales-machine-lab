@@ -68,6 +68,40 @@ export function websiteJsonLd() {
   };
 }
 
+export function professionalServiceJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${SITE_URL}#business`,
+    name: ORG_INFO.name,
+    url: SITE_URL,
+    image: ORG_INFO.logo,
+    logo: ORG_INFO.logo,
+    description: ORG_INFO.description,
+    email: ORG_INFO.email,
+    telephone: ORG_INFO.telephone,
+    priceRange: "$$$",
+    address: { "@type": "PostalAddress", ...ORG_INFO.address },
+    areaServed: "Worldwide",
+    sameAs: ORG_INFO.sameAs,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Ecommerce Growth Services",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Store Development", url: `${SITE_URL}/services/store-development` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimization", url: `${SITE_URL}/services/cro` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Paid Advertising", url: `${SITE_URL}/services/paid-ads` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ecommerce SEO", url: `${SITE_URL}/services/seo` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email & SMS Marketing", url: `${SITE_URL}/services/email-sms` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Creative Production", url: `${SITE_URL}/services/creative` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Funnel & Landing Pages", url: `${SITE_URL}/services/funnel` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analytics & Tracking", url: `${SITE_URL}/services/analytics` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Scaling & Retention", url: `${SITE_URL}/services/scaling` } },
+      ],
+    },
+  };
+}
+
 export type FAQ = { q: string; a: string };
 
 export function faqSlug(q: string) {
