@@ -61,6 +61,7 @@ export default function Footer() {
             </li>
             <li><Link to="/contact" className="hover:text-white transition-colors">Book a Strategy Call →</Link></li>
             <li><Link to="/case-studies" className="hover:text-white transition-colors">View Case Studies →</Link></li>
+            <li><Link to="/glossary" className="hover:text-white transition-colors">SEO Glossary →</Link></li>
           </ul>
         </div>
       </div>
