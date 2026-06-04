@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
+import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AuditRouteImport } from './routes/audit'
@@ -45,6 +46,11 @@ const SitemapServicesDotxmlRoute = SitemapServicesDotxmlRouteImport.update({
 const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
   id: '/sitemap-pages.xml',
   path: '/sitemap-pages.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryRoute = GlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/glossary': typeof GlossaryRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/glossary': typeof GlossaryRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -199,6 +207,7 @@ export interface FileRoutesById {
   '/audit': typeof AuditRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/glossary': typeof GlossaryRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -225,6 +234,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/glossary'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -249,6 +259,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/glossary'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -273,6 +284,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/case-studies'
     | '/contact'
+    | '/glossary'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -298,6 +310,7 @@ export interface RootRouteChildren {
   AuditRoute: typeof AuditRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  GlossaryRoute: typeof GlossaryRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -338,6 +351,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-pages.xml'
       fullPath: '/sitemap-pages.xml'
       preLoaderRoute: typeof SitemapPagesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary': {
+      id: '/glossary'
+      path: '/glossary'
+      fullPath: '/glossary'
+      preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -482,6 +502,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuditRoute: AuditRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  GlossaryRoute: GlossaryRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
