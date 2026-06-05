@@ -105,8 +105,8 @@ export default function RevenueLossCalculator() {
           </div>
 
           {/* Results */}
-          <div className="lg:col-span-3 space-y-4">
-            <div className="card-surface p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
+          <div className="lg:col-span-3 space-y-4 min-w-0 max-w-full">
+            <div className="card-surface p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30 min-w-0">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
                 <TrendingDown className="w-4 h-4" />
                 Total revenue you're losing
