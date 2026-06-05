@@ -163,10 +163,10 @@ export default function RevenueLossCalculator() {
                     />
                   </div>
                 </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-semibold text-primary">With our growth system</span>
-                    <span className="font-bold text-primary tabular-nums">{fmt(calc.currentSales + calc.totalMonthlyMiss)}</span>
+                <div className="min-w-0">
+                  <div className="flex justify-between gap-2 text-sm mb-1.5 min-w-0">
+                    <span className="font-semibold text-primary truncate">With our growth system</span>
+                    <span className="font-bold text-primary tabular-nums shrink-0">{fmt(calc.currentSales + calc.totalMonthlyMiss)}</span>
                   </div>
                   <div className="h-3 bg-secondary rounded-full overflow-hidden">
                     <div
