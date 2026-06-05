@@ -488,7 +488,7 @@ function CaseStudies() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Filter segmented control */}
           <div className="flex justify-center mb-10">
-            <div className="inline-flex items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm">
+            <div className="grid grid-cols-3 sm:inline-flex sm:flex-wrap items-stretch sm:items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full max-w-md sm:w-auto sm:max-w-none">
               {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
@@ -496,16 +496,16 @@ function CaseStudies() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`relative inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 min-w-0 ${
                       isActive
                         ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
                         : "text-ink/65 hover:text-ink hover:bg-secondary/60"
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
-                    {f}
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                    <span className="truncate">{f}</span>
                     <span
-                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums ${
+                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums shrink-0 ${
                         isActive ? "bg-white/25 text-white" : "bg-primary/10 text-primary"
                       }`}
                     >
@@ -574,15 +574,15 @@ function CaseStudies() {
 
       {/* DETAILS DIALOG */}
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden max-h-[92vh] overflow-y-auto w-[calc(100vw-1.5rem)] sm:w-full rounded-2xl">
           {active && (
             <>
               <DialogTitle className="sr-only">{active.title}</DialogTitle>
               {/* Header banner */}
-              <div className={`relative bg-gradient-to-br ${active.color} text-white p-6 md:p-8`}>
+              <div className={`relative bg-gradient-to-br ${active.color} text-white p-5 sm:p-6 md:p-8 min-w-0`}>
                 <button
                   onClick={() => setActive(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center backdrop-blur transition"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center backdrop-blur transition z-10"
                   aria-label="Close"
                 >
                   <X className="w-4 h-4" />
@@ -590,8 +590,8 @@ function CaseStudies() {
                 <div className="absolute inset-0 opacity-30 pointer-events-none">
                   <Sparkline data={active.chart} gradient={active.color + "lg"} />
                 </div>
-                <div className="relative">
-                  <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest">
+                <div className="relative min-w-0 pr-10">
+                  <div className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest">
                     <span className="bg-white/20 backdrop-blur px-2 py-1 rounded-full inline-flex items-center gap-1.5">
                       {(() => {
                         const Icon = categoryIcon[active.category];
@@ -599,20 +599,20 @@ function CaseStudies() {
                       })()}
                       {active.category}
                     </span>
-                    <span>{active.industry}</span>
+                    <span className="break-words">{active.industry}</span>
                     <span>·</span>
                     <span>{active.duration}</span>
                   </div>
-                  <h2 className="mt-3 text-2xl md:text-3xl font-bold leading-tight">{active.title}</h2>
-                  <div className="mt-5 inline-flex items-baseline gap-2">
-                    <span className="text-4xl md:text-5xl font-bold">{active.metric}</span>
-                    <span className="text-sm opacity-80 uppercase tracking-wide">{active.metricLabel}</span>
+                  <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold leading-tight break-words">{active.title}</h2>
+                  <div className="mt-4 inline-flex items-baseline gap-2 flex-wrap">
+                    <span className="text-3xl sm:text-4xl md:text-5xl font-bold">{active.metric}</span>
+                    <span className="text-xs sm:text-sm opacity-80 uppercase tracking-wide">{active.metricLabel}</span>
                   </div>
                 </div>
               </div>
 
               {/* Body */}
-              <div className="p-6 md:p-8 space-y-6">
+              <div className="p-5 sm:p-6 md:p-8 space-y-6 min-w-0">
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Problem</div>
                   <p className="mt-2 text-ink leading-relaxed">{active.problem}</p>
@@ -632,11 +632,11 @@ function CaseStudies() {
 
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Results</div>
-                  <div className="mt-3 grid grid-cols-3 gap-3">
+                  <div className="mt-3 grid grid-cols-3 gap-2 sm:gap-3">
                     {active.results.map((r) => (
-                      <div key={r.l} className="rounded-2xl border border-border bg-secondary/40 p-4 text-center">
-                        <div className="text-xl md:text-2xl font-bold text-gradient">{r.v}</div>
-                        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1">{r.l}</div>
+                      <div key={r.l} className="rounded-2xl border border-border bg-secondary/40 p-3 sm:p-4 text-center min-w-0">
+                        <div className="text-base sm:text-xl md:text-2xl font-bold text-gradient break-words">{r.v}</div>
+                        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1 break-words">{r.l}</div>
                       </div>
                     ))}
                   </div>
