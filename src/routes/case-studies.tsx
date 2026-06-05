@@ -574,7 +574,7 @@ function CaseStudies() {
 
       {/* DETAILS DIALOG */}
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden max-h-[92vh] overflow-y-auto w-[calc(100vw-1.5rem)] sm:w-full rounded-2xl">
           {active && (
             <>
               <DialogTitle className="sr-only">{active.title}</DialogTitle>
