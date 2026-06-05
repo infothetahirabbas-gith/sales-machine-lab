@@ -632,11 +632,11 @@ function CaseStudies() {
 
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Results</div>
-                  <div className="mt-3 grid grid-cols-3 gap-3">
+                  <div className="mt-3 grid grid-cols-3 gap-2 sm:gap-3">
                     {active.results.map((r) => (
-                      <div key={r.l} className="rounded-2xl border border-border bg-secondary/40 p-4 text-center">
-                        <div className="text-xl md:text-2xl font-bold text-gradient">{r.v}</div>
-                        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1">{r.l}</div>
+                      <div key={r.l} className="rounded-2xl border border-border bg-secondary/40 p-3 sm:p-4 text-center min-w-0">
+                        <div className="text-base sm:text-xl md:text-2xl font-bold text-gradient break-words">{r.v}</div>
+                        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1 break-words">{r.l}</div>
                       </div>
                     ))}
                   </div>
