@@ -11,10 +11,10 @@ function Slider({
   label, value, onChange, min, max, step, suffix, prefix,
 }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; suffix?: string; prefix?: string }) {
   return (
-    <div>
-      <div className="flex items-center justify-between gap-3 mb-2">
-        <label className="text-sm font-semibold text-ink min-w-0 flex-1">{label}</label>
-        <span className="text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap">
+    <div className="w-full min-w-0">
+      <div className="flex items-center justify-between gap-2 mb-2 min-w-0">
+        <label className="text-xs sm:text-sm font-semibold text-ink min-w-0 flex-1 truncate">{label}</label>
+        <span className="text-xs sm:text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap">
           {prefix}{value.toLocaleString()}{suffix}
         </span>
       </div>
@@ -22,7 +22,7 @@ function Slider({
         type="range"
         min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-2 rounded-full appearance-none cursor-pointer bg-secondary accent-primary"
+        className="w-full max-w-full h-2 rounded-full appearance-none cursor-pointer bg-secondary accent-primary"
       />
     </div>
   );
@@ -62,12 +62,12 @@ export default function RevenueLossCalculator() {
   }, [traffic, cr, aov, adSpend, roas]);
 
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden">
+    <section className="relative py-20 lg:py-28 overflow-x-clip">
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-destructive/10 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-destructive/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-5 lg:px-8 min-w-0">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-destructive">
             <AlertTriangle className="w-3.5 h-3.5" />
@@ -81,9 +81,9 @@ export default function RevenueLossCalculator() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 min-w-0">
           {/* Inputs */}
-          <div className="lg:col-span-2 card-surface p-5 sm:p-6 lg:p-8 space-y-6">
+          <div className="lg:col-span-2 card-surface p-4 sm:p-6 lg:p-8 space-y-6 min-w-0 max-w-full">
             <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <ShoppingCart className="w-4 h-4 text-primary" />
               Your store today
@@ -105,8 +105,8 @@ export default function RevenueLossCalculator() {
           </div>
 
           {/* Results */}
-          <div className="lg:col-span-3 space-y-4">
-            <div className="card-surface p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30">
+          <div className="lg:col-span-3 space-y-4 min-w-0 max-w-full">
+            <div className="card-surface p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30 min-w-0">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
                 <TrendingDown className="w-4 h-4" />
                 Total revenue you're losing
@@ -146,15 +146,15 @@ export default function RevenueLossCalculator() {
               </div>
             </div>
 
-            <div className="card-surface p-5 sm:p-6 lg:p-8">
-              <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+            <div className="card-surface p-4 sm:p-6 lg:p-8 min-w-0">
+              <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 break-words">
                 Current vs Potential monthly revenue
               </div>
               <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-semibold text-muted-foreground">Current store</span>
-                    <span className="font-bold text-ink tabular-nums">{fmt(calc.currentSales)}</span>
+                <div className="min-w-0">
+                  <div className="flex justify-between gap-2 text-sm mb-1.5 min-w-0">
+                    <span className="font-semibold text-muted-foreground truncate">Current store</span>
+                    <span className="font-bold text-ink tabular-nums shrink-0">{fmt(calc.currentSales)}</span>
                   </div>
                   <div className="h-3 bg-secondary rounded-full overflow-hidden">
                     <div
@@ -163,10 +163,10 @@ export default function RevenueLossCalculator() {
                     />
                   </div>
                 </div>
-                <div>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-semibold text-primary">With our growth system</span>
-                    <span className="font-bold text-primary tabular-nums">{fmt(calc.currentSales + calc.totalMonthlyMiss)}</span>
+                <div className="min-w-0">
+                  <div className="flex justify-between gap-2 text-sm mb-1.5 min-w-0">
+                    <span className="font-semibold text-primary truncate">With our growth system</span>
+                    <span className="font-bold text-primary tabular-nums shrink-0">{fmt(calc.currentSales + calc.totalMonthlyMiss)}</span>
                   </div>
                   <div className="h-3 bg-secondary rounded-full overflow-hidden">
                     <div
