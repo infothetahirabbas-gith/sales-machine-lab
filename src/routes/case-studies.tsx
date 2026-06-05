@@ -488,7 +488,7 @@ function CaseStudies() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Filter segmented control */}
           <div className="flex justify-center mb-10">
-            <div className="flex flex-wrap justify-center items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:w-auto sm:max-w-none">
+            <div className="flex flex-nowrap overflow-x-auto justify-center items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:flex-wrap sm:overflow-visible">
               {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
