@@ -503,7 +503,7 @@ function CaseStudies() {
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-                    <span>{f}</span>
+                    <span className="whitespace-nowrap">{f}</span>
                     <span
                       className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums shrink-0 ${
                         isActive ? "bg-white/25 text-white" : "bg-primary/10 text-primary"
