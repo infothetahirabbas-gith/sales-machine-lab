@@ -488,7 +488,7 @@ function CaseStudies() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Filter segmented control */}
           <div className="flex justify-center mb-10">
-            <div className="inline-flex items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm">
+            <div className="grid grid-cols-3 sm:inline-flex sm:flex-wrap items-stretch sm:items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full max-w-md sm:w-auto sm:max-w-none">
               {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
@@ -496,16 +496,16 @@ function CaseStudies() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`relative inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 min-w-0 ${
                       isActive
                         ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
                         : "text-ink/65 hover:text-ink hover:bg-secondary/60"
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
-                    {f}
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+                    <span className="truncate">{f}</span>
                     <span
-                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums ${
+                      className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums shrink-0 ${
                         isActive ? "bg-white/25 text-white" : "bg-primary/10 text-primary"
                       }`}
                     >
