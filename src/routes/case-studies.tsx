@@ -496,7 +496,7 @@ function CaseStudies() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 min-w-0 ${
+                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
                       isActive
                         ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
                         : "text-ink/65 hover:text-ink hover:bg-secondary/60"
