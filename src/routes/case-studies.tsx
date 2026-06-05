@@ -579,10 +579,10 @@ function CaseStudies() {
             <>
               <DialogTitle className="sr-only">{active.title}</DialogTitle>
               {/* Header banner */}
-              <div className={`relative bg-gradient-to-br ${active.color} text-white p-6 md:p-8`}>
+              <div className={`relative bg-gradient-to-br ${active.color} text-white p-5 sm:p-6 md:p-8 min-w-0`}>
                 <button
                   onClick={() => setActive(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center backdrop-blur transition"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center backdrop-blur transition z-10"
                   aria-label="Close"
                 >
                   <X className="w-4 h-4" />
@@ -590,8 +590,8 @@ function CaseStudies() {
                 <div className="absolute inset-0 opacity-30 pointer-events-none">
                   <Sparkline data={active.chart} gradient={active.color + "lg"} />
                 </div>
-                <div className="relative">
-                  <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest">
+                <div className="relative min-w-0 pr-10">
+                  <div className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest">
                     <span className="bg-white/20 backdrop-blur px-2 py-1 rounded-full inline-flex items-center gap-1.5">
                       {(() => {
                         const Icon = categoryIcon[active.category];
@@ -599,20 +599,20 @@ function CaseStudies() {
                       })()}
                       {active.category}
                     </span>
-                    <span>{active.industry}</span>
+                    <span className="break-words">{active.industry}</span>
                     <span>·</span>
                     <span>{active.duration}</span>
                   </div>
-                  <h2 className="mt-3 text-2xl md:text-3xl font-bold leading-tight">{active.title}</h2>
-                  <div className="mt-5 inline-flex items-baseline gap-2">
-                    <span className="text-4xl md:text-5xl font-bold">{active.metric}</span>
-                    <span className="text-sm opacity-80 uppercase tracking-wide">{active.metricLabel}</span>
+                  <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold leading-tight break-words">{active.title}</h2>
+                  <div className="mt-4 inline-flex items-baseline gap-2 flex-wrap">
+                    <span className="text-3xl sm:text-4xl md:text-5xl font-bold">{active.metric}</span>
+                    <span className="text-xs sm:text-sm opacity-80 uppercase tracking-wide">{active.metricLabel}</span>
                   </div>
                 </div>
               </div>
 
               {/* Body */}
-              <div className="p-6 md:p-8 space-y-6">
+              <div className="p-5 sm:p-6 md:p-8 space-y-6 min-w-0">
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Problem</div>
                   <p className="mt-2 text-ink leading-relaxed">{active.problem}</p>
