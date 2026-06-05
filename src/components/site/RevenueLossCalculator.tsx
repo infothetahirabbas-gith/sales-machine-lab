@@ -146,15 +146,15 @@ export default function RevenueLossCalculator() {
               </div>
             </div>
 
-            <div className="card-surface p-5 sm:p-6 lg:p-8">
-              <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+            <div className="card-surface p-4 sm:p-6 lg:p-8 min-w-0">
+              <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 break-words">
                 Current vs Potential monthly revenue
               </div>
               <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm mb-1.5">
-                    <span className="font-semibold text-muted-foreground">Current store</span>
-                    <span className="font-bold text-ink tabular-nums">{fmt(calc.currentSales)}</span>
+                <div className="min-w-0">
+                  <div className="flex justify-between gap-2 text-sm mb-1.5 min-w-0">
+                    <span className="font-semibold text-muted-foreground truncate">Current store</span>
+                    <span className="font-bold text-ink tabular-nums shrink-0">{fmt(calc.currentSales)}</span>
                   </div>
                   <div className="h-3 bg-secondary rounded-full overflow-hidden">
                     <div
