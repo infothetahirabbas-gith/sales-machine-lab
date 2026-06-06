@@ -10,93 +10,206 @@ const inputSchema = z.object({
 
 const scoreSchema = z.object({
   score: z.number().min(0).max(100),
-  verdict: z.string().max(200),
+  verdict: z.string().max(220),
+});
+
+const issueSchema = z.object({
+  issue: z.string().max(180),
+  why: z.string().max(220),
+  fix: z.string().max(220),
+});
+
+const competitorSchema = z.object({
+  name: z.string().max(80),
+  website: z.string().max(120),
+  tier: z.enum(["Tier 1", "Tier 2", "Tier 3"]),
+  positioning: z.string().max(200),
+  strengths: z.string().max(220),
+  weaknesses: z.string().max(220),
+  usp: z.string().max(220),
+});
+
+const opportunitySchema = z.object({
+  title: z.string().max(140),
+  expectedImpact: z.string().max(200),
+  difficulty: z.enum(["Easy", "Medium", "Hard"]),
+  roi: z.enum(["Low", "Medium", "High", "Very High"]),
+  action: z.string().max(220),
+});
+
+const leakSchema = z.object({
+  area: z.string().max(60),
+  leak: z.string().max(200),
+  severity: z.enum(["Critical", "High", "Medium", "Low"]),
+  impact: z.string().max(200),
 });
 
 export const auditReportSchema = z.object({
-  executiveSummary: z.object({
-    overallScore: z.number().min(0).max(100),
-    diagnosis: z.object({
-      traffic: z.enum(["Strong", "Average", "Weak"]),
-      conversion: z.enum(["Strong", "Average", "Weak"]),
-      ads: z.enum(["Efficient", "Average", "Inefficient"]),
-    }),
-    keyOpportunities: z.array(z.string().max(220)).min(3).max(3),
-    headline: z.string().max(280),
-  }),
-  traffic: z.object({
-    quality: z.string().max(260),
-    sources: z.object({
-      organic: z.number().min(0).max(100),
-      paid: z.number().min(0).max(100),
-      social: z.number().min(0).max(100),
-      direct: z.number().min(0).max(100),
-    }),
-    topCountries: z.array(z.string().max(40)).max(5),
-    mobileVsDesktop: z.string().max(220),
-  }),
-  ads: z.object({
-    metaHealth: scoreSchema,
-    googleHealth: scoreSchema,
-    estimatedRoas: z.string().max(40),
-    funnelLeaks: z.array(z.string().max(180)).max(5),
-    wasteIndicators: z.array(z.string().max(180)).max(5),
-    retargetingScore: z.number().min(0).max(100),
-  }),
-  cro: z.object({
-    benchmarkCr: z.string().max(40),
-    productPageIssues: z.array(z.string().max(180)).max(6),
-    checkoutIssues: z.array(z.string().max(180)).max(5),
-    uxSuggestions: z.array(z.string().max(180)).max(6),
-  }),
-  seo: z.object({
-    productSeo: scoreSchema,
-    collectionSeo: scoreSchema,
-    blogOpportunity: scoreSchema,
-    keywordPotential: z.string().max(220),
-    technicalIssues: z.array(z.string().max(180)).max(6),
-  }),
-  experience: z.object({
-    uiUxScore: z.number().min(0).max(100),
-    mobileScore: z.number().min(0).max(100),
-    trustElements: z.array(z.string().max(140)).max(6),
-    navigationClarity: z.string().max(200),
-    brandingConsistency: z.string().max(200),
-  }),
-  behavior: z.object({
-    bounceRisks: z.array(z.string().max(180)).max(4),
-    journey: z.string().max(280),
-    dropoffPoints: z.array(z.string().max(140)).max(5),
-    purchaseIntent: z.string().max(220),
-  }),
-  growth: z.object({
-    quickWins: z.array(z.string().max(180)).max(5),
-    midTerm: z.array(z.string().max(180)).max(5),
-    longTerm: z.array(z.string().max(180)).max(5),
-    revenueImpact: z.string().max(220),
-  }),
-  competitors: z.object({
-    industryComparison: z.string().max(280),
-    missingFeatures: z.array(z.string().max(160)).max(5),
-    outperformOpportunities: z.array(z.string().max(180)).max(5),
-  }),
-  scorecard: z.object({
-    traffic: z.number().min(0).max(100),
-    ads: z.number().min(0).max(100),
-    cro: z.number().min(0).max(100),
-    seo: z.number().min(0).max(100),
-    overall: z.number().min(0).max(100),
-  }),
-  actionPlan: z.object({
-    urgentFixes: z.array(z.string().max(200)).min(5).max(5),
-    growthStrategies: z.array(z.string().max(200)).min(5).max(5),
-    prioritizedChecklist: z.array(z.object({
-      priority: z.enum(["High", "Medium", "Low"]),
-      task: z.string().max(200),
-    })).max(10),
-  }),
   storeName: z.string().max(120),
   platformGuess: z.string().max(60),
+
+  // PHASE 1
+  business: z.object({
+    brand: z.string().max(120),
+    website: z.string().max(200),
+    platform: z.string().max(60),
+    industry: z.string().max(80),
+    niche: z.string().max(120),
+    productCategory: z.string().max(120),
+    targetAudience: z.string().max(220),
+    pricePositioning: z.enum(["Luxury", "Premium", "Mid-Market", "Budget"]),
+    businessModel: z.enum(["DTC", "Private Label", "Dropshipping", "Marketplace Brand", "Subscription Brand"]),
+  }),
+
+  // PHASE 2
+  executiveIntelligence: z.object({
+    businessReality: z.string().max(400),
+    biggestOpportunity: z.string().max(320),
+    biggestThreat: z.string().max(320),
+    revenuePotential: z.enum(["Low", "Medium", "High", "Very High"]),
+    revenuePotentialReasoning: z.string().max(320),
+    headline: z.string().max(280),
+  }),
+
+  // PHASE 3 (15 scores)
+  scorecard: z.object({
+    seo: z.number().min(0).max(100),
+    paidAds: z.number().min(0).max(100),
+    cro: z.number().min(0).max(100),
+    brandAuthority: z.number().min(0).max(100),
+    trust: z.number().min(0).max(100),
+    productPositioning: z.number().min(0).max(100),
+    customerAcquisition: z.number().min(0).max(100),
+    retention: z.number().min(0).max(100),
+    customerExperience: z.number().min(0).max(100),
+    marketPosition: z.number().min(0).max(100),
+    competitiveAdvantage: z.number().min(0).max(100),
+    revenueEfficiency: z.number().min(0).max(100),
+    scalability: z.number().min(0).max(100),
+    businessMaturity: z.number().min(0).max(100),
+    overall: z.number().min(0).max(100),
+  }),
+
+  // PHASE 4
+  seoIntelligence: z.object({
+    technical: scoreSchema,
+    onPage: scoreSchema,
+    contentAuthority: scoreSchema,
+    commercialSeo: scoreSchema,
+    technicalIssues: z.array(z.string().max(180)).max(6),
+    competitiveSeoGap: z.string().max(320),
+  }),
+
+  // PHASE 5
+  adsIntelligence: z.object({
+    metaActivity: z.string().max(280),
+    googleActivity: z.string().max(280),
+    creativeStrategy: z.string().max(260),
+    offerStrategy: z.string().max(260),
+    messaging: z.string().max(260),
+    hooks: z.string().max(260),
+    acquisitionMaturity: z.enum(["Beginner", "Intermediate", "Advanced", "Elite"]),
+    maturityReasoning: z.string().max(280),
+  }),
+
+  // PHASE 6
+  conversionIntelligence: z.object({
+    homepage: z.string().max(260),
+    productPages: z.string().max(260),
+    cartCheckout: z.string().max(260),
+    mobile: z.string().max(260),
+    ctaStrength: z.string().max(220),
+    friction: z.array(z.string().max(180)).max(5),
+    trustGaps: z.array(z.string().max(180)).max(5),
+    conversionKillers: z.array(z.string().max(180)).max(5),
+  }),
+
+  // PHASE 7
+  brandIntelligence: z.object({
+    positioning: z.string().max(280),
+    valueProposition: z.string().max(260),
+    storytelling: z.string().max(260),
+    differentiation: z.string().max(260),
+    visualIdentity: z.string().max(220),
+    premiumPerception: z.string().max(220),
+    whyChooseThisBrand: z.string().max(320),
+  }),
+
+  // PHASE 8
+  psychologyIntelligence: z.object({
+    trust: z.string().max(240),
+    riskPerception: z.string().max(240),
+    buyingMotivation: z.string().max(240),
+    emotionalTriggers: z.string().max(240),
+    socialProof: z.string().max(240),
+    authoritySignals: z.string().max(240),
+    firstTimeTrustVerdict: z.enum(["Yes", "No", "Maybe"]),
+    trustReasoning: z.string().max(320),
+  }),
+
+  // PHASE 9
+  acquisitionIntelligence: z.object({
+    organic: z.string().max(220),
+    paid: z.string().max(220),
+    social: z.string().max(220),
+    influencer: z.string().max(220),
+    emailSms: z.string().max(220),
+    mostLikelyGrowthChannel: z.string().max(120),
+    highestRoiChannel: z.string().max(120),
+    mostUnderutilizedChannel: z.string().max(120),
+  }),
+
+  // PHASE 10
+  retentionIntelligence: z.object({
+    email: z.string().max(220),
+    sms: z.string().max(220),
+    loyalty: z.string().max(220),
+    subscription: z.string().max(220),
+    repeatPurchase: z.string().max(220),
+    retentionMaturityScore: z.number().min(0).max(100),
+    retentionVerdict: z.string().max(260),
+  }),
+
+  // PHASE 11
+  competitors: z.array(competitorSchema).max(10),
+
+  // PHASE 12
+  competitiveGap: z.object({
+    competitorAdvantages: z.array(z.string().max(200)).max(5),
+    missingFeatures: z.array(z.string().max(200)).max(5),
+    marketOpportunities: z.array(z.string().max(200)).max(5),
+    differentiationOpportunities: z.array(z.string().max(200)).max(5),
+    blueOcean: z.array(z.string().max(200)).max(3),
+  }),
+
+  // PHASE 13
+  revenueLeakage: z.array(leakSchema).max(8),
+
+  // PHASE 14
+  issueClassification: z.object({
+    superHot: z.array(issueSchema).max(5),
+    hot: z.array(issueSchema).max(5),
+    medium: z.array(issueSchema).max(5),
+  }),
+
+  // PHASE 15
+  opportunities: z.array(opportunitySchema).min(3).max(5),
+
+  // PHASE 16
+  actionPlan: z.object({
+    immediate: z.array(z.string().max(220)).min(3).max(7),
+    growth: z.array(z.string().max(220)).min(3).max(7),
+    scale: z.array(z.string().max(220)).min(3).max(7),
+  }),
+
+  // PHASE 17
+  founderInsights: z.object({
+    privateEquity: z.string().max(320),
+    croExpert: z.string().max(320),
+    brandingExpert: z.string().max(320),
+    performanceMarketer: z.string().max(320),
+    ceo: z.string().max(320),
+  }),
 });
 
 export type AuditReport = z.infer<typeof auditReportSchema>;
@@ -111,38 +224,49 @@ function normalizeUrl(raw: string): string {
 async function fetchPage(url: string): Promise<{ html: string; status: number }> {
   const res = await fetch(url, {
     headers: {
-      "User-Agent": "Mozilla/5.0 (compatible; BeingEcomAuditBot/1.0)",
+      "User-Agent": "Mozilla/5.0 (compatible; BeingEcomBrain/1.0)",
       "Accept": "text/html,application/xhtml+xml",
     },
     redirect: "follow",
     signal: AbortSignal.timeout(15000),
   });
   const html = await res.text();
-  return { html: html.slice(0, 120000), status: res.status };
+  return { html: html.slice(0, 160000), status: res.status };
 }
 
-function stripHtml(html: string): { text: string; title: string; metaDesc: string; signals: string[] } {
+function stripHtml(html: string): { text: string; title: string; metaDesc: string; signals: string[]; ogTitle: string; canonical: string; hasSchema: boolean } {
   const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
   const descMatch = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i);
+  const ogTitleMatch = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']*)["']/i);
+  const canonicalMatch = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)["']/i);
   const signals: string[] = [];
   if (/cdn\.shopify\.com|shopify\.com\/s\//i.test(html)) signals.push("Shopify");
   if (/wp-content|woocommerce/i.test(html)) signals.push("WooCommerce/WordPress");
+  if (/bigcommerce/i.test(html)) signals.push("BigCommerce");
   if (/klaviyo/i.test(html)) signals.push("Klaviyo");
   if (/gtag\(|googletagmanager/i.test(html)) signals.push("GA4/GTM");
   if (/connect\.facebook\.net|fbq\(/i.test(html)) signals.push("Meta Pixel");
-  if (/judge\.me|loox|yotpo|stamped/i.test(html)) signals.push("Reviews app");
+  if (/judge\.me|loox|yotpo|stamped|okendo/i.test(html)) signals.push("Reviews app");
+  if (/recharge|bold[_-]subscriptions|appstle/i.test(html)) signals.push("Subscriptions");
+  if (/gorgias|zendesk|tidio|intercom/i.test(html)) signals.push("Helpdesk/Chat");
+  if (/postscript|attentive|sms[_-]?bump/i.test(html)) signals.push("SMS marketing");
+  if (/tiktok|ttclid/i.test(html)) signals.push("TikTok Pixel");
   if (/add[_-]?to[_-]?cart/i.test(html)) signals.push("Cart present");
+  const hasSchema = /application\/ld\+json/i.test(html);
   const text = html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .slice(0, 12000);
+    .slice(0, 14000);
   return {
     text,
     title: titleMatch?.[1]?.trim() ?? "",
     metaDesc: descMatch?.[1]?.trim() ?? "",
+    ogTitle: ogTitleMatch?.[1]?.trim() ?? "",
+    canonical: canonicalMatch?.[1]?.trim() ?? "",
+    hasSchema,
     signals,
   };
 }
@@ -157,7 +281,7 @@ export const runStoreAudit = createServerFn({ method: "POST" })
     try { normalized = normalizeUrl(data.url); }
     catch { throw new Error("Please enter a valid store URL."); }
 
-    let pageData = { text: "", title: "", metaDesc: "", signals: [] as string[], status: 0 };
+    let pageData = { text: "", title: "", metaDesc: "", ogTitle: "", canonical: "", hasSchema: false, signals: [] as string[], status: 0 };
     try {
       const { html, status } = await fetchPage(normalized);
       const parsed = stripHtml(html);
@@ -166,14 +290,29 @@ export const runStoreAudit = createServerFn({ method: "POST" })
       // continue with empty page data; AI still produces a heuristic audit
     }
 
-    const system = `You are a senior ecommerce growth strategist for BeingEcom, an agency that scales Shopify & WooCommerce stores. You produce honest, money-focused audits in plain language for non-technical store owners. Always return realistic, specific insights. Use the supplied page signals when present. Avoid generic advice. Scores must reflect realistic strengths and weaknesses (don't give everything 80+). Focus on revenue impact.`;
+    const system = `You are "Being Ecom Brain™" — an advanced Ecommerce Growth Intelligence, Competitive Research, Conversion Optimization, and Revenue Analysis System built by BeingEcom.
 
-    const userPrompt = `Audit this ecommerce store and return the JSON report.
+You are NOT a generic audit tool. You are a board-level business intelligence engine that helps ecommerce founders, operators, investors, and growth teams understand: why a store is growing or failing, where revenue is leaking, what competitors are doing better, which opportunities exist right now, and what actions will generate the highest ROI.
+
+NON-NEGOTIABLE DATA RULES:
+- Use ONLY real signals you can derive from the supplied page data (HTML signals, title, meta, detected stack, structured data presence, visible page text) plus your knowledge of the industry / niche / competitors.
+- NEVER invent specific numbers: no fabricated revenue, ROAS, traffic, CR, ad spend, rankings, LTV, or CAC. If a number is not derivable, label the insight qualitatively or call out "Structural Inference".
+- Always separate observable facts from structural inferences in your wording.
+- Every insight must answer: "Will this help increase revenue, profitability, customer acquisition, retention, conversion rate, or market position?" If not, do not include it.
+
+TONE: Brutally honest, money-focused, specific. Plain language a founder can act on. Never generic. No fluff. No participation-trophy scores — weak areas must score low.
+
+OUTPUT: A complete 17-phase Ecommerce Growth Intelligence Report via the submit_audit_report tool. Every field must be filled with concrete, decision-grade content.`;
+
+    const userPrompt = `Generate the full Being Ecom Brain™ Growth Intelligence Report for this ecommerce store.
 
 Store URL: ${normalized}
 HTTP status: ${pageData.status}
 Detected platform/tools: ${pageData.signals.join(", ") || "unknown"}
+Has structured data (JSON-LD): ${pageData.hasSchema ? "Yes" : "No"}
 Page <title>: ${pageData.title || "(none)"}
+OG title: ${pageData.ogTitle || "(none)"}
+Canonical: ${pageData.canonical || "(none)"}
 Meta description: ${pageData.metaDesc || "(none)"}
 Reported monthly revenue: ${data.revenue || "not provided"}
 Reported monthly ad spend: ${data.adSpend || "not provided"}
@@ -181,159 +320,214 @@ Target country: ${data.country || "not provided"}
 
 Visible page text (truncated):
 """
-${pageData.text || "(could not fetch page content - infer from URL and provided context)"}
+${pageData.text || "(could not fetch page content — infer from URL, domain, and provided context)"}
 """
 
-Rules:
-- "storeName" = brand name from title/text or domain.
-- "platformGuess" = Shopify, WooCommerce, BigCommerce, custom, or "unknown".
-- Sources percentages in "traffic.sources" must sum to 100.
-- Scores should vary realistically across categories. Weaker areas = lower scores.
-- Action items must be concrete (e.g., "Add sticky add-to-cart on mobile PDPs", not "improve UX").
-- 3 keyOpportunities, exactly 5 urgentFixes, exactly 5 growthStrategies.`;
+REQUIREMENTS:
+- Phase 1 business.brand from title/text/domain; platform from detected stack.
+- Phase 2 executiveIntelligence must call out the SINGLE biggest opportunity and SINGLE biggest threat — no hedging.
+- Phase 3 scorecard: all 15 scores 0-100, must vary realistically. Weak areas in the 20s-40s, strong areas 70+. The overall must reflect the weighted reality, not an average of inflated numbers.
+- Phase 4 SEO: technical/onPage/contentAuthority/commercialSeo each get a score + 1-sentence verdict. competitiveSeoGap names the kind of competitor content/keywords they're losing to.
+- Phase 5 Ads: assess Meta + Google activity from public signals (pixel detected, ad infrastructure, creative tells). acquisitionMaturity must be honest.
+- Phase 6 CRO: list real friction and trust gaps — not generic "add reviews".
+- Phase 7 Brand: answer "why would a customer pick this brand over a competitor?" honestly. If unclear, say so.
+- Phase 8 Psychology: firstTimeTrustVerdict = Yes/No/Maybe with concrete reasoning.
+- Phase 9 Acquisition: name the single most likely growth channel, highest ROI channel, and most underutilized channel for THIS brand.
+- Phase 10 Retention: maturity score must reflect detected stack (subscriptions, SMS, email, reviews, loyalty).
+- Phase 11 Competitors: 5-10 real competitors in this niche, grouped Tier 1 (market leaders), Tier 2 (fast-growth challengers), Tier 3 (direct same-size competitors). Use real brand names you know in this category.
+- Phase 12 Gap: concrete competitor advantages, missing features, market and differentiation opportunities, plus 1-3 blue-ocean plays.
+- Phase 13 Revenue leakage: 5-8 specific leak points with severity.
+- Phase 14 Issues: 🔴 Super Hot = revenue blockers (fix now). 🟠 Hot = growth blockers. 🟡 Medium = optimization. Each has issue + why it matters + the fix. 2-5 in each tier.
+- Phase 15 Opportunities: 3-5 ranked opportunities with expectedImpact, difficulty, ROI, and the action.
+- Phase 16 Action plan: 3-7 items per horizon (0-7d immediate, 7-30d growth, 30-90d scale). Concrete actions only (e.g. "Add sticky mobile ATC + free-shipping bar on PDP", not "improve UX").
+- Phase 17 Founder insights: what would a PE investor / CRO expert / branding expert / performance marketer / CEO each notice and fix FIRST. Five distinct lenses.
+
+Every insight must drive revenue, profitability, acquisition, retention, conversion, or market position. Cut anything that doesn't.`;
 
     const schemaForModel = {
       type: "object",
       properties: {
-        executiveSummary: {
+        storeName: { type: "string" },
+        platformGuess: { type: "string" },
+        business: {
           type: "object",
           properties: {
-            overallScore: { type: "number" },
-            diagnosis: {
-              type: "object",
-              properties: {
-                traffic: { type: "string", enum: ["Strong", "Average", "Weak"] },
-                conversion: { type: "string", enum: ["Strong", "Average", "Weak"] },
-                ads: { type: "string", enum: ["Efficient", "Average", "Inefficient"] },
-              },
-              required: ["traffic", "conversion", "ads"],
-            },
-            keyOpportunities: { type: "array", items: { type: "string" } },
+            brand: { type: "string" }, website: { type: "string" }, platform: { type: "string" },
+            industry: { type: "string" }, niche: { type: "string" }, productCategory: { type: "string" },
+            targetAudience: { type: "string" },
+            pricePositioning: { type: "string", enum: ["Luxury", "Premium", "Mid-Market", "Budget"] },
+            businessModel: { type: "string", enum: ["DTC", "Private Label", "Dropshipping", "Marketplace Brand", "Subscription Brand"] },
+          },
+          required: ["brand", "website", "platform", "industry", "niche", "productCategory", "targetAudience", "pricePositioning", "businessModel"],
+        },
+        executiveIntelligence: {
+          type: "object",
+          properties: {
+            businessReality: { type: "string" },
+            biggestOpportunity: { type: "string" },
+            biggestThreat: { type: "string" },
+            revenuePotential: { type: "string", enum: ["Low", "Medium", "High", "Very High"] },
+            revenuePotentialReasoning: { type: "string" },
             headline: { type: "string" },
           },
-          required: ["overallScore", "diagnosis", "keyOpportunities", "headline"],
-        },
-        traffic: {
-          type: "object",
-          properties: {
-            quality: { type: "string" },
-            sources: {
-              type: "object",
-              properties: {
-                organic: { type: "number" }, paid: { type: "number" },
-                social: { type: "number" }, direct: { type: "number" },
-              },
-              required: ["organic", "paid", "social", "direct"],
-            },
-            topCountries: { type: "array", items: { type: "string" } },
-            mobileVsDesktop: { type: "string" },
-          },
-          required: ["quality", "sources", "topCountries", "mobileVsDesktop"],
-        },
-        ads: {
-          type: "object",
-          properties: {
-            metaHealth: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            googleHealth: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            estimatedRoas: { type: "string" },
-            funnelLeaks: { type: "array", items: { type: "string" } },
-            wasteIndicators: { type: "array", items: { type: "string" } },
-            retargetingScore: { type: "number" },
-          },
-          required: ["metaHealth", "googleHealth", "estimatedRoas", "funnelLeaks", "wasteIndicators", "retargetingScore"],
-        },
-        cro: {
-          type: "object",
-          properties: {
-            benchmarkCr: { type: "string" },
-            productPageIssues: { type: "array", items: { type: "string" } },
-            checkoutIssues: { type: "array", items: { type: "string" } },
-            uxSuggestions: { type: "array", items: { type: "string" } },
-          },
-          required: ["benchmarkCr", "productPageIssues", "checkoutIssues", "uxSuggestions"],
-        },
-        seo: {
-          type: "object",
-          properties: {
-            productSeo: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            collectionSeo: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            blogOpportunity: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            keywordPotential: { type: "string" },
-            technicalIssues: { type: "array", items: { type: "string" } },
-          },
-          required: ["productSeo", "collectionSeo", "blogOpportunity", "keywordPotential", "technicalIssues"],
-        },
-        experience: {
-          type: "object",
-          properties: {
-            uiUxScore: { type: "number" },
-            mobileScore: { type: "number" },
-            trustElements: { type: "array", items: { type: "string" } },
-            navigationClarity: { type: "string" },
-            brandingConsistency: { type: "string" },
-          },
-          required: ["uiUxScore", "mobileScore", "trustElements", "navigationClarity", "brandingConsistency"],
-        },
-        behavior: {
-          type: "object",
-          properties: {
-            bounceRisks: { type: "array", items: { type: "string" } },
-            journey: { type: "string" },
-            dropoffPoints: { type: "array", items: { type: "string" } },
-            purchaseIntent: { type: "string" },
-          },
-          required: ["bounceRisks", "journey", "dropoffPoints", "purchaseIntent"],
-        },
-        growth: {
-          type: "object",
-          properties: {
-            quickWins: { type: "array", items: { type: "string" } },
-            midTerm: { type: "array", items: { type: "string" } },
-            longTerm: { type: "array", items: { type: "string" } },
-            revenueImpact: { type: "string" },
-          },
-          required: ["quickWins", "midTerm", "longTerm", "revenueImpact"],
-        },
-        competitors: {
-          type: "object",
-          properties: {
-            industryComparison: { type: "string" },
-            missingFeatures: { type: "array", items: { type: "string" } },
-            outperformOpportunities: { type: "array", items: { type: "string" } },
-          },
-          required: ["industryComparison", "missingFeatures", "outperformOpportunities"],
+          required: ["businessReality", "biggestOpportunity", "biggestThreat", "revenuePotential", "revenuePotentialReasoning", "headline"],
         },
         scorecard: {
           type: "object",
           properties: {
-            traffic: { type: "number" }, ads: { type: "number" },
-            cro: { type: "number" }, seo: { type: "number" }, overall: { type: "number" },
+            seo: { type: "number" }, paidAds: { type: "number" }, cro: { type: "number" },
+            brandAuthority: { type: "number" }, trust: { type: "number" }, productPositioning: { type: "number" },
+            customerAcquisition: { type: "number" }, retention: { type: "number" }, customerExperience: { type: "number" },
+            marketPosition: { type: "number" }, competitiveAdvantage: { type: "number" }, revenueEfficiency: { type: "number" },
+            scalability: { type: "number" }, businessMaturity: { type: "number" }, overall: { type: "number" },
           },
-          required: ["traffic", "ads", "cro", "seo", "overall"],
+          required: ["seo", "paidAds", "cro", "brandAuthority", "trust", "productPositioning", "customerAcquisition", "retention", "customerExperience", "marketPosition", "competitiveAdvantage", "revenueEfficiency", "scalability", "businessMaturity", "overall"],
+        },
+        seoIntelligence: {
+          type: "object",
+          properties: {
+            technical: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
+            onPage: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
+            contentAuthority: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
+            commercialSeo: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
+            technicalIssues: { type: "array", items: { type: "string" } },
+            competitiveSeoGap: { type: "string" },
+          },
+          required: ["technical", "onPage", "contentAuthority", "commercialSeo", "technicalIssues", "competitiveSeoGap"],
+        },
+        adsIntelligence: {
+          type: "object",
+          properties: {
+            metaActivity: { type: "string" }, googleActivity: { type: "string" },
+            creativeStrategy: { type: "string" }, offerStrategy: { type: "string" },
+            messaging: { type: "string" }, hooks: { type: "string" },
+            acquisitionMaturity: { type: "string", enum: ["Beginner", "Intermediate", "Advanced", "Elite"] },
+            maturityReasoning: { type: "string" },
+          },
+          required: ["metaActivity", "googleActivity", "creativeStrategy", "offerStrategy", "messaging", "hooks", "acquisitionMaturity", "maturityReasoning"],
+        },
+        conversionIntelligence: {
+          type: "object",
+          properties: {
+            homepage: { type: "string" }, productPages: { type: "string" }, cartCheckout: { type: "string" }, mobile: { type: "string" }, ctaStrength: { type: "string" },
+            friction: { type: "array", items: { type: "string" } },
+            trustGaps: { type: "array", items: { type: "string" } },
+            conversionKillers: { type: "array", items: { type: "string" } },
+          },
+          required: ["homepage", "productPages", "cartCheckout", "mobile", "ctaStrength", "friction", "trustGaps", "conversionKillers"],
+        },
+        brandIntelligence: {
+          type: "object",
+          properties: {
+            positioning: { type: "string" }, valueProposition: { type: "string" }, storytelling: { type: "string" },
+            differentiation: { type: "string" }, visualIdentity: { type: "string" }, premiumPerception: { type: "string" },
+            whyChooseThisBrand: { type: "string" },
+          },
+          required: ["positioning", "valueProposition", "storytelling", "differentiation", "visualIdentity", "premiumPerception", "whyChooseThisBrand"],
+        },
+        psychologyIntelligence: {
+          type: "object",
+          properties: {
+            trust: { type: "string" }, riskPerception: { type: "string" }, buyingMotivation: { type: "string" },
+            emotionalTriggers: { type: "string" }, socialProof: { type: "string" }, authoritySignals: { type: "string" },
+            firstTimeTrustVerdict: { type: "string", enum: ["Yes", "No", "Maybe"] },
+            trustReasoning: { type: "string" },
+          },
+          required: ["trust", "riskPerception", "buyingMotivation", "emotionalTriggers", "socialProof", "authoritySignals", "firstTimeTrustVerdict", "trustReasoning"],
+        },
+        acquisitionIntelligence: {
+          type: "object",
+          properties: {
+            organic: { type: "string" }, paid: { type: "string" }, social: { type: "string" },
+            influencer: { type: "string" }, emailSms: { type: "string" },
+            mostLikelyGrowthChannel: { type: "string" }, highestRoiChannel: { type: "string" }, mostUnderutilizedChannel: { type: "string" },
+          },
+          required: ["organic", "paid", "social", "influencer", "emailSms", "mostLikelyGrowthChannel", "highestRoiChannel", "mostUnderutilizedChannel"],
+        },
+        retentionIntelligence: {
+          type: "object",
+          properties: {
+            email: { type: "string" }, sms: { type: "string" }, loyalty: { type: "string" }, subscription: { type: "string" }, repeatPurchase: { type: "string" },
+            retentionMaturityScore: { type: "number" }, retentionVerdict: { type: "string" },
+          },
+          required: ["email", "sms", "loyalty", "subscription", "repeatPurchase", "retentionMaturityScore", "retentionVerdict"],
+        },
+        competitors: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              name: { type: "string" }, website: { type: "string" },
+              tier: { type: "string", enum: ["Tier 1", "Tier 2", "Tier 3"] },
+              positioning: { type: "string" }, strengths: { type: "string" }, weaknesses: { type: "string" }, usp: { type: "string" },
+            },
+            required: ["name", "website", "tier", "positioning", "strengths", "weaknesses", "usp"],
+          },
+        },
+        competitiveGap: {
+          type: "object",
+          properties: {
+            competitorAdvantages: { type: "array", items: { type: "string" } },
+            missingFeatures: { type: "array", items: { type: "string" } },
+            marketOpportunities: { type: "array", items: { type: "string" } },
+            differentiationOpportunities: { type: "array", items: { type: "string" } },
+            blueOcean: { type: "array", items: { type: "string" } },
+          },
+          required: ["competitorAdvantages", "missingFeatures", "marketOpportunities", "differentiationOpportunities", "blueOcean"],
+        },
+        revenueLeakage: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              area: { type: "string" }, leak: { type: "string" },
+              severity: { type: "string", enum: ["Critical", "High", "Medium", "Low"] },
+              impact: { type: "string" },
+            },
+            required: ["area", "leak", "severity", "impact"],
+          },
+        },
+        issueClassification: {
+          type: "object",
+          properties: {
+            superHot: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
+            hot: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
+            medium: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
+          },
+          required: ["superHot", "hot", "medium"],
+        },
+        opportunities: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              title: { type: "string" }, expectedImpact: { type: "string" },
+              difficulty: { type: "string", enum: ["Easy", "Medium", "Hard"] },
+              roi: { type: "string", enum: ["Low", "Medium", "High", "Very High"] },
+              action: { type: "string" },
+            },
+            required: ["title", "expectedImpact", "difficulty", "roi", "action"],
+          },
         },
         actionPlan: {
           type: "object",
           properties: {
-            urgentFixes: { type: "array", items: { type: "string" } },
-            growthStrategies: { type: "array", items: { type: "string" } },
-            prioritizedChecklist: {
-              type: "array",
-              items: {
-                type: "object",
-                properties: {
-                  priority: { type: "string", enum: ["High", "Medium", "Low"] },
-                  task: { type: "string" },
-                },
-                required: ["priority", "task"],
-              },
-            },
+            immediate: { type: "array", items: { type: "string" } },
+            growth: { type: "array", items: { type: "string" } },
+            scale: { type: "array", items: { type: "string" } },
           },
-          required: ["urgentFixes", "growthStrategies", "prioritizedChecklist"],
+          required: ["immediate", "growth", "scale"],
         },
-        storeName: { type: "string" },
-        platformGuess: { type: "string" },
+        founderInsights: {
+          type: "object",
+          properties: {
+            privateEquity: { type: "string" }, croExpert: { type: "string" }, brandingExpert: { type: "string" },
+            performanceMarketer: { type: "string" }, ceo: { type: "string" },
+          },
+          required: ["privateEquity", "croExpert", "brandingExpert", "performanceMarketer", "ceo"],
+        },
       },
-      required: ["executiveSummary", "traffic", "ads", "cro", "seo", "experience", "behavior", "growth", "competitors", "scorecard", "actionPlan", "storeName", "platformGuess"],
+      required: ["storeName", "platformGuess", "business", "executiveIntelligence", "scorecard", "seoIntelligence", "adsIntelligence", "conversionIntelligence", "brandIntelligence", "psychologyIntelligence", "acquisitionIntelligence", "retentionIntelligence", "competitors", "competitiveGap", "revenueLeakage", "issueClassification", "opportunities", "actionPlan", "founderInsights"],
     };
 
     const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
@@ -343,7 +537,7 @@ Rules:
         "Lovable-API-Key": apiKey,
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
+        model: "google/gemini-2.5-pro",
         messages: [
           { role: "system", content: system },
           { role: "user", content: userPrompt },
@@ -352,7 +546,7 @@ Rules:
           type: "function",
           function: {
             name: "submit_audit_report",
-            description: "Submit the completed ecommerce store audit report.",
+            description: "Submit the completed Being Ecom Brain™ Growth Intelligence Report.",
             parameters: schemaForModel,
           },
         }],
