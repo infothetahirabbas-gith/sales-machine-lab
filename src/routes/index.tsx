@@ -117,14 +117,12 @@ function Home() {
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
-                { end: 300, prefix: "+", suffix: "%", decimals: 0, l: "avg sales growth" },
-                { end: 25, prefix: "", suffix: "%", decimals: 0, l: "ROAS improvement" },
-                { end: 1000, prefix: "", suffix: "+", decimals: 0, l: "stores scaled" },
+                { v: "+312%", l: "avg sales growth" },
+                { v: "4.1×", l: "ROAS improvement" },
+                { v: "120+", l: "stores scaled" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">
-                    <CountUp end={s.end} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
-                  </div>
+                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">{s.v}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                 </div>
               ))}
