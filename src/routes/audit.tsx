@@ -353,7 +353,7 @@ function AuditPage() {
               </div>
             </div>
             <button type="submit" disabled={loading || !url} className="flex btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
-              {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analyzing your store...</> : <>Run free intelligence report <ArrowRight className="w-4 h-4" /></>}
+              {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analyzing your store...</> : <>Request free audit <ArrowRight className="w-4 h-4" /></>}
             </button>
             {error && (
               <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-sm text-destructive">
