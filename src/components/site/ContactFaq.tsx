@@ -26,10 +26,12 @@ const schema = z.object({
 export default function ContactFaq() {
   const [open, setOpen] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const parsed = schema.safeParse({
       name: fd.get("name"),
       email: fd.get("email"),
@@ -38,13 +40,16 @@ export default function ContactFaq() {
     });
     if (!parsed.success) {
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
+      setStatus("error");
       return;
     }
     setSubmitting(true);
+    setStatus("idle");
     setTimeout(() => {
       setSubmitting(false);
+      setStatus("success");
       toast.success("Thanks! We'll reply within 24h.");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     }, 700);
   }
 
