@@ -26,10 +26,12 @@ const schema = z.object({
 export default function ContactFaq() {
   const [open, setOpen] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const parsed = schema.safeParse({
       name: fd.get("name"),
       email: fd.get("email"),
@@ -38,13 +40,16 @@ export default function ContactFaq() {
     });
     if (!parsed.success) {
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
+      setStatus("error");
       return;
     }
     setSubmitting(true);
+    setStatus("idle");
     setTimeout(() => {
       setSubmitting(false);
+      setStatus("success");
       toast.success("Thanks! We'll reply within 24h.");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     }, 700);
   }
 
@@ -126,11 +131,21 @@ export default function ContactFaq() {
               >
                 {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
               </button>
+
+              {status === "success" && (
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-700">
+                  Thanks! We'll be in touch within 24 hours.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+                  Something went wrong. Please email us directly at hello@beingecom.com
+                </div>
+              )}
             </form>
 
-            <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-3 gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@yourco.com</span></div>
-              <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /><span>+1 (415) 555-0199</span></div>
+            <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
               <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
             </div>
           </div>

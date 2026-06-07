@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/analytics")({
       { name: "keywords", content: "ecommerce analytics, GA4 setup, Meta Pixel CAPI, Shopify tracking, ecommerce attribution, conversion tracking, GA4 ecommerce" },
       { property: "og:title", content: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
       { property: "og:description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/analytics" },
+      { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/analytics" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/analytics" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "analytics", name: "Analytics & Tracking", description: "GA4, Meta Pixel, Conversion API and revenue dashboards for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Analytics & Tracking", path: "/services/analytics" }])) },

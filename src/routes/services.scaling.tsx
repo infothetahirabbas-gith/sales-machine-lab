@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/scaling")({
       { name: "keywords", content: "scale Shopify store, 7-figure ecommerce, ecommerce scaling, LTV ecommerce, ecommerce retention, DTC scaling, offer engineering" },
       { property: "og:title", content: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
       { property: "og:description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/scaling" },
+      { property: "og:url", content: "https://beingecom.com/services/scaling" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/scaling" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/scaling" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "scaling", name: "Scaling & Revenue Strategy", description: "Profitable scaling from 6 to 7 figures with retention, LTV, channel mix and offer engineering." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Scaling & Revenue Strategy", path: "/services/scaling" }])) },

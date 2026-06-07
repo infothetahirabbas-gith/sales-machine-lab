@@ -417,7 +417,7 @@ export function IndustriesSection() {
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
             Industries we've <span className="text-gradient">scaled profitably</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">132+ stores across 8 categories. Ecom only, never SaaS or B2B.</p>
+          <p className="mt-3 text-muted-foreground">120+ stores across 8 categories. Ecom only, never SaaS or B2B.</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">

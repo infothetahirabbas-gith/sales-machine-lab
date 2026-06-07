@@ -14,9 +14,9 @@ export const Route = createFileRoute("/services/")({
       { name: "keywords", content: "ecommerce services, Shopify services, WooCommerce services, ecommerce CRO, Shopify SEO, ecommerce paid ads, Klaviyo email marketing, ecommerce funnel, ecommerce analytics" },
       { property: "og:title", content: "Ecommerce Growth Services — Shopify & WooCommerce" },
       { property: "og:description", content: "Nine growth services, one operating system for Shopify & WooCommerce brands." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services" },
+      { property: "og:url", content: "https://beingecom.com/services" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(servicesFaqs, "/services")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }])) },

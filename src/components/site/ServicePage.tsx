@@ -101,14 +101,14 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
               {[
                 { v: "120+", l: "Stores scaled" },
                 { v: "$48M+", l: "Tracked revenue" },
-                { v: "3.6×", l: "Avg ROAS lift" },
-                { v: "4.8/5", l: "Client rating" },
+                { v: "4.1×", l: "Avg ROAS lift" },
+                { v: "5.0/5", l: "Client rating" },
               ].map((s) => (
                 <div
                   key={s.l}
                   className="card-surface card-hover p-4 text-center group"
                 >
-                  <div className="text-2xl font-bold text-gradient"><CountUp value={s.v} /></div>
+                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                     {s.l}
                   </div>
@@ -226,9 +226,6 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   </div>
                   <h4 className="mt-5 font-bold text-ink">{p.title}</h4>
                   <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{p.body}</p>
-                  <div className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="w-3 h-3" />
-                  </div>
                 </div>
               </Reveal>
             );
@@ -376,7 +373,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 ]).map((s) => (
                   <div key={s.label} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
                     <div className="text-xl md:text-2xl font-bold text-gradient">
-                      <CountUp value={s.value} />
+                      {s.value}
                     </div>
                     <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                       {s.label}
@@ -440,7 +437,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   {cfg.caseStudy.metrics.map((m, i) => (
                     <Reveal key={m.label} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                       <div className="group rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-4 text-center transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                        <div className="text-2xl md:text-3xl font-bold text-gradient"><CountUp value={m.value} /></div>
+                        <div className="text-2xl md:text-3xl font-bold text-gradient">{m.value}</div>
                         <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                           {m.label}
                         </div>

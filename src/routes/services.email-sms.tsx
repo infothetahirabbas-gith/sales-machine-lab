@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/email-sms")({
       { name: "keywords", content: "Klaviyo agency, ecommerce email marketing, Shopify email marketing, SMS marketing, abandoned cart flow, lifecycle marketing, retention marketing" },
       { property: "og:title", content: "Klaviyo Email & SMS Marketing for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Klaviyo email & SMS flows that recover lost sales and add 25-35% revenue for Shopify & WooCommerce brands. Welcome, abandoned cart, post-purchase, winback." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/email-sms" },
+      { property: "og:url", content: "https://beingecom.com/services/email-sms" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/email-sms" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/email-sms" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "email-sms", name: "Email & SMS Marketing", description: "Klaviyo email and SMS flows that recover lost sales and add 25-35% revenue for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Email & SMS Marketing", path: "/services/email-sms" }])) },

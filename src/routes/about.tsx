@@ -3,9 +3,6 @@ import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarS
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import teamAR from "@/assets/founder-ceo.jpg.asset.json";
-import teamSP from "@/assets/team-sp.jpg";
-import teamJK from "@/assets/team-jk.jpg";
-import teamMN from "@/assets/team-mn.jpg";
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
@@ -18,9 +15,9 @@ export const Route = createFileRoute("/about")({
       { name: "keywords", content: "about BeingEcom, ecommerce growth team, Shopify growth experts, WooCommerce specialists, DTC growth operators, fractional ecommerce CMO" },
       { property: "og:title", content: "About BeingEcom — Ecommerce Growth Operators" },
       { property: "og:description", content: "An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for Shopify & WooCommerce brands." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/about" },
+      { property: "og:url", content: "https://beingecom.com/about" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/about" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs, "/about")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])) },
@@ -47,10 +44,10 @@ const values = [
 ];
 
 const team = [
-  { i: "AR", r: "Founder & CEO", n: "Ecommerce growth operator", img: teamAR.url },
-  { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: teamSP },
-  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: teamJK },
-  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: teamMN },
+  { i: "AR", r: "Founder & CEO", n: "[Your Name]", img: teamAR.url, useImg: true },
+  { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: "", useImg: false },
+  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: "", useImg: false },
+  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: "", useImg: false },
 ];
 
 function About() {
@@ -95,10 +92,9 @@ function About() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { k: "100+", v: "Stores scaled" },
+              { k: "120+", v: "Stores scaled" },
               { k: "$48M+", v: "Tracked revenue" },
               { k: "400+", v: "A/B tests" },
-              { k: "12+", v: "Senior operators" },
             ].map((s) => (
               <div key={s.k} className="card-surface p-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">{s.k}</div>
@@ -166,14 +162,23 @@ function About() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {team.map((m) => (
             <div key={m.i} className="card-surface card-hover p-6 text-center">
-              <img
-                src={m.img}
-                alt={`${m.r} headshot`}
-                loading="lazy"
-                width={640}
-                height={640}
-                className="mx-auto w-24 h-24 rounded-full object-cover shadow-lg ring-4 ring-white"
-              />
+              {m.useImg ? (
+                <img
+                  src={m.img}
+                  alt={`${m.r} headshot`}
+                  loading="lazy"
+                  width={640}
+                  height={640}
+                  className="mx-auto w-24 h-24 rounded-full object-cover shadow-lg ring-4 ring-white"
+                />
+              ) : (
+                <div
+                  aria-label={m.r}
+                  className="mx-auto w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-2xl font-bold shadow-lg ring-4 ring-white"
+                >
+                  {m.i}
+                </div>
+              )}
               <h3 className="mt-4 font-bold text-ink">{m.r}</h3>
               <p className="mt-1 text-xs text-muted-foreground">{m.n}</p>
             </div>

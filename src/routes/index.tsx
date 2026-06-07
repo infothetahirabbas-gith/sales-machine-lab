@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
       { property: "og:description", content: "Scale your Shopify or WooCommerce store profitably with ads, CRO, SEO, and email automation. Book a free 12-point growth audit." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/" },
+      { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(professionalServiceJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(homeFaqs, "/")) },
@@ -117,14 +117,12 @@ function Home() {
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
-                { end: 300, prefix: "+", suffix: "%", decimals: 0, l: "avg sales growth" },
-                { end: 25, prefix: "", suffix: "%", decimals: 0, l: "ROAS improvement" },
-                { end: 1000, prefix: "", suffix: "+", decimals: 0, l: "stores scaled" },
+                { v: "+312%", l: "avg sales growth" },
+                { v: "4.1×", l: "ROAS improvement" },
+                { v: "120+", l: "stores scaled" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">
-                    <CountUp end={s.end} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
-                  </div>
+                  <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">{s.v}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                 </div>
               ))}
@@ -360,35 +358,38 @@ function Home() {
           <div className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
               [
-                { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Apparel Brand", a: "https://randomuser.me/api/portraits/men/32.jpg" },
-                { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Beauty DTC", a: "https://randomuser.me/api/portraits/women/44.jpg" },
-                { q: "Finally an agency that understands ecommerce - not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home & Living", a: "https://randomuser.me/api/portraits/men/15.jpg" },
-                { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Wellness Co.", a: "https://randomuser.me/api/portraits/women/68.jpg" },
-                { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Footwear Label", a: "https://randomuser.me/api/portraits/men/45.jpg" },
-                { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Skincare", a: "https://randomuser.me/api/portraits/women/22.jpg" },
-                { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Outdoor Gear", a: "https://randomuser.me/api/portraits/men/76.jpg" },
-                { q: "Scaled from $30K to $180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Jewelry Studio", a: "https://randomuser.me/api/portraits/women/65.jpg" },
-                { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, Consumer Electronics", a: "https://randomuser.me/api/portraits/men/52.jpg" },
-              ].map((t, i) => (
-                <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
-                  <div className="card-surface card-hover p-6 h-full mx-2">
-                    <div className="text-primary text-3xl font-display leading-none">“</div>
-                    <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
-                    <div className="mt-5 flex items-center gap-3">
-                      <img
-                        src={t.a}
-                        alt={t.n}
-                        loading="lazy"
-                        className="w-11 h-11 rounded-full object-cover shadow-md ring-2 ring-white"
-                      />
-                      <div>
-                        <div className="text-sm font-semibold text-ink">{t.n}</div>
-                        <div className="text-[11px] text-muted-foreground">{t.r}</div>
+                { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Apparel Brand" },
+                { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Beauty DTC" },
+                { q: "Finally an agency that understands ecommerce - not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Home & Living" },
+                { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Wellness Co." },
+                { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Footwear Label" },
+                { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Skincare" },
+                { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Outdoor Gear" },
+                { q: "Scaled from $30K to $180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Jewelry Studio" },
+                { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, Consumer Electronics" },
+              ].map((t, i) => {
+                const initials = t.n.split(/\s+/).map((p) => p[0]).join("").slice(0, 2).toUpperCase();
+                return (
+                  <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
+                    <div className="card-surface card-hover p-6 h-full mx-2">
+                      <div className="text-primary text-3xl font-display leading-none">“</div>
+                      <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
+                      <div className="mt-5 flex items-center gap-3">
+                        <div
+                          aria-label={t.n}
+                          className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-sm font-bold shadow-md ring-2 ring-white"
+                        >
+                          {initials}
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-ink">{t.n}</div>
+                          <div className="text-[11px] text-muted-foreground">{t.r}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>

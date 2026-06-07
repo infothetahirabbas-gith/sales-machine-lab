@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/cro")({
       { name: "keywords", content: "ecommerce CRO, Shopify CRO, WooCommerce CRO, conversion rate optimization, A/B testing, PDP optimization, checkout optimization, ecommerce funnel optimization" },
       { property: "og:title", content: "Ecommerce CRO — Conversion Rate Optimization for Shopify & WooCommerce | BeingEcom" },
       { property: "og:description", content: "Turn existing traffic into 2-3× more sales with data-driven ecommerce CRO. Funnel audits, A/B testing, PDP and checkout optimization for Shopify & WooCommerce." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/cro" },
+      { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/cro" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/cro" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Conversion Rate Optimization", description: "Funnel audits, A/B testing, PDP and checkout optimization for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Conversion Rate Optimization", path: "/services/cro" }])) },

@@ -73,9 +73,9 @@ export const Route = createFileRoute("/case-studies")({
       { name: "keywords", content: "ecommerce case studies, Shopify case studies, WooCommerce case studies, DTC growth results, ROAS case study, ecommerce SEO results, CRO case study" },
       { property: "og:title", content: "Ecommerce Case Studies — Real Shopify & WooCommerce Growth Results" },
       { property: "og:description", content: "40+ wins across Ads, SEO and CRO for Shopify & WooCommerce brands." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/case-studies" },
+      { property: "og:url", content: "https://beingecom.com/case-studies" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs, "/case-studies")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }])) },
@@ -522,10 +522,9 @@ function CaseStudies() {
             {filtered.map((s) => {
               const Icon = categoryIcon[s.category];
               return (
-                <button
+                <div
                   key={s.id}
-                  onClick={() => setActive(s)}
-                  className="text-left card-surface card-hover overflow-hidden group flex flex-col"
+                  className="text-left card-surface overflow-hidden group flex flex-col opacity-90"
                 >
                   {/* Category-specific preview */}
                   <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
@@ -536,14 +535,13 @@ function CaseStudies() {
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
                       </div>
-                      <div className="flex-1 overflow-hidden transition-transform duration-700 group-hover:scale-[1.02]">
+                      <div className="flex-1 overflow-hidden">
                         {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
                         {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
                     </div>
-                    {/* Floating category badge + metric pill */}
                     <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
@@ -553,19 +551,20 @@ function CaseStudies() {
                     </div>
                   </div>
 
-
-
                   {/* Body */}
                   <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-bold text-ink leading-snug">{s.title}</h3>
                     <div className="mt-auto pt-4 flex items-center justify-between text-xs">
                       <span className="text-muted-foreground">{s.duration}</span>
-                      <span className="inline-flex items-center gap-1 text-primary font-semibold group-hover:gap-2 transition-all">
-                        View details <ArrowUpRight className="w-3.5 h-3.5" />
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center gap-1 text-muted-foreground font-semibold opacity-50 cursor-default select-none"
+                      >
+                        Coming soon
                       </span>
                     </div>
                   </div>
-                </button>
+                </div>
               );
             })}
           </div>

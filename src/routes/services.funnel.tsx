@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/funnel")({
       { name: "keywords", content: "ecommerce funnel, Shopify landing pages, ecommerce landing page, customer journey, funnel optimization, bridge pages, retargeting funnel" },
       { property: "og:title", content: "Ecommerce Funnel & Landing Page Optimization | BeingEcom" },
       { property: "og:description", content: "Build high-converting ecommerce funnels and landing pages for Shopify & WooCommerce — from cold-traffic bridge pages to retargeting and post-purchase journeys." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/funnel" },
+      { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/funnel" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/funnel" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "funnel", name: "Funnel & Landing Pages", description: "High-converting ecommerce funnels and landing pages — bridge pages, retargeting and post-purchase journeys." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Funnel & Landing Pages", path: "/services/funnel" }])) },

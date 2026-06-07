@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/store-development")({
       { name: "keywords", content: "Shopify development, WooCommerce development, Shopify theme development, headless Shopify, Shopify migration, ecommerce web development, custom Shopify store" },
       { property: "og:title", content: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
       { property: "og:description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/store-development" },
+      { property: "og:url", content: "https://beingecom.com/services/store-development" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/store-development" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/store-development" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Store Development", description: "Custom Shopify and WooCommerce store development — themes, headless, migrations, apps and integrations." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Store Development", path: "/services/store-development" }])) },
