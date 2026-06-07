@@ -376,7 +376,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 ]).map((s) => (
                   <div key={s.label} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
                     <div className="text-xl md:text-2xl font-bold text-gradient">
-                      <CountUp value={s.value} />
+                      {s.value}
                     </div>
                     <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                       {s.label}
