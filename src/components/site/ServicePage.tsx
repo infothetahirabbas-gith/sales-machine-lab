@@ -101,14 +101,14 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
               {[
                 { v: "120+", l: "Stores scaled" },
                 { v: "$48M+", l: "Tracked revenue" },
-                { v: "3.6×", l: "Avg ROAS lift" },
-                { v: "4.8/5", l: "Client rating" },
+                { v: "4.1×", l: "Avg ROAS lift" },
+                { v: "5.0/5", l: "Client rating" },
               ].map((s) => (
                 <div
                   key={s.l}
                   className="card-surface card-hover p-4 text-center group"
                 >
-                  <div className="text-2xl font-bold text-gradient"><CountUp value={s.v} /></div>
+                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                     {s.l}
                   </div>
