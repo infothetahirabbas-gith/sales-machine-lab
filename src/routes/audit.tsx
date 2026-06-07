@@ -283,6 +283,21 @@ function AuditPage() {
         <section id="audit-results" className="relative py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
 
+            {/* EXPORT BAR */}
+            <div className="flex flex-wrap items-center justify-between gap-3 card-surface p-4">
+              <div className="text-sm text-muted-foreground">
+                <span className="font-semibold text-ink">Report ready.</span> Export your full 17-phase intelligence report.
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <button onClick={() => downloadReportMarkdown(report, auditedUrl)} className="btn btn-primary inline-flex items-center gap-2">
+                  <Download className="w-4 h-4" /> Download Report (.md)
+                </button>
+                <button onClick={() => downloadReportJson(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                  <FileJson className="w-4 h-4" /> Download JSON
+                </button>
+              </div>
+            </div>
+
             {/* EXECUTIVE INTELLIGENCE SUMMARY */}
             <div className="card-surface p-6 lg:p-8 bg-gradient-to-br from-primary/5 via-card to-card border-primary/30">
               <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
