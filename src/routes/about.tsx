@@ -163,14 +163,23 @@ function About() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {team.map((m) => (
             <div key={m.i} className="card-surface card-hover p-6 text-center">
-              <img
-                src={m.img}
-                alt={`${m.r} headshot`}
-                loading="lazy"
-                width={640}
-                height={640}
-                className="mx-auto w-24 h-24 rounded-full object-cover shadow-lg ring-4 ring-white"
-              />
+              {m.useImg ? (
+                <img
+                  src={m.img}
+                  alt={`${m.r} headshot`}
+                  loading="lazy"
+                  width={640}
+                  height={640}
+                  className="mx-auto w-24 h-24 rounded-full object-cover shadow-lg ring-4 ring-white"
+                />
+              ) : (
+                <div
+                  aria-label={m.r}
+                  className="mx-auto w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-2xl font-bold shadow-lg ring-4 ring-white"
+                >
+                  {m.i}
+                </div>
+              )}
               <h3 className="mt-4 font-bold text-ink">{m.r}</h3>
               <p className="mt-1 text-xs text-muted-foreground">{m.n}</p>
             </div>
