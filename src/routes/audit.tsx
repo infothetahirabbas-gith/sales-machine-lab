@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MousePointerClick,
   ShoppingBag, ShieldCheck, Target, Rocket, CheckCircle2, ArrowRight, Brain, Building2,
-  Crown, Users, Mail, Flame, Zap, Trophy, DollarSign, Lightbulb, Eye, Award, Repeat,
+  Crown, Users, Mail, Flame, Zap, Trophy, DollarSign, Lightbulb, Eye, Award, Repeat, Download, FileJson,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
