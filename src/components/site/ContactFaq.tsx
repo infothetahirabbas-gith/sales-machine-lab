@@ -131,6 +131,17 @@ export default function ContactFaq() {
               >
                 {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
               </button>
+
+              {status === "success" && (
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-700">
+                  Thanks! We'll be in touch within 24 hours.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+                  Something went wrong. Please email us directly at hello@beingecom.com
+                </div>
+              )}
             </form>
 
             <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
