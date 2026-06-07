@@ -2,73 +2,73 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const inputSchema = z.object({
-  url: z.string().trim().min(4).max(300),
-  revenue: z.string().max(60).optional().nullable(),
-  adSpend: z.string().max(60).optional().nullable(),
-  country: z.string().max(60).optional().nullable(),
+  url: z.string().trim().min(4),
+  revenue: z.string().optional().nullable(),
+  adSpend: z.string().optional().nullable(),
+  country: z.string().optional().nullable(),
 });
 
 const scoreSchema = z.object({
   score: z.number().min(0).max(100),
-  verdict: z.string().max(220),
+  verdict: z.string(),
 });
 
 const issueSchema = z.object({
-  issue: z.string().max(180),
-  why: z.string().max(220),
-  fix: z.string().max(220),
+  issue: z.string(),
+  why: z.string(),
+  fix: z.string(),
 });
 
 const competitorSchema = z.object({
-  name: z.string().max(80),
-  website: z.string().max(120),
+  name: z.string(),
+  website: z.string(),
   tier: z.enum(["Tier 1", "Tier 2", "Tier 3"]),
-  positioning: z.string().max(200),
-  strengths: z.string().max(220),
-  weaknesses: z.string().max(220),
-  usp: z.string().max(220),
+  positioning: z.string(),
+  strengths: z.string(),
+  weaknesses: z.string(),
+  usp: z.string(),
 });
 
 const opportunitySchema = z.object({
-  title: z.string().max(140),
-  expectedImpact: z.string().max(200),
+  title: z.string(),
+  expectedImpact: z.string(),
   difficulty: z.enum(["Easy", "Medium", "Hard"]),
   roi: z.enum(["Low", "Medium", "High", "Very High"]),
-  action: z.string().max(220),
+  action: z.string(),
 });
 
 const leakSchema = z.object({
-  area: z.string().max(60),
-  leak: z.string().max(200),
+  area: z.string(),
+  leak: z.string(),
   severity: z.enum(["Critical", "High", "Medium", "Low"]),
-  impact: z.string().max(200),
+  impact: z.string(),
 });
 
 export const auditReportSchema = z.object({
-  storeName: z.string().max(120),
-  platformGuess: z.string().max(60),
+  storeName: z.string(),
+  platformGuess: z.string(),
 
   // PHASE 1
   business: z.object({
-    brand: z.string().max(120),
-    website: z.string().max(200),
-    platform: z.string().max(60),
-    industry: z.string().max(80),
-    niche: z.string().max(120),
-    productCategory: z.string().max(120),
-    targetAudience: z.string().max(220),
+    brand: z.string(),
+    website: z.string(),
+    platform: z.string(),
+    industry: z.string(),
+    niche: z.string(),
+    productCategory: z.string(),
+    targetAudience: z.string(),
     pricePositioning: z.enum(["Luxury", "Premium", "Mid-Market", "Budget"]),
     businessModel: z.enum(["DTC", "Private Label", "Dropshipping", "Marketplace Brand", "Subscription Brand"]),
   }),
 
   // PHASE 2
   executiveIntelligence: z.object({
-    businessReality: z.string().max(400),
-    biggestOpportunity: z.string().max(320),
-    biggestThreat: z.string().max(320),
+    businessReality: z.string(),
+    biggestOpportunity: z.string(),
+    biggestThreat: z.string(),
     revenuePotential: z.enum(["Low", "Medium", "High", "Very High"]),
-    revenuePotentialReasoning: z.string().max(320),
-    headline: z.string().max(280),
+    revenuePotentialReasoning: z.string(),
+    headline: z.string(),
   }),
 
   // PHASE 3 (15 scores)
@@ -96,78 +96,78 @@ export const auditReportSchema = z.object({
     onPage: scoreSchema,
     contentAuthority: scoreSchema,
     commercialSeo: scoreSchema,
-    technicalIssues: z.array(z.string().max(180)).max(6),
-    competitiveSeoGap: z.string().max(320),
+    technicalIssues: z.array(z.string()).max(6),
+    competitiveSeoGap: z.string(),
   }),
 
   // PHASE 5
   adsIntelligence: z.object({
-    metaActivity: z.string().max(280),
-    googleActivity: z.string().max(280),
-    creativeStrategy: z.string().max(260),
-    offerStrategy: z.string().max(260),
-    messaging: z.string().max(260),
-    hooks: z.string().max(260),
+    metaActivity: z.string(),
+    googleActivity: z.string(),
+    creativeStrategy: z.string(),
+    offerStrategy: z.string(),
+    messaging: z.string(),
+    hooks: z.string(),
     acquisitionMaturity: z.enum(["Beginner", "Intermediate", "Advanced", "Elite"]),
-    maturityReasoning: z.string().max(280),
+    maturityReasoning: z.string(),
   }),
 
   // PHASE 6
   conversionIntelligence: z.object({
-    homepage: z.string().max(260),
-    productPages: z.string().max(260),
-    cartCheckout: z.string().max(260),
-    mobile: z.string().max(260),
-    ctaStrength: z.string().max(220),
-    friction: z.array(z.string().max(180)).max(5),
-    trustGaps: z.array(z.string().max(180)).max(5),
-    conversionKillers: z.array(z.string().max(180)).max(5),
+    homepage: z.string(),
+    productPages: z.string(),
+    cartCheckout: z.string(),
+    mobile: z.string(),
+    ctaStrength: z.string(),
+    friction: z.array(z.string()).max(5),
+    trustGaps: z.array(z.string()).max(5),
+    conversionKillers: z.array(z.string()).max(5),
   }),
 
   // PHASE 7
   brandIntelligence: z.object({
-    positioning: z.string().max(280),
-    valueProposition: z.string().max(260),
-    storytelling: z.string().max(260),
-    differentiation: z.string().max(260),
-    visualIdentity: z.string().max(220),
-    premiumPerception: z.string().max(220),
-    whyChooseThisBrand: z.string().max(320),
+    positioning: z.string(),
+    valueProposition: z.string(),
+    storytelling: z.string(),
+    differentiation: z.string(),
+    visualIdentity: z.string(),
+    premiumPerception: z.string(),
+    whyChooseThisBrand: z.string(),
   }),
 
   // PHASE 8
   psychologyIntelligence: z.object({
-    trust: z.string().max(240),
-    riskPerception: z.string().max(240),
-    buyingMotivation: z.string().max(240),
-    emotionalTriggers: z.string().max(240),
-    socialProof: z.string().max(240),
-    authoritySignals: z.string().max(240),
+    trust: z.string(),
+    riskPerception: z.string(),
+    buyingMotivation: z.string(),
+    emotionalTriggers: z.string(),
+    socialProof: z.string(),
+    authoritySignals: z.string(),
     firstTimeTrustVerdict: z.enum(["Yes", "No", "Maybe"]),
-    trustReasoning: z.string().max(320),
+    trustReasoning: z.string(),
   }),
 
   // PHASE 9
   acquisitionIntelligence: z.object({
-    organic: z.string().max(220),
-    paid: z.string().max(220),
-    social: z.string().max(220),
-    influencer: z.string().max(220),
-    emailSms: z.string().max(220),
-    mostLikelyGrowthChannel: z.string().max(120),
-    highestRoiChannel: z.string().max(120),
-    mostUnderutilizedChannel: z.string().max(120),
+    organic: z.string(),
+    paid: z.string(),
+    social: z.string(),
+    influencer: z.string(),
+    emailSms: z.string(),
+    mostLikelyGrowthChannel: z.string(),
+    highestRoiChannel: z.string(),
+    mostUnderutilizedChannel: z.string(),
   }),
 
   // PHASE 10
   retentionIntelligence: z.object({
-    email: z.string().max(220),
-    sms: z.string().max(220),
-    loyalty: z.string().max(220),
-    subscription: z.string().max(220),
-    repeatPurchase: z.string().max(220),
+    email: z.string(),
+    sms: z.string(),
+    loyalty: z.string(),
+    subscription: z.string(),
+    repeatPurchase: z.string(),
     retentionMaturityScore: z.number().min(0).max(100),
-    retentionVerdict: z.string().max(260),
+    retentionVerdict: z.string(),
   }),
 
   // PHASE 11
@@ -175,11 +175,11 @@ export const auditReportSchema = z.object({
 
   // PHASE 12
   competitiveGap: z.object({
-    competitorAdvantages: z.array(z.string().max(200)).max(5),
-    missingFeatures: z.array(z.string().max(200)).max(5),
-    marketOpportunities: z.array(z.string().max(200)).max(5),
-    differentiationOpportunities: z.array(z.string().max(200)).max(5),
-    blueOcean: z.array(z.string().max(200)).max(3),
+    competitorAdvantages: z.array(z.string()).max(5),
+    missingFeatures: z.array(z.string()).max(5),
+    marketOpportunities: z.array(z.string()).max(5),
+    differentiationOpportunities: z.array(z.string()).max(5),
+    blueOcean: z.array(z.string()).max(3),
   }),
 
   // PHASE 13
@@ -197,18 +197,18 @@ export const auditReportSchema = z.object({
 
   // PHASE 16
   actionPlan: z.object({
-    immediate: z.array(z.string().max(220)).min(3).max(7),
-    growth: z.array(z.string().max(220)).min(3).max(7),
-    scale: z.array(z.string().max(220)).min(3).max(7),
+    immediate: z.array(z.string()).min(3).max(7),
+    growth: z.array(z.string()).min(3).max(7),
+    scale: z.array(z.string()).min(3).max(7),
   }),
 
   // PHASE 17
   founderInsights: z.object({
-    privateEquity: z.string().max(320),
-    croExpert: z.string().max(320),
-    brandingExpert: z.string().max(320),
-    performanceMarketer: z.string().max(320),
-    ceo: z.string().max(320),
+    privateEquity: z.string(),
+    croExpert: z.string(),
+    brandingExpert: z.string(),
+    performanceMarketer: z.string(),
+    ceo: z.string(),
   }),
 });
 
