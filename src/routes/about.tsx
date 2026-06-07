@@ -18,9 +18,9 @@ export const Route = createFileRoute("/about")({
       { name: "keywords", content: "about BeingEcom, ecommerce growth team, Shopify growth experts, WooCommerce specialists, DTC growth operators, fractional ecommerce CMO" },
       { property: "og:title", content: "About BeingEcom — Ecommerce Growth Operators" },
       { property: "og:description", content: "An ecommerce-only growth team operating like a CMO + CRO + Head of Performance for Shopify & WooCommerce brands." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/about" },
+      { property: "og:url", content: "https://beingecom.com/about" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/about" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(aboutFaqs, "/about")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])) },

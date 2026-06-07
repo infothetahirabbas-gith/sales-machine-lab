@@ -23,10 +23,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
       { property: "og:description", content: "Scale your Shopify or WooCommerce store profitably with ads, CRO, SEO, and email automation. Book a free 12-point growth audit." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/" },
+      { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(professionalServiceJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(homeFaqs, "/")) },

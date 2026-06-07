@@ -20,9 +20,9 @@ export const Route = createFileRoute("/audit")({
       { name: "keywords", content: "free Shopify audit, WooCommerce audit, ecommerce store audit, AI ecommerce audit, CRO audit, ecommerce SEO audit, store conversion audit, growth intelligence" },
       { property: "og:title", content: "Free AI Ecommerce Store Audit — Being Ecom Brain™" },
       { property: "og:description", content: "Board-level growth intelligence on your Shopify or WooCommerce store. 17-phase report in 90 seconds." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/audit" },
+      { property: "og:url", content: "https://beingecom.com/audit" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/audit" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/audit" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(auditFaqs, "/audit")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Free Store Audit", path: "/audit" }])) },

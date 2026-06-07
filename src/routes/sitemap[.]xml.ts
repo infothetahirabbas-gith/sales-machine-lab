@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://sales-machine-lab.lovable.app";
+const BASE_URL = "https://beingecom.com";
 
 const children = [
   { loc: `${BASE_URL}/sitemap-pages.xml` },

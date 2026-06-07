@@ -15,9 +15,9 @@ export const Route = createFileRoute("/contact")({
       { name: "keywords", content: "contact ecommerce agency, free Shopify audit, ecommerce growth audit, WooCommerce consultation, DTC strategy call" },
       { property: "og:title", content: "Contact BeingEcom — Free Ecommerce Growth Audit" },
       { property: "og:description", content: "Send us your store. We send back a 12-point loss-recovery plan within 48 hours." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/contact" },
+      { property: "og:url", content: "https://beingecom.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/contact" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs, "/contact")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])) },

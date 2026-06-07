@@ -3,6 +3,6 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://sales-machine-lab.lovable.app/sitemap.xml
-Sitemap: https://sales-machine-lab.lovable.app/sitemap-pages.xml
-Sitemap: https://sales-machine-lab.lovable.app/sitemap-services.xml
+Sitemap: https://beingecom.com/sitemap.xml
+Sitemap: https://beingecom.com/sitemap-pages.xml
+Sitemap: https://beingecom.com/sitemap-services.xml

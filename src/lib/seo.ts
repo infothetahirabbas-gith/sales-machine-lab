@@ -1,4 +1,4 @@
-export const SITE_URL = "https://sales-machine-lab.lovable.app";
+export const SITE_URL = "https://beingecom.com";
 
 export const ORG_INFO = {
   name: "BeingEcom",

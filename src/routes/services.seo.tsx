@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/seo")({
       { name: "keywords", content: "ecommerce SEO, Shopify SEO, WooCommerce SEO, product page SEO, collection page SEO, ecommerce SEO agency, technical SEO, ecommerce link building" },
       { property: "og:title", content: "Ecommerce SEO — Shopify & WooCommerce SEO Agency | BeingEcom" },
       { property: "og:description", content: "Rank products, collections and content on Google. Technical SEO, on-page, content and link building for Shopify & WooCommerce — free traffic forever." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/seo" },
+      { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/seo" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/seo" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }])) },

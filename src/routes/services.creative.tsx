@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/creative")({
       { name: "keywords", content: "ecommerce ad creatives, UGC ads, video ad production, Shopify ad creative, Meta ad creative, TikTok creative, ecommerce creative agency" },
       { property: "og:title", content: "Ecommerce Creative Production — UGC, Video & Ad Creatives | BeingEcom" },
       { property: "og:description", content: "Scroll-stopping UGC, video and static ad creatives engineered to convert for Shopify & WooCommerce brands. Hooks, scripts and weekly creative testing." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/creative" },
+      { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/creative" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/creative" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "creative", name: "Creative & Ad Production", description: "UGC, video and static ad creatives engineered to convert for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Creative & Ad Production", path: "/services/creative" }])) },

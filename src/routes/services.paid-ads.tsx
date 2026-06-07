@@ -10,10 +10,10 @@ export const Route = createFileRoute("/services/paid-ads")({
       { name: "keywords", content: "ecommerce ads agency, Meta ads agency, Facebook ads agency, Google ads ecommerce, TikTok ads, Shopify ads, DTC paid media, ROAS, ecommerce PPC" },
       { property: "og:title", content: "Ecommerce Paid Ads — Meta, Google & TikTok Ads Agency | BeingEcom" },
       { property: "og:description", content: "Profitable Meta, Google and TikTok ads for Shopify & WooCommerce. Creative-led, CRO-aligned paid media built to scale ROAS, not vanity metrics." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/services/paid-ads" },
+      { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/services/paid-ads" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/paid-ads" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "paid-ads", name: "Paid Advertising", description: "Meta, Google and TikTok ads built to scale profitably for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Paid Advertising", path: "/services/paid-ads" }])) },

@@ -73,9 +73,9 @@ export const Route = createFileRoute("/case-studies")({
       { name: "keywords", content: "ecommerce case studies, Shopify case studies, WooCommerce case studies, DTC growth results, ROAS case study, ecommerce SEO results, CRO case study" },
       { property: "og:title", content: "Ecommerce Case Studies — Real Shopify & WooCommerce Growth Results" },
       { property: "og:description", content: "40+ wins across Ads, SEO and CRO for Shopify & WooCommerce brands." },
-      { property: "og:url", content: "https://sales-machine-lab.lovable.app/case-studies" },
+      { property: "og:url", content: "https://beingecom.com/case-studies" },
     ],
-    links: [{ rel: "canonical", href: "https://sales-machine-lab.lovable.app/case-studies" }],
+    links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(caseStudyFaqs, "/case-studies")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }])) },
