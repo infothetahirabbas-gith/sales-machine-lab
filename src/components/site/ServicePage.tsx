@@ -440,7 +440,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   {cfg.caseStudy.metrics.map((m, i) => (
                     <Reveal key={m.label} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                       <div className="group rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-4 text-center transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                        <div className="text-2xl md:text-3xl font-bold text-gradient"><CountUp value={m.value} /></div>
+                        <div className="text-2xl md:text-3xl font-bold text-gradient">{m.value}</div>
                         <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                           {m.label}
                         </div>
