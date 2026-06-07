@@ -42,6 +42,112 @@ const loadingSteps = [
   "Building your 90-day action plan...",
 ];
 
+function triggerDownload(filename: string, content: string, mime: string) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function slugFromUrl(u: string): string {
+  try { return new URL(u).hostname.replace(/^www\./, "").replace(/[^a-z0-9]+/gi, "-"); }
+  catch { return "store-audit"; }
+}
+
+function downloadReportJson(report: AuditReport, url: string) {
+  const payload = { url, generatedAt: new Date().toISOString(), report };
+  triggerDownload(`${slugFromUrl(url)}-being-ecom-brain.json`, JSON.stringify(payload, null, 2), "application/json");
+}
+
+function downloadReportMarkdown(r: AuditReport, url: string) {
+  const lines: string[] = [];
+  const h = (t: string) => lines.push(`\n## ${t}\n`);
+  const h3 = (t: string) => lines.push(`\n### ${t}\n`);
+  const kv = (k: string, v: string | number) => lines.push(`- **${k}:** ${v}`);
+  lines.push(`# Being Ecom Brain™ — Growth Intelligence Report`);
+  lines.push(`\n**Store:** ${r.storeName}  `);
+  lines.push(`**URL:** ${url}  `);
+  lines.push(`**Generated:** ${new Date().toLocaleString()}  `);
+  lines.push(`**Platform:** ${r.platformGuess}`);
+
+  h("Executive Intelligence");
+  lines.push(`> ${r.executiveIntelligence.headline}`);
+  kv("Business Reality", r.executiveIntelligence.businessReality);
+  kv("Biggest Opportunity", r.executiveIntelligence.biggestOpportunity);
+  kv("Biggest Threat", r.executiveIntelligence.biggestThreat);
+  kv("Revenue Potential", `${r.executiveIntelligence.revenuePotential} — ${r.executiveIntelligence.revenuePotentialReasoning}`);
+
+  h("Business");
+  Object.entries(r.business).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Scorecard (0–100)");
+  Object.entries(r.scorecard).forEach(([k, v]) => kv(k, v));
+
+  h("SEO Intelligence");
+  (["technical","onPage","contentAuthority","commercialSeo"] as const).forEach(k => {
+    const s = r.seoIntelligence[k]; kv(k, `${s.score}/100 — ${s.verdict}`);
+  });
+  h3("Technical Issues"); r.seoIntelligence.technicalIssues.forEach(i => lines.push(`- ${i}`));
+  kv("Competitive SEO Gap", r.seoIntelligence.competitiveSeoGap);
+
+  h("Ads Intelligence");
+  Object.entries(r.adsIntelligence).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Conversion Intelligence");
+  (["homepage","productPages","cartCheckout","mobile","ctaStrength"] as const).forEach(k => kv(k, r.conversionIntelligence[k]));
+  h3("Friction"); r.conversionIntelligence.friction.forEach(i => lines.push(`- ${i}`));
+  h3("Trust Gaps"); r.conversionIntelligence.trustGaps.forEach(i => lines.push(`- ${i}`));
+  h3("Conversion Killers"); r.conversionIntelligence.conversionKillers.forEach(i => lines.push(`- ${i}`));
+
+  h("Brand Intelligence");
+  Object.entries(r.brandIntelligence).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Psychology Intelligence");
+  Object.entries(r.psychologyIntelligence).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Acquisition Intelligence");
+  Object.entries(r.acquisitionIntelligence).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Retention Intelligence");
+  Object.entries(r.retentionIntelligence).forEach(([k, v]) => kv(k, String(v)));
+
+  h("Competitors");
+  r.competitors.forEach(c => {
+    lines.push(`\n**${c.name}** (${c.tier}) — ${c.website}`);
+    kv("Positioning", c.positioning); kv("Strengths", c.strengths);
+    kv("Weaknesses", c.weaknesses); kv("USP", c.usp);
+  });
+
+  h("Competitive Gap");
+  (["competitorAdvantages","missingFeatures","marketOpportunities","differentiationOpportunities","blueOcean"] as const).forEach(k => {
+    h3(k); r.competitiveGap[k].forEach(i => lines.push(`- ${i}`));
+  });
+
+  h("Revenue Leakage");
+  r.revenueLeakage.forEach(l => lines.push(`- **[${l.severity}] ${l.area}** — ${l.leak} → Impact: ${l.impact}`));
+
+  h("Issues");
+  (["superHot","hot","medium"] as const).forEach(tier => {
+    h3(tier.toUpperCase());
+    r.issueClassification[tier].forEach(i => lines.push(`- **${i.issue}** — Why: ${i.why} → Fix: ${i.fix}`));
+  });
+
+  h("Opportunities");
+  r.opportunities.forEach(o => lines.push(`- **${o.title}** [${o.difficulty} / ROI: ${o.roi}] — ${o.expectedImpact} → ${o.action}`));
+
+  h("90-Day Action Plan");
+  h3("0–7 Days (Immediate)"); r.actionPlan.immediate.forEach(i => lines.push(`- ${i}`));
+  h3("7–30 Days (Growth)"); r.actionPlan.growth.forEach(i => lines.push(`- ${i}`));
+  h3("30–90 Days (Scale)"); r.actionPlan.scale.forEach(i => lines.push(`- ${i}`));
+
+  h("Founder Insights");
+  Object.entries(r.founderInsights).forEach(([k, v]) => kv(k, String(v)));
+
+  triggerDownload(`${slugFromUrl(url)}-being-ecom-brain.md`, lines.join("\n"), "text/markdown");
+}
+
 function ScoreRing({ value, size = 120, label }: { value: number; size?: number; label?: string }) {
   const radius = (size - 14) / 2;
   const circ = 2 * Math.PI * radius;
