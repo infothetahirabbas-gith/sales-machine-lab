@@ -226,9 +226,6 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   </div>
                   <h4 className="mt-5 font-bold text-ink">{p.title}</h4>
                   <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{p.body}</p>
-                  <div className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="w-3 h-3" />
-                  </div>
                 </div>
               </Reveal>
             );
