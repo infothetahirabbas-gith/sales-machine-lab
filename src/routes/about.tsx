@@ -3,9 +3,6 @@ import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarS
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import teamAR from "@/assets/founder-ceo.jpg.asset.json";
-import teamSP from "@/assets/team-sp.jpg";
-import teamJK from "@/assets/team-jk.jpg";
-import teamMN from "@/assets/team-mn.jpg";
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
