@@ -98,7 +98,7 @@ function Contact() {
             </Card>
             <Card>
               <h3 className="font-semibold">Trust</h3>
-              <p className="mt-2 text-sm text-muted-foreground">100+ stores scaled. $48M+ tracked revenue. We sign NDAs without drama.</p>
+              <p className="mt-2 text-sm text-muted-foreground">120+ stores scaled. $48M+ tracked revenue. We sign NDAs without drama.</p>
             </Card>
           </div>
         </div>

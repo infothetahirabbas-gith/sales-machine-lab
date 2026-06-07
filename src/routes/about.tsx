@@ -95,7 +95,7 @@ function About() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { k: "100+", v: "Stores scaled" },
+              { k: "120+", v: "Stores scaled" },
               { k: "$48M+", v: "Tracked revenue" },
               { k: "400+", v: "A/B tests" },
               { k: "12+", v: "Senior operators" },
