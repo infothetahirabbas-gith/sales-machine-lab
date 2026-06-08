@@ -394,14 +394,23 @@ function AuditPage() {
             {/* EXPORT BAR */}
             <div className="flex flex-wrap items-center justify-between gap-3 card-surface p-4">
               <div className="text-sm text-muted-foreground">
-                <span className="font-semibold text-ink">Report ready.</span> Export your full 17-phase intelligence report.
+                <span className="font-semibold text-ink">Report ready.</span> Export the full 17-phase intelligence in your preferred format.
               </div>
               <div className="flex flex-wrap gap-2">
-                <button onClick={() => downloadReportMarkdown(report, auditedUrl)} className="btn btn-primary inline-flex items-center gap-2">
-                  <Download className="w-4 h-4" /> Download Report (.md)
+                <button onClick={() => downloadPDF(report, auditedUrl)} className="btn btn-primary inline-flex items-center gap-2">
+                  <FileText className="w-4 h-4" /> PDF
+                </button>
+                <button onClick={() => downloadXLSX(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                  <FileSpreadsheet className="w-4 h-4" /> Excel
+                </button>
+                <button onClick={() => downloadCSV(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                  <FileType2 className="w-4 h-4" /> CSV
                 </button>
                 <button onClick={() => downloadReportJson(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
-                  <FileJson className="w-4 h-4" /> Download JSON
+                  <FileJson className="w-4 h-4" /> JSON
+                </button>
+                <button onClick={() => downloadReportMarkdown(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                  <Download className="w-4 h-4" /> Markdown
                 </button>
               </div>
             </div>
