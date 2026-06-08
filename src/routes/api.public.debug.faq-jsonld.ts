@@ -166,6 +166,7 @@ export const Route = createFileRoute("/api/public/debug/faq-jsonld")({
           headers: {
             "Cache-Control": "no-store",
             "Access-Control-Allow-Origin": "*",
+            "X-Robots-Tag": "noindex",
           },
         });
       },

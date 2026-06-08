@@ -45,6 +45,7 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
           headers: {
             "Content-Type": "application/xml",
             "Cache-Control": "public, max-age=3600",
+            "X-Robots-Tag": "index, follow",
           },
         });
       },
