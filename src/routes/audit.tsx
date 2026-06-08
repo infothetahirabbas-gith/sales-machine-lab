@@ -5,9 +5,11 @@ import {
   Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MousePointerClick,
   ShoppingBag, ShieldCheck, Target, Rocket, CheckCircle2, ArrowRight, Brain, Building2,
   Crown, Users, Mail, Flame, Zap, Trophy, DollarSign, Lightbulb, Eye, Award, Repeat, Download, FileJson,
+  FileText, FileSpreadsheet, FileType2,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
+import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
