@@ -452,9 +452,72 @@ function AuditPage() {
               </div>
             </div>
 
+            {/* QUICK SUMMARY — bullet points at a glance */}
+            <SectionCard icon={Zap} title="At a Glance" kicker="Top findings in 10 seconds">
+              {(() => {
+                const s = report.scorecard;
+                const entries = [
+                  ["SEO", s.seo], ["Paid Ads", s.paidAds], ["CRO", s.cro], ["Brand", s.brandAuthority],
+                  ["Trust", s.trust], ["Acquisition", s.customerAcquisition], ["Retention", s.retention],
+                  ["Revenue Efficiency", s.revenueEfficiency], ["Scalability", s.scalability], ["Maturity", s.businessMaturity],
+                ] as [string, number][];
+                const sorted = [...entries].sort((a, b) => a[1] - b[1]);
+                const weakest = sorted.slice(0, 3);
+                const strongest = [...entries].sort((a, b) => b[1] - a[1]).slice(0, 3);
+                const sh = report.issueClassification.superHot.length;
+                const ho = report.issueClassification.hot.length;
+                const me = report.issueClassification.medium.length;
+                const topOpps = report.opportunities.slice(0, 3);
+                return (
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div className="p-3 rounded-xl bg-card border border-border">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Overall Health</div>
+                      <div className="text-3xl font-bold text-ink tabular-nums">{s.overall}<span className="text-base text-muted-foreground">/100</span></div>
+                      <div className="text-xs text-muted-foreground mt-1">Revenue potential: <span className="font-semibold text-ink">{report.executiveIntelligence.revenuePotential}</span></div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/30">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 mb-2">Strongest Areas</div>
+                      <ul className="space-y-1">
+                        {strongest.map(([k, v]) => (
+                          <li key={k} className="flex justify-between text-sm"><span className="text-ink">{k}</span><span className="font-bold tabular-nums text-emerald-600">{v}</span></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-3 rounded-xl bg-destructive/5 border border-destructive/30">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-destructive mb-2">Weakest Areas</div>
+                      <ul className="space-y-1">
+                        {weakest.map(([k, v]) => (
+                          <li key={k} className="flex justify-between text-sm"><span className="text-ink">{k}</span><span className="font-bold tabular-nums text-destructive">{v}</span></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/30">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">Issues Found</div>
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        <div><div className="text-xl font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
+                        <div><div className="text-xl font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
+                        <div><div className="text-xl font-bold text-yellow-600 tabular-nums">{me}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Medium</div></div>
+                      </div>
+                    </div>
+                    <div className="md:col-span-2 lg:col-span-4 p-3 rounded-xl bg-primary/5 border border-primary/20">
+                      <div className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Top 3 ROI Opportunities</div>
+                      <ul className="space-y-1.5">
+                        {topOpps.map((o, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-ink">
+                            <span className="font-bold text-primary shrink-0">#{i + 1}</span>
+                            <span className="flex-1"><span className="font-semibold">{o.title}</span> <span className="text-muted-foreground">— ROI: {o.roi} · {o.difficulty}</span></span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })()}
+            </SectionCard>
+
             {/* 15-METRIC GROWTH SCORECARD */}
             <SectionCard icon={Trophy} title="Growth Scorecard" kicker="Phase 3 · 15 metrics that decide your scale">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
                 <MiniScore value={report.scorecard.seo} label="SEO" />
                 <MiniScore value={report.scorecard.paidAds} label="Paid Ads" />
                 <MiniScore value={report.scorecard.cro} label="CRO" />
@@ -470,6 +533,30 @@ function AuditPage() {
                 <MiniScore value={report.scorecard.scalability} label="Scalability" />
                 <MiniScore value={report.scorecard.businessMaturity} label="Maturity" />
                 <MiniScore value={report.scorecard.overall} label="Overall" />
+              </div>
+              {/* Horizontal bar chart */}
+              <div className="border-t border-border pt-5 space-y-2">
+                <div className="text-xs font-semibold text-ink mb-3">Performance breakdown</div>
+                {([
+                  ["SEO", report.scorecard.seo], ["Paid Ads", report.scorecard.paidAds], ["CRO", report.scorecard.cro],
+                  ["Brand Authority", report.scorecard.brandAuthority], ["Trust", report.scorecard.trust],
+                  ["Positioning", report.scorecard.productPositioning], ["Acquisition", report.scorecard.customerAcquisition],
+                  ["Retention", report.scorecard.retention], ["CX", report.scorecard.customerExperience],
+                  ["Market Position", report.scorecard.marketPosition], ["Moat", report.scorecard.competitiveAdvantage],
+                  ["Revenue Efficiency", report.scorecard.revenueEfficiency], ["Scalability", report.scorecard.scalability],
+                  ["Maturity", report.scorecard.businessMaturity],
+                ] as [string, number][]).map(([label, v]) => {
+                  const color = v >= 75 ? "bg-emerald-500" : v >= 50 ? "bg-amber-500" : "bg-destructive";
+                  return (
+                    <div key={label} className="grid grid-cols-[140px_1fr_44px] items-center gap-3">
+                      <div className="text-xs text-ink truncate">{label}</div>
+                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: `${v}%` }} />
+                      </div>
+                      <div className="text-xs font-bold tabular-nums text-ink text-right">{v}</div>
+                    </div>
+                  );
+                })}
               </div>
             </SectionCard>
 
