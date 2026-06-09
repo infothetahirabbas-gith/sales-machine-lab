@@ -17,14 +17,21 @@ export default function Footer() {
             The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
           </p>
           <div className="mt-6 flex items-center gap-3">
-            {[Instagram, Linkedin, Twitter, Youtube].map((Icon, i) => (
-              <span
-                key={i}
-                aria-label="social"
-                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40"
+            {[
+              { Icon: Linkedin, href: "https://linkedin.com/company/beingecom", label: "LinkedIn" },
+              { Icon: Twitter, href: "https://x.com/beingecom", label: "X (Twitter)" },
+              { Icon: Instagram, href: "https://instagram.com/beingecom", label: "Instagram" },
+            ].map(({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-colors"
               >
                 <Icon className="w-4 h-4" />
-              </span>
+              </a>
             ))}
           </div>
         </div>
