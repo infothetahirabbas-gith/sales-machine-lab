@@ -74,80 +74,85 @@ export default function ContactFaq() {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* LEFT - CONTACT FORM */}
           <div className="order-2 lg:order-1 card-surface p-6 md:p-8 rounded-3xl shadow-xl">
-            <h3 className="text-xl font-bold text-ink">Tell us about your store</h3>
-            <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours, every weekday.</p>
-
-            <form onSubmit={onSubmit} className="mt-6 space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Full Name</label>
-                  <input
-                    name="name"
-                    required
-                    maxLength={100}
-                    placeholder="Jane Doe"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    maxLength={255}
-                    placeholder="jane@brand.com"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                  />
-                </div>
+            {status === "success" ? (
+              <div className="text-center py-6">
+                <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center text-2xl">✓</div>
+                <h3 className="mt-4 text-xl font-bold text-ink">Thanks — we'll be in touch within 24 hours (weekdays only).</h3>
+                <p className="mt-2 text-sm text-muted-foreground">In the meantime, reply directly to <a className="text-primary font-semibold" href="mailto:hello@beingecom.com">hello@beingecom.com</a> if it's urgent.</p>
               </div>
+            ) : (
+              <>
+                <h3 className="text-xl font-bold text-ink">Tell us about your store</h3>
+                <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours, every weekday.</p>
 
-              <div>
-                <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Store URL</label>
-                <input
-                  name="store"
-                  maxLength={255}
-                  placeholder="https://yourstore.com"
-                  className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
-                />
-              </div>
+                <form onSubmit={onSubmit} className="mt-6 space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Full Name</label>
+                      <input
+                        name="name"
+                        required
+                        maxLength={100}
+                        placeholder="Jane Doe"
+                        className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        maxLength={255}
+                        placeholder="jane@brand.com"
+                        className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+                      />
+                    </div>
+                  </div>
 
-              <div>
-                <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">What do you need help with?</label>
-                <textarea
-                  name="message"
-                  required
-                  maxLength={1000}
-                  rows={4}
-                  placeholder="Monthly revenue, current ad spend, biggest bottleneck..."
-                  className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition resize-none"
-                />
-              </div>
+                  <div>
+                    <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">Store URL</label>
+                    <input
+                      name="store"
+                      maxLength={255}
+                      placeholder="https://yourstore.com"
+                      className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+                    />
+                  </div>
 
-              <button
-                type="submit"
-                disabled={submitting}
-                className="flex btn btn-primary btn-shimmer w-full justify-center disabled:opacity-60"
-              >
-                {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
-              </button>
+                  <div>
+                    <label className="text-xs font-semibold text-ink/70 uppercase tracking-wide">What do you need help with?</label>
+                    <textarea
+                      name="message"
+                      required
+                      maxLength={1000}
+                      rows={4}
+                      placeholder="Monthly revenue, current ad spend, biggest bottleneck..."
+                      className="mt-1 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition resize-none"
+                    />
+                  </div>
 
-              {status === "success" && (
-                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-700">
-                  Thanks! We'll be in touch within 24 hours.
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="flex btn btn-primary btn-shimmer w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
+                  </button>
+
+                  {status === "error" && (
+                    <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+                      Something went wrong. Please email us directly at <a className="underline" href="mailto:hello@beingecom.com">hello@beingecom.com</a>
+                    </div>
+                  )}
+                </form>
+
+                <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
+                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
                 </div>
-              )}
-              {status === "error" && (
-                <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
-                  Something went wrong. Please email us directly at hello@beingecom.com
-                </div>
-              )}
-            </form>
-
-            <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
-              <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
-            </div>
+              </>
+            )}
           </div>
 
           {/* RIGHT - FAQ */}
