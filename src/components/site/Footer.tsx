@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Mail, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Sparkles, Mail, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
