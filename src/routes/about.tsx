@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarSign, HandshakeIcon, Shield } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import teamAR from "@/assets/founder-ceo.jpg.asset.json";
+
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
