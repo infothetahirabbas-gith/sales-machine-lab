@@ -94,7 +94,8 @@ function About() {
             {[
               { k: "120+", v: "Stores scaled" },
               { k: "$48M+", v: "Tracked revenue" },
-              { k: "400+", v: "A/B tests" },
+              { k: "400+", v: "A/B tests run" },
+              { k: "4.1×", v: "Avg ROAS lift" },
             ].map((s) => (
               <div key={s.k} className="card-surface p-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">{s.k}</div>
