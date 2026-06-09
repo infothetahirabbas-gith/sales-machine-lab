@@ -39,6 +39,7 @@ export default function Header() {
           </div>
           <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
           <Link to="/audit" className="text-muted-foreground hover:text-foreground transition">Store Audit</Link>
+          <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition">Pricing</Link>
           <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
