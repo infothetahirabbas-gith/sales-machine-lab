@@ -44,10 +44,10 @@ const values = [
 ];
 
 const team = [
-  { i: "AR", r: "Founder & CEO", n: "[Your Name]", img: teamAR.url, useImg: true },
+  { i: "T", r: "Founder & CEO", n: "Tahir", img: "", useImg: false },
   { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: "", useImg: false },
-  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: "", useImg: false },
-  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: "", useImg: false },
+  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests run", img: "", useImg: false },
+  { i: "MN", r: "SEO & Content Lead", n: "800+ products ranked", img: "", useImg: false },
 ];
 
 function About() {
