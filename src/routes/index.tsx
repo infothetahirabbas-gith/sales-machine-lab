@@ -115,11 +115,12 @@ function Home() {
                 </span>
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
-                { v: "+312%", l: "avg sales growth" },
-                { v: "4.1×", l: "ROAS improvement" },
                 { v: "120+", l: "stores scaled" },
+                { v: "$48M+", l: "tracked revenue" },
+                { v: "400+", l: "A/B tests run" },
+                { v: "4.1×", l: "avg ROAS lift" },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">{s.v}</div>
