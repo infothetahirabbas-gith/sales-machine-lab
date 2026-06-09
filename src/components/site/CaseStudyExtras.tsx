@@ -608,24 +608,18 @@ export function ProofSection() {
             </h2>
             <p className="mt-3 text-muted-foreground">A small selection of recent recognition and feedback.</p>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              {[
-                { v: "Top 1%", l: "Meta Agency Partner" },
-                { v: "5.0★", l: "Avg Clutch rating" },
-                { v: "Premier", l: "Google Partner" },
-                { v: "Klaviyo", l: "Master Partner" },
-              ].map((a) => (
-                <div key={a.l} className="card-surface p-4 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <Award className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-ink leading-tight">{a.v}</div>
-                    <div className="text-[10px] text-muted-foreground uppercase tracking-wide">{a.l}</div>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-6 card-surface p-5 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <Award className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-ink leading-tight">5.0★ Avg Clutch rating</div>
+                <div className="text-[11px] text-muted-foreground mt-0.5">From verified ecommerce client reviews</div>
+              </div>
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Certified partners across Meta, Google &amp; Klaviyo.
+            </p>
           </div>
 
           <div className="lg:col-span-2">

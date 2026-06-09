@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Database, Briefcase, Users, TrendingUp, BarChart3, Zap, DollarSign, HandshakeIcon, Shield } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import teamAR from "@/assets/founder-ceo.jpg.asset.json";
+
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 
@@ -44,10 +44,10 @@ const values = [
 ];
 
 const team = [
-  { i: "AR", r: "Founder & CEO", n: "[Your Name]", img: teamAR.url, useImg: true },
+  { i: "T", r: "Founder & CEO", n: "Tahir", img: "", useImg: false },
   { i: "SP", r: "Performance Ads Lead", n: "$120M+ spend managed", img: "", useImg: false },
-  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests", img: "", useImg: false },
-  { i: "MN", r: "SEO & Content Lead", n: "Ranked 800+ products", img: "", useImg: false },
+  { i: "JK", r: "CRO & UX Director", n: "400+ A/B tests run", img: "", useImg: false },
+  { i: "MN", r: "SEO & Content Lead", n: "800+ products ranked", img: "", useImg: false },
 ];
 
 function About() {
@@ -94,7 +94,8 @@ function About() {
             {[
               { k: "120+", v: "Stores scaled" },
               { k: "$48M+", v: "Tracked revenue" },
-              { k: "400+", v: "A/B tests" },
+              { k: "400+", v: "A/B tests run" },
+              { k: "4.1×", v: "Avg ROAS lift" },
             ].map((s) => (
               <div key={s.k} className="card-surface p-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold text-gradient">{s.k}</div>

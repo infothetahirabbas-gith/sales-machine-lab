@@ -39,6 +39,7 @@ export default function Header() {
           </div>
           <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
           <Link to="/audit" className="text-muted-foreground hover:text-foreground transition">Store Audit</Link>
+          <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition">Pricing</Link>
           <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
@@ -74,6 +75,7 @@ export default function Header() {
             </div>
             <Link to="/case-studies" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Case Studies</Link>
             <Link to="/audit" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Store Audit</Link>
+            <Link to="/pricing" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Pricing</Link>
             <Link to="/about" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>About</Link>
             <Link to="/contact" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Contact</Link>
           </div>
