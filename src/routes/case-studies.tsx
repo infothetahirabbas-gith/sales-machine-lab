@@ -469,10 +469,10 @@ function CaseStudies() {
           {/* Stat strip */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
             {[
-              { v: "$48M+", l: "Tracked revenue" },
               { v: "120+", l: "Stores scaled" },
-              { v: "400+", l: "A/B tests" },
-              { v: "3.6×", l: "Avg ROAS lift" },
+              { v: "$48M+", l: "Tracked revenue" },
+              { v: "400+", l: "A/B tests run" },
+              { v: "4.1×", l: "Avg ROAS lift" },
             ].map((s) => (
               <div key={s.l} className="card-surface p-4 text-center">
                 <div className="text-xl md:text-2xl font-bold text-gradient">{s.v}</div>
