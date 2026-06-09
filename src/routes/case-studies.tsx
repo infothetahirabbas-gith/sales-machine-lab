@@ -554,15 +554,7 @@ function CaseStudies() {
                   {/* Body */}
                   <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-bold text-ink leading-snug">{s.title}</h3>
-                    <div className="mt-auto pt-4 flex items-center justify-between text-xs">
-                      <span className="text-muted-foreground">{s.duration}</span>
-                      <span
-                        aria-disabled="true"
-                        className="inline-flex items-center gap-1 text-muted-foreground font-semibold opacity-50 cursor-default select-none"
-                      >
-                        Coming soon
-                      </span>
-                    </div>
+                    <div className="mt-auto pt-4 text-xs text-muted-foreground">{s.duration}</div>
                   </div>
                 </div>
               );
