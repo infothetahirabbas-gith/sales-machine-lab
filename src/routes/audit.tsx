@@ -12,6 +12,10 @@ import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
+import {
+  Radar, RadarChart, PolarGrid, PolarAngleAxis,
+  PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
+} from "recharts";
 
 export const Route = createFileRoute("/audit")({
   component: AuditPage,
