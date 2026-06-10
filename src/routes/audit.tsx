@@ -490,9 +490,9 @@ function AuditPage() {
                     <div className="h-64">
                       <ResponsiveContainer width="100%" height="100%">
                         <RadarChart data={radarData} outerRadius="75%">
-                          <PolarGrid stroke="hsl(var(--border))" />
-                          <PolarAngleAxis dataKey="metric" tick={{ fill: "hsl(var(--ink))", fontSize: 10, fontWeight: 600 }} />
-                          <Radar dataKey="value" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.35} strokeWidth={2} />
+                          <PolarGrid stroke="oklch(0.9 0.01 250)" />
+                          <PolarAngleAxis dataKey="metric" tick={{ fill: "oklch(0.16 0.02 250)", fontSize: 10, fontWeight: 600 }} />
+                          <Radar dataKey="value" stroke="oklch(0.65 0.18 245)" fill="oklch(0.65 0.18 245)" fillOpacity={0.35} strokeWidth={2} />
                           <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
                         </RadarChart>
                       </ResponsiveContainer>
