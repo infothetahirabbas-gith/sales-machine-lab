@@ -456,6 +456,97 @@ function AuditPage() {
               </div>
             </div>
 
+            {/* VISUAL CHARTS — Radar + Issue Mix */}
+            {(() => {
+              const s = report.scorecard;
+              const radarData = [
+                { metric: "SEO", value: s.seo },
+                { metric: "Ads", value: s.paidAds },
+                { metric: "CRO", value: s.cro },
+                { metric: "Brand", value: s.brandAuthority },
+                { metric: "Trust", value: s.trust },
+                { metric: "Acquisition", value: s.customerAcquisition },
+                { metric: "Retention", value: s.retention },
+                { metric: "CX", value: s.customerExperience },
+                { metric: "Revenue Eff.", value: s.revenueEfficiency },
+                { metric: "Scalability", value: s.scalability },
+              ];
+              const sh = report.issueClassification.superHot.length;
+              const ho = report.issueClassification.hot.length;
+              const me = report.issueClassification.medium.length;
+              const total = sh + ho + me;
+              const pieData = [
+                { name: "Super Hot", value: sh, color: "hsl(0 84% 60%)" },
+                { name: "Hot", value: ho, color: "hsl(35 92% 55%)" },
+                { name: "Medium", value: me, color: "hsl(48 95% 55%)" },
+              ].filter((d) => d.value > 0);
+              const leakSum = report.revenueLeakage.reduce((acc, l) => {
+                const w = l.severity === "Critical" ? 4 : l.severity === "High" ? 3 : l.severity === "Medium" ? 2 : 1;
+                return acc + w;
+              }, 0);
+              return (
+                <div className="grid lg:grid-cols-3 gap-4">
+                  <SectionCard icon={Trophy} title="Performance Radar" kicker="10 growth dimensions">
+                    <div className="h-64">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <RadarChart data={radarData} outerRadius="75%">
+                          <PolarGrid stroke="hsl(var(--border))" />
+                          <PolarAngleAxis dataKey="metric" tick={{ fill: "hsl(var(--ink))", fontSize: 10, fontWeight: 600 }} />
+                          <Radar dataKey="value" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.35} strokeWidth={2} />
+                          <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                        </RadarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </SectionCard>
+
+                  <SectionCard icon={Flame} title="Issue Mix" kicker={`${total} issues found`}>
+                    <div className="h-64 flex items-center justify-center">
+                      {total > 0 ? (
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart>
+                            <Pie data={pieData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={80} paddingAngle={3}>
+                              {pieData.map((d) => <Cell key={d.name} fill={d.color} />)}
+                            </Pie>
+                            <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
+                          </PieChart>
+                        </ResponsiveContainer>
+                      ) : <p className="text-sm text-muted-foreground">No issues detected.</p>}
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 mt-2">
+                      <div className="text-center"><div className="text-lg font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-yellow-600 tabular-nums">{me}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Medium</div></div>
+                    </div>
+                  </SectionCard>
+
+                  <SectionCard icon={DollarSign} title="Key Numbers" kicker="At-a-glance KPIs">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 text-center">
+                        <div className="text-3xl font-bold text-primary tabular-nums">{s.overall}</div>
+                        <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Health /100</div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/30 text-center">
+                        <div className="text-3xl font-bold text-emerald-600 tabular-nums">{report.opportunities.length}</div>
+                        <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Opportunities</div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-destructive/5 border border-destructive/30 text-center">
+                        <div className="text-3xl font-bold text-destructive tabular-nums">{report.revenueLeakage.length}</div>
+                        <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Revenue Leaks</div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/30 text-center">
+                        <div className="text-3xl font-bold text-amber-600 tabular-nums">{leakSum}</div>
+                        <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Risk Score</div>
+                      </div>
+                      <div className="col-span-2 p-3 rounded-xl bg-card border border-border text-center">
+                        <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mb-1">Revenue Potential</div>
+                        <div className="text-xl font-bold text-ink">{report.executiveIntelligence.revenuePotential}</div>
+                      </div>
+                    </div>
+                  </SectionCard>
+                </div>
+              );
+            })()}
+
             {/* QUICK SUMMARY — bullet points at a glance */}
             <SectionCard icon={Zap} title="At a Glance" kicker="Top findings in 10 seconds">
               {(() => {
