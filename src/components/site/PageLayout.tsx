@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import FloatingWidgets from "./FloatingWidgets";
 
 export default function PageLayout({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function PageLayout({ children }: { children: ReactNode }) {
       <Header />
       <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
       <Footer />
+      <FloatingWidgets />
     </div>
   );
 }
