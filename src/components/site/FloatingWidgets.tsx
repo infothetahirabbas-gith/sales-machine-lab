@@ -260,10 +260,14 @@ export default function FloatingWidgets() {
                     : "bg-white text-ink border border-border rounded-bl-sm"
                 }`}>
                   {m.text}
-                  {m.cta && (
-                    <a href={m.cta.href} className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
-                      {m.cta.label}
-                    </a>
+                  {m.ctas && m.ctas.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {m.ctas.map((c, idx) => (
+                        <a key={idx} href={c.href} className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                          {c.label}
+                        </a>
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>
