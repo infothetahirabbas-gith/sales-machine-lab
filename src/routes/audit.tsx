@@ -465,7 +465,7 @@ function AuditPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-muted-foreground">Full intelligence reports take 60-90 seconds — we cover 17 phases.</p>
+              <p className="mt-4 text-xs text-muted-foreground">Fast intelligence reports — typically 20-40 seconds across 17 phases.</p>
             </div>
           )}
         </div>
