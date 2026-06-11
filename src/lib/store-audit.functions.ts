@@ -323,24 +323,30 @@ Visible page text (truncated):
 ${pageData.text || "(could not fetch page content — infer from URL, domain, and provided context)"}
 """
 
+BREVITY RULES (CRITICAL):
+- Every string field MUST be ≤ 18 words. No paragraphs. No fluff. Punchy, scannable.
+- Every bullet/array item MUST be ≤ 14 words.
+- Whenever possible include a concrete number, %, score, or rank (e.g. "CR ~1.4%", "12 missing H1s", "3× weaker LCP").
+- Hard caps (DO NOT exceed): friction 5, trustGaps 5, conversionKillers 5, technicalIssues 6, competitorAdvantages/missingFeatures/marketOpportunities/differentiationOpportunities 5, blueOcean 3, competitors 10, revenueLeakage 8, superHot/hot/medium 5 each, opportunities 3-5, actionPlan.immediate/growth/scale 3-7 each.
+
 REQUIREMENTS:
 - Phase 1 business.brand from title/text/domain; platform from detected stack.
-- Phase 2 executiveIntelligence must call out the SINGLE biggest opportunity and SINGLE biggest threat — no hedging.
-- Phase 3 scorecard: all 15 scores 0-100, must vary realistically. Weak areas in the 20s-40s, strong areas 70+. The overall must reflect the weighted reality, not an average of inflated numbers.
-- Phase 4 SEO: technical/onPage/contentAuthority/commercialSeo each get a score + 1-sentence verdict. competitiveSeoGap names the kind of competitor content/keywords they're losing to.
-- Phase 5 Ads: assess Meta + Google activity from public signals (pixel detected, ad infrastructure, creative tells). acquisitionMaturity must be honest.
-- Phase 6 CRO: list real friction and trust gaps — not generic "add reviews".
-- Phase 7 Brand: answer "why would a customer pick this brand over a competitor?" honestly. If unclear, say so.
-- Phase 8 Psychology: firstTimeTrustVerdict = Yes/No/Maybe with concrete reasoning.
-- Phase 9 Acquisition: name the single most likely growth channel, highest ROI channel, and most underutilized channel for THIS brand.
-- Phase 10 Retention: maturity score must reflect detected stack (subscriptions, SMS, email, reviews, loyalty).
-- Phase 11 Competitors: 5-10 real competitors in this niche, grouped Tier 1 (market leaders), Tier 2 (fast-growth challengers), Tier 3 (direct same-size competitors). Use real brand names you know in this category.
-- Phase 12 Gap: concrete competitor advantages, missing features, market and differentiation opportunities, plus 1-3 blue-ocean plays.
-- Phase 13 Revenue leakage: 5-8 specific leak points with severity.
-- Phase 14 Issues: 🔴 Super Hot = revenue blockers (fix now). 🟠 Hot = growth blockers. 🟡 Medium = optimization. Each has issue + why it matters + the fix. 2-5 in each tier.
-- Phase 15 Opportunities: 3-5 ranked opportunities with expectedImpact, difficulty, ROI, and the action.
-- Phase 16 Action plan: 3-7 items per horizon (0-7d immediate, 7-30d growth, 30-90d scale). Concrete actions only (e.g. "Add sticky mobile ATC + free-shipping bar on PDP", not "improve UX").
-- Phase 17 Founder insights: what would a PE investor / CRO expert / branding expert / performance marketer / CEO each notice and fix FIRST. Five distinct lenses.
+- Phase 2 executiveIntelligence: SINGLE biggest opportunity + SINGLE biggest threat. One sentence each.
+- Phase 3 scorecard: all 15 scores 0-100, vary realistically. Weak 20-40, strong 70+. Overall = weighted reality.
+- Phase 4 SEO: each verdict ≤ 14 words. technicalIssues: short tags ("missing H1", "no schema").
+- Phase 5 Ads: each field ≤ 14 words. acquisitionMaturity honest.
+- Phase 6 CRO: friction/trustGaps/conversionKillers = short bullets with numbers when possible.
+- Phase 7 Brand: each field ≤ 14 words.
+- Phase 8 Psychology: each ≤ 14 words. firstTimeTrustVerdict = Yes/No/Maybe + short reason.
+- Phase 9 Acquisition: name channel only + 5-word reason.
+- Phase 10 Retention: maturity score 0-100, verdict ≤ 14 words.
+- Phase 11 Competitors: 5-10 real brands. positioning/strengths/weaknesses/usp each ≤ 12 words.
+- Phase 12 Gap: short bullets ≤ 12 words.
+- Phase 13 Revenue leakage: 5-8 entries; leak/impact ≤ 14 words each.
+- Phase 14 Issues: 2-5 per tier. issue ≤ 10 words, why ≤ 14 words, fix ≤ 14 words.
+- Phase 15 Opportunities: 3-5. title ≤ 8 words, expectedImpact MUST include % or $ (e.g. "+15-25% CR"), action ≤ 14 words.
+- Phase 16 Action plan: each item ≤ 14 words, concrete.
+- Phase 17 Founder insights: each lens ≤ 18 words.
 
 Every insight must drive revenue, profitability, acquisition, retention, conversion, or market position. Cut anything that doesn't.`;
 
