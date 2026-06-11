@@ -344,18 +344,99 @@ function AuditPage() {
             <div className="grid sm:grid-cols-3 gap-3 mt-4">
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Monthly revenue <span className="text-muted-foreground/60">(optional)</span></label>
-                <input type="text" value={revenue} onChange={(e) => setRevenue(e.target.value)} placeholder="e.g. $20k - $50k" disabled={loading}
-                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm" />
+                <select value={revenue} onChange={(e) => setRevenue(e.target.value)} disabled={loading}
+                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm">
+                  <option value="">Select revenue range</option>
+                  <option value="Under $5k">Under $5k</option>
+                  <option value="$5k - $20k">$5k - $20k</option>
+                  <option value="$20k - $50k">$20k - $50k</option>
+                  <option value="$50k - $100k">$50k - $100k</option>
+                  <option value="$100k - $250k">$100k - $250k</option>
+                  <option value="$250k - $500k">$250k - $500k</option>
+                  <option value="$500k - $1M">$500k - $1M</option>
+                  <option value="$1M - $5M">$1M - $5M</option>
+                  <option value="$5M+">$5M+</option>
+                </select>
               </div>
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Monthly ad spend <span className="text-muted-foreground/60">(optional)</span></label>
-                <input type="text" value={adSpend} onChange={(e) => setAdSpend(e.target.value)} placeholder="e.g. $8,000" disabled={loading}
-                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm" />
+                <select value={adSpend} onChange={(e) => setAdSpend(e.target.value)} disabled={loading}
+                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm">
+                  <option value="">Select ad spend</option>
+                  <option value="$0 (no ads)">$0 (no ads)</option>
+                  <option value="Under $1k">Under $1k</option>
+                  <option value="$1k - $5k">$1k - $5k</option>
+                  <option value="$5k - $10k">$5k - $10k</option>
+                  <option value="$10k - $25k">$10k - $25k</option>
+                  <option value="$25k - $50k">$25k - $50k</option>
+                  <option value="$50k - $100k">$50k - $100k</option>
+                  <option value="$100k - $250k">$100k - $250k</option>
+                  <option value="$250k+">$250k+</option>
+                </select>
               </div>
               <div>
                 <label className="text-xs font-semibold text-muted-foreground">Target country <span className="text-muted-foreground/60">(optional)</span></label>
-                <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="e.g. United States" disabled={loading}
-                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm" />
+                <select value={country} onChange={(e) => setCountry(e.target.value)} disabled={loading}
+                  className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm">
+                  <option value="">Select target country</option>
+                  <option value="Global">🌍 Global / Worldwide</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Germany">Germany</option>
+                  <option value="France">France</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Finland">Finland</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="UAE">United Arab Emirates</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="India">India</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Sri Lanka">Sri Lanka</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Taiwan">Taiwan</option>
+                  <option value="Japan">Japan</option>
+                  <option value="South Korea">South Korea</option>
+                  <option value="China">China</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
             </div>
             <button type="submit" disabled={loading || !url} className="flex btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
@@ -384,7 +465,7 @@ function AuditPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-muted-foreground">Full intelligence reports take 60-90 seconds — we cover 17 phases.</p>
+              <p className="mt-4 text-xs text-muted-foreground">Fast intelligence reports — typically 20-40 seconds across 17 phases.</p>
             </div>
           )}
         </div>
