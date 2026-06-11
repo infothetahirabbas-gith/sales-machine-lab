@@ -290,25 +290,43 @@ function AuditPage() {
   const [country, setCountry] = useState("");
   const [loading, setLoading] = useState(false);
   const [stepIdx, setStepIdx] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const [timedOut, setTimedOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<AuditReport | null>(null);
   const [auditedUrl, setAuditedUrl] = useState<string>("");
 
+  const TIMEOUT_SECONDS = 95;
+  const remaining = Math.max(0, TIMEOUT_SECONDS - elapsed);
+  const progressPct = Math.min(100, (elapsed / TIMEOUT_SECONDS) * 100);
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); setReport(null); setLoading(true); setStepIdx(0);
+    setError(null); setReport(null); setLoading(true); setStepIdx(0); setElapsed(0); setTimedOut(false);
+    const startedAt = Date.now();
     const stepTimer = setInterval(() => {
       setStepIdx((i) => Math.min(i + 1, loadingSteps.length - 1));
     }, 2200);
+    const tickTimer = setInterval(() => {
+      const sec = Math.floor((Date.now() - startedAt) / 1000);
+      setElapsed(sec);
+      if (sec >= TIMEOUT_SECONDS) setTimedOut(true);
+    }, 250);
     try {
       const result = await fetchAudit({ data: { url, revenue: revenue || null, adSpend: adSpend || null, country: country || null } });
       setReport(result.report);
       setAuditedUrl(result.url);
       setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behavior: "smooth" }), 100);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      const elapsedSec = Math.floor((Date.now() - startedAt) / 1000);
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      console.error("[audit:client] request failed", { url, revenue, adSpend, country, elapsedSec, error: msg });
+      setError(elapsedSec >= TIMEOUT_SECONDS
+        ? "The audit took longer than 90 seconds. The AI service may be busy right now — please try again in a moment."
+        : msg);
     } finally {
       clearInterval(stepTimer);
+      clearInterval(tickTimer);
       setLoading(false);
     }
   };
