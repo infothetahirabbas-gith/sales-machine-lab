@@ -4,73 +4,170 @@ import { MessageCircle, X, Send, Bot } from "lucide-react";
 const WHATSAPP_NUMBER = "923186230122";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BeingEcom — I'd like to chat about growing my store.")}`;
 
-type Msg = { role: "bot" | "user"; text: string; cta?: { label: string; href: string } };
+type Cta = { label: string; href: string };
+type Msg = { role: "bot" | "user"; text: string; ctas?: Cta[] };
 
 const QUICK_REPLIES = [
   "How can I audit my store?",
-  "What do you charge?",
-  "Do you do Shopify SEO?",
+  "Show me pricing",
+  "What services do you offer?",
+  "Show case studies",
   "Book a strategy call",
 ];
 
+type Intent = {
+  match: RegExp;
+  reply: (q: string) => { text: string; ctas?: Cta[] };
+};
+
+const INTENTS: Intent[] = [
+  {
+    match: /(hi|hello|hey|salam|hola|good (morning|evening|afternoon))/i,
+    reply: () => ({
+      text: "Hey 👋 I'm the Being Ecom Assistant. I can help with:\n\n• Free store audit\n• Pricing & packages\n• Services (SEO, ads, CRO, email)\n• Case studies & results\n• Booking a strategy call\n\nWhat would you like to start with?",
+    }),
+  },
+  {
+    match: /(audit|analy[sz]e|review|scan|check.*store|store.*report)/i,
+    reply: () => ({
+      text: "Here's how the free Being Ecom Brain™ audit works:\n\n1. Open the audit page.\n2. Paste your store URL.\n3. Pick revenue, ad spend & country (optional).\n4. We scan 17 phases — SEO, ads, CRO, brand, leakage.\n5. You get scores, charts, issues & a 90-day plan.\n6. Export as PDF, Excel, CSV or JSON.\n\nFree, no signup, ~30 seconds.",
+      ctas: [{ label: "Run free audit →", href: "/audit" }],
+    }),
+  },
+  {
+    match: /(price|pricing|cost|charge|fee|package|plan|how much|budget)/i,
+    reply: () => ({
+      text: "We have 3 engagement tiers:\n\n• CRO Sprint — quick conversion wins\n• Growth System — ads + CRO + SEO bundle\n• Full Partnership — fractional growth team\n\nFull details + what's included on the pricing page.",
+      ctas: [{ label: "See pricing →", href: "/pricing" }, { label: "Book a call →", href: "/contact" }],
+    }),
+  },
+  {
+    match: /(seo|rank|google|organic|search engine)/i,
+    reply: () => ({
+      text: "Ecommerce SEO we ship:\n\n• Technical fixes (speed, schema, crawl)\n• Collection & PDP on-page\n• Content authority & internal links\n• Rich results (Product, FAQ, Review)\n\nWorks on Shopify & WooCommerce.",
+      ctas: [{ label: "SEO service →", href: "/services/seo" }, { label: "Free SEO check →", href: "/audit" }],
+    }),
+  },
+  {
+    match: /(ads|meta|facebook|google ads|tiktok|paid|ppc|roas)/i,
+    reply: () => ({
+      text: "Paid ads, profit-led:\n\n• Meta, Google, TikTok\n• Creative testing system\n• Profit-aware ROAS targets\n• Avg 4.1× ROAS lift across 120+ stores",
+      ctas: [{ label: "Paid ads service →", href: "/services/paid-ads" }, { label: "Book a call →", href: "/contact" }],
+    }),
+  },
+  {
+    match: /(cro|conversion|checkout|cart|abandon|a\/?b test)/i,
+    reply: () => ({
+      text: "CRO essentials we ship:\n\n• PDP & checkout audit + fixes\n• A/B testing roadmap (400+ tests run)\n• Trust, social proof, scarcity\n• Mobile UX & speed",
+      ctas: [{ label: "CRO service →", href: "/services/cro" }],
+    }),
+  },
+  {
+    match: /(email|sms|klaviyo|flow|automation|newsletter)/i,
+    reply: () => ({
+      text: "Email & SMS retention:\n\n• Klaviyo / Postscript / Attentive setup\n• Welcome, browse, cart, post-purchase flows\n• Win-back & VIP segments\n• Typically 20–35% of revenue from flows",
+      ctas: [{ label: "Email & SMS service →", href: "/services/email-sms" }],
+    }),
+  },
+  {
+    match: /(creative|video|ugc|content|design)/i,
+    reply: () => ({
+      text: "Creative production for ads:\n\n• UGC & static\n• Hook-first scripting\n• Iteration based on ad data",
+      ctas: [{ label: "Creative service →", href: "/services/creative" }],
+    }),
+  },
+  {
+    match: /(analytics|tracking|ga4|pixel|attribution|data)/i,
+    reply: () => ({
+      text: "Analytics setup we do:\n\n• GA4, Meta CAPI, server-side tracking\n• Attribution modelling\n• Profit dashboards",
+      ctas: [{ label: "Analytics service →", href: "/services/analytics" }],
+    }),
+  },
+  {
+    match: /(funnel|landing|page builder|advertorial)/i,
+    reply: () => ({
+      text: "Funnels we build:\n\n• Advertorials & landers\n• Quiz funnels\n• Upsell / downsell flows",
+      ctas: [{ label: "Funnel service →", href: "/services/funnel" }],
+    }),
+  },
+  {
+    match: /(scal|7[- ]?figure|8[- ]?figure|grow.*fast)/i,
+    reply: () => ({
+      text: "Scaling stores past 7-figures:\n\n• Profit-led ad scaling\n• CRO + retention compounding\n• New market expansion",
+      ctas: [{ label: "Scaling service →", href: "/services/scaling" }],
+    }),
+  },
+  {
+    match: /(store dev|build.*store|shopify dev|woo.*dev|theme|web dev)/i,
+    reply: () => ({
+      text: "Store development:\n\n• Shopify & WooCommerce builds\n• CRO-led theme customisation\n• Speed, mobile & checkout fixes",
+      ctas: [{ label: "Store development →", href: "/services/store-development" }],
+    }),
+  },
+  {
+    match: /(service|what.*do|offer|capabilit)/i,
+    reply: () => ({
+      text: "Our services:\n\n• Paid Ads · SEO · CRO\n• Email & SMS · Creative\n• Analytics · Funnels · Scaling\n• Store Development\n\nAll built around one Growth System.",
+      ctas: [{ label: "See all services →", href: "/services" }],
+    }),
+  },
+  {
+    match: /(case|result|portfolio|proof|client|win)/i,
+    reply: () => ({
+      text: "120+ stores scaled · $48M+ tracked revenue:\n\n• +312% revenue lifts\n• 4.1× avg ROAS lift\n• 400+ A/B tests\n• Clutch top-rated",
+      ctas: [{ label: "See case studies →", href: "/case-studies" }],
+    }),
+  },
+  {
+    match: /(about|team|founder|who.*you|tahir)/i,
+    reply: () => ({
+      text: "BeingEcom is led by Tahir Abbas — founder & CEO. Specialist team across ads, SEO, CRO, creative and retention.",
+      ctas: [{ label: "About us →", href: "/about" }],
+    }),
+  },
+  {
+    match: /(call|book|talk|consult|contact|meeting|demo|schedule)/i,
+    reply: () => ({
+      text: "Happy to chat. A 30-min strategy call covers:\n\n1. Current revenue & ad spend\n2. Where you're leaking money\n3. Top 3 quick wins\n4. A 90-day growth plan\n\nFree, no obligation.",
+      ctas: [{ label: "Book strategy call →", href: "/contact" }],
+    }),
+  },
+  {
+    match: /(faq|question|help)/i,
+    reply: () => ({
+      text: "Common questions live on the contact page FAQ. For anything specific, ask me here or book a call.",
+      ctas: [{ label: "Contact & FAQ →", href: "/contact" }],
+    }),
+  },
+  {
+    match: /(glossary|term|definition)/i,
+    reply: () => ({
+      text: "We have an ecommerce glossary explaining ROAS, AOV, LTV, CAC and more.",
+      ctas: [{ label: "Open glossary →", href: "/glossary" }],
+    }),
+  },
+  {
+    match: /(thank|thanks|ty|appreciate)/i,
+    reply: () => ({ text: "You're very welcome 🙏 Anything else I can help with — audit, pricing, or a call?" }),
+  },
+  {
+    match: /(bye|goodbye|see ya|talk later)/i,
+    reply: () => ({ text: "Take care! Whenever you're ready, the free audit is the fastest way to start. 👋", ctas: [{ label: "Run free audit →", href: "/audit" }] }),
+  },
+];
+
 function getBotReply(input: string): Msg {
-  const q = input.toLowerCase();
-  if (/(audit|analy|review|check.*store|scan)/.test(q)) {
-    return {
-      role: "bot",
-      text: "Sure — here's how our free audit works:\n\n1. Paste your store URL.\n2. Our Being Ecom Brain™ scans 17 phases (SEO, ads, CRO, brand, leakage).\n3. You get scores, issues, and a 90-day plan.\n4. Export as PDF/Excel/CSV.\n5. Free, no signup.",
-      cta: { label: "Run free audit →", href: "/audit" },
-    };
-  }
-  if (/(price|pricing|cost|charge|fee|package)/.test(q)) {
-    return {
-      role: "bot",
-      text: "We have 3 engagement tiers:\n\n• CRO Sprint — quick wins\n• Growth System — full ads + CRO + SEO\n• Full Partnership — fractional growth team",
-      cta: { label: "See pricing →", href: "/pricing" },
-    };
-  }
-  if (/(seo|rank|google|organic)/.test(q)) {
-    return {
-      role: "bot",
-      text: "Yes — we do ecommerce SEO for Shopify & WooCommerce:\n\n• Technical fixes\n• Collection/product on-page\n• Content authority\n• Schema & rich results",
-      cta: { label: "SEO service →", href: "/services/seo" },
-    };
-  }
-  if (/(ads|meta|facebook|google ads|tiktok|paid)/.test(q)) {
-    return {
-      role: "bot",
-      text: "Paid ads done right:\n\n• Meta, Google, TikTok\n• Creative testing\n• Profit-led ROAS\n• Avg 4.1× lift",
-      cta: { label: "Paid ads service →", href: "/services/paid-ads" },
-    };
-  }
-  if (/(cro|conversion|checkout|cart)/.test(q)) {
-    return {
-      role: "bot",
-      text: "CRO essentials we ship:\n\n• PDP & checkout fixes\n• A/B tests\n• Trust & social proof\n• Mobile UX",
-      cta: { label: "CRO service →", href: "/services/cro" },
-    };
-  }
-  if (/(call|book|talk|consult|contact|meeting|demo)/.test(q)) {
-    return {
-      role: "bot",
-      text: "Happy to chat. A strategy call covers:\n\n• Your current revenue & spend\n• Where you're leaking money\n• A 90-day plan\n• Free, 30 mins",
-      cta: { label: "Book strategy call →", href: "/contact" },
-    };
-  }
-  if (/(case|result|proof|portfolio)/.test(q)) {
-    return {
-      role: "bot",
-      text: "120+ stores scaled, $48M+ tracked. A few wins:\n\n• +312% revenue\n• 4.1× ROAS lift\n• 400+ A/B tests",
-      cta: { label: "See case studies →", href: "/case-studies" },
-    };
-  }
-  if (/(hi|hello|hey|salam|hola)/.test(q)) {
-    return { role: "bot", text: "Hey 👋 I'm the Being Ecom Assistant. Ask me about audits, pricing, SEO, ads, or book a call." };
+  const q = input.trim();
+  for (const intent of INTENTS) {
+    if (intent.match.test(q)) {
+      const r = intent.reply(q);
+      return { role: "bot", text: r.text, ctas: r.ctas };
+    }
   }
   return {
     role: "bot",
-    text: "Got it. The fastest way to get a clear answer is a free audit — it shows scores, leaks, and a 90-day plan.",
-    cta: { label: "Run free audit →", href: "/audit" },
+    text: "Good question. The fastest way to get a clear answer for your store is a free audit — it shows scores, leaks and a 90-day plan in under a minute.\n\nOr ask me about: services, pricing, case studies, or booking a call.",
+    ctas: [{ label: "Run free audit →", href: "/audit" }, { label: "See pricing →", href: "/pricing" }],
   };
 }
 
@@ -163,10 +260,14 @@ export default function FloatingWidgets() {
                     : "bg-white text-ink border border-border rounded-bl-sm"
                 }`}>
                   {m.text}
-                  {m.cta && (
-                    <a href={m.cta.href} className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
-                      {m.cta.label}
-                    </a>
+                  {m.ctas && m.ctas.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {m.ctas.map((c, idx) => (
+                        <a key={idx} href={c.href} className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline">
+                          {c.label}
+                        </a>
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>

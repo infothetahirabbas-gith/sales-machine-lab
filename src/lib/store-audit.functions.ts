@@ -561,21 +561,34 @@ Every insight must drive revenue, profitability, acquisition, retention, convers
       }),
     });
 
-    if (res.status === 429) throw new Error("Too many requests right now. Please try again in a minute.");
-    if (res.status === 402) throw new Error("AI credits exhausted. Please contact BeingEcom.");
+    if (res.status === 429) {
+      console.error("[audit] AI gateway 429 rate limit", { url: normalized });
+      throw new Error("Too many requests right now. Please try again in a minute.");
+    }
+    if (res.status === 402) {
+      console.error("[audit] AI gateway 402 credits exhausted", { url: normalized });
+      throw new Error("AI credits exhausted. Please contact BeingEcom.");
+    }
     if (!res.ok) {
       const txt = await res.text().catch(() => "");
+      console.error("[audit] AI gateway non-OK response", { status: res.status, url: normalized, body: txt.slice(0, 500) });
       throw new Error(`Audit service failed (${res.status}). ${txt.slice(0, 200)}`);
     }
 
     const json = await res.json();
     const toolCall = json?.choices?.[0]?.message?.tool_calls?.[0];
     const args = toolCall?.function?.arguments;
-    if (!args) throw new Error("Audit service returned an unexpected response.");
+    if (!args) {
+      console.error("[audit] AI response missing tool_call arguments", { url: normalized, preview: JSON.stringify(json).slice(0, 800) });
+      throw new Error("Audit service returned an unexpected response.");
+    }
 
     let parsedArgs: any;
     try { parsedArgs = typeof args === "string" ? JSON.parse(args) : args; }
-    catch { throw new Error("Failed to parse audit response."); }
+    catch (err) {
+      console.error("[audit] JSON parse failure on AI tool args", { url: normalized, err: String(err), preview: String(args).slice(0, 600) });
+      throw new Error("Failed to parse audit response.");
+    }
 
     // Clamp arrays so AI overflow never breaks Zod validation
     const clamp = (arr: any, n: number) => Array.isArray(arr) ? arr.slice(0, n) : arr;
@@ -606,7 +619,12 @@ Every insight must drive revenue, profitability, acquisition, retention, convers
       parsedArgs.actionPlan.scale = clamp(parsedArgs.actionPlan.scale, 7);
     }
 
-    const report = auditReportSchema.parse(parsedArgs);
-    return { url: normalized, report };
+    const result = auditReportSchema.safeParse(parsedArgs);
+    if (!result.success) {
+      const issues = result.error.issues.slice(0, 8).map(i => ({ path: i.path.join("."), code: i.code, message: i.message }));
+      console.error("[audit] Zod validation failed", { url: normalized, issueCount: result.error.issues.length, issues });
+      throw new Error(`Audit response failed validation (${result.error.issues.length} issues). First: ${issues[0]?.path} — ${issues[0]?.message}`);
+    }
+    return { url: normalized, report: result.data };
   });
 

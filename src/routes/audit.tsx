@@ -290,25 +290,43 @@ function AuditPage() {
   const [country, setCountry] = useState("");
   const [loading, setLoading] = useState(false);
   const [stepIdx, setStepIdx] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const [timedOut, setTimedOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<AuditReport | null>(null);
   const [auditedUrl, setAuditedUrl] = useState<string>("");
 
+  const TIMEOUT_SECONDS = 95;
+  const remaining = Math.max(0, TIMEOUT_SECONDS - elapsed);
+  const progressPct = Math.min(100, (elapsed / TIMEOUT_SECONDS) * 100);
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); setReport(null); setLoading(true); setStepIdx(0);
+    setError(null); setReport(null); setLoading(true); setStepIdx(0); setElapsed(0); setTimedOut(false);
+    const startedAt = Date.now();
     const stepTimer = setInterval(() => {
       setStepIdx((i) => Math.min(i + 1, loadingSteps.length - 1));
     }, 2200);
+    const tickTimer = setInterval(() => {
+      const sec = Math.floor((Date.now() - startedAt) / 1000);
+      setElapsed(sec);
+      if (sec >= TIMEOUT_SECONDS) setTimedOut(true);
+    }, 250);
     try {
       const result = await fetchAudit({ data: { url, revenue: revenue || null, adSpend: adSpend || null, country: country || null } });
       setReport(result.report);
       setAuditedUrl(result.url);
       setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behavior: "smooth" }), 100);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      const elapsedSec = Math.floor((Date.now() - startedAt) / 1000);
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      console.error("[audit:client] request failed", { url, revenue, adSpend, country, elapsedSec, error: msg });
+      setError(elapsedSec >= TIMEOUT_SECONDS
+        ? "The audit took longer than 90 seconds. The AI service may be busy right now — please try again in a moment."
+        : msg);
     } finally {
       clearInterval(stepTimer);
+      clearInterval(tickTimer);
       setLoading(false);
     }
   };
@@ -450,10 +468,24 @@ function AuditPage() {
           </form>
 
           {loading && (
-            <div className="mt-8 card-surface p-6 text-left">
-              <div className="flex items-center gap-3 mb-4">
-                <Loader2 className="w-5 h-5 animate-spin text-primary" />
-                <span className="font-semibold text-ink">Being Ecom Brain™ is analyzing your store...</span>
+            <div className="mt-8 card-surface p-6 text-left" data-testid="audit-progress">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <Loader2 className="w-5 h-5 animate-spin text-primary shrink-0" />
+                  <span className="font-semibold text-ink truncate">Being Ecom Brain™ is analyzing…</span>
+                </div>
+                <div className="text-right shrink-0">
+                  <div className="text-xs text-muted-foreground">Elapsed / Remaining</div>
+                  <div className="text-sm font-bold tabular-nums text-ink">
+                    {elapsed}s <span className="text-muted-foreground">/</span> ~{remaining}s
+                  </div>
+                </div>
+              </div>
+              <div className="h-2 bg-secondary rounded-full overflow-hidden mb-4">
+                <div
+                  className={`h-full rounded-full transition-all duration-300 ${timedOut ? "bg-destructive" : "bg-gradient-to-r from-primary to-[oklch(0.6_0.18_245)]"}`}
+                  style={{ width: `${progressPct}%` }}
+                />
               </div>
               <div className="space-y-2">
                 {loadingSteps.map((s, i) => (
@@ -465,7 +497,14 @@ function AuditPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-muted-foreground">Fast intelligence reports — typically 20-40 seconds across 17 phases.</p>
+              {timedOut ? (
+                <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-sm text-destructive">
+                  <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
+                  <span>The audit is taking longer than 90s. The AI service may be busy — if no result appears shortly, please refresh and retry.</span>
+                </div>
+              ) : (
+                <p className="mt-4 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at ~90s.</p>
+              )}
             </div>
           )}
         </div>
