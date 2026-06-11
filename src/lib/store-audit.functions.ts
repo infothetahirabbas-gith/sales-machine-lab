@@ -567,10 +567,40 @@ Every insight must drive revenue, profitability, acquisition, retention, convers
     const args = toolCall?.function?.arguments;
     if (!args) throw new Error("Audit service returned an unexpected response.");
 
-    let parsedArgs: unknown;
+    let parsedArgs: any;
     try { parsedArgs = typeof args === "string" ? JSON.parse(args) : args; }
     catch { throw new Error("Failed to parse audit response."); }
+
+    // Clamp arrays so AI overflow never breaks Zod validation
+    const clamp = (arr: any, n: number) => Array.isArray(arr) ? arr.slice(0, n) : arr;
+    if (parsedArgs?.seoIntelligence) parsedArgs.seoIntelligence.technicalIssues = clamp(parsedArgs.seoIntelligence.technicalIssues, 6);
+    if (parsedArgs?.conversionIntelligence) {
+      parsedArgs.conversionIntelligence.friction = clamp(parsedArgs.conversionIntelligence.friction, 5);
+      parsedArgs.conversionIntelligence.trustGaps = clamp(parsedArgs.conversionIntelligence.trustGaps, 5);
+      parsedArgs.conversionIntelligence.conversionKillers = clamp(parsedArgs.conversionIntelligence.conversionKillers, 5);
+    }
+    if (parsedArgs?.competitiveGap) {
+      parsedArgs.competitiveGap.competitorAdvantages = clamp(parsedArgs.competitiveGap.competitorAdvantages, 5);
+      parsedArgs.competitiveGap.missingFeatures = clamp(parsedArgs.competitiveGap.missingFeatures, 5);
+      parsedArgs.competitiveGap.marketOpportunities = clamp(parsedArgs.competitiveGap.marketOpportunities, 5);
+      parsedArgs.competitiveGap.differentiationOpportunities = clamp(parsedArgs.competitiveGap.differentiationOpportunities, 5);
+      parsedArgs.competitiveGap.blueOcean = clamp(parsedArgs.competitiveGap.blueOcean, 3);
+    }
+    parsedArgs.competitors = clamp(parsedArgs.competitors, 10);
+    parsedArgs.revenueLeakage = clamp(parsedArgs.revenueLeakage, 8);
+    if (parsedArgs?.issueClassification) {
+      parsedArgs.issueClassification.superHot = clamp(parsedArgs.issueClassification.superHot, 5);
+      parsedArgs.issueClassification.hot = clamp(parsedArgs.issueClassification.hot, 5);
+      parsedArgs.issueClassification.medium = clamp(parsedArgs.issueClassification.medium, 5);
+    }
+    parsedArgs.opportunities = clamp(parsedArgs.opportunities, 5);
+    if (parsedArgs?.actionPlan) {
+      parsedArgs.actionPlan.immediate = clamp(parsedArgs.actionPlan.immediate, 7);
+      parsedArgs.actionPlan.growth = clamp(parsedArgs.actionPlan.growth, 7);
+      parsedArgs.actionPlan.scale = clamp(parsedArgs.actionPlan.scale, 7);
+    }
 
     const report = auditReportSchema.parse(parsedArgs);
     return { url: normalized, report };
   });
+
