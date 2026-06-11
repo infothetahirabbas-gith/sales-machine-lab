@@ -536,8 +536,9 @@ Every insight must drive revenue, profitability, acquisition, retention, convers
         "Content-Type": "application/json",
         "Lovable-API-Key": apiKey,
       },
+      signal: AbortSignal.timeout(90000),
       body: JSON.stringify({
-        model: "google/gemini-2.5-pro",
+        model: "google/gemini-3-flash-preview",
         messages: [
           { role: "system", content: system },
           { role: "user", content: userPrompt },
