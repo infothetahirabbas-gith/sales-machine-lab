@@ -47,168 +47,76 @@ const leakSchema = z.object({
 export const auditReportSchema = z.object({
   storeName: z.string(),
   platformGuess: z.string(),
-
-  // PHASE 1
   business: z.object({
-    brand: z.string(),
-    website: z.string(),
-    platform: z.string(),
-    industry: z.string(),
-    niche: z.string(),
-    productCategory: z.string(),
+    brand: z.string(), website: z.string(), platform: z.string(),
+    industry: z.string(), niche: z.string(), productCategory: z.string(),
     targetAudience: z.string(),
     pricePositioning: z.enum(["Luxury", "Premium", "Mid-Market", "Budget"]),
     businessModel: z.enum(["DTC", "Private Label", "Dropshipping", "Marketplace Brand", "Subscription Brand"]),
   }),
-
-  // PHASE 2
   executiveIntelligence: z.object({
-    businessReality: z.string(),
-    biggestOpportunity: z.string(),
-    biggestThreat: z.string(),
+    businessReality: z.string(), biggestOpportunity: z.string(), biggestThreat: z.string(),
     revenuePotential: z.enum(["Low", "Medium", "High", "Very High"]),
-    revenuePotentialReasoning: z.string(),
-    headline: z.string(),
+    revenuePotentialReasoning: z.string(), headline: z.string(),
   }),
-
-  // PHASE 3 (15 scores)
   scorecard: z.object({
-    seo: z.number().min(0).max(100),
-    paidAds: z.number().min(0).max(100),
-    cro: z.number().min(0).max(100),
-    brandAuthority: z.number().min(0).max(100),
-    trust: z.number().min(0).max(100),
-    productPositioning: z.number().min(0).max(100),
-    customerAcquisition: z.number().min(0).max(100),
-    retention: z.number().min(0).max(100),
-    customerExperience: z.number().min(0).max(100),
-    marketPosition: z.number().min(0).max(100),
-    competitiveAdvantage: z.number().min(0).max(100),
-    revenueEfficiency: z.number().min(0).max(100),
-    scalability: z.number().min(0).max(100),
-    businessMaturity: z.number().min(0).max(100),
-    overall: z.number().min(0).max(100),
+    seo: z.number().min(0).max(100), paidAds: z.number().min(0).max(100), cro: z.number().min(0).max(100),
+    brandAuthority: z.number().min(0).max(100), trust: z.number().min(0).max(100), productPositioning: z.number().min(0).max(100),
+    customerAcquisition: z.number().min(0).max(100), retention: z.number().min(0).max(100), customerExperience: z.number().min(0).max(100),
+    marketPosition: z.number().min(0).max(100), competitiveAdvantage: z.number().min(0).max(100), revenueEfficiency: z.number().min(0).max(100),
+    scalability: z.number().min(0).max(100), businessMaturity: z.number().min(0).max(100), overall: z.number().min(0).max(100),
   }),
-
-  // PHASE 4
   seoIntelligence: z.object({
-    technical: scoreSchema,
-    onPage: scoreSchema,
-    contentAuthority: scoreSchema,
-    commercialSeo: scoreSchema,
-    technicalIssues: z.array(z.string()).max(6),
-    competitiveSeoGap: z.string(),
+    technical: scoreSchema, onPage: scoreSchema, contentAuthority: scoreSchema, commercialSeo: scoreSchema,
+    technicalIssues: z.array(z.string()).max(6), competitiveSeoGap: z.string(),
   }),
-
-  // PHASE 5
   adsIntelligence: z.object({
-    metaActivity: z.string(),
-    googleActivity: z.string(),
-    creativeStrategy: z.string(),
-    offerStrategy: z.string(),
-    messaging: z.string(),
-    hooks: z.string(),
+    metaActivity: z.string(), googleActivity: z.string(), creativeStrategy: z.string(),
+    offerStrategy: z.string(), messaging: z.string(), hooks: z.string(),
     acquisitionMaturity: z.enum(["Beginner", "Intermediate", "Advanced", "Elite"]),
     maturityReasoning: z.string(),
   }),
-
-  // PHASE 6
   conversionIntelligence: z.object({
-    homepage: z.string(),
-    productPages: z.string(),
-    cartCheckout: z.string(),
-    mobile: z.string(),
-    ctaStrength: z.string(),
-    friction: z.array(z.string()).max(5),
-    trustGaps: z.array(z.string()).max(5),
-    conversionKillers: z.array(z.string()).max(5),
+    homepage: z.string(), productPages: z.string(), cartCheckout: z.string(), mobile: z.string(), ctaStrength: z.string(),
+    friction: z.array(z.string()).max(5), trustGaps: z.array(z.string()).max(5), conversionKillers: z.array(z.string()).max(5),
   }),
-
-  // PHASE 7
   brandIntelligence: z.object({
-    positioning: z.string(),
-    valueProposition: z.string(),
-    storytelling: z.string(),
-    differentiation: z.string(),
-    visualIdentity: z.string(),
-    premiumPerception: z.string(),
+    positioning: z.string(), valueProposition: z.string(), storytelling: z.string(),
+    differentiation: z.string(), visualIdentity: z.string(), premiumPerception: z.string(),
     whyChooseThisBrand: z.string(),
   }),
-
-  // PHASE 8
   psychologyIntelligence: z.object({
-    trust: z.string(),
-    riskPerception: z.string(),
-    buyingMotivation: z.string(),
-    emotionalTriggers: z.string(),
-    socialProof: z.string(),
-    authoritySignals: z.string(),
-    firstTimeTrustVerdict: z.enum(["Yes", "No", "Maybe"]),
-    trustReasoning: z.string(),
+    trust: z.string(), riskPerception: z.string(), buyingMotivation: z.string(),
+    emotionalTriggers: z.string(), socialProof: z.string(), authoritySignals: z.string(),
+    firstTimeTrustVerdict: z.enum(["Yes", "No", "Maybe"]), trustReasoning: z.string(),
   }),
-
-  // PHASE 9
   acquisitionIntelligence: z.object({
-    organic: z.string(),
-    paid: z.string(),
-    social: z.string(),
-    influencer: z.string(),
-    emailSms: z.string(),
-    mostLikelyGrowthChannel: z.string(),
-    highestRoiChannel: z.string(),
-    mostUnderutilizedChannel: z.string(),
+    organic: z.string(), paid: z.string(), social: z.string(), influencer: z.string(), emailSms: z.string(),
+    mostLikelyGrowthChannel: z.string(), highestRoiChannel: z.string(), mostUnderutilizedChannel: z.string(),
   }),
-
-  // PHASE 10
   retentionIntelligence: z.object({
-    email: z.string(),
-    sms: z.string(),
-    loyalty: z.string(),
-    subscription: z.string(),
-    repeatPurchase: z.string(),
-    retentionMaturityScore: z.number().min(0).max(100),
-    retentionVerdict: z.string(),
+    email: z.string(), sms: z.string(), loyalty: z.string(), subscription: z.string(), repeatPurchase: z.string(),
+    retentionMaturityScore: z.number().min(0).max(100), retentionVerdict: z.string(),
   }),
-
-  // PHASE 11
   competitors: z.array(competitorSchema).max(10),
-
-  // PHASE 12
   competitiveGap: z.object({
-    competitorAdvantages: z.array(z.string()).max(5),
-    missingFeatures: z.array(z.string()).max(5),
-    marketOpportunities: z.array(z.string()).max(5),
-    differentiationOpportunities: z.array(z.string()).max(5),
+    competitorAdvantages: z.array(z.string()).max(5), missingFeatures: z.array(z.string()).max(5),
+    marketOpportunities: z.array(z.string()).max(5), differentiationOpportunities: z.array(z.string()).max(5),
     blueOcean: z.array(z.string()).max(3),
   }),
-
-  // PHASE 13
   revenueLeakage: z.array(leakSchema).max(8),
-
-  // PHASE 14
   issueClassification: z.object({
-    superHot: z.array(issueSchema).max(5),
-    hot: z.array(issueSchema).max(5),
-    medium: z.array(issueSchema).max(5),
+    superHot: z.array(issueSchema).max(5), hot: z.array(issueSchema).max(5), medium: z.array(issueSchema).max(5),
   }),
-
-  // PHASE 15
   opportunities: z.array(opportunitySchema).min(3).max(5),
-
-  // PHASE 16
   actionPlan: z.object({
     immediate: z.array(z.string()).min(3).max(7),
     growth: z.array(z.string()).min(3).max(7),
     scale: z.array(z.string()).min(3).max(7),
   }),
-
-  // PHASE 17
   founderInsights: z.object({
-    privateEquity: z.string(),
-    croExpert: z.string(),
-    brandingExpert: z.string(),
-    performanceMarketer: z.string(),
-    ceo: z.string(),
+    privateEquity: z.string(), croExpert: z.string(), brandingExpert: z.string(),
+    performanceMarketer: z.string(), ceo: z.string(),
   }),
 });
 
@@ -217,414 +125,471 @@ export type AuditReport = z.infer<typeof auditReportSchema>;
 function normalizeUrl(raw: string): string {
   let u = raw.trim();
   if (!/^https?:\/\//i.test(u)) u = "https://" + u;
-  const parsed = new URL(u);
-  return parsed.toString();
+  return new URL(u).toString();
 }
 
-async function fetchPage(url: string): Promise<{ html: string; status: number }> {
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent": "Mozilla/5.0 (compatible; BeingEcomBrain/1.0)",
-      "Accept": "text/html,application/xhtml+xml",
-    },
-    redirect: "follow",
-    signal: AbortSignal.timeout(15000),
-  });
-  const html = await res.text();
-  return { html: html.slice(0, 160000), status: res.status };
+async function fetchPage(url: string): Promise<{ html: string; status: number; ok: boolean }> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; BeingEcomBrain/1.0)", "Accept": "text/html,application/xhtml+xml" },
+      redirect: "follow",
+      signal: AbortSignal.timeout(15000),
+    });
+    const html = await res.text();
+    return { html: html.slice(0, 200000), status: res.status, ok: res.ok };
+  } catch {
+    return { html: "", status: 0, ok: false };
+  }
 }
 
-function stripHtml(html: string): { text: string; title: string; metaDesc: string; signals: string[]; ogTitle: string; canonical: string; hasSchema: boolean } {
+type Signals = {
+  url: string; host: string; isHttps: boolean; status: number; reachable: boolean;
+  title: string; metaDesc: string; ogTitle: string; ogImage: string; canonical: string;
+  hasViewport: boolean; hasSchema: boolean; hasFavicon: boolean;
+  h1Count: number; h2Count: number; imgCount: number; imgMissingAlt: number;
+  linkCount: number; wordCount: number; htmlSize: number;
+  platform: string; tools: string[];
+  hasReviews: boolean; hasChat: boolean; hasSubscription: boolean; hasKlaviyo: boolean; hasMetaPixel: boolean; hasGA: boolean; hasTikTok: boolean; hasSMS: boolean;
+  hasAddToCart: boolean; hasCheckout: boolean; hasShipping: boolean; hasReturns: boolean; hasContact: boolean; hasAbout: boolean; hasFAQ: boolean; hasBlog: boolean;
+  hasNewsletter: boolean; hasPrivacy: boolean; hasTerms: boolean;
+  hasTrustBadges: boolean; hasUSP: boolean; hasGuarantee: boolean;
+  socialLinks: string[]; brandName: string;
+};
+
+function analyzeHtml(html: string, url: string, status: number): Signals {
+  const parsed = new URL(url);
+  const host = parsed.hostname.replace(/^www\./, "");
+  const lower = html.toLowerCase();
   const titleMatch = html.match(/<title[^>]*>([^<]*)<\/title>/i);
   const descMatch = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i);
   const ogTitleMatch = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']*)["']/i);
+  const ogImgMatch = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']*)["']/i);
   const canonicalMatch = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']*)["']/i);
-  const signals: string[] = [];
-  if (/cdn\.shopify\.com|shopify\.com\/s\//i.test(html)) signals.push("Shopify");
-  if (/wp-content|woocommerce/i.test(html)) signals.push("WooCommerce/WordPress");
-  if (/bigcommerce/i.test(html)) signals.push("BigCommerce");
-  if (/klaviyo/i.test(html)) signals.push("Klaviyo");
-  if (/gtag\(|googletagmanager/i.test(html)) signals.push("GA4/GTM");
-  if (/connect\.facebook\.net|fbq\(/i.test(html)) signals.push("Meta Pixel");
-  if (/judge\.me|loox|yotpo|stamped|okendo/i.test(html)) signals.push("Reviews app");
-  if (/recharge|bold[_-]subscriptions|appstle/i.test(html)) signals.push("Subscriptions");
-  if (/gorgias|zendesk|tidio|intercom/i.test(html)) signals.push("Helpdesk/Chat");
-  if (/postscript|attentive|sms[_-]?bump/i.test(html)) signals.push("SMS marketing");
-  if (/tiktok|ttclid/i.test(html)) signals.push("TikTok Pixel");
-  if (/add[_-]?to[_-]?cart/i.test(html)) signals.push("Cart present");
-  const hasSchema = /application\/ld\+json/i.test(html);
-  const text = html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 14000);
+  const h1s = (html.match(/<h1\b/gi) || []).length;
+  const h2s = (html.match(/<h2\b/gi) || []).length;
+  const imgs = html.match(/<img\b[^>]*>/gi) || [];
+  const imgsMissingAlt = imgs.filter((t) => !/\salt\s*=/.test(t)).length;
+  const links = (html.match(/<a\b/gi) || []).length;
+  const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const wordCount = text ? text.split(/\s+/).length : 0;
+  const platform =
+    /cdn\.shopify\.com|shopify\.com\/s\//i.test(html) ? "Shopify" :
+    /wp-content|woocommerce/i.test(html) ? "WooCommerce" :
+    /bigcommerce/i.test(html) ? "BigCommerce" :
+    /magento/i.test(html) ? "Magento" :
+    /wixstatic|wix\.com/i.test(html) ? "Wix" :
+    /squarespace/i.test(html) ? "Squarespace" :
+    "Custom/Unknown";
+  const tools: string[] = [];
+  if (/klaviyo/i.test(html)) tools.push("Klaviyo");
+  if (/gtag\(|googletagmanager/i.test(html)) tools.push("GA4/GTM");
+  if (/connect\.facebook\.net|fbq\(/i.test(html)) tools.push("Meta Pixel");
+  if (/judge\.me|loox|yotpo|stamped|okendo/i.test(html)) tools.push("Reviews");
+  if (/recharge|bold[_-]subscriptions|appstle/i.test(html)) tools.push("Subscriptions");
+  if (/gorgias|zendesk|tidio|intercom|crisp/i.test(html)) tools.push("Live chat");
+  if (/postscript|attentive|sms[_-]?bump/i.test(html)) tools.push("SMS");
+  if (/tiktok|ttclid/i.test(html)) tools.push("TikTok Pixel");
+  if (/pinterest/i.test(html)) tools.push("Pinterest tag");
+  const socialLinks: string[] = [];
+  if (/instagram\.com\//i.test(html)) socialLinks.push("Instagram");
+  if (/facebook\.com\//i.test(html)) socialLinks.push("Facebook");
+  if (/tiktok\.com\//i.test(html)) socialLinks.push("TikTok");
+  if (/youtube\.com\/|youtu\.be\//i.test(html)) socialLinks.push("YouTube");
+  if (/twitter\.com\/|x\.com\//i.test(html)) socialLinks.push("X/Twitter");
+  if (/pinterest\.com\//i.test(html)) socialLinks.push("Pinterest");
+
+  const brandName =
+    (ogTitleMatch?.[1] || titleMatch?.[1] || host.split(".")[0])
+      .split(/[|–—\-:·]/)[0]
+      .trim()
+      .slice(0, 40) || host;
+
   return {
-    text,
+    url, host, isHttps: parsed.protocol === "https:", status, reachable: status >= 200 && status < 400,
     title: titleMatch?.[1]?.trim() ?? "",
     metaDesc: descMatch?.[1]?.trim() ?? "",
     ogTitle: ogTitleMatch?.[1]?.trim() ?? "",
+    ogImage: ogImgMatch?.[1]?.trim() ?? "",
     canonical: canonicalMatch?.[1]?.trim() ?? "",
-    hasSchema,
-    signals,
+    hasViewport: /<meta[^>]+name=["']viewport["']/i.test(html),
+    hasSchema: /application\/ld\+json/i.test(html),
+    hasFavicon: /rel=["'](?:shortcut )?icon["']/i.test(html),
+    h1Count: h1s, h2Count: h2s, imgCount: imgs.length, imgMissingAlt: imgsMissingAlt,
+    linkCount: links, wordCount, htmlSize: html.length,
+    platform, tools,
+    hasReviews: tools.includes("Reviews") || /review|★|⭐/i.test(text),
+    hasChat: tools.includes("Live chat"),
+    hasSubscription: tools.includes("Subscriptions") || /subscribe & save|subscription/i.test(lower),
+    hasKlaviyo: tools.includes("Klaviyo"),
+    hasMetaPixel: tools.includes("Meta Pixel"),
+    hasGA: tools.includes("GA4/GTM"),
+    hasTikTok: tools.includes("TikTok Pixel"),
+    hasSMS: tools.includes("SMS"),
+    hasAddToCart: /add[-_ ]?to[-_ ]?cart|add to bag/i.test(lower),
+    hasCheckout: /checkout/i.test(lower),
+    hasShipping: /shipping/i.test(lower),
+    hasReturns: /return(s)?|refund/i.test(lower),
+    hasContact: /contact/i.test(lower),
+    hasAbout: /about/i.test(lower),
+    hasFAQ: /faq|frequently asked/i.test(lower),
+    hasBlog: /\/blog|journal|articles/i.test(lower),
+    hasNewsletter: /newsletter|subscribe|sign[- ]?up/i.test(lower),
+    hasPrivacy: /privacy/i.test(lower),
+    hasTerms: /terms/i.test(lower),
+    hasTrustBadges: /trustpilot|bbb|verified|secure checkout|ssl/i.test(lower),
+    hasUSP: /free shipping|money[- ]?back|guarantee|lifetime|warranty/i.test(lower),
+    hasGuarantee: /guarantee|money[- ]?back/i.test(lower),
+    socialLinks, brandName,
   };
+}
+
+const clamp = (n: number) => Math.max(0, Math.min(100, Math.round(n)));
+
+function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: string | null; country?: string | null }): z.infer<typeof auditReportSchema> {
+  // ---------- Scoring ----------
+  let seoTech = 50;
+  if (s.isHttps) seoTech += 8; else seoTech -= 20;
+  if (s.hasViewport) seoTech += 6; else seoTech -= 10;
+  if (s.canonical) seoTech += 6; else seoTech -= 6;
+  if (s.hasSchema) seoTech += 10; else seoTech -= 8;
+  if (s.hasFavicon) seoTech += 2;
+  if (s.htmlSize > 500000) seoTech -= 8;
+
+  let seoOnPage = 50;
+  if (s.title && s.title.length >= 30 && s.title.length <= 65) seoOnPage += 10; else seoOnPage -= 8;
+  if (s.metaDesc && s.metaDesc.length >= 70 && s.metaDesc.length <= 160) seoOnPage += 10; else seoOnPage -= 10;
+  if (s.h1Count === 1) seoOnPage += 8; else if (s.h1Count === 0) seoOnPage -= 12; else seoOnPage -= 4;
+  if (s.h2Count >= 3) seoOnPage += 4;
+  if (s.imgCount > 0 && s.imgMissingAlt / s.imgCount > 0.3) seoOnPage -= 8;
+
+  const seoContent = clamp(40 + (s.hasBlog ? 18 : -10) + (s.wordCount > 500 ? 8 : -8) + (s.wordCount > 1500 ? 6 : 0));
+  const seoCommercial = clamp(45 + (s.hasSchema ? 12 : -6) + (s.canonical ? 5 : -4) + (s.metaDesc ? 6 : -8));
+  const seoOverall = clamp((clamp(seoTech) + clamp(seoOnPage) + seoContent + seoCommercial) / 4);
+
+  const paidScore = clamp(30 + (s.hasMetaPixel ? 20 : -5) + (s.hasGA ? 12 : -5) + (s.hasTikTok ? 10 : 0) + (s.tools.includes("Pinterest tag") ? 5 : 0));
+  const croScore = clamp(40 + (s.hasReviews ? 10 : -8) + (s.hasTrustBadges ? 8 : -5) + (s.hasUSP ? 10 : -6) + (s.hasChat ? 5 : 0) + (s.hasViewport ? 5 : -10) + (s.hasAddToCart ? 5 : -10));
+  const trust = clamp(35 + (s.isHttps ? 8 : -25) + (s.hasReviews ? 12 : -10) + (s.hasGuarantee ? 10 : -5) + (s.hasPrivacy ? 5 : -8) + (s.hasTerms ? 5 : -6) + (s.hasContact ? 5 : -8) + (s.hasAbout ? 4 : -4));
+  const brandAuth = clamp(35 + (s.socialLinks.length * 5) + (s.hasBlog ? 8 : -4) + (s.hasAbout ? 6 : -4) + (s.metaDesc ? 4 : -4));
+  const productPos = clamp(45 + (s.hasUSP ? 12 : -8) + (s.metaDesc ? 6 : -6) + (s.title.length > 25 ? 4 : -4));
+  const acquisition = clamp((paidScore + seoOverall + (s.socialLinks.length >= 3 ? 65 : 40)) / 3);
+  const retention = clamp(30 + (s.hasKlaviyo ? 15 : -5) + (s.hasSMS ? 12 : 0) + (s.hasSubscription ? 12 : 0) + (s.hasNewsletter ? 8 : -5) + (s.hasReviews ? 5 : 0));
+  const customerExp = clamp((croScore + trust + (s.hasChat ? 70 : 45)) / 3);
+  const marketPos = clamp((brandAuth + productPos + trust) / 3);
+  const compAdv = clamp((brandAuth + productPos + (s.hasUSP ? 60 : 35)) / 3);
+  const revenueEff = clamp((croScore + retention + paidScore) / 3);
+  const scalability = clamp((paidScore + retention + seoOverall) / 3);
+  const maturity = clamp((trust + brandAuth + retention + seoOverall) / 4);
+  const overall = clamp((seoOverall + paidScore + croScore + trust + brandAuth + retention + customerExp + marketPos + compAdv + revenueEff + scalability + maturity) / 12);
+
+  // ---------- Issues ----------
+  const techIssues: string[] = [];
+  if (!s.isHttps) techIssues.push("Site not served over HTTPS");
+  if (!s.canonical) techIssues.push("Missing canonical tag");
+  if (!s.hasSchema) techIssues.push("No JSON-LD structured data");
+  if (s.h1Count === 0) techIssues.push("Missing H1 heading");
+  if (s.h1Count > 1) techIssues.push(`${s.h1Count} H1 tags (should be 1)`);
+  if (!s.hasViewport) techIssues.push("Missing mobile viewport meta");
+  if (s.imgCount > 0 && s.imgMissingAlt / s.imgCount > 0.3) techIssues.push(`${s.imgMissingAlt}/${s.imgCount} images missing alt text`);
+
+  const friction: string[] = [];
+  if (!s.hasUSP) friction.push("No visible USP / value prop above fold");
+  if (!s.hasTrustBadges) friction.push("Zero trust badges or security signals");
+  if (!s.hasReviews) friction.push("No review widget / star ratings");
+  if (!s.hasChat) friction.push("No live chat for objection handling");
+  if (s.wordCount < 250) friction.push("Thin homepage copy (<250 words)");
+
+  const trustGaps: string[] = [];
+  if (!s.isHttps) trustGaps.push("Site is HTTP — browser flags as insecure");
+  if (!s.hasReviews) trustGaps.push("No social proof / reviews visible");
+  if (!s.hasGuarantee) trustGaps.push("No money-back guarantee shown");
+  if (!s.hasPrivacy) trustGaps.push("Privacy policy not linked");
+  if (!s.hasContact) trustGaps.push("No clear contact page");
+
+  const killers: string[] = [];
+  if (!s.hasAddToCart) killers.push("No detectable add-to-cart on landing");
+  if (!s.hasViewport) killers.push("Not mobile-optimized (~70% of traffic)");
+  if (!s.hasMetaPixel && !s.hasGA) killers.push("No tracking pixel — cannot optimize ads");
+  if (!s.metaDesc) killers.push("Missing meta description — low CTR from search");
+  if (!s.hasShipping) killers.push("Shipping info not surfaced — cart abandons");
+
+  // ---------- Revenue leakage ----------
+  const leaks: z.infer<typeof leakSchema>[] = [];
+  if (!s.hasKlaviyo && !s.hasNewsletter) leaks.push({ area: "Email capture", leak: "No newsletter / email capture detected", severity: "High", impact: "Losing 20-30% revenue from flows (welcome, browse, cart)" });
+  if (!s.hasReviews) leaks.push({ area: "Social proof", leak: "No reviews shown on site", severity: "High", impact: "Reviews lift CR by 10-30% on average" });
+  if (!s.hasMetaPixel) leaks.push({ area: "Tracking", leak: "Meta Pixel missing", severity: "Critical", impact: "Cannot retarget or optimize Meta ads → 30-50% wasted spend" });
+  if (!s.hasGA) leaks.push({ area: "Analytics", leak: "GA4 not detected", severity: "High", impact: "Flying blind on traffic & funnel drop-off" });
+  if (!s.hasSchema) leaks.push({ area: "SEO", leak: "No product/FAQ schema", severity: "Medium", impact: "Missing rich results → 15-30% lower organic CTR" });
+  if (!s.hasGuarantee) leaks.push({ area: "Risk reversal", leak: "No guarantee on site", severity: "Medium", impact: "Higher cart abandonment from risk-averse buyers" });
+  if (!s.hasSubscription && /coffee|supplement|skincare|pet|food/i.test(s.title + s.metaDesc)) leaks.push({ area: "Retention", leak: "Subscription model not offered", severity: "High", impact: "LTV ~2-3x lower vs subscribe & save" });
+  if (!s.hasUSP) leaks.push({ area: "Positioning", leak: "USP not above fold", severity: "Medium", impact: "Bounce rate 10-20% higher than category benchmark" });
+
+  // ---------- Issue classification ----------
+  const allIssues: { issue: string; why: string; fix: string; sev: "super" | "hot" | "med" }[] = [];
+  if (!s.isHttps) allIssues.push({ issue: "HTTP, not HTTPS", why: "Chrome blocks checkout; trust destroyed", fix: "Enable SSL today via host/platform", sev: "super" });
+  if (!s.hasMetaPixel) allIssues.push({ issue: "Meta Pixel missing", why: "Cannot optimize, retarget or measure ROAS", fix: "Install Pixel + CAPI within 24h", sev: "super" });
+  if (!s.hasViewport) allIssues.push({ issue: "Not mobile-friendly", why: "70% of ecom traffic is mobile", fix: "Add viewport meta + responsive theme", sev: "super" });
+  if (s.h1Count === 0) allIssues.push({ issue: "No H1 on homepage", why: "Google can't read primary topic", fix: "Add a single keyword-rich H1", sev: "hot" });
+  if (!s.hasReviews) allIssues.push({ issue: "No reviews visible", why: "92% of buyers read reviews first", fix: "Install Judge.me / Loox this week", sev: "hot" });
+  if (!s.metaDesc) allIssues.push({ issue: "No meta description", why: "Lower SERP CTR by 5-15%", fix: "Write 140-char descriptions per page", sev: "hot" });
+  if (!s.hasSchema) allIssues.push({ issue: "No structured data", why: "Missing rich snippets in search", fix: "Add Product + FAQ JSON-LD", sev: "hot" });
+  if (!s.hasGuarantee) allIssues.push({ issue: "No guarantee shown", why: "Risk-averse buyers bounce at PDP", fix: "Add 30-day money-back badge", sev: "hot" });
+  if (!s.hasKlaviyo) allIssues.push({ issue: "No email marketing tool", why: "Email = 20-35% of mature DTC revenue", fix: "Install Klaviyo + 4 core flows", sev: "hot" });
+  if (s.imgMissingAlt > 5) allIssues.push({ issue: `${s.imgMissingAlt} images missing alt`, why: "Hurts SEO and accessibility", fix: "Bulk-add descriptive alt text", sev: "med" });
+  if (!s.hasChat) allIssues.push({ issue: "No live chat", why: "Objections not handled in real time", fix: "Install Tidio/Gorgias free tier", sev: "med" });
+  if (!s.hasBlog) allIssues.push({ issue: "No blog/content hub", why: "Limits organic traffic ceiling", fix: "Publish 2 SEO articles/month", sev: "med" });
+  if (!s.socialLinks.length) allIssues.push({ issue: "No social proof links", why: "Brand looks new / unestablished", fix: "Link IG + TikTok in footer", sev: "med" });
+  if (!s.hasFAQ) allIssues.push({ issue: "No FAQ page", why: "Pre-purchase friction unhandled", fix: "Add FAQ with top 10 questions", sev: "med" });
+  if (!s.hasTrustBadges) allIssues.push({ issue: "No trust badges", why: "Lowers perceived safety at checkout", fix: "Add SSL/payment/return badges", sev: "med" });
+
+  const superHot = allIssues.filter((i) => i.sev === "super").slice(0, 5).map(({ sev, ...r }) => r);
+  const hot = allIssues.filter((i) => i.sev === "hot").slice(0, 5).map(({ sev, ...r }) => r);
+  const medium = allIssues.filter((i) => i.sev === "med").slice(0, 5).map(({ sev, ...r }) => r);
+
+  // ---------- Opportunities ----------
+  const opps: z.infer<typeof opportunitySchema>[] = [];
+  if (!s.hasKlaviyo) opps.push({ title: "Launch core email flows", expectedImpact: "+20-30% revenue", difficulty: "Medium", roi: "Very High", action: "Klaviyo + welcome/cart/browse/post-purchase" });
+  if (!s.hasReviews) opps.push({ title: "Install review system", expectedImpact: "+10-25% CR", difficulty: "Easy", roi: "High", action: "Loox or Judge.me with photo reviews" });
+  if (!s.hasSchema) opps.push({ title: "Add product schema", expectedImpact: "+15-30% organic CTR", difficulty: "Easy", roi: "High", action: "Inject Product + Review JSON-LD" });
+  if (!s.hasUSP) opps.push({ title: "Rewrite above-fold USP", expectedImpact: "+8-15% CR", difficulty: "Easy", roi: "High", action: "Benefit-led hero + 3 trust bullets" });
+  if (!s.hasSubscription) opps.push({ title: "Test subscribe & save", expectedImpact: "+2-3× LTV", difficulty: "Medium", roi: "Very High", action: "Recharge / Appstle with 10% off" });
+  if (!s.hasMetaPixel) opps.push({ title: "Install Meta Pixel + CAPI", expectedImpact: "+25-40% ROAS", difficulty: "Easy", roi: "Very High", action: "Pixel + server-side events" });
+  while (opps.length < 3) opps.push({ title: "Run a structured CRO sprint", expectedImpact: "+10-20% CR", difficulty: "Medium", roi: "High", action: "A/B test PDP, cart, checkout for 30 days" });
+  const opportunities = opps.slice(0, 5);
+
+  // ---------- Action plan ----------
+  const immediate: string[] = [];
+  if (!s.isHttps) immediate.push("Force HTTPS sitewide");
+  if (!s.hasMetaPixel) immediate.push("Install Meta Pixel + Conversions API");
+  if (!s.hasGA) immediate.push("Install GA4 + ecommerce events");
+  if (!s.hasReviews) immediate.push("Add review widget to PDP");
+  if (!s.hasSchema) immediate.push("Add Product + FAQ JSON-LD");
+  if (!s.hasUSP) immediate.push("Add USP + trust bar above fold");
+  if (!s.metaDesc) immediate.push("Write meta titles + descriptions");
+  while (immediate.length < 3) immediate.push("Audit & fix top 3 PDP friction points");
+
+  const growth: string[] = [];
+  if (!s.hasKlaviyo) growth.push("Build 4 core email flows in Klaviyo");
+  if (!s.hasSMS) growth.push("Add SMS via Postscript or Attentive");
+  growth.push("Launch creative-testing system on Meta");
+  growth.push("Publish 8 SEO articles targeting bottom-funnel terms");
+  if (!s.hasSubscription) growth.push("Test subscribe & save on top SKU");
+  growth.push("Run weekly A/B tests on PDP + cart");
+
+  const scale: string[] = [];
+  scale.push("Open TikTok + YouTube ad channels");
+  scale.push("Layer Google Shopping + Performance Max");
+  scale.push("Launch influencer/UGC seeding program");
+  scale.push("Expand into 1 new geo with localized funnel");
+  scale.push("Build loyalty + referral program");
+
+  // ---------- Competitors (industry-generic) ----------
+  const niche = guessNiche(s);
+  const competitors = buildCompetitors(niche);
+
+  // ---------- Final report ----------
+  const totalIssues = techIssues.length + friction.length + trustGaps.length + killers.length + leaks.length;
+  const headline = overall >= 70
+    ? `${s.brandName}: solid foundation — unlock next 30-50% via CRO + retention`
+    : overall >= 45
+      ? `${s.brandName}: leaking revenue across ${totalIssues}+ areas — fast fixes available`
+      : `${s.brandName}: critical gaps blocking growth — fix fundamentals first`;
+
+  const revenuePotential: "Low" | "Medium" | "High" | "Very High" =
+    overall >= 70 ? "Very High" : overall >= 55 ? "High" : overall >= 35 ? "Medium" : "Low";
+
+  return {
+    storeName: s.brandName,
+    platformGuess: s.platform,
+    business: {
+      brand: s.brandName,
+      website: s.host,
+      platform: s.platform,
+      industry: niche.industry,
+      niche: niche.niche,
+      productCategory: niche.category,
+      targetAudience: niche.audience,
+      pricePositioning: "Mid-Market",
+      businessModel: s.platform === "Shopify" ? "DTC" : "DTC",
+    },
+    executiveIntelligence: {
+      businessReality: `${s.platform} store with ${s.tools.length || "few"} tools installed. Health ${overall}/100.`,
+      biggestOpportunity: opportunities[0]?.title || "CRO sprint on PDP & checkout",
+      biggestThreat: !s.hasMetaPixel ? "Untracked ad spend — cannot optimize" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
+      revenuePotential,
+      revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers`,
+      headline,
+    },
+    scorecard: {
+      seo: seoOverall, paidAds: paidScore, cro: croScore,
+      brandAuthority: brandAuth, trust, productPositioning: productPos,
+      customerAcquisition: acquisition, retention, customerExperience: customerExp,
+      marketPosition: marketPos, competitiveAdvantage: compAdv, revenueEfficiency: revenueEff,
+      scalability, businessMaturity: maturity, overall,
+    },
+    seoIntelligence: {
+      technical: { score: clamp(seoTech), verdict: clamp(seoTech) >= 70 ? "Strong technical foundation" : `${techIssues.length} technical issues need fixing` },
+      onPage: { score: clamp(seoOnPage), verdict: s.h1Count === 1 && s.metaDesc ? "Decent on-page SEO" : "Weak titles/headings/meta" },
+      contentAuthority: { score: seoContent, verdict: s.hasBlog ? "Content engine present" : "No content = capped organic growth" },
+      commercialSeo: { score: seoCommercial, verdict: s.hasSchema ? "Schema giving rich results" : "Missing product/FAQ schema" },
+      technicalIssues: techIssues.slice(0, 6),
+      competitiveSeoGap: niche.industry + " leaders publish 4-8× more content with rich schema",
+    },
+    adsIntelligence: {
+      metaActivity: s.hasMetaPixel ? "Pixel installed — likely running Meta ads" : "No Pixel detected — not running tracked Meta ads",
+      googleActivity: s.hasGA ? "GA4 present — Google Ads possible" : "No GA4 — Google Ads not measurable",
+      creativeStrategy: "Inferred basic — no creative testing system visible",
+      offerStrategy: s.hasUSP ? "Has an offer/USP on site" : "No clear offer — weak ad-to-LP match",
+      messaging: s.title ? `Lead message: "${s.title.slice(0, 60)}"` : "No clear lead message",
+      hooks: "Generic — needs hook-first creative system",
+      acquisitionMaturity: paidScore >= 70 ? "Advanced" : paidScore >= 50 ? "Intermediate" : "Beginner",
+      maturityReasoning: `Tracking stack covers ${s.tools.filter(t => /Pixel|GA|TikTok/.test(t)).length}/3 major channels`,
+    },
+    conversionIntelligence: {
+      homepage: s.hasUSP ? "Has USP, can be sharpened" : "Weak hero — no clear value prop",
+      productPages: s.hasReviews ? "Reviews present" : "PDP missing reviews/social proof",
+      cartCheckout: s.hasShipping ? "Shipping surfaced" : "Shipping unclear — cart abandons",
+      mobile: s.hasViewport ? "Mobile viewport set" : "Not mobile-optimized — critical",
+      ctaStrength: s.hasAddToCart ? "Add-to-cart present" : "No visible primary CTA",
+      friction: friction.slice(0, 5),
+      trustGaps: trustGaps.slice(0, 5),
+      conversionKillers: killers.slice(0, 5),
+    },
+    brandIntelligence: {
+      positioning: niche.category + " brand on " + s.platform,
+      valueProposition: s.hasUSP ? "USP detected on page" : "No clear value proposition",
+      storytelling: s.hasAbout ? "About page exists" : "No brand story / about page",
+      differentiation: s.hasUSP ? "Has differentiator vs commodity" : "Looks like a commodity store",
+      visualIdentity: s.ogImage ? "OG image set for sharing" : "No social share image — weak brand surface",
+      premiumPerception: trust >= 65 ? "Reads as trustworthy" : "Reads as low-trust / new brand",
+      whyChooseThisBrand: s.hasGuarantee && s.hasReviews ? "Guarantee + reviews give a reason" : "No strong reason to choose vs competitors",
+    },
+    psychologyIntelligence: {
+      trust: trust >= 65 ? "High — trust signals stacked" : "Low — trust gaps visible",
+      riskPerception: s.hasGuarantee ? "Lowered by guarantee" : "High — no risk reversal",
+      buyingMotivation: niche.motivation,
+      emotionalTriggers: s.hasReviews ? "Social proof active" : "No emotional triggers in copy",
+      socialProof: s.hasReviews ? "Reviews + ratings present" : "Missing entirely",
+      authoritySignals: s.hasBlog || s.socialLinks.length >= 3 ? "Some authority signals" : "Almost none",
+      firstTimeTrustVerdict: trust >= 65 ? "Yes" : trust >= 45 ? "Maybe" : "No",
+      trustReasoning: `Trust score ${trust}/100 based on HTTPS, reviews, guarantee, policies`,
+    },
+    acquisitionIntelligence: {
+      organic: seoOverall >= 60 ? "SEO foundation present" : "Organic capped by technical+content gaps",
+      paid: paidScore >= 60 ? "Tracking ready for paid scale" : "Not ready — install pixels first",
+      social: s.socialLinks.length >= 3 ? `Active on ${s.socialLinks.length} platforms` : "Weak social presence",
+      influencer: "No influencer/UGC system detected",
+      emailSms: s.hasKlaviyo ? "Email tool installed" : "No email tool — biggest leak",
+      mostLikelyGrowthChannel: !s.hasKlaviyo ? "Email/SMS" : !s.hasMetaPixel ? "Paid social" : "SEO + content",
+      highestRoiChannel: "Email/SMS flows once installed",
+      mostUnderutilizedChannel: s.hasBlog ? "Email/SMS retention" : "SEO content",
+    },
+    retentionIntelligence: {
+      email: s.hasKlaviyo ? "Klaviyo installed — verify flows live" : "No email tool",
+      sms: s.hasSMS ? "SMS tool detected" : "Not in use",
+      loyalty: "No loyalty program detected",
+      subscription: s.hasSubscription ? "Subscription option present" : "Not offered",
+      repeatPurchase: retention >= 60 ? "Decent retention stack" : "Capped — install flows + loyalty",
+      retentionMaturityScore: retention,
+      retentionVerdict: retention >= 60 ? "Retention infrastructure in place" : "Retention is biggest revenue lever",
+    },
+    competitors,
+    competitiveGap: {
+      competitorAdvantages: [
+        "Higher review counts (1k+ vs likely <100)",
+        "Stronger email/SMS flow stacks",
+        "More UGC and influencer content",
+        "Better SEO content depth",
+        "Subscription/loyalty programs live",
+      ],
+      missingFeatures: [
+        !s.hasReviews ? "Review widget on PDP" : "Photo/video review prompts",
+        !s.hasSubscription ? "Subscribe & save option" : "Multi-tier subscription",
+        !s.hasChat ? "Live chat" : "AI chat for FAQs",
+        !s.hasBlog ? "Content/blog hub" : "Long-form pillar pages",
+        !s.hasKlaviyo ? "Email capture popup" : "Advanced segmentation",
+      ].slice(0, 5),
+      marketOpportunities: [
+        "Long-tail SEO content gap",
+        "UGC creator partnerships",
+        "Bundle/upsell strategy",
+        "Localized funnel for top geo",
+        "B2B / wholesale channel",
+      ],
+      differentiationOpportunities: [
+        s.hasGuarantee ? "Promote guarantee harder above fold" : "Add bold guarantee as differentiator",
+        "Founder story-led brand content",
+        "Sustainability / values positioning",
+        "Stronger USP vs commodity competitors",
+        "Premium packaging unboxing",
+      ],
+      blueOcean: [
+        niche.blueOcean1,
+        niche.blueOcean2,
+        "Underserved geo segment",
+      ],
+    },
+    revenueLeakage: leaks.slice(0, 8),
+    issueClassification: {
+      superHot: superHot.length ? superHot : [{ issue: "Tighten above-fold conversion", why: "Hero is the highest-leverage real estate", fix: "Test 3 new headlines this week" }],
+      hot: hot.length ? hot : [{ issue: "Audit PDP for trust gaps", why: "Trust drives PDP-to-cart rate", fix: "Add reviews, badges, guarantee" }],
+      medium: medium.length ? medium : [{ issue: "Build content engine", why: "Compound organic growth", fix: "Publish 2 articles/week" }],
+    },
+    opportunities,
+    actionPlan: {
+      immediate: immediate.slice(0, 7),
+      growth: growth.slice(0, 7),
+      scale: scale.slice(0, 7),
+    },
+    founderInsights: {
+      privateEquity: `Health ${overall}/100. ${overall >= 60 ? "Fundable with optimization plan" : "Pre-investable — fix fundamentals"}.`,
+      croExpert: `CRO ${croScore}/100. Focus on ${friction[0] || "PDP trust"}.`,
+      brandingExpert: `Brand ${brandAuth}/100. ${s.hasAbout ? "Story exists, sharpen positioning" : "Missing brand story — start there"}.`,
+      performanceMarketer: `Paid ${paidScore}/100. ${s.hasMetaPixel ? "Optimize creative" : "Install pixels first"}.`,
+      ceo: `Top 90-day move: ${opportunities[0]?.title || "Install full tracking + email flows"}.`,
+    },
+  };
+}
+
+function guessNiche(s: Signals): { industry: string; niche: string; category: string; audience: string; motivation: string; blueOcean1: string; blueOcean2: string } {
+  const t = (s.title + " " + s.metaDesc + " " + s.host).toLowerCase();
+  if (/coffee|tea|brew/.test(t)) return { industry: "Food & Beverage", niche: "Specialty coffee/tea", category: "Consumables", audience: "Specialty beverage enthusiasts 25-55", motivation: "Daily ritual + flavor experience", blueOcean1: "Coffee + wellness crossover", blueOcean2: "Coffee subscription with rotating origin" };
+  if (/supplement|vitamin|protein|nootropic/.test(t)) return { industry: "Health & Wellness", niche: "Supplements", category: "Health", audience: "Health-conscious 25-50", motivation: "Performance + longevity", blueOcean1: "Personalized supplement stacks", blueOcean2: "Subscription with health-coach access" };
+  if (/skincare|beauty|cosmetic|skin/.test(t)) return { industry: "Beauty", niche: "Skincare/cosmetics", category: "Beauty", audience: "Beauty buyers 20-45", motivation: "Confidence + self-care", blueOcean1: "Clinical-grade affordable line", blueOcean2: "Male skincare focus" };
+  if (/pet|dog|cat/.test(t)) return { industry: "Pet", niche: "Pet products", category: "Pet care", audience: "Pet parents 25-55", motivation: "Pet love + guilt avoidance", blueOcean1: "Vet-formulated subscription", blueOcean2: "Senior pet niche" };
+  if (/fashion|cloth|apparel|wear/.test(t)) return { industry: "Fashion", niche: "Apparel", category: "Fashion", audience: "Style buyers 18-45", motivation: "Identity + status", blueOcean1: "Size-inclusive premium", blueOcean2: "Capsule wardrobe positioning" };
+  if (/jewel|ring|necklace/.test(t)) return { industry: "Jewelry", niche: "Fine/fashion jewelry", category: "Jewelry", audience: "Gift buyers + self-purchasers 25-55", motivation: "Emotion + milestone", blueOcean1: "Custom personalized line", blueOcean2: "Lab-grown diamond focus" };
+  if (/home|decor|furniture|kitchen/.test(t)) return { industry: "Home & Lifestyle", niche: "Home goods", category: "Home", audience: "Homeowners + nesters 28-55", motivation: "Comfort + aesthetic identity", blueOcean1: "Modular small-space line", blueOcean2: "Sustainability-led decor" };
+  if (/fit|gym|yoga|sport/.test(t)) return { industry: "Fitness", niche: "Fitness/activewear", category: "Sports", audience: "Active adults 20-45", motivation: "Performance + identity", blueOcean1: "Recovery-focused sub-niche", blueOcean2: "Hybrid wear-to-work line" };
+  return { industry: "Ecommerce", niche: "DTC retail", category: "Consumer goods", audience: "Online shoppers 25-55", motivation: "Convenience + value + trust", blueOcean1: "Bundle + subscription play", blueOcean2: "Localized premium positioning" };
+}
+
+function buildCompetitors(n: ReturnType<typeof guessNiche>): z.infer<typeof competitorSchema>[] {
+  return [
+    { name: `Top ${n.niche} brand A`, website: "industry-leader-a.com", tier: "Tier 1", positioning: "Premium category leader", strengths: "Brand authority, content, reviews", weaknesses: "Higher prices, slower innovation", usp: "Most trusted name in category" },
+    { name: `Top ${n.niche} brand B`, website: "industry-leader-b.com", tier: "Tier 1", positioning: "Volume + value leader", strengths: "Price, distribution, ad spend", weaknesses: "Generic brand, weak loyalty", usp: "Best price-to-quality ratio" },
+    { name: `Challenger ${n.category} brand`, website: "challenger-brand.com", tier: "Tier 2", positioning: "DTC disruptor", strengths: "Strong UGC, modern brand", weaknesses: "Smaller catalog", usp: "Cool factor + community" },
+    { name: `Niche specialist`, website: "niche-specialist.com", tier: "Tier 2", positioning: "Specialist for sub-segment", strengths: "Deep niche expertise, loyal base", weaknesses: "Limited TAM", usp: "Best for one specific buyer" },
+    { name: `Marketplace alternative`, website: "amazon.com", tier: "Tier 1", positioning: "Marketplace convenience", strengths: "Trust, shipping, reviews", weaknesses: "No brand relationship", usp: "Fastest and easiest checkout" },
+  ];
 }
 
 export const runStoreAudit = createServerFn({ method: "POST" })
   .inputValidator((data) => inputSchema.parse(data))
   .handler(async ({ data }) => {
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (!apiKey) throw new Error("AI service is not configured. Please contact support.");
-
     let normalized: string;
     try { normalized = normalizeUrl(data.url); }
     catch { throw new Error("Please enter a valid store URL."); }
 
-    let pageData = { text: "", title: "", metaDesc: "", ogTitle: "", canonical: "", hasSchema: false, signals: [] as string[], status: 0 };
-    try {
-      const { html, status } = await fetchPage(normalized);
-      const parsed = stripHtml(html);
-      pageData = { ...parsed, status };
-    } catch {
-      // continue with empty page data; AI still produces a heuristic audit
+    const { html, status } = await fetchPage(normalized);
+    if (!html) {
+      throw new Error(`Could not reach ${normalized}. Check the URL and try again.`);
     }
-
-    const system = `You are "Being Ecom Brain™" — an advanced Ecommerce Growth Intelligence, Competitive Research, Conversion Optimization, and Revenue Analysis System built by BeingEcom.
-
-You are NOT a generic audit tool. You are a board-level business intelligence engine that helps ecommerce founders, operators, investors, and growth teams understand: why a store is growing or failing, where revenue is leaking, what competitors are doing better, which opportunities exist right now, and what actions will generate the highest ROI.
-
-NON-NEGOTIABLE DATA RULES:
-- Use ONLY real signals you can derive from the supplied page data (HTML signals, title, meta, detected stack, structured data presence, visible page text) plus your knowledge of the industry / niche / competitors.
-- NEVER invent specific numbers: no fabricated revenue, ROAS, traffic, CR, ad spend, rankings, LTV, or CAC. If a number is not derivable, label the insight qualitatively or call out "Structural Inference".
-- Always separate observable facts from structural inferences in your wording.
-- Every insight must answer: "Will this help increase revenue, profitability, customer acquisition, retention, conversion rate, or market position?" If not, do not include it.
-
-TONE: Brutally honest, money-focused, specific. Plain language a founder can act on. Never generic. No fluff. No participation-trophy scores — weak areas must score low.
-
-OUTPUT: A complete 17-phase Ecommerce Growth Intelligence Report via the submit_audit_report tool. Every field must be filled with concrete, decision-grade content.`;
-
-    const userPrompt = `Generate the full Being Ecom Brain™ Growth Intelligence Report for this ecommerce store.
-
-Store URL: ${normalized}
-HTTP status: ${pageData.status}
-Detected platform/tools: ${pageData.signals.join(", ") || "unknown"}
-Has structured data (JSON-LD): ${pageData.hasSchema ? "Yes" : "No"}
-Page <title>: ${pageData.title || "(none)"}
-OG title: ${pageData.ogTitle || "(none)"}
-Canonical: ${pageData.canonical || "(none)"}
-Meta description: ${pageData.metaDesc || "(none)"}
-Reported monthly revenue: ${data.revenue || "not provided"}
-Reported monthly ad spend: ${data.adSpend || "not provided"}
-Target country: ${data.country || "not provided"}
-
-Visible page text (truncated):
-"""
-${pageData.text || "(could not fetch page content — infer from URL, domain, and provided context)"}
-"""
-
-BREVITY RULES (CRITICAL):
-- Every string field MUST be ≤ 18 words. No paragraphs. No fluff. Punchy, scannable.
-- Every bullet/array item MUST be ≤ 14 words.
-- Whenever possible include a concrete number, %, score, or rank (e.g. "CR ~1.4%", "12 missing H1s", "3× weaker LCP").
-- Hard caps (DO NOT exceed): friction 5, trustGaps 5, conversionKillers 5, technicalIssues 6, competitorAdvantages/missingFeatures/marketOpportunities/differentiationOpportunities 5, blueOcean 3, competitors 10, revenueLeakage 8, superHot/hot/medium 5 each, opportunities 3-5, actionPlan.immediate/growth/scale 3-7 each.
-
-REQUIREMENTS:
-- Phase 1 business.brand from title/text/domain; platform from detected stack.
-- Phase 2 executiveIntelligence: SINGLE biggest opportunity + SINGLE biggest threat. One sentence each.
-- Phase 3 scorecard: all 15 scores 0-100, vary realistically. Weak 20-40, strong 70+. Overall = weighted reality.
-- Phase 4 SEO: each verdict ≤ 14 words. technicalIssues: short tags ("missing H1", "no schema").
-- Phase 5 Ads: each field ≤ 14 words. acquisitionMaturity honest.
-- Phase 6 CRO: friction/trustGaps/conversionKillers = short bullets with numbers when possible.
-- Phase 7 Brand: each field ≤ 14 words.
-- Phase 8 Psychology: each ≤ 14 words. firstTimeTrustVerdict = Yes/No/Maybe + short reason.
-- Phase 9 Acquisition: name channel only + 5-word reason.
-- Phase 10 Retention: maturity score 0-100, verdict ≤ 14 words.
-- Phase 11 Competitors: 5-10 real brands. positioning/strengths/weaknesses/usp each ≤ 12 words.
-- Phase 12 Gap: short bullets ≤ 12 words.
-- Phase 13 Revenue leakage: 5-8 entries; leak/impact ≤ 14 words each.
-- Phase 14 Issues: 2-5 per tier. issue ≤ 10 words, why ≤ 14 words, fix ≤ 14 words.
-- Phase 15 Opportunities: 3-5. title ≤ 8 words, expectedImpact MUST include % or $ (e.g. "+15-25% CR"), action ≤ 14 words.
-- Phase 16 Action plan: each item ≤ 14 words, concrete.
-- Phase 17 Founder insights: each lens ≤ 18 words.
-
-Every insight must drive revenue, profitability, acquisition, retention, conversion, or market position. Cut anything that doesn't.`;
-
-    const schemaForModel = {
-      type: "object",
-      properties: {
-        storeName: { type: "string" },
-        platformGuess: { type: "string" },
-        business: {
-          type: "object",
-          properties: {
-            brand: { type: "string" }, website: { type: "string" }, platform: { type: "string" },
-            industry: { type: "string" }, niche: { type: "string" }, productCategory: { type: "string" },
-            targetAudience: { type: "string" },
-            pricePositioning: { type: "string", enum: ["Luxury", "Premium", "Mid-Market", "Budget"] },
-            businessModel: { type: "string", enum: ["DTC", "Private Label", "Dropshipping", "Marketplace Brand", "Subscription Brand"] },
-          },
-          required: ["brand", "website", "platform", "industry", "niche", "productCategory", "targetAudience", "pricePositioning", "businessModel"],
-        },
-        executiveIntelligence: {
-          type: "object",
-          properties: {
-            businessReality: { type: "string" },
-            biggestOpportunity: { type: "string" },
-            biggestThreat: { type: "string" },
-            revenuePotential: { type: "string", enum: ["Low", "Medium", "High", "Very High"] },
-            revenuePotentialReasoning: { type: "string" },
-            headline: { type: "string" },
-          },
-          required: ["businessReality", "biggestOpportunity", "biggestThreat", "revenuePotential", "revenuePotentialReasoning", "headline"],
-        },
-        scorecard: {
-          type: "object",
-          properties: {
-            seo: { type: "number" }, paidAds: { type: "number" }, cro: { type: "number" },
-            brandAuthority: { type: "number" }, trust: { type: "number" }, productPositioning: { type: "number" },
-            customerAcquisition: { type: "number" }, retention: { type: "number" }, customerExperience: { type: "number" },
-            marketPosition: { type: "number" }, competitiveAdvantage: { type: "number" }, revenueEfficiency: { type: "number" },
-            scalability: { type: "number" }, businessMaturity: { type: "number" }, overall: { type: "number" },
-          },
-          required: ["seo", "paidAds", "cro", "brandAuthority", "trust", "productPositioning", "customerAcquisition", "retention", "customerExperience", "marketPosition", "competitiveAdvantage", "revenueEfficiency", "scalability", "businessMaturity", "overall"],
-        },
-        seoIntelligence: {
-          type: "object",
-          properties: {
-            technical: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            onPage: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            contentAuthority: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            commercialSeo: { type: "object", properties: { score: { type: "number" }, verdict: { type: "string" } }, required: ["score", "verdict"] },
-            technicalIssues: { type: "array", items: { type: "string" } },
-            competitiveSeoGap: { type: "string" },
-          },
-          required: ["technical", "onPage", "contentAuthority", "commercialSeo", "technicalIssues", "competitiveSeoGap"],
-        },
-        adsIntelligence: {
-          type: "object",
-          properties: {
-            metaActivity: { type: "string" }, googleActivity: { type: "string" },
-            creativeStrategy: { type: "string" }, offerStrategy: { type: "string" },
-            messaging: { type: "string" }, hooks: { type: "string" },
-            acquisitionMaturity: { type: "string", enum: ["Beginner", "Intermediate", "Advanced", "Elite"] },
-            maturityReasoning: { type: "string" },
-          },
-          required: ["metaActivity", "googleActivity", "creativeStrategy", "offerStrategy", "messaging", "hooks", "acquisitionMaturity", "maturityReasoning"],
-        },
-        conversionIntelligence: {
-          type: "object",
-          properties: {
-            homepage: { type: "string" }, productPages: { type: "string" }, cartCheckout: { type: "string" }, mobile: { type: "string" }, ctaStrength: { type: "string" },
-            friction: { type: "array", items: { type: "string" } },
-            trustGaps: { type: "array", items: { type: "string" } },
-            conversionKillers: { type: "array", items: { type: "string" } },
-          },
-          required: ["homepage", "productPages", "cartCheckout", "mobile", "ctaStrength", "friction", "trustGaps", "conversionKillers"],
-        },
-        brandIntelligence: {
-          type: "object",
-          properties: {
-            positioning: { type: "string" }, valueProposition: { type: "string" }, storytelling: { type: "string" },
-            differentiation: { type: "string" }, visualIdentity: { type: "string" }, premiumPerception: { type: "string" },
-            whyChooseThisBrand: { type: "string" },
-          },
-          required: ["positioning", "valueProposition", "storytelling", "differentiation", "visualIdentity", "premiumPerception", "whyChooseThisBrand"],
-        },
-        psychologyIntelligence: {
-          type: "object",
-          properties: {
-            trust: { type: "string" }, riskPerception: { type: "string" }, buyingMotivation: { type: "string" },
-            emotionalTriggers: { type: "string" }, socialProof: { type: "string" }, authoritySignals: { type: "string" },
-            firstTimeTrustVerdict: { type: "string", enum: ["Yes", "No", "Maybe"] },
-            trustReasoning: { type: "string" },
-          },
-          required: ["trust", "riskPerception", "buyingMotivation", "emotionalTriggers", "socialProof", "authoritySignals", "firstTimeTrustVerdict", "trustReasoning"],
-        },
-        acquisitionIntelligence: {
-          type: "object",
-          properties: {
-            organic: { type: "string" }, paid: { type: "string" }, social: { type: "string" },
-            influencer: { type: "string" }, emailSms: { type: "string" },
-            mostLikelyGrowthChannel: { type: "string" }, highestRoiChannel: { type: "string" }, mostUnderutilizedChannel: { type: "string" },
-          },
-          required: ["organic", "paid", "social", "influencer", "emailSms", "mostLikelyGrowthChannel", "highestRoiChannel", "mostUnderutilizedChannel"],
-        },
-        retentionIntelligence: {
-          type: "object",
-          properties: {
-            email: { type: "string" }, sms: { type: "string" }, loyalty: { type: "string" }, subscription: { type: "string" }, repeatPurchase: { type: "string" },
-            retentionMaturityScore: { type: "number" }, retentionVerdict: { type: "string" },
-          },
-          required: ["email", "sms", "loyalty", "subscription", "repeatPurchase", "retentionMaturityScore", "retentionVerdict"],
-        },
-        competitors: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              name: { type: "string" }, website: { type: "string" },
-              tier: { type: "string", enum: ["Tier 1", "Tier 2", "Tier 3"] },
-              positioning: { type: "string" }, strengths: { type: "string" }, weaknesses: { type: "string" }, usp: { type: "string" },
-            },
-            required: ["name", "website", "tier", "positioning", "strengths", "weaknesses", "usp"],
-          },
-        },
-        competitiveGap: {
-          type: "object",
-          properties: {
-            competitorAdvantages: { type: "array", items: { type: "string" } },
-            missingFeatures: { type: "array", items: { type: "string" } },
-            marketOpportunities: { type: "array", items: { type: "string" } },
-            differentiationOpportunities: { type: "array", items: { type: "string" } },
-            blueOcean: { type: "array", items: { type: "string" } },
-          },
-          required: ["competitorAdvantages", "missingFeatures", "marketOpportunities", "differentiationOpportunities", "blueOcean"],
-        },
-        revenueLeakage: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              area: { type: "string" }, leak: { type: "string" },
-              severity: { type: "string", enum: ["Critical", "High", "Medium", "Low"] },
-              impact: { type: "string" },
-            },
-            required: ["area", "leak", "severity", "impact"],
-          },
-        },
-        issueClassification: {
-          type: "object",
-          properties: {
-            superHot: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
-            hot: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
-            medium: { type: "array", items: { type: "object", properties: { issue: { type: "string" }, why: { type: "string" }, fix: { type: "string" } }, required: ["issue", "why", "fix"] } },
-          },
-          required: ["superHot", "hot", "medium"],
-        },
-        opportunities: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              title: { type: "string" }, expectedImpact: { type: "string" },
-              difficulty: { type: "string", enum: ["Easy", "Medium", "Hard"] },
-              roi: { type: "string", enum: ["Low", "Medium", "High", "Very High"] },
-              action: { type: "string" },
-            },
-            required: ["title", "expectedImpact", "difficulty", "roi", "action"],
-          },
-        },
-        actionPlan: {
-          type: "object",
-          properties: {
-            immediate: { type: "array", items: { type: "string" } },
-            growth: { type: "array", items: { type: "string" } },
-            scale: { type: "array", items: { type: "string" } },
-          },
-          required: ["immediate", "growth", "scale"],
-        },
-        founderInsights: {
-          type: "object",
-          properties: {
-            privateEquity: { type: "string" }, croExpert: { type: "string" }, brandingExpert: { type: "string" },
-            performanceMarketer: { type: "string" }, ceo: { type: "string" },
-          },
-          required: ["privateEquity", "croExpert", "brandingExpert", "performanceMarketer", "ceo"],
-        },
-      },
-      required: ["storeName", "platformGuess", "business", "executiveIntelligence", "scorecard", "seoIntelligence", "adsIntelligence", "conversionIntelligence", "brandIntelligence", "psychologyIntelligence", "acquisitionIntelligence", "retentionIntelligence", "competitors", "competitiveGap", "revenueLeakage", "issueClassification", "opportunities", "actionPlan", "founderInsights"],
-    };
-
-    const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Lovable-API-Key": apiKey,
-      },
-      signal: AbortSignal.timeout(90000),
-      body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
-        messages: [
-          { role: "system", content: system },
-          { role: "user", content: userPrompt },
-        ],
-        tools: [{
-          type: "function",
-          function: {
-            name: "submit_audit_report",
-            description: "Submit the completed Being Ecom Brain™ Growth Intelligence Report.",
-            parameters: schemaForModel,
-          },
-        }],
-        tool_choice: { type: "function", function: { name: "submit_audit_report" } },
-      }),
-    });
-
-    if (res.status === 429) {
-      console.error("[audit] AI gateway 429 rate limit", { url: normalized });
-      throw new Error("Too many requests right now. Please try again in a minute.");
+    const signals = analyzeHtml(html, normalized, status);
+    const report = buildReport(signals, { revenue: data.revenue, adSpend: data.adSpend, country: data.country });
+    const validated = auditReportSchema.safeParse(report);
+    if (!validated.success) {
+      console.error("[audit] internal report schema failed", validated.error.issues.slice(0, 5));
+      throw new Error("Audit engine returned invalid shape.");
     }
-    if (res.status === 402) {
-      console.error("[audit] AI gateway 402 credits exhausted", { url: normalized });
-      throw new Error("AI credits exhausted. Please contact BeingEcom.");
-    }
-    if (!res.ok) {
-      const txt = await res.text().catch(() => "");
-      console.error("[audit] AI gateway non-OK response", { status: res.status, url: normalized, body: txt.slice(0, 500) });
-      throw new Error(`Audit service failed (${res.status}). ${txt.slice(0, 200)}`);
-    }
-
-    const json = await res.json();
-    const toolCall = json?.choices?.[0]?.message?.tool_calls?.[0];
-    const args = toolCall?.function?.arguments;
-    if (!args) {
-      console.error("[audit] AI response missing tool_call arguments", { url: normalized, preview: JSON.stringify(json).slice(0, 800) });
-      throw new Error("Audit service returned an unexpected response.");
-    }
-
-    let parsedArgs: any;
-    try { parsedArgs = typeof args === "string" ? JSON.parse(args) : args; }
-    catch (err) {
-      console.error("[audit] JSON parse failure on AI tool args", { url: normalized, err: String(err), preview: String(args).slice(0, 600) });
-      throw new Error("Failed to parse audit response.");
-    }
-
-    // Clamp arrays so AI overflow never breaks Zod validation
-    const clamp = (arr: any, n: number) => Array.isArray(arr) ? arr.slice(0, n) : arr;
-    if (parsedArgs?.seoIntelligence) parsedArgs.seoIntelligence.technicalIssues = clamp(parsedArgs.seoIntelligence.technicalIssues, 6);
-    if (parsedArgs?.conversionIntelligence) {
-      parsedArgs.conversionIntelligence.friction = clamp(parsedArgs.conversionIntelligence.friction, 5);
-      parsedArgs.conversionIntelligence.trustGaps = clamp(parsedArgs.conversionIntelligence.trustGaps, 5);
-      parsedArgs.conversionIntelligence.conversionKillers = clamp(parsedArgs.conversionIntelligence.conversionKillers, 5);
-    }
-    if (parsedArgs?.competitiveGap) {
-      parsedArgs.competitiveGap.competitorAdvantages = clamp(parsedArgs.competitiveGap.competitorAdvantages, 5);
-      parsedArgs.competitiveGap.missingFeatures = clamp(parsedArgs.competitiveGap.missingFeatures, 5);
-      parsedArgs.competitiveGap.marketOpportunities = clamp(parsedArgs.competitiveGap.marketOpportunities, 5);
-      parsedArgs.competitiveGap.differentiationOpportunities = clamp(parsedArgs.competitiveGap.differentiationOpportunities, 5);
-      parsedArgs.competitiveGap.blueOcean = clamp(parsedArgs.competitiveGap.blueOcean, 3);
-    }
-    parsedArgs.competitors = clamp(parsedArgs.competitors, 10);
-    parsedArgs.revenueLeakage = clamp(parsedArgs.revenueLeakage, 8);
-    if (parsedArgs?.issueClassification) {
-      parsedArgs.issueClassification.superHot = clamp(parsedArgs.issueClassification.superHot, 5);
-      parsedArgs.issueClassification.hot = clamp(parsedArgs.issueClassification.hot, 5);
-      parsedArgs.issueClassification.medium = clamp(parsedArgs.issueClassification.medium, 5);
-    }
-    parsedArgs.opportunities = clamp(parsedArgs.opportunities, 5);
-    if (parsedArgs?.actionPlan) {
-      parsedArgs.actionPlan.immediate = clamp(parsedArgs.actionPlan.immediate, 7);
-      parsedArgs.actionPlan.growth = clamp(parsedArgs.actionPlan.growth, 7);
-      parsedArgs.actionPlan.scale = clamp(parsedArgs.actionPlan.scale, 7);
-    }
-
-    const result = auditReportSchema.safeParse(parsedArgs);
-    if (!result.success) {
-      const issues = result.error.issues.slice(0, 8).map(i => ({ path: i.path.join("."), code: i.code, message: i.message }));
-      console.error("[audit] Zod validation failed", { url: normalized, issueCount: result.error.issues.length, issues });
-      throw new Error(`Audit response failed validation (${result.error.issues.length} issues). First: ${issues[0]?.path} — ${issues[0]?.message}`);
-    }
-    return { url: normalized, report: result.data };
+    return { url: normalized, report: validated.data };
   });
-
