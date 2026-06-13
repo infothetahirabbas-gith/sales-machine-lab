@@ -50,6 +50,14 @@ function flatRows(r: AuditReport): { section: string; key: string; value: string
   push("Executive", "Revenue Potential", r.executiveIntelligence.revenuePotential);
   Object.entries(r.business).forEach(([k, v]) => push("Business", k, String(v)));
   Object.entries(r.scorecard).forEach(([k, v]) => push("Scorecard", k, v));
+  push("Confidence", "Overall", `${r.confidenceBreakdown.overall}%`);
+  push("Confidence", "Signals detected", `${r.confidenceBreakdown.detectedSignals}/${r.confidenceBreakdown.scannedSignals}`);
+  push("Confidence", "Coverage", r.confidenceBreakdown.coverageNote);
+  r.confidenceBreakdown.categories.forEach((category) => {
+    push("Confidence", category.category, `${category.confidence}% — ${category.recommendation}`);
+    category.drivers.forEach((driver, idx) =>
+      push(`Signals: ${category.category}`, `${idx + 1}. ${driver.signal}`, `${driver.detected ? "Detected" : "Not detected"} | ${driver.evidence} | ${driver.impact}`));
+  });
   push("SEO", "Technical", `${r.seoIntelligence.technical.score}/100 — ${r.seoIntelligence.technical.verdict}`);
   push("SEO", "On-Page", `${r.seoIntelligence.onPage.score}/100 — ${r.seoIntelligence.onPage.verdict}`);
   push("SEO", "Content Authority", `${r.seoIntelligence.contentAuthority.score}/100 — ${r.seoIntelligence.contentAuthority.verdict}`);
@@ -215,6 +223,19 @@ export function downloadPDF(r: AuditReport, url: string) {
     body: scoreRows(r).map(([k, v]) => [String(k), String(v)]),
     headStyles: { fillColor: [15, 23, 42] },
     styles: { fontSize: 9 },
+    margin: { left: M, right: M },
+  });
+
+  autoTable(doc, {
+    head: [["Recommendation area", "Confidence", "Local signals that drove it"]],
+    body: r.confidenceBreakdown.categories.map((category) => [
+      category.category,
+      `${category.confidence}%`,
+      category.drivers.map((driver) => `${driver.detected ? "Found" : "Missing"}: ${driver.signal} (${driver.impact})`).join("\n"),
+    ]),
+    headStyles: { fillColor: [2, 132, 199] },
+    styles: { fontSize: 8, cellWidth: "wrap" },
+    columnStyles: { 0: { cellWidth: 100 }, 1: { cellWidth: 70 } },
     margin: { left: M, right: M },
   });
 
