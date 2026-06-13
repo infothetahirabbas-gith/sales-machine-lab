@@ -47,28 +47,28 @@
 
 :root {
   --radius: 0.9rem;
-  /* Clean white · black · light-blue system */
-  --background: oklch(1 0 0);                       /* pure white */
-  --foreground: oklch(0.16 0.02 250);               /* near-black ink */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.02 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.02 250);
-  --primary: oklch(0.65 0.18 245);                  /* vivid sky-blue */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.012 245);               /* very light blue tint */
-  --secondary-foreground: oklch(0.16 0.02 250);
-  --muted: oklch(0.97 0.01 245);
-  --muted-foreground: oklch(0.45 0.02 250);
-  --accent: oklch(0.82 0.12 235);                   /* light powder blue */
-  --accent-foreground: oklch(0.16 0.02 250);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.012 245);
-  --input: oklch(0.94 0.012 245);
-  --ring: oklch(0.65 0.18 245);
-  --ink: oklch(0.12 0.02 250);
-  --sky: oklch(0.92 0.04 235);
+  /* BeingEcom black · green · white system */
+  --background: oklch(0.134409 0 0);                /* #080808 */
+  --foreground: oklch(1 0 0);                      /* #FFFFFF */
+  --card: oklch(0.17 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.17 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.783693 0.207099 128.749);      /* #8FD000 */
+  --primary-foreground: oklch(0.134409 0 0);
+  --secondary: oklch(0.697298 0.184796 128.949);    /* #79B200 */
+  --secondary-foreground: oklch(0.134409 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(1 0 0 / 0.68);
+  --accent: oklch(0.697298 0.184796 128.949);
+  --accent-foreground: oklch(0.134409 0 0);
+  --destructive: oklch(0.783693 0.207099 128.749);
+  --destructive-foreground: oklch(0.134409 0 0);
+  --border: oklch(1 0 0 / 0.16);
+  --input: oklch(1 0 0 / 0.2);
+  --ring: oklch(0.783693 0.207099 128.749);
+  --ink: oklch(1 0 0);
+  --sky: oklch(0.697298 0.184796 128.949);
 }
 
 @layer base {
@@ -79,62 +79,49 @@
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(1200px 600px at 90% -10%, oklch(0.65 0.18 245 / 0.10), transparent 60%),
-      radial-gradient(800px 500px at -10% 30%, oklch(0.82 0.12 235 / 0.18), transparent 55%);
-    background-attachment: fixed;
+    background-image: none;
   }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; color: var(--ink); }
-  ::selection { background: oklch(0.65 0.18 245 / 0.25); }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
 }
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(110deg, oklch(0.16 0.02 250), oklch(0.55 0.2 248) 50%, oklch(0.16 0.02 250));
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shimmer 4s linear infinite;
+    background: none;
+    color: var(--primary);
   }
   .text-sky-gradient {
-    background: linear-gradient(110deg, oklch(0.65 0.18 245), oklch(0.82 0.12 235));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: none;
+    color: var(--primary);
   }
   .grid-bg {
-    background-image:
-      linear-gradient(oklch(0.16 0.02 250 / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.16 0.02 250 / 0.05) 1px, transparent 1px);
-    background-size: 44px 44px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent 80%);
+    background-image: none;
   }
 
   /* Buttons */
   .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base w-auto max-w-full; }
   .btn-primary {
-    background: linear-gradient(135deg, oklch(0.65 0.18 245), oklch(0.55 0.2 248));
+    background: var(--primary);
     color: var(--primary-foreground);
-    box-shadow: 0 10px 30px -10px oklch(0.65 0.18 245 / 0.55), inset 0 1px 0 oklch(1 0 0 / 0.3);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_oklch(0.65_0.18_245/0.7)] active:translate-y-0;
+    box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--primary) 55%, transparent);
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-dark {
-    background: oklch(0.16 0.02 250);
-    color: oklch(1 0 0);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[oklch(0.22_0.02_250)] hover:shadow-[0_18px_40px_-18px_oklch(0.16_0.02_250/0.55)] active:translate-y-0;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-ghost {
-    background: oklch(1 0 0);
+    background: transparent;
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-[oklch(0.65_0.18_245)] hover:text-[oklch(0.55_0.2_248)] hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)];
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-primary hover:text-primary;
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
     content: "";
     position: absolute; inset: 0;
-    background: linear-gradient(120deg, transparent 25%, oklch(1 0 0 / 0.4) 50%, transparent 75%);
+    background: none;
     transform: translateX(-100%);
     transition: transform 0.8s;
   }
@@ -146,15 +133,15 @@
 
   /* Cards */
   .card-surface {
-    background: oklch(1 0 0);
+    background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.3s;
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    border-color: oklch(0.65 0.18 245 / 0.4);
-    box-shadow: 0 24px 60px -28px oklch(0.65 0.18 245 / 0.45), 0 4px 12px -6px oklch(0.16 0.02 250 / 0.06);
+    border-color: color-mix(in oklab, var(--primary) 40%, transparent);
+    box-shadow: 0 24px 60px -28px color-mix(in oklab, var(--primary) 45%, transparent);
   }
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
@@ -163,7 +150,7 @@
     transition: background-color 0.6s ease;
   }
   .section-hover:hover {
-    background-color: oklch(0.98 0.01 245);
+    background-color: var(--card);
   }
 
   .pulse-dot { position: relative; }
