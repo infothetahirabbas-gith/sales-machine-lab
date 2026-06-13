@@ -184,7 +184,7 @@
   svg [fill]:not([fill="none"]):not([fill="currentColor"]) { fill: var(--primary) !important; }
   svg [stroke]:not([stroke="none"]):not([stroke="currentColor"]) { stroke: var(--primary) !important; }
   [style*="color: rgb"], [style*="color:#"], [style*="color: #"] { color: var(--primary) !important; }
-  [class*="blur-"] { display: none !important; }
+  [class*="absolute"][class*="blur-"] { display: none !important; }
 
   .pulse-dot { position: relative; }
   .pulse-dot::after {
