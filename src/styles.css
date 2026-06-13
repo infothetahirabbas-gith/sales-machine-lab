@@ -153,6 +153,27 @@
     background-color: var(--card);
   }
 
+  /* Enforce the site-wide no-gradient, black/green/white brand system. */
+  [class*="bg-gradient"],
+  [class*="from-"],
+  [class*="via-"],
+  [class*="to-"] {
+    background-image: none !important;
+  }
+  [class*="bg-gradient"][class*="text-white"] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+  [class*="text-emerald"], [class*="text-amber"], [class*="text-yellow"],
+  [class*="text-sky"], [class*="text-blue"], [class*="text-red"],
+  [class*="text-orange"], [class*="text-purple"], [class*="text-indigo"],
+  [class*="text-pink"] { color: var(--primary) !important; }
+  [class*="bg-emerald"], [class*="bg-amber"], [class*="bg-yellow"],
+  [class*="bg-sky"], [class*="bg-blue"], [class*="bg-red"],
+  [class*="bg-orange"], [class*="bg-purple"], [class*="bg-indigo"],
+  [class*="bg-pink"] { background-color: var(--primary) !important; }
+  svg linearGradient stop { stop-color: var(--primary) !important; }
+
   .pulse-dot { position: relative; }
   .pulse-dot::after {
     content: "";
@@ -184,8 +205,8 @@
   @keyframes slideRight { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
   @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 oklch(0.65 0.18 245 / 0.55); }
-    100% { box-shadow: 0 0 0 18px oklch(0.65 0.18 245 / 0); }
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 55%, transparent); }
+    100% { box-shadow: 0 0 0 18px transparent; }
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }

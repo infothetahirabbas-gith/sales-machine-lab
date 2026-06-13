@@ -161,7 +161,6 @@ function Home() {
           </div>
           <div
             className="relative w-full overflow-hidden"
-            style={{ maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)" }}
           >
             <div className="marquee-track marquee-fast text-muted-foreground font-semibold whitespace-nowrap">
               {Array.from({ length: 2 }).flatMap((_, k) =>
@@ -354,7 +353,6 @@ function Home() {
       <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
         <div
           className="relative overflow-hidden"
-          style={{ maskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 6%, black 94%, transparent)" }}
         >
           <div className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
