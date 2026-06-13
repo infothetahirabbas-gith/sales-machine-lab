@@ -172,6 +172,10 @@
   [class*="bg-sky"], [class*="bg-blue"], [class*="bg-red"],
   [class*="bg-orange"], [class*="bg-purple"], [class*="bg-indigo"],
   [class*="bg-pink"] { background-color: var(--primary) !important; }
+  [class*="border-emerald"], [class*="border-amber"], [class*="border-yellow"],
+  [class*="border-sky"], [class*="border-blue"], [class*="border-red"],
+  [class*="border-orange"], [class*="border-purple"], [class*="border-indigo"],
+  [class*="border-pink"] { border-color: color-mix(in oklab, var(--primary) 45%, transparent) !important; }
   .bg-white, [class*="bg-white/"] { background-color: var(--card) !important; }
   .bg-black, [class*="bg-black/"] { background-color: var(--background) !important; }
   .text-black { color: var(--foreground) !important; }
@@ -180,6 +184,7 @@
   svg [fill]:not([fill="none"]):not([fill="currentColor"]) { fill: var(--primary) !important; }
   svg [stroke]:not([stroke="none"]):not([stroke="currentColor"]) { stroke: var(--primary) !important; }
   [style*="color: rgb"], [style*="color:#"], [style*="color: #"] { color: var(--primary) !important; }
+  [class*="blur-"] { display: none !important; }
 
   .pulse-dot { position: relative; }
   .pulse-dot::after {
