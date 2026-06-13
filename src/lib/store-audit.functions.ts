@@ -44,6 +44,18 @@ const leakSchema = z.object({
   impact: z.string(),
 });
 
+const confidenceCategorySchema = z.object({
+  category: z.string(),
+  confidence: z.number().min(0).max(100),
+  recommendation: z.string(),
+  drivers: z.array(z.object({
+    signal: z.string(),
+    detected: z.boolean(),
+    evidence: z.string(),
+    impact: z.string(),
+  })).min(1).max(6),
+});
+
 export const auditReportSchema = z.object({
   storeName: z.string(),
   platformGuess: z.string(),
@@ -65,6 +77,13 @@ export const auditReportSchema = z.object({
     customerAcquisition: z.number().min(0).max(100), retention: z.number().min(0).max(100), customerExperience: z.number().min(0).max(100),
     marketPosition: z.number().min(0).max(100), competitiveAdvantage: z.number().min(0).max(100), revenueEfficiency: z.number().min(0).max(100),
     scalability: z.number().min(0).max(100), businessMaturity: z.number().min(0).max(100), overall: z.number().min(0).max(100),
+  }),
+  confidenceBreakdown: z.object({
+    overall: z.number().min(0).max(100),
+    scannedSignals: z.number().int().min(1),
+    detectedSignals: z.number().int().min(0),
+    coverageNote: z.string(),
+    categories: z.array(confidenceCategorySchema).min(1).max(8),
   }),
   seoIntelligence: z.object({
     technical: scoreSchema, onPage: scoreSchema, contentAuthority: scoreSchema, commercialSeo: scoreSchema,
@@ -281,6 +300,62 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   const maturity = clamp((trust + brandAuth + retention + seoOverall) / 4);
   const overall = clamp((seoOverall + paidScore + croScore + trust + brandAuth + retention + customerExp + marketPos + compAdv + revenueEff + scalability + maturity) / 12);
 
+  const signalFlags = [
+    s.reachable, s.isHttps, s.hasViewport, Boolean(s.title), Boolean(s.metaDesc), Boolean(s.canonical),
+    s.hasSchema, s.hasFavicon, s.h1Count === 1, s.imgCount === 0 || s.imgMissingAlt / s.imgCount <= 0.3,
+    s.hasReviews, s.hasTrustBadges, s.hasUSP, s.hasGuarantee, s.hasAddToCart, s.hasShipping,
+    s.hasReturns, s.hasContact, s.hasAbout, s.hasFAQ, s.hasBlog, s.hasNewsletter, s.hasPrivacy,
+    s.hasTerms, s.hasMetaPixel, s.hasGA, s.hasTikTok, s.hasKlaviyo, s.hasSMS, s.hasSubscription,
+    s.hasChat, s.socialLinks.length >= 2,
+  ];
+  const detectedSignals = signalFlags.filter(Boolean).length;
+  const signalEvidence = (yes: boolean, present: string, absent: string) => yes ? present : absent;
+  const confidenceCategories = [
+    {
+      category: "SEO",
+      confidence: s.reachable ? 94 : 35,
+      recommendation: seoOverall < 65 ? "Fix technical and on-page SEO foundations first." : "Protect the foundation and expand commercial content.",
+      drivers: [
+        { signal: "Canonical URL", detected: Boolean(s.canonical), evidence: signalEvidence(Boolean(s.canonical), `Found: ${s.canonical}`, "No canonical tag found"), impact: s.canonical ? "+6 technical points" : "-6 technical points" },
+        { signal: "Structured data", detected: s.hasSchema, evidence: signalEvidence(s.hasSchema, "JSON-LD detected", "No JSON-LD detected"), impact: s.hasSchema ? "+10 technical points" : "-8 technical points" },
+        { signal: "Single H1", detected: s.h1Count === 1, evidence: `${s.h1Count} H1 tag${s.h1Count === 1 ? "" : "s"} found`, impact: s.h1Count === 1 ? "+8 on-page points" : "Up to -12 on-page points" },
+        { signal: "Meta description", detected: Boolean(s.metaDesc), evidence: s.metaDesc ? `${s.metaDesc.length} characters` : "Missing", impact: s.metaDesc ? "Supports organic CTR" : "-10 on-page points" },
+      ],
+    },
+    {
+      category: "Conversion & trust",
+      confidence: s.reachable ? 91 : 30,
+      recommendation: croScore < 65 ? "Prioritize proof, risk reversal, and the purchase path." : "Test incremental PDP and checkout improvements.",
+      drivers: [
+        { signal: "Reviews", detected: s.hasReviews, evidence: signalEvidence(s.hasReviews, "Review text or widget detected", "No reviews detected"), impact: s.hasReviews ? "+10 CRO / +12 trust" : "-8 CRO / -10 trust" },
+        { signal: "Guarantee", detected: s.hasGuarantee, evidence: signalEvidence(s.hasGuarantee, "Guarantee language detected", "No guarantee detected"), impact: s.hasGuarantee ? "+10 trust points" : "-5 trust points" },
+        { signal: "Primary purchase CTA", detected: s.hasAddToCart, evidence: signalEvidence(s.hasAddToCart, "Add-to-cart language detected", "No add-to-cart language detected"), impact: s.hasAddToCart ? "+5 CRO points" : "-10 CRO points" },
+        { signal: "Trust badges", detected: s.hasTrustBadges, evidence: signalEvidence(s.hasTrustBadges, "Security/trust terms detected", "No trust badges detected"), impact: s.hasTrustBadges ? "+8 CRO points" : "-5 CRO points" },
+      ],
+    },
+    {
+      category: "Acquisition tracking",
+      confidence: s.reachable ? 89 : 25,
+      recommendation: paidScore < 60 ? "Install measurement before increasing ad spend." : "Tracking foundation is ready for structured creative tests.",
+      drivers: [
+        { signal: "Meta Pixel", detected: s.hasMetaPixel, evidence: signalEvidence(s.hasMetaPixel, "Meta Pixel code detected", "Meta Pixel not detected"), impact: s.hasMetaPixel ? "+20 paid points" : "-5 paid points" },
+        { signal: "GA4 / GTM", detected: s.hasGA, evidence: signalEvidence(s.hasGA, "Google analytics code detected", "GA4/GTM not detected"), impact: s.hasGA ? "+12 paid points" : "-5 paid points" },
+        { signal: "TikTok Pixel", detected: s.hasTikTok, evidence: signalEvidence(s.hasTikTok, "TikTok tracking detected", "TikTok tracking not detected"), impact: s.hasTikTok ? "+10 paid points" : "No score change" },
+      ],
+    },
+    {
+      category: "Retention",
+      confidence: s.reachable ? 87 : 25,
+      recommendation: retention < 60 ? "Build email capture and lifecycle flows before adding channels." : "Advance segmentation, loyalty, and repeat-purchase programs.",
+      drivers: [
+        { signal: "Email platform", detected: s.hasKlaviyo, evidence: signalEvidence(s.hasKlaviyo, "Klaviyo detected", "Klaviyo not detected"), impact: s.hasKlaviyo ? "+15 retention points" : "-5 retention points" },
+        { signal: "Newsletter capture", detected: s.hasNewsletter, evidence: signalEvidence(s.hasNewsletter, "Signup language detected", "No newsletter capture detected"), impact: s.hasNewsletter ? "+8 retention points" : "-5 retention points" },
+        { signal: "SMS platform", detected: s.hasSMS, evidence: signalEvidence(s.hasSMS, "SMS tool detected", "No SMS tool detected"), impact: s.hasSMS ? "+12 retention points" : "No score change" },
+        { signal: "Subscription", detected: s.hasSubscription, evidence: signalEvidence(s.hasSubscription, "Subscription offer detected", "No subscription offer detected"), impact: s.hasSubscription ? "+12 retention points" : "No score change" },
+      ],
+    },
+  ];
+
   // ---------- Issues ----------
   const techIssues: string[] = [];
   if (!s.isHttps) techIssues.push("Site not served over HTTPS");
@@ -425,6 +500,15 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       customerAcquisition: acquisition, retention, customerExperience: customerExp,
       marketPosition: marketPos, competitiveAdvantage: compAdv, revenueEfficiency: revenueEff,
       scalability, businessMaturity: maturity, overall,
+    },
+    confidenceBreakdown: {
+      overall: s.reachable ? clamp(82 + Math.min(12, s.htmlSize / 20000)) : 28,
+      scannedSignals: signalFlags.length,
+      detectedSignals,
+      coverageNote: s.reachable
+        ? `Analyzed ${s.htmlSize.toLocaleString()} HTML characters and ${signalFlags.length} local on-page signals. Off-site rankings, ad-account data, and checkout-only events are not included.`
+        : "The storefront could not be fully fetched, so recommendations use limited URL-level evidence.",
+      categories: confidenceCategories,
     },
     seoIntelligence: {
       technical: { score: clamp(seoTech), verdict: clamp(seoTech) >= 70 ? "Strong technical foundation" : `${techIssues.length} technical issues need fixing` },

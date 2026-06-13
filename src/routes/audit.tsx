@@ -10,6 +10,7 @@ import {
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
+import { Button } from "../components/ui/button";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import {
@@ -322,8 +323,8 @@ function AuditPage() {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       console.error("[audit:client] request failed", { url, revenue, adSpend, country, elapsedSec, error: msg });
       setError(elapsedSec >= TIMEOUT_SECONDS
-        ? "The audit took longer than 90 seconds. The AI service may be busy right now — please try again in a moment."
-        : msg);
+        ? "The store did not respond in time. Please check the URL and retry."
+        : msg.replace(/credits?\s+exhausted[^.]*\.?/gi, "The store could not be analyzed right now."));
     } finally {
       clearInterval(stepTimer);
       clearInterval(tickTimer);
@@ -348,7 +349,7 @@ function AuditPage() {
             The <span className="text-sky-gradient">board-level audit</span> your ecommerce store has been missing
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritized 90-day action plan — all powered by real signals from your live store. No signup. Free.
+            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritized 90-day action plan — powered by local signals from your live store. No signup, AI credits, or paid usage.
           </p>
 
           <form onSubmit={onSubmit} className="mt-8 card-surface p-5 lg:p-7 text-left">
@@ -500,7 +501,7 @@ function AuditPage() {
               {timedOut ? (
                 <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-sm text-destructive">
                   <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>The audit is taking longer than 90s. The AI service may be busy — if no result appears shortly, please refresh and retry.</span>
+                  <span>The store is taking longer than 90 seconds to respond. Check the URL, then refresh and retry.</span>
                 </div>
               ) : (
                 <p className="mt-4 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at ~90s.</p>
@@ -521,21 +522,21 @@ function AuditPage() {
                 <span className="font-semibold text-ink">Report ready.</span> Export the full 17-phase intelligence in your preferred format.
               </div>
               <div className="flex flex-wrap gap-2">
-                <button onClick={() => downloadPDF(report, auditedUrl)} className="btn btn-primary inline-flex items-center gap-2">
+                <Button onClick={() => downloadPDF(report, auditedUrl)}>
                   <FileText className="w-4 h-4" /> PDF
-                </button>
-                <button onClick={() => downloadXLSX(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                </Button>
+                <Button variant="secondary" onClick={() => downloadXLSX(report, auditedUrl)}>
                   <FileSpreadsheet className="w-4 h-4" /> Excel
-                </button>
-                <button onClick={() => downloadCSV(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                </Button>
+                <Button variant="secondary" onClick={() => downloadCSV(report, auditedUrl)}>
                   <FileType2 className="w-4 h-4" /> CSV
-                </button>
-                <button onClick={() => downloadReportJson(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                </Button>
+                <Button variant="secondary" onClick={() => downloadReportJson(report, auditedUrl)}>
                   <FileJson className="w-4 h-4" /> JSON
-                </button>
-                <button onClick={() => downloadReportMarkdown(report, auditedUrl)} className="btn btn-secondary inline-flex items-center gap-2">
+                </Button>
+                <Button variant="secondary" onClick={() => downloadReportMarkdown(report, auditedUrl)}>
                   <Download className="w-4 h-4" /> Markdown
-                </button>
+                </Button>
               </div>
             </div>
 
@@ -772,6 +773,45 @@ function AuditPage() {
                     </div>
                   );
                 })}
+              </div>
+            </SectionCard>
+
+            {/* LOCAL SIGNAL CONFIDENCE */}
+            <SectionCard icon={ShieldCheck} title="Recommendation Confidence" kicker="Local evidence · transparent scoring">
+              <div className="grid gap-5 lg:grid-cols-[220px_1fr]">
+                <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-center">
+                  <ScoreRing value={report.confidenceBreakdown.overall} label="Evidence confidence" />
+                  <div className="mt-3 text-sm font-bold text-ink tabular-nums">
+                    {report.confidenceBreakdown.detectedSignals}/{report.confidenceBreakdown.scannedSignals} signals detected
+                  </div>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{report.confidenceBreakdown.coverageNote}</p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {report.confidenceBreakdown.categories.map((category) => (
+                    <details key={category.category} className="group rounded-xl border border-border bg-card p-4 open:border-primary/30">
+                      <summary className="flex cursor-pointer list-none items-start justify-between gap-3">
+                        <div>
+                          <h4 className="text-sm font-bold text-ink">{category.category}</h4>
+                          <p className="mt-1 text-xs text-muted-foreground">{category.recommendation}</p>
+                        </div>
+                        <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold tabular-nums text-primary">{category.confidence}%</span>
+                      </summary>
+                      <div className="mt-4 space-y-2 border-t border-border pt-3">
+                        {category.drivers.map((driver) => (
+                          <div key={driver.signal} className="grid grid-cols-[18px_1fr] gap-2 text-xs">
+                            {driver.detected
+                              ? <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-600" />
+                              : <AlertTriangle className="mt-0.5 h-4 w-4 text-amber-600" />}
+                            <div>
+                              <div className="font-semibold text-ink">{driver.signal} <span className="font-normal text-primary">· {driver.impact}</span></div>
+                              <div className="mt-0.5 text-muted-foreground">{driver.evidence}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
               </div>
             </SectionCard>
 
