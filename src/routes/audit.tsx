@@ -324,7 +324,7 @@ function AuditPage() {
       console.error("[audit:client] request failed", { url, revenue, adSpend, country, elapsedSec, error: msg });
       setError(elapsedSec >= TIMEOUT_SECONDS
         ? "The store did not respond in time. Please check the URL and retry."
-        : msg.replace(/AI credits exhausted[^.]*\.?/gi, "The store could not be analyzed right now."));
+        : msg.replace(/credits?\s+exhausted[^.]*\.?/gi, "The store could not be analyzed right now."));
     } finally {
       clearInterval(stepTimer);
       clearInterval(tickTimer);
