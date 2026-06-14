@@ -378,7 +378,7 @@ export function TimelineSection() {
                   <p className="mt-2 text-sm text-muted-foreground">{t.d}</p>
                 </div>
                 <div className={`relative flex ${i % 2 ? "md:justify-end" : "md:justify-start"}`}>
-                  <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-primary shadow-lg" />
+                  <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-background border-4 border-primary shadow-lg" />
                   <div className="inline-flex items-baseline gap-2 bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white px-5 py-3 rounded-2xl shadow-xl">
                     <DollarSign className="w-4 h-4" />
                     <span className="text-2xl font-bold">{t.v}</span>
@@ -518,7 +518,7 @@ function QuoteCarousel() {
                 <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/10" />
                 <p className="text-lg md:text-xl text-ink leading-relaxed font-medium">"{q.q}"</p>
                 <div className="mt-5 flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${i === 0 ? "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" : i === 1 ? "from-[oklch(0.7_0.16_245)] to-[oklch(0.55_0.2_265)]" : "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]"} text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-white`}>
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${i === 0 ? "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" : i === 1 ? "from-[oklch(0.7_0.16_245)] to-[oklch(0.55_0.2_265)]" : "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]"} text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-border`}>
                     {q.n.split(" ").map((p) => p[0]).join("")}
                   </div>
                   <div>
