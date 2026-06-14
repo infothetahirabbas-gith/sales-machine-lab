@@ -176,8 +176,8 @@
   [class*="border-sky"], [class*="border-blue"], [class*="border-red"],
   [class*="border-orange"], [class*="border-purple"], [class*="border-indigo"],
   [class*="border-pink"] { border-color: color-mix(in oklab, var(--primary) 45%, transparent) !important; }
-  .bg-white, [class*="bg-white/"] { background-color: var(--card) !important; }
-  .bg-black, [class*="bg-black/"] { background-color: var(--background) !important; }
+  .bg-white { background-color: var(--background) !important; }
+  .bg-black { background-color: oklch(0.134409 0 0) !important; }
   .text-black { color: var(--foreground) !important; }
   [style*="linear-gradient"], [style*="radial-gradient"] { background-image: none !important; mask-image: none !important; }
   svg linearGradient stop { stop-color: var(--primary) !important; stop-opacity: 1 !important; }
