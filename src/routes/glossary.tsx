@@ -175,17 +175,16 @@ function GlossaryPage() {
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0a0d14] via-[#0d1220] to-background text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.6_0.18_245/0.25),transparent_60%)]" />
+      <section className="relative overflow-hidden bg-background text-foreground">
         <div className="relative mx-auto max-w-5xl px-5 lg:px-8 pt-28 pb-20 lg:pt-36 lg:pb-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
             <BookOpen className="w-3.5 h-3.5 text-primary" />
             SEO Glossary · Updated for 2026
           </div>
           <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             The Ecommerce SEO Glossary
           </h1>
-          <p className="mt-5 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             15 essential SEO terms every Shopify & WooCommerce founder must know — explained
             simply, with real ecommerce examples that drive traffic, rankings, and revenue.
           </p>
@@ -198,7 +197,7 @@ function GlossaryPage() {
             </Link>
             <Link
               to="/services/seo"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
             >
               Our SEO Service
             </Link>
@@ -269,11 +268,11 @@ function GlossaryPage() {
         </ol>
 
         {/* Closing CTA */}
-        <div className="mt-20 rounded-3xl bg-gradient-to-br from-[#0a0d14] to-[#0d1c33] text-white p-10 lg:p-14 text-center">
+        <div className="mt-20 rounded-3xl border border-border bg-card text-foreground p-10 lg:p-14 text-center">
           <h2 className="font-display text-3xl lg:text-4xl font-bold tracking-tight">
             Ready to turn SEO into real revenue?
           </h2>
-          <p className="mt-4 text-white/70 max-w-xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
             Get a free 12-point ecommerce SEO audit of your Shopify or WooCommerce store — built by
             senior operators, not junior analysts.
           </p>
@@ -286,7 +285,7 @@ function GlossaryPage() {
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
             >
               Book a Strategy Call
             </Link>

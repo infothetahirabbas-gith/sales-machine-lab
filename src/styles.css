@@ -47,27 +47,27 @@
 
 :root {
   --radius: 0.9rem;
-  /* BeingEcom black · green · white system */
-  --background: oklch(0.134409 0 0);                /* #080808 */
-  --foreground: oklch(1 0 0);                      /* #FFFFFF */
-  --card: oklch(0.17 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.17 0 0);
-  --popover-foreground: oklch(1 0 0);
+  /* BeingEcom white · green · black system */
+  --background: oklch(1 0 0);                       /* white */
+  --foreground: oklch(0.134409 0 0);                /* #080808 */
+  --card: oklch(0.97 0 0);
+  --card-foreground: oklch(0.134409 0 0);
+  --popover: oklch(0.97 0 0);
+  --popover-foreground: oklch(0.134409 0 0);
   --primary: oklch(0.783693 0.207099 128.749);      /* #8FD000 */
   --primary-foreground: oklch(0.134409 0 0);
   --secondary: oklch(0.697298 0.184796 128.949);    /* #79B200 */
   --secondary-foreground: oklch(0.134409 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(1 0 0 / 0.68);
+  --muted: oklch(0.94 0 0);
+  --muted-foreground: oklch(0.134409 0 0 / 0.55);
   --accent: oklch(0.697298 0.184796 128.949);
-  --accent-foreground: oklch(0.134409 0 0);
-  --destructive: oklch(0.783693 0.207099 128.749);
-  --destructive-foreground: oklch(0.134409 0 0);
-  --border: oklch(1 0 0 / 0.16);
-  --input: oklch(1 0 0 / 0.2);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.134409 0 0 / 0.12);
+  --input: oklch(0.134409 0 0 / 0.18);
   --ring: oklch(0.783693 0.207099 128.749);
-  --ink: oklch(1 0 0);
+  --ink: oklch(0.134409 0 0);
   --sky: oklch(0.697298 0.184796 128.949);
 }
 
@@ -176,8 +176,8 @@
   [class*="border-sky"], [class*="border-blue"], [class*="border-red"],
   [class*="border-orange"], [class*="border-purple"], [class*="border-indigo"],
   [class*="border-pink"] { border-color: color-mix(in oklab, var(--primary) 45%, transparent) !important; }
-  .bg-white, [class*="bg-white/"] { background-color: var(--card) !important; }
-  .bg-black, [class*="bg-black/"] { background-color: var(--background) !important; }
+  .bg-white { background-color: var(--background) !important; }
+  .bg-black { background-color: oklch(0.134409 0 0) !important; }
   .text-black { color: var(--foreground) !important; }
   [style*="linear-gradient"], [style*="radial-gradient"] { background-image: none !important; mask-image: none !important; }
   svg linearGradient stop { stop-color: var(--primary) !important; stop-opacity: 1 !important; }

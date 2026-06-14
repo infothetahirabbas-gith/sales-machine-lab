@@ -53,7 +53,7 @@ function About() {
                   width={480}
                   height={480}
                   loading="eager"
-                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl ring-8 ring-white"
+                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl ring-8 ring-border"
                 />
               </div>
             </div>
