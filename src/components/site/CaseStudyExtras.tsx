@@ -171,18 +171,17 @@ function MiniBars({ count = 14, accent = "bg-primary" }: { count?: number; accen
 
 export function AdsDashboardSection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#0a0d14] relative overflow-hidden">
-      <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-primary/20 blur-[140px] rounded-full" />
-      <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] bg-[#7c5cff]/20 blur-[140px] rounded-full" />
+    <section className="py-20 lg:py-28 bg-card relative overflow-hidden border-y border-border">
+      <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-primary/10 blur-[140px] rounded-full" />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Ads Performance
           </div>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white leading-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
             What our paid accounts <span className="text-gradient">actually look like</span>
           </h2>
-          <p className="mt-3 text-white/60">Live snapshot from one of our managed Shopify accounts. Numbers blurred for client privacy.</p>
+          <p className="mt-3 text-muted-foreground">Live snapshot from one of our managed Shopify accounts. Numbers blurred for client privacy.</p>
         </div>
 
         {/* KPI cards */}
@@ -193,40 +192,40 @@ export function AdsDashboardSection() {
             { l: "Blended ROAS", v: "4.79×", d: "+1.4×", Icon: Target, up: true },
             { l: "Blended CAC", v: "$24.12", d: "-31%", Icon: TrendingDown, up: false },
           ].map((k) => (
-            <div key={k.l} className="rounded-2xl bg-white/[0.04] border border-white/10 p-5 backdrop-blur">
+            <div key={k.l} className="rounded-2xl bg-background border border-border p-5">
               <div className="flex items-center justify-between">
-                <div className="text-[11px] uppercase tracking-widest text-white/50">{k.l}</div>
+                <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{k.l}</div>
                 <k.Icon className="w-4 h-4 text-primary" />
               </div>
-              <div className="mt-2 text-2xl font-bold text-white">{k.v}</div>
-              <div className={`mt-2 inline-flex items-center gap-1 text-[11px] font-semibold ${k.up ? "text-[#4ade80]" : "text-[#4ade80]"}`}>
+              <div className="mt-2 text-2xl font-bold text-ink">{k.v}</div>
+              <div className={`mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-primary`}>
                 {k.up ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                 {k.d} vs prior 30D
               </div>
               <div className="mt-3 text-primary">
-                <MiniBars accent={k.up ? "bg-primary" : "bg-[#4ade80]"} />
+                <MiniBars accent={k.up ? "bg-primary" : "bg-secondary"} />
               </div>
             </div>
           ))}
         </div>
 
         {/* Campaign table */}
-        <div className="rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <div className="rounded-2xl bg-background border border-border overflow-hidden">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-border">
             <div>
-              <div className="text-sm font-bold text-white">Top campaigns · last 30 days</div>
-              <div className="text-[11px] text-white/50">Cross-platform unified view</div>
+              <div className="text-sm font-bold text-ink">Top campaigns · last 30 days</div>
+              <div className="text-[11px] text-muted-foreground">Cross-platform unified view</div>
             </div>
             <div className="flex gap-2 text-[11px]">
-              <span className="px-2.5 py-1 rounded-full bg-[#4ade80]/10 text-[#4ade80] font-semibold inline-flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" /> Live
+              <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold inline-flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Live
               </span>
             </div>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-[10px] uppercase tracking-widest text-white/40 text-left">
+                <tr className="text-[10px] uppercase tracking-widest text-muted-foreground text-left">
                   <th className="px-5 py-3 font-semibold">Campaign</th>
                   <th className="px-3 py-3 font-semibold">Platform</th>
                   <th className="px-3 py-3 font-semibold text-right">Spend</th>
@@ -236,22 +235,22 @@ export function AdsDashboardSection() {
                   <th className="px-5 py-3 font-semibold text-right">Δ ROAS</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-border">
                 {adsRows.map((r) => (
-                  <tr key={r.name} className="hover:bg-white/[0.03] transition">
+                  <tr key={r.name} className="hover:bg-foreground/[0.03] transition">
                     <td className="px-5 py-4">
-                      <div className="font-semibold text-white">{r.name}</div>
-                      <div className="text-[10px] text-[#4ade80] mt-0.5 inline-flex items-center gap-1">
-                        <span className="w-1 h-1 rounded-full bg-[#4ade80]" /> {r.status}
+                      <div className="font-semibold text-ink">{r.name}</div>
+                      <div className="text-[10px] text-primary mt-0.5 inline-flex items-center gap-1">
+                        <span className="w-1 h-1 rounded-full bg-primary" /> {r.status}
                       </div>
                     </td>
                     <td className="px-3 py-4"><PlatformBadge p={r.platform} /></td>
-                    <td className="px-3 py-4 text-right text-white/90 font-mono">{r.spend}</td>
+                    <td className="px-3 py-4 text-right text-foreground/90 font-mono">{r.spend}</td>
                     <td className="px-3 py-4 text-right font-bold text-primary font-mono">{r.roas}</td>
-                    <td className="px-3 py-4 text-right text-white/70 font-mono hidden md:table-cell">{r.purchases}</td>
-                    <td className="px-3 py-4 text-right text-white/70 font-mono hidden md:table-cell">{r.cpa}</td>
+                    <td className="px-3 py-4 text-right text-muted-foreground font-mono hidden md:table-cell">{r.purchases}</td>
+                    <td className="px-3 py-4 text-right text-muted-foreground font-mono hidden md:table-cell">{r.cpa}</td>
                     <td className="px-5 py-4 text-right">
-                      <span className="inline-flex items-center gap-1 text-[#4ade80] font-semibold text-xs">
+                      <span className="inline-flex items-center gap-1 text-primary font-semibold text-xs">
                         <TrendingUp className="w-3 h-3" /> {r.delta}
                       </span>
                     </td>
