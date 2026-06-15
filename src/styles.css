@@ -31,6 +31,8 @@
   --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-sky: var(--sky);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
@@ -50,25 +52,27 @@
   /* BeingEcom white · green · black system */
   --background: oklch(1 0 0);                       /* white */
   --foreground: oklch(0.134409 0 0);                /* #080808 */
-  --card: oklch(0.97 0 0);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.134409 0 0);
-  --popover: oklch(0.97 0 0);
+  --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.134409 0 0);
-  --primary: oklch(0.783693 0.207099 128.749);      /* #8FD000 */
-  --primary-foreground: oklch(0.134409 0 0);
-  --secondary: oklch(0.697298 0.184796 128.949);    /* #79B200 */
+  --primary: oklch(0.134409 0 0);                   /* #080808 */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.965 0 0);
   --secondary-foreground: oklch(0.134409 0 0);
-  --muted: oklch(0.94 0 0);
+  --muted: oklch(0.95 0 0);
   --muted-foreground: oklch(0.134409 0 0 / 0.55);
-  --accent: oklch(0.697298 0.184796 128.949);
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.783693 0.207099 128.749);       /* #8FD000 hover accent */
+  --accent-foreground: oklch(0.134409 0 0);
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.134409 0 0 / 0.12);
   --input: oklch(0.134409 0 0 / 0.18);
   --ring: oklch(0.783693 0.207099 128.749);
   --ink: oklch(0.134409 0 0);
-  --sky: oklch(0.697298 0.184796 128.949);
+  --sky: oklch(0.134409 0 0);
+  --brand: oklch(0.783693 0.207099 128.749);        /* #8FD000 */
+  --brand-strong: oklch(0.697298 0.184796 128.949); /* #79B200 */
 }
 
 @layer base {
@@ -88,11 +92,11 @@
 @layer utilities {
   .text-gradient {
     background: none;
-    color: var(--primary);
+    color: var(--ink);
   }
   .text-sky-gradient {
     background: none;
-    color: var(--primary);
+    color: var(--ink);
   }
   .grid-bg {
     background-image: none;
@@ -101,21 +105,21 @@
   /* Buttons */
   .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base w-auto max-w-full; }
   .btn-primary {
-    background: var(--primary);
+    background: var(--ink);
     color: var(--primary-foreground);
-    box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--primary) 55%, transparent);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 active:translate-y-0;
+    box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--ink) 55%, transparent);
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
   }
   .btn-dark {
-    background: var(--primary);
+    background: var(--ink);
     color: var(--primary-foreground);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 active:translate-y-0;
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
   }
   .btn-ghost {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-primary hover:text-primary;
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10;
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
@@ -140,8 +144,8 @@
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    border-color: color-mix(in oklab, var(--primary) 40%, transparent);
-    box-shadow: 0 24px 60px -28px color-mix(in oklab, var(--primary) 45%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+    box-shadow: 0 24px 60px -32px color-mix(in oklab, var(--ink) 35%, transparent);
   }
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
@@ -160,30 +164,7 @@
   [class*="to-"] {
     background-image: none !important;
   }
-  [class*="bg-gradient"][class*="text-white"] {
-    background-color: var(--primary) !important;
-    color: var(--primary-foreground) !important;
-  }
-  [class*="text-emerald"], [class*="text-amber"], [class*="text-yellow"],
-  [class*="text-sky"], [class*="text-blue"], [class*="text-red"],
-  [class*="text-orange"], [class*="text-purple"], [class*="text-indigo"],
-  [class*="text-pink"] { color: var(--primary) !important; }
-  [class*="bg-emerald"], [class*="bg-amber"], [class*="bg-yellow"],
-  [class*="bg-sky"], [class*="bg-blue"], [class*="bg-red"],
-  [class*="bg-orange"], [class*="bg-purple"], [class*="bg-indigo"],
-  [class*="bg-pink"] { background-color: var(--primary) !important; }
-  [class*="border-emerald"], [class*="border-amber"], [class*="border-yellow"],
-  [class*="border-sky"], [class*="border-blue"], [class*="border-red"],
-  [class*="border-orange"], [class*="border-purple"], [class*="border-indigo"],
-  [class*="border-pink"] { border-color: color-mix(in oklab, var(--primary) 45%, transparent) !important; }
-  .bg-white { background-color: var(--background) !important; }
-  .bg-black { background-color: oklch(0.134409 0 0) !important; }
-  .text-black { color: var(--foreground) !important; }
   [style*="linear-gradient"], [style*="radial-gradient"] { background-image: none !important; mask-image: none !important; }
-  svg linearGradient stop { stop-color: var(--primary) !important; stop-opacity: 1 !important; }
-  svg [fill]:not([fill="none"]):not([fill="currentColor"]) { fill: var(--primary) !important; }
-  svg [stroke]:not([stroke="none"]):not([stroke="currentColor"]) { stroke: var(--primary) !important; }
-  [style*="color: rgb"], [style*="color:#"], [style*="color: #"] { color: var(--primary) !important; }
   [class*="absolute"][class*="blur-"] { display: none !important; }
 
   .pulse-dot { position: relative; }
@@ -191,7 +172,7 @@
     content: "";
     position: absolute; inset: 0;
     border-radius: 9999px;
-    background: var(--primary);
+    background: var(--accent);
     animation: pulseGlow 2.4s ease-out infinite;
   }
 
@@ -217,7 +198,7 @@
   @keyframes slideRight { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
   @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 55%, transparent); }
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 55%, transparent); }
     100% { box-shadow: 0 0 0 18px transparent; }
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
