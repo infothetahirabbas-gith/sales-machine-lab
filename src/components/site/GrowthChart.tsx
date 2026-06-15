@@ -1,8 +1,5 @@
 type Variant = {
   label: string;
-  primary: string;
-  primaryLight: string;
-  secondary: string;
   // Line series (main metric)
   line: number[]; // 12 points, 0-100
   // Bar series (sessions / impressions / opens etc.)
@@ -14,9 +11,6 @@ type Variant = {
 const variants: Record<string, Variant> = {
   revenue: {
     label: "Revenue",
-    primary: "oklch(0.55 0.2 248)",
-    primaryLight: "oklch(0.82 0.12 235)",
-    secondary: "oklch(0.55 0.2 248 / 0.15)",
     line: [18, 22, 28, 26, 35, 42, 48, 55, 62, 70, 78, 88],
     bars: [30, 38, 45, 42, 55, 62, 68, 72, 78, 82, 88, 95],
     xLabels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
@@ -24,9 +18,6 @@ const variants: Record<string, Variant> = {
   },
   seo: {
     label: "Organic clicks",
-    primary: "oklch(0.62 0.18 165)",
-    primaryLight: "oklch(0.8 0.14 165)",
-    secondary: "oklch(0.62 0.18 165 / 0.15)",
     line: [8, 10, 14, 18, 22, 28, 36, 44, 54, 66, 78, 92],
     bars: [15, 20, 26, 32, 38, 45, 52, 60, 68, 76, 85, 94],
     xLabels: ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12"],
@@ -34,9 +25,6 @@ const variants: Record<string, Variant> = {
   },
   ads: {
     label: "ROAS",
-    primary: "oklch(0.7 0.2 35)",
-    primaryLight: "oklch(0.82 0.16 50)",
-    secondary: "oklch(0.7 0.2 35 / 0.15)",
     line: [25, 38, 32, 48, 42, 58, 55, 68, 72, 78, 85, 92],
     bars: [40, 45, 42, 55, 50, 62, 60, 70, 75, 80, 86, 92],
     xLabels: ["D1", "D3", "D5", "D7", "D9", "D11", "D13", "D15", "D17", "D19", "D21", "D23"],
@@ -44,9 +32,6 @@ const variants: Record<string, Variant> = {
   },
   email: {
     label: "Email revenue",
-    primary: "oklch(0.62 0.22 305)",
-    primaryLight: "oklch(0.78 0.18 305)",
-    secondary: "oklch(0.62 0.22 305 / 0.15)",
     line: [12, 18, 24, 30, 36, 44, 50, 56, 64, 72, 80, 88],
     bars: [20, 28, 35, 40, 48, 55, 62, 68, 74, 80, 86, 92],
     xLabels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
@@ -54,9 +39,6 @@ const variants: Record<string, Variant> = {
   },
   cro: {
     label: "Conv rate",
-    primary: "oklch(0.6 0.2 200)",
-    primaryLight: "oklch(0.8 0.15 200)",
-    secondary: "oklch(0.6 0.2 200 / 0.15)",
     line: [15, 20, 25, 32, 40, 48, 54, 62, 70, 76, 84, 92],
     bars: [25, 32, 38, 45, 52, 58, 64, 70, 76, 82, 88, 94],
     xLabels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
@@ -110,17 +92,17 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
     <svg viewBox={`0 0 ${W} ${H}`} className={className} role="img" aria-label={`${v.label} chart`}>
       <defs>
         <linearGradient id={gradId} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor={v.primary} stopOpacity="0.45" />
-          <stop offset="60%" stopColor={v.primary} stopOpacity="0.1" />
-          <stop offset="100%" stopColor={v.primary} stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--ink)" stopOpacity="0.16" />
+          <stop offset="60%" stopColor="var(--ink)" stopOpacity="0.06" />
+          <stop offset="100%" stopColor="var(--ink)" stopOpacity="0" />
         </linearGradient>
         <linearGradient id={strokeId} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopColor={v.primaryLight} />
-          <stop offset="100%" stopColor={v.primary} />
+          <stop offset="0%" stopColor="var(--ink)" />
+          <stop offset="100%" stopColor="var(--ink)" />
         </linearGradient>
         <linearGradient id={barGradId} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor={v.primary} stopOpacity="0.35" />
-          <stop offset="100%" stopColor={v.primary} stopOpacity="0.05" />
+          <stop offset="0%" stopColor="var(--ink)" stopOpacity="0.13" />
+          <stop offset="100%" stopColor="var(--ink)" stopOpacity="0.04" />
         </linearGradient>
         <filter id={`glow-${variant}`} x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="3" result="blur" />
@@ -184,19 +166,19 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
         return (
           <g key={`pt-${variant}-${i}`}>
             {isLast && (
-              <circle cx={p.x} cy={p.y} r="12" fill={v.primary} fillOpacity="0.2">
+              <circle cx={p.x} cy={p.y} r="12" fill="var(--ink)" fillOpacity="0.14">
                 <animate attributeName="r" values="10;16;10" dur="1.8s" repeatCount="indefinite" />
                 <animate attributeName="fill-opacity" values="0.3;0.05;0.3" dur="1.8s" repeatCount="indefinite" />
               </circle>
             )}
-            <circle cx={p.x} cy={p.y} r={isLast ? 5 : 3.5} fill="white" stroke={v.primary} strokeWidth={isLast ? 2.5 : 2} />
+            <circle cx={p.x} cy={p.y} r={isLast ? 5 : 3.5} fill="white" stroke="var(--ink)" strokeWidth={isLast ? 2.5 : 2} />
           </g>
         );
       })}
 
       {/* Last value badge */}
       <g>
-        <rect x={last.x - 38} y={last.y - 30} width="36" height="18" rx="4" fill={v.primary} />
+        <rect x={last.x - 38} y={last.y - 30} width="36" height="18" rx="4" fill="var(--ink)" />
         <text x={last.x - 20} y={last.y - 18} fontSize="10" fontWeight="700" fill="white" textAnchor="middle" fontFamily="ui-sans-serif, system-ui">
           {v.line[v.line.length - 1]}{v.yLabel}
         </text>

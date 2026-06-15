@@ -136,12 +136,12 @@ function Home() {
                   <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
                   <span key={`t-${dash.key}`} style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.title}</span>
                 </div>
-                <span key={`b-${dash.key}`} className="text-primary font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
+                <span key={`b-${dash.key}`} className="text-foreground font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
               </div>
               <GrowthChart key={dash.key} className="w-full h-auto" variant={dash.key} />
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {dash.metrics.map((m)=>(
-                  <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-primary/10 hover:-translate-y-0.5" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+                  <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-accent/10 hover:-translate-y-0.5" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                     <div className="text-xs text-muted-foreground">{m.l}</div>
                     <div className="font-bold text-ink">{m.v}</div>
                   </div>
@@ -300,12 +300,12 @@ function Home() {
                 { v: "+285%", l: "CR uplift" },
               ].map((m) => (
                 <div key={m.l} className="rounded-xl border border-border bg-card/60 p-4">
-                  <div className="text-2xl font-bold text-gradient">{m.v}</div>
+                  <div className="text-2xl font-bold text-foreground">{m.v}</div>
                   <div className="text-xs text-muted-foreground mt-1">{m.l}</div>
                 </div>
               ))}
             </div>
-            <Link to="/case-studies" className="inline-block mt-6 text-primary font-semibold hover:underline">
+            <Link to="/case-studies" className="inline-block mt-6 text-foreground font-semibold underline-offset-4 hover:text-brand hover:underline">
               See full case studies →
             </Link>
           </div>

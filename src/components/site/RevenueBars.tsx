@@ -47,10 +47,10 @@ export default function RevenueBars({ bars }: { bars: Bar[] }) {
               )}
             </span>
             <span className="text-muted-foreground whitespace-nowrap">
-              <span className="text-destructive/80 line-through decoration-destructive/40 mr-2">
+              <span className="text-muted-foreground line-through decoration-border mr-2">
                 {formatBar(b.before, b.unit)}
               </span>
-              <span className="text-emerald-600 font-bold">
+              <span className="text-foreground font-bold">
                 {formatBar(b.after, b.unit)}
               </span>
             </span>
@@ -64,14 +64,14 @@ export default function RevenueBars({ bars }: { bars: Bar[] }) {
               inView={inView}
               reduced={reduced}
               delay={i * 120}
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-destructive/30 to-destructive/15 rounded-full"
+              className="absolute inset-y-0 left-0 bg-muted-foreground/25 rounded-full"
             />
             <BarFill
               percent={(b.after / max) * 100}
               inView={inView}
               reduced={reduced}
               delay={i * 120 + 250}
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary via-[oklch(0.6_0.2_260)] to-accent rounded-full shadow-[0_0_18px_-2px_oklch(0.55_0.2_265/0.55)]"
+              className="absolute inset-y-0 left-0 bg-foreground rounded-full"
             />
           </div>
         </div>
