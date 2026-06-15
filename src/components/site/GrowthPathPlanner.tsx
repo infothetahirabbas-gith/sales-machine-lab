@@ -54,8 +54,6 @@ export default function GrowthPathPlanner() {
     };
   }, [path, goal, target, budget]);
 
-  const accent = path === "ads" ? "oklch(0.7 0.2 35)" : "oklch(0.55 0.2 248)";
-
   return (
     <section className="relative py-20 lg:py-28 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
@@ -82,7 +80,7 @@ export default function GrowthPathPlanner() {
             const active = i + 1 <= step;
             return (
               <div key={label} className="flex items-center gap-2">
-                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${active ? "bg-primary text-primary-foreground shadow-[0_8px_24px_-8px_oklch(0.55_0.2_248/0.6)]" : "bg-secondary text-muted-foreground"}`}>
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${active ? "bg-foreground text-background shadow-sm" : "bg-secondary text-muted-foreground"}`}>
                   <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${active ? "bg-white/20" : "bg-background"}`}>{active && i + 1 < step ? <Check className="w-3 h-3" /> : i + 1}</span>
                   {label}
                 </div>
@@ -156,10 +154,10 @@ export default function GrowthPathPlanner() {
                     <button
                       key={g.key}
                       onClick={() => setGoal(g.key)}
-                      className={`relative rounded-xl p-3 text-left transition-all ${goal === g.key ? "bg-primary text-primary-foreground shadow-md" : "bg-secondary text-ink hover:bg-secondary/70"}`}
+                     className={`relative rounded-xl border p-3 text-left transition-all ${goal === g.key ? "bg-foreground text-background border-foreground shadow-md" : "bg-background text-ink border-border hover:border-accent hover:bg-accent/10"}`}
                     >
                       <div className="font-bold text-sm">{g.label}</div>
-                      <div className={`text-[10px] ${goal === g.key ? "text-primary-foreground/80" : "text-muted-foreground"} mt-0.5`}>{g.sub}</div>
+                       <div className={`text-[10px] ${goal === g.key ? "text-background/70" : "text-muted-foreground"} mt-0.5`}>{g.sub}</div>
                     </button>
                   ))}
                 </div>
@@ -181,14 +179,8 @@ export default function GrowthPathPlanner() {
                 </div>
                 <div className="relative h-28 mb-3">
                   <svg viewBox="0 0 400 110" className="w-full h-full" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="gpFill2" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor={accent} stopOpacity="0.4" />
-                        <stop offset="100%" stopColor={accent} stopOpacity="0" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4 L 400 110 L 0 110 Z" fill="url(#gpFill2)" />
-                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4" stroke={accent} strokeWidth="2.5" fill="none" />
+                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4 L 400 110 L 0 110 Z" fill="var(--ink)" fillOpacity="0.1" />
+                    <path d="M0 100 C 100 95, 180 75, 260 50 S 360 12, 400 4" stroke="var(--ink)" strokeWidth="2.5" fill="none" className="draw-line" />
                     {(() => {
                       const max = goal === "sales" ? 5000 : 500000;
                       const min = goal === "sales" ? 100 : 5000;
@@ -197,11 +189,11 @@ export default function GrowthPathPlanner() {
                       const y = 100 - pct * pct * 96;
                       return (
                         <>
-                          <line x1={x} y1={y} x2={x} y2={110} stroke={accent} strokeWidth="1" strokeDasharray="2 3" opacity="0.5" />
-                          <circle cx={x} cy={y} r="14" fill={accent} fillOpacity="0.15">
+                          <line x1={x} y1={y} x2={x} y2={110} stroke="var(--ink)" strokeWidth="1" strokeDasharray="2 3" opacity="0.5" />
+                          <circle cx={x} cy={y} r="14" fill="var(--ink)" fillOpacity="0.12">
                             <animate attributeName="r" values="10;16;10" dur="2s" repeatCount="indefinite" />
                           </circle>
-                          <circle cx={x} cy={y} r="6" fill={accent} stroke="white" strokeWidth="2" />
+                          <circle cx={x} cy={y} r="6" fill="var(--ink)" stroke="white" strokeWidth="2" />
                         </>
                       );
                     })()}
@@ -249,11 +241,10 @@ export default function GrowthPathPlanner() {
 
             {/* Right: Sticky result */}
             <div className="lg:col-span-2">
-              <div className="sticky top-24 relative overflow-hidden rounded-3xl p-7 bg-gradient-to-br from-ink to-ink/90 text-background shadow-[0_40px_100px_-30px_oklch(0.16_0.02_250/0.6)]">
-                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style={{ background: `${accent}55` }} />
+               <div className="sticky top-24 relative overflow-hidden rounded-3xl p-7 bg-foreground text-background shadow-[0_40px_100px_-30px_oklch(0.16_0.02_250/0.6)]">
                 <div className="relative">
                   <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold opacity-70">
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: accent }} />
+                     <span className="w-1.5 h-1.5 rounded-full bg-background animate-pulse" />
                     Your growth plan
                   </div>
                   <div className="mt-5 space-y-5">
@@ -275,7 +266,7 @@ export default function GrowthPathPlanner() {
                     <div className="h-px bg-white/10" />
                     <div>
                       <div className="text-xs opacity-60 flex items-center gap-1.5"><TrendingUp className="w-3 h-3" /> Projected outcome</div>
-                      <div className="text-2xl font-bold mt-1" style={{ color: accent }}>{plan?.kpi}</div>
+                       <div className="text-2xl font-bold mt-1 text-background">{plan?.kpi}</div>
                       <div className="text-xs opacity-70 mt-1.5">{plan?.sub}</div>
                     </div>
                   </div>
@@ -284,7 +275,7 @@ export default function GrowthPathPlanner() {
                       ⚠ {plan.warning}
                     </div>
                   )}
-                  <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-white text-ink font-semibold py-3 px-5 hover:bg-white/90 transition-all hover:-translate-y-0.5 hover:shadow-xl">
+                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-background text-foreground font-semibold py-3 px-5 hover:bg-accent hover:text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl">
                     Book Strategy Call <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

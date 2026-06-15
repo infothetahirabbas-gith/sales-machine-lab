@@ -38,15 +38,15 @@ export default function Footer() {
         <div className="lg:col-span-5">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">SERVICES</div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-background/60">
-            <li><Link to="/services/creative" className="hover:text-foreground transition-colors">Creative Production</Link></li>
-            <li><Link to="/services/store-development" className="hover:text-foreground transition-colors">Store Development</Link></li>
-            <li><Link to="/services/scaling" className="hover:text-foreground transition-colors">Scaling Strategy</Link></li>
-            <li><Link to="/services/cro" className="hover:text-foreground transition-colors">Conversion Optimization</Link></li>
-            <li><Link to="/services/analytics" className="hover:text-foreground transition-colors">Analytics & Tracking</Link></li>
-            <li><Link to="/services/paid-ads" className="hover:text-foreground transition-colors">Paid Advertising</Link></li>
-            <li><Link to="/services/funnel" className="hover:text-foreground transition-colors">Funnel Optimization</Link></li>
-            <li><Link to="/services/seo" className="hover:text-foreground transition-colors">Ecommerce SEO</Link></li>
-            <li><Link to="/services/email-sms" className="hover:text-foreground transition-colors">Email Marketing</Link></li>
+            <li><Link to="/services/creative" className="hover:text-accent transition-colors">Creative Production</Link></li>
+            <li><Link to="/services/store-development" className="hover:text-accent transition-colors">Store Development</Link></li>
+            <li><Link to="/services/scaling" className="hover:text-accent transition-colors">Scaling Strategy</Link></li>
+            <li><Link to="/services/cro" className="hover:text-accent transition-colors">Conversion Optimization</Link></li>
+            <li><Link to="/services/analytics" className="hover:text-accent transition-colors">Analytics & Tracking</Link></li>
+            <li><Link to="/services/paid-ads" className="hover:text-accent transition-colors">Paid Advertising</Link></li>
+            <li><Link to="/services/funnel" className="hover:text-accent transition-colors">Funnel Optimization</Link></li>
+            <li><Link to="/services/seo" className="hover:text-accent transition-colors">Ecommerce SEO</Link></li>
+            <li><Link to="/services/email-sms" className="hover:text-accent transition-colors">Email Marketing</Link></li>
           </ul>
         </div>
 
@@ -56,11 +56,11 @@ export default function Footer() {
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background" />
-              <a href="mailto:hello@beingecom.com" className="hover:text-foreground transition-colors">hello@beingecom.com</a>
+              <a href="mailto:hello@beingecom.com" className="hover:text-accent transition-colors">hello@beingecom.com</a>
             </li>
             <li><Link to="/contact" className="inline-flex items-center gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
-            <li><Link to="/case-studies" className="hover:text-foreground transition-colors">View Case Studies →</Link></li>
-            <li><Link to="/glossary" className="hover:text-foreground transition-colors">SEO Glossary →</Link></li>
+            <li><Link to="/case-studies" className="hover:text-accent transition-colors">View Case Studies →</Link></li>
+            <li><Link to="/glossary" className="hover:text-accent transition-colors">SEO Glossary →</Link></li>
           </ul>
         </div>
       </div>
