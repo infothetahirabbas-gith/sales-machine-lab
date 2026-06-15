@@ -49,30 +49,30 @@
 
 :root {
   --radius: 0.9rem;
-  /* BeingEcom white · green · black system */
-  --background: oklch(1 0 0);                       /* white */
-  --foreground: oklch(0.134409 0 0);                /* #080808 */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.134409 0 0);
+  /* WiseRank-inspired orange, ink and warm-neutral palette */
+  --background: oklch(1 0 0);                       /* #FFFFFF */
+  --foreground: oklch(0.243266 0.024705 263.951);   /* #1A202C */
+  --card: oklch(0.9834 0.004165 236.496);           /* #F7FAFC */
+  --card-foreground: oklch(0.243266 0.024705 263.951);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.134409 0 0);
-  --primary: oklch(0.134409 0 0);                   /* #080808 */
+  --popover-foreground: oklch(0.243266 0.024705 263.951);
+  --primary: oklch(0.687183 0.165136 57.381);       /* #E47B02 */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.965 0 0);
-  --secondary-foreground: oklch(0.134409 0 0);
-  --muted: oklch(0.95 0 0);
-  --muted-foreground: oklch(0.134409 0 0 / 0.55);
-  --accent: oklch(0.783693 0.207099 128.749);       /* #8FD000 hover accent */
-  --accent-foreground: oklch(0.134409 0 0);
+  --secondary: oklch(0.953406 0.024035 67.534);     /* #FBEDDF */
+  --secondary-foreground: oklch(0.243266 0.024705 263.951);
+  --muted: oklch(0.949119 0 0);                    /* #EEEEEE */
+  --muted-foreground: oklch(0.409546 0.028256 246.563); /* #3E4C59 */
+  --accent: oklch(0.687183 0.165136 57.381);        /* #E47B02 */
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.134409 0 0 / 0.12);
-  --input: oklch(0.134409 0 0 / 0.18);
-  --ring: oklch(0.783693 0.207099 128.749);
-  --ink: oklch(0.134409 0 0);
-  --sky: oklch(0.134409 0 0);
-  --brand: oklch(0.783693 0.207099 128.749);        /* #8FD000 */
-  --brand-strong: oklch(0.697298 0.184796 128.949); /* #79B200 */
+  --border: oklch(0.884692 0.020297 69.972);        /* #E2D7CB */
+  --input: oklch(0.884692 0.020297 69.972);
+  --ring: oklch(0.687183 0.165136 57.381);
+  --ink: oklch(0.243266 0.024705 263.951);
+  --sky: oklch(0.687183 0.165136 57.381);
+  --brand: oklch(0.687183 0.165136 57.381);         /* #E47B02 */
+  --brand-strong: oklch(0.570639 0.155157 46.418);  /* #BE530B */
 }
 
 @layer base {
