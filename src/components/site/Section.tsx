@@ -1,6 +1,23 @@
 import { type ReactNode } from "react";
 import { Reveal } from "../../hooks/useReveal";
 
+/** Split a string heading into half ink + half orange to mirror the WiseRank-style
+ *  bi-color headlines across every section. Non-string titles render unchanged. */
+function SplitHeading({ value }: { value: ReactNode }) {
+  if (typeof value !== "string") return <>{value}</>;
+  const tokens = value.split(/(\s+)/);
+  const wordPositions = tokens.map((t, i) => (/\S/.test(t) ? i : -1)).filter((i) => i >= 0);
+  const splitAt = wordPositions[Math.floor(wordPositions.length / 2)] ?? tokens.length;
+  const head = tokens.slice(0, splitAt).join("");
+  const tail = tokens.slice(splitAt).join("");
+  return (
+    <>
+      <span className="text-ink">{head}</span>
+      {tail && <span className="text-sky-gradient">{tail}</span>}
+    </>
+  );
+}
+
 export function Section({
   id,
   eyebrow,
