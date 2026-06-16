@@ -55,7 +55,7 @@ export function Section({
             )}
             {title && (
               <Reveal delay={1}>
-                <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink">{title}</h2>
+                <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink"><SplitHeading value={title} /></h2>
               </Reveal>
             )}
             {intro && (
