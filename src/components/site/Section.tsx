@@ -1,6 +1,23 @@
 import { type ReactNode } from "react";
 import { Reveal } from "../../hooks/useReveal";
 
+/** Split a string heading into half ink + half orange to mirror the WiseRank-style
+ *  bi-color headlines across every section. Non-string titles render unchanged. */
+function SplitHeading({ value }: { value: ReactNode }) {
+  if (typeof value !== "string") return <>{value}</>;
+  const tokens = value.split(/(\s+)/);
+  const wordPositions = tokens.map((t, i) => (/\S/.test(t) ? i : -1)).filter((i) => i >= 0);
+  const splitAt = wordPositions[Math.floor(wordPositions.length / 2)] ?? tokens.length;
+  const head = tokens.slice(0, splitAt).join("");
+  const tail = tokens.slice(splitAt).join("");
+  return (
+    <>
+      <span className="text-ink">{head}</span>
+      {tail && <span className="text-sky-gradient">{tail}</span>}
+    </>
+  );
+}
+
 export function Section({
   id,
   eyebrow,
@@ -38,7 +55,7 @@ export function Section({
             )}
             {title && (
               <Reveal delay={1}>
-                <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink">{title}</h2>
+                <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink"><SplitHeading value={title} /></h2>
               </Reveal>
             )}
             {intro && (
@@ -103,7 +120,7 @@ export function CTA({
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
             <div className="relative">
-              <h3 className="text-3xl md:text-5xl font-bold text-ink">{heading}</h3>
+              <h3 className="text-3xl md:text-5xl font-bold text-ink"><SplitHeading value={heading} /></h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{sub}</p>
               <div className="mt-8 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">

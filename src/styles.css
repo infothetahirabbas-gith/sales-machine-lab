@@ -92,7 +92,7 @@
 @layer utilities {
   .text-gradient {
     background: none;
-    color: var(--ink);
+    color: var(--primary);
   }
   .text-sky-gradient {
     background: none;
