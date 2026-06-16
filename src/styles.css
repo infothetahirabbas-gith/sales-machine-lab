@@ -157,7 +157,7 @@
     background-color: var(--card);
   }
 
-  /* Enforce the site-wide no-gradient, black/green/white brand system. */
+  /* Enforce the site-wide no-gradient, WiseRank brand system. */
   [class*="bg-gradient"],
   [class*="from-"],
   [class*="via-"],
@@ -166,6 +166,20 @@
   }
   [style*="linear-gradient"], [style*="radial-gradient"] { background-image: none !important; mask-image: none !important; }
   [class*="absolute"][class*="blur-"] { display: none !important; }
+
+  /* Safety net: any killed gradient that carried white text gets a solid brand surface
+     so chips/badges/icon tiles remain visible and on-brand across every page. */
+  [class*="bg-gradient"][class*="text-white"],
+  [class*="bg-gradient"][class*="text-primary-foreground"] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+  /* Map legacy "orange-500" utilities to the WiseRank primary token. */
+  .bg-orange-500 { background-color: var(--primary) !important; }
+  .text-orange-500 { color: var(--primary) !important; }
+  .ring-orange-500\/60 { --tw-ring-color: color-mix(in oklab, var(--primary) 60%, transparent) !important; }
+  [class*="bg-orange-500/"] { background-color: color-mix(in oklab, var(--primary) 15%, transparent) !important; }
+  [class*="text-orange-500"] { color: var(--primary) !important; }
 
   .pulse-dot { position: relative; }
   .pulse-dot::after {
