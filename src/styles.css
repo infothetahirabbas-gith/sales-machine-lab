@@ -105,10 +105,10 @@
   /* Buttons */
   .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base w-auto max-w-full; }
   .btn-primary {
-    background: var(--ink);
+    background: var(--primary);
     color: var(--primary-foreground);
-    box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--ink) 55%, transparent);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
+    box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--primary) 55%, transparent);
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0;
   }
   .btn-dark {
     background: var(--ink);
