@@ -120,7 +120,7 @@ export function CTA({
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
             <div className="relative">
-              <h3 className="text-3xl md:text-5xl font-bold text-ink">{heading}</h3>
+              <h3 className="text-3xl md:text-5xl font-bold text-ink"><SplitHeading value={heading} /></h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{sub}</p>
               <div className="mt-8 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">
