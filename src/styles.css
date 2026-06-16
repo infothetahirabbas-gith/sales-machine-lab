@@ -96,7 +96,7 @@
   }
   .text-sky-gradient {
     background: none;
-    color: var(--ink);
+    color: var(--primary);
   }
   .grid-bg {
     background-image: none;
