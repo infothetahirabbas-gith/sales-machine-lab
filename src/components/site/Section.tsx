@@ -1,21 +1,36 @@
 import { type ReactNode } from "react";
 import { Reveal } from "../../hooks/useReveal";
 
-/** Split a string heading into half ink + half orange to mirror the WiseRank-style
- *  bi-color headlines across every section. Non-string titles render unchanged. */
-function SplitHeading({ value }: { value: ReactNode }) {
+/** Split a heading string into ink + brand halves. Use "||" in the string for
+ *  an explicit split point, otherwise it splits at the midpoint word boundary.
+ *  Non-string titles render unchanged. Pair with `.split-heading` wrapper. */
+export function SplitHeading({ value, className = "" }: { value: ReactNode; className?: string }) {
   if (typeof value !== "string") return <>{value}</>;
-  const tokens = value.split(/(\s+)/);
-  const wordPositions = tokens.map((t, i) => (/\S/.test(t) ? i : -1)).filter((i) => i >= 0);
-  const splitAt = wordPositions[Math.floor(wordPositions.length / 2)] ?? tokens.length;
-  const head = tokens.slice(0, splitAt).join("");
-  const tail = tokens.slice(splitAt).join("");
+  let head: string;
+  let tail: string;
+  if (value.includes("||")) {
+    const [h, ...rest] = value.split("||");
+    head = h;
+    tail = rest.join("||");
+  } else {
+    const tokens = value.split(/(\s+)/);
+    const wordIdx = tokens.map((t, i) => (/\S/.test(t) ? i : -1)).filter((i) => i >= 0);
+    const splitAt = wordIdx[Math.floor(wordIdx.length / 2)] ?? tokens.length;
+    head = tokens.slice(0, splitAt).join("");
+    tail = tokens.slice(splitAt).join("");
+  }
   return (
-    <>
-      <span className="text-ink">{head}</span>
-      {tail && <span className="text-sky-gradient">{tail}</span>}
-    </>
+    <span className={`split-heading ${className}`}>
+      <span className="split-ink">{head}</span>
+      {tail && <span className="split-brand">{tail}</span>}
+    </span>
   );
+}
+
+/** Body-copy variant of SplitHeading for in-section line emphasis. */
+export function SplitLine({ value, className = "" }: { value: ReactNode; className?: string }) {
+  if (typeof value !== "string") return <>{value}</>;
+  return <SplitHeading value={value} className={`split-line ${className}`} />;
 }
 
 export function Section({
@@ -60,7 +75,7 @@ export function Section({
             )}
             {intro && (
               <Reveal delay={2}>
-                <p className="mt-5 text-lg text-muted-foreground">{intro}</p>
+                <p className="mt-5 text-lg text-muted-foreground"><SplitLine value={intro} /></p>
               </Reveal>
             )}
           </div>

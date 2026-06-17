@@ -72,7 +72,8 @@
   --ink: oklch(0.243266 0.024705 263.951);
   --sky: oklch(0.687183 0.165136 57.381);
   --brand: oklch(0.687183 0.165136 57.381);         /* #E47B02 */
-  --brand-strong: oklch(0.570639 0.155157 46.418);  /* #BE530B */
+  --brand-strong: oklch(0.520639 0.150157 46.418);  /* AA-on-white orange */
+  --brand-on-dark: oklch(0.780000 0.150000 65.000); /* AA-on-ink orange */
 }
 
 @layer base {
@@ -90,16 +91,28 @@
 }
 
 @layer utilities {
-  .text-gradient {
-    background: none;
-    color: var(--primary);
-  }
+  .text-gradient,
   .text-sky-gradient {
     background: none;
-    color: var(--primary);
+    color: var(--brand-strong);
   }
-  .grid-bg {
-    background-image: none;
+  .grid-bg { background-image: none; }
+
+  /* Split heading: half ink + half brand, responsive + balanced. */
+  .split-heading { text-wrap: balance; }
+  .split-heading > .split-ink { color: var(--ink); }
+  .split-heading > .split-brand { color: var(--brand-strong); }
+  /* On ink / dark surfaces, swap to lighter ink + lighter brand for AA. */
+  .on-dark .split-heading > .split-ink,
+  [data-surface="dark"] .split-heading > .split-ink { color: oklch(1 0 0); }
+  .on-dark .split-heading > .split-brand,
+  [data-surface="dark"] .split-heading > .split-brand { color: var(--brand-on-dark); }
+  /* Body-line emphasis variant: small bi-color line under a heading. */
+  .split-line { text-wrap: pretty; }
+  .split-line > .split-ink { color: var(--foreground); font-weight: 500; }
+  .split-line > .split-brand { color: var(--brand-strong); font-weight: 600; }
+  @media (max-width: 480px) {
+    .split-heading > .split-brand::before { content: "\A"; white-space: pre; }
   }
 
   /* Buttons */
