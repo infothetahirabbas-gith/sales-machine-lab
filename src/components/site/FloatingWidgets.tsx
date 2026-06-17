@@ -114,19 +114,22 @@ export default function FloatingWidgets() {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary/30">
-            {messages.map((m) => (
-              <div key={m.id} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}>
-                <div
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm whitespace-pre-line shadow-sm ${
-                    m.role === "user"
-                      ? "bg-primary text-primary-foreground rounded-br-sm"
-                      : "bg-white text-ink border border-border rounded-bl-sm"
-                  }`}
-                >
-                  {renderText(m)}
+            {messages.map((m) => {
+              const isUser = (m.role as string) === "user";
+              return (
+                <div key={m.id} className={`flex ${isUser ? "justify-end" : "justify-start"} animate-fade-in`}>
+                  <div
+                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm whitespace-pre-line shadow-sm ${
+                      isUser
+                        ? "bg-primary text-primary-foreground rounded-br-sm"
+                        : "bg-white text-ink border border-border rounded-bl-sm"
+                    }`}
+                  >
+                    {renderText(m)}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
             {isLoading && (
               <div className="flex justify-start animate-fade-in">
                 <div className="bg-white border border-border rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
