@@ -75,7 +75,7 @@ export function Section({
             )}
             {intro && (
               <Reveal delay={2}>
-                <p className="mt-5 text-lg text-muted-foreground">{intro}</p>
+                <p className="mt-5 text-lg text-muted-foreground"><SplitLine value={intro} /></p>
               </Reveal>
             )}
           </div>
