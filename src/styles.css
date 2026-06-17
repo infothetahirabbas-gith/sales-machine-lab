@@ -72,7 +72,8 @@
   --ink: oklch(0.243266 0.024705 263.951);
   --sky: oklch(0.687183 0.165136 57.381);
   --brand: oklch(0.687183 0.165136 57.381);         /* #E47B02 */
-  --brand-strong: oklch(0.570639 0.155157 46.418);  /* #BE530B */
+  --brand-strong: oklch(0.520639 0.150157 46.418);  /* AA-on-white orange */
+  --brand-on-dark: oklch(0.780000 0.150000 65.000); /* AA-on-ink orange */
 }
 
 @layer base {
