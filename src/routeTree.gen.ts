@@ -30,6 +30,7 @@ import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
@@ -140,6 +141,11 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/api/chat': typeof ApiChatRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/api/chat': typeof ApiChatRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/api/chat': typeof ApiChatRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/api/chat'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/api/chat'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -302,6 +313,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin/case-studies'
     | '/admin/login'
+    | '/api/chat'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -329,6 +341,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  ApiChatRoute: typeof ApiChatRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
@@ -492,6 +505,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -529,6 +549,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  ApiChatRoute: ApiChatRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
