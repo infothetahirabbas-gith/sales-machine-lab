@@ -112,23 +112,22 @@
   .text-gradient,
   .text-sky-gradient {
     background: none;
-    color: var(--brand-strong);
+    color: var(--brand);
+    -webkit-text-fill-color: currentColor;
   }
   .grid-bg { background-image: none; }
 
   /* Split heading: half ink + half brand, responsive + balanced. */
   .split-heading { text-wrap: balance; }
-  .split-heading > .split-ink { color: var(--ink); }
-  .split-heading > .split-brand { color: var(--brand-strong); }
-  /* On ink / dark surfaces, swap to lighter ink + lighter brand for AA. */
+  .split-heading > .split-ink { color: var(--ink); -webkit-text-fill-color: currentColor; }
+  .split-heading > .split-brand { color: var(--brand); -webkit-text-fill-color: currentColor; }
   .on-dark .split-heading > .split-ink,
   [data-surface="dark"] .split-heading > .split-ink { color: oklch(1 0 0); }
   .on-dark .split-heading > .split-brand,
   [data-surface="dark"] .split-heading > .split-brand { color: var(--brand-on-dark); }
-  /* Body-line emphasis variant: small bi-color line under a heading. */
   .split-line { text-wrap: pretty; }
-  .split-line > .split-ink { color: var(--foreground); font-weight: 500; }
-  .split-line > .split-brand { color: var(--brand-strong); font-weight: 600; }
+  .split-line > .split-ink { color: var(--foreground); font-weight: 500; -webkit-text-fill-color: currentColor; }
+  .split-line > .split-brand { color: var(--brand); font-weight: 600; -webkit-text-fill-color: currentColor; }
   @media (max-width: 480px) {
     .split-heading > .split-brand::before { content: "\A"; white-space: pre; }
   }
