@@ -7,11 +7,10 @@ const WHATSAPP_NUMBER = "923186230122";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BeingEcom — I'd like to chat about growing my store.")}`;
 
 const QUICK_REPLIES = [
-  "How can I audit my store?",
-  "Show me pricing",
-  "What services do you offer?",
-  "Show case studies",
-  "Book a strategy call",
+  "I have a Shopify store",
+  "I'm planning to launch",
+  "I need more traffic & sales",
+  "Book a consultation",
 ];
 
 const transport = new DefaultChatTransport({ api: "/api/chat" });
@@ -31,7 +30,7 @@ export default function FloatingWidgets() {
         parts: [
           {
             type: "text",
-            text: "Hi 👋 I'm the Being Ecom Assistant. How can I help — audit, pricing, services, or a quick call?",
+            text: "Hello and welcome to Being Ecom 👋\n\nI'm your Ecommerce Growth Assistant. How can I help you today?\n\nDo you currently have an ecommerce store, or are you planning to launch one?",
           },
         ],
       },
