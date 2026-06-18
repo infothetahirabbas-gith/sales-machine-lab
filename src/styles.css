@@ -86,26 +86,24 @@
     -webkit-font-smoothing: antialiased;
     background-image: none;
   }
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1.15;
-    background-image: linear-gradient(90deg, var(--brand-strong) 0%, var(--brand) 60%, var(--brand-on-dark) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--brand);
+    /* Reset any inherited webkit fill so child spans render in their own color */
+    -webkit-text-fill-color: currentColor;
   }
-  /* Split-heading opts out of the gradient so ink/orange halves are honored. */
+  /* Split-heading lets ink/orange halves shine through. */
   .split-heading {
-    background: none !important;
-    -webkit-text-fill-color: currentColor !important;
-    color: var(--ink) !important;
+    color: var(--ink);
+    -webkit-text-fill-color: currentColor;
   }
-  .on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4,
-  [data-surface="dark"] h1, [data-surface="dark"] h2, [data-surface="dark"] h3, [data-surface="dark"] h4 {
-    background-image: linear-gradient(90deg, var(--brand-on-dark) 0%, var(--brand) 50%, oklch(1 0 0) 100%);
+  .on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4, .on-dark h5, .on-dark h6,
+  [data-surface="dark"] h1, [data-surface="dark"] h2, [data-surface="dark"] h3,
+  [data-surface="dark"] h4, [data-surface="dark"] h5, [data-surface="dark"] h6 {
+    color: var(--brand-on-dark);
   }
   ::selection { background: var(--primary); color: var(--primary-foreground); }
 }
