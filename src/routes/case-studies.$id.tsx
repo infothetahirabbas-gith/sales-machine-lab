@@ -37,6 +37,22 @@ export const Route = createFileRoute("/case-studies/$id")({
             ])
           ),
         },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            articleJsonLd({
+              url: `https://beingecom.com/case-studies/${s.id}`,
+              headline: s.title,
+              description: desc.slice(0, 200),
+              image: s.screenshot,
+              about: `${s.category} for ${s.industry}`,
+            })
+          ),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(faqJsonLd(buildCaseFaqs(s), `/case-studies/${s.id}`)),
+        },
       ],
     };
   },
