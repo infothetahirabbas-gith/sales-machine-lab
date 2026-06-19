@@ -436,7 +436,7 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 
 function CaseStudies() {
   const [filter, setFilter] = useState<Category | "All">("All");
-  const [active, setActive] = useState<Study | null>(null);
+  
 
   const filtered = useMemo(
     () => (filter === "All" ? studies : studies.filter((s) => s.category === filter)),
