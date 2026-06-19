@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Mail, Instagram, Linkedin, Twitter } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import logo from "@/assets/beingecom-logo.webp";
 
 export default function Footer() {
