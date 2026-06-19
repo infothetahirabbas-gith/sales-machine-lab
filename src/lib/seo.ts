@@ -42,7 +42,7 @@ export function organizationJsonLd() {
         contactType: "customer support",
         email: ORG_INFO.email,
         telephone: ORG_INFO.telephone,
-        areaServed: "Worldwide",
+        areaServed: { "@type": "Country", name: "United Kingdom" },
         availableLanguage: ["English"],
       },
     ],
@@ -78,7 +78,7 @@ export function professionalServiceJsonLd() {
     telephone: ORG_INFO.telephone,
     priceRange: "$$$",
     address: { "@type": "PostalAddress", ...ORG_INFO.address },
-    areaServed: "Worldwide",
+    areaServed: { "@type": "Country", name: "United Kingdom" },
     sameAs: ORG_INFO.sameAs,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -191,7 +191,7 @@ export function serviceJsonLd(opts: {
       name: ORG_INFO.name,
       url: ORG_INFO.url,
     },
-    areaServed: "Worldwide",
+    areaServed: { "@type": "Country", name: "United Kingdom" },
     audience: {
       "@type": "BusinessAudience",
       audienceType: "Shopify and WooCommerce ecommerce brands",
