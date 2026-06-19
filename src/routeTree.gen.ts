@@ -30,6 +30,7 @@ import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
@@ -141,6 +142,11 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -166,7 +172,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRoute
+  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -176,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -193,7 +200,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRoute
+  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -203,6 +210,7 @@ export interface FileRoutesByTo {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -221,7 +229,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRoute
+  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -231,6 +239,7 @@ export interface FileRoutesById {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -287,6 +297,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -314,6 +325,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/services/analytics'
     | '/services/creative'
@@ -332,7 +344,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AuditRoute: typeof AuditRoute
-  CaseStudiesRoute: typeof CaseStudiesRoute
+  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
@@ -505,6 +517,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies/$id': {
+      id: '/case-studies/$id'
+      path: '/$id'
+      fullPath: '/case-studies/$id'
+      preLoaderRoute: typeof CaseStudiesIdRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -536,11 +555,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface CaseStudiesRouteChildren {
+  CaseStudiesIdRoute: typeof CaseStudiesIdRoute
+}
+
+const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesIdRoute: CaseStudiesIdRoute,
+}
+
+const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
+  CaseStudiesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AuditRoute: AuditRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
+  CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,

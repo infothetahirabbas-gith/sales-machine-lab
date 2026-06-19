@@ -1,9 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X, Globe } from "lucide-react";
+import { Megaphone, Search, MousePointerClick, TrendingUp, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, CTA } from "../components/site/Section";
-import { Dialog, DialogContent, DialogTitle } from "../components/ui/dialog";
+import { CTA } from "../components/site/Section";
 import CaseStudyExtras from "../components/site/CaseStudyExtras";
 import showcaseApparel from "@/assets/showcase-apparel.jpg";
 import showcaseGadgets from "@/assets/showcase-gadgets.jpg";
@@ -194,20 +193,22 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimized hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
 ];
 
-const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
+export const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
   ...s,
   color: gradients[i % gradients.length],
   chart: makeChart(i + 1, s.category === "Ads" ? 2.0 : s.category === "SEO" ? 1.4 : 1.7),
   screenshot: showcaseImages[i % showcaseImages.length],
 }));
 
-const categoryIcon: Record<Category | "All", typeof Megaphone> = {
+export const categoryIcon: Record<Category | "All", typeof Megaphone> = {
   All: TrendingUp,
   Ads: Megaphone,
   SEO: Search,
   CRO: MousePointerClick,
   Website: Globe,
 };
+
+export type { Study, Category };
 
 function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
   const w = 320;
@@ -434,7 +435,7 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 
 function CaseStudies() {
   const [filter, setFilter] = useState<Category | "All">("All");
-  const [active, setActive] = useState<Study | null>(null);
+  
 
   const filtered = useMemo(
     () => (filter === "All" ? studies : studies.filter((s) => s.category === filter)),
@@ -522,9 +523,11 @@ function CaseStudies() {
             {filtered.map((s) => {
               const Icon = categoryIcon[s.category];
               return (
-                <div
+                <Link
                   key={s.id}
-                  className="text-left card-surface overflow-hidden group flex flex-col opacity-90"
+                  to="/case-studies/$id"
+                  params={{ id: s.id }}
+                  className="text-left card-surface overflow-hidden group flex flex-col hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {/* Category-specific preview */}
                   <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
@@ -556,92 +559,13 @@ function CaseStudies() {
                     <h3 className="font-bold text-ink leading-snug">{s.title}</h3>
                     <div className="mt-auto pt-4 text-xs text-muted-foreground">{s.duration}</div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* DETAILS DIALOG */}
-      <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden max-h-[92vh] overflow-y-auto w-[calc(100vw-1.5rem)] sm:w-full rounded-2xl">
-          {active && (
-            <>
-              <DialogTitle className="sr-only">{active.title}</DialogTitle>
-              {/* Header banner */}
-              <div className={`relative bg-gradient-to-br ${active.color} text-white p-5 sm:p-6 md:p-8 min-w-0`}>
-                <button
-                  onClick={() => setActive(null)}
-                  className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center backdrop-blur transition z-10"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-                <div className="absolute inset-0 opacity-30 pointer-events-none">
-                  <Sparkline data={active.chart} gradient={active.color + "lg"} />
-                </div>
-                <div className="relative min-w-0 pr-10">
-                  <div className="flex items-center flex-wrap gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest">
-                    <span className="bg-white/20 backdrop-blur px-2 py-1 rounded-full inline-flex items-center gap-1.5">
-                      {(() => {
-                        const Icon = categoryIcon[active.category];
-                        return <Icon className="w-3 h-3" />;
-                      })()}
-                      {active.category}
-                    </span>
-                    <span className="break-words">{active.industry}</span>
-                    <span>·</span>
-                    <span>{active.duration}</span>
-                  </div>
-                  <h2 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold leading-tight break-words">{active.title}</h2>
-                  <div className="mt-4 inline-flex items-baseline gap-2 flex-wrap">
-                    <span className="text-3xl sm:text-4xl md:text-5xl font-bold">{active.metric}</span>
-                    <span className="text-xs sm:text-sm opacity-80 uppercase tracking-wide">{active.metricLabel}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Body */}
-              <div className="p-5 sm:p-6 md:p-8 space-y-6 min-w-0">
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Problem</div>
-                  <p className="mt-2 text-ink leading-relaxed">{active.problem}</p>
-                </div>
-
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Strategy</div>
-                  <ul className="mt-2 space-y-2">
-                    {active.strategy.map((st) => (
-                      <li key={st} className="flex gap-2 text-ink">
-                        <span className="text-primary mt-1">✓</span>
-                        <span>{st}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Results</div>
-                  <div className="mt-3 grid grid-cols-3 gap-2 sm:gap-3">
-                    {active.results.map((r) => (
-                      <div key={r.l} className="rounded-2xl border border-border bg-secondary/40 p-3 sm:p-4 text-center min-w-0">
-                        <div className="text-base sm:text-xl md:text-2xl font-bold text-gradient break-words">{r.v}</div>
-                        <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1 break-words">{r.l}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-primary/30 bg-primary/5 p-5">
-                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Takeaway</div>
-                  <p className="mt-2 text-ink font-medium italic">"{active.takeaway}"</p>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
 
       <CaseStudyExtras />
 
