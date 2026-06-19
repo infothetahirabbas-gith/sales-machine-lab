@@ -435,11 +435,25 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 
 function CaseStudies() {
   const [filter, setFilter] = useState<Category | "All">("All");
-  
+  const [industry, setIndustry] = useState<string>("All");
+
+  const industries = useMemo(() => {
+    const set = new Set<string>();
+    studies.forEach((s) => {
+      const n = s.industry.split("·")[1]?.trim();
+      if (n) set.add(n);
+    });
+    return ["All", ...Array.from(set).sort()];
+  }, []);
 
   const filtered = useMemo(
-    () => (filter === "All" ? studies : studies.filter((s) => s.category === filter)),
-    [filter]
+    () =>
+      studies.filter(
+        (s) =>
+          (filter === "All" || s.category === filter) &&
+          (industry === "All" || s.industry.includes(industry))
+      ),
+    [filter, industry]
   );
 
   const counts = {
