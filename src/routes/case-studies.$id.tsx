@@ -502,6 +502,30 @@ function CaseStudyDetail() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section>
+          <div className="flex items-center gap-2 text-primary">
+            <HelpCircle className="w-5 h-5" />
+            <div className="text-[11px] font-bold uppercase tracking-widest">Frequently asked</div>
+          </div>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">About this case study</h2>
+          <div className="mt-5 space-y-3">
+            {buildCaseFaqs(s).map((f) => (
+              <details key={f.q} className="card-surface p-4 group">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <span className="font-semibold text-ink text-sm sm:text-base">{f.q}</span>
+                  <ArrowRight className="w-4 h-4 text-primary transition group-open:rotate-90 shrink-0" />
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Related case studies */}
+        <RelatedStudies current={s} />
+
+
         {/* Sibling nav */}
         <nav className="grid sm:grid-cols-2 gap-3 pt-4 border-t border-border">
           <Link
