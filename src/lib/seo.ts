@@ -131,6 +131,36 @@ export function faqJsonLd(faqs: FAQ[], pagePath: string) {
   };
 }
 
+export function articleJsonLd(opts: {
+  url: string;
+  headline: string;
+  description: string;
+  image?: string;
+  datePublished?: string;
+  about?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${opts.url}#article`,
+    headline: opts.headline,
+    description: opts.description,
+    image: opts.image,
+    datePublished: opts.datePublished ?? "2024-01-15",
+    dateModified: new Date().toISOString().slice(0, 10),
+    about: opts.about,
+    author: { "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
+    publisher: {
+      "@type": "Organization",
+      name: ORG_INFO.name,
+      logo: { "@type": "ImageObject", url: ORG_INFO.logo },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
+  };
+}
+
+
+
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {

@@ -145,6 +145,7 @@ export default function FloatingWidgets() {
                 Something went wrong. Please try again or contact us on WhatsApp.
               </div>
             )}
+            <SmartCTAs messages={messages} isLoading={isLoading} />
             <div ref={endRef} />
           </div>
 
@@ -191,5 +192,56 @@ export default function FloatingWidgets() {
         </div>
       )}
     </>
+  );
+}
+
+type Msg = { id: string; role: string; parts: { type: string; text?: string }[] };
+
+function SmartCTAs({ messages, isLoading }: { messages: Msg[]; isLoading: boolean }) {
+  if (isLoading || messages.length < 2) return null;
+  const last = [...messages].reverse().find((m) => m.role === "user" || m.role === "assistant");
+  if (!last) return null;
+
+  // Look at the most recent user message (drives intent)
+  const lastUser = [...messages].reverse().find((m) => m.role === "user");
+  const text = (lastUser?.parts || []).map((p) => p.text || "").join(" ").toLowerCase();
+  if (!text) return null;
+
+  const ctas: { label: string; href: string; external?: boolean }[] = [];
+  const push = (c: { label: string; href: string; external?: boolean }) => {
+    if (!ctas.some((x) => x.href === c.href)) ctas.push(c);
+  };
+
+  if (/(audit|review|scan|check.*store|analy[sz]e)/.test(text)) push({ label: "Run free audit", href: "/audit" });
+  if (/(price|pricing|cost|budget|how much|fee|rates?)/.test(text)) push({ label: "See pricing", href: "/pricing" });
+  if (/(book|call|consult|meeting|demo|talk|strategy)/.test(text)) push({ label: "Book a call", href: "https://beingecom.com/contact-us/", external: true });
+  if (/(seo|rank|google|organic)/.test(text)) push({ label: "SEO services", href: "/services/seo" });
+  if (/(ads?|meta|facebook|google ads|tiktok|roas|paid)/.test(text)) push({ label: "Paid Ads", href: "/services/paid-ads" });
+  if (/(cro|conversion|checkout|pdp|cart)/.test(text)) push({ label: "CRO services", href: "/services/cro" });
+  if (/(email|klaviyo|sms|flow)/.test(text)) push({ label: "Email & SMS", href: "/services/email-sms" });
+  if (/(case stud|results|wins|portfolio|examples)/.test(text)) push({ label: "Case studies", href: "/case-studies" });
+  if (/(whatsapp|chat now|message)/.test(text)) push({ label: "WhatsApp us", href: "https://wa.me/923186230122", external: true });
+
+  // Default fallback after 2+ exchanges
+  if (ctas.length === 0 && messages.length >= 4) {
+    push({ label: "Run free audit", href: "/audit" });
+    push({ label: "Book a call", href: "https://beingecom.com/contact-us/", external: true });
+  }
+  if (ctas.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap gap-1.5 px-1 pt-1 animate-fade-in">
+      {ctas.slice(0, 3).map((c) => (
+        <a
+          key={c.href}
+          href={c.href}
+          target={c.external ? "_blank" : undefined}
+          rel={c.external ? "noopener noreferrer" : undefined}
+          className="text-[11px] font-semibold px-2.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-white transition"
+        >
+          {c.label} →
+        </a>
+      ))}
+    </div>
   );
 }
