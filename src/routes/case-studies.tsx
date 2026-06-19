@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Megaphone, Search, MousePointerClick, TrendingUp, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, CTA } from "../components/site/Section";
+import { CTA } from "../components/site/Section";
 import CaseStudyExtras from "../components/site/CaseStudyExtras";
 import showcaseApparel from "@/assets/showcase-apparel.jpg";
 import showcaseGadgets from "@/assets/showcase-gadgets.jpg";
