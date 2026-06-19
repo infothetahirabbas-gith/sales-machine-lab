@@ -524,9 +524,11 @@ function CaseStudies() {
             {filtered.map((s) => {
               const Icon = categoryIcon[s.category];
               return (
-                <div
+                <Link
                   key={s.id}
-                  className="text-left card-surface overflow-hidden group flex flex-col opacity-90"
+                  to="/case-studies/$id"
+                  params={{ id: s.id }}
+                  className="text-left card-surface overflow-hidden group flex flex-col hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {/* Category-specific preview */}
                   <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
