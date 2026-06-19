@@ -532,6 +532,27 @@ function CaseStudies() {
             </div>
           </div>
 
+          {/* Industry tag filter */}
+          <div className="mb-8 flex flex-wrap justify-center gap-1.5">
+            {industries.map((tag) => {
+              const active = industry === tag;
+              return (
+                <button
+                  key={tag}
+                  onClick={() => setIndustry(tag)}
+                  className={`text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full transition border ${
+                    active
+                      ? "bg-primary text-white border-primary shadow-sm"
+                      : "bg-white text-ink/70 border-border hover:border-primary/50 hover:text-primary"
+                  }`}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+
+
           {/* Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((s) => {
