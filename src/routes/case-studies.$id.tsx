@@ -401,6 +401,41 @@ function CaseStudyDetail() {
             ))}
           </div>
 
+          {/* Before vs After chart */}
+          <div className="mt-8 card-surface p-5 sm:p-6">
+            <div className="flex items-center gap-2 text-ink">
+              <BarChart3 className="w-4 h-4 text-primary" />
+              <h3 className="text-base font-bold">Before vs After — at a glance</h3>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">Indexed view of the highest-impact metrics.</p>
+            <div className="mt-5 space-y-4">
+              {beforeAfterPairs(s).map((p) => (
+                <div key={p.label}>
+                  <div className="flex justify-between text-xs font-semibold text-ink mb-1.5">
+                    <span>{p.label}</span>
+                    <span className="text-emerald-600">{p.delta}</span>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="w-14 text-[10px] uppercase text-muted-foreground font-semibold">Before</span>
+                      <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
+                        <div className="h-full bg-ink/30 rounded-full" style={{ width: `${p.beforePct}%` }} />
+                      </div>
+                      <span className="w-12 text-[10px] tabular-nums text-right text-muted-foreground">{p.before}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-14 text-[10px] uppercase text-primary font-semibold">After</span>
+                      <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-primary to-[oklch(0.55_0.2_265)] rounded-full" style={{ width: `${p.afterPct}%` }} />
+                      </div>
+                      <span className="w-12 text-[10px] tabular-nums text-right font-bold text-ink">{p.after}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-6 grid sm:grid-cols-2 gap-3">
             {[
               { l: "Traffic growth", v: "Compounding month-over-month organic + paid sessions." },
