@@ -94,6 +94,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       // Non-render-blocking Google Fonts load via print-media swap trick
       { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" },
