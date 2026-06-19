@@ -91,7 +91,7 @@ function Home() {
               <span key={phraseIdx} className="text-sky-gradient inline-block" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>{" "}
-              Into <span className="text-gradient">Scalable Revenue Machines</span>
+              Into <span className="text-ink">Scalable</span> <span className="text-gradient">Revenue Machines</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
