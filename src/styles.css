@@ -51,17 +51,17 @@
   --radius: 0.9rem;
   /* Being Ecom brand palette — single brand orange #E47B02 + soft charcoal ink */
   --background: oklch(1 0 0);                       /* #FFFFFF */
-  --foreground: oklch(0.305 0.018 264);             /* #2B2F38 — soft charcoal, not deep black */
+  --foreground: oklch(0.36 0.018 264);              /* lighter charcoal, never jet black */
   --card: oklch(0.985 0.004 236);                   /* #F7FAFC */
-  --card-foreground: oklch(0.305 0.018 264);
+  --card-foreground: oklch(0.36 0.018 264);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.305 0.018 264);
+  --popover-foreground: oklch(0.36 0.018 264);
   --primary: oklch(0.687183 0.165136 57.381);       /* #E47B02 — locked brand orange */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.953 0.024 67);               /* #FBEDDF */
-  --secondary-foreground: oklch(0.305 0.018 264);
+  --secondary-foreground: oklch(0.36 0.018 264);
   --muted: oklch(0.949 0 0);                        /* #EEEEEE */
-  --muted-foreground: oklch(0.445 0.020 260);       /* softer slate */
+  --muted-foreground: oklch(0.48 0.020 260);        /* softer slate */
   --accent: oklch(0.687183 0.165136 57.381);        /* #E47B02 */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.2 25);
@@ -69,7 +69,7 @@
   --border: oklch(0.884 0.020 70);                  /* #E2D7CB */
   --input: oklch(0.884 0.020 70);
   --ring: oklch(0.687183 0.165136 57.381);          /* #E47B02 */
-  --ink: oklch(0.305 0.018 264);                    /* charcoal, not jet black */
+  --ink: oklch(0.36 0.018 264);                     /* lighter charcoal, not jet black */
   --sky: oklch(0.687183 0.165136 57.381);
   --brand: oklch(0.687183 0.165136 57.381);         /* #E47B02 */
   --brand-strong: oklch(0.687183 0.165136 57.381);  /* same brand orange everywhere */
