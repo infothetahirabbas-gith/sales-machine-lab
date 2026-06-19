@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, Target, Trophy, TrendingUp, Quote, BarChart3, HelpCircle } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { CTA } from "../components/site/Section";
-import { studies, categoryIcon, type Study } from "./case-studies";
+import { studies, categoryIcon, type Study } from "./case-studies.index";
 import { breadcrumbJsonLd, articleJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
 
 export const Route = createFileRoute("/case-studies/$id")({
