@@ -53,12 +53,19 @@ export default function Footer() {
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">GET IN TOUCH</div>
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-background" />
+              <Mail className="w-4 h-4 text-background shrink-0" />
               <a href="mailto:hello@beingecom.com" className="hover:text-accent transition-colors">hello@beingecom.com</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-background shrink-0" />
+              <a href="tel:+442045251900" className="hover:text-accent transition-colors">+44 20 4525 1900</a>
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-background shrink-0 mt-0.5" />
+              <span>71-75 Shelton Street,<br />Covent Garden, London<br />WC2H 9JQ, United Kingdom</span>
             </li>
             <li><Link to="/contact" className="inline-flex items-center gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
             <li><Link to="/case-studies" className="hover:text-accent transition-colors">View Case Studies →</Link></li>
-            <li><Link to="/glossary" className="hover:text-accent transition-colors">SEO Glossary →</Link></li>
           </ul>
         </div>
       </div>
