@@ -91,7 +91,7 @@ export default function FloatingWidgets() {
       )}
 
       {open && (
-        <div className="fixed bottom-6 right-6 z-50 w-[92vw] max-w-sm h-[560px] max-h-[80vh] rounded-2xl bg-white shadow-2xl border border-border flex flex-col overflow-hidden animate-scale-in">
+        <div className="fixed bottom-4 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:w-[92vw] sm:max-w-sm h-[560px] max-h-[80vh] rounded-2xl bg-white shadow-2xl border border-border flex flex-col overflow-hidden animate-scale-in">
           {/* Header */}
           <div className="flex items-center justify-between gap-3 px-4 py-3 bg-primary text-white">
             <div className="flex items-center gap-3 min-w-0">
