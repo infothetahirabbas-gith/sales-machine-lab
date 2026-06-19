@@ -560,7 +560,7 @@ function CaseStudies() {
                     <h3 className="font-bold text-ink leading-snug">{s.title}</h3>
                     <div className="mt-auto pt-4 text-xs text-muted-foreground">{s.duration}</div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
