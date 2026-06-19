@@ -145,6 +145,7 @@ export default function FloatingWidgets() {
                 Something went wrong. Please try again or contact us on WhatsApp.
               </div>
             )}
+            <SmartCTAs messages={messages} isLoading={isLoading} />
             <div ref={endRef} />
           </div>
 
