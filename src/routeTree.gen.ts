@@ -15,11 +15,11 @@ import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -66,11 +66,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AuditRoute = AuditRouteImport.update({
   id: '/audit',
   path: '/audit',
@@ -89,6 +84,11 @@ const IndexRoute = IndexRouteImport.update({
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesStoreDevelopmentRoute =
@@ -143,9 +143,9 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => CaseStudiesRoute,
+  id: '/case-studies/$id',
+  path: '/case-studies/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
@@ -172,7 +172,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -193,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -200,7 +200,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -221,6 +220,7 @@ export interface FileRoutesByTo {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -229,7 +229,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -250,6 +249,7 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -259,7 +259,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
-    | '/case-studies'
     | '/contact'
     | '/glossary'
     | '/pricing'
@@ -280,6 +279,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/case-studies/'
     | '/services/'
     | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
@@ -287,7 +287,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
-    | '/case-studies'
     | '/contact'
     | '/glossary'
     | '/pricing'
@@ -308,6 +307,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/case-studies'
     | '/services'
     | '/api/public/debug/faq-jsonld'
   id:
@@ -315,7 +315,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
-    | '/case-studies'
     | '/contact'
     | '/glossary'
     | '/pricing'
@@ -336,6 +335,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/case-studies/'
     | '/services/'
     | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
@@ -344,7 +344,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AuditRoute: typeof AuditRoute
-  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
@@ -354,6 +353,7 @@ export interface RootRouteChildren {
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
+  CaseStudiesIdRoute: typeof CaseStudiesIdRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
@@ -364,6 +364,7 @@ export interface RootRouteChildren {
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesSeoRoute: typeof ServicesSeoRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -412,13 +413,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/audit': {
       id: '/audit'
       path: '/audit'
@@ -445,6 +439,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/store-development': {
@@ -519,10 +520,10 @@ declare module '@tanstack/react-router' {
     }
     '/case-studies/$id': {
       id: '/case-studies/$id'
-      path: '/$id'
+      path: '/case-studies/$id'
       fullPath: '/case-studies/$id'
       preLoaderRoute: typeof CaseStudiesIdRouteImport
-      parentRoute: typeof CaseStudiesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
       id: '/api/chat'
@@ -555,23 +556,10 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface CaseStudiesRouteChildren {
-  CaseStudiesIdRoute: typeof CaseStudiesIdRoute
-}
-
-const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
-  CaseStudiesIdRoute: CaseStudiesIdRoute,
-}
-
-const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
-  CaseStudiesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AuditRoute: AuditRoute,
-  CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
@@ -581,6 +569,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
+  CaseStudiesIdRoute: CaseStudiesIdRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
@@ -591,6 +580,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesSeoRoute: ServicesSeoRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
 }

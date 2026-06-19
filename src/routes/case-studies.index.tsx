@@ -64,7 +64,7 @@ const showcaseImages = [
   showcaseBaby, showcaseSurf,
 ];
 
-export const Route = createFileRoute("/case-studies")({
+export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
       { title: "Ecommerce Case Studies — Shopify & WooCommerce Growth Results | BeingEcom" },
