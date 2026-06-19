@@ -193,7 +193,7 @@ function afterResults(s: Study) {
 /* ---------------- component ---------------- */
 
 function CaseStudyDetail() {
-  const { study: s } = Route.useLoaderData();
+  const { study: s } = Route.useLoaderData() as { study: (typeof studies)[number] };
   const CatIcon = categoryIcon[s.category];
 
   // sibling navigation
