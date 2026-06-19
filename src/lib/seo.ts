@@ -6,22 +6,18 @@ export const ORG_INFO = {
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
   email: "hello@beingecom.com",
-  telephone: "+1-415-555-0199",
+  telephone: "+44 20 4525 1900",
   description:
-    "Ecommerce growth agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation and analytics.",
+    "UK ecommerce growth agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation and analytics.",
   address: {
-    streetAddress: "100 Market Street",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
-    postalCode: "94105",
-    addressCountry: "US",
+    streetAddress: "71-75 Shelton Street, Covent Garden",
+    addressLocality: "London",
+    addressRegion: "England",
+    postalCode: "WC2H 9JQ",
+    addressCountry: "GB",
   },
   sameAs: [
     "https://www.linkedin.com/company/beingecom",
-    "https://twitter.com/beingecom",
-    "https://www.instagram.com/beingecom",
-    "https://www.facebook.com/beingecom",
-    "https://www.youtube.com/@beingecom",
   ],
 };
 
