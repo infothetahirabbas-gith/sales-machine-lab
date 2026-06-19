@@ -177,14 +177,14 @@ export default function FloatingWidgets() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your question…"
-              className="flex-1 px-3 py-2 rounded-full bg-secondary/60 border border-border text-sm outline-none focus:border-primary"
+              className="flex-1 min-w-0 px-3 py-2 rounded-full bg-secondary/60 border border-border text-sm outline-none focus:border-primary"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={!input.trim() || isLoading}
               aria-label="Send"
-              className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center disabled:opacity-50 hover:scale-105 transition"
+              className="shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md disabled:opacity-50 hover:scale-105 active:scale-95 transition"
             >
               <Send className="w-4 h-4" />
             </button>
