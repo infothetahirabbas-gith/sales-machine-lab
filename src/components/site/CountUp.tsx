@@ -41,6 +41,7 @@ export default function CountUp({
     const run = () => {
       if (startedRef.current) return;
       startedRef.current = true;
+      setValue(0);
       const start = performance.now();
       const step = (now: number) => {
         const t = Math.min(1, (now - start) / duration);
