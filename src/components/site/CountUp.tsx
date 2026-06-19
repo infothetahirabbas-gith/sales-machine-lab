@@ -22,7 +22,8 @@ export default function CountUp({
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [value, setValue] = useState(0);
+  // Initialize with the final value so SSR / no-JS / pre-animation always show real numbers (never 0)
+  const [value, setValue] = useState(end);
   const startedRef = useRef(false);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function CountUp({
     const run = () => {
       if (startedRef.current) return;
       startedRef.current = true;
+      setValue(0);
       const start = performance.now();
       const step = (now: number) => {
         const t = Math.min(1, (now - start) / duration);
