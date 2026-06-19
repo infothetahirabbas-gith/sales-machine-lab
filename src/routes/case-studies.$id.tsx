@@ -293,7 +293,7 @@ function CaseStudyDetail() {
             <span className="bg-white/15 backdrop-blur px-2.5 py-1 rounded-full">{s.duration}</span>
           </div>
 
-          <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] max-w-4xl">
+          <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] max-w-4xl text-black">
             {s.title}
           </h1>
           <p className="mt-4 text-base sm:text-lg text-white/85 max-w-2xl">
