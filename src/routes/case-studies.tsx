@@ -194,20 +194,22 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimized hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
 ];
 
-const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
+export const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
   ...s,
   color: gradients[i % gradients.length],
   chart: makeChart(i + 1, s.category === "Ads" ? 2.0 : s.category === "SEO" ? 1.4 : 1.7),
   screenshot: showcaseImages[i % showcaseImages.length],
 }));
 
-const categoryIcon: Record<Category | "All", typeof Megaphone> = {
+export const categoryIcon: Record<Category | "All", typeof Megaphone> = {
   All: TrendingUp,
   Ads: Megaphone,
   SEO: Search,
   CRO: MousePointerClick,
   Website: Globe,
 };
+
+export type { Study, Category };
 
 function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
   const w = 320;
