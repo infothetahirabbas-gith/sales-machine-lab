@@ -80,6 +80,34 @@ export const Route = createFileRoute("/case-studies/$id")({
 
 /* ---------------- content enrichment helpers ---------------- */
 
+function getNiche(s: Study): string {
+  return s.industry.split("·")[1]?.trim() || s.industry;
+}
+
+function buildCaseFaqs(s: Study): FAQ[] {
+  const niche = getNiche(s);
+  const platform = s.industry.split("·")[0]?.trim() || "Shopify";
+  return [
+    {
+      q: `What did BeingEcom do for ${s.brand}?`,
+      a: `BeingEcom built a full-funnel ${s.category} growth system for ${s.brand}, a ${niche.toLowerCase()} brand on ${platform}. The engagement covered strategy, execution, and measurement — delivering a ${s.metric} ${s.metricLabel.toLowerCase()} lift in ${s.duration}.`,
+    },
+    {
+      q: `How long did the ${s.category} engagement take?`,
+      a: `The core ${s.category} program ran across ${s.duration}. Initial wins typically appeared within the first 30–45 days, with compounding gains across the full window.`,
+    },
+    {
+      q: `What was the main result?`,
+      a: `${s.metric} ${s.metricLabel.toLowerCase()} versus baseline, alongside improvements across ${s.results.map((r) => r.l).join(", ")}.`,
+    },
+    {
+      q: `Can BeingEcom deliver similar results for my ${niche.toLowerCase()} store?`,
+      a: `Yes — BeingEcom works specifically with Shopify and WooCommerce brands. Outcomes vary by starting point, but the same growth framework applies. Book a free audit at beingecom.com/audit or contact us at beingecom.com/contact-us.`,
+    },
+  ];
+}
+
+
 function beforeMetrics(s: Study) {
   const base: Record<string, { label: string; value: string }[]> = {
     Ads: [
