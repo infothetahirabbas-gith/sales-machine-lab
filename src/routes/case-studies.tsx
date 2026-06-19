@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Megaphone, Search, MousePointerClick, TrendingUp, ArrowUpRight, X, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
