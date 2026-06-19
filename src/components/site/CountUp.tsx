@@ -22,7 +22,8 @@ export default function CountUp({
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [value, setValue] = useState(0);
+  // Initialize with the final value so SSR / no-JS / pre-animation always show real numbers (never 0)
+  const [value, setValue] = useState(end);
   const startedRef = useRef(false);
 
   useEffect(() => {
