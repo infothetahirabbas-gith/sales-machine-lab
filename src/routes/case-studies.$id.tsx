@@ -555,3 +555,62 @@ function CaseStudyDetail() {
     </PageLayout>
   );
 }
+
+function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
+  const niche = getNiche(current).toLowerCase();
+  // Score: same niche +3, same category +2, same platform +1
+  const platform = current.industry.split("·")[0]?.trim().toLowerCase() || "";
+  const scored = studies
+    .filter((x) => x.id !== current.id)
+    .map((x) => {
+      let score = 0;
+      if (getNiche(x).toLowerCase() === niche) score += 3;
+      if (x.category === current.category) score += 2;
+      if ((x.industry.split("·")[0]?.trim().toLowerCase() || "") === platform) score += 1;
+      return { x, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6)
+    .map((r) => r.x);
+
+  return (
+    <section>
+      <div className="flex items-center gap-2 text-primary">
+        <TrendingUp className="w-5 h-5" />
+        <div className="text-[11px] font-bold uppercase tracking-widest">Related wins</div>
+      </div>
+      <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">More results in {current.category} & {getNiche(current)}</h2>
+
+      <div className="mt-5 -mx-2 sm:mx-0 overflow-x-auto sm:overflow-visible pb-2">
+        <div className="flex sm:grid sm:grid-cols-3 gap-3 px-2 sm:px-0 min-w-max sm:min-w-0">
+          {scored.map((x) => {
+            const Icon = categoryIcon[x.category];
+            return (
+              <Link
+                key={x.id}
+                to="/case-studies/$id"
+                params={{ id: x.id }}
+                className={`card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition`}
+              >
+                <div className={`h-24 bg-gradient-to-br ${x.color} relative px-3 py-2 flex items-end`}>
+                  <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
+                    <Icon className="w-2.5 h-2.5" /> {x.category}
+                  </span>
+                  <div className="ml-auto text-right">
+                    <div className="text-lg font-bold text-white leading-none">{x.metric}</div>
+                    <div className="text-[8px] uppercase tracking-wide text-white/85 mt-0.5">{x.metricLabel}</div>
+                  </div>
+                </div>
+                <div className="p-3.5 flex-1 flex flex-col">
+                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground font-semibold">{x.industry}</div>
+                  <h3 className="mt-1 text-sm font-bold text-ink group-hover:text-primary leading-snug line-clamp-2">{x.title}</h3>
+                  <div className="mt-auto pt-2 text-[10px] text-muted-foreground">{x.duration}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
