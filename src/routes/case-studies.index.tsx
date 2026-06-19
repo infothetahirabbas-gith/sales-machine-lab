@@ -435,26 +435,12 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 
 function CaseStudies() {
   const [filter, setFilter] = useState<Category | "All">("All");
-  const [industry, setIndustry] = useState<string>("All");
-
-  const industries = useMemo(() => {
-    const set = new Set<string>();
-    studies.forEach((s) => {
-      const n = s.industry.split("·")[1]?.trim();
-      if (n) set.add(n);
-    });
-    return ["All", ...Array.from(set).sort()];
-  }, []);
 
   const filtered = useMemo(
-    () =>
-      studies.filter(
-        (s) =>
-          (filter === "All" || s.category === filter) &&
-          (industry === "All" || s.industry.includes(industry))
-      ),
-    [filter, industry]
+    () => studies.filter((s) => filter === "All" || s.category === filter),
+    [filter]
   );
+
 
   const counts = {
     All: studies.length,
@@ -532,25 +518,8 @@ function CaseStudies() {
             </div>
           </div>
 
-          {/* Industry tag filter */}
-          <div className="mb-8 flex flex-wrap justify-center gap-1.5">
-            {industries.map((tag) => {
-              const active = industry === tag;
-              return (
-                <button
-                  key={tag}
-                  onClick={() => setIndustry(tag)}
-                  className={`text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full transition border ${
-                    active
-                      ? "bg-primary text-white border-primary shadow-sm"
-                      : "bg-white text-ink/70 border-border hover:border-primary/50 hover:text-primary"
-                  }`}
-                >
-                  {tag}
-                </button>
-              );
-            })}
-          </div>
+
+
 
 
           {/* Grid */}
