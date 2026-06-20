@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
-      { name: "description", content: "BeingEcom is an ecommerce growth agency scaling Shopify & WooCommerce brands with paid ads, CRO, SEO, email automation, and analytics. Book a free growth audit." },
-      { name: "keywords", content: "ecommerce growth agency, Shopify agency, WooCommerce agency, ecommerce marketing, Shopify SEO, ecommerce CRO, Meta ads agency, Google ads ecommerce, Klaviyo email marketing, DTC growth" },
-      { property: "og:title", content: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
-      { property: "og:description", content: "Scale your Shopify or WooCommerce store profitably with ads, CRO, SEO, and email automation. Book a free 12-point growth audit." },
+      { title: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
+      { name: "description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
+      { name: "keywords", content: "ecommerce digital marketing agency uk, shopify agency uk, woocommerce agency uk, ecommerce growth agency, paid ads agency uk, ecommerce seo services uk, conversion rate optimisation services uk, shopify plus store development agency, meta ads agency uk, google ads agency uk, best ecommerce digital marketing agency, ecommerce digital marketing agency london, shopify store development, woocommerce development services, cro services uk, email marketing automation, tiktok ads agency, ecommerce seo agency, klaviyo email marketing, GA4 analytics setup, revenue growth ecommerce, shopify plus development, ecommerce funnel optimisation" },
+      { property: "og:title", content: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
+      { property: "og:description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
