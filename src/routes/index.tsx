@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
-      { name: "description", content: "BeingEcom is an ecommerce growth agency scaling Shopify & WooCommerce brands with paid ads, CRO, SEO, email automation, and analytics. Book a free growth audit." },
-      { name: "keywords", content: "ecommerce growth agency, Shopify agency, WooCommerce agency, ecommerce marketing, Shopify SEO, ecommerce CRO, Meta ads agency, Google ads ecommerce, Klaviyo email marketing, DTC growth" },
-      { property: "og:title", content: "BeingEcom — Ecommerce Growth Agency for Shopify & WooCommerce" },
-      { property: "og:description", content: "Scale your Shopify or WooCommerce store profitably with ads, CRO, SEO, and email automation. Book a free 12-point growth audit." },
+      { title: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
+      { name: "description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
+      { name: "keywords", content: "ecommerce digital marketing agency uk, shopify agency uk, woocommerce agency uk, ecommerce growth agency, paid ads agency uk, ecommerce seo services uk, conversion rate optimisation services uk, shopify plus store development agency, meta ads agency uk, google ads agency uk, best ecommerce digital marketing agency, ecommerce digital marketing agency london, shopify store development, woocommerce development services, cro services uk, email marketing automation, tiktok ads agency, ecommerce seo agency, klaviyo email marketing, GA4 analytics setup, revenue growth ecommerce, shopify plus development, ecommerce funnel optimisation" },
+      { property: "og:title", content: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
+      { property: "og:description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,11 +47,10 @@ const services = [
 ];
 
 const rotatingPhrases = [
-  "Struggling Ecommerce Stores",
-  "Underperforming Shopify Brands",
-  "Stuck DTC Businesses",
-  "Low-Converting Online Shops",
-  "Stagnant WooCommerce Stores",
+  "Ecommerce Digital Marketing Agency UK",
+  "Shopify Agency UK",
+  "WooCommerce Agency UK",
+  "Ecommerce Growth Agency",
 ];
 
 const dashboards = [
@@ -86,15 +85,15 @@ function Home() {
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
-            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-ink">
-              We Turn{" "}
-              <span key={phraseIdx} className="text-sky-gradient inline-block" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
+              <span className="block">We Help UK Brands</span>
+              <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
-              </span>{" "}
-              Into <span className="text-ink">Scalable</span> <span className="text-gradient">Revenue Machines</span>
+              </span>
+              <span className="block">Grow Revenue & Dominate AI Search</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
+              UK's top Shopify agency & WooCommerce agency for paid ads, CRO, ecommerce SEO services & email automation. Built for store owners who want sales, not theory.
             </p>
             <div className="mt-8 btn-pair" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
               <Link to="/contact" className="btn btn-primary btn-shimmer">
@@ -157,7 +156,7 @@ function Home() {
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
-            Trusted by ecommerce operators on
+            Trusted by UK ecommerce operators on
           </div>
           <div
             className="relative w-full overflow-hidden"
@@ -202,14 +201,14 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated growth engine. No more disconnected agencies blaming each other."
+        intro="One integrated ecommerce growth agency. No more disconnected teams blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { t: "Traffic", b: "Profitable paid ads across Meta, Google, TikTok.", Icon: Megaphone },
-            { t: "Conversion", b: "Store, product page & checkout optimized for sales.", Icon: MousePointerClick },
-            { t: "Organic", b: "Ecommerce SEO that compounds free revenue.", Icon: Search },
-            { t: "Scale", b: "Email, retention & data systems that multiply LTV.", Icon: Rocket },
+            { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok — managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
+            { t: "Conversion", b: "Store, product page & checkout optimized for sales with proven CRO services UK.", Icon: MousePointerClick },
+            { t: "Organic", b: "Ecommerce SEO services UK that compound free revenue and dominate AI search overviews.", Icon: Search },
+            { t: "Scale", b: "Email, retention & data systems that multiply LTV through Klaviyo email marketing automation.", Icon: Rocket },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="relative overflow-hidden h-full">
@@ -289,9 +288,9 @@ function Home() {
           </div>
           <div>
             <p className="text-lg text-muted-foreground">
-              A Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. We rebuilt the
-              product page system, restructured ads into a proper funnel, and shipped
-              Klaviyo flows from scratch.
+              A UK Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. As their ecommerce digital marketing agency UK,
+              we rebuilt the product page system with conversion rate optimisation services UK, restructured Meta & Google
+              ads into a proper funnel, and shipped Klaviyo email marketing automation flows from scratch.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-3">
               {[
@@ -320,15 +319,15 @@ function Home() {
       >
         <div className="relative grid md:grid-cols-3 gap-4">
           {/* connector line */}
-          <div className="hidden md:block absolute top-[68px] left-[16%] right-[16%] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
+          <div className="hidden md:block absolute top-[68px] left-[16%] right-[16%] h-px bg-primary/20" />
           {[
-            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages - find every leak.", Icon: ClipboardCheck },
-            { step: "Step 2", title: "Fix", body: "Rebuild the highest-impact pieces: PDP, checkout, ad funnel, Klaviyo flows.", Icon: Wrench },
-            { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together.", Icon: Rocket },
+            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages — find every leak in your ecommerce funnel optimisation.", Icon: ClipboardCheck },
+            { step: "Step 2", title: "Fix", body: "Rebuild the highest-impact pieces: PDP, checkout, ad funnel, and Klaviyo email marketing automation flows.", Icon: Wrench },
+            { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together as your dedicated ecommerce growth agency.", Icon: Rocket },
           ].map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="relative text-center h-full">
-                <div className="mx-auto w-14 h-14 rounded-full bg-gradient-to-br from-primary to-[oklch(0.55_0.2_248)] text-primary-foreground flex items-center justify-center shadow-[0_10px_30px_-10px_oklch(0.65_0.18_245/0.55)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                <div className="mx-auto w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-[0_10px_30px_-10px_oklch(0.65_0.18_245/0.55)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
                   <s.Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div className="mt-4 text-[10px] font-bold tracking-[0.18em] uppercase text-primary">{s.step}</div>
@@ -397,16 +396,16 @@ function Home() {
       {/* 11. OFFER */}
       <section className="py-14">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/8 via-white to-accent/20 p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/15 blur-3xl rounded-full float" />
             <div className="relative">
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                We'll review your store, ads, and analytics - and send back a 12-point loss-recovery plan. No pitch deck.
+                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics — and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
               </p>
             </div>
-            <Link to="/contact" className="relative flex shrink-0 btn btn-primary btn-shimmer">
+            <Link to="/audit" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
               <span className="relative">Claim Audit →</span>
             </Link>
@@ -418,7 +417,10 @@ function Home() {
       <ContactFaq />
 
       {/* 13. FINAL CTA */}
-      <CTA />
+      <CTA
+        heading="Ready to Grow? Work With the Best Ecommerce Digital Marketing Agency UK"
+        sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
+      />
     </PageLayout>
   );
 }
