@@ -396,16 +396,16 @@ function Home() {
       {/* 11. OFFER */}
       <section className="py-14">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/8 via-white to-accent/20 p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/15 blur-3xl rounded-full float" />
             <div className="relative">
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                We'll review your store, ads, and analytics - and send back a 12-point loss-recovery plan. No pitch deck.
+                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics — and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
               </p>
             </div>
-            <Link to="/contact" className="relative flex shrink-0 btn btn-primary btn-shimmer">
+            <Link to="/audit" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
               <span className="relative">Claim Audit →</span>
             </Link>
