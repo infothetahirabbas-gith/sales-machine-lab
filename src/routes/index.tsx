@@ -417,7 +417,10 @@ function Home() {
       <ContactFaq />
 
       {/* 13. FINAL CTA */}
-      <CTA />
+      <CTA
+        heading="Ready to Grow? Work With the Best Ecommerce Digital Marketing Agency UK"
+        sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
+      />
     </PageLayout>
   );
 }
