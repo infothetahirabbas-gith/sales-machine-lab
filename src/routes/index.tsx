@@ -201,14 +201,14 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated growth engine. No more disconnected agencies blaming each other."
+        intro="One integrated ecommerce growth agency. No more disconnected teams blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { t: "Traffic", b: "Profitable paid ads across Meta, Google, TikTok.", Icon: Megaphone },
-            { t: "Conversion", b: "Store, product page & checkout optimized for sales.", Icon: MousePointerClick },
-            { t: "Organic", b: "Ecommerce SEO that compounds free revenue.", Icon: Search },
-            { t: "Scale", b: "Email, retention & data systems that multiply LTV.", Icon: Rocket },
+            { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok — managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
+            { t: "Conversion", b: "Store, product page & checkout optimized for sales with proven CRO services UK.", Icon: MousePointerClick },
+            { t: "Organic", b: "Ecommerce SEO services UK that compound free revenue and dominate AI search overviews.", Icon: Search },
+            { t: "Scale", b: "Email, retention & data systems that multiply LTV through Klaviyo email marketing automation.", Icon: Rocket },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="relative overflow-hidden h-full">
