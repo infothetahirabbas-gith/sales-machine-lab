@@ -288,9 +288,9 @@ function Home() {
           </div>
           <div>
             <p className="text-lg text-muted-foreground">
-              A Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. We rebuilt the
-              product page system, restructured ads into a proper funnel, and shipped
-              Klaviyo flows from scratch.
+              A UK Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. As their ecommerce digital marketing agency UK,
+              we rebuilt the product page system with conversion rate optimisation services UK, restructured Meta & Google
+              ads into a proper funnel, and shipped Klaviyo email marketing automation flows from scratch.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-3">
               {[
