@@ -156,7 +156,7 @@ function Home() {
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
           <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
-            Trusted by ecommerce operators on
+            Trusted by UK ecommerce operators on
           </div>
           <div
             className="relative w-full overflow-hidden"
