@@ -47,11 +47,10 @@ const services = [
 ];
 
 const rotatingPhrases = [
-  "Struggling Ecommerce Stores",
-  "Underperforming Shopify Brands",
-  "Stuck DTC Businesses",
-  "Low-Converting Online Shops",
-  "Stagnant WooCommerce Stores",
+  "Ecommerce Digital Marketing Agency UK",
+  "Shopify Agency UK",
+  "WooCommerce Agency UK",
+  "Ecommerce Growth Agency",
 ];
 
 const dashboards = [
