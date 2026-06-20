@@ -85,15 +85,15 @@ function Home() {
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
-            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-ink">
-              We Turn{" "}
-              <span key={phraseIdx} className="text-sky-gradient inline-block" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
+              <span className="block">We Help UK Brands</span>
+              <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
-              </span>{" "}
-              Into <span className="text-ink">Scalable</span> <span className="text-gradient">Revenue Machines</span>
+              </span>
+              <span className="block">Grow Revenue & Dominate AI Search</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              Shopify & WooCommerce growth system - Ads + SEO + CRO + Automation. Built for store owners who want sales, not theory.
+              UK's top Shopify agency & WooCommerce agency for paid ads, CRO, ecommerce SEO services & email automation. Built for store owners who want sales, not theory.
             </p>
             <div className="mt-8 btn-pair" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
               <Link to="/contact" className="btn btn-primary btn-shimmer">
