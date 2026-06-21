@@ -81,7 +81,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   lines.push(`# Being Ecom Brain™ — Growth Intelligence Report`);
   lines.push(`\n**Store:** ${r.storeName}  `);
   lines.push(`**URL:** ${url}  `);
-  lines.push(`**Generated:** ${new Date().toLocaleString()}  `);
+  lines.push(`**Generated:** ${formatTimestamp()} (24h, en-GB)  `);
   lines.push(`**Platform:** ${r.platformGuess}`);
 
   h("Executive Intelligence");
