@@ -401,6 +401,8 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 }
 
 const clamp = (n: number) => Math.max(0, Math.min(100, Math.round(n)));
+const tools_includes = (s: Signals, name: string) => s.tools.some((t) => t.toLowerCase().includes(name.toLowerCase()));
+
 
 function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: string | null; country?: string | null }): z.infer<typeof auditReportSchema> {
   // ---------- Platform / geo branching context ----------
