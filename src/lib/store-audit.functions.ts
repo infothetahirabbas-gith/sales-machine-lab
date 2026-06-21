@@ -698,11 +698,11 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       businessModel: s.platform === "Shopify" ? "DTC" : "DTC",
     },
     executiveIntelligence: {
-      businessReality: `${s.platform} store with ${s.tools.length || "few"} tools installed. Health ${overall}/100.`,
+      businessReality: `${s.platform} store · ${s.toolCount} tool${s.toolCount === 1 ? "" : "s"} detected (${s.tools.slice(0, 5).join(", ") || "none"}${s.toolCount > 5 ? ", …" : ""}) · market context: ${effectiveCountry}${s.detectedCurrency ? ` (${s.detectedCurrency})` : ""}. Health ${overall}/100.`,
       biggestOpportunity: opportunities[0]?.title || "CRO sprint on PDP & checkout",
-      biggestThreat: !s.hasMetaPixel ? "Untracked ad spend — cannot optimize" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
+      biggestThreat: s.fakeContact.length > 0 ? "Placeholder contact info destroys first-time trust" : s.brokenImageCount > 0 ? "Broken / placeholder images on storefront" : s.templateResidue.length > 0 ? "Template residue makes the store look abandoned" : !s.hasMetaPixel ? "Untracked ad spend — cannot optimize" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
       revenuePotential,
-      revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers`,
+      revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers · fundamentals ${fundamentalsReady ? "ready for scale" : "not yet locked — scale steps gated"}`,
       headline,
     },
     scorecard: {
