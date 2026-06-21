@@ -403,6 +403,19 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 const clamp = (n: number) => Math.max(0, Math.min(100, Math.round(n)));
 
 function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: string | null; country?: string | null }): z.infer<typeof auditReportSchema> {
+  // ---------- Platform / geo branching context ----------
+  const isShopify = s.platform === "Shopify";
+  const isWoo = s.platform === "WooCommerce";
+  // Trust user-supplied country first, else detected from currency / phone prefix.
+  const effectiveCountry = (input.country && input.country !== "Other" ? input.country : null) ?? s.detectedCountry ?? "Global";
+  const isNonWestern = s.isNonWesternMarket
+    || /^(Pakistan|India|Bangladesh|Sri Lanka|UAE|Saudi Arabia|Qatar|Kuwait|Bahrain|Oman|Egypt|Nigeria|Kenya|Indonesia|Malaysia|Philippines|Thailand|Vietnam|Turkey|South Africa)$/i.test(effectiveCountry);
+  const retentionChannel = isNonWestern ? "WhatsApp" : "SMS";
+  const subTool = isShopify ? "Recharge or Appstle" : isWoo ? "WooCommerce Subscriptions or YITH Subscriptions" : "your platform's native subscriptions add-on";
+  const reviewTool = isShopify ? "Judge.me or Loox" : isWoo ? "WP Customer Reviews or Site Reviews" : "a reviews widget that matches your platform";
+  const smsTool = isNonWestern ? "WhatsApp Business API (Wati / Interakt / 360dialog)" : (isShopify ? "Postscript or Attentive" : "Omnisend SMS or Klaviyo SMS");
+  const chatTool = isNonWestern ? "WhatsApp Chat widget" : "Gorgias or Tidio";
+
   // ---------- Scoring ----------
   let seoTech = 50;
   if (s.isHttps) seoTech += 8; else seoTech -= 20;
@@ -411,6 +424,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (s.hasSchema) seoTech += 10; else seoTech -= 8;
   if (s.hasFavicon) seoTech += 2;
   if (s.htmlSize > 500000) seoTech -= 8;
+  if (s.brokenImageCount > 0) seoTech -= 6;
 
   let seoOnPage = 50;
   if (s.title && s.title.length >= 30 && s.title.length <= 65) seoOnPage += 10; else seoOnPage -= 8;
@@ -424,12 +438,18 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   const seoOverall = clamp((clamp(seoTech) + clamp(seoOnPage) + seoContent + seoCommercial) / 4);
 
   const paidScore = clamp(30 + (s.hasMetaPixel ? 20 : -5) + (s.hasGA ? 12 : -5) + (s.hasTikTok ? 10 : 0) + (s.tools.includes("Pinterest tag") ? 5 : 0));
-  const croScore = clamp(40 + (s.hasReviews ? 10 : -8) + (s.hasTrustBadges ? 8 : -5) + (s.hasUSP ? 10 : -6) + (s.hasChat ? 5 : 0) + (s.hasViewport ? 5 : -10) + (s.hasAddToCart ? 5 : -10));
-  const trust = clamp(35 + (s.isHttps ? 8 : -25) + (s.hasReviews ? 12 : -10) + (s.hasGuarantee ? 10 : -5) + (s.hasPrivacy ? 5 : -8) + (s.hasTerms ? 5 : -6) + (s.hasContact ? 5 : -8) + (s.hasAbout ? 4 : -4));
-  const brandAuth = clamp(35 + (s.socialLinks.length * 5) + (s.hasBlog ? 8 : -4) + (s.hasAbout ? 6 : -4) + (s.metaDesc ? 4 : -4));
-  const productPos = clamp(45 + (s.hasUSP ? 12 : -8) + (s.metaDesc ? 6 : -6) + (s.title.length > 25 ? 4 : -4));
+  const croScore = clamp(40 + (s.hasReviews ? 10 : -8) + (s.hasTrustBadges ? 8 : -5) + (s.hasUSP ? 10 : -6) + (s.hasChat ? 5 : 0) + (s.hasViewport ? 5 : -10) + (s.hasAddToCart ? 5 : -10) - (s.brokenImageCount > 0 ? 6 : 0) - (s.templateResidue.length > 0 ? 8 : 0));
+  const trust = clamp(35 + (s.isHttps ? 8 : -25) + (s.hasReviews ? 12 : -10) + (s.hasGuarantee ? 10 : -5) + (s.hasPrivacy ? 5 : -8) + (s.hasTerms ? 5 : -6) + (s.hasContact ? 5 : -8) + (s.hasAbout ? 4 : -4) - (s.fakeContact.length > 0 ? 12 : 0) - (s.copyrightStale ? 4 : 0));
+  const brandAuth = clamp(35 + (s.socialLinks.length * 5) + (s.hasBlog ? 8 : -4) + (s.hasAbout ? 6 : -4) + (s.metaDesc ? 4 : -4) - (s.templateResidue.length > 0 ? 10 : 0));
+  // Positioning now has explicit breakdown (not a blank score)
+  const posBrandClarity = s.title && s.brandName.length >= 3 ? 12 : -8;
+  const posUsp = s.hasUSP ? 12 : -8;
+  const posSocialProof = s.hasReviews ? 8 : -6;
+  const posOgImage = s.ogImage ? 6 : -4;
+  const posDifferentiation = s.hasGuarantee || s.hasSubscription ? 6 : -4;
+  const productPos = clamp(45 + posBrandClarity + posUsp + posSocialProof + posOgImage + posDifferentiation);
   const acquisition = clamp((paidScore + seoOverall + (s.socialLinks.length >= 3 ? 65 : 40)) / 3);
-  const retention = clamp(30 + (s.hasKlaviyo ? 15 : -5) + (s.hasSMS ? 12 : 0) + (s.hasSubscription ? 12 : 0) + (s.hasNewsletter ? 8 : -5) + (s.hasReviews ? 5 : 0));
+  const retention = clamp(30 + (s.hasKlaviyo ? 15 : -5) + (s.hasSMS ? 12 : 0) + (s.hasSubscription ? 12 : 0) + (s.hasNewsletter ? 8 : -5) + (s.hasReviews ? 5 : 0) + (isNonWestern && tools_includes(s, "WhatsApp") ? 10 : 0));
   const customerExp = clamp((croScore + trust + (s.hasChat ? 70 : 45)) / 3);
   const marketPos = clamp((brandAuth + productPos + trust) / 3);
   const compAdv = clamp((brandAuth + productPos + (s.hasUSP ? 60 : 35)) / 3);
@@ -441,10 +461,13 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   const signalFlags = [
     s.reachable, s.isHttps, s.hasViewport, Boolean(s.title), Boolean(s.metaDesc), Boolean(s.canonical),
     s.hasSchema, s.hasFavicon, s.h1Count === 1, s.imgCount === 0 || s.imgMissingAlt / s.imgCount <= 0.3,
-    s.hasReviews, s.hasTrustBadges, s.hasUSP, s.hasGuarantee, s.hasAddToCart, s.hasShipping,
+    s.brokenImageCount === 0, s.templateResidue.length === 0, s.fakeContact.length === 0,
+    s.hasReviewApp, s.hasStarMarkup, s.hasReviewText, s.hasTestimonialBlock,
+    s.hasTrustBadges, s.hasUSP, s.hasGuarantee, s.hasAddToCart, s.hasShipping,
     s.hasReturns, s.hasContact, s.hasAbout, s.hasFAQ, s.hasBlog, s.hasNewsletter, s.hasPrivacy,
     s.hasTerms, s.hasMetaPixel, s.hasGA, s.hasTikTok, s.hasKlaviyo, s.hasSMS, s.hasSubscription,
-    s.hasChat, s.socialLinks.length >= 2,
+    s.hasChat, s.socialLinks.length >= 2, s.copyrightYear !== null && !s.copyrightStale,
+    s.detectedCurrency !== null, s.detectedPhonePrefix !== null,
   ];
   const detectedSignals = signalFlags.filter(Boolean).length;
   const signalEvidence = (yes: boolean, present: string, absent: string) => yes ? present : absent;
@@ -465,10 +488,23 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       confidence: s.reachable ? 91 : 30,
       recommendation: croScore < 65 ? "Prioritize proof, risk reversal, and the purchase path." : "Test incremental PDP and checkout improvements.",
       drivers: [
-        { signal: "Reviews", detected: s.hasReviews, evidence: signalEvidence(s.hasReviews, "Review text or widget detected", "No reviews detected"), impact: s.hasReviews ? "+10 CRO / +12 trust" : "-8 CRO / -10 trust" },
+        { signal: "Reviews (any form)", detected: s.hasReviews, evidence: s.hasReviews ? `Detected: ${[s.hasReviewApp && "review app", s.hasStarMarkup && "star markup", s.hasReviewText && "review text", s.hasTestimonialBlock && "testimonial block"].filter(Boolean).join(", ")}` : "No reviews, stars, or testimonials detected", impact: s.hasReviews ? "+10 CRO / +12 trust" : "-8 CRO / -10 trust" },
         { signal: "Guarantee", detected: s.hasGuarantee, evidence: signalEvidence(s.hasGuarantee, "Guarantee language detected", "No guarantee detected"), impact: s.hasGuarantee ? "+10 trust points" : "-5 trust points" },
         { signal: "Primary purchase CTA", detected: s.hasAddToCart, evidence: signalEvidence(s.hasAddToCart, "Add-to-cart language detected", "No add-to-cart language detected"), impact: s.hasAddToCart ? "+5 CRO points" : "-10 CRO points" },
         { signal: "Trust badges", detected: s.hasTrustBadges, evidence: signalEvidence(s.hasTrustBadges, "Security/trust terms detected", "No trust badges detected"), impact: s.hasTrustBadges ? "+8 CRO points" : "-5 CRO points" },
+        { signal: "Genuine contact info", detected: s.fakeContact.length === 0, evidence: s.fakeContact.length === 0 ? "No placeholder phone/email patterns detected" : s.fakeContact[0], impact: s.fakeContact.length === 0 ? "Baseline trust intact" : "-12 trust points" },
+      ],
+    },
+    {
+      category: "Product positioning",
+      confidence: s.reachable ? 86 : 25,
+      recommendation: productPos < 65 ? "Sharpen brand clarity, USP, and proof above the fold." : "Lean into differentiation and premium signals.",
+      drivers: [
+        { signal: "Brand clarity in title", detected: Boolean(s.title) && s.brandName.length >= 3, evidence: s.title ? `Title: "${s.title.slice(0, 60)}"` : "No <title>", impact: s.title ? "+12 positioning points" : "-8 positioning points" },
+        { signal: "Above-fold USP language", detected: s.hasUSP, evidence: signalEvidence(s.hasUSP, "USP-style language present (guarantee/free shipping/lifetime/warranty)", "No USP language detected"), impact: s.hasUSP ? "+12 positioning points" : "-8 positioning points" },
+        { signal: "Social proof", detected: s.hasReviews, evidence: signalEvidence(s.hasReviews, "Reviews / testimonials present", "No social proof detected"), impact: s.hasReviews ? "+8 positioning points" : "-6 positioning points" },
+        { signal: "OG share image", detected: Boolean(s.ogImage), evidence: signalEvidence(Boolean(s.ogImage), "og:image set", "No og:image — weak brand surface on share"), impact: s.ogImage ? "+6 positioning points" : "-4 positioning points" },
+        { signal: "Template residue absent", detected: s.templateResidue.length === 0, evidence: s.templateResidue.length === 0 ? "No demo / lorem ipsum content detected" : s.templateResidue[0], impact: s.templateResidue.length === 0 ? "Baseline positioning intact" : "-10 brand authority points" },
       ],
     },
     {
@@ -479,16 +515,17 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
         { signal: "Meta Pixel", detected: s.hasMetaPixel, evidence: signalEvidence(s.hasMetaPixel, "Meta Pixel code detected", "Meta Pixel not detected"), impact: s.hasMetaPixel ? "+20 paid points" : "-5 paid points" },
         { signal: "GA4 / GTM", detected: s.hasGA, evidence: signalEvidence(s.hasGA, "Google analytics code detected", "GA4/GTM not detected"), impact: s.hasGA ? "+12 paid points" : "-5 paid points" },
         { signal: "TikTok Pixel", detected: s.hasTikTok, evidence: signalEvidence(s.hasTikTok, "TikTok tracking detected", "TikTok tracking not detected"), impact: s.hasTikTok ? "+10 paid points" : "No score change" },
+        { signal: "Tool count", detected: s.toolCount >= 3, evidence: s.toolCount > 0 ? `${s.toolCount} tools detected: ${s.tools.slice(0, 6).join(", ")}${s.toolCount > 6 ? ", …" : ""}` : "No marketing tools detected", impact: s.toolCount >= 5 ? "Mature stack" : s.toolCount >= 3 ? "Mid stack" : "Sparse stack" },
       ],
     },
     {
       category: "Retention",
       confidence: s.reachable ? 87 : 25,
-      recommendation: retention < 60 ? "Build email capture and lifecycle flows before adding channels." : "Advance segmentation, loyalty, and repeat-purchase programs.",
+      recommendation: retention < 60 ? `Build email capture and lifecycle flows on ${retentionChannel} before adding channels.` : `Advance segmentation, loyalty, and repeat-purchase programs (${retentionChannel}-first for your market).`,
       drivers: [
         { signal: "Email platform", detected: s.hasKlaviyo, evidence: signalEvidence(s.hasKlaviyo, "Klaviyo detected", "Klaviyo not detected"), impact: s.hasKlaviyo ? "+15 retention points" : "-5 retention points" },
         { signal: "Newsletter capture", detected: s.hasNewsletter, evidence: signalEvidence(s.hasNewsletter, "Signup language detected", "No newsletter capture detected"), impact: s.hasNewsletter ? "+8 retention points" : "-5 retention points" },
-        { signal: "SMS platform", detected: s.hasSMS, evidence: signalEvidence(s.hasSMS, "SMS tool detected", "No SMS tool detected"), impact: s.hasSMS ? "+12 retention points" : "No score change" },
+        { signal: `${retentionChannel} channel`, detected: isNonWestern ? tools_includes(s, "WhatsApp") : s.hasSMS, evidence: isNonWestern ? (tools_includes(s, "WhatsApp") ? "WhatsApp link/button detected" : "No WhatsApp channel detected") : (s.hasSMS ? "SMS tool detected" : "No SMS tool detected"), impact: "+10–12 retention points if present" },
         { signal: "Subscription", detected: s.hasSubscription, evidence: signalEvidence(s.hasSubscription, "Subscription offer detected", "No subscription offer detected"), impact: s.hasSubscription ? "+12 retention points" : "No score change" },
       ],
     },
@@ -503,13 +540,16 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (s.h1Count > 1) techIssues.push(`${s.h1Count} H1 tags (should be 1)`);
   if (!s.hasViewport) techIssues.push("Missing mobile viewport meta");
   if (s.imgCount > 0 && s.imgMissingAlt / s.imgCount > 0.3) techIssues.push(`${s.imgMissingAlt}/${s.imgCount} images missing alt text`);
+  if (s.brokenImageCount > 0) techIssues.push(`${s.brokenImageCount} placeholder/broken image source(s) detected (e.g. ${s.brokenImageSamples[0]})`);
 
   const friction: string[] = [];
   if (!s.hasUSP) friction.push("No visible USP / value prop above fold");
   if (!s.hasTrustBadges) friction.push("Zero trust badges or security signals");
-  if (!s.hasReviews) friction.push("No review widget / star ratings");
+  if (!s.hasReviews) friction.push("No reviews, stars, or testimonials detected (scanned widgets + text + markup)");
   if (!s.hasChat) friction.push("No live chat for objection handling");
   if (s.wordCount < 250) friction.push("Thin homepage copy (<250 words)");
+  if (s.brokenImageCount > 0) friction.push(`Placeholder image(s) still loading on the storefront`);
+  if (s.templateResidue.length > 0) friction.push(`Template residue: ${s.templateResidue[0]}`);
 
   const trustGaps: string[] = [];
   if (!s.isHttps) trustGaps.push("Site is HTTP — browser flags as insecure");
@@ -517,6 +557,8 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (!s.hasGuarantee) trustGaps.push("No money-back guarantee shown");
   if (!s.hasPrivacy) trustGaps.push("Privacy policy not linked");
   if (!s.hasContact) trustGaps.push("No clear contact page");
+  if (s.fakeContact.length > 0) trustGaps.push(`Suspicious / placeholder contact info: ${s.fakeContact[0]}`);
+  if (s.copyrightStale && s.copyrightYear !== null) trustGaps.push(`Footer copyright shows ${s.copyrightYear} (stale vs ${new Date().getUTCFullYear()})`);
 
   const killers: string[] = [];
   if (!s.hasAddToCart) killers.push("No detectable add-to-cart on landing");
@@ -525,56 +567,79 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (!s.metaDesc) killers.push("Missing meta description — low CTR from search");
   if (!s.hasShipping) killers.push("Shipping info not surfaced — cart abandons");
 
-  // ---------- Revenue leakage ----------
+  // ---------- Revenue leakage (severity validated against actual detection) ----------
   const leaks: z.infer<typeof leakSchema>[] = [];
   if (!s.hasKlaviyo && !s.hasNewsletter) leaks.push({ area: "Email capture", leak: "No newsletter / email capture detected", severity: "High", impact: "Losing 20-30% revenue from flows (welcome, browse, cart)" });
-  if (!s.hasReviews) leaks.push({ area: "Social proof", leak: "No reviews shown on site", severity: "High", impact: "Reviews lift CR by 10-30% on average" });
+  // Severity now reflects reality: testimonials present → only Low; nothing at all → High
+  if (!s.hasReviews) {
+    leaks.push({ area: "Social proof", leak: "No reviews, stars, or testimonials detected anywhere on the page", severity: "High", impact: "Reviews lift CR by 10-30% on average" });
+  } else if (!s.hasReviewApp && (s.hasReviewText || s.hasTestimonialBlock)) {
+    leaks.push({ area: "Social proof", leak: "Testimonials exist but no review collection app — reviews are not compounding", severity: "Low", impact: "Manual proof doesn't scale; install a review widget to gather and syndicate" });
+  }
   if (!s.hasMetaPixel) leaks.push({ area: "Tracking", leak: "Meta Pixel missing", severity: "Critical", impact: "Cannot retarget or optimize Meta ads → 30-50% wasted spend" });
   if (!s.hasGA) leaks.push({ area: "Analytics", leak: "GA4 not detected", severity: "High", impact: "Flying blind on traffic & funnel drop-off" });
   if (!s.hasSchema) leaks.push({ area: "SEO", leak: "No product/FAQ schema", severity: "Medium", impact: "Missing rich results → 15-30% lower organic CTR" });
   if (!s.hasGuarantee) leaks.push({ area: "Risk reversal", leak: "No guarantee on site", severity: "Medium", impact: "Higher cart abandonment from risk-averse buyers" });
   if (!s.hasSubscription && /coffee|supplement|skincare|pet|food/i.test(s.title + s.metaDesc)) leaks.push({ area: "Retention", leak: "Subscription model not offered", severity: "High", impact: "LTV ~2-3x lower vs subscribe & save" });
   if (!s.hasUSP) leaks.push({ area: "Positioning", leak: "USP not above fold", severity: "Medium", impact: "Bounce rate 10-20% higher than category benchmark" });
+  if (s.brokenImageCount > 0) leaks.push({ area: "Merchandising", leak: `${s.brokenImageCount} placeholder image(s) still served`, severity: "High", impact: "Hero/product images that look broken kill PDP conversion instantly" });
+  if (s.templateResidue.length > 0) leaks.push({ area: "Brand", leak: `Template residue on page: ${s.templateResidue[0]}`, severity: "High", impact: "Demo content tanks credibility before the first product view" });
+  if (s.fakeContact.length > 0) leaks.push({ area: "Trust", leak: `Placeholder contact details: ${s.fakeContact[0]}`, severity: "Critical", impact: "Buyers spot fake phone/email patterns instantly → trust score collapses" });
+  if (s.copyrightStale && s.copyrightYear !== null) leaks.push({ area: "Footer", leak: `Stale copyright year ${s.copyrightYear}`, severity: "Low", impact: "Small but real credibility signal — buyers notice 'is this site abandoned?'" });
 
-  // ---------- Issue classification ----------
+  // ---------- Issue classification (severity validated) ----------
   const allIssues: { issue: string; why: string; fix: string; sev: "super" | "hot" | "med" }[] = [];
   if (!s.isHttps) allIssues.push({ issue: "HTTP, not HTTPS", why: "Chrome blocks checkout; trust destroyed", fix: "Enable SSL today via host/platform", sev: "super" });
   if (!s.hasMetaPixel) allIssues.push({ issue: "Meta Pixel missing", why: "Cannot optimize, retarget or measure ROAS", fix: "Install Pixel + CAPI within 24h", sev: "super" });
   if (!s.hasViewport) allIssues.push({ issue: "Not mobile-friendly", why: "70% of ecom traffic is mobile", fix: "Add viewport meta + responsive theme", sev: "super" });
+  if (s.fakeContact.length > 0) allIssues.push({ issue: "Placeholder contact info on site", why: "Buyers immediately distrust fake phone / email formats", fix: `Replace with real details: ${s.fakeContact[0]}`, sev: "super" });
+  if (s.brokenImageCount > 0) allIssues.push({ issue: `${s.brokenImageCount} placeholder image(s) loading`, why: "Hero / product images look broken → PDP conversion collapses", fix: `Replace placeholder asset(s) e.g. ${s.brokenImageSamples[0]}`, sev: "super" });
+  if (s.templateResidue.length > 0) allIssues.push({ issue: "Template / demo content still live", why: s.templateResidue[0], fix: "Remove lorem ipsum, demo collections, and placeholder text everywhere", sev: "super" });
   if (s.h1Count === 0) allIssues.push({ issue: "No H1 on homepage", why: "Google can't read primary topic", fix: "Add a single keyword-rich H1", sev: "hot" });
-  if (!s.hasReviews) allIssues.push({ issue: "No reviews visible", why: "92% of buyers read reviews first", fix: "Install Judge.me / Loox this week", sev: "hot" });
+  // Reviews issue is conditional: only Hot if NOTHING detected; Medium if testimonials but no app
+  if (!s.hasReviews) {
+    allIssues.push({ issue: "No reviews visible", why: "92% of buyers read reviews first", fix: `Install ${reviewTool} this week`, sev: "hot" });
+  } else if (!s.hasReviewApp) {
+    allIssues.push({ issue: "Testimonials exist but no review app", why: "Reviews aren't accumulating, syndicating, or feeding rich results", fix: `Install ${reviewTool} and migrate existing testimonials in`, sev: "med" });
+  }
   if (!s.metaDesc) allIssues.push({ issue: "No meta description", why: "Lower SERP CTR by 5-15%", fix: "Write 140-char descriptions per page", sev: "hot" });
   if (!s.hasSchema) allIssues.push({ issue: "No structured data", why: "Missing rich snippets in search", fix: "Add Product + FAQ JSON-LD", sev: "hot" });
   if (!s.hasGuarantee) allIssues.push({ issue: "No guarantee shown", why: "Risk-averse buyers bounce at PDP", fix: "Add 30-day money-back badge", sev: "hot" });
   if (!s.hasKlaviyo) allIssues.push({ issue: "No email marketing tool", why: "Email = 20-35% of mature DTC revenue", fix: "Install Klaviyo + 4 core flows", sev: "hot" });
   if (s.imgMissingAlt > 5) allIssues.push({ issue: `${s.imgMissingAlt} images missing alt`, why: "Hurts SEO and accessibility", fix: "Bulk-add descriptive alt text", sev: "med" });
-  if (!s.hasChat) allIssues.push({ issue: "No live chat", why: "Objections not handled in real time", fix: "Install Tidio/Gorgias free tier", sev: "med" });
+  if (!s.hasChat) allIssues.push({ issue: "No live chat", why: "Objections not handled in real time", fix: `Install ${chatTool}`, sev: "med" });
   if (!s.hasBlog) allIssues.push({ issue: "No blog/content hub", why: "Limits organic traffic ceiling", fix: "Publish 2 SEO articles/month", sev: "med" });
   if (!s.socialLinks.length) allIssues.push({ issue: "No social proof links", why: "Brand looks new / unestablished", fix: "Link IG + TikTok in footer", sev: "med" });
   if (!s.hasFAQ) allIssues.push({ issue: "No FAQ page", why: "Pre-purchase friction unhandled", fix: "Add FAQ with top 10 questions", sev: "med" });
   if (!s.hasTrustBadges) allIssues.push({ issue: "No trust badges", why: "Lowers perceived safety at checkout", fix: "Add SSL/payment/return badges", sev: "med" });
+  if (s.copyrightStale && s.copyrightYear !== null) allIssues.push({ issue: `Footer copyright stuck on ${s.copyrightYear}`, why: "Buyers read stale years as 'site abandoned'", fix: `Update to ${new Date().getUTCFullYear()} (or use dynamic year)`, sev: "med" });
 
   const superHot = allIssues.filter((i) => i.sev === "super").slice(0, 5).map(({ sev, ...r }) => r);
   const hot = allIssues.filter((i) => i.sev === "hot").slice(0, 5).map(({ sev, ...r }) => r);
   const medium = allIssues.filter((i) => i.sev === "med").slice(0, 5).map(({ sev, ...r }) => r);
 
-  // ---------- Opportunities ----------
+  // ---------- Opportunities (platform + geo conditional) ----------
   const opps: z.infer<typeof opportunitySchema>[] = [];
   if (!s.hasKlaviyo) opps.push({ title: "Launch core email flows", expectedImpact: "+20-30% revenue", difficulty: "Medium", roi: "Very High", action: "Klaviyo + welcome/cart/browse/post-purchase" });
-  if (!s.hasReviews) opps.push({ title: "Install review system", expectedImpact: "+10-25% CR", difficulty: "Easy", roi: "High", action: "Loox or Judge.me with photo reviews" });
+  if (!s.hasReviews) opps.push({ title: "Install review system", expectedImpact: "+10-25% CR", difficulty: "Easy", roi: "High", action: `${reviewTool} with photo reviews` });
   if (!s.hasSchema) opps.push({ title: "Add product schema", expectedImpact: "+15-30% organic CTR", difficulty: "Easy", roi: "High", action: "Inject Product + Review JSON-LD" });
   if (!s.hasUSP) opps.push({ title: "Rewrite above-fold USP", expectedImpact: "+8-15% CR", difficulty: "Easy", roi: "High", action: "Benefit-led hero + 3 trust bullets" });
-  if (!s.hasSubscription) opps.push({ title: "Test subscribe & save", expectedImpact: "+2-3× LTV", difficulty: "Medium", roi: "Very High", action: "Recharge / Appstle with 10% off" });
+  if (!s.hasSubscription) opps.push({ title: "Test subscribe & save", expectedImpact: "+2-3× LTV", difficulty: "Medium", roi: "Very High", action: `${subTool} with 10% off` });
   if (!s.hasMetaPixel) opps.push({ title: "Install Meta Pixel + CAPI", expectedImpact: "+25-40% ROAS", difficulty: "Easy", roi: "Very High", action: "Pixel + server-side events" });
+  if (isNonWestern && !tools_includes(s, "WhatsApp")) opps.push({ title: "Activate WhatsApp as primary retention channel", expectedImpact: "+15-25% repeat orders", difficulty: "Easy", roi: "Very High", action: "WhatsApp Business API (Wati / Interakt) + abandoned cart + order updates" });
   while (opps.length < 3) opps.push({ title: "Run a structured CRO sprint", expectedImpact: "+10-20% CR", difficulty: "Medium", roi: "High", action: "A/B test PDP, cart, checkout for 30 days" });
   const opportunities = opps.slice(0, 5);
 
   // ---------- Action plan ----------
   const immediate: string[] = [];
   if (!s.isHttps) immediate.push("Force HTTPS sitewide");
+  if (s.fakeContact.length > 0) immediate.push("Replace placeholder phone / email with real contact details");
+  if (s.brokenImageCount > 0) immediate.push("Swap placeholder / broken hero & product images for real assets");
+  if (s.templateResidue.length > 0) immediate.push("Strip template residue (lorem ipsum, demo collections, sample copy)");
+  if (s.copyrightStale && s.copyrightYear !== null) immediate.push(`Update footer copyright to ${new Date().getUTCFullYear()} (or use dynamic year)`);
   if (!s.hasMetaPixel) immediate.push("Install Meta Pixel + Conversions API");
   if (!s.hasGA) immediate.push("Install GA4 + ecommerce events");
-  if (!s.hasReviews) immediate.push("Add review widget to PDP");
+  if (!s.hasReviews) immediate.push(`Add ${reviewTool} widget to PDPs`);
   if (!s.hasSchema) immediate.push("Add Product + FAQ JSON-LD");
   if (!s.hasUSP) immediate.push("Add USP + trust bar above fold");
   if (!s.metaDesc) immediate.push("Write meta titles + descriptions");
@@ -582,17 +647,23 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
 
   const growth: string[] = [];
   if (!s.hasKlaviyo) growth.push("Build 4 core email flows in Klaviyo");
-  if (!s.hasSMS) growth.push("Add SMS via Postscript or Attentive");
+  if (!s.hasSMS && !tools_includes(s, "WhatsApp")) growth.push(`Add ${retentionChannel} via ${smsTool}`);
   growth.push("Launch creative-testing system on Meta");
   growth.push("Publish 8 SEO articles targeting bottom-funnel terms");
-  if (!s.hasSubscription) growth.push("Test subscribe & save on top SKU");
+  if (!s.hasSubscription) growth.push(`Test subscribe & save on top SKU via ${subTool}`);
   growth.push("Run weekly A/B tests on PDP + cart");
 
+  // ---------- Scale (gated by fundamentals score) ----------
+  const fundamentalsReady = overall >= 60 && s.hasMetaPixel && s.hasGA && s.hasReviews;
   const scale: string[] = [];
   scale.push("Open TikTok + YouTube ad channels");
   scale.push("Layer Google Shopping + Performance Max");
   scale.push("Launch influencer/UGC seeding program");
-  scale.push("Expand into 1 new geo with localized funnel");
+  if (fundamentalsReady) {
+    scale.push("Expand into 1 new geo with localized funnel");
+  } else {
+    scale.push("PREREQUISITE: lock fundamentals (tracking + reviews + overall ≥ 60) before any geo expansion");
+  }
   scale.push("Build loyalty + referral program");
 
   // ---------- Competitors (industry-generic) ----------
