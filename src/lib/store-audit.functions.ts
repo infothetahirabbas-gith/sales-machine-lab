@@ -166,13 +166,23 @@ type Signals = {
   title: string; metaDesc: string; ogTitle: string; ogImage: string; canonical: string;
   hasViewport: boolean; hasSchema: boolean; hasFavicon: boolean;
   h1Count: number; h2Count: number; imgCount: number; imgMissingAlt: number;
+  brokenImageCount: number; brokenImageSamples: string[];
   linkCount: number; wordCount: number; htmlSize: number;
-  platform: string; tools: string[];
-  hasReviews: boolean; hasChat: boolean; hasSubscription: boolean; hasKlaviyo: boolean; hasMetaPixel: boolean; hasGA: boolean; hasTikTok: boolean; hasSMS: boolean;
+  platform: string; tools: string[]; toolCount: number;
+  // review detection (separate from app detection)
+  hasReviewApp: boolean; hasReviewText: boolean; hasStarMarkup: boolean; hasTestimonialBlock: boolean; hasReviews: boolean;
+  hasChat: boolean; hasSubscription: boolean; hasKlaviyo: boolean; hasMetaPixel: boolean; hasGA: boolean; hasTikTok: boolean; hasSMS: boolean;
   hasAddToCart: boolean; hasCheckout: boolean; hasShipping: boolean; hasReturns: boolean; hasContact: boolean; hasAbout: boolean; hasFAQ: boolean; hasBlog: boolean;
   hasNewsletter: boolean; hasPrivacy: boolean; hasTerms: boolean;
   hasTrustBadges: boolean; hasUSP: boolean; hasGuarantee: boolean;
   socialLinks: string[]; brandName: string;
+  // new: template residue + fake contact
+  templateResidue: string[]; fakeContact: string[];
+  // new: geo / market detection
+  detectedCurrency: string | null; detectedPhonePrefix: string | null; detectedCountry: string | null;
+  isNonWesternMarket: boolean;
+  // new: footer / copyright year
+  copyrightYear: number | null; copyrightStale: boolean;
 };
 
 function analyzeHtml(html: string, url: string, status: number): Signals {
@@ -188,27 +198,76 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
   const h2s = (html.match(/<h2\b/gi) || []).length;
   const imgs = html.match(/<img\b[^>]*>/gi) || [];
   const imgsMissingAlt = imgs.filter((t) => !/\salt\s*=/.test(t)).length;
+
+  // ---- Broken / placeholder image detection ----
+  const placeholderPattern = /(dummy|placeholder|sample[-_]?(?:image|product)|lorem|demo[-_]?(?:image|product)|no[-_]?image|default[-_]?image|via\.placeholder\.com|placehold\.it|placeholder\.com|unsplash\.com\/featured|picsum\.photos)/i;
+  const brokenImageSamples: string[] = [];
+  for (const tag of imgs) {
+    const srcMatch = tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i);
+    const src = srcMatch?.[1] ?? "";
+    if (src && placeholderPattern.test(src)) {
+      if (brokenImageSamples.length < 3) brokenImageSamples.push(src.slice(0, 90));
+    }
+  }
+  const brokenImageCount = brokenImageSamples.length;
+
   const links = (html.match(/<a\b/gi) || []).length;
   const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const textLower = text.toLowerCase();
   const wordCount = text ? text.split(/\s+/).length : 0;
+
   const platform =
-    /cdn\.shopify\.com|shopify\.com\/s\//i.test(html) ? "Shopify" :
-    /wp-content|woocommerce/i.test(html) ? "WooCommerce" :
-    /bigcommerce/i.test(html) ? "BigCommerce" :
-    /magento/i.test(html) ? "Magento" :
-    /wixstatic|wix\.com/i.test(html) ? "Wix" :
-    /squarespace/i.test(html) ? "Squarespace" :
+    /cdn\.shopify\.com|shopify\.com\/s\/|x-shopid|shopify-section/i.test(html) ? "Shopify" :
+    /wp-content|woocommerce|wc-block|wp-json/i.test(html) ? "WooCommerce" :
+    /bigcommerce|stencil-utils/i.test(html) ? "BigCommerce" :
+    /magento|mage\/|adobe-commerce/i.test(html) ? "Magento" :
+    /wixstatic|wix\.com|_wix/i.test(html) ? "Wix" :
+    /squarespace|static1\.squarespace/i.test(html) ? "Squarespace" :
+    /webflow/i.test(html) ? "Webflow" :
     "Custom/Unknown";
+
+  // ---- Expanded tool detection ----
   const tools: string[] = [];
   if (/klaviyo/i.test(html)) tools.push("Klaviyo");
-  if (/gtag\(|googletagmanager/i.test(html)) tools.push("GA4/GTM");
-  if (/connect\.facebook\.net|fbq\(/i.test(html)) tools.push("Meta Pixel");
-  if (/judge\.me|loox|yotpo|stamped|okendo/i.test(html)) tools.push("Reviews");
-  if (/recharge|bold[_-]subscriptions|appstle/i.test(html)) tools.push("Subscriptions");
-  if (/gorgias|zendesk|tidio|intercom|crisp/i.test(html)) tools.push("Live chat");
-  if (/postscript|attentive|sms[_-]?bump/i.test(html)) tools.push("SMS");
-  if (/tiktok|ttclid/i.test(html)) tools.push("TikTok Pixel");
-  if (/pinterest/i.test(html)) tools.push("Pinterest tag");
+  if (/mailchimp|list-manage\.com/i.test(html)) tools.push("Mailchimp");
+  if (/omnisend/i.test(html)) tools.push("Omnisend");
+  if (/gtag\(|googletagmanager|google-analytics/i.test(html)) tools.push("GA4/GTM");
+  if (/connect\.facebook\.net|fbq\(|facebook-pixel/i.test(html)) tools.push("Meta Pixel");
+  if (/judge\.me/i.test(html)) tools.push("Judge.me");
+  if (/loox/i.test(html)) tools.push("Loox");
+  if (/yotpo/i.test(html)) tools.push("Yotpo");
+  if (/stamped/i.test(html)) tools.push("Stamped");
+  if (/okendo/i.test(html)) tools.push("Okendo");
+  if (/trustpilot\.com\/widget/i.test(html)) tools.push("Trustpilot widget");
+  if (/recharge|rechargepayments/i.test(html)) tools.push("Recharge (Subs)");
+  if (/bold[_-]subscriptions/i.test(html)) tools.push("Bold Subs");
+  if (/appstle/i.test(html)) tools.push("Appstle Subs");
+  if (/gorgias/i.test(html)) tools.push("Gorgias");
+  if (/zendesk/i.test(html)) tools.push("Zendesk");
+  if (/tidio/i.test(html)) tools.push("Tidio");
+  if (/intercom/i.test(html)) tools.push("Intercom");
+  if (/crisp\.chat/i.test(html)) tools.push("Crisp");
+  if (/postscript/i.test(html)) tools.push("Postscript");
+  if (/attentive/i.test(html)) tools.push("Attentive");
+  if (/sms[_-]?bump|smsbump/i.test(html)) tools.push("SMSBump");
+  if (/tiktok|ttclid|tiktok-pixel/i.test(html)) tools.push("TikTok Pixel");
+  if (/pinterest|pintrk/i.test(html)) tools.push("Pinterest tag");
+  if (/snap\.licdn|linkedin\.insight/i.test(html)) tools.push("LinkedIn Insight");
+  if (/hotjar/i.test(html)) tools.push("Hotjar");
+  if (/clarity\.ms/i.test(html)) tools.push("MS Clarity");
+  if (/vwo\.com|visualwebsiteoptimizer/i.test(html)) tools.push("VWO");
+  if (/optimizely/i.test(html)) tools.push("Optimizely");
+  if (/wa\.me\/|api\.whatsapp/i.test(html)) tools.push("WhatsApp");
+  const toolCount = tools.length;
+
+  // ---- Review detection (separate from app detection) ----
+  const reviewApps = ["Judge.me", "Loox", "Yotpo", "Stamped", "Okendo", "Trustpilot widget"];
+  const hasReviewApp = tools.some((t) => reviewApps.includes(t));
+  const hasStarMarkup = /★|⭐|class=["'][^"']*\b(stars?|rating|review-stars|spr-icon-star)\b/i.test(html);
+  const hasReviewText = /\b\d(?:\.\d)?\s*\/\s*5\b|\b\d{2,}\s*reviews?\b|customer reviews|verified reviews|what (?:our )?customers say/i.test(textLower);
+  const hasTestimonialBlock = /testimonial|"[A-Z][^"]{30,200}"\s*[—–-]\s*[A-Z][a-z]+/m.test(html);
+  const hasReviews = hasReviewApp || hasStarMarkup || hasReviewText || hasTestimonialBlock;
+
   const socialLinks: string[] = [];
   if (/instagram\.com\//i.test(html)) socialLinks.push("Instagram");
   if (/facebook\.com\//i.test(html)) socialLinks.push("Facebook");
@@ -223,6 +282,81 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
       .trim()
       .slice(0, 40) || host;
 
+  // ---- Template residue ----
+  const templateResidue: string[] = [];
+  if (/lorem ipsum|dolor sit amet/i.test(textLower)) templateResidue.push("Lorem ipsum placeholder copy in body");
+  if (/\byour (?:text|content|tagline|heading|store name|brand name) here\b/i.test(textLower)) templateResidue.push("Placeholder text e.g. 'your text here'");
+  if (/\b(?:add your|edit this|sample (?:product|collection))\b/i.test(textLower)) templateResidue.push("Theme editor instructions still visible");
+  if (/\bdemo store\b|powered by\s+shopify\s+•?\s*demo/i.test(textLower)) templateResidue.push("'Demo store' label still on site");
+  if (/(t-?shirt|hoodie|mug)\s+example|example (?:product|collection)/i.test(textLower)) templateResidue.push("Example product names from theme demo");
+
+  // ---- Fake / placeholder contact info ----
+  const fakeContact: string[] = [];
+  // Fake phone formats: (42) 500-456-789, 123-456-7890, +1 555-555-5555, 555-1234
+  if (/\(\d{2}\)\s*\d{3}[-\s]\d{3}[-\s]\d{3}/.test(text)) fakeContact.push("Phone format looks like a template default e.g. '(42) 500-456-789'");
+  if (/\b555[-\s]?(?:01\d{2}|1234|5555)\b/.test(text)) fakeContact.push("Uses 555 placeholder phone number");
+  if (/\b123[-\s]?456[-\s]?7890\b/.test(text)) fakeContact.push("Uses 123-456-7890 placeholder phone");
+  if (/\b1234\s+(?:main|elm|first|sample)\s+(?:st|street|ave)/i.test(text)) fakeContact.push("Uses sample street address");
+  if (/example@example\.com|email@example\.com|test@test\.com|info@yourdomain/i.test(textLower)) fakeContact.push("Email address is a placeholder");
+
+  // ---- Geo / market detection ----
+  const currencyMap: Array<[RegExp, string, string | null]> = [
+    [/PKR|Rs\.?\s?\d/i, "PKR", "+92"],
+    [/INR|₹/i, "INR", "+91"],
+    [/BDT|৳/i, "BDT", "+880"],
+    [/AED|د\.إ/i, "AED", "+971"],
+    [/SAR|﷼/i, "SAR", "+966"],
+    [/QAR/i, "QAR", "+974"],
+    [/EGP/i, "EGP", "+20"],
+    [/NGN|₦/i, "NGN", "+234"],
+    [/ZAR|R\s?\d/, "ZAR", "+27"],
+    [/MYR|RM\s?\d/i, "MYR", "+60"],
+    [/IDR|Rp\s?\d/i, "IDR", "+62"],
+    [/PHP|₱/i, "PHP", "+63"],
+    [/THB|฿/i, "THB", "+66"],
+    [/TRY|₺/i, "TRY", "+90"],
+    [/GBP|£\s?\d/, "GBP", "+44"],
+    [/EUR|€\s?\d/, "EUR", null],
+    [/AUD|A\$/i, "AUD", "+61"],
+    [/CAD|C\$/i, "CAD", "+1"],
+    [/USD|\$\s?\d/, "USD", "+1"],
+  ];
+  let detectedCurrency: string | null = null;
+  let detectedPhonePrefix: string | null = null;
+  for (const [pat, cur, prefix] of currencyMap) {
+    if (pat.test(html)) { detectedCurrency = cur; detectedPhonePrefix = prefix; break; }
+  }
+  // Phone prefix overrides currency hint when present
+  const prefixMatch = html.match(/\+(\d{1,3})\b/);
+  if (prefixMatch) {
+    const map: Record<string, string> = {
+      "92": "+92", "91": "+91", "880": "+880", "971": "+971", "966": "+966",
+      "974": "+974", "20": "+20", "234": "+234", "27": "+27", "60": "+60",
+      "62": "+62", "63": "+63", "66": "+66", "90": "+90", "44": "+44",
+      "61": "+61", "1": "+1",
+    };
+    if (map[prefixMatch[1]]) detectedPhonePrefix = map[prefixMatch[1]];
+  }
+  const countryFromCurrency: Record<string, string> = {
+    PKR: "Pakistan", INR: "India", BDT: "Bangladesh", AED: "UAE", SAR: "Saudi Arabia",
+    QAR: "Qatar", EGP: "Egypt", NGN: "Nigeria", ZAR: "South Africa", MYR: "Malaysia",
+    IDR: "Indonesia", PHP: "Philippines", THB: "Thailand", TRY: "Turkey",
+    GBP: "United Kingdom", AUD: "Australia",
+  };
+  const detectedCountry = detectedCurrency ? countryFromCurrency[detectedCurrency] ?? null : null;
+  const nonWesternCurrencies = new Set(["PKR", "INR", "BDT", "AED", "SAR", "QAR", "EGP", "NGN", "MYR", "IDR", "PHP", "THB", "TRY"]);
+  const isNonWesternMarket = detectedCurrency ? nonWesternCurrencies.has(detectedCurrency) : false;
+
+  // ---- Copyright year ----
+  const thisYear = new Date().getUTCFullYear();
+  const yearMatches = [...html.matchAll(/(?:©|&copy;|copyright)\s*(\d{4})(?:\s*[-–—]\s*(\d{4}))?/gi)];
+  let copyrightYear: number | null = null;
+  for (const m of yearMatches) {
+    const y = parseInt(m[2] || m[1], 10);
+    if (y >= 2018 && y <= thisYear + 1 && (copyrightYear === null || y > copyrightYear)) copyrightYear = y;
+  }
+  const copyrightStale = copyrightYear !== null && copyrightYear < thisYear;
+
   return {
     url, host, isHttps: parsed.protocol === "https:", status, reachable: status >= 200 && status < 400,
     title: titleMatch?.[1]?.trim() ?? "",
@@ -234,16 +368,17 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
     hasSchema: /application\/ld\+json/i.test(html),
     hasFavicon: /rel=["'](?:shortcut )?icon["']/i.test(html),
     h1Count: h1s, h2Count: h2s, imgCount: imgs.length, imgMissingAlt: imgsMissingAlt,
+    brokenImageCount, brokenImageSamples,
     linkCount: links, wordCount, htmlSize: html.length,
-    platform, tools,
-    hasReviews: tools.includes("Reviews") || /review|★|⭐/i.test(text),
-    hasChat: tools.includes("Live chat"),
-    hasSubscription: tools.includes("Subscriptions") || /subscribe & save|subscription/i.test(lower),
+    platform, tools, toolCount,
+    hasReviewApp, hasReviewText, hasStarMarkup, hasTestimonialBlock, hasReviews,
+    hasChat: /Gorgias|Zendesk|Tidio|Intercom|Crisp/.test(tools.join(" ")),
+    hasSubscription: /Recharge|Bold|Appstle/.test(tools.join(" ")) || /subscribe & save|subscription/i.test(lower),
     hasKlaviyo: tools.includes("Klaviyo"),
     hasMetaPixel: tools.includes("Meta Pixel"),
     hasGA: tools.includes("GA4/GTM"),
     hasTikTok: tools.includes("TikTok Pixel"),
-    hasSMS: tools.includes("SMS"),
+    hasSMS: /Postscript|Attentive|SMSBump/.test(tools.join(" ")),
     hasAddToCart: /add[-_ ]?to[-_ ]?cart|add to bag/i.test(lower),
     hasCheckout: /checkout/i.test(lower),
     hasShipping: /shipping/i.test(lower),
@@ -255,10 +390,13 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
     hasNewsletter: /newsletter|subscribe|sign[- ]?up/i.test(lower),
     hasPrivacy: /privacy/i.test(lower),
     hasTerms: /terms/i.test(lower),
-    hasTrustBadges: /trustpilot|bbb|verified|secure checkout|ssl/i.test(lower),
+    hasTrustBadges: /trustpilot|bbb|verified|secure checkout|ssl|norton secured|mcafee secure/i.test(lower),
     hasUSP: /free shipping|money[- ]?back|guarantee|lifetime|warranty/i.test(lower),
     hasGuarantee: /guarantee|money[- ]?back/i.test(lower),
     socialLinks, brandName,
+    templateResidue, fakeContact,
+    detectedCurrency, detectedPhonePrefix, detectedCountry, isNonWesternMarket,
+    copyrightYear, copyrightStale,
   };
 }
 
