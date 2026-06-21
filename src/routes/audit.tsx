@@ -10,6 +10,11 @@ import {
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
+import auditPreviewAsset from "../assets/audit-report-preview.jpg.asset.json";
+
+/** UK-positioned tool — render timestamps in 24h en-GB locale everywhere. */
+const formatTimestamp = (d: Date = new Date()) =>
+  d.toLocaleString("en-GB", { hour12: false, year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" });
 import { Button } from "../components/ui/button";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
