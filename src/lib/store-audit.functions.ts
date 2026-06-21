@@ -779,13 +779,15 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       mostUnderutilizedChannel: s.hasBlog ? "Email/SMS retention" : "SEO content",
     },
     retentionIntelligence: {
-      email: s.hasKlaviyo ? "Klaviyo installed — verify flows live" : "No email tool",
-      sms: s.hasSMS ? "SMS tool detected" : "Not in use",
+      email: s.hasKlaviyo ? "Klaviyo installed — verify flows live" : tools_includes(s, "Mailchimp") ? "Mailchimp installed — upgrade to Klaviyo for ecom flows" : tools_includes(s, "Omnisend") ? "Omnisend installed — flows likely covered" : "No email tool detected",
+      sms: isNonWestern
+        ? (tools_includes(s, "WhatsApp") ? "WhatsApp channel detected — primary retention channel for this market" : "WhatsApp not active — biggest retention miss for this geo (SMS deliverability is poor)")
+        : (s.hasSMS ? `SMS tool detected (${s.tools.filter((t) => /Postscript|Attentive|SMSBump/.test(t)).join(", ")})` : "Not in use — recommended: Postscript/Attentive (US/UK/AU only)"),
       loyalty: "No loyalty program detected",
-      subscription: s.hasSubscription ? "Subscription option present" : "Not offered",
-      repeatPurchase: retention >= 60 ? "Decent retention stack" : "Capped — install flows + loyalty",
+      subscription: s.hasSubscription ? `Subscription option present (${s.tools.filter((t) => /Recharge|Bold|Appstle/.test(t)).join(", ") || "platform-native"})` : `Not offered — install ${subTool}`,
+      repeatPurchase: retention >= 60 ? "Decent retention stack" : `Capped — install flows + ${retentionChannel} + loyalty`,
       retentionMaturityScore: retention,
-      retentionVerdict: retention >= 60 ? "Retention infrastructure in place" : "Retention is biggest revenue lever",
+      retentionVerdict: retention >= 60 ? `Retention infrastructure in place (${retentionChannel}-led for this market)` : `Retention is biggest revenue lever — start with email + ${retentionChannel}`,
     },
     competitors,
     competitiveGap: {
