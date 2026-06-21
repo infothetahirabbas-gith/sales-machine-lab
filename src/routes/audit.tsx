@@ -516,6 +516,46 @@ function AuditPage() {
         </div>
       </section>
 
+      {/* SAMPLE PREVIEW — show users exactly what they'll get before they submit */}
+      {!report && !loading && (
+        <section className="relative py-12 lg:py-16 border-t border-border/60 bg-secondary/20">
+          <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                <FileText className="w-3.5 h-3.5" /> What you'll receive
+              </div>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink leading-tight">
+                A board-grade <span className="text-sky-gradient">17-phase report</span> — preview before you submit
+              </h2>
+              <ul className="mt-5 space-y-2.5 text-sm">
+                {[
+                  "15 growth scores (SEO, Ads, CRO, Brand, Trust, Positioning, Acquisition, Retention, CX, Market Position, Moat, Revenue Efficiency, Scalability, Maturity, Overall)",
+                  "Recommendation confidence — every category shows the signals we detected and their impact",
+                  "Issue classification — Super Hot / Hot / Medium with severity validated against actual evidence",
+                  "Revenue leakage map — fake contact info, broken images, template residue, stale copyright all flagged",
+                  "Platform-aware tool stack — Shopify, WooCommerce, BigCommerce, Magento, Wix, Squarespace handled separately",
+                  "Geo-aware retention — WhatsApp-first for PKR/INR/AED/MENA, SMS-first for US/UK/AU",
+                  "90-day action plan with prerequisite gates (no 'expand into a new geo' before fundamentals are locked)",
+                  "Exports: PDF · Excel · CSV · JSON · Markdown",
+                ].map((t) => (
+                  <li key={t} className="flex gap-2 text-ink"><CheckCircle2 className="w-4 h-4 mt-0.5 text-emerald-500 shrink-0" /><span>{t}</span></li>
+                ))}
+              </ul>
+              <p className="mt-5 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at 90 seconds. Timestamps render in 24-hour en-GB format.</p>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl rounded-3xl pointer-events-none" />
+              <img
+                src={auditPreviewAsset.url}
+                alt="Preview of the Being Ecom Brain audit report — radar chart, pie chart, and score rings"
+                loading="lazy" width={1280} height={896}
+                className="relative rounded-2xl border border-border shadow-2xl w-full h-auto"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* RESULTS */}
       {report && (
         <section id="audit-results" className="relative py-12 lg:py-16">
