@@ -209,10 +209,11 @@ export const aboutFaqs: FAQ[] = [
 ];
 
 export const auditFaqs: FAQ[] = [
-  { q: "Is the audit really free?", a: "Yes. The AI-powered audit is 100% free with no credit card and no sales call required." },
-  { q: "How long does the audit take?", a: "Around 60 seconds. We scan your store, score traffic, ads, CRO and SEO, then return a 12-point growth action plan." },
-  { q: "Does it work for both Shopify and WooCommerce?", a: "Yes. Our scanner is built specifically for Shopify and WooCommerce storefronts." },
-  { q: "What do I get at the end?", a: "Scores per growth pillar, prioritized issues, and a clear action plan you can hand to any team - including ours." },
+  { q: "Is the audit really free?", a: "Yes. The Being Ecom Brain™ audit is 100% free with no credit card and no sales call required." },
+  { q: "How long does the audit take?", a: "Typically 20–40 seconds, with a hard 90-second timeout. We scan your store across 17 phases and return a full growth intelligence report." },
+  { q: "Does it work for both Shopify and WooCommerce?", a: "Yes — and BigCommerce, Magento, Wix and Squarespace. Tool, app and platform recommendations branch automatically to match what you're actually running." },
+  { q: "What do I get at the end?", a: "15 growth scores, recommendation confidence with signal drivers, revenue leakage map, competitor intel, a 90-day action plan and 5 founder lenses — exportable as PDF, Excel, CSV, JSON or Markdown." },
+  { q: "Will it match my market?", a: "Yes. We detect currency, phone prefix and country signals on the page and adjust retention channel advice (e.g. WhatsApp for South Asia / MENA, SMS for US/UK/AU)." },
 ];
 
 export const contactFaqs: FAQ[] = [

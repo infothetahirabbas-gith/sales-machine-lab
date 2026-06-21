@@ -10,6 +10,11 @@ import {
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
+import auditPreviewAsset from "../assets/audit-report-preview.jpg.asset.json";
+
+/** UK-positioned tool — render timestamps in 24h en-GB locale everywhere. */
+const formatTimestamp = (d: Date = new Date()) =>
+  d.toLocaleString("en-GB", { hour12: false, year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" });
 import { Button } from "../components/ui/button";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
@@ -76,7 +81,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   lines.push(`# Being Ecom Brain™ — Growth Intelligence Report`);
   lines.push(`\n**Store:** ${r.storeName}  `);
   lines.push(`**URL:** ${url}  `);
-  lines.push(`**Generated:** ${new Date().toLocaleString()}  `);
+  lines.push(`**Generated:** ${formatTimestamp()} (24h, en-GB)  `);
   lines.push(`**Platform:** ${r.platformGuess}`);
 
   h("Executive Intelligence");
@@ -511,6 +516,46 @@ function AuditPage() {
         </div>
       </section>
 
+      {/* SAMPLE PREVIEW — show users exactly what they'll get before they submit */}
+      {!report && !loading && (
+        <section className="relative py-12 lg:py-16 border-t border-border/60 bg-secondary/20">
+          <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                <FileText className="w-3.5 h-3.5" /> What you'll receive
+              </div>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink leading-tight">
+                A board-grade <span className="text-sky-gradient">17-phase report</span> — preview before you submit
+              </h2>
+              <ul className="mt-5 space-y-2.5 text-sm">
+                {[
+                  "15 growth scores (SEO, Ads, CRO, Brand, Trust, Positioning, Acquisition, Retention, CX, Market Position, Moat, Revenue Efficiency, Scalability, Maturity, Overall)",
+                  "Recommendation confidence — every category shows the signals we detected and their impact",
+                  "Issue classification — Super Hot / Hot / Medium with severity validated against actual evidence",
+                  "Revenue leakage map — fake contact info, broken images, template residue, stale copyright all flagged",
+                  "Platform-aware tool stack — Shopify, WooCommerce, BigCommerce, Magento, Wix, Squarespace handled separately",
+                  "Geo-aware retention — WhatsApp-first for PKR/INR/AED/MENA, SMS-first for US/UK/AU",
+                  "90-day action plan with prerequisite gates (no 'expand into a new geo' before fundamentals are locked)",
+                  "Exports: PDF · Excel · CSV · JSON · Markdown",
+                ].map((t) => (
+                  <li key={t} className="flex gap-2 text-ink"><CheckCircle2 className="w-4 h-4 mt-0.5 text-emerald-500 shrink-0" /><span>{t}</span></li>
+                ))}
+              </ul>
+              <p className="mt-5 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at 90 seconds. Timestamps render in 24-hour en-GB format.</p>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl rounded-3xl pointer-events-none" />
+              <img
+                src={auditPreviewAsset.url}
+                alt="Preview of the Being Ecom Brain audit report — radar chart, pie chart, and score rings"
+                loading="lazy" width={1280} height={896}
+                className="relative rounded-2xl border border-border shadow-2xl w-full h-auto"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* RESULTS */}
       {report && (
         <section id="audit-results" className="relative py-12 lg:py-16">
@@ -553,6 +598,7 @@ function AuditPage() {
                   <div className="text-xs font-semibold uppercase tracking-widest text-primary">Executive Intelligence</div>
                   <h2 className="mt-2 text-2xl md:text-3xl font-bold text-ink break-words">{report.storeName}</h2>
                   <p className="text-sm text-muted-foreground break-words">{auditedUrl} · {report.platformGuess} · {report.business.industry} · {report.business.pricePositioning} · {report.business.businessModel}</p>
+                  <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">Generated {formatTimestamp()} · 24h en-GB</p>
                   <p className="mt-4 text-base text-ink font-medium leading-relaxed">{report.executiveIntelligence.headline}</p>
                 </div>
               </div>
