@@ -598,6 +598,7 @@ function AuditPage() {
                   <div className="text-xs font-semibold uppercase tracking-widest text-primary">Executive Intelligence</div>
                   <h2 className="mt-2 text-2xl md:text-3xl font-bold text-ink break-words">{report.storeName}</h2>
                   <p className="text-sm text-muted-foreground break-words">{auditedUrl} · {report.platformGuess} · {report.business.industry} · {report.business.pricePositioning} · {report.business.businessModel}</p>
+                  <p className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">Generated {formatTimestamp()} · 24h en-GB</p>
                   <p className="mt-4 text-base text-ink font-medium leading-relaxed">{report.executiveIntelligence.headline}</p>
                 </div>
               </div>
