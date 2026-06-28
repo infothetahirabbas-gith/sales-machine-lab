@@ -23,17 +23,23 @@ import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.inde
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
+import { Route as ServicesPerformanceMarketingRouteImport } from './routes/services.performance-marketing'
 import { Route as ServicesPaidAdsRouteImport } from './routes/services.paid-ads'
 import { Route as ServicesFunnelRouteImport } from './routes/services.funnel'
 import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sms'
 import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
+import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
+import { Route as ServicesPerformanceMarketingTiktokAdsRouteImport } from './routes/services.performance-marketing.tiktok-ads'
+import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './routes/services.performance-marketing.media-buying'
+import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
+import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -107,6 +113,12 @@ const ServicesScalingRoute = ServicesScalingRouteImport.update({
   path: '/services/scaling',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesPerformanceMarketingRoute =
+  ServicesPerformanceMarketingRouteImport.update({
+    id: '/services/performance-marketing',
+    path: '/services/performance-marketing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesPaidAdsRoute = ServicesPaidAdsRouteImport.update({
   id: '/services/paid-ads',
   path: '/services/paid-ads',
@@ -137,6 +149,11 @@ const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
   path: '/services/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAiAutomationRoute = ServicesAiAutomationRouteImport.update({
+  id: '/services/ai-automation',
+  path: '/services/ai-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   id: '/debug/faq-jsonld',
   path: '/debug/faq-jsonld',
@@ -162,6 +179,30 @@ const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   path: '/admin/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesPerformanceMarketingTiktokAdsRoute =
+  ServicesPerformanceMarketingTiktokAdsRouteImport.update({
+    id: '/tiktok-ads',
+    path: '/tiktok-ads',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
+const ServicesPerformanceMarketingMediaBuyingRoute =
+  ServicesPerformanceMarketingMediaBuyingRouteImport.update({
+    id: '/media-buying',
+    path: '/media-buying',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
+const ServicesPerformanceMarketingGoogleAdsRoute =
+  ServicesPerformanceMarketingGoogleAdsRouteImport.update({
+    id: '/google-ads',
+    path: '/google-ads',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
+const ServicesPerformanceMarketingFacebookAdsRoute =
+  ServicesPerformanceMarketingFacebookAdsRouteImport.update({
+    id: '/facebook-ads',
+    path: '/facebook-ads',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
 const ApiPublicDebugFaqJsonldRoute = ApiPublicDebugFaqJsonldRouteImport.update({
   id: '/api/public/debug/faq-jsonld',
   path: '/api/public/debug/faq-jsonld',
@@ -183,17 +224,23 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
+  '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
+  '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesByTo {
@@ -211,17 +258,23 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
+  '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
+  '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesById {
@@ -240,17 +293,23 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
+  '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
+  '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRouteTypes {
@@ -270,17 +329,23 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
     | '/services/funnel'
     | '/services/paid-ads'
+    | '/services/performance-marketing'
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies/'
     | '/services/'
+    | '/services/performance-marketing/facebook-ads'
+    | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/media-buying'
+    | '/services/performance-marketing/tiktok-ads'
     | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -298,17 +363,23 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
     | '/services/funnel'
     | '/services/paid-ads'
+    | '/services/performance-marketing'
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies'
     | '/services'
+    | '/services/performance-marketing/facebook-ads'
+    | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/media-buying'
+    | '/services/performance-marketing/tiktok-ads'
     | '/api/public/debug/faq-jsonld'
   id:
     | '__root__'
@@ -326,17 +397,23 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
     | '/services/funnel'
     | '/services/paid-ads'
+    | '/services/performance-marketing'
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies/'
     | '/services/'
+    | '/services/performance-marketing/facebook-ads'
+    | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/media-buying'
+    | '/services/performance-marketing/tiktok-ads'
     | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
 }
@@ -355,12 +432,14 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   CaseStudiesIdRoute: typeof CaseStudiesIdRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
+  ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
   ServicesCroRoute: typeof ServicesCroRoute
   ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
   ServicesFunnelRoute: typeof ServicesFunnelRoute
   ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
+  ServicesPerformanceMarketingRoute: typeof ServicesPerformanceMarketingRouteWithChildren
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesSeoRoute: typeof ServicesSeoRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
@@ -469,6 +548,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesScalingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/performance-marketing': {
+      id: '/services/performance-marketing'
+      path: '/services/performance-marketing'
+      fullPath: '/services/performance-marketing'
+      preLoaderRoute: typeof ServicesPerformanceMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/paid-ads': {
       id: '/services/paid-ads'
       path: '/services/paid-ads'
@@ -511,6 +597,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/ai-automation': {
+      id: '/services/ai-automation'
+      path: '/services/ai-automation'
+      fullPath: '/services/ai-automation'
+      preLoaderRoute: typeof ServicesAiAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/debug/faq-jsonld': {
       id: '/debug/faq-jsonld'
       path: '/debug/faq-jsonld'
@@ -546,6 +639,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/performance-marketing/tiktok-ads': {
+      id: '/services/performance-marketing/tiktok-ads'
+      path: '/tiktok-ads'
+      fullPath: '/services/performance-marketing/tiktok-ads'
+      preLoaderRoute: typeof ServicesPerformanceMarketingTiktokAdsRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
+    '/services/performance-marketing/media-buying': {
+      id: '/services/performance-marketing/media-buying'
+      path: '/media-buying'
+      fullPath: '/services/performance-marketing/media-buying'
+      preLoaderRoute: typeof ServicesPerformanceMarketingMediaBuyingRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
+    '/services/performance-marketing/google-ads': {
+      id: '/services/performance-marketing/google-ads'
+      path: '/google-ads'
+      fullPath: '/services/performance-marketing/google-ads'
+      preLoaderRoute: typeof ServicesPerformanceMarketingGoogleAdsRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
+    '/services/performance-marketing/facebook-ads': {
+      id: '/services/performance-marketing/facebook-ads'
+      path: '/facebook-ads'
+      fullPath: '/services/performance-marketing/facebook-ads'
+      preLoaderRoute: typeof ServicesPerformanceMarketingFacebookAdsRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
     '/api/public/debug/faq-jsonld': {
       id: '/api/public/debug/faq-jsonld'
       path: '/api/public/debug/faq-jsonld'
@@ -555,6 +676,30 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface ServicesPerformanceMarketingRouteChildren {
+  ServicesPerformanceMarketingFacebookAdsRoute: typeof ServicesPerformanceMarketingFacebookAdsRoute
+  ServicesPerformanceMarketingGoogleAdsRoute: typeof ServicesPerformanceMarketingGoogleAdsRoute
+  ServicesPerformanceMarketingMediaBuyingRoute: typeof ServicesPerformanceMarketingMediaBuyingRoute
+  ServicesPerformanceMarketingTiktokAdsRoute: typeof ServicesPerformanceMarketingTiktokAdsRoute
+}
+
+const ServicesPerformanceMarketingRouteChildren: ServicesPerformanceMarketingRouteChildren =
+  {
+    ServicesPerformanceMarketingFacebookAdsRoute:
+      ServicesPerformanceMarketingFacebookAdsRoute,
+    ServicesPerformanceMarketingGoogleAdsRoute:
+      ServicesPerformanceMarketingGoogleAdsRoute,
+    ServicesPerformanceMarketingMediaBuyingRoute:
+      ServicesPerformanceMarketingMediaBuyingRoute,
+    ServicesPerformanceMarketingTiktokAdsRoute:
+      ServicesPerformanceMarketingTiktokAdsRoute,
+  }
+
+const ServicesPerformanceMarketingRouteWithChildren =
+  ServicesPerformanceMarketingRoute._addFileChildren(
+    ServicesPerformanceMarketingRouteChildren,
+  )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -571,12 +716,15 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   CaseStudiesIdRoute: CaseStudiesIdRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
+  ServicesAiAutomationRoute: ServicesAiAutomationRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
   ServicesCroRoute: ServicesCroRoute,
   ServicesEmailSmsRoute: ServicesEmailSmsRoute,
   ServicesFunnelRoute: ServicesFunnelRoute,
   ServicesPaidAdsRoute: ServicesPaidAdsRoute,
+  ServicesPerformanceMarketingRoute:
+    ServicesPerformanceMarketingRouteWithChildren,
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesSeoRoute: ServicesSeoRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
@@ -587,13 +735,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

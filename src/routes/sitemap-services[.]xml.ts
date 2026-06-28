@@ -14,12 +14,18 @@ const entries: SitemapEntry[] = [
   { path: "/services/store-development", changefreq: "monthly", priority: "0.8" },
   { path: "/services/cro", changefreq: "monthly", priority: "0.8" },
   { path: "/services/paid-ads", changefreq: "monthly", priority: "0.8" },
+  { path: "/services/performance-marketing", changefreq: "monthly", priority: "0.85" },
+  { path: "/services/performance-marketing/facebook-ads", changefreq: "monthly", priority: "0.8" },
+  { path: "/services/performance-marketing/google-ads", changefreq: "monthly", priority: "0.8" },
+  { path: "/services/performance-marketing/tiktok-ads", changefreq: "monthly", priority: "0.8" },
+  { path: "/services/performance-marketing/media-buying", changefreq: "monthly", priority: "0.8" },
   { path: "/services/seo", changefreq: "monthly", priority: "0.8" },
   { path: "/services/email-sms", changefreq: "monthly", priority: "0.8" },
   { path: "/services/creative", changefreq: "monthly", priority: "0.8" },
   { path: "/services/funnel", changefreq: "monthly", priority: "0.8" },
   { path: "/services/analytics", changefreq: "monthly", priority: "0.8" },
   { path: "/services/scaling", changefreq: "monthly", priority: "0.8" },
+  { path: "/services/ai-automation", changefreq: "monthly", priority: "0.85" },
 ];
 
 export const Route = createFileRoute("/sitemap-services.xml")({
