@@ -3,16 +3,25 @@ import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/beingecom-logo.webp";
 
-const services = [
-  { to: "/services/store-development", label: "Store Development" },
-  { to: "/services/cro", label: "CRO" },
-  { to: "/services/paid-ads", label: "Paid Ads" },
+type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
+
+const services: ServiceItem[] = [
   { to: "/services/seo", label: "Ecommerce SEO" },
+  {
+    to: "/services/performance-marketing",
+    label: "Performance Marketing",
+    children: [
+      { to: "/services/performance-marketing/facebook-ads", label: "Facebook Ads" },
+      { to: "/services/performance-marketing/google-ads", label: "Google Ads" },
+      { to: "/services/performance-marketing/tiktok-ads", label: "TikTok Ads" },
+      { to: "/services/performance-marketing/media-buying", label: "Media Buying" },
+    ],
+  },
+  { to: "/services/creative", label: "Creative Testing" },
+  { to: "/services/cro", label: "Conversion Rate Optimization" },
   { to: "/services/email-sms", label: "Email Marketing" },
-  { to: "/services/creative", label: "Creative Production" },
-  { to: "/services/scaling", label: "Scaling Strategy" },
-  { to: "/services/analytics", label: "Analytics & Tracking" },
-  { to: "/services/funnel", label: "Funnel Optimization" },
+  { to: "/services/store-development", label: "Store Development" },
+  { to: "/services/ai-automation", label: "AI Automation" },
 ];
 
 export default function Header() {
@@ -29,11 +38,22 @@ export default function Header() {
           <div className="relative group">
             <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-              <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+              <div className="w-80 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
                 {services.map((s) => (
-                   <Link key={s.to} to={s.to} className="block px-3 py-2.5 rounded-xl text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
-                    {s.label}
-                  </Link>
+                  <div key={s.to}>
+                    <Link to={s.to} className="block px-3 py-2.5 rounded-xl text-sm hover:bg-accent/10 hover:text-foreground transition-colors font-medium">
+                      {s.label}
+                    </Link>
+                    {s.children && (
+                      <div className="ml-3 pl-3 border-l border-border my-1 grid">
+                        {s.children.map((c) => (
+                          <Link key={c.to} to={c.to} className="block px-3 py-2 rounded-lg text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors">
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
@@ -69,7 +89,16 @@ export default function Header() {
               {servicesOpen && (
                 <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
                   {services.map((s) => (
-                    <Link key={s.to} to={s.to} className="px-3 py-2 rounded text-muted-foreground hover:bg-secondary hover:text-foreground" onClick={() => { setOpen(false); setServicesOpen(false); }}>{s.label}</Link>
+                    <div key={s.to}>
+                      <Link to={s.to} className="px-3 py-2 rounded text-foreground font-medium hover:bg-secondary block" onClick={() => { setOpen(false); setServicesOpen(false); }}>{s.label}</Link>
+                      {s.children && (
+                        <div className="ml-3 pl-3 border-l border-border grid gap-1">
+                          {s.children.map((c) => (
+                            <Link key={c.to} to={c.to} className="px-3 py-1.5 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setServicesOpen(false); }}>{c.label}</Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
