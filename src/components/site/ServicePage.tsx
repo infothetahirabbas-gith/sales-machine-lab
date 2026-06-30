@@ -51,6 +51,8 @@ export type ServiceConfig = {
   impactStats?: { value: string; label: string }[];
   /** Per-service Before vs After benchmark bars with tooltips. */
   metricBars?: Bar[];
+  /** Per-service FAQs — also wire faqJsonLd into the route head for rich results. */
+  faqs?: FAQ[];
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
