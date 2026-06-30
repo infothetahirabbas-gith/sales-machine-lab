@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "What's a funnel for an ecommerce store?",
+    "a": "A guided path from ad → landing page → offer → checkout → post-purchase upsell — engineered to maximise AOV and conversion, not just clicks."
+  },
+  {
+    "q": "Do I need landing pages if I have a Shopify store?",
+    "a": "Yes for paid traffic. PDPs convert warm visitors; landers convert cold. The split usually adds 30–80% to ROAS."
+  },
+  {
+    "q": "What tools do you build on?",
+    "a": "Shopify with Replo, GemPages or Shogun; WooCommerce with Elementor Pro; cold-traffic landers with custom React when speed matters."
+  },
+  {
+    "q": "Do you handle post-purchase upsells?",
+    "a": "Yes — one-click upsells via ReConvert, AfterSell or Zipify OCU, plus thank-you-page cross-sells."
+  },
+  {
+    "q": "How long does a funnel build take?",
+    "a": "Standard 3-step funnel ships in 10–14 days including copy, design, build, tracking and QA."
+  }
+];
 
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/funnel")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "funnel", name: "Funnel & Landing Pages", description: "High-converting ecommerce funnels and landing pages — bridge pages, retargeting and post-purchase journeys." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Funnel & Landing Pages", path: "/services/funnel" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/funnel")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/funnel")({
         { label: "Full funnel CR", before: 0.9, after: 2.9, unit: "%", description: "Compound rate from LP visit to purchase — the truest funnel score." },
         { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "$", description: "RPV across the engineered funnel — the metric scale operators live by." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

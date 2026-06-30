@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "Does TikTok actually work for ecommerce?",
+    "a": "Yes, if your product is visual and the creative looks native. Polished brand ads die; creator UGC scales."
+  },
+  {
+    "q": "What's the minimum spend on TikTok ads?",
+    "a": "£2–3k/mo for a real test across 6–8 creatives. Below that, you'll never see daylight."
+  },
+  {
+    "q": "Spark Ads vs in-feed — what's the difference?",
+    "a": "Spark Ads run from a real creator handle and earn 1.4–2× CTR. We use Spark whenever the creator allows it."
+  },
+  {
+    "q": "How fast does creative fatigue hit on TikTok?",
+    "a": "Fast — usually 7–10 days at meaningful spend. Weekly creator drops are non-negotiable."
+  },
+  {
+    "q": "Do you handle creator sourcing?",
+    "a": "Yes — full UGC pipeline: casting, briefs, shipping, footage review and editing."
+  }
+];
 
 export const Route = createFileRoute("/services/performance-marketing/tiktok-ads")({
   head: () => ({
@@ -16,6 +39,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/tiktok-ads", name: "TikTok Ads", description: "Creator UGC, Spark Ads and hook-first scripting for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "TikTok Ads", path: "/services/performance-marketing/tiktok-ads" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/tiktok-ads")) },
     ],
   }),
   component: () => (
@@ -77,6 +101,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
         { label: "Hook rate", before: 12, after: 32, unit: "%", description: "% of viewers past 3 seconds." },
         { label: "Monthly ad revenue", before: 8, after: 48, unit: "£k", description: "Top-line TikTok-attributed revenue." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

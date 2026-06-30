@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "How many ad creatives do you produce per month?",
+    "a": "Standard pods ship 20–40 creatives/month — a mix of UGC, statics, founder, demo and remixes of winners."
+  },
+  {
+    "q": "Do you source UGC creators?",
+    "a": "Yes — we cast, brief, ship product, review footage and edit into ad-ready variants. You approve the briefs, we run the pipeline."
+  },
+  {
+    "q": "What makes a winning ecommerce ad?",
+    "a": "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA — tested against 8–12 angles, not 1 hero."
+  },
+  {
+    "q": "Will the creatives match my brand?",
+    "a": "Yes. We work from your brand book, tone and visual guardrails — creator-led but on-brand."
+  },
+  {
+    "q": "Who owns the footage?",
+    "a": "You do. We hand over raw clips, edits and source files at the end of every sprint."
+  }
+];
 
 export const Route = createFileRoute("/services/creative")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/creative")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "creative", name: "Creative & Ad Production", description: "UGC, video and static ad creatives engineered to convert for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Creative & Ad Production", path: "/services/creative" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/creative")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/creative")({
         { label: "Creative ROAS", before: 1.5, after: 3.9, unit: "×", description: "ROAS isolated to new creative concepts (not winning evergreens)." },
         { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "$", description: "How expensive each engaged view is. Lower = healthier funnel top." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

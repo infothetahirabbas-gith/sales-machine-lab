@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "What does an ecommerce media buyer actually do?",
+    "a": "Owns spend allocation across Meta, Google and TikTok, balances ROAS vs MER, controls creative testing budgets, and protects margin as you scale."
+  },
+  {
+    "q": "How is media buying different from running ads?",
+    "a": "Running ads is tactical. Media buying is strategic — channel mix, daypart, audience, creative refresh, and scaling math under one P&L view."
+  },
+  {
+    "q": "How do you decide channel mix?",
+    "a": "Margin, AOV, audience and creative supply. We rebalance weekly based on MER, not platform ROAS."
+  },
+  {
+    "q": "What dashboards do I get?",
+    "a": "Daily blended MER, contribution margin, new-customer CAC and creative-level performance — usually in Triple Whale, Hyros or a custom Looker dashboard."
+  },
+  {
+    "q": "Is this a fixed retainer or % of spend?",
+    "a": "Hybrid — fixed retainer up to a spend threshold, then a small % of spend above it. Aligns incentives without billing surprises."
+  }
+];
 
 export const Route = createFileRoute("/services/performance-marketing/media-buying")({
   head: () => ({
@@ -16,6 +39,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/media-buying", name: "Media Buying", description: "Cross-channel media buying across Meta, Google and TikTok for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Media Buying", path: "/services/performance-marketing/media-buying" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/media-buying")) },
     ],
   }),
   component: () => (
@@ -77,6 +101,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         { label: "Channel diversification", before: 1, after: 3, unit: "ch", description: "Number of channels carrying meaningful spend." },
         { label: "Monthly revenue", before: 140, after: 420, unit: "£k", description: "Top-line revenue across the media portfolio." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

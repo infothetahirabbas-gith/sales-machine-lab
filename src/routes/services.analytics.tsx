@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "Why is my GA4 revenue different from Shopify?",
+    "a": "Usually attribution windows, missing CAPI events, ad blockers or duplicate orders. We reconcile GA4, Meta, Shopify and Klaviyo so one number is the truth."
+  },
+  {
+    "q": "Do you set up GA4, Meta CAPI and Google Ads conversions?",
+    "a": "Yes — full GA4 + GTM server-side + Meta Conversions API + Google Enhanced Conversions with proper deduplication."
+  },
+  {
+    "q": "What dashboards do you build?",
+    "a": "Live revenue, blended ROAS, MER, new-customer CAC, contribution margin, channel mix and cohort LTV — usually in Looker Studio or Hyros."
+  },
+  {
+    "q": "Can you fix iOS 14 tracking loss?",
+    "a": "We restore 25–40% of lost signal via CAPI, server-side GTM and Enhanced Conversions — the rest comes from blended MER decisions, not pixel-only."
+  },
+  {
+    "q": "Do I need Triple Whale, Northbeam or Hyros?",
+    "a": "Only if you spend >£40k/mo on ads. Below that, GA4 + server-side tagging + a clean Looker dashboard is faster and cheaper."
+  }
+];
 
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/analytics")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "analytics", name: "Analytics & Tracking", description: "GA4, Meta Pixel, Conversion API and revenue dashboards for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Analytics & Tracking", path: "/services/analytics" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/analytics")) },
     ],
   }),
   component: () => (
@@ -79,6 +103,7 @@ export const Route = createFileRoute("/services/analytics")({
         { label: "ROAS reporting variance", before: 38, after: 6, unit: "%", description: "Gap between Meta-reported ROAS and true server-side ROAS." },
         { label: "Tracked monthly revenue", before: 124, after: 312, unit: "$k", description: "Revenue correctly attributed back to its channel each month." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

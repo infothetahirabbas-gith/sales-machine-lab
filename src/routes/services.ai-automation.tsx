@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "What does an AI automation agency actually do for ecommerce?",
+    "a": "We build AI agents and workflows that automate support, product tagging, content generation, ad copy, abandoned-cart sequences and ops reporting — so your team ships more without hiring."
+  },
+  {
+    "q": "Will AI automation replace my team?",
+    "a": "No. It removes the repetitive 60–70% of the work so your team focuses on creative, strategy and customer relationships."
+  },
+  {
+    "q": "Which tools do you build on?",
+    "a": "OpenAI, Anthropic Claude, n8n, Zapier, Make, Klaviyo, Shopify Flow, custom Cloudflare Workers and Supabase — chosen per use case, not per fashion."
+  },
+  {
+    "q": "How fast can we go live?",
+    "a": "Most automation pods ship the first production workflow in 7–10 days, then layer 2–3 more per sprint."
+  },
+  {
+    "q": "Is it safe to give AI access to my store data?",
+    "a": "Yes — we scope keys, use read-only roles where possible, log every action and keep a human-in-the-loop on anything destructive."
+  }
+];
 
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({
@@ -16,6 +39,7 @@ export const Route = createFileRoute("/services/ai-automation")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "ai-automation", name: "AI Automation", description: "AI agents, workflow automation and AI-powered CRO for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "AI Automation", path: "/services/ai-automation" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/ai-automation")) },
     ],
   }),
   component: () => (
@@ -77,6 +101,7 @@ export const Route = createFileRoute("/services/ai-automation")({
         { label: "Catalog throughput", before: 1, after: 10, unit: "×", description: "Products enriched per hour vs manual baseline." },
         { label: "Conversion lift", before: 0, after: 22, unit: "%", description: "Conversion lift from AI personalisation on hero + PDP." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

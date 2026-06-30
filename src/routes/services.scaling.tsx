@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "How do you scale a 6-figure store to 7 figures?",
+    "a": "Three levers: profitable acquisition, retention/LTV, and offer engineering. We work all three, not just ads."
+  },
+  {
+    "q": "What's the role of retention vs acquisition?",
+    "a": "Acquisition gets you to £1m; retention gets you to £5m. We rebuild LTV via email, SMS, loyalty and subscription where it fits."
+  },
+  {
+    "q": "Do you help with offer and pricing?",
+    "a": "Yes — bundles, tiered pricing, free-shipping thresholds, subscription, and back-end upsells are part of the scaling plan."
+  },
+  {
+    "q": "What margins do I need to scale?",
+    "a": "60%+ contribution margin gives you room. Below 40% we fix margin before we add ad spend."
+  },
+  {
+    "q": "Do you provide a CFO-style view of the business?",
+    "a": "Yes — weekly MER, contribution-margin, inventory-turn and cash dashboards so you scale on profit, not vanity revenue."
+  }
+];
 
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/scaling")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "scaling", name: "Scaling & Revenue Strategy", description: "Profitable scaling from 6 to 7 figures with retention, LTV, channel mix and offer engineering." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Scaling & Revenue Strategy", path: "/services/scaling" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/scaling")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/scaling")({
         { label: "Repeat revenue share", before: 22, after: 48, unit: "%", description: "Share of monthly revenue coming from returning customers." },
         { label: "Channel diversification", before: 1, after: 4, description: "Profitable revenue channels (Meta, Google, TikTok, Email, Organic)." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

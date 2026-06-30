@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "How long does ecommerce SEO take to work?",
+    "a": "Technical fixes and on-page changes show in 4–8 weeks. Authority and ranking compounding kicks in around month 4–6."
+  },
+  {
+    "q": "Shopify or WooCommerce — which is better for SEO?",
+    "a": "Both can rank. WooCommerce gives you more control; Shopify is faster but needs apps for proper schema, redirects and URL control."
+  },
+  {
+    "q": "Do you do link building?",
+    "a": "Yes — digital PR, niche edits and ecommerce-specific outreach. No PBNs, no spam."
+  },
+  {
+    "q": "What about AI search and Google's SGE?",
+    "a": "We optimise for AI Overviews, ChatGPT, Perplexity and Gemini with entity SEO, schema, citations and answer-first content."
+  },
+  {
+    "q": "Will you fix our existing technical issues?",
+    "a": "Yes — Core Web Vitals, crawl waste, faceted-nav indexing, duplicate content, schema and internal linking are part of every engagement."
+  }
+];
 
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/seo")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo")) },
     ],
   }),
   component: () => (
@@ -79,6 +103,7 @@ export const Route = createFileRoute("/services/seo")({
         { label: "Domain authority", before: 18, after: 41, description: "Aggregate backlink strength score (Ahrefs / Moz DR/DA scale 0–100)." },
         { label: "Indexed product pages", before: 122, after: 1840, description: "PDPs + collection pages indexed by Google after schema + crawl fixes." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

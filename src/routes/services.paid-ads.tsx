@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "Which platforms do you run ads on?",
+    "a": "Meta (Facebook/Instagram), Google (Search, Shopping, PMax, YouTube) and TikTok. Channel mix depends on margin, AOV and audience."
+  },
+  {
+    "q": "What's the minimum ad budget to work with you?",
+    "a": "We work best with brands spending £8k+/mo on ads. Below that, a focused single-channel sprint usually beats a multi-channel agency."
+  },
+  {
+    "q": "How do you measure success?",
+    "a": "Blended MER and contribution margin, not platform ROAS alone. Platform numbers lie; bank-account numbers don't."
+  },
+  {
+    "q": "Do you handle creative?",
+    "a": "Yes — UGC, statics and video all in-house. Creative wins more than account structure on Meta and TikTok."
+  },
+  {
+    "q": "How long is the contract?",
+    "a": "3-month initial commitment so we can hit a real testing cadence, then rolling monthly."
+  }
+];
 
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/paid-ads")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "paid-ads", name: "Paid Advertising", description: "Meta, Google and TikTok ads built to scale profitably for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Paid Advertising", path: "/services/paid-ads" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/paid-ads")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { label: "CPM efficiency", before: 32, after: 18, unit: "$", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "$k", description: "Top-line revenue attributable to paid channels per month." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });
