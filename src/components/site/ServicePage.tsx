@@ -477,7 +477,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <Section eyebrow="FAQ" title="Questions we get asked all the time.">
           <div className="mx-auto max-w-3xl space-y-4">
             {cfg.faqs.map((f, i) => (
-              <Reveal key={f.q} delay={i % 4}>
+              <Reveal key={f.q} delay={(i % 4) as 0 | 1 | 2 | 3}>
                 <details className="group rounded-2xl border border-border bg-card/60 backdrop-blur p-5 open:bg-card transition-colors">
                   <summary className="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-ink">
                     <span>{f.q}</span>
