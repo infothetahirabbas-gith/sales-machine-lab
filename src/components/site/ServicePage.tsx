@@ -20,6 +20,7 @@ import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
 import { CountUp } from "../../hooks/useCountUp";
 import RevenueBars, { type Bar } from "./RevenueBars";
+import type { FAQ } from "../../lib/seo";
 
 export type ServiceConfig = {
   slug: string;
