@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "What conversion rate should a Shopify store be hitting?",
+    "a": "Healthy DTC stores run 2.5–4% on cold traffic, 6–9% on warm. Below 1.8% usually means PDP, offer or trust issues — not traffic."
+  },
+  {
+    "q": "How long until I see CRO results?",
+    "a": "Quick wins (PDP, checkout, trust) land in 2–4 weeks. Compounded gains from A/B tests show in 60–90 days."
+  },
+  {
+    "q": "Do you run A/B tests?",
+    "a": "Yes — on Shopify we use Intelligems or Convert; on WooCommerce we use VWO or Optimizely. Every test has a hypothesis and a stop rule."
+  },
+  {
+    "q": "What's the difference between CRO and UX?",
+    "a": "UX makes the experience nicer. CRO makes it convert. We do both, but every decision is graded on revenue per visitor."
+  },
+  {
+    "q": "Do you need access to my analytics?",
+    "a": "Yes — GA4, Shopify analytics, heatmaps (Hotjar/Microsoft Clarity) and ideally session replays. We can set these up if missing."
+  }
+];
 
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/cro")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Conversion Rate Optimization", description: "Funnel audits, A/B testing, PDP and checkout optimization for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Conversion Rate Optimization", path: "/services/cro" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/cro")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/cro")({
         { label: "Mobile CR", before: 1.1, after: 3.4, unit: "%", description: "Mobile conversion — where 70% of ecommerce traffic actually buys." },
         { label: "Revenue / visitor", before: 0.62, after: 2.41, unit: "$", description: "RPV: the truest single number measuring CRO impact." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

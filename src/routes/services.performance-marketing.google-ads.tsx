@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "Is Google Ads worth it for ecommerce?",
+    "a": "Yes — Shopping and brand Search are usually the highest-ROAS channels in the account. PMax fills the gap."
+  },
+  {
+    "q": "Should I run Performance Max?",
+    "a": "Yes, with feed segmentation, asset groups and brand exclusions. Naked PMax wastes spend on brand."
+  },
+  {
+    "q": "What about Google Shopping?",
+    "a": "Standard Shopping is still the cleanest data signal for diagnosing PMax. We often run both."
+  },
+  {
+    "q": "Do you handle the Merchant Center feed?",
+    "a": "Yes — feed optimisation, GTIN/MPN fixes, custom labels and supplemental feeds for titles."
+  },
+  {
+    "q": "Brand search — should I bid on my own name?",
+    "a": "Yes, if competitors do. Cheap, defends share, and the incremental revenue covers the spend many times over."
+  }
+];
 
 export const Route = createFileRoute("/services/performance-marketing/google-ads")({
   head: () => ({
@@ -16,6 +39,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/google-ads", name: "Google Ads", description: "Search, Shopping and Performance Max for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Google Ads", path: "/services/performance-marketing/google-ads" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/google-ads")) },
     ],
   }),
   component: () => (
@@ -77,6 +101,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
         { label: "Impression share", before: 38, after: 72, unit: "%", description: "Share of available impressions on target queries." },
         { label: "Monthly ad revenue", before: 32, after: 142, unit: "£k", description: "Top-line Google-attributed revenue." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

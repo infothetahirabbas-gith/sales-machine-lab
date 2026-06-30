@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "How much extra revenue should email and SMS drive?",
+    "a": "A properly built Klaviyo account contributes 25–35% of total store revenue within 90 days."
+  },
+  {
+    "q": "What flows do you build first?",
+    "a": "Welcome, abandoned cart, browse abandonment, post-purchase, winback, replenishment and VIP — in that order."
+  },
+  {
+    "q": "Do you write the copy and design the templates?",
+    "a": "Yes — copy, design, segmentation, A/B subject lines and deliverability monitoring."
+  },
+  {
+    "q": "Klaviyo or Mailchimp?",
+    "a": "Klaviyo for ecommerce, every time. Mailchimp lacks the segmentation, flows and Shopify-native data Klaviyo gives you."
+  },
+  {
+    "q": "What about SMS?",
+    "a": "We run SMS through Klaviyo, Attentive or Postscript — fully compliant with UK GDPR and PECR, double opt-in by default."
+  }
+];
 
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/email-sms")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "email-sms", name: "Email & SMS Marketing", description: "Klaviyo email and SMS flows that recover lost sales and add 25-35% revenue for Shopify and WooCommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Email & SMS Marketing", path: "/services/email-sms" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/email-sms")) },
     ],
   }),
   component: () => (
@@ -79,6 +103,7 @@ export const Route = createFileRoute("/services/email-sms")({
         { label: "Customer LTV", before: 68, after: 184, unit: "$", description: "Lifetime value per customer over a 12-month window." },
         { label: "Revenue per recipient", before: 0.18, after: 0.92, unit: "$", description: "Average revenue earned per email recipient — the truest email health metric." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "Do you build Shopify or WooCommerce stores?",
+    "a": "Both — and Shopify Plus / WooCommerce headless when the brand needs it."
+  },
+  {
+    "q": "How long does a new store take?",
+    "a": "Standard Shopify build: 4–6 weeks. Shopify Plus or headless: 8–12 weeks. WooCommerce custom: 6–10 weeks."
+  },
+  {
+    "q": "Will the store be fast and pass Core Web Vitals?",
+    "a": "Yes. We engineer for green CWV on mobile out of the box — that's a ranking and conversion lever."
+  },
+  {
+    "q": "Do you migrate from another platform?",
+    "a": "Yes — Magento, BigCommerce, Wix and custom carts. We preserve SEO with 301 mapping and replicate flows in Klaviyo."
+  },
+  {
+    "q": "Do you handle apps, themes and custom development?",
+    "a": "Yes — Liquid, React, Hydrogen, Remix, custom apps, and integrations with ERPs, 3PLs and CRMs."
+  }
+];
 
 export const Route = createFileRoute("/services/store-development")({
   head: () => ({
@@ -17,6 +40,7 @@ export const Route = createFileRoute("/services/store-development")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Store Development", description: "Custom Shopify and WooCommerce store development — themes, headless, migrations, apps and integrations." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Store Development", path: "/services/store-development" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/store-development")) },
     ],
   }),
   component: () => (
@@ -81,6 +105,7 @@ export const Route = createFileRoute("/services/store-development")({
         { label: "AOV", before: 46, after: 78, unit: "$", description: "Average order value lifted with bundles, upsells, and tiered offers built-in." },
         { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed score (0–100). Directly affects SEO + ad quality." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });

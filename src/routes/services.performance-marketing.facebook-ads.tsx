@@ -1,6 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
-import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+
+const FAQ_LIST: FAQ[] = [
+  {
+    "q": "How much should I spend on Facebook ads to start?",
+    "a": "Minimum £3–5k/mo for meaningful testing. Below that, Meta's learning phase never settles."
+  },
+  {
+    "q": "What ROAS should I expect?",
+    "a": "2.5–3.5× blended ROAS is healthy for most DTC brands; 4×+ is exceptional. We optimise for MER and contribution margin, not platform ROAS only."
+  },
+  {
+    "q": "How many creatives do I need each month?",
+    "a": "10–20 net-new creatives is the floor for ASC+ to keep finding winners. Fewer than that, you stall."
+  },
+  {
+    "q": "Do you set up Conversions API and pixel?",
+    "a": "Yes — full CAPI via Shopify, GTM server-side or custom — with EMQ above 8 and proper deduplication."
+  },
+  {
+    "q": "What's ASC+ and should I be using it?",
+    "a": "Advantage+ Shopping Campaigns — Meta's broad-targeting AI engine. Yes, for most ecommerce accounts above £8k/mo it outperforms manual."
+  }
+];
 
 export const Route = createFileRoute("/services/performance-marketing/facebook-ads")({
   head: () => ({
@@ -16,6 +39,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/facebook-ads", name: "Facebook Ads", description: "Meta & Instagram ads engineered to scale ROAS for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Facebook Ads", path: "/services/performance-marketing/facebook-ads" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/facebook-ads")) },
     ],
   }),
   component: () => (
@@ -77,6 +101,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creatives." },
         { label: "Monthly ad revenue", before: 18, after: 92, unit: "£k", description: "Top-line Meta-attributed revenue." },
       ],
+      faqs: FAQ_LIST,
     }} />
   ),
 });
