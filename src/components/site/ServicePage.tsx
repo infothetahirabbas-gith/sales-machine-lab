@@ -472,6 +472,25 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
+      {/* 15.5 FAQ — content mirrors faqJsonLd in the route head */}
+      {cfg.faqs && cfg.faqs.length > 0 && (
+        <Section eyebrow="FAQ" title="Questions we get asked all the time.">
+          <div className="mx-auto max-w-3xl space-y-4">
+            {cfg.faqs.map((f, i) => (
+              <Reveal key={f.q} delay={i % 4}>
+                <details className="group rounded-2xl border border-border bg-card/60 backdrop-blur p-5 open:bg-card transition-colors">
+                  <summary className="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-ink">
+                    <span>{f.q}</span>
+                    <span className="mt-1 inline-flex shrink-0 w-6 h-6 items-center justify-center rounded-full border border-border text-primary group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{f.a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
       {/* 16. CTA */}
       <CTA heading={cfg.ctaTitle ?? "Ready to fix this for your store?"} />
     </PageLayout>
