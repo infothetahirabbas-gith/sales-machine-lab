@@ -61,7 +61,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { title: "Account & pixel audit", body: "CAPI, attribution, exclusions, asset library." },
         { title: "Creative engine", body: "Weekly batches of UGC, statics, founder, demo." },
         { title: "ASC+ & manual scale", body: "ASC+ for prospecting, manual for control." },
-        { title: "Retargeting & DPA", body: "Dynamic catalog, post-purchase exclusions." },
+        { title: "Retargeting & DPA", body: "Dynamic catalogue, post-purchase exclusions." },
       ],
       pillarsTitle: "What we run inside Meta.",
       pillars: [
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { title: "Campaign structure", body: "ASC+ for scale, CBO for control, separated by margin tier.", tags: ["ASC+","CBO","Margin"] },
         { title: "Creative testing", body: "Hooks, angles, formats — weekly batches with win/kill rules.", tags: ["Hooks","UGC","Iteration"] },
         { title: "CAPI & attribution", body: "Conversions API, deduplication, EMQ score >8.", tags: ["CAPI","EMQ","Server-side"] },
-        { title: "DPA & retargeting", body: "Dynamic catalog, layered audiences, exclusion logic.", tags: ["DPA","Exclusion","Cross-sell"] },
+        { title: "DPA & retargeting", body: "Dynamic catalogue, layered audiences, exclusion logic.", tags: ["DPA","Exclusion","Cross-sell"] },
       ],
       triggersTitle: "Creative angles that scale on Meta.",
       triggers: ["Problem-solution UGC","Founder story","Before/after","Product demo","Testimonial stack","List/Top-X","Native review","Comparison"],

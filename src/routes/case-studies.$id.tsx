@@ -239,7 +239,7 @@ function beforeAfterPairs(s: Study) {
   const baselines: Record<string, { label: string; before: string; after: string; beforePct: number; afterPct: number; delta: string }[]> = {
     Ads: [
       { label: "ROAS", before: "1.4×", after: "3.8×", beforePct: 28, afterPct: 76, delta: "+170%" },
-      { label: "CAC", before: "$48", after: "$29", beforePct: 80, afterPct: 48, delta: "−40%" },
+      { label: "CAC", before: "£48", after: "£29", beforePct: 80, afterPct: 48, delta: "−40%" },
       { label: "Creative cadence / mo", before: "6", after: "30+", beforePct: 18, afterPct: 92, delta: "5×" },
     ],
     SEO: [
@@ -249,7 +249,7 @@ function beforeAfterPairs(s: Study) {
     ],
     CRO: [
       { label: "Conversion rate", before: "1.2%", after: "4.4%", beforePct: 24, afterPct: 88, delta: "+267%" },
-      { label: "AOV", before: "$58", after: "$92", beforePct: 50, afterPct: 80, delta: "+58%" },
+      { label: "AOV", before: "£58", after: "£92", beforePct: 50, afterPct: 80, delta: "+58%" },
       { label: "Cart abandonment", before: "72%", after: "48%", beforePct: 90, afterPct: 60, delta: "−33%" },
     ],
     Website: [

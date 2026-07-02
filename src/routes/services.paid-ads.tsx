@@ -76,7 +76,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { title: "Google Ads system", body: "Search, Shopping, PMax, brand-defense, feed optimisation.", tags: ["PMax","Shopping","Feed"] },
         { title: "TikTok Ads system", body: "Native creators, spark ads, hooks-first scripting.", tags: ["Spark","UGC","Hooks"] },
         { title: "Creative testing framework", body: "Weekly batches: hooks, formats, angles. Winners scale, losers die fast.", tags: ["Hooks","Angles","Iteration"] },
-        { title: "Retargeting system", body: "Layered audiences, dynamic catalog, post-purchase exclusions.", tags: ["DPA","Exclusion","Cross-sell"] },
+        { title: "Retargeting system", body: "Layered audiences, dynamic catalogue, post-purchase exclusions.", tags: ["DPA","Exclusion","Cross-sell"] },
         { title: "Scaling campaign structure", body: "Vertical vs horizontal scaling, MER targets, blended ROAS focus.", tags: ["MER","Blended ROAS","Spend curves"] },
       ],
       triggersTitle: "Creative angles that work in 2025.",
