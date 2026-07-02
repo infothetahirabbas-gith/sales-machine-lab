@@ -12,7 +12,6 @@ import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
 import CountUp from "../components/site/CountUp";
 import GrowthPathPlanner from "../components/site/GrowthPathPlanner";
 import { Reveal } from "../hooks/useReveal";
-import WelcomeBanner from "../components/site/WelcomeBanner";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -73,7 +72,6 @@ function Home() {
 
   return (
     <PageLayout>
-      <WelcomeBanner />
       {/* 1. HERO */}
       <section className="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
         <div className="absolute inset-0 grid-bg opacity-70 pointer-events-none" />
