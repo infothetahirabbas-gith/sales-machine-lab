@@ -45,7 +45,8 @@ function Contact() {
 
       <Section>
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="rounded-3xl border border-border bg-card/60 p-6 lg:p-8">
+          <div className="min-w-0 rounded-3xl border border-border bg-card/60 p-5 sm:p-6 lg:p-8">
+
             {sent ? (
               <div className="py-16 text-center">
                 <div className="text-5xl mb-4">✓</div>
@@ -77,7 +78,7 @@ function Contact() {
             )}
           </div>
 
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <Card>
               <h3 className="font-semibold">What happens after booking</h3>
               <ol className="mt-3 grid gap-2 text-sm text-muted-foreground">
