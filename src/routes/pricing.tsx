@@ -84,8 +84,8 @@ function PricingPage() {
       <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre">
-          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Pricing
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto leading-[1.04] text-ink">
@@ -107,7 +107,7 @@ function PricingPage() {
               }`}
             >
               {t.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-centre gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-lg">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-lg">
                   <Sparkles className="w-3 h-3" /> Most Popular
                 </div>
               )}
@@ -136,7 +136,7 @@ function PricingPage() {
 
               <Link
                 to="/contact"
-                className={`mt-7 btn justify-centre ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
+                className={`mt-7 btn justify-center ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
               >
                 Book Strategy Call →
               </Link>

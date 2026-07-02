@@ -50,7 +50,7 @@ export default function BeforeAfter() {
         className="absolute top-0 bottom-0 w-px bg-ink/60"
         style={{ left: `${pos}%` }}
       >
-        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border border-ink/20 shadow-lg flex items-centre justify-centre text-ink">
+        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border border-ink/20 shadow-lg flex items-center justify-center text-ink">
           <span className="text-[10px] font-bold tracking-tight">‹ ›</span>
         </div>
       </div>
@@ -81,14 +81,14 @@ function Panel({ kind, absolute = true }: { kind: "before" | "after"; absolute?:
 
   return (
     <div className={`${absolute ? "absolute inset-0" : "relative"} p-5 md:p-7 ${bg}`}>
-      <div className="flex items-centre gap-2">
+      <div className="flex items-center gap-2">
         <span className={`text-[10px] font-bold tracking-widest px-2 py-1 rounded-md ${badge.tone}`}>{badge.label}</span>
         <span className="text-xs text-muted-foreground">{badge.sub}</span>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-3">
         {stats.map((s) => (
-          <div key={s.l} className="rounded-xl border border-border bg-white p-3 flex items-centre gap-3">
-            <div className={`w-9 h-9 rounded-lg flex items-centre justify-centre ${s.tone}`}>
+          <div key={s.l} className="rounded-xl border border-border bg-white p-3 flex items-center gap-3">
+            <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${s.tone}`}>
               <s.Icon className="w-4 h-4" />
             </div>
             <div>

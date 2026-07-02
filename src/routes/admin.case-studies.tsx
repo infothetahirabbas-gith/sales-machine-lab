@@ -97,7 +97,7 @@ function AdminCaseStudies() {
 
   if (status === "checking") {
     return (
-      <div className="min-h-screen flex items-centre justify-centre text-muted-foreground">
+      <div className="min-h-screen flex items-center justify-center text-muted-foreground">
         Checking access...
       </div>
     );
@@ -105,8 +105,8 @@ function AdminCaseStudies() {
 
   if (status === "not-admin") {
     return (
-      <div className="min-h-screen flex items-centre justify-centre px-5">
-        <div className="card-surface p-8 max-w-md text-centre">
+      <div className="min-h-screen flex items-center justify-center px-5">
+        <div className="card-surface p-8 max-w-md text-center">
           <h1 className="text-xl font-bold text-ink">Not an admin yet</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Your account ID is:
@@ -154,14 +154,14 @@ VALUES ('${userId}', 'admin');`}
   return (
     <div className="min-h-screen bg-secondary/30">
       <header className="bg-white border-b border-border">
-        <div className="mx-auto max-w-6xl px-5 py-4 flex items-centre justify-between">
+        <div className="mx-auto max-w-6xl px-5 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold text-ink">Case Studies CMS</h1>
             <p className="text-xs text-muted-foreground">
               {studies.length} entries · Public site shows published + seed entries
             </p>
           </div>
-          <div className="flex items-centre gap-2">
+          <div className="flex items-center gap-2">
             <Link to="/case-studies" className="flex btn btn-outline text-sm">
               <ExternalLink className="w-4 h-4" /> View live
             </Link>
@@ -177,22 +177,22 @@ VALUES ('${userId}', 'admin');`}
 
       <main className="mx-auto max-w-6xl px-5 py-8">
         {studies.length === 0 ? (
-          <div className="card-surface p-10 text-centre">
+          <div className="card-surface p-10 text-center">
             <p className="text-muted-foreground">No case studies yet. Click <strong>New</strong> to add the first one.</p>
           </div>
         ) : (
           <div className="grid gap-3">
             {studies.map((s) => (
-              <div key={s.id} className="card-surface p-4 flex items-centre gap-4">
+              <div key={s.id} className="card-surface p-4 flex items-center gap-4">
                 {s.screenshot_url ? (
                   <img src={s.screenshot_url} alt="" loading="lazy" decoding="async" className="w-20 h-14 object-cover rounded border border-border" />
                 ) : (
-                  <div className="w-20 h-14 rounded bg-gradient-to-br from-primary/20 to-accent/30 flex items-centre justify-centre text-xs font-bold text-primary">
+                  <div className="w-20 h-14 rounded bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center text-xs font-bold text-primary">
                     {s.category}
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-centre gap-2">
+                  <div className="flex items-center gap-2">
                     <span className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded ${s.published ? "bg-green-100 text-green-700" : "bg-amber-100 text-amber-700"}`}>
                       {s.published ? "Live" : "Draft"}
                     </span>
@@ -202,7 +202,7 @@ VALUES ('${userId}', 'admin');`}
                   <h3 className="font-semibold text-ink text-sm truncate">{s.title}</h3>
                   <p className="text-xs text-muted-foreground">{s.brand} · {s.hero_metric} {s.hero_metric_label}</p>
                 </div>
-                <div className="flex items-centre gap-1">
+                <div className="flex items-center gap-1">
                   <button onClick={() => setEditing(s)} className="p-2 rounded hover:bg-secondary text-ink/70" title="Edit">
                     <Pencil className="w-4 h-4" />
                   </button>

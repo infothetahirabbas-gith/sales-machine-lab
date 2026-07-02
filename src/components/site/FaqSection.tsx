@@ -23,8 +23,8 @@ export default function FaqSection({
       <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] bg-accent/30 blur-[140px] rounded-full" />
 
       <div className="relative mx-auto max-w-3xl px-5 lg:px-8">
-        <div className="text-centre mb-10">
-          <div className="inline-flex items-centre gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
             {eyebrow}
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -48,13 +48,13 @@ export default function FaqSection({
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="w-full flex items-centre justify-between gap-4 px-5 py-4 text-left"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                   aria-expanded={isOpen}
                   aria-controls={`${id}-answer`}
                 >
                   <span className="font-semibold text-ink text-sm md:text-base">{f.q}</span>
                   <span
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-centre justify-centre transition-colors ${
+                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
                       isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary"
                     }`}
                   >

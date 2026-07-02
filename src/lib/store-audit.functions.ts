@@ -864,7 +864,7 @@ function buildCompetitors(n: ReturnType<typeof guessNiche>): z.infer<typeof comp
   return [
     { name: `Top ${n.niche} brand A`, website: "industry-leader-a.com", tier: "Tier 1", positioning: "Premium category leader", strengths: "Brand authority, content, reviews", weaknesses: "Higher prices, slower innovation", usp: "Most trusted name in category" },
     { name: `Top ${n.niche} brand B`, website: "industry-leader-b.com", tier: "Tier 1", positioning: "Volume + value leader", strengths: "Price, distribution, ad spend", weaknesses: "Generic brand, weak loyalty", usp: "Best price-to-quality ratio" },
-    { name: `Challenger ${n.category} brand`, website: "challenger-brand.com", tier: "Tier 2", positioning: "DTC disruptor", strengths: "Strong UGC, modern brand", weaknesses: "Smaller catalogue", usp: "Cool factor + community" },
+    { name: `Challenger ${n.category} brand`, website: "challenger-brand.com", tier: "Tier 2", positioning: "DTC disruptor", strengths: "Strong UGC, modern brand", weaknesses: "Smaller catalog", usp: "Cool factor + community" },
     { name: `Niche specialist`, website: "niche-specialist.com", tier: "Tier 2", positioning: "Specialist for sub-segment", strengths: "Deep niche expertise, loyal base", weaknesses: "Limited TAM", usp: "Best for one specific buyer" },
     { name: `Marketplace alternative`, website: "amazon.com", tier: "Tier 1", positioning: "Marketplace convenience", strengths: "Trust, shipping, reviews", weaknesses: "No brand relationship", usp: "Fastest and easiest checkout" },
   ];

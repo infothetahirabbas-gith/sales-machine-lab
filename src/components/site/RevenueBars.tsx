@@ -31,7 +31,7 @@ export default function RevenueBars({ bars }: { bars: Bar[] }) {
       {bars.map((b, i) => (
         <div key={b.label} className="group">
           <div className="flex items-baseline justify-between text-xs font-semibold mb-2 gap-3">
-            <span className="text-ink uppercase tracking-wider inline-flex items-centre gap-1.5">
+            <span className="text-ink uppercase tracking-wider inline-flex items-center gap-1.5">
               {b.label}
               {b.description && (
                 <span className="relative inline-flex group/tip">

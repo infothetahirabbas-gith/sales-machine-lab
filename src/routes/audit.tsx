@@ -166,7 +166,7 @@ function ScoreRing({ value, size = 120, label }: { value: number; size?: number;
   const offset = circ - (Math.max(0, Math.min(100, value)) / 100) * circ;
   const color = value >= 75 ? "hsl(var(--primary))" : value >= 50 ? "#f59e0b" : "#ef4444";
   return (
-    <div className="relative inline-flex items-centre justify-centre" style={{ width: size, height: size }}>
+    <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90">
         <circle cx={size / 2} cy={size / 2} r={radius} stroke="hsl(var(--secondary))" strokeWidth="10" fill="none" />
         <circle
@@ -176,7 +176,7 @@ function ScoreRing({ value, size = 120, label }: { value: number; size?: number;
           style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1)" }}
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-centre justify-centre px-1 text-centre">
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-1 text-center">
         <div className="text-3xl font-bold tabular-nums" style={{ color }}>{Math.round(value)}</div>
         {label && <div className="text-[9px] uppercase tracking-wider text-muted-foreground mt-0.5 leading-tight">{label}</div>}
       </div>
@@ -189,7 +189,7 @@ function MiniScore({ value, label }: { value: number; label: string }) {
     : value >= 50 ? "text-amber-600 bg-amber-500/10 border-amber-500/30"
     : "text-destructive bg-destructive/10 border-destructive/30";
   return (
-    <div className={`p-3 rounded-xl border ${colour} text-centre min-w-0`}>
+    <div className={`p-3 rounded-xl border ${color} text-center min-w-0`}>
       <div className="text-2xl font-bold tabular-nums">{value}</div>
       <div className="text-[10px] uppercase tracking-wider mt-0.5 leading-tight font-semibold opacity-80 break-words">{label}</div>
     </div>
@@ -239,12 +239,12 @@ function ScoreLine({ label, score, verdict }: { label: string; score: number; ve
   const color = score >= 75 ? "bg-emerald-500" : score >= 50 ? "bg-amber-500" : "bg-destructive";
   return (
     <div>
-      <div className="flex justify-between items-centre text-xs mb-1.5">
+      <div className="flex justify-between items-center text-xs mb-1.5">
         <span className="font-bold text-ink">{label}</span>
         <span className="font-bold tabular-nums text-ink">{score}/100</span>
       </div>
       <div className="h-1.5 bg-secondary rounded-full overflow-hidden mb-1.5">
-        <div className={`h-full ${colour} rounded-full transition-all duration-700`} style={{ width: `${score}%` }} />
+        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: `${score}%` }} />
       </div>
       <p className="text-xs text-muted-foreground">{verdict}</p>
     </div>
@@ -259,7 +259,7 @@ function IssueCard({ issue, why, fix, tone }: { issue: string; why: string; fix:
     : { wrap: "border-yellow-500/40 bg-yellow-500/5", chip: "bg-yellow-500 text-white", label: "🟡 Medium" };
   return (
     <div className={`rounded-xl border p-4 ${styles.wrap}`}>
-      <div className="flex items-centre gap-2 mb-2">
+      <div className="flex items-center gap-2 mb-2">
         <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${styles.chip}`}>{styles.label}</span>
       </div>
       <div className="font-bold text-ink text-sm">{issue}</div>
@@ -345,8 +345,8 @@ function AuditPage() {
         <div className="absolute -top-40 -right-40 w-[400px] h-[400px] bg-primary/15 blur-[140px] rounded-full" />
         <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-accent/20 blur-[140px] rounded-full" />
 
-        <div className="relative mx-auto max-w-4xl px-5 lg:px-8 text-centre">
-          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+        <div className="relative mx-auto max-w-4xl px-5 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
             <Brain className="w-3.5 h-3.5" />
             Being Ecom Brain™ · Growth Intelligence
           </div>
@@ -475,8 +475,8 @@ function AuditPage() {
 
           {loading && (
             <div className="mt-8 card-surface p-6 text-left" data-testid="audit-progress">
-              <div className="flex items-centre justify-between gap-3 mb-3">
-                <div className="flex items-centre gap-3 min-w-0">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3 min-w-0">
                   <Loader2 className="w-5 h-5 animate-spin text-primary shrink-0" />
                   <span className="font-semibold text-ink truncate">Being Ecom Brain™ is analyzing…</span>
                 </div>
@@ -495,7 +495,7 @@ function AuditPage() {
               </div>
               <div className="space-y-2">
                 {loadingSteps.map((s, i) => (
-                  <div key={i} className={`flex items-centre gap-2 text-sm transition-opacity ${i <= stepIdx ? "opacity-100" : "opacity-30"}`}>
+                  <div key={i} className={`flex items-center gap-2 text-sm transition-opacity ${i <= stepIdx ? "opacity-100" : "opacity-30"}`}>
                     {i < stepIdx ? <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                       : i === stepIdx ? <Loader2 className="w-4 h-4 text-primary animate-spin" />
                       : <div className="w-4 h-4 rounded-full border border-border" />}
@@ -519,9 +519,9 @@ function AuditPage() {
       {/* SAMPLE PREVIEW — show users exactly what they'll get before they submit */}
       {!report && !loading && (
         <section className="relative py-12 lg:py-16 border-t border-border/60 bg-secondary/20">
-          <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-centre">
+          <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
                 <FileText className="w-3.5 h-3.5" /> What you'll receive
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink leading-tight">
@@ -562,7 +562,7 @@ function AuditPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
 
             {/* EXPORT BAR */}
-            <div className="flex flex-wrap items-centre justify-between gap-3 card-surface p-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 card-surface p-4">
               <div className="text-sm text-muted-foreground">
                 <span className="font-semibold text-ink">Report ready.</span> Export the full 17-phase intelligence in your preferred format.
               </div>
@@ -587,14 +587,14 @@ function AuditPage() {
 
             {/* EXECUTIVE INTELLIGENCE SUMMARY */}
             <div className="card-surface p-6 lg:p-8 bg-gradient-to-br from-primary/5 via-card to-card border-primary/30">
-              <div className="flex flex-col lg:flex-row gap-8 items-centre lg:items-start">
-                <div className="text-centre shrink-0">
+              <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
+                <div className="text-center shrink-0">
                   <ScoreRing value={report.scorecard.overall} size={170} label="Overall Growth" />
-                  <div className="mt-3 inline-flex items-centre gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wider">
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wider">
                     <Crown className="w-3 h-3" /> Revenue potential: {report.executiveIntelligence.revenuePotential}
                   </div>
                 </div>
-                <div className="flex-1 text-centre lg:text-left min-w-0">
+                <div className="flex-1 text-center lg:text-left min-w-0">
                   <div className="text-xs font-semibold uppercase tracking-widest text-primary">Executive Intelligence</div>
                   <h2 className="mt-2 text-2xl md:text-3xl font-bold text-ink break-words">{report.storeName}</h2>
                   <p className="text-sm text-muted-foreground break-words">{auditedUrl} · {report.platformGuess} · {report.business.industry} · {report.business.pricePositioning} · {report.business.businessModel}</p>
@@ -605,15 +605,15 @@ function AuditPage() {
 
               <div className="mt-6 grid md:grid-cols-3 gap-3">
                 <div className="p-4 rounded-xl bg-card border border-border">
-                  <div className="flex items-centre gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary mb-1.5"><Eye className="w-3.5 h-3.5" /> Business Reality</div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary mb-1.5"><Eye className="w-3.5 h-3.5" /> Business Reality</div>
                   <p className="text-sm text-ink leading-relaxed">{report.executiveIntelligence.businessReality}</p>
                 </div>
                 <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/30">
-                  <div className="flex items-centre gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-600 mb-1.5"><Rocket className="w-3.5 h-3.5" /> Biggest Opportunity</div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-600 mb-1.5"><Rocket className="w-3.5 h-3.5" /> Biggest Opportunity</div>
                   <p className="text-sm text-ink leading-relaxed">{report.executiveIntelligence.biggestOpportunity}</p>
                 </div>
                 <div className="p-4 rounded-xl bg-destructive/5 border border-destructive/30">
-                  <div className="flex items-centre gap-1.5 text-[11px] font-bold uppercase tracking-wider text-destructive mb-1.5"><AlertTriangle className="w-3.5 h-3.5" /> Biggest Threat</div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-destructive mb-1.5"><AlertTriangle className="w-3.5 h-3.5" /> Biggest Threat</div>
                   <p className="text-sm text-ink leading-relaxed">{report.executiveIntelligence.biggestThreat}</p>
                 </div>
               </div>
@@ -667,7 +667,7 @@ function AuditPage() {
                   </SectionCard>
 
                   <SectionCard icon={Flame} title="Issue Mix" kicker={`${total} issues found`}>
-                    <div className="h-64 flex items-centre justify-centre">
+                    <div className="h-64 flex items-center justify-center">
                       {total > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
                           <PieChart>
@@ -680,31 +680,31 @@ function AuditPage() {
                       ) : <p className="text-sm text-muted-foreground">No issues detected.</p>}
                     </div>
                     <div className="grid grid-cols-3 gap-2 mt-2">
-                      <div className="text-centre"><div className="text-lg font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
-                      <div className="text-centre"><div className="text-lg font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
-                      <div className="text-centre"><div className="text-lg font-bold text-yellow-600 tabular-nums">{me}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Medium</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
+                      <div className="text-center"><div className="text-lg font-bold text-yellow-600 tabular-nums">{me}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Medium</div></div>
                     </div>
                   </SectionCard>
 
                   <SectionCard icon={DollarSign} title="Key Numbers" kicker="At-a-glance KPIs">
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 text-centre">
+                      <div className="p-3 rounded-xl bg-primary/5 border border-primary/20 text-center">
                         <div className="text-3xl font-bold text-primary tabular-nums">{s.overall}</div>
                         <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Health /100</div>
                       </div>
-                      <div className="p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/30 text-centre">
+                      <div className="p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/30 text-center">
                         <div className="text-3xl font-bold text-emerald-600 tabular-nums">{report.opportunities.length}</div>
                         <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Opportunities</div>
                       </div>
-                      <div className="p-3 rounded-xl bg-destructive/5 border border-destructive/30 text-centre">
+                      <div className="p-3 rounded-xl bg-destructive/5 border border-destructive/30 text-center">
                         <div className="text-3xl font-bold text-destructive tabular-nums">{report.revenueLeakage.length}</div>
                         <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Revenue Leaks</div>
                       </div>
-                      <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/30 text-centre">
+                      <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/30 text-center">
                         <div className="text-3xl font-bold text-amber-600 tabular-nums">{leakSum}</div>
                         <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mt-1">Risk Score</div>
                       </div>
-                      <div className="col-span-2 p-3 rounded-xl bg-card border border-border text-centre">
+                      <div className="col-span-2 p-3 rounded-xl bg-card border border-border text-center">
                         <div className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground mb-1">Revenue Potential</div>
                         <div className="text-xl font-bold text-ink">{report.executiveIntelligence.revenuePotential}</div>
                       </div>
@@ -755,7 +755,7 @@ function AuditPage() {
                     </div>
                     <div className="p-3 rounded-xl bg-amber-500/5 border border-amber-500/30">
                       <div className="text-[10px] font-bold uppercase tracking-widest text-amber-600 mb-2">Issues Found</div>
-                      <div className="grid grid-cols-3 gap-2 text-centre">
+                      <div className="grid grid-cols-3 gap-2 text-center">
                         <div><div className="text-xl font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
                         <div><div className="text-xl font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
                         <div><div className="text-xl font-bold text-yellow-600 tabular-nums">{me}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Medium</div></div>
@@ -810,10 +810,10 @@ function AuditPage() {
                 ] as [string, number][]).map(([label, v]) => {
                   const color = v >= 75 ? "bg-emerald-500" : v >= 50 ? "bg-amber-500" : "bg-destructive";
                   return (
-                    <div key={label} className="grid grid-cols-[140px_1fr_44px] items-centre gap-3">
+                    <div key={label} className="grid grid-cols-[140px_1fr_44px] items-center gap-3">
                       <div className="text-xs text-ink truncate">{label}</div>
                       <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div className={`h-full ${colour} rounded-full transition-all duration-700`} style={{ width: `${v}%` }} />
+                        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: `${v}%` }} />
                       </div>
                       <div className="text-xs font-bold tabular-nums text-ink text-right">{v}</div>
                     </div>
@@ -825,7 +825,7 @@ function AuditPage() {
             {/* LOCAL SIGNAL CONFIDENCE */}
             <SectionCard icon={ShieldCheck} title="Recommendation Confidence" kicker="Local evidence · transparent scoring">
               <div className="grid gap-5 lg:grid-cols-[220px_1fr]">
-                <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-centre">
+                <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-center">
                   <ScoreRing value={report.confidenceBreakdown.overall} label="Evidence confidence" />
                   <div className="mt-3 text-sm font-bold text-ink tabular-nums">
                     {report.confidenceBreakdown.detectedSignals}/{report.confidenceBreakdown.scannedSignals} signals detected
@@ -865,21 +865,21 @@ function AuditPage() {
             <SectionCard icon={Flame} title="Issue Classification" kicker="Phase 14 · What's actually killing your revenue">
               <div className="grid lg:grid-cols-3 gap-4">
                 <div>
-                  <h4 className="text-sm font-bold text-destructive mb-3 flex items-centre gap-2"><Flame className="w-4 h-4" /> Super Hot — Revenue Blockers</h4>
+                  <h4 className="text-sm font-bold text-destructive mb-3 flex items-center gap-2"><Flame className="w-4 h-4" /> Super Hot — Revenue Blockers</h4>
                   <div className="space-y-3">
                     {report.issueClassification.superHot.map((it, i) => <IssueCard key={i} {...it} tone="super" />)}
                     {report.issueClassification.superHot.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-amber-600 mb-3 flex items-centre gap-2"><AlertTriangle className="w-4 h-4" /> Hot — Growth Blockers</h4>
+                  <h4 className="text-sm font-bold text-amber-600 mb-3 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> Hot — Growth Blockers</h4>
                   <div className="space-y-3">
                     {report.issueClassification.hot.map((it, i) => <IssueCard key={i} {...it} tone="hot" />)}
                     {report.issueClassification.hot.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-centre gap-2"><Zap className="w-4 h-4" /> Medium — Optimisation</h4>
+                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> Medium — Optimisation</h4>
                   <div className="space-y-3">
                     {report.issueClassification.medium.map((it, i) => <IssueCard key={i} {...it} tone="medium" />)}
                     {report.issueClassification.medium.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
@@ -900,7 +900,7 @@ function AuditPage() {
                     : op.difficulty === "Medium" ? "text-amber-600" : "text-destructive";
                   return (
                     <div key={i} className="card-surface p-5 hover:border-primary/40 transition">
-                      <div className="flex items-centre gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-3">
                         <span className="text-xs font-bold text-primary">#{i + 1}</span>
                         <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded ${roiColor}`}>ROI: {op.roi}</span>
                         <span className={`text-[10px] font-bold uppercase ${diffColor}`}>· {op.difficulty}</span>
@@ -918,8 +918,8 @@ function AuditPage() {
             <SectionCard icon={DollarSign} title="Revenue Leakage Map" kicker="Phase 13 · Where money is bleeding out">
               <div className="space-y-2">
                 {report.revenueLeakage.map((leak, i) => (
-                  <div key={i} className="flex flex-col sm:flex-row sm:items-centre gap-3 p-3 rounded-lg bg-card border border-border">
-                    <div className="flex items-centre gap-2 shrink-0">
+                  <div key={i} className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-lg bg-card border border-border">
+                    <div className="flex items-center gap-2 shrink-0">
                       {severityChip(leak.severity)}
                       <span className="text-xs font-bold text-ink uppercase tracking-wider">{leak.area}</span>
                     </div>
@@ -954,7 +954,7 @@ function AuditPage() {
               <SectionCard icon={Megaphone} title="Paid Ads Intelligence" kicker="Phase 5">
                 <div className="p-3 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/30 mb-4">
                   <div className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Acquisition Maturity</div>
-                  <div className="flex items-centre gap-2">
+                  <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-primary" />
                     <span className="font-bold text-ink">{report.adsIntelligence.acquisitionMaturity}</span>
                   </div>
@@ -1054,7 +1054,7 @@ function AuditPage() {
             {/* RETENTION */}
             <SectionCard icon={Repeat} title="Retention Intelligence" kicker="Phase 10 · Where LTV is won or lost">
               <div className="flex flex-col lg:flex-row gap-6 items-start">
-                <div className="text-centre shrink-0">
+                <div className="text-center shrink-0">
                   <ScoreRing value={report.retentionIntelligence.retentionMaturityScore} label="Retention Maturity" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -1075,8 +1075,8 @@ function AuditPage() {
               <div className="grid md:grid-cols-2 gap-3">
                 {report.competitors.map((c, i) => (
                   <div key={i} className="card-surface p-4 hover:border-primary/40 transition">
-                    <div className="flex items-centre justify-between gap-2 mb-2 flex-wrap">
-                      <div className="flex items-centre gap-2 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
+                      <div className="flex items-center gap-2 min-w-0">
                         <Building2 className="w-4 h-4 text-primary shrink-0" />
                         <h4 className="font-bold text-ink truncate">{c.name}</h4>
                       </div>
@@ -1131,33 +1131,33 @@ function AuditPage() {
               </div>
               <div className="grid lg:grid-cols-3 gap-6">
                 <div>
-                  <div className="flex items-centre gap-2 text-sm font-bold text-destructive mb-3"><Flame className="w-4 h-4" /> Immediate (0-7 days)</div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-destructive mb-3"><Flame className="w-4 h-4" /> Immediate (0-7 days)</div>
                   <ol className="space-y-2.5">
                     {report.actionPlan.immediate.map((f, i) => (
                       <li key={i} className="flex gap-3 text-sm">
-                        <span className="shrink-0 w-6 h-6 rounded-full bg-destructive/15 text-destructive font-bold text-xs flex items-centre justify-centre">{i + 1}</span>
+                        <span className="shrink-0 w-6 h-6 rounded-full bg-destructive/15 text-destructive font-bold text-xs flex items-center justify-center">{i + 1}</span>
                         <span className="text-ink">{f}</span>
                       </li>
                     ))}
                   </ol>
                 </div>
                 <div>
-                  <div className="flex items-centre gap-2 text-sm font-bold text-primary mb-3"><Rocket className="w-4 h-4" /> Growth (7-30 days)</div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-primary mb-3"><Rocket className="w-4 h-4" /> Growth (7-30 days)</div>
                   <ol className="space-y-2.5">
                     {report.actionPlan.growth.map((f, i) => (
                       <li key={i} className="flex gap-3 text-sm">
-                        <span className="shrink-0 w-6 h-6 rounded-full bg-primary/15 text-primary font-bold text-xs flex items-centre justify-centre">{i + 1}</span>
+                        <span className="shrink-0 w-6 h-6 rounded-full bg-primary/15 text-primary font-bold text-xs flex items-center justify-center">{i + 1}</span>
                         <span className="text-ink">{f}</span>
                       </li>
                     ))}
                   </ol>
                 </div>
                 <div>
-                  <div className="flex items-centre gap-2 text-sm font-bold text-amber-600 mb-3"><TrendingUp className="w-4 h-4" /> Scale (30-90 days)</div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-amber-600 mb-3"><TrendingUp className="w-4 h-4" /> Scale (30-90 days)</div>
                   <ol className="space-y-2.5">
                     {report.actionPlan.scale.map((f, i) => (
                       <li key={i} className="flex gap-3 text-sm">
-                        <span className="shrink-0 w-6 h-6 rounded-full bg-amber-500/15 text-amber-600 font-bold text-xs flex items-centre justify-centre">{i + 1}</span>
+                        <span className="shrink-0 w-6 h-6 rounded-full bg-amber-500/15 text-amber-600 font-bold text-xs flex items-center justify-center">{i + 1}</span>
                         <span className="text-ink">{f}</span>
                       </li>
                     ))}
@@ -1177,7 +1177,7 @@ function AuditPage() {
                   { label: "CEO", text: report.founderInsights.ceo, icon: Crown },
                 ].map((p) => (
                   <div key={p.label} className="p-4 rounded-xl bg-card border border-border hover:border-primary/40 transition">
-                    <div className="flex items-centre gap-2 mb-2">
+                    <div className="flex items-center gap-2 mb-2">
                       <p.icon className="w-4 h-4 text-primary" />
                       <div className="text-xs font-bold uppercase tracking-wider text-primary">{p.label}</div>
                     </div>
@@ -1188,21 +1188,21 @@ function AuditPage() {
             </SectionCard>
 
             {/* CTA */}
-            <div className="card-surface p-8 lg:p-12 text-centre bg-gradient-to-br from-primary/10 via-card to-accent/10 border-primary/30">
-              <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+            <div className="card-surface p-8 lg:p-12 text-center bg-gradient-to-br from-primary/10 via-card to-accent/10 border-primary/30">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mb-4">
                 <Sparkles className="w-3.5 h-3.5" /> Turn this report into revenue
               </div>
               <h3 className="text-2xl md:text-4xl font-bold text-ink">Want us to <span className="text-sky-gradient">fix and scale</span> your store for you?</h3>
               <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
                 BeingEcom turns Being Ecom Brain™ reports like this into real revenue. Book a free 30-minute strategy call and we'll walk you through the exact plan to ship these fixes.
               </p>
-              <div className="mt-6 btn-pair mx-auto justify-centre">
+              <div className="mt-6 btn-pair mx-auto justify-center">
                 <a href="/contact" className="btn btn-primary btn-shimmer">Book Free Strategy Call <ArrowRight className="w-4 h-4" /></a>
                 <a href="/services" className="btn btn-dark"><Mail className="w-4 h-4" /> See Growth Services</a>
               </div>
             </div>
 
-            <p className="text-centre text-xs text-muted-foreground">Generated by Being Ecom Brain™ · BeingEcom Growth & Scaling Agency</p>
+            <p className="text-center text-xs text-muted-foreground">Generated by Being Ecom Brain™ · BeingEcom Growth & Scaling Agency</p>
           </div>
         </section>
       )}

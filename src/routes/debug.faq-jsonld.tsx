@@ -158,11 +158,11 @@ function FaqJsonLdInspector() {
               </select>
             </label>
 
-            <label className="inline-flex items-centre gap-2 text-sm">
+            <label className="inline-flex items-center gap-2 text-sm">
               <input type="checkbox" checked={useAlias} onChange={(e) => setUseAlias(e.target.checked)} />
               Use alias
             </label>
-            <label className="inline-flex items-centre gap-2 text-sm">
+            <label className="inline-flex items-center gap-2 text-sm">
               <input type="checkbox" checked={validate} onChange={(e) => setValidate(e.target.checked)} />
               Validate
             </label>
@@ -221,7 +221,7 @@ function FaqJsonLdInspector() {
             )}
 
             <div className="card-surface overflow-hidden mb-6">
-              <div className="flex items-centre justify-between px-4 py-2 border-b border-border bg-secondary/40">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-secondary/40">
                 <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                   JSON-LD
                 </span>

@@ -16,7 +16,7 @@ const FAQ_LIST: FAQ[] = [
     "a": "Standard Shopping is still the cleanest data signal for diagnosing PMax. We often run both."
   },
   {
-    "q": "Do you handle the Merchant Centre feed?",
+    "q": "Do you handle the Merchant Center feed?",
     "a": "Yes — feed optimisation, GTIN/MPN fixes, custom labels and supplemental feeds for titles."
   },
   {

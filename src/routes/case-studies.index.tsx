@@ -130,7 +130,7 @@ const makeChart = (seed: number, growth = 1.6) => {
   return arr;
 };
 
-const RAW: Omit<Study, "colour" | "chart">[] = [
+const RAW: Omit<Study, "color" | "chart">[] = [
   // ADS (15)
   { id: "a1", title: "Apparel brand: $18K → $214K/mo in 6 months", brand: "Northwind Apparel", industry: "Shopify · Apparel", category: "Ads", metric: "11.9×", metricLabel: "Revenue", duration: "6 months", problem: "Stuck at 1.5× ROAS, no creative testing system, single audience.", strategy: ["Built a 30-creative/week production pipeline", "Restructured Meta funnel into ASC + manual retargeting", "Added TikTok Spark Ads as cold layer"], results: [{ v: "11.9×", l: "Revenue" }, { v: "3.8×", l: "ROAS" }, { v: "+285%", l: "CR" }], takeaway: "Creative volume beats audience tinkering 9 out of 10 times." },
   { id: "a2", title: "Dropshipping gadgets: 0 → $62K/mo cold launch", brand: "GearLoop", industry: "Shopify · Gadgets", category: "Ads", metric: "2.6×", metricLabel: "ROAS", duration: "90 days", problem: "Brand new store, no historical data, flat creatives.", strategy: ["UGC angle stack across 5 personas", "ASC with broad cold + lookalike layer", "Daily creative refresh on top 3 winners"], results: [{ v: "$62K", l: "MRR" }, { v: "2.6×", l: "ROAS" }, { v: "90d", l: "to scale" }], takeaway: "Speed of iteration matters more than perfection." },
@@ -188,7 +188,7 @@ const RAW: Omit<Study, "colour" | "chart">[] = [
   { id: "w5", title: "Beauty DTC: quiz-driven homepage", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "Website", metric: "6.4%", metricLabel: "Site-wide CR", duration: "5 weeks", problem: "Too many SKUs, no clear entry path.", strategy: ["Quiz as primary homepage CTA", "Routine results page = personalised PLP", "Email + SMS capture mid-quiz"], results: [{ v: "6.4%", l: "CR" }, { v: "+88%", l: "Email list" }, { v: "+52%", l: "AOV" }], takeaway: "Quizzes turn the homepage into a sales associate that scales." },
   { id: "w6", title: "Pet brand: subscription site rebuild", brand: "Pawform", industry: "Shopify · Pet", category: "Website", metric: "+74%", metricLabel: "Sub starts", duration: "6 weeks", problem: "Subscription buried 3 clicks deep.", strategy: ["Subscription hero on homepage", "Visual delivery preview", "One-page subscription checkout"], results: [{ v: "+74%", l: "Subs" }, { v: "+62%", l: "LTV" }, { v: "+34%", l: "MRR" }], takeaway: "If subscription is the business model, it belongs on the homepage." },
   { id: "w7", title: "Furniture: 3D configurator site", brand: "Mason Living", industry: "WooCommerce · Furniture", category: "Website", metric: "+44%", metricLabel: "Rev", duration: "10 weeks", problem: "High AOV, no way to visualize options.", strategy: ["Three.js product configurator", "Live price + save-and-share", "AR view on mobile"], results: [{ v: "+44%", l: "Rev" }, { v: "+62%", l: "AOV" }, { v: "+28%", l: "Time on site" }], takeaway: "Visualization tools turn browsers into buyers in high-AOV verticals." },
-  { id: "w8", title: "Jewelry: luxury Shopify Plus build", brand: "Auralune", industry: "Shopify Plus · Jewelry", category: "Website", metric: "+212%", metricLabel: "Q4 rev", duration: "8 weeks", problem: "Old Magento, slow, poor gifting flow.", strategy: ["Plus migration with custom checkout", "Gift toggle + free engraving widget", "Editorial homepage with collections"], results: [{ v: "+212%", l: "Q4 rev" }, { v: "+56%", l: "AOV" }, { v: "+91%", l: "Repeat" }], takeaway: "Luxury sites should feel like a flagship store, not a catalogue." },
+  { id: "w8", title: "Jewelry: luxury Shopify Plus build", brand: "Auralune", industry: "Shopify Plus · Jewelry", category: "Website", metric: "+212%", metricLabel: "Q4 rev", duration: "8 weeks", problem: "Old Magento, slow, poor gifting flow.", strategy: ["Plus migration with custom checkout", "Gift toggle + free engraving widget", "Editorial homepage with collections"], results: [{ v: "+212%", l: "Q4 rev" }, { v: "+56%", l: "AOV" }, { v: "+91%", l: "Repeat" }], takeaway: "Luxury sites should feel like a flagship store, not a catalog." },
   { id: "w9", title: "Coffee brand: subscription-first site", brand: "Roast & Co.", industry: "Shopify · Beverage", category: "Website", metric: "+88%", metricLabel: "Sub CR", duration: "5 weeks", problem: "One-time purchase model, high CAC.", strategy: ["Subscription hero animation", "Roast quiz funneling into subs", "Customer photo grid throughout"], results: [{ v: "+88%", l: "Sub CR" }, { v: "+34%", l: "Sub starts" }, { v: "+22%", l: "MRR" }], takeaway: "Subscription sites need to feel like a product, not a contract." },
   { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimised hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
 ];
@@ -248,13 +248,13 @@ function AdsPreview({ seed }: { seed: number }) {
   return (
     <div className="h-full w-full bg-white flex flex-col text-ink">
       {/* FB Ads Manager-style header */}
-      <div className="flex items-centre justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-centre gap-1.5">
+      <div className="flex items-center justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12Z"/></svg>
           <span className="text-[10px] font-semibold text-ink">Ads Manager</span>
           <span className="text-[8px] text-muted-foreground">· Last 7 days</span>
         </div>
-        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-centre gap-1">
+        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Live
         </span>
       </div>
@@ -290,9 +290,9 @@ function AdsPreview({ seed }: { seed: number }) {
         {campaigns.map((c, i) => (
           <div
             key={i}
-            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-centre border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
+            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-center border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
           >
-            <div className="flex items-centre gap-1 min-w-0">
+            <div className="flex items-center gap-1 min-w-0">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
               <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
@@ -336,8 +336,8 @@ function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
   return (
     <div className="h-full w-full bg-white flex flex-col">
       {/* Header */}
-      <div className="flex items-centre justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-centre gap-1.5">
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-center gap-1.5">
           <svg viewBox="0 0 24 24" className="w-3 h-3"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
           <span className="text-[10px] font-semibold text-ink">Search Console</span>
         </div>
@@ -370,7 +370,7 @@ function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
       {/* Top queries list */}
       <div className="flex-1 px-3 pb-2 space-y-0.5 min-h-0 overflow-hidden">
         {queries.map((q, i) => (
-          <div key={i} className="flex items-centre justify-between text-[9px]">
+          <div key={i} className="flex items-center justify-between text-[9px]">
             <span className="truncate text-ink/80 flex-1">{q.kw}</span>
             <span className="text-emerald-600 font-bold tabular-nums ml-2">#{q.pos + (seed % 3)}</span>
           </div>
@@ -397,7 +397,7 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
   return (
     <div className="h-full w-full bg-white flex flex-col">
       {/* Header A/B */}
-      <div className="flex items-centre justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
         <span className="text-[10px] font-semibold text-ink">Conversion funnel</span>
         <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">A/B WIN</span>
       </div>
@@ -413,10 +413,10 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
         </div>
       </div>
       {/* Funnel bars */}
-      <div className="flex-1 flex flex-col justify-centre gap-1 px-3 pb-2.5 min-h-0">
+      <div className="flex-1 flex flex-col justify-center gap-1 px-3 pb-2.5 min-h-0">
         {steps.map((s, i) => (
           <div key={i} className="space-y-0.5">
-            <div className="flex items-centre justify-between text-[8px] font-medium">
+            <div className="flex items-center justify-between text-[8px] font-medium">
               <span className="text-ink/70">{s.l}</span>
               <span className="tabular-nums text-ink/60">{s.v}</span>
             </div>
@@ -456,8 +456,8 @@ function CaseStudies() {
       <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre lg:text-left">
-          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Case Studies
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04] text-ink">
@@ -475,7 +475,7 @@ function CaseStudies() {
               { v: "400+", l: "A/B tests run" },
               { v: "4.1×", l: "Avg ROAS lift" },
             ].map((s) => (
-              <div key={s.l} className="card-surface p-4 text-centre">
+              <div key={s.l} className="card-surface p-4 text-center">
                 <div className="text-xl md:text-2xl font-bold text-gradient">{s.v}</div>
                 <div className="text-[11px] uppercase tracking-wide text-muted-foreground mt-1">{s.l}</div>
               </div>
@@ -488,8 +488,8 @@ function CaseStudies() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Filter segmented control */}
-          <div className="flex justify-centre mb-10">
-            <div className="flex flex-nowrap overflow-x-auto justify-centre items-centre gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:flex-wrap sm:overflow-visible">
+          <div className="flex justify-center mb-10">
+            <div className="flex flex-nowrap overflow-x-auto justify-center items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:flex-wrap sm:overflow-visible">
               {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
@@ -497,7 +497,7 @@ function CaseStudies() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`relative inline-flex items-centre justify-centre gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
+                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
                       isActive
                         ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
                         : "text-ink/65 hover:text-ink hover:bg-secondary/60"
@@ -534,10 +534,10 @@ function CaseStudies() {
                   className="text-left card-surface overflow-hidden group flex flex-col hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {/* Category-specific preview */}
-                  <div className={`relative h-52 bg-gradient-to-br ${s.colour} p-2.5 overflow-hidden`}>
+                  <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
                     <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
                       {/* App-style chrome */}
-                      <div className="flex items-centre gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
                         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
@@ -549,7 +549,7 @@ function CaseStudies() {
                         {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
                     </div>
-                    <span className="absolute top-5 left-5 inline-flex items-centre gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
+                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
                     <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg z-10">

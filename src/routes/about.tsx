@@ -33,8 +33,8 @@ function About() {
       {/* HERO */}
       <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="mx-auto max-w-5xl px-5 lg:px-8 relative text-centre">
-          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8 relative text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             About BeingEcom
           </div>
           <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04]">
@@ -75,7 +75,7 @@ function About() {
             ].map((p, i) => (
               <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <Card>
-                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
                     <p.Icon className="w-5 h-5" strokeWidth={2.2} />
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-ink">{p.t}</h3>
@@ -103,8 +103,8 @@ function About() {
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
-                <div className="flex items-centre justify-between">
-                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
+                <div className="flex items-center justify-between">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
                     <p.Icon className="w-5 h-5" strokeWidth={2.2} />
                   </div>
                   <span className="font-display font-bold text-3xl text-primary/15">0{i + 1}</span>
@@ -134,7 +134,7 @@ function About() {
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
                   <p.Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <h3 className="mt-4 font-semibold text-lg text-ink">{p.t}</h3>
@@ -150,7 +150,7 @@ function About() {
         <div className="grid lg:grid-cols-2 gap-6">
           <Reveal>
             <div className="card-surface p-8 lg:p-10 h-full">
-              <div className="inline-flex items-centre gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 <Sparkles className="w-4 h-4" /> Our Mission
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
@@ -163,7 +163,7 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <div className="card-surface p-8 lg:p-10 h-full">
-              <div className="inline-flex items-centre gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 <Globe2 className="w-4 h-4" /> Our Vision
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
@@ -181,15 +181,15 @@ function About() {
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
-          <div className="text-centre max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
               Leadership
             </div>
             <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight">Meet the Founder &amp; CEO.</h2>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-centre">
-            <div className="lg:col-span-5 flex justify-centre">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-5 flex justify-center">
               <div className="relative">
                 <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full" />
                 <div className="relative rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-card">
@@ -215,7 +215,7 @@ function About() {
                 <p className="text-xl md:text-2xl font-display font-semibold text-ink leading-snug">
                   "Ecommerce isn't about hacks or hype. It's about building a system where every click, every dollar of ad spend, and every customer compounds into real, profitable growth."
                 </p>
-                <div className="mt-6 flex items-centre gap-3">
+                <div className="mt-6 flex items-center gap-3">
                   <div className="h-0.5 w-10 bg-primary rounded-full" />
                   <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas</span>
                 </div>
@@ -231,7 +231,7 @@ function About() {
                   { v: "$48M+", l: "Tracked revenue" },
                   { v: "10+ yrs", l: "Ecom operating" },
                 ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-centre">
+                  <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
                     <div className="text-2xl font-bold text-primary">{s.v}</div>
                     <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                   </div>

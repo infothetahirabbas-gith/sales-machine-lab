@@ -76,7 +76,7 @@ export const Route = createFileRoute("/services/store-development")({
         { title: "WooCommerce setup system", body: "WordPress + Woo store structure, performant hosting, conversion-ready templates.", tags: ["Hosting","Templates","Cache","Plugins"] },
         { title: "UI/UX optimisation", body: "Mobile-first layouts, real trust signals, friction-free navigation.", tags: ["Mobile-first","Trust","Nav","Search"] },
         { title: "Product page engineering", body: "Hero, gallery, USPs, social proof, sticky ATC - every block earns its space.", tags: ["Hero","Reviews","FAQs","Sticky ATC"] },
-        { title: "Collection page structure", body: "Filters, sorting, merchandising - built to upsell across catalogue.", tags: ["Filters","Merch","Sort","SEO"] },
+        { title: "Collection page structure", body: "Filters, sorting, merchandising - built to upsell across catalog.", tags: ["Filters","Merch","Sort","SEO"] },
         { title: "Checkout & speed optimisation", body: "Reduce steps, kill friction, hit sub-2s loads on mobile.", tags: ["1-step","Express pay","Image opt","Bundles"] },
       ],
       triggersTitle: "Trust elements that move CR.",

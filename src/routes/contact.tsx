@@ -32,7 +32,7 @@ function Contact() {
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre lg:text-left">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Contact</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04]">
             Get your <span className="text-gradient">free ecommerce growth audit</span>.
@@ -48,7 +48,7 @@ function Contact() {
           <div className="min-w-0 rounded-3xl border border-border bg-card/60 p-5 sm:p-6 lg:p-8">
 
             {sent ? (
-              <div className="py-16 text-centre">
+              <div className="py-16 text-center">
                 <div className="text-5xl mb-4">✓</div>
                 <h3 className="text-2xl font-bold">Got it.</h3>
                 <p className="mt-2 text-muted-foreground">We'll be in touch within 24 hours with next steps.</p>

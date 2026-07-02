@@ -79,9 +79,9 @@ function Home() {
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
 
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-centre">
-          <div className="lg:col-span-7 text-centre lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
-            <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mx-auto lg:mx-0">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 text-center lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mx-auto lg:mx-0">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
@@ -104,7 +104,7 @@ function Home() {
                 className="btn group relative border-2 border-primary/40 bg-white/70 backdrop-blur text-ink hover:border-primary hover:-translate-y-0.5 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/15 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <span className="relative flex items-centre gap-2">
+                <span className="relative flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -130,8 +130,8 @@ function Home() {
           </div>
           <div className="lg:col-span-5" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)] float">
-              <div className="flex items-centre justify-between text-xs text-muted-foreground mb-3">
-                <div className="flex items-centre gap-2">
+              <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                <div className="flex items-center gap-2">
                   <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
                   <span key={`t-${dash.key}`} style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.title}</span>
                 </div>
@@ -154,8 +154,8 @@ function Home() {
 
       {/* 2. TRUST BAR - running marquee */}
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-centre gap-4">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground text-centre">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
+          <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
             Trusted by UK ecommerce operators on
           </div>
           <div
@@ -164,7 +164,7 @@ function Home() {
             <div className="marquee-track marquee-fast text-muted-foreground font-semibold whitespace-nowrap">
               {Array.from({ length: 2 }).flatMap((_, k) =>
                 ["Shopify","WooCommerce","Meta Ads","Google Ads","Klaviyo","GA4","TikTok Ads","Triple Whale","Recharge","Yotpo","Hotjar","Shogun"].map((t, i) => (
-                  <span key={`${k}-${i}`} className="inline-flex items-centre gap-8">
+                  <span key={`${k}-${i}`} className="inline-flex items-center gap-8">
                     <span className="hover:text-primary transition-colors">{t}</span>
                     <span className="text-primary/40">•</span>
                   </span>
@@ -176,7 +176,7 @@ function Home() {
       </section>
 
       {/* 3. PROBLEM */}
-      <Section centre eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
+      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -215,7 +215,7 @@ function Home() {
                 <div className="absolute top-4 right-5 font-display font-bold text-5xl text-primary/10 select-none">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
                   <p.Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <h3 className="mt-6 font-semibold text-lg text-ink">{p.t}</h3>
@@ -230,27 +230,27 @@ function Home() {
       <GrowthPathPlanner />
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section centre eyebrow="What we do" title="Nine growth services, one operating system.">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 justify-items-centre mx-auto">
+      <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 justify-items-center mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-none mx-auto" : ""}`}>
               <Card>
-                <div className="mx-auto w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
-                <h3 className="mt-3 font-semibold text-lg text-centre">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 text-centre">{s.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary text-centre">Explore →</div>
+                <div className="mx-auto w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
+                <h3 className="mt-3 font-semibold text-lg text-center">{s.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1 text-center">{s.body}</p>
+                <div className="mt-4 text-sm font-semibold text-primary text-center">Explore →</div>
               </Card>
             </Link>
           ))}
         </div>
-        <div className="mt-6 text-centre">
+        <div className="mt-6 text-center">
           <Link to="/services" className="text-sm font-semibold text-primary hover:underline">See all 9 services →</Link>
         </div>
       </Section>
 
       {/* 6. BEFORE / AFTER - interactive slider */}
       <Section
-        centre
+        center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
         intro="Drag the slider. Same store, same product, same audience - different system."
@@ -281,8 +281,8 @@ function Home() {
       </Section>
 
       {/* 7. CASE STUDY */}
-      <Section centre eyebrow="Real result" title="From $18K to $214K/month in 6 months.">
-        <div className="grid lg:grid-cols-2 gap-8 items-centre">
+      <Section center eyebrow="Real result" title="From $18K to $214K/month in 6 months.">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="rounded-2xl border border-border bg-card/60 p-4">
             <GrowthChart className="w-full h-auto" />
           </div>
@@ -313,7 +313,7 @@ function Home() {
 
       {/* 8. HOW IT WORKS */}
       <Section
-        centre
+        center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
       >
@@ -326,8 +326,8 @@ function Home() {
             { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together as your dedicated ecommerce growth agency.", Icon: Rocket },
           ].map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-              <Card className="relative text-centre h-full">
-                <div className="mx-auto w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-centre justify-centre shadow-[0_10px_30px_-10px_oklch(0.65_0.18_245/0.55)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+              <Card className="relative text-center h-full">
+                <div className="mx-auto w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-[0_10px_30px_-10px_oklch(0.65_0.18_245/0.55)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
                   <s.Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div className="mt-4 text-[10px] font-bold tracking-[0.18em] uppercase text-primary">{s.step}</div>
@@ -340,16 +340,16 @@ function Home() {
       </Section>
 
       {/* 9. TOOLS */}
-      <Section centre eyebrow="Stack" title="The tools we run on every store.">
+      <Section center eyebrow="Stack" title="The tools we run on every store.">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {["Shopify","WooCommerce","Meta Ads","Google Ads","TikTok Ads","GA4","Hotjar","Klaviyo","Triple Whale","Recharge","Yotpo","Shogun"].map((t)=>(
-            <div key={t} className="rounded-xl border border-border bg-white px-4 py-3 text-sm font-medium text-centre text-ink transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)]">{t}</div>
+            <div key={t} className="rounded-xl border border-border bg-white px-4 py-3 text-sm font-medium text-center text-ink transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)]">{t}</div>
           ))}
         </div>
       </Section>
 
       {/* 10. TESTIMONIALS - running marquee */}
-      <Section centre eyebrow="What store owners say" title="Operators. Not influencers.">
+      <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
         <div
           className="relative overflow-hidden"
         >
@@ -372,10 +372,10 @@ function Home() {
                     <div className="card-surface card-hover p-6 h-full mx-2">
                       <div className="text-primary text-3xl font-display leading-none">“</div>
                       <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
-                      <div className="mt-5 flex items-centre gap-3">
+                      <div className="mt-5 flex items-center gap-3">
                         <div
                           aria-label={t.n}
-                          className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-centre justify-centre text-sm font-bold shadow-md ring-2 ring-white"
+                          className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-sm font-bold shadow-md ring-2 ring-white"
                         >
                           {initials}
                         </div>
@@ -396,7 +396,7 @@ function Home() {
       {/* 11. OFFER */}
       <section className="py-14">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-centre justify-between">
+          <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 lg:p-12 flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="absolute -top-16 -right-16 w-56 h-56 bg-primary/15 blur-3xl rounded-full float" />
             <div className="relative">
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>

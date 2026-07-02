@@ -51,11 +51,11 @@ export const Route = createFileRoute("/services/ai-automation")({
       problemTitle: "Why most ecommerce teams drown in busywork.",
       problemBullets: [
         "Manual support tickets eating margin.",
-        "Product catalogue enriched by hand every launch.",
+        "Product catalog enriched by hand every launch.",
         "Marketing ops stitched together with screenshots.",
       ],
       whatIsTitle: "AI is leverage, not a feature.",
-      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift — support deflection, catalogue enrichment, personalisation, content velocity — and build them into your stack.",
+      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift — support deflection, catalog enrichment, personalisation, content velocity — and build them into your stack.",
       systemTitle: "Our AI automation system.",
       systemSteps: [
         { title: "Workflow audit", body: "Map manual workflows, cost-rank, automation-rank." },
@@ -66,20 +66,20 @@ export const Route = createFileRoute("/services/ai-automation")({
       pillarsTitle: "Where AI moves the needle.",
       pillars: [
         { title: "Support deflection", body: "AI agents handling tier-1 tickets 24/7." },
-        { title: "Catalogue enrichment", body: "AI-generated titles, descriptions, alt text." },
+        { title: "Catalog enrichment", body: "AI-generated titles, descriptions, alt text." },
         { title: "Personalisation", body: "On-site product, copy and offer personalisation." },
         { title: "Marketing ops", body: "Brief-to-asset agents, reporting, segmentation." },
       ],
       deepBlocks: [
         { title: "AI support agents", body: "Trained on docs + tickets, escalation to human, CSAT measured.", tags: ["Gorgias","Zendesk","CSAT"] },
-        { title: "Catalogue enrichment", body: "Bulk titles, descriptions, attributes, alt text — SEO-aware.", tags: ["Shopify","SEO","Bulk"] },
+        { title: "Catalog enrichment", body: "Bulk titles, descriptions, attributes, alt text — SEO-aware.", tags: ["Shopify","SEO","Bulk"] },
         { title: "Personalisation", body: "AI-driven product recs, hero variants, offer logic.", tags: ["Recs","A/B","Variants"] },
         { title: "Workflow agents", body: "Brief-to-asset, reporting agents, segmentation triggers.", tags: ["Klaviyo","Reporting","Triggers"] },
       ],
       triggersTitle: "AI use-cases that pay back fast.",
       triggers: ["Tier-1 support","Product copy","Alt text","Hero personalisation","Email segmentation","Reporting agents","Review summarisation","Returns triage"],
       beforeAfter: {
-        before: ["40% margin lost to ops","24h support response","Manual catalogue launches","Static hero for everyone"],
+        before: ["40% margin lost to ops","24h support response","Manual catalog launches","Static hero for everyone"],
         after: ["AI handles 65% of tickets","<5min first response","Bulk AI enrichment","Personalised hero per segment"],
       },
       caseStudy: {
@@ -92,13 +92,13 @@ export const Route = createFileRoute("/services/ai-automation")({
       ctaTitle: "Want AI that earns its keep — not just a chatbot?",
       impactStats: [
         { value: "65%", label: "Support deflection" },
-        { value: "10×", label: "Catalogue velocity" },
+        { value: "10×", label: "Catalog velocity" },
         { value: "+22%", label: "Conversion lift" },
       ],
       metricBars: [
         { label: "Support deflection", before: 0, after: 65, unit: "%", description: "% of tier-1 tickets resolved without human." },
         { label: "First response", before: 24, after: 0.08, unit: "h", description: "Median time to first reply." },
-        { label: "Catalogue throughput", before: 1, after: 10, unit: "×", description: "Products enriched per hour vs manual baseline." },
+        { label: "Catalog throughput", before: 1, after: 10, unit: "×", description: "Products enriched per hour vs manual baseline." },
         { label: "Conversion lift", before: 0, after: 22, unit: "%", description: "Conversion lift from AI personalisation on hero + PDP." },
       ],
       faqs: FAQ_LIST,

@@ -59,8 +59,8 @@ export default function ContactFaq() {
       <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] bg-accent/30 blur-[140px] rounded-full" />
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-centre max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Let's Talk
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -75,8 +75,8 @@ export default function ContactFaq() {
           {/* LEFT - CONTACT FORM */}
           <div className="order-2 lg:order-1 card-surface p-6 md:p-8 rounded-3xl shadow-xl">
             {status === "success" ? (
-              <div className="text-centre py-6">
-                <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-600 flex items-centre justify-centre text-2xl">✓</div>
+              <div className="text-center py-6">
+                <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center text-2xl">✓</div>
                 <h3 className="mt-4 text-xl font-bold text-ink">Thanks — we'll be in touch within 24 hours (weekdays only).</h3>
                 <p className="mt-2 text-sm text-muted-foreground">In the meantime, reply directly to <a className="text-primary font-semibold" href="mailto:hello@beingecom.com">hello@beingecom.com</a> if it's urgent.</p>
               </div>
@@ -135,7 +135,7 @@ export default function ContactFaq() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex btn btn-primary btn-shimmer w-full justify-centre disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="flex btn btn-primary btn-shimmer w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {submitting ? "Sending..." : (<>Send Message <Send className="w-4 h-4" /></>)}
                   </button>
@@ -148,8 +148,8 @@ export default function ContactFaq() {
                 </form>
 
                 <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
-                  <div className="flex items-centre gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
-                  <div className="flex items-centre gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
+                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
+                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
                 </div>
               </>
             )}
@@ -157,7 +157,7 @@ export default function ContactFaq() {
 
           {/* RIGHT - FAQ */}
           <div className="order-1 lg:order-2">
-            <div className="mb-4 inline-flex items-centre gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
               Common Questions
             </div>
             <h3 className="text-2xl md:text-3xl font-bold text-ink leading-tight">
@@ -175,11 +175,11 @@ export default function ContactFaq() {
                     <button
                       type="button"
                       onClick={() => setOpen(isOpen ? -1 : i)}
-                      className="w-full flex items-centre justify-between gap-4 px-5 py-4 text-left"
+                      className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
                       aria-expanded={isOpen}
                     >
                       <span className="font-semibold text-ink text-sm md:text-base">{f.q}</span>
-                      <span className={`shrink-0 w-7 h-7 rounded-full flex items-centre justify-centre transition-colors ${isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary"}`}>
+                      <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary"}`}>
                         {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                       </span>
                     </button>
