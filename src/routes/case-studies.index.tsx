@@ -130,7 +130,7 @@ const makeChart = (seed: number, growth = 1.6) => {
   return arr;
 };
 
-const RAW: Omit<Study, "colour" | "chart">[] = [
+const RAW: Omit<Study, "color" | "chart">[] = [
   // ADS (15)
   { id: "a1", title: "Apparel brand: £18k → £214k/mo in 6 months", brand: "UK Shopify apparel brand", industry: "Shopify · Apparel", category: "Ads", metric: "11.9×", metricLabel: "Revenue", duration: "6 months", problem: "Stuck at 1.5× ROAS, no creative testing system, single audience.", strategy: ["Built a 30-creative/week production pipeline", "Restructured Meta funnel into ASC + manual retargeting", "Added TikTok Spark Ads as cold layer"], results: [{ v: "11.9×", l: "Revenue" }, { v: "3.8×", l: "ROAS" }, { v: "+285%", l: "CR" }], takeaway: "Honestly? Most audience tests are noise. Volume of creative moves the needle." },
   { id: "a2", title: "Dropshipping gadgets: 0 → £62k/mo cold launch", brand: "UK gadgets store", industry: "Shopify · Gadgets", category: "Ads", metric: "2.6×", metricLabel: "ROAS", duration: "90 days", problem: "Brand new store, no historical data, flat creatives.", strategy: ["UGC angle stack across 5 personas", "ASC with broad cold + lookalike layer", "Daily creative refresh on top 3 winners"], results: [{ v: "£62k", l: "MRR" }, { v: "2.6×", l: "ROAS" }, { v: "90d", l: "to scale" }], takeaway: "Ship the messy version. You'll learn more in a week than in a month of polish." },
@@ -534,7 +534,7 @@ function CaseStudies() {
                   className="text-left card-surface overflow-hidden group flex flex-col hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {/* Category-specific preview */}
-                  <div className={`relative h-52 bg-gradient-to-br ${s.colour} p-2.5 overflow-hidden`}>
+                  <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
                     <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
                       {/* App-style chrome */}
                       <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">

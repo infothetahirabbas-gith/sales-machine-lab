@@ -275,7 +275,7 @@ function CaseStudyDetail() {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className={`relative bg-gradient-to-br ${s.colour} text-white overflow-hidden`}>
+      <section className={`relative bg-gradient-to-br ${s.color} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
         <div className="mx-auto max-w-6xl px-5 lg:px-8 pt-24 lg:pt-32 pb-16 lg:pb-20 relative">
           <Link
@@ -592,7 +592,7 @@ function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
                 params={{ id: x.id }}
                 className={`card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition`}
               >
-                <div className={`h-24 bg-gradient-to-br ${x.colour} relative px-3 py-2 flex items-end`}>
+                <div className={`h-24 bg-gradient-to-br ${x.color} relative px-3 py-2 flex items-end`}>
                   <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
                     <Icon className="w-2.5 h-2.5" /> {x.category}
                   </span>
