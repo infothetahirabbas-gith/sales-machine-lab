@@ -170,7 +170,7 @@ function strategyBlocks(s: Study) {
           ],
     },
     {
-      title: "Conversion Rate Optimization",
+      title: "Conversion Rate Optimisation",
       active: croFocused,
       points: croFocused
         ? s.strategy.length >= 3

@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
-      { name: "description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
+      { title: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
+      { name: "description", content: "UK ecommerce scaling agency for 7-figure Shopify brands. LTV expansion, offer engineering and retention systems that unlock durable, profitable growth." },
       { name: "keywords", content: "scale shopify store uk, 7 figure ecommerce agency, ecommerce scaling agency uk, ltv agency ecommerce, ecommerce retention agency, dtc scaling agency london, offer engineering ecommerce" },
-      { property: "og:title", content: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
-      { property: "og:description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
+      { property: "og:title", content: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
+      { property: "og:description", content: "UK ecommerce scaling agency for 7-figure Shopify brands. LTV expansion, offer engineering and retention systems that unlock durable, profitable growth." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
       { property: "og:type", content: "website" },
     ],
@@ -59,7 +59,7 @@ export const Route = createFileRoute("/services/scaling")({
       whatIsBody: "The thinking, math, and operations that get you to $10K/mo will quietly kill you at $100K/mo. We rebuild the financial model, attribution, and growth plan for the next stage.",
       systemTitle: "Our scaling system.",
       systemSteps: [
-        { title: "Revenue model", body: "Margins, contribution, CAC, LTV, MER - modeled end to end." },
+        { title: "Revenue model", body: "Margins, contribution, CAC, LTV, MER - modelled end to end." },
         { title: "Break-even ROAS", body: "Set the floor that makes ad scaling safe." },
         { title: "Channel mix", body: "Diversify beyond Meta - Google, TikTok, SEO, email." },
         { title: "Operational scale", body: "Inventory, ops, CX, fulfillment ready for volume." },
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/services/scaling")({
         { title: "Ops readiness", body: "Backend doesn't break under volume." },
       ],
       deepBlocks: [
-        { title: "Profit margin optimization", body: "Pricing, bundles, AOV-raising offers, shipping math.", tags: ["Pricing","Bundles","Shipping"] },
+        { title: "Profit margin optimisation", body: "Pricing, bundles, AOV-raising offers, shipping math.", tags: ["Pricing","Bundles","Shipping"] },
         { title: "Budget scaling strategy", body: "Vertical vs horizontal scaling, ASC+ usage, MER targeting.", tags: ["MER","ASC","Vertical/horiz"] },
         { title: "Multi-channel scaling", body: "Meta + Google + TikTok + SEO + email working together.", tags: ["Meta","Google","TikTok","SEO"] },
         { title: "Data-driven decisions", body: "Triple Whale / Northbeam attribution + weekly KPI reviews.", tags: ["Attribution","Northbeam","KPIs"] },

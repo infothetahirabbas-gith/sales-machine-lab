@@ -28,25 +28,25 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
-      { title: "Ecommerce CRO — Conversion Rate Optimization for Shopify & WooCommerce | BeingEcom" },
-      { name: "description", content: "Turn existing traffic into 2-3× more sales with data-driven ecommerce CRO. Funnel audits, A/B testing, PDP and checkout optimization for Shopify & WooCommerce." },
+      { title: "Conversion Rate Optimisation Agency UK — Shopify CRO Services | BeingEcom" },
+      { name: "description", content: "UK conversion rate optimisation agency for Shopify and WooCommerce stores. Data-led A/B testing, checkout optimisation and product-page CRO that lifts revenue without more ad spend." },
       { name: "keywords", content: "cro agency uk, conversion rate optimisation agency uk, ecommerce cro agency, shopify cro agency, cro services london, conversion optimisation uk, a/b testing agency uk, checkout optimisation shopify, product page optimisation, ecommerce ux audit, cro consultant uk, how to increase shopify conversion rate uk, best cro agency uk 2026" },
-      { property: "og:title", content: "Ecommerce CRO — Conversion Rate Optimization for Shopify & WooCommerce | BeingEcom" },
-      { property: "og:description", content: "Turn existing traffic into 2-3× more sales with data-driven ecommerce CRO. Funnel audits, A/B testing, PDP and checkout optimization for Shopify & WooCommerce." },
+      { property: "og:title", content: "Conversion Rate Optimisation Agency UK — Shopify CRO Services | BeingEcom" },
+      { property: "og:description", content: "UK conversion rate optimisation agency for Shopify and WooCommerce stores. Data-led A/B testing, checkout optimisation and product-page CRO that lifts revenue without more ad spend." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/cro" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Conversion Rate Optimization", description: "Funnel audits, A/B testing, PDP and checkout optimization for Shopify and WooCommerce." })) },
-      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Conversion Rate Optimization", path: "/services/cro" }])) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Conversion Rate Optimisation", description: "Funnel audits, A/B testing, PDP and checkout optimisation for Shopify and WooCommerce." })) },
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Conversion Rate Optimisation", path: "/services/cro" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/cro")) },
     ],
   }),
   component: () => (
     <ServicePage cfg={{
       slug: "cro",
-      eyebrow: "Conversion Rate Optimization",
+      eyebrow: "Conversion Rate Optimisation",
       heroTitle: "Turn your existing traffic into more sales.",
       heroSub: "Same visitors, same ad spend - 2-3× the revenue. That's what real CRO does.",
       problemTitle: "Most stores leak revenue at every step.",
@@ -61,19 +61,19 @@ export const Route = createFileRoute("/services/cro")({
       systemSteps: [
         { title: "Conversion audit", body: "Funnel teardown, analytics review, leak mapping." },
         { title: "Behavior research", body: "Heatmaps, session replays, surveys, on-page polls." },
-        { title: "Hypothesize & ship", body: "Prioritize by revenue impact, ship weekly experiments." },
+        { title: "Hypothesize & ship", body: "Prioritise by revenue impact, ship weekly experiments." },
         { title: "Validate & scale", body: "A/B test winners, lock learnings into the store." },
       ],
       pillarsTitle: "Pillars of a CRO engine.",
       pillars: [
         { title: "Diagnose", body: "Find the real leak, not the obvious one." },
-        { title: "Decide", body: "Prioritize by revenue impact, not novelty." },
+        { title: "Decide", body: "Prioritise by revenue impact, not novelty." },
         { title: "Ship", body: "Bias toward action - test small, fast." },
         { title: "Lock", body: "Winners become permanent system upgrades." },
       ],
       deepBlocks: [
         { title: "Heatmap & behavior analysis", body: "Hotjar, Microsoft Clarity. Where users click, scroll, rage-tap.", tags: ["Hotjar","Clarity","Session replay"] },
-        { title: "Product page optimization", body: "Hero, gallery, USPs, reviews, sticky ATC, bundle module.", tags: ["PDP","ATC","Reviews"] },
+        { title: "Product page optimisation", body: "Hero, gallery, USPs, reviews, sticky ATC, bundle module.", tags: ["PDP","ATC","Reviews"] },
         { title: "Checkout funnel fixing", body: "Reduce steps, surface trust, express payment, address autocomplete.", tags: ["Checkout","Express pay","Trust"] },
         { title: "Cart abandonment reduction", body: "On-site exit intent + post-cart email flows + retargeting triggers.", tags: ["Exit intent","Email","Retargeting"] },
         { title: "A/B testing system", body: "Hypothesis docs, sample size, statistical significance, learning library.", tags: ["A/B","Stat sig","Learnings"] },

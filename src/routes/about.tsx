@@ -10,11 +10,11 @@ import founder from "@/assets/founder-ceo.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom — Ecommerce Growth Partner for Shopify & WooCommerce" },
-      { name: "description", content: "BeingEcom is the growth operating system for Shopify & WooCommerce brands — strategy, SEO, ads, CRO, automation and analytics under one roof. Meet our team and methodology." },
+      { title: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { name: "keywords", content: "about beingecom, ecommerce agency london about, uk shopify agency team, ecommerce growth consultants uk, dtc agency founders london, ecommerce agency mission uk" },
-      { property: "og:title", content: "About BeingEcom — Ecommerce Growth Partner" },
-      { property: "og:description", content: "Who we are, how we plan growth, our strategy framework, and our mission to scale ecommerce brands profitably." },
+      { property: "og:title", content: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
     ],
@@ -56,7 +56,7 @@ function About() {
           <Reveal>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                <span className="text-ink font-semibold">Being Ecom</span> exists to help online brands stop guessing and start scaling. We combine deep ecommerce expertise with paid media, search, conversion optimization, and AI automation to build growth systems that compound month after month.
+                <span className="text-ink font-semibold">Being Ecom</span> exists to help online brands stop guessing and start scaling. We combine deep ecommerce expertise with paid media, search, conversion optimisation, and AI automation to build growth systems that compound month after month.
               </p>
               <p>
                 Every engagement is led by senior operators — not interns. We've scaled stores across fashion, beauty, supplements, home, and DTC niches, with a single obsession: <span className="text-ink font-semibold">profitable, predictable revenue</span>.
@@ -98,7 +98,7 @@ function About() {
           {[
             { Icon: Search, t: "Diagnose", b: "Full audit of store, ads, funnel, SEO, email, and analytics — find the leaks." },
             { Icon: Compass, t: "Research", b: "Market, competitor, audience, and keyword research that informs every decision." },
-            { Icon: Target, t: "Prioritize", b: "Rank opportunities by revenue impact × speed × confidence. Build the roadmap." },
+            { Icon: Target, t: "Prioritise", b: "Rank opportunities by revenue impact × speed × confidence. Build the roadmap." },
             { Icon: Rocket, t: "Execute", b: "Ship weekly. Test relentlessly. Compound wins into a real growth system." },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>

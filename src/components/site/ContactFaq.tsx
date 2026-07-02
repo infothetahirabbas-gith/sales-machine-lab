@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 export const faqs = [
   { q: "Do you guarantee more sales?", a: "We don't sell promises - we sell systems. What we do guarantee is a measurable, data-backed growth plan tied to revenue KPIs, not vanity metrics." },
-  { q: "Do you work with small stores?", a: "Yes - if you have a real product and basic traffic. We won't take stores with nothing to optimize, but early-stage brands with momentum are welcome." },
+  { q: "Do you work with small stores?", a: "Yes - if you have a real product and basic traffic. We won't take stores with nothing to optimise, but early-stage brands with momentum are welcome." },
   { q: "What ad budget do I need?", a: "We typically work with stores spending $3K+/mo on ads. Smaller is fine if we're focusing on CRO, SEO or email first." },
   { q: "How long until I see results?", a: "CRO and email flows lift in 2-4 weeks. Paid ads stabilize in 30-60 days. SEO compounds over 3-6 months. We attack the fastest wins first." },
   { q: "Shopify or WooCommerce - does it matter?", a: "Both. We don't push a platform - we push what scales for your business and your team's skill set." },

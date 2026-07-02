@@ -10,11 +10,11 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact BeingEcom — Free Ecommerce Growth Audit" },
-      { name: "description", content: "Talk to BeingEcom about scaling your Shopify or WooCommerce store. Get a free 12-point ecommerce growth audit within 48 hours. No pitch deck." },
+      { title: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { name: "description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { name: "keywords", content: "contact ecommerce agency uk, free shopify audit uk, ecommerce growth audit london, woocommerce consultation uk, dtc strategy call, book ecommerce agency london, get ecommerce quote uk" },
-      { property: "og:title", content: "Contact BeingEcom — Free Ecommerce Growth Audit" },
-      { property: "og:description", content: "Send us your store. We send back a 12-point loss-recovery plan within 48 hours." },
+      { property: "og:title", content: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { property: "og:description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { property: "og:url", content: "https://beingecom.com/contact" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],

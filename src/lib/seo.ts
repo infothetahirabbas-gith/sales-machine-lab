@@ -85,7 +85,7 @@ export function professionalServiceJsonLd() {
       name: "Ecommerce Growth Services",
       itemListElement: [
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Store Development", url: `${SITE_URL}/services/store-development` } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimization", url: `${SITE_URL}/services/cro` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimisation", url: `${SITE_URL}/services/cro` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Paid Advertising", url: `${SITE_URL}/services/paid-ads` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ecommerce SEO", url: `${SITE_URL}/services/seo` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email & SMS Marketing", url: `${SITE_URL}/services/email-sms` } },

@@ -164,7 +164,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           <div className="lg:col-span-3">
             <p className="text-lg md:text-xl text-ink/80 leading-relaxed">{cfg.whatIsBody}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Strategy", "Build", "Optimize", "Scale"].map((t) => (
+              {["Strategy", "Build", "Optimise", "Scale"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5"

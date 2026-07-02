@@ -74,7 +74,7 @@ const terms = [
       "Organic traffic is the unpaid visitors who land on your store directly from search engines like Google and Bing. No ad spend — pure earned attention.",
     why: "It's the most profitable channel in ecommerce. Unlike paid ads, organic traffic compounds month after month and keeps converting long after the work is done.",
     example:
-      "A brand that builds 30 SEO-optimized blog posts can generate 50K+ free monthly visits — the equivalent of $15K–$40K/month in paid ad spend.",
+      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits — the equivalent of $15K–$40K/month in paid ad spend.",
   },
   {
     term: "Alt Text",
@@ -134,22 +134,22 @@ const faqs = terms.map((t) => ({
 export const Route = createFileRoute("/glossary")({
   head: () => ({
     meta: [
-      { title: "SEO Glossary 2026 — 15 Essential SEO Terms for Ecommerce | BeingEcom" },
+      { title: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         name: "description",
         content:
-          "Premium SEO glossary for Shopify & WooCommerce founders. 15 essential SEO terms explained simply with real ecommerce examples — keywords, backlinks, schema, SERP, and more.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
       },
       {
         name: "keywords",
         content:
           "ecommerce glossary uk, shopify glossary, ecommerce marketing terms, dtc glossary, cro glossary, ppc glossary, ecommerce seo glossary uk",
       },
-      { property: "og:title", content: "SEO Glossary 2026 — 15 Essential SEO Terms for Ecommerce" },
+      { property: "og:title", content: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         property: "og:description",
         content:
-          "Premium SEO glossary for ecommerce founders. 15 must-know SEO terms explained with real Shopify & WooCommerce examples.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: `${SITE_URL}/glossary` },

@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
-      { name: "description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
+      { title: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
+      { name: "description", content: "GA4, Meta CAPI and server-side tracking for UK ecommerce. Clean attribution, dashboards and insights that drive real growth decisions." },
       { name: "keywords", content: "ecommerce analytics agency uk, ga4 setup agency, ga4 ecommerce tracking uk, meta pixel capi setup, shopify tracking agency, ecommerce attribution uk, server side tracking uk, conversion tracking agency london" },
-      { property: "og:title", content: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
-      { property: "og:description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
+      { property: "og:title", content: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
+      { property: "og:description", content: "GA4, Meta CAPI and server-side tracking for UK ecommerce. Clean attribution, dashboards and insights that drive real growth decisions." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
     ],

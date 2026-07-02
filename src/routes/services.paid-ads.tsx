@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Paid Ads — Meta, Google & TikTok Ads Agency | BeingEcom" },
-      { name: "description", content: "Profitable Meta, Google and TikTok ads for Shopify & WooCommerce. Creative-led, CRO-aligned paid media built to scale ROAS, not vanity metrics." },
+      { title: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
+      { name: "description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
       { name: "keywords", content: "paid ads agency uk, ppc agency uk, ecommerce ppc agency, meta ads agency uk, facebook ads agency uk, google ads agency uk, tiktok ads agency uk, shopify ads agency, dtc paid media agency, ecommerce ad agency uk, paid social agency london, roas agency uk, best ppc agency for ecommerce uk" },
-      { property: "og:title", content: "Ecommerce Paid Ads — Meta, Google & TikTok Ads Agency | BeingEcom" },
-      { property: "og:description", content: "Profitable Meta, Google and TikTok ads for Shopify & WooCommerce. Creative-led, CRO-aligned paid media built to scale ROAS, not vanity metrics." },
+      { property: "og:title", content: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
+      { property: "og:description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/services/paid-ads")({
       ],
       deepBlocks: [
         { title: "Meta Ads system", body: "Campaign structure, ASC+ scaling, creative testing, audience strategy.", tags: ["ASC","CBO","UGC","DPA"] },
-        { title: "Google Ads system", body: "Search, Shopping, PMax, brand-defense, feed optimization.", tags: ["PMax","Shopping","Feed"] },
+        { title: "Google Ads system", body: "Search, Shopping, PMax, brand-defense, feed optimisation.", tags: ["PMax","Shopping","Feed"] },
         { title: "TikTok Ads system", body: "Native creators, spark ads, hooks-first scripting.", tags: ["Spark","UGC","Hooks"] },
         { title: "Creative testing framework", body: "Weekly batches: hooks, formats, angles. Winners scale, losers die fast.", tags: ["Hooks","Angles","Iteration"] },
         { title: "Retargeting system", body: "Layered audiences, dynamic catalog, post-purchase exclusions.", tags: ["DPA","Exclusion","Cross-sell"] },

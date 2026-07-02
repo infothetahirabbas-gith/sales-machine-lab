@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
-      { name: "description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
+      { title: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
+      { name: "description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
       { name: "keywords", content: "ecommerce agency uk, ecommerce marketing agency, ecommerce digital marketing agency, ecommerce agency london, shopify agency uk, shopify agency london, shopify plus agency, shopify development agency, ecommerce seo agency, ecommerce seo services uk, ecommerce seo company, ecommerce web design agency, ecommerce website design uk, ecommerce development agency, dtc agency uk, best ecommerce agency uk, meta ads agency uk, google ads agency uk, tiktok ads agency uk, klaviyo agency uk, conversion rate optimisation uk, cro agency london, ecommerce growth agency uk, ai search optimisation, generative engine optimisation, aeo agency uk, chatgpt seo agency, best ecommerce agency london 2026, top rated shopify agency uk, how to grow a shopify store uk, which ecommerce agency is best in the uk" },
-      { property: "og:title", content: "Ecommerce Digital Marketing Agency UK | BeingEcom — Shopify & WooCommerce Growth" },
-      { property: "og:description", content: "BeingEcom is the UK's leading ecommerce digital marketing agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation & analytics. Book a free growth audit." },
+      { property: "og:title", content: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
+      { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
 
 const services = [
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", Icon: ShoppingCart },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2-3× more sales.", Icon: TrendingUp },
+  { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", Icon: TrendingUp },
   { to: "/services/paid-ads", title: "Paid Advertising", body: "Meta, Google & TikTok ads built to scale profitably.", Icon: Megaphone },
   { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google - free traffic forever.", Icon: Search },
   { to: "/services/email-sms", title: "Email Marketing Automation", body: "Recover lost sales. Multiply repeat customers.", Icon: Mail },
@@ -206,7 +206,7 @@ function Home() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok — managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
-            { t: "Conversion", b: "Store, product page & checkout optimized for sales with proven CRO services UK.", Icon: MousePointerClick },
+            { t: "Conversion", b: "Store, product page & checkout optimised for sales with proven CRO services UK.", Icon: MousePointerClick },
             { t: "Organic", b: "Ecommerce SEO services UK that compound free revenue and dominate AI search overviews.", Icon: Search },
             { t: "Scale", b: "Email, retention & data systems that multiply LTV through Klaviyo email marketing automation.", Icon: Rocket },
           ].map((p, i) => (

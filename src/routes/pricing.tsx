@@ -19,11 +19,11 @@ const pricingFaqs = [
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
-      { name: "description", content: "Three ways to engage BeingEcom — CRO Sprint, Growth System, or Full Partnership. Transparent pricing for Shopify & WooCommerce growth." },
+      { title: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { name: "description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { name: "keywords", content: "ecommerce agency pricing uk, shopify agency pricing uk, ecommerce agency retainer cost, how much does an ecommerce agency cost uk, cro agency pricing london, ppc agency pricing uk" },
-      { property: "og:title", content: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
-      { property: "og:description", content: "Three engagement tiers built around one goal: profitable ecommerce growth." },
+      { property: "og:title", content: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { property: "og:description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { property: "og:url", content: "https://beingecom.com/pricing" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/pricing" }],
@@ -42,7 +42,7 @@ const tiers = [
     includes: [
       "Full CRO audit",
       "PDP rebuild",
-      "Checkout optimization",
+      "Checkout optimisation",
       "A/B test setup",
     ],
     duration: "6-week fixed engagement",
@@ -54,7 +54,7 @@ const tiers = [
     best: "Stores ready to scale profitably across ads + CRO + email",
     includes: [
       "Paid ads management (Meta / Google)",
-      "Conversion rate optimization",
+      "Conversion rate optimisation",
       "Klaviyo email flows",
       "Weekly reporting",
     ],

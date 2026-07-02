@@ -27,11 +27,11 @@ export const Route = createFileRoute("/audit")({
   component: AuditPage,
   head: () => ({
     meta: [
-      { title: "Free Ecommerce Store Audit — AI Shopify & WooCommerce Growth Report | BeingEcom" },
-      { name: "description", content: "Get a free AI-powered Being Ecom Brain™ audit. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a 90-day action plan in 90 seconds." },
+      { title: "Free Ecommerce Store Audit UK — Shopify & WooCommerce Audit Tool | BeingEcom" },
+      { name: "description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage — no card, no sales call." },
       { name: "keywords", content: "free shopify audit uk, free ecommerce audit uk, woocommerce audit uk, ai ecommerce store audit, cro audit shopify, ecommerce seo audit uk, store conversion audit london, free growth audit for shopify" },
-      { property: "og:title", content: "Free AI Ecommerce Store Audit — Being Ecom Brain™" },
-      { property: "og:description", content: "Board-level growth intelligence on your Shopify or WooCommerce store. 17-phase report in 90 seconds." },
+      { property: "og:title", content: "Free Ecommerce Store Audit UK — Shopify & WooCommerce Audit Tool | BeingEcom" },
+      { property: "og:description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage — no card, no sales call." },
       { property: "og:url", content: "https://beingecom.com/audit" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/audit" }],
@@ -329,7 +329,7 @@ function AuditPage() {
       console.error("[audit:client] request failed", { url, revenue, adSpend, country, elapsedSec, error: msg });
       setError(elapsedSec >= TIMEOUT_SECONDS
         ? "The store did not respond in time. Please check the URL and retry."
-        : msg.replace(/credits?\s+exhausted[^.]*\.?/gi, "The store could not be analyzed right now."));
+        : msg.replace(/credits?\s+exhausted[^.]*\.?/gi, "The store could not be analysed right now."));
     } finally {
       clearInterval(stepTimer);
       clearInterval(tickTimer);
@@ -879,7 +879,7 @@ function AuditPage() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> Medium — Optimization</h4>
+                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> Medium — Optimisation</h4>
                   <div className="space-y-3">
                     {report.issueClassification.medium.map((it, i) => <IssueCard key={i} {...it} tone="medium" />)}
                     {report.issueClassification.medium.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}

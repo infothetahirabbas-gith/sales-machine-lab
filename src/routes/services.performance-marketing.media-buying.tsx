@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/media-buying")({
   head: () => ({
     meta: [
-      { title: "Media Buying Agency UK — Cross-Channel Media Buyers for Ecommerce | BeingEcom" },
-      { name: "description", content: "UK media buying agency. Cross-channel media buyers managing Meta, Google and TikTok with blended ROAS targets and full-funnel budget allocation." },
+      { title: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
+      { name: "description", content: "Cross-channel media buying agency in the UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
       { name: "keywords", content: "media buying agency uk, ecommerce media buyer uk, cross-channel media buying, blended roas agency, mer targets ecommerce, full funnel media agency uk, paid media buying london" },
-      { property: "og:title", content: "Media Buying Agency UK | BeingEcom" },
-      { property: "og:description", content: "Full-funnel media buying with blended ROAS and MER discipline across Meta, Google and TikTok." },
+      { property: "og:title", content: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
+      { property: "og:description", content: "Cross-channel media buying agency in the UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/media-buying" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/media-buying" }],
