@@ -25,17 +25,65 @@ const services: ServiceItem[] = [
   { to: "/services/ai-automation", label: "AI Automation" },
 ];
 
+export const locations = [
+  { to: "/locations/london", label: "London" },
+  { to: "/locations/manchester", label: "Manchester" },
+  { to: "/locations/birmingham", label: "Birmingham" },
+  { to: "/locations/leeds", label: "Leeds" },
+  { to: "/locations/bristol", label: "Bristol" },
+  { to: "/locations/liverpool", label: "Liverpool" },
+  { to: "/locations/glasgow", label: "Glasgow" },
+  { to: "/locations/edinburgh", label: "Edinburgh" },
+];
+
+export const industries = [
+  { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
+  { to: "/industries/beauty-skincare", label: "Beauty & Skincare" },
+  { to: "/industries/health-supplements", label: "Health & Supplements" },
+  { to: "/industries/home-garden", label: "Home & Garden" },
+  { to: "/industries/electronics", label: "Electronics & Gadgets" },
+  { to: "/industries/food-beverage", label: "Food & Beverage" },
+  { to: "/industries/jewellery", label: "Jewellery & Watches" },
+  { to: "/industries/pets", label: "Pets & Accessories" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [locationsOpen, setLocationsOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
         <Link to="/" className="flex items-center shrink-0 leading-none min-w-0" aria-label="BeingEcom home">
           <img src={logo} alt="Being Ecom" width="680" height="200" decoding="async" fetchPriority="high" className="h-9 md:h-11 lg:h-14 w-auto block object-contain" />
         </Link>
-        <nav className="hidden lg:flex items-center gap-7 text-sm">
+        <nav className="hidden lg:flex items-center gap-6 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
+          <div className="relative group">
+            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              <div className="w-64 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                {locations.map((l) => (
+                  <Link key={l.to} to={l.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="relative group">
+            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                {industries.map((i) => (
+                  <Link key={i.to} to={i.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                    {i.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           <div className="relative group">
             <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
@@ -80,6 +128,40 @@ export default function Header() {
          <div className="lg:hidden border-t border-border bg-background shadow-xl">
           <div className="px-5 py-3 grid gap-1 text-sm">
             <Link to="/" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Home</Link>
+            <div>
+              <button
+                onClick={() => setLocationsOpen(!locationsOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                aria-expanded={locationsOpen}
+              >
+                <span>Locations</span>
+                <span className={`transition-transform ${locationsOpen ? "rotate-180" : ""}`}>▾</span>
+              </button>
+              {locationsOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  {locations.map((l) => (
+                    <Link key={l.to} to={l.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setLocationsOpen(false); }}>{l.label}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div>
+              <button
+                onClick={() => setIndustriesOpen(!industriesOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                aria-expanded={industriesOpen}
+              >
+                <span>Industries</span>
+                <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
+              </button>
+              {industriesOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  {industries.map((i) => (
+                    <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
