@@ -88,6 +88,23 @@ export default function WelcomeBanner() {
     );
     setOpen(false);
     try { localStorage.setItem("site_lang", language); } catch {}
+    const target = `/${language}/${location}/${industry}/${service}`;
+    if (language && language !== "en") {
+      // Set Google Translate cookie then hard-navigate so the target page
+      // renders in the chosen language.
+      const host = window.location.hostname;
+      const value = `/en/${language}`;
+      for (const d of ["", host, `.${host}`]) {
+        document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
+        document.cookie = `googtrans=${value}; path=/${d ? `; domain=${d}` : ""}`;
+      }
+      window.location.href = target;
+      return;
+    }
+    // English: clear any prior translation cookie, then SPA-navigate.
+    for (const d of ["", window.location.hostname, `.${window.location.hostname}`]) {
+      document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
+    }
     navigate({
       to: "/$lang/$location/$industry/$service",
       params: { lang: language, location, industry, service },
