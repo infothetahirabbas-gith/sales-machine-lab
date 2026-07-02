@@ -1,8 +1,20 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Globe } from "lucide-react";
+import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ChevronDown, Menu, X, MapPin, Globe, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
+import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 const logo = logoAsset.url;
+
+const LANG_OPTIONS = [
+  { code: "en", name: "English" },
+  { code: "en-gb", name: "English (UK)" },
+  { code: "es", name: "Español" },
+  { code: "fr", name: "Français" },
+  { code: "de", name: "Deutsch" },
+  { code: "ar", name: "العربية" },
+];
+const PREFS_KEY = "beingecom_welcome_v1_prefs";
+type Prefs = { country: string; location: string; industry: string; service: string; language: string };
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
