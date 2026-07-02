@@ -349,22 +349,21 @@ function pickSeoKeywords(industry: string) {
 
 function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; metric: string; metricLabel: string; industry: string }) {
   const r = rng(seed + 23);
-  // Two series (clicks + impressions) over 28 days, growing trend like a real GSC win
-  const days = 28;
+  const days = 90;
   const clickSeries = Array.from({ length: days }, (_, i) => {
-    const base = 40 + i * 3.2 + Math.sin(i / 2) * 8;
-    return Math.max(8, base + (r() - 0.5) * 22);
+    const base = 30 + i * 1.4 + Math.sin(i / 4) * 10 + Math.cos(i / 9) * 6;
+    return Math.max(6, base + (r() - 0.5) * 18);
   });
-  const imprSeries = clickSeries.map((c, i) => c * (14 + Math.sin(i / 3) * 2) + r() * 60);
+  const imprSeries = clickSeries.map((c, i) => c * (16 + Math.sin(i / 5) * 3) + r() * 80);
 
   const totalClicks = Math.round(clickSeries.reduce((a, b) => a + b, 0));
   const totalImpr = Math.round(imprSeries.reduce((a, b) => a + b, 0));
   const avgCtr = ((totalClicks / totalImpr) * 100).toFixed(1);
-  const avgPos = (6 + r() * 4).toFixed(1);
+  const avgPos = (5.2 + r() * 3.4).toFixed(1);
 
-  const fmt = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}K` : `${n}`);
+  const fmt = (n: number) => (n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)}M` : n >= 1000 ? `${(n / 1000).toFixed(1)}K` : `${n}`);
 
-  const w = 300, h = 90, padL = 4, padR = 4, padT = 6, padB = 12;
+  const w = 320, h = 96, padL = 22, padR = 4, padT = 6, padB = 14;
   const iw = w - padL - padR;
   const ih = h - padT - padB;
   const maxClicks = Math.max(...clickSeries);
@@ -376,73 +375,101 @@ function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; met
   const clicksPath = toPath(clickSeries, maxClicks);
   const imprPath = toPath(imprSeries, maxImpr);
   const clicksArea = `${clicksPath} L${padL + iw},${padT + ih} L${padL},${padT + ih} Z`;
+  const imprArea = `${imprPath} L${padL + iw},${padT + ih} L${padL},${padT + ih} Z`;
 
   const queries = pickSeoKeywords(industry);
+  const yTicksClicks = [maxClicks, maxClicks * 0.5, 0];
+
+  const cards = [
+    { c: "#1a73e8", label: "Total clicks", v: fmt(totalClicks), on: true },
+    { c: "#c2185b", label: "Total impressions", v: fmt(totalImpr), on: true },
+    { c: "#188038", label: "Average CTR", v: `${avgCtr}%`, on: false },
+    { c: "#f9ab00", label: "Average position", v: avgPos, on: false },
+  ];
 
   return (
-    <div className="h-full w-full bg-white flex flex-col text-ink">
-      {/* GSC top bar */}
-      <div className="flex items-center justify-between px-2.5 pt-2 pb-1.5 border-b border-[#dadce0] shrink-0">
-        <div className="flex items-center gap-1.5">
-          <svg viewBox="0 0 24 24" className="w-3 h-3"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
-          <span className="text-[10px] font-medium text-[#3c4043]">Performance › Search results</span>
+    <div className="h-full w-full bg-white flex flex-col text-ink font-sans">
+      {/* GSC header bar */}
+      <div className="flex items-center justify-between px-2.5 pt-1.5 pb-1.5 border-b border-[#dadce0] shrink-0 bg-white">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <svg viewBox="0 0 24 24" className="w-3 h-3 shrink-0"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
+          <span className="text-[9px] font-medium text-[#3c4043] truncate">Performance on Search results</span>
         </div>
-        <span className="text-[8px] font-medium text-[#5f6368] border border-[#dadce0] rounded px-1 py-[1px]">Last 3 months</span>
+        <span className="text-[7.5px] font-medium text-[#5f6368] border border-[#dadce0] rounded-sm px-1 py-[1px] flex items-center gap-0.5">
+          <svg width="7" height="7" viewBox="0 0 24 24" fill="#5f6368"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+          Last 3 months
+        </span>
       </div>
 
-      {/* 4 metric cards like GSC */}
-      <div className="grid grid-cols-4 gap-[3px] px-1.5 pt-1.5 pb-1 shrink-0">
-        {[
-          { c: "#1a73e8", d: "#1a73e8", label: "Total clicks", v: fmt(totalClicks), on: true },
-          { c: "#c2185b", d: "#c2185b", label: "Total impressions", v: fmt(totalImpr), on: true },
-          { c: "#188038", d: "#188038", label: "Average CTR", v: `${avgCtr}%`, on: false },
-          { c: "#e8710a", d: "#e8710a", label: "Average position", v: avgPos, on: false },
-        ].map((m, i) => (
-          <div key={i} className={`rounded-[3px] border px-1.5 py-1 ${m.on ? "border-[#dadce0] bg-white" : "border-transparent bg-[#f8f9fa]"}`}>
-            <div className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: m.c }} />
-              <span className="text-[7px] text-[#5f6368] truncate leading-tight">{m.label}</span>
+      {/* GSC-style metric tabs with top color bar */}
+      <div className="grid grid-cols-4 gap-0 border-b border-[#dadce0] shrink-0">
+        {cards.map((m, i) => (
+          <div
+            key={i}
+            className={`relative px-1.5 pt-1.5 pb-1 border-r border-[#dadce0] last:border-r-0 ${m.on ? "bg-white" : "bg-[#f8f9fa]"}`}
+          >
+            {m.on && <span className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: m.c }} />}
+            <div className="flex items-center gap-0.5">
+              {m.on ? (
+                <svg width="7" height="7" viewBox="0 0 24 24" fill={m.c}><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+              ) : (
+                <span className="w-1.5 h-1.5 rounded-full border" style={{ borderColor: m.c }} />
+              )}
+              <span className="text-[6.5px] text-[#5f6368] truncate leading-tight">{m.label}</span>
             </div>
-            <div className="text-[11px] font-semibold text-[#202124] tabular-nums leading-tight mt-0.5">{m.v}</div>
+            <div className="text-[11px] font-normal text-[#202124] tabular-nums leading-tight mt-0.5" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{m.v}</div>
           </div>
         ))}
       </div>
 
-      {/* Chart with grid + axes */}
-      <div className="px-2 pt-1 shrink-0">
-        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-[92px]" preserveAspectRatio="none">
+      {/* Chart area with y-axis labels */}
+      <div className="px-1 pt-1 shrink-0 relative">
+        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-[100px] block" preserveAspectRatio="none">
           <defs>
             <linearGradient id={`gsc-clicks-${seed}`} x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#1a73e8" stopOpacity="0.22" />
+              <stop offset="0%" stopColor="#1a73e8" stopOpacity="0.18" />
               <stop offset="100%" stopColor="#1a73e8" stopOpacity="0" />
             </linearGradient>
+            <linearGradient id={`gsc-impr-${seed}`} x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stopColor="#c2185b" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="#c2185b" stopOpacity="0" />
+            </linearGradient>
           </defs>
-          {/* horizontal gridlines */}
-          {[0, 0.25, 0.5, 0.75, 1].map((t, i) => (
-            <line key={i} x1={padL} x2={w - padR} y1={padT + ih * t} y2={padT + ih * t} stroke="#e8eaed" strokeWidth="0.5" />
-          ))}
-          {/* impressions line (pink/purple) */}
-          <path d={imprPath} fill="none" stroke="#c2185b" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round" />
-          {/* clicks area + line (blue) */}
+          {/* Y-axis labels + gridlines */}
+          {yTicksClicks.map((val, i) => {
+            const y = padT + (ih * i) / (yTicksClicks.length - 1);
+            return (
+              <g key={i}>
+                <line x1={padL} x2={w - padR} y1={y} y2={y} stroke="#e8eaed" strokeWidth="0.5" />
+                <text x={padL - 3} y={y + 2} textAnchor="end" fontSize="6" fill="#5f6368" fontFamily="Roboto, Arial, sans-serif">
+                  {fmt(Math.round(val))}
+                </text>
+              </g>
+            );
+          })}
+          {/* Impressions area + line (pink) */}
+          <path d={imprArea} fill={`url(#gsc-impr-${seed})`} />
+          <path d={imprPath} fill="none" stroke="#c2185b" strokeWidth="1.2" strokeLinejoin="round" strokeLinecap="round" />
+          {/* Clicks area + line (blue) */}
           <path d={clicksArea} fill={`url(#gsc-clicks-${seed})`} />
-          <path d={clicksPath} fill="none" stroke="#1a73e8" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round" />
+          <path d={clicksPath} fill="none" stroke="#1a73e8" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" />
         </svg>
-        <div className="flex justify-between text-[6.5px] text-[#5f6368] px-0.5 -mt-0.5 tabular-nums">
-          <span>1 Sep</span><span>8 Sep</span><span>15 Sep</span><span>22 Sep</span><span>29 Sep</span>
+        <div className="flex justify-between text-[6px] text-[#5f6368] pl-[22px] pr-1 -mt-1 tabular-nums" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>
+          <span>1 Jul</span><span>22 Jul</span><span>12 Aug</span><span>2 Sep</span><span>23 Sep</span>
         </div>
       </div>
 
-      {/* Queries table like GSC */}
+      {/* Queries table */}
       <div className="flex-1 min-h-0 mt-1 border-t border-[#dadce0] overflow-hidden">
-        <div className="grid grid-cols-[1fr_36px_28px] px-2 py-1 text-[7.5px] font-medium text-[#5f6368] border-b border-[#dadce0] bg-[#f8f9fa]">
+        <div className="grid grid-cols-[1fr_34px_28px] px-2 py-[3px] text-[7px] font-medium text-[#5f6368] border-b border-[#dadce0] bg-[#f8f9fa] uppercase tracking-wide">
           <span>Top queries</span>
           <span className="text-right">Clicks</span>
           <span className="text-right">Pos.</span>
         </div>
         {queries.slice(0, 3).map((q, i) => (
-          <div key={i} className="grid grid-cols-[1fr_36px_28px] items-center px-2 py-[3px] text-[8.5px] border-b border-[#f1f3f4] last:border-b-0">
-            <span className="truncate text-[#1a73e8]">{q.kw}</span>
-            <span className="text-right tabular-nums text-[#202124] font-medium">{q.clicks}</span>
+          <div key={i} className="grid grid-cols-[1fr_34px_28px] items-center px-2 py-[3px] text-[8px] border-b border-[#f1f3f4] last:border-b-0 hover:bg-[#f8f9fa]">
+            <span className="truncate text-[#1a0dab]" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{q.kw}</span>
+            <span className="text-right tabular-nums text-[#202124]">{q.clicks}</span>
             <span className="text-right tabular-nums text-[#188038] font-medium">{(q.pos + (seed % 2)).toFixed(1)}</span>
           </div>
         ))}
@@ -450,6 +477,7 @@ function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; met
     </div>
   );
 }
+
 
 
 function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
