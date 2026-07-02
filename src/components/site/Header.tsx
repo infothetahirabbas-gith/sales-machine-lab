@@ -84,7 +84,7 @@ export default function Header() {
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
-  const showPersonalised = !isHome && !!prefs;
+  
   const cityLabel = LOCATIONS.find((l) => l.slug === prefs?.location)?.city ?? "London";
   const industryLabel = INDUSTRIES.find((i) => i.slug === prefs?.industry)?.name ?? "Industry";
   const langLabel = LANG_OPTIONS.find((l) => l.code === prefs?.language)?.name ?? "English";
