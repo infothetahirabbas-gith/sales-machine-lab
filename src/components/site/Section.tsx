@@ -55,7 +55,8 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative py-20 lg:py-28 section-hover ${alt ? "bg-secondary/40" : ""} ${className}`}
+      data-alt={alt ? "true" : undefined}
+      className={`section-band relative py-20 lg:py-28 ${alt ? "section-band--alt" : ""} ${className}`}
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {(eyebrow || title || intro) && (
