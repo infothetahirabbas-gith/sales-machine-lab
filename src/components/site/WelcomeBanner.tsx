@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Globe, MapPin, Briefcase, Sparkles, Languages, X, ArrowRight, Check } from "lucide-react";
+import { Globe, MapPin, Briefcase, Sparkles, Languages, ArrowRight, Check } from "lucide-react";
 import { LOCATIONS, INDUSTRIES } from "../../lib/locations-industries";
+import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
+
+const LOGO_URL = logoAsset.url;
 
 const COUNTRIES = [
   { code: "uk", name: "United Kingdom", flag: "🇬🇧" },
-  { code: "us", name: "United States", flag: "🇺🇸" },
-  { code: "ae", name: "United Arab Emirates", flag: "🇦🇪" },
-  { code: "au", name: "Australia", flag: "🇦🇺" },
-  { code: "ca", name: "Canada", flag: "🇨🇦" },
-  { code: "ie", name: "Ireland", flag: "🇮🇪" },
 ];
 
 const SERVICES = [
@@ -39,11 +37,11 @@ export default function WelcomeBanner() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<Step>(0);
-  const [country, setCountry] = useState("uk");
-  const [location, setLocation] = useState("london");
-  const [industry, setIndustry] = useState("fashion-apparel");
-  const [service, setService] = useState("seo");
-  const [language, setLanguage] = useState("en-gb");
+  const [country, setCountry] = useState("");
+  const [location, setLocation] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [service, setService] = useState("");
+  const [language, setLanguage] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -56,12 +54,11 @@ export default function WelcomeBanner() {
 
   if (!open) return null;
 
-  const close = () => {
-    localStorage.setItem(STORAGE_KEY, "1");
-    setOpen(false);
-  };
+  const stepValues = [country, location, industry, service, language];
+  const currentSelected = !!stepValues[step];
 
   const goNext = () => {
+    if (!currentSelected) return;
     if (step < 4) setStep((step + 1) as Step);
   };
 
@@ -102,21 +99,12 @@ export default function WelcomeBanner() {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
 
-        {/* Close */}
-        <button
-          onClick={close}
-          aria-label="Skip"
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-background/80 border border-border hover:bg-accent/20 flex items-center justify-center transition"
-        >
-          <X className="w-4 h-4" />
-        </button>
-
         {/* Header with logo */}
         <div className="relative px-6 pt-8 pb-4 text-center">
           <img
-            src="https://lovable-api.com/projects/de1ad5a1-cc8c-4fd1-8084-40056f4b3d61/assets/being-ecom-logo.jpeg"
+            src={LOGO_URL}
             alt="BeingEcom"
-            className="mx-auto h-14 w-14 rounded-2xl object-cover shadow-lg ring-2 ring-primary/30"
+            className="mx-auto h-16 w-auto object-contain drop-shadow-md"
             loading="eager"
           />
           <h2 className="mt-4 text-2xl md:text-3xl font-bold text-ink">
@@ -224,20 +212,26 @@ export default function WelcomeBanner() {
         {/* Footer actions */}
         <div className="border-t border-border px-6 py-4 flex items-center justify-between gap-4 bg-secondary/30">
           <button
-            onClick={() => (step === 0 ? close() : setStep((step - 1) as Step))}
-            className="text-sm font-semibold text-muted-foreground hover:text-ink transition"
+            onClick={() => step > 0 && setStep((step - 1) as Step)}
+            disabled={step === 0}
+            className="text-sm font-semibold text-muted-foreground hover:text-ink transition disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            {step === 0 ? "Skip" : "← Back"}
+            ← Back
           </button>
           {step < 4 ? (
             <button
               onClick={goNext}
-              className="btn btn-primary btn-shimmer"
+              disabled={!currentSelected}
+              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              Continue <ArrowRight className="w-4 h-4" />
+              {currentSelected ? "Continue" : "Select an option"} <ArrowRight className="w-4 h-4" />
             </button>
           ) : (
-            <button onClick={submit} className="btn btn-primary btn-shimmer">
+            <button
+              onClick={submit}
+              disabled={!currentSelected}
+              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               Personalise My Experience <ArrowRight className="w-4 h-4" />
             </button>
           )}
