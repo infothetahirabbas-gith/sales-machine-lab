@@ -6,16 +6,16 @@ export type Bar = {
   label: string;
   before: number;
   after: number;
-  unit?: string; // "%" | "×" | "$" | "k" | "$k"
+  unit?: string; // "%" | "×" | "£" | "k" | "£k"
   description?: string;
 };
 
 function formatBar(n: number, unit?: string): string {
   const u = unit ?? "";
   // Currency-style: prefix
-  if (u.startsWith("$")) {
+  if (u.startsWith("£") || u.startsWith("$")) {
     const trail = u.slice(1); // e.g. "k"
-    return `$${n}${trail}`;
+    return `£${n}${trail}`;
   }
   // Default: number then unit
   return `${n}${u}`;
