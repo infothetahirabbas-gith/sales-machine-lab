@@ -612,12 +612,12 @@ export function ProofSection() {
                 <Award className="w-4 h-4" />
               </div>
               <div>
-                <div className="text-sm font-bold text-ink leading-tight">5.0★ Avg Clutch rating</div>
-                <div className="text-[11px] text-muted-foreground mt-0.5">From verified ecommerce client reviews</div>
+                <div className="text-sm font-bold text-ink leading-tight">Senior operator team</div>
+                <div className="text-[11px] text-muted-foreground mt-0.5">Ex-DTC founders, media buyers &amp; SEO leads — no juniors on your account.</div>
               </div>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Certified partners across Meta, Google &amp; Klaviyo.
+            <p className="mt-4 text-xs text-muted-foreground">
+              Client names abbreviated for NDA reasons — full references shared on request after a discovery call.
             </p>
           </div>
 
