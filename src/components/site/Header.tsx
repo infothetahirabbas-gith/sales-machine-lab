@@ -3,19 +3,15 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
+import { setSiteLanguage } from "@/components/site/GoogleTranslate";
 const logo = logoAsset.url;
 
 const LANG_OPTIONS = [
   { code: "en", name: "English" },
-  { code: "zh", name: "中文 (Mandarin)" },
-  { code: "hi", name: "हिन्दी (Hindi)" },
-  { code: "es", name: "Español" },
-  { code: "ar", name: "العربية" },
-  { code: "fr", name: "Français" },
-  { code: "bn", name: "বাংলা (Bengali)" },
-  { code: "pt", name: "Português" },
-  { code: "ru", name: "Русский" },
-  { code: "ur", name: "اردو" },
+  { code: "es", name: "Español (Spanish)" },
+  { code: "pl", name: "Polski (Polish)" },
+  { code: "ro", name: "Română (Romanian)" },
+  { code: "pt", name: "Português (Portuguese)" },
 ];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
@@ -85,6 +81,11 @@ export default function Header() {
     const next: Prefs = { ...(prefs ?? { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" }), [key]: value };
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
+    if (key === "language") {
+      // Translate the page via Google Translate and reload.
+      setSiteLanguage(value);
+      return;
+    }
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 

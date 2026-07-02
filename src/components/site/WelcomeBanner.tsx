@@ -4,6 +4,7 @@ import { Globe, MapPin, Briefcase, Sparkles, Languages, ArrowRight, Check } from
 import { LOCATIONS, INDUSTRIES } from "../../lib/locations-industries";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 
+
 const LOGO_URL = logoAsset.url;
 
 const COUNTRIES = [
@@ -22,15 +23,10 @@ const SERVICES = [
 
 const LANGUAGES = [
   { code: "en", name: "English" },
-  { code: "zh", name: "中文 (Mandarin)" },
-  { code: "hi", name: "हिन्दी (Hindi)" },
-  { code: "es", name: "Español" },
-  { code: "ar", name: "العربية" },
-  { code: "fr", name: "Français" },
-  { code: "bn", name: "বাংলা (Bengali)" },
-  { code: "pt", name: "Português" },
-  { code: "ru", name: "Русский" },
-  { code: "ur", name: "اردو" },
+  { code: "es", name: "Español (Spanish)" },
+  { code: "pl", name: "Polski (Polish)" },
+  { code: "ro", name: "Română (Romanian)" },
+  { code: "pt", name: "Português (Portuguese)" },
 ];
 
 const STORAGE_KEY = "beingecom_welcome_v1";
@@ -89,11 +85,28 @@ export default function WelcomeBanner() {
       JSON.stringify({ country, location, industry, service, language })
     );
     setOpen(false);
+    const target = `/${language}/${location}/${industry}/${service}`;
+    if (language && language !== "en") {
+      // Set Google Translate cookie then hard-navigate so the target page
+      // renders in the chosen language.
+      const host = window.location.hostname;
+      const value = `/en/${language}`;
+      document.cookie = `googtrans=${value}; path=/`;
+      document.cookie = `googtrans=${value}; path=/; domain=${host}`;
+      document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
+      try { localStorage.setItem("site_lang", language); } catch {}
+      window.location.href = target;
+      return;
+    }
+    // English: clear any prior translation cookie, then SPA-navigate.
+    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+    try { localStorage.setItem("site_lang", "en"); } catch {}
     navigate({
       to: "/$lang/$location/$industry/$service",
       params: { lang: language, location, industry, service },
     });
   };
+  
 
   const steps = [
     { icon: Globe, label: "Country" },
