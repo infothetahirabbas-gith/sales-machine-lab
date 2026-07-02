@@ -276,3 +276,38 @@ function Choice({
     </button>
   );
 }
+
+function Dropdown({
+  label,
+  value,
+  onChange,
+  placeholder,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+  options: { value: string; label: string }[];
+}) {
+  return (
+    <div className="pt-4 pb-2">
+      <label className="block text-sm font-semibold text-ink mb-2">{label}</label>
+      <div className="relative">
+        <select
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={`w-full appearance-none rounded-xl border-2 bg-background px-4 py-4 pr-12 text-base font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-primary/30 ${
+            value ? "border-primary text-ink" : "border-border text-muted-foreground"
+          }`}
+        >
+          <option value="" disabled>{placeholder}</option>
+          {options.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
+          ))}
+        </select>
+        <ArrowRight className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 rotate-90 text-muted-foreground" />
+      </div>
+    </div>
+  );
+}
