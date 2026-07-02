@@ -146,6 +146,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleTranslate />
       <WelcomeBanner />
       <Outlet />
     </QueryClientProvider>
