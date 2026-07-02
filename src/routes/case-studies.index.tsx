@@ -563,7 +563,7 @@ function CaseStudies() {
                       </div>
                       <div className="flex-1 overflow-hidden">
                         {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
-                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} industry={s.industry} />}
                         {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
