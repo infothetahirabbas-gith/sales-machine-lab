@@ -12,15 +12,15 @@ import showcaseSupplements from "@/assets/showcase-supplements.jpg";
 
 /* ------------------- 1. FEATURED STORE WEBSITES (auto-running carousel) ------------------- */
 const featuredStores = [
-  { img: showcaseApparel, metrics: [{ v: "11.9×", l: "Revenue lift" }, { v: "3.8×", l: "Blended ROAS" }, { v: "4.6%", l: "Conv. rate" }], live: "3.8×", summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows — $18K → $214K MRR." },
+  { img: showcaseApparel, metrics: [{ v: "11.9×", l: "Revenue lift" }, { v: "3.8×", l: "Blended ROAS" }, { v: "4.6%", l: "Conv. rate" }], live: "3.8×", summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows — £18K → £214K MRR." },
   { img: showcaseCoffee, metrics: [{ v: "3.9×", l: "LTV growth" }, { v: "68%", l: "Sub-rate" }, { v: "+88%", l: "Page CR" }], live: "4.2×", summary: "Subscription-only funnel + new sub-page design — 68% of new buyers convert to recurring." },
-  { img: showcaseJewelry, metrics: [{ v: "5.6×", l: "BFCM ROAS" }, { v: "$420K", l: "Q4 revenue" }, { v: "+56%", l: "AOV" }], live: "5.6×", summary: "90-day pre-warm + gifting CRO — Q4 grew 212% YoY with 5.6× ROAS during BFCM." },
+  { img: showcaseJewelry, metrics: [{ v: "5.6×", l: "BFCM ROAS" }, { v: "£420K", l: "Q4 revenue" }, { v: "+56%", l: "AOV" }], live: "5.6×", summary: "90-day pre-warm + gifting CRO — Q4 grew 212% YoY with 5.6× ROAS during BFCM." },
   { img: showcaseBeauty, metrics: [{ v: "4.1×", l: "TikTok ROAS" }, { v: "+62%", l: "New customers" }, { v: "-28%", l: "CPM" }], live: "4.1×", summary: "Creator-led UGC stack on TikTok with 1:1 landing pages per angle — Meta no longer the only channel." },
-  { img: showcaseFurniture, metrics: [{ v: "$310K", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "$1.2K", l: "AOV" }], live: "4.1×", summary: "High-AOV Meta funnel with 21-day attribution and showroom-style video — scaled to $310K/mo." },
-  { img: showcaseActivewear, metrics: [{ v: "+$71K", l: "New rev" }, { v: "3.4×", l: "Affiliate ROAS" }, { v: "62", l: "Creators" }], live: "3.4×", summary: "TikTok Shop seeding + affiliate program — monetized massive organic into +$71K/mo." },
-  { img: showcasePet, metrics: [{ v: "$94K", l: "MRR" }, { v: "5.2×", l: "ROAS" }, { v: "+340%", l: "Non-brand" }], live: "5.2×", summary: "Google PMax + Standard Shopping split with weekly negative pruning — non-brand traffic up 340%." },
+  { img: showcaseFurniture, metrics: [{ v: "£310K", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "£1.2K", l: "AOV" }], live: "4.1×", summary: "High-AOV Meta funnel with 21-day attribution and showroom-style video — scaled to £310K/mo." },
+  { img: showcaseActivewear, metrics: [{ v: "+£71K", l: "New rev" }, { v: "3.4×", l: "Affiliate ROAS" }, { v: "62", l: "Creators" }], live: "3.4×", summary: "TikTok Shop seeding + affiliate program — monetized massive organic into +£71K/mo." },
+  { img: showcasePet, metrics: [{ v: "£94K", l: "MRR" }, { v: "5.2×", l: "ROAS" }, { v: "+340%", l: "Non-brand" }], live: "5.2×", summary: "Google PMax + Standard Shopping split with weekly negative pruning — non-brand traffic up 340%." },
   { img: showcaseEyewear, metrics: [{ v: "+180%", l: "CTR" }, { v: "-34%", l: "CPC" }, { v: "+71%", l: "ROAS" }], live: "4.7×", summary: "Hook-first creative storyboards, 30 hooks tested per concept — CTR up 180% and CPC down 34%." },
-  { img: showcaseSupplements, metrics: [{ v: "$180K", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], live: "3.1×", summary: "Bundle-focused offer architecture + subscription upsell — broke through $25K plateau to $180K/mo." },
+  { img: showcaseSupplements, metrics: [{ v: "£180K", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], live: "3.1×", summary: "Bundle-focused offer architecture + subscription upsell — broke through £25K plateau to £180K/mo." },
 ];
 
 function StoreCard({ s }: { s: typeof featuredStores[number] }) {
@@ -132,12 +132,12 @@ export function FeaturedStoresSection() {
 
 /* ------------------- 2. ADS DASHBOARD ------------------- */
 const adsRows = [
-  { name: "ASC | Apparel | Broad", platform: "meta", status: "Active", spend: "$8,420", roas: "4.32×", purchases: 412, cpa: "$20.43", delta: "+38%" },
-  { name: "PMax | Spring Collection", platform: "google", status: "Active", spend: "$6,180", roas: "6.12×", purchases: 287, cpa: "$21.53", delta: "+62%" },
-  { name: "Retargeting | 14D View", platform: "meta", status: "Active", spend: "$1,840", roas: "8.41×", purchases: 156, cpa: "$11.79", delta: "+24%" },
-  { name: "TikTok Spark | UGC Stack", platform: "tiktok", status: "Active", spend: "$3,210", roas: "3.88×", purchases: 198, cpa: "$16.21", delta: "+91%" },
-  { name: "IG Reels | Hero SKU", platform: "ig", status: "Active", spend: "$2,640", roas: "4.96×", purchases: 174, cpa: "$15.17", delta: "+44%" },
-  { name: "Shopping | Top Margin", platform: "google", status: "Active", spend: "$4,810", roas: "5.71×", purchases: 312, cpa: "$15.42", delta: "+28%" },
+  { name: "ASC | Apparel | Broad", platform: "meta", status: "Active", spend: "£8,420", roas: "4.32×", purchases: 412, cpa: "£20.43", delta: "+38%" },
+  { name: "PMax | Spring Collection", platform: "google", status: "Active", spend: "£6,180", roas: "6.12×", purchases: 287, cpa: "£21.53", delta: "+62%" },
+  { name: "Retargeting | 14D View", platform: "meta", status: "Active", spend: "£1,840", roas: "8.41×", purchases: 156, cpa: "£11.79", delta: "+24%" },
+  { name: "TikTok Spark | UGC Stack", platform: "tiktok", status: "Active", spend: "£3,210", roas: "3.88×", purchases: 198, cpa: "£16.21", delta: "+91%" },
+  { name: "IG Reels | Hero SKU", platform: "ig", status: "Active", spend: "£2,640", roas: "4.96×", purchases: 174, cpa: "£15.17", delta: "+44%" },
+  { name: "Shopping | Top Margin", platform: "google", status: "Active", spend: "£4,810", roas: "5.71×", purchases: 312, cpa: "£15.42", delta: "+28%" },
 ];
 
 function PlatformBadge({ p }: { p: string }) {
@@ -187,10 +187,10 @@ export function AdsDashboardSection() {
         {/* KPI cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6">
           {[
-            { l: "Spend (30D)", v: "$127,840", d: "+18%", Icon: DollarSign, up: true },
-            { l: "Revenue (30D)", v: "$612,440", d: "+62%", Icon: TrendingUp, up: true },
+            { l: "Spend (30D)", v: "£127,840", d: "+18%", Icon: DollarSign, up: true },
+            { l: "Revenue (30D)", v: "£612,440", d: "+62%", Icon: TrendingUp, up: true },
             { l: "Blended ROAS", v: "4.79×", d: "+1.4×", Icon: Target, up: true },
-            { l: "Blended CAC", v: "$24.12", d: "-31%", Icon: TrendingDown, up: false },
+            { l: "Blended CAC", v: "£24.12", d: "-31%", Icon: TrendingDown, up: false },
           ].map((k) => (
             <div key={k.l} className="rounded-2xl bg-background border border-border p-5">
               <div className="flex items-center justify-between">
@@ -345,12 +345,12 @@ export function FunnelSection() {
 
 /* ------------------- 4. REVENUE GROWTH TIMELINE ------------------- */
 const timeline = [
-  { m: "Month 1", t: "Audit + foundations", d: "Tech audit, GA4 / Pixel cleanup, baseline reporting locked in.", v: "$22K MRR" },
-  { m: "Month 2", t: "Quick CRO wins", d: "PDP rebuild, cart drawer, trust signals — first CR lift visible.", v: "$41K MRR" },
-  { m: "Month 3", t: "Creative engine live", d: "25+ ads/week pipeline. ASC consolidation. CAC starts dropping.", v: "$78K MRR" },
-  { m: "Month 4", t: "Email + SMS flows", d: "9 Klaviyo flows live. Email share of revenue jumps to 22%.", v: "$118K MRR" },
-  { m: "Month 5", t: "Scaling phase", d: "Daily spend up 3.1× at same blended CAC. SEO content shipping weekly.", v: "$162K MRR" },
-  { m: "Month 6", t: "Profitable scale", d: "Subscription layer launched. Blended ROAS 3.8×. New peak month.", v: "$214K MRR" },
+  { m: "Month 1", t: "Audit + foundations", d: "Tech audit, GA4 / Pixel cleanup, baseline reporting locked in.", v: "£22K MRR" },
+  { m: "Month 2", t: "Quick CRO wins", d: "PDP rebuild, cart drawer, trust signals — first CR lift visible.", v: "£41K MRR" },
+  { m: "Month 3", t: "Creative engine live", d: "25+ ads/week pipeline. ASC consolidation. CAC starts dropping.", v: "£78K MRR" },
+  { m: "Month 4", t: "Email + SMS flows", d: "9 Klaviyo flows live. Email share of revenue jumps to 22%.", v: "£118K MRR" },
+  { m: "Month 5", t: "Scaling phase", d: "Daily spend up 3.1× at same blended CAC. SEO content shipping weekly.", v: "£162K MRR" },
+  { m: "Month 6", t: "Profitable scale", d: "Subscription layer launched. Blended ROAS 3.8×. New peak month.", v: "£214K MRR" },
 ];
 
 export function TimelineSection() {
@@ -362,7 +362,7 @@ export function TimelineSection() {
             Growth Timeline
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
-            How $18K MRR became <span className="text-gradient">$214K MRR</span>
+            How £18K MRR became <span className="text-gradient">£214K MRR</span>
           </h2>
           <p className="mt-3 text-muted-foreground">A real 6-month engagement broken down month-by-month.</p>
         </div>

@@ -103,7 +103,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
               {[
                 { v: "120+", l: "Stores scaled" },
-                { v: "$48M+", l: "Tracked revenue" },
+                { v: "£48M+", l: "Tracked revenue" },
                 { v: "4.1×", l: "Avg ROAS lift" },
                 { v: "5.0/5", l: "Client rating" },
               ].map((s) => (
@@ -364,7 +364,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           <Reveal className="lg:col-span-2">
             <div className="card-surface p-6 md:p-7 h-full">
               <p className="text-ink/80 leading-relaxed">
-                A 1% conversion lift on a store doing <span className="font-bold text-ink">$100K/mo</span> is not 1% more sales — it's
+                A 1% conversion lift on a store doing <span className="font-bold text-ink">£100K/mo</span> is not 1% more sales — it's
                 <span className="text-gradient font-bold"> compounding revenue </span>
                 every month, on the same ad spend. That's why every module in this system is engineered to move the metrics that print money.
               </p>

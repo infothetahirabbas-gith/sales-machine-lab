@@ -12,7 +12,6 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
       { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
-      { name: "keywords", content: "about beingecom, ecommerce agency london about, uk shopify agency team, ecommerce growth consultants uk, dtc agency founders london, ecommerce agency mission uk" },
       { property: "og:title", content: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
       { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { property: "og:url", content: "https://beingecom.com/about" },
@@ -228,7 +227,7 @@ function About() {
               <div className="mt-6 grid sm:grid-cols-3 gap-3">
                 {[
                   { v: "120+", l: "Brands scaled" },
-                  { v: "$48M+", l: "Tracked revenue" },
+                  { v: "£48M+", l: "Tracked revenue" },
                   { v: "10+ yrs", l: "Ecom operating" },
                 ].map((s) => (
                   <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">

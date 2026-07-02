@@ -30,7 +30,6 @@ export const Route = createFileRoute("/services/scaling")({
     meta: [
       { title: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
       { name: "description", content: "UK ecommerce scaling agency for 7-figure Shopify brands. LTV expansion, offer engineering and retention systems that unlock durable, profitable growth." },
-      { name: "keywords", content: "scale shopify store uk, 7 figure ecommerce agency, ecommerce scaling agency uk, ltv agency ecommerce, ecommerce retention agency, dtc scaling agency london, offer engineering ecommerce" },
       { property: "og:title", content: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
       { property: "og:description", content: "UK ecommerce scaling agency for 7-figure Shopify brands. LTV expansion, offer engineering and retention systems that unlock durable, profitable growth." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
@@ -47,7 +46,7 @@ export const Route = createFileRoute("/services/scaling")({
     <ServicePage cfg={{
       slug: "scaling",
       eyebrow: "Scaling & Revenue Growth Strategy",
-      heroTitle: "Scale your store beyond $10K-$100K/month.",
+      heroTitle: "Scale your store beyond £10K-£100K/month.",
       heroSub: "Profit-led scaling system - built on margins, MER, LTV, and break-even ROAS targets.",
       problemTitle: "Most stores can't scale past their first plateau.",
       problemBullets: [
@@ -56,7 +55,7 @@ export const Route = createFileRoute("/services/scaling")({
         "No clear scaling roadmap - just 'spend more'.",
       ],
       whatIsTitle: "Scaling ≠ starting.",
-      whatIsBody: "The thinking, math, and operations that get you to $10K/mo will quietly kill you at $100K/mo. We rebuild the financial model, attribution, and growth plan for the next stage.",
+      whatIsBody: "The thinking, math, and operations that get you to £10K/mo will quietly kill you at £100K/mo. We rebuild the financial model, attribution, and growth plan for the next stage.",
       systemTitle: "Our scaling system.",
       systemSteps: [
         { title: "Revenue model", body: "Margins, contribution, CAC, LTV, MER - modelled end to end." },
@@ -82,19 +81,19 @@ export const Route = createFileRoute("/services/scaling")({
       triggersTitle: "Common scaling mistakes to avoid.",
       triggers: ["Scaling unprofitable creatives","Ignoring contribution margin","Discount-driven 'growth'","One-channel reliance","No retention engine","Promo dependency"],
       beforeAfter: {
-        before: ["$20K/mo plateau","ROAS collapse on scale","No attribution","One channel"],
-        after: ["$150K+/mo","Stable 3×+ blended ROAS","Triple Whale dashboards","Meta + Google + email mix"],
+        before: ["£20K/mo plateau","ROAS collapse on scale","No attribution","One channel"],
+        after: ["£150K+/mo","Stable 3×+ blended ROAS","Triple Whale dashboards","Meta + Google + email mix"],
       },
       caseStudy: {
-        title: "Apparel brand: $25K → $214K/mo scale",
-        problem: "Stuck at $25K/mo for 9 months, ROAS unstable.",
+        title: "Apparel brand: £25K → £214K/mo scale",
+        problem: "Stuck at £25K/mo for 9 months, ROAS unstable.",
         strategy: "Rebuilt unit economics, scaled creative volume, added Google + email.",
-        result: "$214K/mo at 3.8× blended ROAS, contribution margin healthy.",
+        result: "£214K/mo at 3.8× blended ROAS, contribution margin healthy.",
         metrics: [{ label: "MRR", value: "8.5×" }, { label: "MER", value: "3.8×" }, { label: "CM", value: "+11pp" }],
       },
       ctaTitle: "Ready to scale - profitably?",
       impactStats: [
-        { value: "$1.2M+", label: "Monthly run-rate" },
+        { value: "£1.2M+", label: "Monthly run-rate" },
         { value: "3.4×", label: "Sustained ROAS" },
         { value: "+42%", label: "Contribution margin" },
       ],

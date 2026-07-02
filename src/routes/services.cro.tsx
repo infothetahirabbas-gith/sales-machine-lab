@@ -30,7 +30,6 @@ export const Route = createFileRoute("/services/cro")({
     meta: [
       { title: "Conversion Rate Optimisation Agency UK — Shopify CRO Services | BeingEcom" },
       { name: "description", content: "UK conversion rate optimisation agency for Shopify and WooCommerce stores. Data-led A/B testing, checkout optimisation and product-page CRO that lifts revenue without more ad spend." },
-      { name: "keywords", content: "cro agency uk, conversion rate optimisation agency uk, ecommerce cro agency, shopify cro agency, cro services london, conversion optimisation uk, a/b testing agency uk, checkout optimisation shopify, product page optimisation, ecommerce ux audit, cro consultant uk, how to increase shopify conversion rate uk, best cro agency uk 2026" },
       { property: "og:title", content: "Conversion Rate Optimisation Agency UK — Shopify CRO Services | BeingEcom" },
       { property: "og:description", content: "UK conversion rate optimisation agency for Shopify and WooCommerce stores. Data-led A/B testing, checkout optimisation and product-page CRO that lifts revenue without more ad spend." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },

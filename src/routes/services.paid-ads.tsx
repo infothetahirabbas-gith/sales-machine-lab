@@ -30,7 +30,6 @@ export const Route = createFileRoute("/services/paid-ads")({
     meta: [
       { title: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
       { name: "description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
-      { name: "keywords", content: "paid ads agency uk, ppc agency uk, ecommerce ppc agency, meta ads agency uk, facebook ads agency uk, google ads agency uk, tiktok ads agency uk, shopify ads agency, dtc paid media agency, ecommerce ad agency uk, paid social agency london, roas agency uk, best ppc agency for ecommerce uk" },
       { property: "og:title", content: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
       { property: "og:description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },

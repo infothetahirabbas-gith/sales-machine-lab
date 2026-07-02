@@ -140,11 +140,6 @@ export const Route = createFileRoute("/glossary")({
         content:
           "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
       },
-      {
-        name: "keywords",
-        content:
-          "ecommerce glossary uk, shopify glossary, ecommerce marketing terms, dtc glossary, cro glossary, ppc glossary, ecommerce seo glossary uk",
-      },
       { property: "og:title", content: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         property: "og:description",

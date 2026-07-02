@@ -52,7 +52,7 @@ Custom per scope. Most brands run 2–3 services together. Direct pricing questi
 - SEO compounds: 3–6 months
 
 ## Proof
-120+ stores scaled, $48M+ tracked revenue, 400+ A/B tests, 4.1× avg ROAS lift. Browse /case-studies for real wins across Ads, SEO, CRO, and Website categories.
+120+ stores scaled, £48M+ tracked revenue, 400+ A/B tests, 4.1× avg ROAS lift. Browse /case-studies for real wins across Ads, SEO, CRO, and Website categories.
 
 ## Team & geography
 Senior-only team (ex-DTC founders, performance leads, CRO directors, SEO experts). Remote-first across North America, Europe, APAC. UK-focused for Shopify brands. NDAs on request.
