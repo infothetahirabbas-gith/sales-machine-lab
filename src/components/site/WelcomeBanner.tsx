@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Globe, MapPin, Briefcase, Sparkles, Languages, X, ArrowRight, Check } from "lucide-react";
+import { Globe, MapPin, Briefcase, Sparkles, Languages, ArrowRight, Check } from "lucide-react";
 import { LOCATIONS, INDUSTRIES } from "../../lib/locations-industries";
+import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
+
+const LOGO_URL = logoAsset.url;
 
 const COUNTRIES = [
   { code: "uk", name: "United Kingdom", flag: "🇬🇧" },
-  { code: "us", name: "United States", flag: "🇺🇸" },
-  { code: "ae", name: "United Arab Emirates", flag: "🇦🇪" },
-  { code: "au", name: "Australia", flag: "🇦🇺" },
-  { code: "ca", name: "Canada", flag: "🇨🇦" },
-  { code: "ie", name: "Ireland", flag: "🇮🇪" },
 ];
 
 const SERVICES = [
