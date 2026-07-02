@@ -66,9 +66,10 @@ async def check_route(page, route):
     if hits: bad(route, f"$ currency in visible text: {sorted(set(hits))[:5]}")
 
     # 2. Taxonomy — nav/header/footer regions
+    # textContent picks up collapsed dropdown submenu items too.
     header_footer = await page.evaluate("""() => {
       const parts = [];
-      document.querySelectorAll('header, footer, nav').forEach(el => parts.push(el.innerText));
+      document.querySelectorAll('header, footer, nav').forEach(el => parts.push(el.textContent || ''));
       return parts.join('\\n');
     }""")
     if "Performance Marketing" not in header_footer:
