@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
+import { setSiteLanguage } from "@/components/site/GoogleTranslate";
 const logo = logoAsset.url;
 
 const LANG_OPTIONS = [
