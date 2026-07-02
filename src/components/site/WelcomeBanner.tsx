@@ -45,8 +45,18 @@ export default function WelcomeBanner() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const done = sessionStorage.getItem(STORAGE_KEY);
-    if (!done) setOpen(true);
+    // Re-show the banner on any fresh visit. A completion is only honoured
+    // for 30 minutes of continuous activity; after that (tab closed, or user
+    // returns later), the banner starts from scratch.
+    const TTL_MS = 30 * 60 * 1000;
+    const ts = Number(sessionStorage.getItem(`${STORAGE_KEY}_ts`) || 0);
+    const fresh = ts && Date.now() - ts < TTL_MS;
+    if (!fresh) {
+      sessionStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(`${STORAGE_KEY}_ts`);
+      sessionStorage.removeItem(`${STORAGE_KEY}_prefs`);
+      setOpen(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -69,6 +79,7 @@ export default function WelcomeBanner() {
   const submit = () => {
     if (!currentSelected) return;
     sessionStorage.setItem(STORAGE_KEY, "1");
+    sessionStorage.setItem(`${STORAGE_KEY}_ts`, String(Date.now()));
     sessionStorage.setItem(
       `${STORAGE_KEY}_prefs`,
       JSON.stringify({ country, location, industry, service, language })
