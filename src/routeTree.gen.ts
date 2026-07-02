@@ -22,6 +22,8 @@ import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as LocationsIndexRouteImport } from './routes/locations.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
@@ -34,6 +36,8 @@ import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
+import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
@@ -110,6 +114,16 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsIndexRoute = LocationsIndexRouteImport.update({
+  id: '/locations/',
+  path: '/locations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
   path: '/case-studies/',
@@ -170,6 +184,16 @@ const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
 const ServicesAiAutomationRoute = ServicesAiAutomationRouteImport.update({
   id: '/services/ai-automation',
   path: '/services/ai-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsSlugRoute = LocationsSlugRouteImport.update({
+  id: '/locations/$slug',
+  path: '/locations/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
@@ -245,6 +269,8 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -257,6 +283,8 @@ export interface FileRoutesByFullPath {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -282,6 +310,8 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -294,6 +324,8 @@ export interface FileRoutesByTo {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -320,6 +352,8 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
+  '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
   '/services/creative': typeof ServicesCreativeRoute
@@ -332,6 +366,8 @@ export interface FileRoutesById {
   '/services/seo': typeof ServicesSeoRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -359,6 +395,8 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/industries/$slug'
+    | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
@@ -371,6 +409,8 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies/'
+    | '/industries/'
+    | '/locations/'
     | '/services/'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -396,6 +436,8 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/industries/$slug'
+    | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
@@ -408,6 +450,8 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies'
+    | '/industries'
+    | '/locations'
     | '/services'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -433,6 +477,8 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
+    | '/industries/$slug'
+    | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
     | '/services/creative'
@@ -445,6 +491,8 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/store-development'
     | '/case-studies/'
+    | '/industries/'
+    | '/locations/'
     | '/services/'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -471,6 +519,8 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   CaseStudiesIdRoute: typeof CaseStudiesIdRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  LocationsSlugRoute: typeof LocationsSlugRoute
   ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
@@ -483,6 +533,8 @@ export interface RootRouteChildren {
   ServicesSeoRoute: typeof ServicesSeoRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -580,6 +632,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/': {
+      id: '/locations/'
+      path: '/locations'
+      fullPath: '/locations/'
+      preLoaderRoute: typeof LocationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/': {
       id: '/case-studies/'
       path: '/case-studies'
@@ -662,6 +728,20 @@ declare module '@tanstack/react-router' {
       path: '/services/ai-automation'
       fullPath: '/services/ai-automation'
       preLoaderRoute: typeof ServicesAiAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/$slug': {
+      id: '/locations/$slug'
+      path: '/locations/$slug'
+      fullPath: '/locations/$slug'
+      preLoaderRoute: typeof LocationsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/debug/faq-jsonld': {
@@ -779,6 +859,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   CaseStudiesIdRoute: CaseStudiesIdRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
+  LocationsSlugRoute: LocationsSlugRoute,
   ServicesAiAutomationRoute: ServicesAiAutomationRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
@@ -792,6 +874,8 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesSeoRoute: ServicesSeoRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
 }

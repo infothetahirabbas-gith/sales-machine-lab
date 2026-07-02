@@ -60,7 +60,7 @@ function IndustryPage() {
 
       <Section eyebrow={`Built for ${ind.name}`} title="What we execute" alt>
         <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
-          {ind.highlights.map((h) => (
+          {ind.highlights.map((h: string) => (
             <div key={h} className="flex items-start gap-3 rounded-xl border border-border bg-white p-4">
               <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <span className="text-ink font-medium">{h}</span>

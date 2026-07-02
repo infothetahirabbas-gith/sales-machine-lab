@@ -60,7 +60,7 @@ function LocationPage() {
 
       <Section eyebrow={`What we do in ${loc.city}`} title="Full ecommerce growth engine" alt>
         <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
-          {loc.highlights.map((h) => (
+          {loc.highlights.map((h: string) => (
             <div key={h} className="flex items-start gap-3 rounded-xl border border-border bg-white p-4">
               <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <span className="text-ink font-medium">{h}</span>
