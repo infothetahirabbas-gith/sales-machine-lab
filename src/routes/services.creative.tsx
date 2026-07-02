@@ -102,7 +102,7 @@ export const Route = createFileRoute("/services/creative")({
         { label: "Thumbstop rate", before: 24, after: 52, unit: "%", description: "Hold-rate at the first frame. Strong thumbstops lower CPM by 30–50%." },
         { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creative — measures concept + offer clarity." },
         { label: "Creative ROAS", before: 1.5, after: 3.9, unit: "×", description: "ROAS isolated to new creative concepts (not winning evergreens)." },
-        { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "$", description: "How expensive each engaged view is. Lower = healthier funnel top." },
+        { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "£", description: "How expensive each engaged view is. Lower = healthier funnel top." },
       ],
       faqs: FAQ_LIST,
     }} />

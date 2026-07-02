@@ -98,7 +98,7 @@ export const Route = createFileRoute("/services/scaling")({
         { value: "+42%", label: "Contribution margin" },
       ],
       metricBars: [
-        { label: "Monthly revenue", before: 86, after: 412, unit: "$k", description: "Top-line monthly revenue once the scaling system stabilises." },
+        { label: "Monthly revenue", before: 86, after: 412, unit: "£k", description: "Top-line monthly revenue once the scaling system stabilises." },
         { label: "Blended ROAS", before: 2.1, after: 3.4, unit: "×", description: "Total revenue ÷ total marketing spend across every channel." },
         { label: "Contribution margin", before: 18, after: 34, unit: "%", description: "Revenue minus COGS + shipping + ad cost — the real profit lever." },
         { label: "Repeat revenue share", before: 22, after: 48, unit: "%", description: "Share of monthly revenue coming from returning customers." },

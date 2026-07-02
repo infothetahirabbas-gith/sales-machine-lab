@@ -90,13 +90,13 @@ export default function RevenueLossCalculator() {
             </div>
             <Slider label="Monthly store visitors" value={traffic} onChange={setTraffic} min={1000} max={500000} step={1000} />
             <Slider label="Current conversion rate" value={cr} onChange={setCr} min={0.2} max={5} step={0.1} suffix="%" />
-            <Slider label="Average order value" value={aov} onChange={setAov} min={20} max={500} step={5} prefix="$" />
+            <Slider label="Average order value" value={aov} onChange={setAov} min={20} max={500} step={5} prefix="£" />
 
             <div className="pt-4 border-t border-border/60 flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <Target className="w-4 h-4 text-primary" />
               Your paid ads
             </div>
-            <Slider label="Monthly ad spend" value={adSpend} onChange={setAdSpend} min={500} max={100000} step={500} prefix="$" />
+            <Slider label="Monthly ad spend" value={adSpend} onChange={setAdSpend} min={500} max={100000} step={500} prefix="£" />
             <Slider label="Current ROAS" value={roas} onChange={setRoas} min={0.5} max={5} step={0.1} suffix="×" />
 
             <div className="text-xs text-muted-foreground bg-secondary/50 rounded-lg p-3 border border-border/40">
