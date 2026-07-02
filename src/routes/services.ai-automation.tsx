@@ -30,7 +30,6 @@ export const Route = createFileRoute("/services/ai-automation")({
     meta: [
       { title: "AI Automation Agency UK — AI Agents & Workflows for Ecommerce | BeingEcom" },
       { name: "description", content: "UK AI automation agency for ecommerce. AI customer support, product enrichment and workflow automations that cut costs and lift LTV." },
-      { name: "keywords", content: "ai automation agency uk, ecommerce ai automation, shopify ai agents, ai customer support agency uk, ai product enrichment, workflow automation agency london, ai chatbot for shopify, chatgpt automation agency uk, generative ai ecommerce agency" },
       { property: "og:title", content: "AI Automation Agency UK — AI Agents & Workflows for Ecommerce | BeingEcom" },
       { property: "og:description", content: "UK AI automation agency for ecommerce. AI customer support, product enrichment and workflow automations that cut costs and lift LTV." },
       { property: "og:url", content: "https://beingecom.com/services/ai-automation" },

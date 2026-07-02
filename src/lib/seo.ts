@@ -213,7 +213,7 @@ export const auditFaqs: FAQ[] = [
   { q: "How long does the audit take?", a: "Typically 20–40 seconds, with a hard 90-second timeout. We scan your store across 17 phases and return a full growth intelligence report." },
   { q: "Does it work for both Shopify and WooCommerce?", a: "Yes — and BigCommerce, Magento, Wix and Squarespace. Tool, app and platform recommendations branch automatically to match what you're actually running." },
   { q: "What do I get at the end?", a: "15 growth scores, recommendation confidence with signal drivers, revenue leakage map, competitor intel, a 90-day action plan and 5 founder lenses — exportable as PDF, Excel, CSV, JSON or Markdown." },
-  { q: "Will it match my market?", a: "Yes. We detect currency, phone prefix and country signals on the page and adjust retention channel advice (e.g. WhatsApp for South Asia / MENA, SMS for US/UK/AU)." },
+  { q: "Will it match my market?", a: "Yes. We detect currency, phone prefix and country signals on the page and adjust retention channel advice (e.g. SMS for UK/US/AU, WhatsApp Business API where deliverability is stronger)." },
 ];
 
 export const contactFaqs: FAQ[] = [

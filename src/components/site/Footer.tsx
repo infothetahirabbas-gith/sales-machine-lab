@@ -73,9 +73,15 @@ export default function Footer() {
       <div className="border-t border-background/15">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-background/50">
           <div>© {new Date().getFullYear()} BeingEcom. Ecommerce growth, engineered.</div>
-          <div>Built for stores that want to scale, not stall.</div>
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link to="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-accent transition-colors">Terms</Link>
+            <Link to="/cookies" className="hover:text-accent transition-colors">Cookies</Link>
+            <Link to="/glossary" className="hover:text-accent transition-colors">SEO Glossary</Link>
+          </nav>
         </div>
       </div>
+
     </footer>
   );
 }

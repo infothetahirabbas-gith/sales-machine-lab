@@ -69,7 +69,6 @@ export const Route = createFileRoute("/case-studies/")({
     meta: [
       { title: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
       { name: "description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
-      { name: "keywords", content: "ecommerce case studies uk, shopify case studies uk, woocommerce case studies, dtc growth case studies london, roas case study uk, ecommerce seo results case study, cro case study shopify uk" },
       { property: "og:title", content: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
       { property: "og:description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },
@@ -319,7 +318,30 @@ function WebsitePreview({ screenshot }: { screenshot: string }) {
   );
 }
 
-function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: string; metricLabel: string }) {
+const SEO_KEYWORDS_BY_INDUSTRY: Record<string, { kw: string; pos: number; clicks: string }[]> = {
+  Skincare: [{ kw: "vitamin c serum uk", pos: 3, clicks: "2.4K" }, { kw: "best retinol for beginners", pos: 5, clicks: "1.8K" }, { kw: "ceramide moisturiser", pos: 2, clicks: "3.1K" }],
+  Apparel: [{ kw: "linen trousers women uk", pos: 4, clicks: "2.1K" }, { kw: "oversized shirt mens", pos: 6, clicks: "1.4K" }, { kw: "sustainable knitwear uk", pos: 3, clicks: "1.9K" }],
+  Supplements: [{ kw: "magnesium glycinate uk", pos: 2, clicks: "3.6K" }, { kw: "creatine monohydrate 500g", pos: 4, clicks: "2.2K" }, { kw: "best ashwagandha uk", pos: 3, clicks: "2.8K" }],
+  Homeware: [{ kw: "linen bedding uk", pos: 3, clicks: "2.5K" }, { kw: "modern floor lamp", pos: 5, clicks: "1.6K" }, { kw: "ceramic dinner set", pos: 4, clicks: "1.9K" }],
+  Furniture: [{ kw: "modern sofa uk", pos: 4, clicks: "2.7K" }, { kw: "solid oak dining table", pos: 3, clicks: "2.1K" }, { kw: "small space armchair", pos: 6, clicks: "1.3K" }],
+  Pets: [{ kw: "grain free dog food uk", pos: 3, clicks: "3.2K" }, { kw: "cat subscription box", pos: 5, clicks: "1.7K" }, { kw: "puppy training treats", pos: 4, clicks: "2.0K" }],
+  Beauty: [{ kw: "clean beauty uk", pos: 4, clicks: "2.3K" }, { kw: "vegan lipstick brands", pos: 6, clicks: "1.5K" }, { kw: "hyaluronic serum review", pos: 3, clicks: "2.9K" }],
+  Jewellery: [{ kw: "gold vermeil necklace uk", pos: 3, clicks: "2.2K" }, { kw: "stacking rings silver", pos: 5, clicks: "1.4K" }, { kw: "birthstone jewellery", pos: 4, clicks: "1.8K" }],
+  Coffee: [{ kw: "speciality coffee subscription", pos: 3, clicks: "2.6K" }, { kw: "single origin beans uk", pos: 4, clicks: "1.9K" }, { kw: "espresso beans 1kg", pos: 5, clicks: "1.5K" }],
+  Baby: [{ kw: "organic baby clothes uk", pos: 3, clicks: "2.4K" }, { kw: "wooden baby toys", pos: 4, clicks: "1.7K" }, { kw: "muslin swaddle set", pos: 5, clicks: "1.6K" }],
+  Fitness: [{ kw: "resistance bands set uk", pos: 4, clicks: "2.3K" }, { kw: "adjustable dumbbells", pos: 3, clicks: "2.9K" }, { kw: "yoga mat 6mm", pos: 5, clicks: "1.6K" }],
+  Beverage: [{ kw: "low sugar kombucha uk", pos: 3, clicks: "2.0K" }, { kw: "cold brew coffee cans", pos: 5, clicks: "1.5K" }, { kw: "alcohol free spirits", pos: 4, clicks: "2.2K" }],
+  Food: [{ kw: "gluten free snacks uk", pos: 3, clicks: "2.5K" }, { kw: "protein bar low sugar", pos: 4, clicks: "2.0K" }, { kw: "meal prep box uk", pos: 5, clicks: "1.7K" }],
+  Gadgets: [{ kw: "phone stand desk", pos: 5, clicks: "1.5K" }, { kw: "portable power bank uk", pos: 4, clicks: "2.0K" }, { kw: "wireless charger fast", pos: 3, clicks: "2.4K" }],
+  Footwear: [{ kw: "trail running shoes uk", pos: 3, clicks: "2.6K" }, { kw: "leather loafers mens", pos: 4, clicks: "1.9K" }, { kw: "chunky trainers women", pos: 5, clicks: "1.7K" }],
+};
+
+function pickSeoKeywords(industry: string) {
+  const key = Object.keys(SEO_KEYWORDS_BY_INDUSTRY).find((k) => industry.toLowerCase().includes(k.toLowerCase()));
+  return key ? SEO_KEYWORDS_BY_INDUSTRY[key] : [{ kw: "shopify seo agency uk", pos: 3, clicks: "2.1K" }, { kw: "ecommerce seo services", pos: 4, clicks: "1.8K" }, { kw: "product page seo", pos: 5, clicks: "1.5K" }];
+}
+
+function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; metric: string; metricLabel: string; industry: string }) {
   const r = rng(seed + 23);
   // Trend area chart
   const pts = Array.from({ length: 14 }, (_, i) => 20 + i * 4 + r() * 14);
@@ -328,11 +350,8 @@ function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
   const w = 100, h = 40;
   const path = pts.map((v, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * w},${h - ((v - min) / (max - min || 1)) * h}`).join(" ");
   const area = `${path} L${w},${h} L0,${h} Z`;
-  const queries = [
-    { kw: "best skincare routine", pos: 3, clicks: "2.4K" },
-    { kw: "vitamin c serum benefits", pos: 5, clicks: "1.8K" },
-    { kw: "anti aging cream review", pos: 2, clicks: "3.1K" },
-  ];
+  const queries = pickSeoKeywords(industry);
+
   return (
     <div className="h-full w-full bg-white flex flex-col">
       {/* Header */}
@@ -544,7 +563,7 @@ function CaseStudies() {
                       </div>
                       <div className="flex-1 overflow-hidden">
                         {s.category === "Ads" && <AdsPreview seed={parseInt(s.id.slice(1)) || 1} />}
-                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
+                        {s.category === "SEO" && <SeoPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} industry={s.industry} />}
                         {s.category === "CRO" && <CroPreview seed={parseInt(s.id.slice(1)) || 1} metric={s.metric} metricLabel={s.metricLabel} />}
                         {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>

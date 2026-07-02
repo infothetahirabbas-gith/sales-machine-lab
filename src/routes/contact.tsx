@@ -12,7 +12,6 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
       { name: "description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
-      { name: "keywords", content: "contact ecommerce agency uk, free shopify audit uk, ecommerce growth audit london, woocommerce consultation uk, dtc strategy call, book ecommerce agency london, get ecommerce quote uk" },
       { property: "og:title", content: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
       { property: "og:description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { property: "og:url", content: "https://beingecom.com/contact" },
@@ -66,13 +65,17 @@ function Contact() {
                 <input required placeholder="Store URL (Shopify / WooCommerce)" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
                 <div className="grid sm:grid-cols-2 gap-3">
                   <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly revenue</option><option>$0 - $5K</option><option>$5K - $25K</option><option>$25K - $100K</option><option>$100K+</option>
+                    <option>Monthly revenue</option><option>£0 - £5K</option><option>£5K - £25K</option><option>£25K - £100K</option><option>£100K+</option>
                   </select>
                   <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly ad spend</option><option>$0 - $1K</option><option>$1K - $5K</option><option>$5K - $25K</option><option>$25K+</option>
+                    <option>Monthly ad spend</option><option>£0 - £1K</option><option>£1K - £5K</option><option>£5K - £25K</option><option>£25K+</option>
                   </select>
                 </div>
                 <textarea rows={4} placeholder="Where do you feel revenue is leaking?" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
+                <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
+                  <input required type="checkbox" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
+                  <span>I agree to be contacted by BeingEcom about my enquiry and accept the <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>. We never share or sell your data.</span>
+                </label>
                 <button className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">Send Audit Request →</button>
               </form>
             )}
@@ -99,7 +102,7 @@ function Contact() {
             </Card>
             <Card>
               <h3 className="font-semibold">Trust</h3>
-              <p className="mt-2 text-sm text-muted-foreground">120+ stores scaled. $48M+ tracked revenue. We sign NDAs without drama.</p>
+              <p className="mt-2 text-sm text-muted-foreground">120+ stores scaled. £48M+ tracked revenue. We sign NDAs without drama.</p>
             </Card>
           </div>
         </div>

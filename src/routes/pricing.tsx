@@ -21,7 +21,6 @@ export const Route = createFileRoute("/pricing")({
     meta: [
       { title: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
       { name: "description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
-      { name: "keywords", content: "ecommerce agency pricing uk, shopify agency pricing uk, ecommerce agency retainer cost, how much does an ecommerce agency cost uk, cro agency pricing london, ppc agency pricing uk" },
       { property: "og:title", content: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
       { property: "og:description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { property: "og:url", content: "https://beingecom.com/pricing" },

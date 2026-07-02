@@ -3,9 +3,6 @@ import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 
-const WHATSAPP_NUMBER = "923186230122";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BeingEcom — I'd like to chat about growing my store.")}`;
-
 const QUICK_REPLIES = [
   "I have a Shopify store",
   "I'm planning to launch",
@@ -59,21 +56,7 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      {/* WhatsApp */}
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 left-6 z-50 group"
-      >
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
-        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 hover:scale-110 transition-transform duration-300">
-          <svg viewBox="0 0 32 32" className="w-7 h-7" fill="currentColor" aria-hidden="true">
-            <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.945 2.722.945.817 0 2.15-.515 2.478-1.318.13-.314.213-.66.213-1.005 0-.143-.04-.286-.07-.42-.116-.196-1.99-1.062-2.05-1.062zm-2.94 6.7c-5.405 0-9.79-4.385-9.79-9.79s4.385-9.79 9.79-9.79 9.79 4.385 9.79 9.79c0 5.405-4.385 9.79-9.79 9.79zm0-18.85c-5.005 0-9.06 4.054-9.06 9.06 0 1.745.502 3.405 1.376 4.825L6 26.085l5.305-1.392c1.36.75 2.913 1.175 4.866 1.175 5.006 0 9.062-4.055 9.062-9.06 0-5.007-4.056-9.062-9.062-9.062z" />
-          </svg>
-        </span>
-      </a>
+
 
       {/* Chatbot */}
       {!open && (
@@ -142,7 +125,7 @@ export default function FloatingWidgets() {
             )}
             {error && (
               <div className="text-xs text-destructive bg-destructive/10 border border-destructive/30 rounded-lg px-3 py-2">
-                Something went wrong. Please try again or contact us on WhatsApp.
+                Something went wrong. Please try again in a moment.
               </div>
             )}
             <SmartCTAs messages={messages} isLoading={isLoading} />

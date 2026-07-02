@@ -30,7 +30,6 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
     meta: [
       { title: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
       { name: "description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
-      { name: "keywords", content: "facebook ads agency uk, meta ads agency uk, instagram ads agency uk, facebook ads agency london, shopify facebook ads agency, dtc meta ads agency, asc+ scaling agency, meta ads consultant uk, best facebook ads agency uk 2026, how much do facebook ads cost uk" },
       { property: "og:title", content: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
       { property: "og:description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },

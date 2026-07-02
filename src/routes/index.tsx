@@ -19,7 +19,6 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
       { name: "description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
-      { name: "keywords", content: "ecommerce agency uk, ecommerce marketing agency, ecommerce digital marketing agency, ecommerce agency london, shopify agency uk, shopify agency london, shopify plus agency, shopify development agency, ecommerce seo agency, ecommerce seo services uk, ecommerce seo company, ecommerce web design agency, ecommerce website design uk, ecommerce development agency, dtc agency uk, best ecommerce agency uk, meta ads agency uk, google ads agency uk, tiktok ads agency uk, klaviyo agency uk, conversion rate optimisation uk, cro agency london, ecommerce growth agency uk, ai search optimisation, generative engine optimisation, aeo agency uk, chatgpt seo agency, best ecommerce agency london 2026, top rated shopify agency uk, how to grow a shopify store uk, which ecommerce agency is best in the uk" },
       { property: "og:title", content: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
       { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
       { property: "og:type", content: "website" },
@@ -54,11 +53,11 @@ const rotatingPhrases = [
 ];
 
 const dashboards = [
-  { key: "revenue", title: "Revenue · Last 30 days", badge: "+312%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"$72"}] },
+  { key: "revenue", title: "Revenue · Last 30 days", badge: "+312%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
   { key: "seo", title: "SEO · Organic traffic", badge: "+218%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
-  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", metrics: [{l:"Spend",v:"$48K"},{l:"Revenue",v:"$182K"},{l:"CPA",v:"$21"}] },
-  { key: "email", title: "Email · Klaviyo flows", badge: "+41% rev", metrics: [{l:"Open",v:"52%"},{l:"Click",v:"6.4%"},{l:"Rev/Recip",v:"$2.10"}] },
-  { key: "cro", title: "Store CRO · Shopify", badge: "+186% CR", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"$84"},{l:"Bounce",v:"-32%"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
+  { key: "email", title: "Email · Klaviyo flows", badge: "+41% rev", metrics: [{l:"Open",v:"52%"},{l:"Click",v:"6.4%"},{l:"Rev/Recip",v:"£2.10"}] },
+  { key: "cro", title: "Store CRO · Shopify", badge: "+186% CR", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
 ] as const;
 
 function Home() {
@@ -117,7 +116,7 @@ function Home() {
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
               {[
                 { v: "120+", l: "stores scaled" },
-                { v: "$48M+", l: "tracked revenue" },
+                { v: "£48M+", l: "tracked revenue" },
                 { v: "400+", l: "A/B tests run" },
                 { v: "4.1×", l: "avg ROAS lift" },
               ].map((s) => (
@@ -281,7 +280,7 @@ function Home() {
       </Section>
 
       {/* 7. CASE STUDY */}
-      <Section center eyebrow="Real result" title="From $18K to $214K/month in 6 months.">
+      <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="rounded-2xl border border-border bg-card/60 p-4">
             <GrowthChart className="w-full h-auto" />
@@ -361,9 +360,9 @@ function Home() {
                 { q: "Finally an agency that understands ecommerce - not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Hearthline Home" },
                 { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Pure Botanica" },
                 { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Stridelab Footwear" },
-                { q: "Klaviyo flows alone added $42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Velour Skincare" },
+                { q: "Klaviyo flows alone added £42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Velour Skincare" },
                 { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Ridgeline Outdoors" },
-                { q: "Scaled from $30K to $180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Aurum Jewelry" },
+                { q: "Scaled from £30K to £180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Aurum Jewelry" },
                 { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, GearLoop Electronics" },
               ].map((t, i) => {
                 const initials = t.n.split(/\s+/).map((p) => p[0]).join("").slice(0, 2).toUpperCase();
