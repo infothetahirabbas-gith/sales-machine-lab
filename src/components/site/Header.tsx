@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Briefcase, Languages, Sparkles } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 
@@ -122,6 +122,27 @@ export default function Header() {
               aria-label="Change industry"
             >
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
+            </select>
+          </label>
+          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Jump to service">
+            <Sparkles className="size-3" />
+            <span className="truncate max-w-[120px]">Services</span>
+            <ChevronDown className="size-3 opacity-60" />
+            <select
+              value=""
+              onChange={(e) => { if (e.target.value) navigate({ to: e.target.value }); }}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              aria-label="Jump to service"
+            >
+              <option value="" disabled>Choose a service…</option>
+              {services.map((s) => (
+                <optgroup key={s.to} label={s.label}>
+                  <option value={s.to}>{s.label} — Overview</option>
+                  {s.children?.map((c) => (
+                    <option key={c.to} value={c.to}>↳ {c.label}</option>
+                  ))}
+                </optgroup>
+              ))}
             </select>
           </label>
           <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
