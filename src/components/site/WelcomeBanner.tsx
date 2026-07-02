@@ -106,7 +106,7 @@ export default function WelcomeBanner() {
       params: { lang: language, location, industry, service },
     });
   };
-  void setSiteLanguage;
+  
 
   const steps = [
     { icon: Globe, label: "Country" },
