@@ -27,6 +27,8 @@ const LANGUAGES = [
   { code: "pl", name: "Polski (Polish)" },
   { code: "ro", name: "Română (Romanian)" },
   { code: "pt", name: "Português (Portuguese)" },
+  { code: "de", name: "Deutsch (German)" },
+  { code: "fr", name: "Français (French)" },
 ];
 
 const STORAGE_KEY = "beingecom_welcome_v1";

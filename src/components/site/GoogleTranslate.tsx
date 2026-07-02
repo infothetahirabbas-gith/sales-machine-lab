@@ -30,7 +30,7 @@ export default function GoogleTranslate() {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
-          includedLanguages: "en,es,pl,ro,pt",
+          includedLanguages: "en,es,pl,ro,pt,de,fr",
           autoDisplay: false,
         },
         "google_translate_element"
