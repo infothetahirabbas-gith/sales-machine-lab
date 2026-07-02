@@ -59,10 +59,10 @@ export function Section({
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {(eyebrow || title || intro) && (
-          <div className={`max-w-3xl mb-12 ${center ? "mx-auto text-center" : "text-center lg:text-left"}`}>
+          <div className={`max-w-3xl mb-12 ${centre ? "mx-auto text-centre" : "text-centre lg:text-left"}`}>
             {eyebrow && (
               <Reveal>
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
+                <div className="inline-flex items-centre gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
                   <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
                   {eyebrow}
                 </div>
@@ -96,7 +96,7 @@ export function Card({ children, className = "" }: { children: ReactNode; classN
 
 export function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-ink">
+    <span className="inline-flex items-centre rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-ink">
       {children}
     </span>
   );
@@ -108,7 +108,7 @@ export function NumberedList({ items }: { items: { title: string; body: string }
       {items.map((it, i) => (
         <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
           <li className="card-surface card-hover p-6 flex gap-4">
-            <div className="shrink-0 w-12 h-12 rounded-2xl bg-primary/10 text-primary font-display font-bold flex items-center justify-center text-lg">
+            <div className="shrink-0 w-12 h-12 rounded-2xl bg-primary/10 text-primary font-display font-bold flex items-centre justify-centre text-lg">
               {String(i + 1).padStart(2, "0")}
             </div>
             <div>
@@ -130,14 +130,14 @@ export function CTA({
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-centre">
             <div className="absolute inset-0 grid-bg opacity-60" />
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
             <div className="relative">
               <h3 className="text-3xl md:text-5xl font-bold text-ink"><SplitHeading value={heading} /></h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{sub}</p>
-              <div className="mt-8 btn-pair mx-auto justify-center">
+              <div className="mt-8 btn-pair mx-auto justify-centre">
                 <a href="/contact" className="btn btn-primary btn-shimmer">
                   Book Strategy Call <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>

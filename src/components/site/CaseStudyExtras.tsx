@@ -28,7 +28,7 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
     <div className="group w-full">
       <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-white relative">
         {/* Browser chrome (no URL) */}
-        <div className="flex items-center gap-1.5 px-3 py-2.5 bg-[#f1f3f5] border-b border-border">
+        <div className="flex items-centre gap-1.5 px-3 py-2.5 bg-[#f1f3f5] border-b border-border">
           <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
@@ -45,7 +45,7 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
           {/* Floating live ROAS */}
           <div className="absolute top-3 right-3 bg-white/95 backdrop-blur rounded-xl shadow-xl border border-border px-3 py-2 group-hover:-translate-y-1 transition-transform">
             <div className="text-[9px] uppercase tracking-widest text-muted-foreground">Live ROAS</div>
-            <div className="text-sm font-bold text-primary flex items-center gap-1">
+            <div className="text-sm font-bold text-primary flex items-centre gap-1">
               {s.live} <TrendingUp className="w-3 h-3" />
             </div>
           </div>
@@ -56,7 +56,7 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
         <p className="text-sm text-muted-foreground">{s.summary}</p>
         <div className="mt-3 grid grid-cols-3 gap-2">
           {s.metrics.map((m) => (
-            <div key={m.l} className="rounded-xl border border-border bg-white p-2.5 text-center">
+            <div key={m.l} className="rounded-xl border border-border bg-white p-2.5 text-centre">
               <div className="text-base font-bold text-gradient">{m.v}</div>
               <div className="text-[9px] uppercase tracking-wide text-muted-foreground mt-0.5">{m.l}</div>
             </div>
@@ -83,8 +83,8 @@ export function FeaturedStoresSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.98_0.01_245)] to-white" />
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/10 blur-[140px] rounded-full" />
       <div className="relative">
-        <div className="text-center max-w-2xl mx-auto mb-14 px-5">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-centre max-w-2xl mx-auto mb-14 px-5">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Featured Stores
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -110,7 +110,7 @@ export function FeaturedStoresSection() {
           </div>
 
           {/* Dots */}
-          <div className="mt-8 flex items-center justify-center gap-2">
+          <div className="mt-8 flex items-centre justify-centre gap-2">
             {Array.from({ length: pages }).map((_, i) => (
               <button
                 key={i}
@@ -149,8 +149,8 @@ function PlatformBadge({ p }: { p: string }) {
   };
   const c = map[p];
   return (
-    <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-ink/80">
-      <span className={`w-5 h-5 rounded-md flex items-center justify-center text-white ${c.bg}`}>
+    <span className="inline-flex items-centre gap-1.5 text-[10px] font-semibold text-ink/80">
+      <span className={`w-5 h-5 rounded-md flex items-centre justify-centre text-white ${c.bg}`}>
         <c.Icon className="w-3 h-3" />
       </span>
       {c.label}
@@ -174,8 +174,8 @@ export function AdsDashboardSection() {
     <section className="py-20 lg:py-28 bg-card relative overflow-hidden border-y border-border">
       <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-primary/10 blur-[140px] rounded-full" />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-centre max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Ads Performance
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -193,12 +193,12 @@ export function AdsDashboardSection() {
             { l: "Blended CAC", v: "$24.12", d: "-31%", Icon: TrendingDown, up: false },
           ].map((k) => (
             <div key={k.l} className="rounded-2xl bg-background border border-border p-5">
-              <div className="flex items-center justify-between">
+              <div className="flex items-centre justify-between">
                 <div className="text-[11px] uppercase tracking-widest text-muted-foreground">{k.l}</div>
                 <k.Icon className="w-4 h-4 text-primary" />
               </div>
               <div className="mt-2 text-2xl font-bold text-ink">{k.v}</div>
-              <div className={`mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-primary`}>
+              <div className={`mt-2 inline-flex items-centre gap-1 text-[11px] font-semibold text-primary`}>
                 {k.up ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                 {k.d} vs prior 30D
               </div>
@@ -211,13 +211,13 @@ export function AdsDashboardSection() {
 
         {/* Campaign table */}
         <div className="rounded-2xl bg-background border border-border overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+          <div className="flex items-centre justify-between px-5 py-4 border-b border-border">
             <div>
               <div className="text-sm font-bold text-ink">Top campaigns · last 30 days</div>
               <div className="text-[11px] text-muted-foreground">Cross-platform unified view</div>
             </div>
             <div className="flex gap-2 text-[11px]">
-              <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold inline-flex items-center gap-1">
+              <span className="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold inline-flex items-centre gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Live
               </span>
             </div>
@@ -240,7 +240,7 @@ export function AdsDashboardSection() {
                   <tr key={r.name} className="hover:bg-foreground/[0.03] transition">
                     <td className="px-5 py-4">
                       <div className="font-semibold text-ink">{r.name}</div>
-                      <div className="text-[10px] text-primary mt-0.5 inline-flex items-center gap-1">
+                      <div className="text-[10px] text-primary mt-0.5 inline-flex items-centre gap-1">
                         <span className="w-1 h-1 rounded-full bg-primary" /> {r.status}
                       </div>
                     </td>
@@ -250,7 +250,7 @@ export function AdsDashboardSection() {
                     <td className="px-3 py-4 text-right text-muted-foreground font-mono hidden md:table-cell">{r.purchases}</td>
                     <td className="px-3 py-4 text-right text-muted-foreground font-mono hidden md:table-cell">{r.cpa}</td>
                     <td className="px-5 py-4 text-right">
-                      <span className="inline-flex items-center gap-1 text-primary font-semibold text-xs">
+                      <span className="inline-flex items-centre gap-1 text-primary font-semibold text-xs">
                         <TrendingUp className="w-3 h-3" /> {r.delta}
                       </span>
                     </td>
@@ -284,7 +284,7 @@ function FunnelBar({ steps, accent }: { steps: { l: string; v: number; n: string
             <span className="font-mono text-muted-foreground">{s.n} · {s.v}%</span>
           </div>
           <div className="h-7 rounded-full bg-secondary/60 overflow-hidden">
-            <div className={`h-full rounded-full ${accent} flex items-center px-3`} style={{ width: `${s.v}%` }} />
+            <div className={`h-full rounded-full ${accent} flex items-centre px-3`} style={{ width: `${s.v}%` }} />
           </div>
         </div>
       ))}
@@ -297,8 +297,8 @@ export function FunnelSection() {
   return (
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-centre max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Conversion Funnel
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -309,7 +309,7 @@ export function FunnelSection() {
 
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="card-surface p-6 md:p-8">
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-centre justify-between mb-5">
               <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Before</div>
               <div className="text-[11px] text-muted-foreground">CR: <span className="text-ink font-bold">1.1%</span></div>
             </div>
@@ -317,7 +317,7 @@ export function FunnelSection() {
           </div>
           <div className="card-surface p-6 md:p-8 ring-2 ring-primary/30 relative">
             <div className="absolute -top-3 right-6 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">After BeingEcom</div>
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-centre justify-between mb-5">
               <div className="text-xs font-bold uppercase tracking-widest text-primary">After</div>
               <div className="text-[11px] text-muted-foreground">CR: <span className="text-primary font-bold">4.6%</span></div>
             </div>
@@ -332,7 +332,7 @@ export function FunnelSection() {
             { v: "+184%", l: "Checkouts" },
             { v: "+318%", l: "Net purchases" },
           ].map((m) => (
-            <div key={m.l} className="card-surface p-4 text-center">
+            <div key={m.l} className="card-surface p-4 text-centre">
               <div className="text-xl md:text-2xl font-bold text-gradient">{m.v}</div>
               <div className="text-[10px] uppercase tracking-wide text-muted-foreground mt-1">{m.l}</div>
             </div>
@@ -357,8 +357,8 @@ export function TimelineSection() {
   return (
     <section className="py-20 lg:py-28 bg-[oklch(0.98_0.01_245)]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-centre max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Growth Timeline
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -371,7 +371,7 @@ export function TimelineSection() {
           <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
           <div className="space-y-8">
             {timeline.map((t, i) => (
-              <div key={t.m} className={`grid md:grid-cols-2 gap-6 items-center ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
+              <div key={t.m} className={`grid md:grid-cols-2 gap-6 items-centre ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
                 <div className={`card-surface p-6 ${i % 2 ? "md:text-right" : ""}`}>
                   <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{t.m}</div>
                   <h3 className="mt-1 font-bold text-ink text-lg">{t.t}</h3>
@@ -409,8 +409,8 @@ export function IndustriesSection() {
   return (
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="text-centre max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Categories
           </div>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
@@ -421,8 +421,8 @@ export function IndustriesSection() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {industries.map((i) => (
-            <div key={i.name} className="card-surface card-hover p-6 text-center group">
-              <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div key={i.name} className="card-surface card-hover p-6 text-centre group">
+              <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre group-hover:scale-110 transition-transform">
                 <i.Icon className="w-6 h-6" strokeWidth={2.2} />
               </div>
               <h3 className="mt-4 font-bold text-ink">{i.name}</h3>
@@ -517,15 +517,15 @@ function QuoteCarousel() {
               <div className="card-surface p-6 md:p-8 relative">
                 <Quote className="absolute top-6 right-6 w-12 h-12 text-primary/10" />
                 <p className="text-lg md:text-xl text-ink leading-relaxed font-medium">"{q.q}"</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${i === 0 ? "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" : i === 1 ? "from-[oklch(0.7_0.16_245)] to-[oklch(0.55_0.2_265)]" : "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]"} text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-border`}>
+                <div className="mt-5 flex items-centre gap-3">
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${i === 0 ? "from-[oklch(0.72_0.15_160)] to-[oklch(0.5_0.18_160)]" : i === 1 ? "from-[oklch(0.7_0.16_245)] to-[oklch(0.55_0.2_265)]" : "from-[oklch(0.72_0.15_330)] to-[oklch(0.55_0.2_320)]"} text-white font-bold flex items-centre justify-centre text-sm shadow-md ring-2 ring-border`}>
                     {q.n.split(" ").map((p) => p[0]).join("")}
                   </div>
                   <div>
                     <div className="text-sm font-bold text-ink">{q.n}</div>
                     <div className="text-[11px] text-muted-foreground">{q.r}</div>
                   </div>
-                  <a className="ml-auto text-xs font-bold text-primary inline-flex items-center gap-1 hover:gap-2 transition-all cursor-pointer">
+                  <a className="ml-auto text-xs font-bold text-primary inline-flex items-centre gap-1 hover:gap-2 transition-all cursor-pointer">
                     Read story <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -540,7 +540,7 @@ function QuoteCarousel() {
         type="button"
         onClick={prev}
         aria-label="Previous testimonial"
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 hidden sm:flex items-centre justify-centre w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
@@ -548,22 +548,22 @@ function QuoteCarousel() {
         type="button"
         onClick={next}
         aria-label="Next testimonial"
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 hidden sm:flex items-centre justify-centre w-10 h-10 rounded-full bg-white shadow-md border border-border text-ink hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Mobile arrow + dots row */}
-      <div className="mt-5 flex items-center justify-center gap-3">
+      <div className="mt-5 flex items-centre justify-centre gap-3">
         <button
           type="button"
           onClick={prev}
           aria-label="Previous testimonial"
-          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="sm:hidden flex items-centre justify-centre w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
-        <div className="flex items-center gap-2" role="tablist" aria-label="Select testimonial">
+        <div className="flex items-centre gap-2" role="tablist" aria-label="Select testimonial">
           {quotes.map((_, i) => (
             <button
               key={i}
@@ -580,7 +580,7 @@ function QuoteCarousel() {
           type="button"
           onClick={next}
           aria-label="Next testimonial"
-          className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="sm:hidden flex items-centre justify-centre w-9 h-9 rounded-full bg-white border border-border text-ink hover:bg-primary hover:text-primary-foreground transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
@@ -599,7 +599,7 @@ export function ProofSection() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:sticky lg:top-24">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+            <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
               Recognition
             </div>
             <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink leading-tight">
@@ -607,8 +607,8 @@ export function ProofSection() {
             </h2>
             <p className="mt-3 text-muted-foreground">A small selection of recent recognition and feedback.</p>
 
-            <div className="mt-6 card-surface p-5 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <div className="mt-6 card-surface p-5 flex items-centre gap-3">
+              <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-centre justify-centre shrink-0">
                 <Award className="w-4 h-4" />
               </div>
               <div>

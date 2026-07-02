@@ -65,9 +65,9 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/20 blur-[140px] float" />
         <div className="absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-accent/30 blur-[120px] float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre lg:text-left">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
               <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               {cfg.eyebrow}
             </div>
@@ -109,7 +109,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
               ].map((s) => (
                 <div
                   key={s.l}
-                  className="card-surface card-hover p-4 text-center group"
+                  className="card-surface card-hover p-4 text-centre group"
                 >
                   <div className="text-2xl font-bold text-gradient">{s.v}</div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
@@ -128,7 +128,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           {cfg.problemBullets.map((b, i) => (
             <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <div className="group relative h-full rounded-2xl border border-destructive/25 bg-destructive/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_oklch(0.55_0.22_25/0.35)]">
-                <div className="w-11 h-11 rounded-xl bg-destructive/15 text-destructive flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-3">
+                <div className="w-11 h-11 rounded-xl bg-destructive/15 text-destructive flex items-centre justify-centre transition-transform group-hover:scale-110 group-hover:rotate-3">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
                 <p className="mt-4 text-ink font-medium leading-relaxed">{b}</p>
@@ -160,14 +160,14 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 4. WHAT WE BUILD */}
       <Section eyebrow="What it actually means" title={cfg.whatIsTitle} alt>
-        <div className="grid lg:grid-cols-5 gap-8 items-center">
+        <div className="grid lg:grid-cols-5 gap-8 items-centre">
           <div className="lg:col-span-3">
             <p className="text-lg md:text-xl text-ink/80 leading-relaxed">{cfg.whatIsBody}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Strategy", "Build", "Optimize", "Scale"].map((t) => (
+              {["Strategy", "Build", "Optimise", "Scale"].map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5"
+                  className="inline-flex items-centre gap-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5"
                 >
                   <CheckCircle2 className="w-3 h-3" /> {t}
                 </span>
@@ -181,9 +181,9 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 {cfg.systemSteps.slice(0, 4).map((s, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 rounded-xl bg-white/80 backdrop-blur border border-border p-3 transition hover:translate-x-1"
+                    className="flex items-centre gap-3 rounded-xl bg-white/80 backdrop-blur border border-border p-3 transition hover:translate-x-1"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white font-bold text-xs flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white font-bold text-xs flex items-centre justify-centre shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <span className="text-sm font-semibold text-ink">{s.title}</span>
@@ -202,7 +202,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <li className="group relative card-surface card-hover p-6 flex gap-5 overflow-hidden">
                 <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <div className="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary font-display font-bold flex items-center justify-center text-xl border border-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                <div className="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/15 text-primary font-display font-bold flex items-centre justify-centre text-xl border border-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div>
@@ -224,7 +224,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
               <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <div className="group relative card-surface card-hover p-6 h-full overflow-hidden">
                   <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-primary/8 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                  <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white flex items-centre justify-centre shadow-md group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h4 className="mt-5 font-bold text-ink">{p.title}</h4>
@@ -241,7 +241,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="max-w-3xl mb-14">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
+              <div className="inline-flex items-centre gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
                 <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
                 Inside the system
               </div>
@@ -263,11 +263,11 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                     }`}
                   >
                     {/* Visual block */}
-                    <div className="lg:col-span-4 relative rounded-2xl bg-gradient-to-br from-primary/8 via-white to-accent/20 border border-border p-6 overflow-hidden min-h-[180px] flex items-center justify-center">
+                    <div className="lg:col-span-4 relative rounded-2xl bg-gradient-to-br from-primary/8 via-white to-accent/20 border border-border p-6 overflow-hidden min-h-[180px] flex items-centre justify-centre">
                       <div className="absolute -top-12 -left-12 w-40 h-40 rounded-full bg-primary/15 blur-2xl group-hover:scale-125 transition-transform duration-700" />
                       <div className="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-accent/25 blur-2xl group-hover:scale-125 transition-transform duration-700" />
-                      <div className="relative flex flex-col items-center text-center">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white flex items-center justify-center shadow-xl shadow-primary/30 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
+                      <div className="relative flex flex-col items-centre text-centre">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white flex items-centre justify-centre shadow-xl shadow-primary/30 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
                           <Icon className="w-7 h-7" />
                         </div>
                         <div className="mt-3 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
@@ -277,7 +277,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                     </div>
 
                     {/* Content */}
-                    <div className="lg:col-span-8 flex flex-col justify-center">
+                    <div className="lg:col-span-8 flex flex-col justify-centre">
                       <h3 className="text-xl md:text-2xl font-bold text-ink leading-snug">
                         {b.title}
                       </h3>
@@ -304,8 +304,8 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {cfg.triggers.map((t, i) => (
               <Reveal key={t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-                <div className="group flex items-center gap-3 rounded-2xl border border-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/15 to-accent/25 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="group flex items-centre gap-3 rounded-2xl border border-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/15 to-accent/25 text-primary flex items-centre justify-centre shrink-0 group-hover:scale-110 transition-transform">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-semibold text-ink leading-snug">{t}</span>
@@ -323,7 +323,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             <div className="group relative h-full rounded-3xl border border-destructive/30 bg-gradient-to-br from-destructive/8 to-destructive/[0.03] p-7 overflow-hidden transition hover:-translate-y-1">
               <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-destructive/15 blur-3xl" />
               <div className="relative">
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-destructive">
+                <div className="inline-flex items-centre gap-2 text-[11px] font-bold uppercase tracking-widest text-destructive">
                   <XCircle className="w-4 h-4" /> Before
                 </div>
                 <ul className="mt-5 space-y-3">
@@ -341,7 +341,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             <div className="group relative h-full rounded-3xl border border-primary/40 bg-gradient-to-br from-primary/10 via-white to-accent/15 p-7 overflow-hidden transition hover:-translate-y-1 shadow-lg shadow-primary/10">
               <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-primary/20 blur-3xl float-slow" />
               <div className="relative">
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-primary">
+                <div className="inline-flex items-centre gap-2 text-[11px] font-bold uppercase tracking-widest text-primary">
                   <CheckCircle2 className="w-4 h-4" /> After
                 </div>
                 <ul className="mt-5 space-y-3">
@@ -374,7 +374,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   { value: "2.7×", label: "ROAS improvement" },
                   { value: "62%", label: "Repeat buyer rate" },
                 ]).map((s) => (
-                  <div key={s.label} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-center">
+                  <div key={s.label} className="rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-3 text-centre">
                     <div className="text-xl md:text-2xl font-bold text-gradient">
                       {s.value}
                     </div>
@@ -388,15 +388,15 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           </Reveal>
           <Reveal delay={1} className="lg:col-span-3">
             <div className="card-surface p-6 md:p-8 h-full">
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-centre justify-between mb-5">
                 <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
                   Revenue impact — Before vs After
                 </div>
-                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider">
-                  <span className="inline-flex items-center gap-1.5 text-destructive/80">
+                <div className="flex items-centre gap-3 text-[10px] font-bold uppercase tracking-wider">
+                  <span className="inline-flex items-centre gap-1.5 text-destructive/80">
                     <span className="w-2 h-2 rounded-full bg-destructive/40" /> Before
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-primary">
+                  <span className="inline-flex items-centre gap-1.5 text-primary">
                     <span className="w-2 h-2 rounded-full bg-primary" /> After
                   </span>
                 </div>
@@ -439,7 +439,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 <div className="grid grid-cols-3 gap-3 pt-2">
                   {cfg.caseStudy.metrics.map((m, i) => (
                     <Reveal key={m.label} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-                      <div className="group rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-4 text-center transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
+                      <div className="group rounded-2xl border border-border bg-gradient-to-br from-white to-secondary/40 p-4 text-centre transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
                         <div className="text-2xl md:text-3xl font-bold text-gradient">{m.value}</div>
                         <div className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
                           {m.label}
@@ -459,9 +459,9 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   Growth trajectory
                 </div>
                 <GrowthChart className="w-full h-auto" />
-                <div className="mt-4 flex items-center justify-between text-xs">
+                <div className="mt-4 flex items-centre justify-between text-xs">
                   <span className="text-muted-foreground">Month 1</span>
-                  <span className="inline-flex items-center gap-1 text-emerald-600 font-bold">
+                  <span className="inline-flex items-centre gap-1 text-emerald-600 font-bold">
                     <TrendingUp className="w-3.5 h-3.5" /> Compounding
                   </span>
                   <span className="text-muted-foreground">Month 12</span>
@@ -481,7 +481,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 <details className="group rounded-2xl border border-border bg-card/60 backdrop-blur p-5 open:bg-card transition-colors">
                   <summary className="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-ink">
                     <span>{f.q}</span>
-                    <span className="mt-1 inline-flex shrink-0 w-6 h-6 items-center justify-center rounded-full border border-border text-primary group-open:rotate-45 transition-transform">+</span>
+                    <span className="mt-1 inline-flex shrink-0 w-6 h-6 items-centre justify-centre rounded-full border border-border text-primary group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <p className="mt-3 text-muted-foreground leading-relaxed">{f.a}</p>
                 </details>

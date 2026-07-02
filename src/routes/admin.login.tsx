@@ -49,7 +49,7 @@ function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 px-5">
+    <div className="min-h-screen flex items-centre justify-centre bg-gradient-to-br from-background via-primary/5 to-accent/10 px-5">
       <div className="w-full max-w-md card-surface p-8">
         <Link to="/" className="text-sm text-muted-foreground hover:text-primary">
           ← Back to site
@@ -86,7 +86,7 @@ function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="flex btn btn-primary w-full justify-center disabled:opacity-50"
+            className="flex btn btn-primary w-full justify-centre disabled:opacity-50"
           >
             {loading ? "..." : mode === "signin" ? "Sign in" : "Create account"}
           </button>

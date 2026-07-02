@@ -9,11 +9,11 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Ecommerce Services — Shopify & WooCommerce Growth | BeingEcom" },
-      { name: "description", content: "Nine ecommerce growth services in one operating system: store development, CRO, paid ads, SEO, email automation, creative, funnels, analytics and scaling." },
+      { title: "Ecommerce Services UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
       { name: "keywords", content: "ecommerce services uk, shopify services uk, woocommerce services uk, ecommerce marketing services, ecommerce agency services london, shopify plus services, ecommerce cro services, ecommerce seo services uk, ecommerce ppc services, klaviyo email marketing services, ecommerce analytics services, ecommerce funnel services, dtc growth services, ecommerce consultancy uk, best ecommerce services uk" },
-      { property: "og:title", content: "Ecommerce Growth Services — Shopify & WooCommerce" },
-      { property: "og:description", content: "Nine growth services, one operating system for Shopify & WooCommerce brands." },
+      { property: "og:title", content: "Ecommerce Services UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
       { property: "og:url", content: "https://beingecom.com/services" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services" }],
@@ -29,14 +29,14 @@ const all = [
   { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections - free traffic forever.", tag: "Acquire" },
   { to: "/services/performance-marketing", title: "Performance Marketing", body: "Facebook, Google, TikTok & media buying as one P&L.", tag: "Acquire" },
   { to: "/services/creative", title: "Creative Testing", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
-  { to: "/services/cro", title: "Conversion Rate Optimization", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimize" },
+  { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimise" },
   { to: "/services/email-sms", title: "Email Marketing", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", tag: "Build" },
   { to: "/services/ai-automation", title: "AI Automation", body: "AI agents & workflows that compound margin.", tag: "Automate" },
   { to: "/services/paid-ads", title: "Paid Advertising (Overview)", body: "Meta, Google & TikTok ads built to scale profitably.", tag: "Acquire" },
   { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond £10K-£100K/month, profitably.", tag: "Scale" },
   { to: "/services/analytics", title: "Analytics & Tracking", body: "Track every sale, click, and behavior.", tag: "Measure" },
-  { to: "/services/funnel", title: "Funnel & Journey Optimization", body: "Turn visitors into buyers automatically.", tag: "Optimize" },
+  { to: "/services/funnel", title: "Funnel & Journey Optimisation", body: "Turn visitors into buyers automatically.", tag: "Optimise" },
 ];
 
 function ServicesIndex() {

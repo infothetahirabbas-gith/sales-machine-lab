@@ -12,7 +12,7 @@ function Slider({
 }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; suffix?: string; prefix?: string }) {
   return (
     <div className="w-full min-w-0">
-      <div className="flex items-center justify-between gap-2 mb-2 min-w-0">
+      <div className="flex items-centre justify-between gap-2 mb-2 min-w-0">
         <label className="text-xs sm:text-sm font-semibold text-ink min-w-0 flex-1 truncate">{label}</label>
         <span className="text-xs sm:text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap">
           {prefix}{value.toLocaleString()}{suffix}
@@ -68,8 +68,8 @@ export default function RevenueLossCalculator() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-5 lg:px-8 min-w-0">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-destructive">
+        <div className="text-centre max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-destructive/30 bg-destructive/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-destructive">
             <AlertTriangle className="w-3.5 h-3.5" />
             Revenue Loss Calculator
           </div>
@@ -84,7 +84,7 @@ export default function RevenueLossCalculator() {
         <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 min-w-0">
           {/* Inputs */}
           <div className="lg:col-span-2 card-surface p-4 sm:p-6 lg:p-8 space-y-6 min-w-0 max-w-full">
-            <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="flex items-centre gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <ShoppingCart className="w-4 h-4 text-primary" />
               Your store today
             </div>
@@ -92,7 +92,7 @@ export default function RevenueLossCalculator() {
             <Slider label="Current conversion rate" value={cr} onChange={setCr} min={0.2} max={5} step={0.1} suffix="%" />
             <Slider label="Average order value" value={aov} onChange={setAov} min={20} max={500} step={5} prefix="$" />
 
-            <div className="pt-4 border-t border-border/60 flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="pt-4 border-t border-border/60 flex items-centre gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-wider">
               <Target className="w-4 h-4 text-primary" />
               Your paid ads
             </div>
@@ -107,7 +107,7 @@ export default function RevenueLossCalculator() {
           {/* Results */}
           <div className="lg:col-span-3 space-y-4 min-w-0 max-w-full">
             <div className="card-surface p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-destructive/5 via-card to-card border-destructive/30 min-w-0">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
+              <div className="flex items-centre gap-2 text-xs font-semibold uppercase tracking-widest text-destructive">
                 <TrendingDown className="w-4 h-4" />
                 Total revenue you're losing
               </div>
@@ -121,7 +121,7 @@ export default function RevenueLossCalculator() {
 
             <div className="grid sm:grid-cols-3 gap-4">
               <div className="card-surface p-5">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <div className="flex items-centre gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   <ShoppingCart className="w-3.5 h-3.5 text-primary" />
                   Missed sales
                 </div>
@@ -129,7 +129,7 @@ export default function RevenueLossCalculator() {
                 <div className="text-xs text-muted-foreground mt-1">From low conversion rate</div>
               </div>
               <div className="card-surface p-5">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <div className="flex items-centre gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   <DollarSign className="w-3.5 h-3.5 text-primary" />
                   Wasted ad spend
                 </div>
@@ -137,7 +137,7 @@ export default function RevenueLossCalculator() {
                 <div className="text-xs text-muted-foreground mt-1">Burned on weak ROAS</div>
               </div>
               <div className="card-surface p-5">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <div className="flex items-centre gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   <Target className="w-3.5 h-3.5 text-primary" />
                   Ad revenue gap
                 </div>
@@ -177,7 +177,7 @@ export default function RevenueLossCalculator() {
                 </div>
               </div>
 
-              <a href="/contact" className="btn btn-primary btn-shimmer mt-6 w-full text-center text-sm sm:text-base whitespace-normal leading-snug px-4 py-3 break-words">
+              <a href="/contact" className="btn btn-primary btn-shimmer mt-6 w-full text-centre text-sm sm:text-base whitespace-normal leading-snug px-4 py-3 break-words">
                 Stop losing {fmt(calc.totalMonthlyMiss)}/mo — Book Strategy Call →
               </a>
             </div>

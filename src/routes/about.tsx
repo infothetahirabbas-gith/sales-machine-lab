@@ -10,11 +10,11 @@ import founder from "@/assets/founder-ceo.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom — Ecommerce Growth Partner for Shopify & WooCommerce" },
-      { name: "description", content: "BeingEcom is the growth operating system for Shopify & WooCommerce brands — strategy, SEO, ads, CRO, automation and analytics under one roof. Meet our team and methodology." },
+      { title: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { name: "keywords", content: "about beingecom, ecommerce agency london about, uk shopify agency team, ecommerce growth consultants uk, dtc agency founders london, ecommerce agency mission uk" },
-      { property: "og:title", content: "About BeingEcom — Ecommerce Growth Partner" },
-      { property: "og:description", content: "Who we are, how we plan growth, our strategy framework, and our mission to scale ecommerce brands profitably." },
+      { property: "og:title", content: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
     ],
@@ -33,8 +33,8 @@ function About() {
       {/* HERO */}
       <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="mx-auto max-w-5xl px-5 lg:px-8 relative text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8 relative text-centre">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             About BeingEcom
           </div>
           <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04]">
@@ -56,7 +56,7 @@ function About() {
           <Reveal>
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                <span className="text-ink font-semibold">Being Ecom</span> exists to help online brands stop guessing and start scaling. We combine deep ecommerce expertise with paid media, search, conversion optimization, and AI automation to build growth systems that compound month after month.
+                <span className="text-ink font-semibold">Being Ecom</span> exists to help online brands stop guessing and start scaling. We combine deep ecommerce expertise with paid media, search, conversion optimisation, and AI automation to build growth systems that compound month after month.
               </p>
               <p>
                 Every engagement is led by senior operators — not interns. We've scaled stores across fashion, beauty, supplements, home, and DTC niches, with a single obsession: <span className="text-ink font-semibold">profitable, predictable revenue</span>.
@@ -75,7 +75,7 @@ function About() {
             ].map((p, i) => (
               <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <Card>
-                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
                     <p.Icon className="w-5 h-5" strokeWidth={2.2} />
                   </div>
                   <h3 className="mt-4 font-semibold text-lg text-ink">{p.t}</h3>
@@ -98,13 +98,13 @@ function About() {
           {[
             { Icon: Search, t: "Diagnose", b: "Full audit of store, ads, funnel, SEO, email, and analytics — find the leaks." },
             { Icon: Compass, t: "Research", b: "Market, competitor, audience, and keyword research that informs every decision." },
-            { Icon: Target, t: "Prioritize", b: "Rank opportunities by revenue impact × speed × confidence. Build the roadmap." },
+            { Icon: Target, t: "Prioritise", b: "Rank opportunities by revenue impact × speed × confidence. Build the roadmap." },
             { Icon: Rocket, t: "Execute", b: "Ship weekly. Test relentlessly. Compound wins into a real growth system." },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
-                <div className="flex items-center justify-between">
-                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                <div className="flex items-centre justify-between">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
                     <p.Icon className="w-5 h-5" strokeWidth={2.2} />
                   </div>
                   <span className="font-display font-bold text-3xl text-primary/15">0{i + 1}</span>
@@ -134,7 +134,7 @@ function About() {
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-centre justify-centre">
                   <p.Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <h3 className="mt-4 font-semibold text-lg text-ink">{p.t}</h3>
@@ -150,7 +150,7 @@ function About() {
         <div className="grid lg:grid-cols-2 gap-6">
           <Reveal>
             <div className="card-surface p-8 lg:p-10 h-full">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              <div className="inline-flex items-centre gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 <Sparkles className="w-4 h-4" /> Our Mission
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
@@ -163,7 +163,7 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <div className="card-surface p-8 lg:p-10 h-full">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              <div className="inline-flex items-centre gap-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 <Globe2 className="w-4 h-4" /> Our Vision
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-tight">
@@ -181,15 +181,15 @@ function About() {
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+          <div className="text-centre max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
               Leadership
             </div>
             <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight">Meet the Founder &amp; CEO.</h2>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <div className="lg:col-span-5 flex justify-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-centre">
+            <div className="lg:col-span-5 flex justify-centre">
               <div className="relative">
                 <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full" />
                 <div className="relative rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-card">
@@ -215,7 +215,7 @@ function About() {
                 <p className="text-xl md:text-2xl font-display font-semibold text-ink leading-snug">
                   "Ecommerce isn't about hacks or hype. It's about building a system where every click, every dollar of ad spend, and every customer compounds into real, profitable growth."
                 </p>
-                <div className="mt-6 flex items-center gap-3">
+                <div className="mt-6 flex items-centre gap-3">
                   <div className="h-0.5 w-10 bg-primary rounded-full" />
                   <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas</span>
                 </div>
@@ -231,7 +231,7 @@ function About() {
                   { v: "$48M+", l: "Tracked revenue" },
                   { v: "10+ yrs", l: "Ecom operating" },
                 ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
+                  <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-centre">
                     <div className="text-2xl font-bold text-primary">{s.v}</div>
                     <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                   </div>

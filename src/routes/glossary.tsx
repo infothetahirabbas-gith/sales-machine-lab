@@ -34,7 +34,7 @@ const terms = [
       "Crawling is how Google's bots discover the pages on your store by following links and reading your sitemap. If a page isn't crawled, it cannot rank — period.",
     why: "Most ecommerce stores waste their crawl budget on filters, tags, and duplicate URLs. Cleaning this up lets Google find and rank the pages that actually make money.",
     example:
-      "A Shopify store with 800 filter URLs (color, size, price) often has only 60 product pages crawled. Blocking the noise gets the real PDPs indexed in days.",
+      "A Shopify store with 800 filter URLs (colour, size, price) often has only 60 product pages crawled. Blocking the noise gets the real PDPs indexed in days.",
   },
   {
     term: "SERP (Search Engine Results Page)",
@@ -74,7 +74,7 @@ const terms = [
       "Organic traffic is the unpaid visitors who land on your store directly from search engines like Google and Bing. No ad spend — pure earned attention.",
     why: "It's the most profitable channel in ecommerce. Unlike paid ads, organic traffic compounds month after month and keeps converting long after the work is done.",
     example:
-      "A brand that builds 30 SEO-optimized blog posts can generate 50K+ free monthly visits — the equivalent of $15K–$40K/month in paid ad spend.",
+      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits — the equivalent of $15K–$40K/month in paid ad spend.",
   },
   {
     term: "Alt Text",
@@ -134,22 +134,22 @@ const faqs = terms.map((t) => ({
 export const Route = createFileRoute("/glossary")({
   head: () => ({
     meta: [
-      { title: "SEO Glossary 2026 — 15 Essential SEO Terms for Ecommerce | BeingEcom" },
+      { title: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         name: "description",
         content:
-          "Premium SEO glossary for Shopify & WooCommerce founders. 15 essential SEO terms explained simply with real ecommerce examples — keywords, backlinks, schema, SERP, and more.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
       },
       {
         name: "keywords",
         content:
           "ecommerce glossary uk, shopify glossary, ecommerce marketing terms, dtc glossary, cro glossary, ppc glossary, ecommerce seo glossary uk",
       },
-      { property: "og:title", content: "SEO Glossary 2026 — 15 Essential SEO Terms for Ecommerce" },
+      { property: "og:title", content: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         property: "og:description",
         content:
-          "Premium SEO glossary for ecommerce founders. 15 must-know SEO terms explained with real Shopify & WooCommerce examples.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: `${SITE_URL}/glossary` },
@@ -176,8 +176,8 @@ function GlossaryPage() {
     <PageLayout>
       {/* Hero */}
       <section className="relative overflow-hidden bg-background text-foreground">
-        <div className="relative mx-auto max-w-5xl px-5 lg:px-8 pt-28 pb-20 lg:pt-36 lg:pb-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
+        <div className="relative mx-auto max-w-5xl px-5 lg:px-8 pt-28 pb-20 lg:pt-36 lg:pb-28 text-centre">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
             <BookOpen className="w-3.5 h-3.5 text-primary" />
             SEO Glossary · Updated for 2026
           </div>
@@ -188,16 +188,16 @@ function GlossaryPage() {
             15 essential SEO terms every Shopify & WooCommerce founder must know — explained
             simply, with real ecommerce examples that drive traffic, rankings, and revenue.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-centre gap-3">
             <Link
               to="/audit"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="inline-flex items-centre gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Free SEO Audit <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/services/seo"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
+              className="inline-flex items-centre gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
             >
               Our SEO Service
             </Link>
@@ -234,8 +234,8 @@ function GlossaryPage() {
               id={slug(t.term)}
               className="scroll-mt-24 group rounded-2xl border bg-card p-7 lg:p-9 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 text-primary text-sm font-bold tabular-nums">
+              <div className="flex items-centre gap-3 mb-4">
+                <span className="inline-flex items-centre justify-centre w-9 h-9 rounded-full bg-primary/10 text-primary text-sm font-bold tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h2 className="font-display text-2xl lg:text-3xl font-bold tracking-tight">
@@ -268,7 +268,7 @@ function GlossaryPage() {
         </ol>
 
         {/* Closing CTA */}
-        <div className="mt-20 rounded-3xl border border-border bg-card text-foreground p-10 lg:p-14 text-center">
+        <div className="mt-20 rounded-3xl border border-border bg-card text-foreground p-10 lg:p-14 text-centre">
           <h2 className="font-display text-3xl lg:text-4xl font-bold tracking-tight">
             Ready to turn SEO into real revenue?
           </h2>
@@ -276,16 +276,16 @@ function GlossaryPage() {
             Get a free 12-point ecommerce SEO audit of your Shopify or WooCommerce store — built by
             senior operators, not junior analysts.
           </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <div className="mt-7 flex flex-wrap justify-centre gap-3">
             <Link
               to="/audit"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="inline-flex items-centre gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Get Free Audit <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
+              className="inline-flex items-centre gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:border-primary transition-colors"
             >
               Book a Strategy Call
             </Link>

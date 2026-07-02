@@ -8,13 +8,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-14 pb-12 lg:pt-20 lg:pb-16 grid lg:grid-cols-12 gap-10 lg:gap-12 text-sm">
         {/* Brand */}
         <div className="lg:col-span-4">
-          <Link to="/" className="inline-flex items-center rounded-xl bg-background px-3 py-2" aria-label="BeingEcom home">
+          <Link to="/" className="inline-flex items-centre rounded-xl bg-background px-3 py-2" aria-label="BeingEcom home">
             <img src={logo} alt="BeingEcom" width="150" height="47" className="h-9 w-auto" />
           </Link>
           <p className="mt-6 text-background/60 leading-relaxed max-w-xs">
             The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
           </p>
-          <div className="mt-6 flex items-center gap-3">
+          <div className="mt-6 flex items-centre gap-3">
             {[
               { Icon: Linkedin, href: "https://www.linkedin.com/company/beingecom", label: "LinkedIn" },
             ].map(({ Icon, href, label }) => (
@@ -24,7 +24,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center text-background/65 hover:text-foreground hover:bg-accent hover:border-accent transition-colors"
+                className="w-10 h-10 rounded-full border border-background/20 flex items-centre justify-centre text-background/65 hover:text-foreground hover:bg-accent hover:border-accent transition-colors"
               >
                 <Icon className="w-4 h-4" />
               </a>
@@ -49,14 +49,14 @@ export default function Footer() {
         </div>
 
         {/* Get in touch */}
-        <div className="lg:col-span-3 text-center lg:text-left">
+        <div className="lg:col-span-3 text-centre lg:text-left">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">GET IN TOUCH</div>
-          <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
-            <li className="flex items-center gap-2">
+          <ul className="space-y-3 text-background/60 flex flex-col items-centre lg:items-start">
+            <li className="flex items-centre gap-2">
               <Mail className="w-4 h-4 text-background shrink-0" />
               <a href="mailto:hello@beingecom.com" className="hover:text-accent transition-colors">hello@beingecom.com</a>
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-centre gap-2">
               <Phone className="w-4 h-4 text-background shrink-0" />
               <a href="tel:+442045251900" className="hover:text-accent transition-colors">+44 20 4525 1900</a>
             </li>
@@ -64,14 +64,14 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-background shrink-0 mt-0.5" />
               <span>71-75 Shelton Street,<br />Covent Garden, London<br />WC2H 9JQ, United Kingdom</span>
             </li>
-            <li><Link to="/contact" className="inline-flex items-center gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
+            <li><Link to="/contact" className="inline-flex items-centre gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
             <li><Link to="/case-studies" className="hover:text-accent transition-colors">View Case Studies →</Link></li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-background/15">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-background/50">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-centre justify-between gap-3 text-xs text-background/50">
           <div>© {new Date().getFullYear()} BeingEcom. Ecommerce growth, engineered.</div>
           <div>Built for stores that want to scale, not stall.</div>
         </div>

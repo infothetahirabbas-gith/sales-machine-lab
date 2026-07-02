@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/tiktok-ads")({
   head: () => ({
     meta: [
-      { title: "TikTok Ads Agency UK — UGC, Spark Ads & Creator Media | BeingEcom" },
-      { name: "description", content: "UK TikTok Ads agency. Creator-led UGC, Spark Ads and hook-first scripting that drives top-funnel virality and profitable ecommerce sales." },
+      { title: "TikTok Ads Agency UK — Spark Ads, UGC & TikTok Shop | BeingEcom" },
+      { name: "description", content: "UK TikTok Ads agency for ecommerce brands. Creator-led UGC, Spark Ads and hook-first scripting that turns TikTok into a real revenue channel." },
       { name: "keywords", content: "tiktok ads agency uk, tiktok shop ads agency, spark ads agency uk, ugc ads agency uk, tiktok ads agency london, creator media buying uk, tiktok ecommerce agency, best tiktok ads agency uk, how to run tiktok ads uk" },
-      { property: "og:title", content: "TikTok Ads Agency UK | BeingEcom" },
-      { property: "og:description", content: "Creator UGC and Spark Ads that scale top-funnel virality into real revenue." },
+      { property: "og:title", content: "TikTok Ads Agency UK — Spark Ads, UGC & TikTok Shop | BeingEcom" },
+      { property: "og:description", content: "UK TikTok Ads agency for ecommerce brands. Creator-led UGC, Spark Ads and hook-first scripting that turns TikTok into a real revenue channel." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/tiktok-ads" }],

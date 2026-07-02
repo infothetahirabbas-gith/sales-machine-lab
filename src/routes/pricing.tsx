@@ -19,11 +19,11 @@ const pricingFaqs = [
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
-      { name: "description", content: "Three ways to engage BeingEcom — CRO Sprint, Growth System, or Full Partnership. Transparent pricing for Shopify & WooCommerce growth." },
+      { title: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { name: "description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { name: "keywords", content: "ecommerce agency pricing uk, shopify agency pricing uk, ecommerce agency retainer cost, how much does an ecommerce agency cost uk, cro agency pricing london, ppc agency pricing uk" },
-      { property: "og:title", content: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
-      { property: "og:description", content: "Three engagement tiers built around one goal: profitable ecommerce growth." },
+      { property: "og:title", content: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { property: "og:description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { property: "og:url", content: "https://beingecom.com/pricing" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/pricing" }],
@@ -42,7 +42,7 @@ const tiers = [
     includes: [
       "Full CRO audit",
       "PDP rebuild",
-      "Checkout optimization",
+      "Checkout optimisation",
       "A/B test setup",
     ],
     duration: "6-week fixed engagement",
@@ -54,7 +54,7 @@ const tiers = [
     best: "Stores ready to scale profitably across ads + CRO + email",
     includes: [
       "Paid ads management (Meta / Google)",
-      "Conversion rate optimization",
+      "Conversion rate optimisation",
       "Klaviyo email flows",
       "Weekly reporting",
     ],
@@ -84,8 +84,8 @@ function PricingPage() {
       <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Pricing
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto leading-[1.04] text-ink">
@@ -107,7 +107,7 @@ function PricingPage() {
               }`}
             >
               {t.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-lg">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-centre gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-lg">
                   <Sparkles className="w-3 h-3" /> Most Popular
                 </div>
               )}
@@ -136,7 +136,7 @@ function PricingPage() {
 
               <Link
                 to="/contact"
-                className={`mt-7 btn justify-center ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
+                className={`mt-7 btn justify-centre ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
               >
                 Book Strategy Call →
               </Link>

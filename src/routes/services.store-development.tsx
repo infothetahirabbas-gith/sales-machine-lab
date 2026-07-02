@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/store-development")({
   head: () => ({
     meta: [
-      { title: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
-      { name: "description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
+      { title: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
+      { name: "description", content: "UK Shopify Plus and WooCommerce development agency. Custom themes, headless builds and platform migrations optimised for speed, SEO and conversion." },
       { name: "keywords", content: "shopify development agency uk, shopify development partners, shopify plus agency uk, shopify theme development uk, headless shopify agency, shopify migration agency uk, woocommerce development uk, ecommerce web design agency uk, ecommerce website design agency london, custom shopify store development, shopify developers uk" },
-      { property: "og:title", content: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
-      { property: "og:description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
+      { property: "og:title", content: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
+      { property: "og:description", content: "UK Shopify Plus and WooCommerce development agency. Custom themes, headless builds and platform migrations optimised for speed, SEO and conversion." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },
       { property: "og:type", content: "website" },
     ],
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/services/store-development")({
   component: () => (
     <ServicePage cfg={{
       slug: "store-development",
-      eyebrow: "Store Development & Optimization",
+      eyebrow: "Store Development & Optimisation",
       heroTitle: "Build a high-converting ecommerce store that actually sells.",
       heroSub: "Shopify & WooCommerce stores engineered for conversion - not just design awards.",
       problemTitle: "Why most ecommerce stores quietly bleed revenue.",
@@ -74,15 +74,15 @@ export const Route = createFileRoute("/services/store-development")({
       deepBlocks: [
         { title: "Shopify setup system", body: "Theme selection, app stack curation, store architecture that scales past 100 SKUs.", tags: ["Theme audit","App stack","Sections","Metafields"] },
         { title: "WooCommerce setup system", body: "WordPress + Woo store structure, performant hosting, conversion-ready templates.", tags: ["Hosting","Templates","Cache","Plugins"] },
-        { title: "UI/UX optimization", body: "Mobile-first layouts, real trust signals, friction-free navigation.", tags: ["Mobile-first","Trust","Nav","Search"] },
+        { title: "UI/UX optimisation", body: "Mobile-first layouts, real trust signals, friction-free navigation.", tags: ["Mobile-first","Trust","Nav","Search"] },
         { title: "Product page engineering", body: "Hero, gallery, USPs, social proof, sticky ATC - every block earns its space.", tags: ["Hero","Reviews","FAQs","Sticky ATC"] },
-        { title: "Collection page structure", body: "Filters, sorting, merchandising - built to upsell across catalog.", tags: ["Filters","Merch","Sort","SEO"] },
-        { title: "Checkout & speed optimization", body: "Reduce steps, kill friction, hit sub-2s loads on mobile.", tags: ["1-step","Express pay","Image opt","Bundles"] },
+        { title: "Collection page structure", body: "Filters, sorting, merchandising - built to upsell across catalogue.", tags: ["Filters","Merch","Sort","SEO"] },
+        { title: "Checkout & speed optimisation", body: "Reduce steps, kill friction, hit sub-2s loads on mobile.", tags: ["1-step","Express pay","Image opt","Bundles"] },
       ],
       triggersTitle: "Trust elements that move CR.",
       triggers: ["Real customer reviews","Trust badges","Guarantee bar","Live chat","Free shipping bar","Urgency timers","Stock counters","Press logos","Risk reversal"],
       beforeAfter: {
-        before: ["1.2% CR","Generic theme","No mobile optimization","No trust elements","Slow PDP (4s+)"],
+        before: ["1.2% CR","Generic theme","No mobile optimisation","No trust elements","Slow PDP (4s+)"],
         after: ["4.6% CR","Custom system","Mobile-first PDP","Reviews + badges + guarantee","Sub-2s load"],
       },
       caseStudy: {

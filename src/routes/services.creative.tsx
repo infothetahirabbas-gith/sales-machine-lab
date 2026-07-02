@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/creative")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Creative Production — UGC, Video & Ad Creatives | BeingEcom" },
-      { name: "description", content: "Scroll-stopping UGC, video and static ad creatives engineered to convert for Shopify & WooCommerce brands. Hooks, scripts and weekly creative testing." },
+      { title: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
+      { name: "description", content: "UK ecommerce creative and UGC agency. Static, motion and creator ads engineered to hook, convert and scale on Meta, TikTok and YouTube." },
       { name: "keywords", content: "ecommerce creative agency uk, ugc agency uk, ugc ads agency london, video ad production ecommerce, meta ad creative agency, tiktok creative agency uk, shopify ad creative agency, best ugc agency uk 2026" },
-      { property: "og:title", content: "Ecommerce Creative Production — UGC, Video & Ad Creatives | BeingEcom" },
-      { property: "og:description", content: "Scroll-stopping UGC, video and static ad creatives engineered to convert for Shopify & WooCommerce brands. Hooks, scripts and weekly creative testing." },
+      { property: "og:title", content: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
+      { property: "og:description", content: "UK ecommerce creative and UGC agency. Static, motion and creator ads engineered to hook, convert and scale on Meta, TikTok and YouTube." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
     ],

@@ -68,7 +68,7 @@ export default function FloatingWidgets() {
         className="fixed bottom-6 left-6 z-50 group"
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
-        <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 hover:scale-110 transition-transform duration-300">
+        <span className="relative flex items-centre justify-centre w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl shadow-[#25D366]/40 hover:scale-110 transition-transform duration-300">
           <svg viewBox="0 0 32 32" className="w-7 h-7" fill="currentColor" aria-hidden="true">
             <path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.945 2.722.945.817 0 2.15-.515 2.478-1.318.13-.314.213-.66.213-1.005 0-.143-.04-.286-.07-.42-.116-.196-1.99-1.062-2.05-1.062zm-2.94 6.7c-5.405 0-9.79-4.385-9.79-9.79s4.385-9.79 9.79-9.79 9.79 4.385 9.79 9.79c0 5.405-4.385 9.79-9.79 9.79zm0-18.85c-5.005 0-9.06 4.054-9.06 9.06 0 1.745.502 3.405 1.376 4.825L6 26.085l5.305-1.392c1.36.75 2.913 1.175 4.866 1.175 5.006 0 9.062-4.055 9.062-9.06 0-5.007-4.056-9.062-9.062-9.062z" />
           </svg>
@@ -83,7 +83,7 @@ export default function FloatingWidgets() {
           className="fixed bottom-6 right-6 z-50 group"
         >
           <span className="absolute inset-0 rounded-full bg-primary opacity-50 animate-ping" />
-          <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-primary text-white shadow-2xl shadow-primary/40 hover:scale-110 transition-transform duration-300">
+          <span className="relative flex items-centre justify-centre w-14 h-14 rounded-full bg-primary text-white shadow-2xl shadow-primary/40 hover:scale-110 transition-transform duration-300">
             <MessageCircle className="w-7 h-7" />
           </span>
           <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white animate-pulse" />
@@ -93,10 +93,10 @@ export default function FloatingWidgets() {
       {open && (
         <div className="fixed bottom-4 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:w-[92vw] sm:max-w-sm h-[560px] max-h-[80vh] rounded-2xl bg-white shadow-2xl border border-border flex flex-col overflow-hidden animate-scale-in">
           {/* Header */}
-          <div className="flex items-center justify-between gap-3 px-4 py-3 bg-primary text-white">
-            <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-centre justify-between gap-3 px-4 py-3 bg-primary text-white">
+            <div className="flex items-centre gap-3 min-w-0">
               <div className="relative shrink-0">
-                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-white/15 flex items-centre justify-centre">
                   <Bot className="w-5 h-5" />
                 </div>
                 <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-white" />
@@ -170,7 +170,7 @@ export default function FloatingWidgets() {
               e.preventDefault();
               send(input);
             }}
-            className="flex items-center gap-2 p-3 border-t border-border bg-white"
+            className="flex items-centre gap-2 p-3 border-t border-border bg-white"
           >
             <input
               ref={inputRef}
@@ -184,7 +184,7 @@ export default function FloatingWidgets() {
               type="submit"
               disabled={!input.trim() || isLoading}
               aria-label="Send"
-              className="shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-md disabled:opacity-50 hover:scale-105 active:scale-95 transition"
+              className="shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-centre justify-centre shadow-md disabled:opacity-50 hover:scale-105 active:scale-95 transition"
             >
               <Send className="w-4 h-4" />
             </button>

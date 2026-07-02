@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/facebook-ads")({
   head: () => ({
     meta: [
-      { title: "Facebook Ads Agency UK — Meta Ads for Shopify & WooCommerce | BeingEcom" },
-      { name: "description", content: "UK Facebook & Instagram ads agency. Creative-led Meta ads, ASC+ scaling and break-even media buying for ecommerce brands." },
+      { title: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
+      { name: "description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
       { name: "keywords", content: "facebook ads agency uk, meta ads agency uk, instagram ads agency uk, facebook ads agency london, shopify facebook ads agency, dtc meta ads agency, asc+ scaling agency, meta ads consultant uk, best facebook ads agency uk 2026, how much do facebook ads cost uk" },
-      { property: "og:title", content: "Facebook Ads Agency UK | BeingEcom" },
-      { property: "og:description", content: "Profitable Meta ads — creative volume, ASC+ scaling and break-even math." },
+      { property: "og:title", content: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
+      { property: "og:description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/facebook-ads" }],
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { title: "Account & pixel audit", body: "CAPI, attribution, exclusions, asset library." },
         { title: "Creative engine", body: "Weekly batches of UGC, statics, founder, demo." },
         { title: "ASC+ & manual scale", body: "ASC+ for prospecting, manual for control." },
-        { title: "Retargeting & DPA", body: "Dynamic catalog, post-purchase exclusions." },
+        { title: "Retargeting & DPA", body: "Dynamic catalogue, post-purchase exclusions." },
       ],
       pillarsTitle: "What we run inside Meta.",
       pillars: [
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { title: "Campaign structure", body: "ASC+ for scale, CBO for control, separated by margin tier.", tags: ["ASC+","CBO","Margin"] },
         { title: "Creative testing", body: "Hooks, angles, formats — weekly batches with win/kill rules.", tags: ["Hooks","UGC","Iteration"] },
         { title: "CAPI & attribution", body: "Conversions API, deduplication, EMQ score >8.", tags: ["CAPI","EMQ","Server-side"] },
-        { title: "DPA & retargeting", body: "Dynamic catalog, layered audiences, exclusion logic.", tags: ["DPA","Exclusion","Cross-sell"] },
+        { title: "DPA & retargeting", body: "Dynamic catalogue, layered audiences, exclusion logic.", tags: ["DPA","Exclusion","Cross-sell"] },
       ],
       triggersTitle: "Creative angles that scale on Meta.",
       triggers: ["Problem-solution UGC","Founder story","Before/after","Product demo","Testimonial stack","List/Top-X","Native review","Comparison"],

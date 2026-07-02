@@ -488,7 +488,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
     {
       category: "Conversion & trust",
       confidence: s.reachable ? 91 : 30,
-      recommendation: croScore < 65 ? "Prioritize proof, risk reversal, and the purchase path." : "Test incremental PDP and checkout improvements.",
+      recommendation: croScore < 65 ? "Prioritise proof, risk reversal, and the purchase path." : "Test incremental PDP and checkout improvements.",
       drivers: [
         { signal: "Reviews (any form)", detected: s.hasReviews, evidence: s.hasReviews ? `Detected: ${[s.hasReviewApp && "review app", s.hasStarMarkup && "star markup", s.hasReviewText && "review text", s.hasTestimonialBlock && "testimonial block"].filter(Boolean).join(", ")}` : "No reviews, stars, or testimonials detected", impact: s.hasReviews ? "+10 CRO / +12 trust" : "-8 CRO / -10 trust" },
         { signal: "Guarantee", detected: s.hasGuarantee, evidence: signalEvidence(s.hasGuarantee, "Guarantee language detected", "No guarantee detected"), impact: s.hasGuarantee ? "+10 trust points" : "-5 trust points" },
@@ -564,8 +564,8 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
 
   const killers: string[] = [];
   if (!s.hasAddToCart) killers.push("No detectable add-to-cart on landing");
-  if (!s.hasViewport) killers.push("Not mobile-optimized (~70% of traffic)");
-  if (!s.hasMetaPixel && !s.hasGA) killers.push("No tracking pixel — cannot optimize ads");
+  if (!s.hasViewport) killers.push("Not mobile-optimised (~70% of traffic)");
+  if (!s.hasMetaPixel && !s.hasGA) killers.push("No tracking pixel — cannot optimise ads");
   if (!s.metaDesc) killers.push("Missing meta description — low CTR from search");
   if (!s.hasShipping) killers.push("Shipping info not surfaced — cart abandons");
 
@@ -578,7 +578,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   } else if (!s.hasReviewApp && (s.hasReviewText || s.hasTestimonialBlock)) {
     leaks.push({ area: "Social proof", leak: "Testimonials exist but no review collection app — reviews are not compounding", severity: "Low", impact: "Manual proof doesn't scale; install a review widget to gather and syndicate" });
   }
-  if (!s.hasMetaPixel) leaks.push({ area: "Tracking", leak: "Meta Pixel missing", severity: "Critical", impact: "Cannot retarget or optimize Meta ads → 30-50% wasted spend" });
+  if (!s.hasMetaPixel) leaks.push({ area: "Tracking", leak: "Meta Pixel missing", severity: "Critical", impact: "Cannot retarget or optimise Meta ads → 30-50% wasted spend" });
   if (!s.hasGA) leaks.push({ area: "Analytics", leak: "GA4 not detected", severity: "High", impact: "Flying blind on traffic & funnel drop-off" });
   if (!s.hasSchema) leaks.push({ area: "SEO", leak: "No product/FAQ schema", severity: "Medium", impact: "Missing rich results → 15-30% lower organic CTR" });
   if (!s.hasGuarantee) leaks.push({ area: "Risk reversal", leak: "No guarantee on site", severity: "Medium", impact: "Higher cart abandonment from risk-averse buyers" });
@@ -592,7 +592,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   // ---------- Issue classification (severity validated) ----------
   const allIssues: { issue: string; why: string; fix: string; sev: "super" | "hot" | "med" }[] = [];
   if (!s.isHttps) allIssues.push({ issue: "HTTP, not HTTPS", why: "Chrome blocks checkout; trust destroyed", fix: "Enable SSL today via host/platform", sev: "super" });
-  if (!s.hasMetaPixel) allIssues.push({ issue: "Meta Pixel missing", why: "Cannot optimize, retarget or measure ROAS", fix: "Install Pixel + CAPI within 24h", sev: "super" });
+  if (!s.hasMetaPixel) allIssues.push({ issue: "Meta Pixel missing", why: "Cannot optimise, retarget or measure ROAS", fix: "Install Pixel + CAPI within 24h", sev: "super" });
   if (!s.hasViewport) allIssues.push({ issue: "Not mobile-friendly", why: "70% of ecom traffic is mobile", fix: "Add viewport meta + responsive theme", sev: "super" });
   if (s.fakeContact.length > 0) allIssues.push({ issue: "Placeholder contact info on site", why: "Buyers immediately distrust fake phone / email formats", fix: `Replace with real details: ${s.fakeContact[0]}`, sev: "super" });
   if (s.brokenImageCount > 0) allIssues.push({ issue: `${s.brokenImageCount} placeholder image(s) loading`, why: "Hero / product images look broken → PDP conversion collapses", fix: `Replace placeholder asset(s) e.g. ${s.brokenImageSamples[0]}`, sev: "super" });
@@ -700,7 +700,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
     executiveIntelligence: {
       businessReality: `${s.platform} store · ${s.toolCount} tool${s.toolCount === 1 ? "" : "s"} detected (${s.tools.slice(0, 5).join(", ") || "none"}${s.toolCount > 5 ? ", …" : ""}) · market context: ${effectiveCountry}${s.detectedCurrency ? ` (${s.detectedCurrency})` : ""}. Health ${overall}/100.`,
       biggestOpportunity: opportunities[0]?.title || "CRO sprint on PDP & checkout",
-      biggestThreat: s.fakeContact.length > 0 ? "Placeholder contact info destroys first-time trust" : s.brokenImageCount > 0 ? "Broken / placeholder images on storefront" : s.templateResidue.length > 0 ? "Template residue makes the store look abandoned" : !s.hasMetaPixel ? "Untracked ad spend — cannot optimize" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
+      biggestThreat: s.fakeContact.length > 0 ? "Placeholder contact info destroys first-time trust" : s.brokenImageCount > 0 ? "Broken / placeholder images on storefront" : s.templateResidue.length > 0 ? "Template residue makes the store look abandoned" : !s.hasMetaPixel ? "Untracked ad spend — cannot optimise" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
       revenuePotential,
       revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers · fundamentals ${fundamentalsReady ? "ready for scale" : "not yet locked — scale steps gated"}`,
       headline,
@@ -717,7 +717,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       scannedSignals: signalFlags.length,
       detectedSignals,
       coverageNote: s.reachable
-        ? `Analyzed ${s.htmlSize.toLocaleString()} HTML characters and ${signalFlags.length} local on-page signals. Off-site rankings, ad-account data, and checkout-only events are not included.`
+        ? `Analysed ${s.htmlSize.toLocaleString()} HTML characters and ${signalFlags.length} local on-page signals. Off-site rankings, ad-account data, and checkout-only events are not included.`
         : "The storefront could not be fully fetched, so recommendations use limited URL-level evidence.",
       categories: confidenceCategories,
     },
@@ -743,7 +743,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       homepage: s.hasUSP ? "Has USP, can be sharpened" : "Weak hero — no clear value prop",
       productPages: s.hasReviews ? "Reviews present" : "PDP missing reviews/social proof",
       cartCheckout: s.hasShipping ? "Shipping surfaced" : "Shipping unclear — cart abandons",
-      mobile: s.hasViewport ? "Mobile viewport set" : "Not mobile-optimized — critical",
+      mobile: s.hasViewport ? "Mobile viewport set" : "Not mobile-optimised — critical",
       ctaStrength: s.hasAddToCart ? "Add-to-cart present" : "No visible primary CTA",
       friction: friction.slice(0, 5),
       trustGaps: trustGaps.slice(0, 5),
@@ -838,10 +838,10 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       scale: scale.slice(0, 7),
     },
     founderInsights: {
-      privateEquity: `Health ${overall}/100. ${overall >= 60 ? "Fundable with optimization plan" : "Pre-investable — fix fundamentals"}.`,
+      privateEquity: `Health ${overall}/100. ${overall >= 60 ? "Fundable with optimisation plan" : "Pre-investable — fix fundamentals"}.`,
       croExpert: `CRO ${croScore}/100. Focus on ${friction[0] || "PDP trust"}.`,
       brandingExpert: `Brand ${brandAuth}/100. ${s.hasAbout ? "Story exists, sharpen positioning" : "Missing brand story — start there"}.`,
-      performanceMarketer: `Paid ${paidScore}/100. ${s.hasMetaPixel ? "Optimize creative" : "Install pixels first"}.`,
+      performanceMarketer: `Paid ${paidScore}/100. ${s.hasMetaPixel ? "Optimise creative" : "Install pixels first"}.`,
       ceo: `Top 90-day move: ${opportunities[0]?.title || "Install full tracking + email flows"}.`,
     },
   };
@@ -850,11 +850,11 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
 function guessNiche(s: Signals): { industry: string; niche: string; category: string; audience: string; motivation: string; blueOcean1: string; blueOcean2: string } {
   const t = (s.title + " " + s.metaDesc + " " + s.host).toLowerCase();
   if (/coffee|tea|brew/.test(t)) return { industry: "Food & Beverage", niche: "Specialty coffee/tea", category: "Consumables", audience: "Specialty beverage enthusiasts 25-55", motivation: "Daily ritual + flavor experience", blueOcean1: "Coffee + wellness crossover", blueOcean2: "Coffee subscription with rotating origin" };
-  if (/supplement|vitamin|protein|nootropic/.test(t)) return { industry: "Health & Wellness", niche: "Supplements", category: "Health", audience: "Health-conscious 25-50", motivation: "Performance + longevity", blueOcean1: "Personalized supplement stacks", blueOcean2: "Subscription with health-coach access" };
+  if (/supplement|vitamin|protein|nootropic/.test(t)) return { industry: "Health & Wellness", niche: "Supplements", category: "Health", audience: "Health-conscious 25-50", motivation: "Performance + longevity", blueOcean1: "Personalised supplement stacks", blueOcean2: "Subscription with health-coach access" };
   if (/skincare|beauty|cosmetic|skin/.test(t)) return { industry: "Beauty", niche: "Skincare/cosmetics", category: "Beauty", audience: "Beauty buyers 20-45", motivation: "Confidence + self-care", blueOcean1: "Clinical-grade affordable line", blueOcean2: "Male skincare focus" };
   if (/pet|dog|cat/.test(t)) return { industry: "Pet", niche: "Pet products", category: "Pet care", audience: "Pet parents 25-55", motivation: "Pet love + guilt avoidance", blueOcean1: "Vet-formulated subscription", blueOcean2: "Senior pet niche" };
   if (/fashion|cloth|apparel|wear/.test(t)) return { industry: "Fashion", niche: "Apparel", category: "Fashion", audience: "Style buyers 18-45", motivation: "Identity + status", blueOcean1: "Size-inclusive premium", blueOcean2: "Capsule wardrobe positioning" };
-  if (/jewel|ring|necklace/.test(t)) return { industry: "Jewelry", niche: "Fine/fashion jewelry", category: "Jewelry", audience: "Gift buyers + self-purchasers 25-55", motivation: "Emotion + milestone", blueOcean1: "Custom personalized line", blueOcean2: "Lab-grown diamond focus" };
+  if (/jewel|ring|necklace/.test(t)) return { industry: "Jewelry", niche: "Fine/fashion jewelry", category: "Jewelry", audience: "Gift buyers + self-purchasers 25-55", motivation: "Emotion + milestone", blueOcean1: "Custom personalised line", blueOcean2: "Lab-grown diamond focus" };
   if (/home|decor|furniture|kitchen/.test(t)) return { industry: "Home & Lifestyle", niche: "Home goods", category: "Home", audience: "Homeowners + nesters 28-55", motivation: "Comfort + aesthetic identity", blueOcean1: "Modular small-space line", blueOcean2: "Sustainability-led decor" };
   if (/fit|gym|yoga|sport/.test(t)) return { industry: "Fitness", niche: "Fitness/activewear", category: "Sports", audience: "Active adults 20-45", motivation: "Performance + identity", blueOcean1: "Recovery-focused sub-niche", blueOcean2: "Hybrid wear-to-work line" };
   return { industry: "Ecommerce", niche: "DTC retail", category: "Consumer goods", audience: "Online shoppers 25-55", motivation: "Convenience + value + trust", blueOcean1: "Bundle + subscription play", blueOcean2: "Localized premium positioning" };
@@ -864,7 +864,7 @@ function buildCompetitors(n: ReturnType<typeof guessNiche>): z.infer<typeof comp
   return [
     { name: `Top ${n.niche} brand A`, website: "industry-leader-a.com", tier: "Tier 1", positioning: "Premium category leader", strengths: "Brand authority, content, reviews", weaknesses: "Higher prices, slower innovation", usp: "Most trusted name in category" },
     { name: `Top ${n.niche} brand B`, website: "industry-leader-b.com", tier: "Tier 1", positioning: "Volume + value leader", strengths: "Price, distribution, ad spend", weaknesses: "Generic brand, weak loyalty", usp: "Best price-to-quality ratio" },
-    { name: `Challenger ${n.category} brand`, website: "challenger-brand.com", tier: "Tier 2", positioning: "DTC disruptor", strengths: "Strong UGC, modern brand", weaknesses: "Smaller catalog", usp: "Cool factor + community" },
+    { name: `Challenger ${n.category} brand`, website: "challenger-brand.com", tier: "Tier 2", positioning: "DTC disruptor", strengths: "Strong UGC, modern brand", weaknesses: "Smaller catalogue", usp: "Cool factor + community" },
     { name: `Niche specialist`, website: "niche-specialist.com", tier: "Tier 2", positioning: "Specialist for sub-segment", strengths: "Deep niche expertise, loyal base", weaknesses: "Limited TAM", usp: "Best for one specific buyer" },
     { name: `Marketplace alternative`, website: "amazon.com", tier: "Tier 1", positioning: "Marketplace convenience", strengths: "Trust, shipping, reviews", weaknesses: "No brand relationship", usp: "Fastest and easiest checkout" },
   ];

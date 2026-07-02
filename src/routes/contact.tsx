@@ -10,11 +10,11 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact BeingEcom — Free Ecommerce Growth Audit" },
-      { name: "description", content: "Talk to BeingEcom about scaling your Shopify or WooCommerce store. Get a free 12-point ecommerce growth audit within 48 hours. No pitch deck." },
+      { title: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { name: "description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { name: "keywords", content: "contact ecommerce agency uk, free shopify audit uk, ecommerce growth audit london, woocommerce consultation uk, dtc strategy call, book ecommerce agency london, get ecommerce quote uk" },
-      { property: "og:title", content: "Contact BeingEcom — Free Ecommerce Growth Audit" },
-      { property: "og:description", content: "Send us your store. We send back a 12-point loss-recovery plan within 48 hours." },
+      { property: "og:title", content: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { property: "og:description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { property: "og:url", content: "https://beingecom.com/contact" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],
@@ -32,7 +32,7 @@ function Contact() {
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre lg:text-left">
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Contact</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04]">
             Get your <span className="text-gradient">free ecommerce growth audit</span>.
@@ -48,7 +48,7 @@ function Contact() {
           <div className="min-w-0 rounded-3xl border border-border bg-card/60 p-5 sm:p-6 lg:p-8">
 
             {sent ? (
-              <div className="py-16 text-center">
+              <div className="py-16 text-centre">
                 <div className="text-5xl mb-4">✓</div>
                 <h3 className="text-2xl font-bold">Got it.</h3>
                 <p className="mt-2 text-muted-foreground">We'll be in touch within 24 hours with next steps.</p>

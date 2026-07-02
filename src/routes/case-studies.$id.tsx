@@ -59,10 +59,10 @@ export const Route = createFileRoute("/case-studies/$id")({
   component: CaseStudyDetail,
   notFoundComponent: () => (
     <PageLayout>
-      <div className="mx-auto max-w-3xl px-5 py-32 text-center">
+      <div className="mx-auto max-w-3xl px-5 py-32 text-centre">
         <h1 className="text-3xl font-bold text-ink">Case study not found</h1>
         <p className="mt-3 text-muted-foreground">It may have moved. Browse all wins below.</p>
-        <Link to="/case-studies" className="mt-6 inline-flex items-center gap-2 text-primary font-semibold">
+        <Link to="/case-studies" className="mt-6 inline-flex items-centre gap-2 text-primary font-semibold">
           <ArrowLeft className="w-4 h-4" /> Back to case studies
         </Link>
       </div>
@@ -70,7 +70,7 @@ export const Route = createFileRoute("/case-studies/$id")({
   ),
   errorComponent: ({ reset }) => (
     <PageLayout>
-      <div className="mx-auto max-w-3xl px-5 py-32 text-center">
+      <div className="mx-auto max-w-3xl px-5 py-32 text-centre">
         <h1 className="text-3xl font-bold text-ink">Something went wrong</h1>
         <button onClick={reset} className="mt-6 text-primary font-semibold">Try again</button>
       </div>
@@ -170,7 +170,7 @@ function strategyBlocks(s: Study) {
           ],
     },
     {
-      title: "Conversion Rate Optimization",
+      title: "Conversion Rate Optimisation",
       active: croFocused,
       points: croFocused
         ? s.strategy.length >= 3
@@ -275,18 +275,18 @@ function CaseStudyDetail() {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className={`relative bg-gradient-to-br ${s.color} text-white overflow-hidden`}>
+      <section className={`relative bg-gradient-to-br ${s.colour} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
         <div className="mx-auto max-w-6xl px-5 lg:px-8 pt-24 lg:pt-32 pb-16 lg:pb-20 relative">
           <Link
             to="/case-studies"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white"
+            className="inline-flex items-centre gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" /> All case studies
           </Link>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-widest">
-            <span className="bg-white/20 backdrop-blur px-2.5 py-1 rounded-full inline-flex items-center gap-1.5">
+          <div className="mt-6 flex flex-wrap items-centre gap-2 text-[11px] font-bold uppercase tracking-widest">
+            <span className="bg-white/20 backdrop-blur px-2.5 py-1 rounded-full inline-flex items-centre gap-1.5">
               <CatIcon className="w-3 h-3" /> {s.category}
             </span>
             <span className="bg-white/15 backdrop-blur px-2.5 py-1 rounded-full">{s.industry}</span>
@@ -345,7 +345,7 @@ function CaseStudyDetail() {
 
         {/* Before */}
         <section>
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-centre gap-2 text-primary">
             <AlertTriangle className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Before — the situation</div>
           </div>
@@ -376,7 +376,7 @@ function CaseStudyDetail() {
 
         {/* Strategy */}
         <section>
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-centre gap-2 text-primary">
             <Target className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Strategy & implementation</div>
           </div>
@@ -412,7 +412,7 @@ function CaseStudyDetail() {
 
         {/* After Results */}
         <section>
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-centre gap-2 text-primary">
             <TrendingUp className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">After — the results</div>
           </div>
@@ -420,7 +420,7 @@ function CaseStudyDetail() {
 
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
             {afterResults(s).map((m) => (
-              <div key={m.label} className="rounded-2xl border border-border bg-white p-4 text-center">
+              <div key={m.label} className="rounded-2xl border border-border bg-white p-4 text-centre">
                 <div className="text-2xl sm:text-3xl font-bold text-gradient">{m.value}</div>
                 <div className="mt-1 text-[11px] font-semibold text-ink">{m.label}</div>
                 <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{m.sub}</div>
@@ -430,7 +430,7 @@ function CaseStudyDetail() {
 
           {/* Before vs After chart */}
           <div className="mt-8 card-surface p-5 sm:p-6">
-            <div className="flex items-center gap-2 text-ink">
+            <div className="flex items-centre gap-2 text-ink">
               <BarChart3 className="w-4 h-4 text-primary" />
               <h3 className="text-base font-bold">Before vs After — at a glance</h3>
             </div>
@@ -443,14 +443,14 @@ function CaseStudyDetail() {
                     <span className="text-emerald-600">{p.delta}</span>
                   </div>
                   <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-centre gap-2">
                       <span className="w-14 text-[10px] uppercase text-muted-foreground font-semibold">Before</span>
                       <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
                         <div className="h-full bg-ink/30 rounded-full" style={{ width: `${p.beforePct}%` }} />
                       </div>
                       <span className="w-12 text-[10px] tabular-nums text-right text-muted-foreground">{p.before}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-centre gap-2">
                       <span className="w-14 text-[10px] uppercase text-primary font-semibold">After</span>
                       <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
                         <div className="h-full bg-gradient-to-r from-primary to-[oklch(0.55_0.2_265)] rounded-full" style={{ width: `${p.afterPct}%` }} />
@@ -482,7 +482,7 @@ function CaseStudyDetail() {
 
         {/* Final Outcome */}
         <section>
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-centre gap-2 text-primary">
             <Trophy className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Final outcome</div>
           </div>
@@ -504,7 +504,7 @@ function CaseStudyDetail() {
 
         {/* FAQ */}
         <section>
-          <div className="flex items-center gap-2 text-primary">
+          <div className="flex items-centre gap-2 text-primary">
             <HelpCircle className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Frequently asked</div>
           </div>
@@ -512,7 +512,7 @@ function CaseStudyDetail() {
           <div className="mt-5 space-y-3">
             {buildCaseFaqs(s).map((f) => (
               <details key={f.q} className="card-surface p-4 group">
-                <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
+                <summary className="cursor-pointer list-none flex items-centre justify-between gap-3">
                   <span className="font-semibold text-ink text-sm sm:text-base">{f.q}</span>
                   <ArrowRight className="w-4 h-4 text-primary transition group-open:rotate-90 shrink-0" />
                 </summary>
@@ -533,7 +533,7 @@ function CaseStudyDetail() {
             params={{ id: prev.id }}
             className="card-surface p-4 hover:border-primary/40 transition group"
           >
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center gap-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-centre gap-1.5">
               <ArrowLeft className="w-3 h-3" /> Previous
             </div>
             <div className="mt-1.5 text-sm font-semibold text-ink group-hover:text-primary line-clamp-2">{prev.title}</div>
@@ -543,7 +543,7 @@ function CaseStudyDetail() {
             params={{ id: next.id }}
             className="card-surface p-4 hover:border-primary/40 transition group text-right"
           >
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center justify-end gap-1.5">
+            <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-centre justify-end gap-1.5">
               Next <ArrowRight className="w-3 h-3" />
             </div>
             <div className="mt-1.5 text-sm font-semibold text-ink group-hover:text-primary line-clamp-2">{next.title}</div>
@@ -575,7 +575,7 @@ function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
 
   return (
     <section>
-      <div className="flex items-center gap-2 text-primary">
+      <div className="flex items-centre gap-2 text-primary">
         <TrendingUp className="w-5 h-5" />
         <div className="text-[11px] font-bold uppercase tracking-widest">Related wins</div>
       </div>
@@ -592,8 +592,8 @@ function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
                 params={{ id: x.id }}
                 className={`card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition`}
               >
-                <div className={`h-24 bg-gradient-to-br ${x.color} relative px-3 py-2 flex items-end`}>
-                  <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
+                <div className={`h-24 bg-gradient-to-br ${x.colour} relative px-3 py-2 flex items-end`}>
+                  <span className="inline-flex items-centre gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
                     <Icon className="w-2.5 h-2.5" /> {x.category}
                   </span>
                   <div className="ml-auto text-right">

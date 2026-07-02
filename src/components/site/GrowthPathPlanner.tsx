@@ -61,8 +61,8 @@ export default function GrowthPathPlanner() {
 
       <div className="mx-auto max-w-6xl px-5 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+        <div className="text-centre mb-14">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
             <Target className="w-3.5 h-3.5" /> Growth Path Planner
           </div>
           <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
@@ -75,13 +75,13 @@ export default function GrowthPathPlanner() {
         </div>
 
         {/* Step pills */}
-        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+        <div className="flex items-centre justify-centre gap-2 mb-10 flex-wrap">
           {["Choose engine", "Set goal", "Pick target", "See plan"].map((label, i) => {
             const active = i + 1 <= step;
             return (
-              <div key={label} className="flex items-center gap-2">
-                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${active ? "bg-foreground text-background shadow-sm" : "bg-secondary text-muted-foreground"}`}>
-                  <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${active ? "bg-white/20" : "bg-background"}`}>{active && i + 1 < step ? <Check className="w-3 h-3" /> : i + 1}</span>
+              <div key={label} className="flex items-centre gap-2">
+                <div className={`flex items-centre gap-2 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${active ? "bg-foreground text-background shadow-sm" : "bg-secondary text-muted-foreground"}`}>
+                  <span className={`w-5 h-5 rounded-full flex items-centre justify-centre text-[10px] ${active ? "bg-white/20" : "bg-background"}`}>{active && i + 1 < step ? <Check className="w-3 h-3" /> : i + 1}</span>
                   {label}
                 </div>
                 {i < 3 && <div className={`w-6 h-px ${active && i + 1 < step ? "bg-primary" : "bg-border"}`} />}
@@ -98,8 +98,8 @@ export default function GrowthPathPlanner() {
           >
             <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-orange-500/20 blur-3xl group-hover:bg-orange-500/40 transition-colors" />
             <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="w-14 h-14 rounded-2xl bg-orange-500/15 text-orange-500 flex items-center justify-center shadow-inner">
+              <div className="flex items-centre justify-between">
+                <div className="w-14 h-14 rounded-2xl bg-orange-500/15 text-orange-500 flex items-centre justify-centre shadow-inner">
                   <Zap className="w-7 h-7" strokeWidth={2.2} />
                 </div>
                 <div className={`text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full ${path === "ads" ? "bg-orange-500 text-white" : "bg-orange-500/10 text-orange-500"}`}>Quick</div>
@@ -108,7 +108,7 @@ export default function GrowthPathPlanner() {
               <p className="mt-1 text-sm text-muted-foreground">Costly, but sales start flowing in days.</p>
               <ul className="mt-5 space-y-2 text-sm">
                 {["Results in 7-30 days", "Meta · Google · TikTok", "Scales with your budget"].map((t) => (
-                  <li key={t} className="flex items-center gap-2 text-ink/80"><Flame className="w-3.5 h-3.5 text-orange-500" />{t}</li>
+                  <li key={t} className="flex items-centre gap-2 text-ink/80"><Flame className="w-3.5 h-3.5 text-orange-500" />{t}</li>
                 ))}
               </ul>
             </div>
@@ -120,8 +120,8 @@ export default function GrowthPathPlanner() {
           >
             <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-primary/20 blur-3xl group-hover:bg-primary/40 transition-colors" />
             <div className="relative">
-              <div className="flex items-center justify-between">
-                <div className="w-14 h-14 rounded-2xl bg-primary/15 text-primary flex items-center justify-center shadow-inner">
+              <div className="flex items-centre justify-between">
+                <div className="w-14 h-14 rounded-2xl bg-primary/15 text-primary flex items-centre justify-centre shadow-inner">
                   <Search className="w-7 h-7" strokeWidth={2.2} />
                 </div>
                 <div className={`text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full ${path === "seo" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>Lifetime</div>
@@ -130,7 +130,7 @@ export default function GrowthPathPlanner() {
               <p className="mt-1 text-sm text-muted-foreground">Patient. Affordable. Pays you forever.</p>
               <ul className="mt-5 space-y-2 text-sm">
                 {["Compounds for years", "Free traffic from Google", "3-6 mo to break through"].map((t) => (
-                  <li key={t} className="flex items-center gap-2 text-ink/80"><InfinityIcon className="w-3.5 h-3.5 text-primary" />{t}</li>
+                  <li key={t} className="flex items-centre gap-2 text-ink/80"><InfinityIcon className="w-3.5 h-3.5 text-primary" />{t}</li>
                 ))}
               </ul>
             </div>
@@ -143,7 +143,7 @@ export default function GrowthPathPlanner() {
             <div className="lg:col-span-3 space-y-5">
               {/* Goal selector */}
               <div className="card-surface p-6">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-centre justify-between mb-4">
                   <div>
                     <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Step 2</div>
                     <div className="font-semibold text-ink mt-0.5">What do you want to grow?</div>
@@ -243,19 +243,19 @@ export default function GrowthPathPlanner() {
             <div className="lg:col-span-2">
                <div className="sticky top-24 relative overflow-hidden rounded-3xl p-7 bg-foreground text-background shadow-[0_40px_100px_-30px_oklch(0.16_0.02_250/0.6)]">
                 <div className="relative">
-                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold opacity-70">
+                  <div className="flex items-centre gap-2 text-[10px] uppercase tracking-[0.2em] font-bold opacity-70">
                      <span className="w-1.5 h-1.5 rounded-full bg-background animate-pulse" />
                     Your growth plan
                   </div>
                   <div className="mt-5 space-y-5">
                     <div>
-                      <div className="text-xs opacity-60 flex items-center gap-1.5"><Clock className="w-3 h-3" /> Timeline</div>
+                      <div className="text-xs opacity-60 flex items-centre gap-1.5"><Clock className="w-3 h-3" /> Timeline</div>
                       <div className="text-3xl font-bold mt-1">{plan?.timeline}</div>
                     </div>
                     <div className="h-px bg-white/10" />
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <div className="text-xs opacity-60 flex items-center gap-1.5"><DollarSign className="w-3 h-3" /> Total spend</div>
+                        <div className="text-xs opacity-60 flex items-centre gap-1.5"><DollarSign className="w-3 h-3" /> Total spend</div>
                         <div className="text-xl font-bold mt-1">${plan?.spend.toLocaleString()}</div>
                       </div>
                       <div>
@@ -265,7 +265,7 @@ export default function GrowthPathPlanner() {
                     </div>
                     <div className="h-px bg-white/10" />
                     <div>
-                      <div className="text-xs opacity-60 flex items-center gap-1.5"><TrendingUp className="w-3 h-3" /> Projected outcome</div>
+                      <div className="text-xs opacity-60 flex items-centre gap-1.5"><TrendingUp className="w-3 h-3" /> Projected outcome</div>
                        <div className="text-2xl font-bold mt-1 text-background">{plan?.kpi}</div>
                       <div className="text-xs opacity-70 mt-1.5">{plan?.sub}</div>
                     </div>
@@ -275,7 +275,7 @@ export default function GrowthPathPlanner() {
                       ⚠ {plan.warning}
                     </div>
                   )}
-                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-background text-foreground font-semibold py-3 px-5 hover:bg-accent hover:text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl">
+                   <Link to="/contact" className="mt-6 w-full inline-flex items-centre justify-centre gap-2 rounded-full bg-background text-foreground font-semibold py-3 px-5 hover:bg-accent hover:text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl">
                     Book Strategy Call <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

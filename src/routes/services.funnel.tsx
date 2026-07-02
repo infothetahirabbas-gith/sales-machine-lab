@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Funnel & Landing Page Optimization | BeingEcom" },
-      { name: "description", content: "Build high-converting ecommerce funnels and landing pages for Shopify & WooCommerce — from cold-traffic bridge pages to retargeting and post-purchase journeys." },
+      { title: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
+      { name: "description", content: "UK ecommerce funnel agency. High-converting Shopify landing pages, bridge funnels and post-purchase journeys designed for higher AOV and LTV." },
       { name: "keywords", content: "ecommerce funnel agency uk, shopify landing page agency, ecommerce landing page design uk, sales funnel agency london, dtc funnel optimisation, bridge page agency, retargeting funnel uk" },
-      { property: "og:title", content: "Ecommerce Funnel & Landing Page Optimization | BeingEcom" },
-      { property: "og:description", content: "Build high-converting ecommerce funnels and landing pages for Shopify & WooCommerce — from cold-traffic bridge pages to retargeting and post-purchase journeys." },
+      { property: "og:title", content: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
+      { property: "og:description", content: "UK ecommerce funnel agency. High-converting Shopify landing pages, bridge funnels and post-purchase journeys designed for higher AOV and LTV." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
     ],
@@ -46,9 +46,9 @@ export const Route = createFileRoute("/services/funnel")({
   component: () => (
     <ServicePage cfg={{
       slug: "funnel",
-      eyebrow: "Funnel & Customer Journey Optimization",
+      eyebrow: "Funnel & Customer Journey Optimisation",
       heroTitle: "Turn visitors into buyers - automatically.",
-      heroSub: "Map the journey, optimize each stage, plug every leak - from first touch to repeat purchase.",
+      heroSub: "Map the journey, optimise each stage, plug every leak - from first touch to repeat purchase.",
       problemTitle: "Your store isn't a funnel - it's a maze.",
       problemBullets: [
         "Cold traffic dumped straight onto PDPs.",
@@ -72,9 +72,9 @@ export const Route = createFileRoute("/services/funnel")({
         { title: "Retention", body: "Lifecycle flows that bring buyers back." },
       ],
       deepBlocks: [
-        { title: "Awareness optimization", body: "Hook-driven creatives, content, broad TOF audiences.", tags: ["TOF","UGC","Content"] },
-        { title: "Consideration optimization", body: "Landing pages, comparison content, review pages.", tags: ["LP","Compare","Reviews"] },
-        { title: "Conversion optimization", body: "PDP, cart, checkout, post-add-to-cart upsell.", tags: ["PDP","Cart","Checkout"] },
+        { title: "Awareness optimisation", body: "Hook-driven creatives, content, broad TOF audiences.", tags: ["TOF","UGC","Content"] },
+        { title: "Consideration optimisation", body: "Landing pages, comparison content, review pages.", tags: ["LP","Compare","Reviews"] },
+        { title: "Conversion optimisation", body: "PDP, cart, checkout, post-add-to-cart upsell.", tags: ["PDP","Cart","Checkout"] },
         { title: "Landing page funnels", body: "Advertorial → product, quiz → product, listicle → collection.", tags: ["Advertorial","Quiz","Listicle"] },
         { title: "Sales funnel design", body: "Multi-step offers, AOV stacks, post-purchase upsell flows.", tags: ["Upsell","AOV","Bundle"] },
         { title: "Retargeting funnels", body: "Layered retargeting + dynamic product ads + email triggers.", tags: ["DPA","Layered","Email"] },

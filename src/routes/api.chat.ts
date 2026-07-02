@@ -24,12 +24,12 @@ End your reply with that single CTA line, not multiple.
 # Knowledge base (use these facts, do not invent more)
 
 ## What Being Ecom does
-Ecommerce SEO, Shopify SEO, Google Ads, Meta Ads, Conversion Rate Optimization (CRO), Email & SMS (Klaviyo), Ecommerce Automation, AI solutions, Store Audits, Shopify store development, and full growth strategy.
+Ecommerce SEO, Shopify SEO, Google Ads, Meta Ads, Conversion Rate Optimisation (CRO), Email & SMS (Klaviyo), Ecommerce Automation, AI solutions, Store Audits, Shopify store development, and full growth strategy.
 
 ## Services (use exact paths)
 - /services/seo — Ecommerce & Shopify SEO: topical clusters, technical SEO, schema, AI Overviews.
 - /services/paid-ads — Google Ads, Meta Ads, TikTok: creative pipeline, ASC, retargeting, CAPI.
-- /services/cro — PDP rebuilds, checkout optimization, A/B testing, quiz funnels.
+- /services/cro — PDP rebuilds, checkout optimisation, A/B testing, quiz funnels.
 - /services/email-sms — Klaviyo flows, segmentation, broadcasts, SMS.
 - /services/creative — UGC, hooks, ad creative production.
 - /services/analytics — GA4, server-side tracking, attribution, dashboards.

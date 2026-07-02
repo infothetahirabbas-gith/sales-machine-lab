@@ -19,7 +19,7 @@ const services: ServiceItem[] = [
     ],
   },
   { to: "/services/creative", label: "Creative Testing" },
-  { to: "/services/cro", label: "Conversion Rate Optimization" },
+  { to: "/services/cro", label: "Conversion Rate Optimisation" },
   { to: "/services/email-sms", label: "Email Marketing" },
   { to: "/services/store-development", label: "Store Development" },
   { to: "/services/ai-automation", label: "AI Automation" },
@@ -30,14 +30,14 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
-        <Link to="/" className="flex items-center shrink-0 leading-none min-w-0" aria-label="BeingEcom home">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-centre justify-between gap-2 lg:gap-6">
+        <Link to="/" className="flex items-centre shrink-0 leading-none min-w-0" aria-label="BeingEcom home">
           <img src={logo} alt="Being Ecom" width="680" height="200" decoding="async" fetchPriority="high" className="h-9 md:h-11 lg:h-14 w-auto block object-contain" />
         </Link>
-        <nav className="hidden lg:flex items-center gap-7 text-sm">
+        <nav className="hidden lg:flex items-centre gap-7 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
           <div className="relative group">
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
+            <button className="inline-flex items-centre gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
               <div className="w-80 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
                 {services.map((s) => (
@@ -65,11 +65,11 @@ export default function Header() {
           <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
-        <div className="flex items-center gap-2 shrink-0">
-          <Link to="/contact" className="hidden lg:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-sm hover:bg-primary/90 transition-colors text-sm px-4 py-2">
+        <div className="flex items-centre gap-2 shrink-0">
+          <Link to="/contact" className="hidden lg:inline-flex items-centre rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-sm hover:bg-primary/90 transition-colors text-sm px-4 py-2">
             Book Strategy Call →
           </Link>
-           <button onClick={() => setOpen(!open)} className="lg:hidden shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
+           <button onClick={() => setOpen(!open)} className="lg:hidden shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-centre justify-centre text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-6" strokeWidth={2.5} /> : <Menu className="size-6" strokeWidth={2.5} />}
           </button>
         </div>
@@ -83,7 +83,7 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                className="w-full flex items-centre justify-between px-3 py-2 rounded hover:bg-secondary"
                 aria-expanded={servicesOpen}
               >
                 <span>Services</span>

@@ -6,11 +6,11 @@ import { serviceJsonLd, breadcrumbJsonLd } from "../lib/seo";
 export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Performance Marketing Agency UK — Meta, Google, TikTok & Media Buying | BeingEcom" },
-      { name: "description", content: "UK performance marketing agency running profitable Facebook Ads, Google Ads, TikTok Ads and full-funnel media buying for Shopify & WooCommerce brands." },
+      { title: "Performance Marketing Agency UK — Full-Funnel Paid Media | BeingEcom" },
+      { name: "description", content: "UK performance marketing agency for ecommerce. Blended-ROAS media buying across Meta, Google, TikTok and programmatic — engineered for MER, LTV and profitable growth." },
       { name: "keywords", content: "performance marketing agency uk, performance marketing agency london, ecommerce performance marketing, paid media agency uk, growth marketing agency uk, full funnel performance agency, media buying agency uk, ecommerce ppc uk, best performance marketing agency london 2026" },
-      { property: "og:title", content: "Performance Marketing Agency UK | BeingEcom" },
-      { property: "og:description", content: "Facebook, Google, TikTok ads and media buying engineered for profitable ecommerce scale." },
+      { property: "og:title", content: "Performance Marketing Agency UK — Full-Funnel Paid Media | BeingEcom" },
+      { property: "og:description", content: "UK performance marketing agency for ecommerce. Blended-ROAS media buying across Meta, Google, TikTok and programmatic — engineered for MER, LTV and profitable growth." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing" }],

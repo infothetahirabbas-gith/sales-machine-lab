@@ -67,11 +67,11 @@ const showcaseImages = [
 export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Case Studies — Shopify & WooCommerce Growth Results | BeingEcom" },
-      { name: "description", content: "40+ real Shopify & WooCommerce case studies. See revenue, ROAS, SEO, and conversion lifts from BeingEcom's ecommerce growth system." },
+      { title: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
+      { name: "description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
       { name: "keywords", content: "ecommerce case studies uk, shopify case studies uk, woocommerce case studies, dtc growth case studies london, roas case study uk, ecommerce seo results case study, cro case study shopify uk" },
-      { property: "og:title", content: "Ecommerce Case Studies — Real Shopify & WooCommerce Growth Results" },
-      { property: "og:description", content: "40+ wins across Ads, SEO and CRO for Shopify & WooCommerce brands." },
+      { property: "og:title", content: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
+      { property: "og:description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
@@ -130,7 +130,7 @@ const makeChart = (seed: number, growth = 1.6) => {
   return arr;
 };
 
-const RAW: Omit<Study, "color" | "chart">[] = [
+const RAW: Omit<Study, "colour" | "chart">[] = [
   // ADS (15)
   { id: "a1", title: "Apparel brand: $18K → $214K/mo in 6 months", brand: "Northwind Apparel", industry: "Shopify · Apparel", category: "Ads", metric: "11.9×", metricLabel: "Revenue", duration: "6 months", problem: "Stuck at 1.5× ROAS, no creative testing system, single audience.", strategy: ["Built a 30-creative/week production pipeline", "Restructured Meta funnel into ASC + manual retargeting", "Added TikTok Spark Ads as cold layer"], results: [{ v: "11.9×", l: "Revenue" }, { v: "3.8×", l: "ROAS" }, { v: "+285%", l: "CR" }], takeaway: "Creative volume beats audience tinkering 9 out of 10 times." },
   { id: "a2", title: "Dropshipping gadgets: 0 → $62K/mo cold launch", brand: "GearLoop", industry: "Shopify · Gadgets", category: "Ads", metric: "2.6×", metricLabel: "ROAS", duration: "90 days", problem: "Brand new store, no historical data, flat creatives.", strategy: ["UGC angle stack across 5 personas", "ASC with broad cold + lookalike layer", "Daily creative refresh on top 3 winners"], results: [{ v: "$62K", l: "MRR" }, { v: "2.6×", l: "ROAS" }, { v: "90d", l: "to scale" }], takeaway: "Speed of iteration matters more than perfection." },
@@ -152,7 +152,7 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "s1", title: "Skincare: 0 → 84K organic visits/mo", brand: "Pure Botanica", industry: "Shopify · Skincare", category: "SEO", metric: "84K", metricLabel: "Visits/mo", duration: "9 months", problem: "Zero organic traffic, no content engine, weak product pages.", strategy: ["Topical cluster build: 120 articles", "Product page schema + reviews markup", "Internal linking framework"], results: [{ v: "84K", l: "Visits" }, { v: "1.2K", l: "Keywords" }, { v: "$31K", l: "Organic MRR" }], takeaway: "Topical authority compounds faster than backlinks for ecom." },
   { id: "s2", title: "Apparel: ranked 340 product pages page 1", brand: "Northwind Apparel", industry: "Shopify · Apparel", category: "SEO", metric: "340", metricLabel: "Page 1", duration: "12 months", problem: "Collection pages cannibalizing each other, no PDP SEO.", strategy: ["PDP template with FAQ schema", "Long-tail keyword per variant", "Programmatic SEO for 'X for Y' searches"], results: [{ v: "340", l: "Top 10" }, { v: "+412%", l: "Organic" }, { v: "$48K", l: "MRR" }], takeaway: "Programmatic SEO on ecom is underrated." },
   { id: "s3", title: "Supplements: featured snippet wins +220%", brand: "VitalCore", industry: "Shopify · Supplements", category: "SEO", metric: "+220%", metricLabel: "Featured snippets", duration: "6 months", problem: "Blog ranked but no SERP features.", strategy: ["Restructured H2s as question format", "40-60 word answer at top of each post", "Schema FAQPage on all blog posts"], results: [{ v: "+220%", l: "Snippets" }, { v: "+88%", l: "CTR" }, { v: "+52%", l: "Traffic" }], takeaway: "Format determines SERP feature wins more than authority does." },
-  { id: "s4", title: "Pet brand: local SEO +14 cities ranked", brand: "Pawform", industry: "Shopify · Pet", category: "SEO", metric: "+14", metricLabel: "Cities ranked", duration: "5 months", problem: "Strong nationally, invisible in local pack.", strategy: ["City landing page template", "Local backlink outreach", "GMB optimization per region"], results: [{ v: "+14", l: "Cities" }, { v: "+62%", l: "Local rev" }, { v: "$22K", l: "Local MRR" }], takeaway: "Local SEO works for ecom when you have warehouse or pickup points." },
+  { id: "s4", title: "Pet brand: local SEO +14 cities ranked", brand: "Pawform", industry: "Shopify · Pet", category: "SEO", metric: "+14", metricLabel: "Cities ranked", duration: "5 months", problem: "Strong nationally, invisible in local pack.", strategy: ["City landing page template", "Local backlink outreach", "GMB optimisation per region"], results: [{ v: "+14", l: "Cities" }, { v: "+62%", l: "Local rev" }, { v: "$22K", l: "Local MRR" }], takeaway: "Local SEO works for ecom when you have warehouse or pickup points." },
   { id: "s5", title: "Beauty: blog to revenue $84K attribution", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "SEO", metric: "$84K", metricLabel: "Blog rev", duration: "8 months", problem: "Blog traffic existed, but zero revenue attribution.", strategy: ["Tutorial-style content with embedded PDPs", "Email capture mid-article", "Exit-intent offers per category"], results: [{ v: "$84K", l: "Blog rev" }, { v: "12%", l: "Conv rate" }, { v: "+38%", l: "Email list" }], takeaway: "Top of funnel content needs commercial bridges, not just CTAs." },
   { id: "s6", title: "Home goods: technical SEO +180% crawl", brand: "Hearthline", industry: "WooCommerce · Home", category: "SEO", metric: "+180%", metricLabel: "Indexed pages", duration: "3 months", problem: "Only 22% of products indexed by Google.", strategy: ["Fixed canonical chains", "Removed faceted nav duplicates via robots", "XML sitemap segmented by type"], results: [{ v: "+180%", l: "Indexed" }, { v: "+94%", l: "Organic" }, { v: "+44%", l: "Revenue" }], takeaway: "Most ecom SEO problems are crawl problems, not content problems." },
   { id: "s7", title: "Jewelry: backlink campaign DR 22 → 51", brand: "Auralune", industry: "Shopify · Jewelry", category: "SEO", metric: "DR 51", metricLabel: "Domain Rating", duration: "10 months", problem: "Low authority, couldn't rank for category terms.", strategy: ["Digital PR with seasonal data studies", "HARO + Connectively outreach weekly", "Guest features in 14 niche publications"], results: [{ v: "DR 51", l: "Authority" }, { v: "+340", l: "Ref domains" }, { v: "Top 5", l: "Category KW" }], takeaway: "Earned links from PR outrank built links from outreach." },
@@ -163,7 +163,7 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "s12", title: "Eyewear: international SEO 4 new markets", brand: "Frame & Co.", industry: "Shopify · Eyewear", category: "SEO", metric: "4", metricLabel: "New markets", duration: "9 months", problem: "US-only despite global demand.", strategy: ["Hreflang implementation for UK/AU/CA/DE", "Localized content per market", "Country-specific GMB profiles"], results: [{ v: "4", l: "Markets" }, { v: "+62%", l: "Global rev" }, { v: "$41K", l: "Intl MRR" }], takeaway: "Hreflang done right is the cheapest revenue unlock for global ecom." },
   { id: "s13", title: "Streetwear: core web vitals fix +51% organic", brand: "Cypher Drop", industry: "Shopify · Streetwear", category: "SEO", metric: "+51%", metricLabel: "Organic sessions", duration: "3 months", problem: "Poor LCP/CLS scores killing rankings post-update.", strategy: ["LCP under 1.8s via image preloading", "Eliminated CLS from lazy-loaded reviews", "Edge caching for collection pages"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Core Web Vitals are now a ranking tax — pay it or fall." },
   { id: "s14", title: "Tea brand: 'best of' content +74K clicks", brand: "Steepwell", industry: "Shopify · Beverage", category: "SEO", metric: "+74K", metricLabel: "Clicks/mo", duration: "7 months", problem: "Invisible for commercial intent comparison queries.", strategy: ["48 'best X tea for Y' comparison posts", "Embedded product comparison tables", "Affiliate-style CTA into own PDPs"], results: [{ v: "+74K", l: "Clicks" }, { v: "12.3%", l: "CTR" }, { v: "$26K", l: "MRR" }], takeaway: "Bottom-funnel comparison content converts 8× higher than how-to posts." },
-  { id: "s15", title: "Watches: GSC CTR optimization +44% clicks", brand: "Meridian Watch Co.", industry: "Shopify · Watches", category: "SEO", metric: "+44%", metricLabel: "GSC clicks", duration: "8 weeks", problem: "Ranking well but losing clicks to richer SERP snippets.", strategy: ["Rewrote 80 underperforming title tags via GSC data", "Power words + brackets + year in titles", "Meta descriptions with explicit benefit"], results: [{ v: "+44%", l: "Clicks" }, { v: "+18%", l: "Avg position" }, { v: "+29%", l: "Rev" }], takeaway: "Search Console is the highest-ROI SEO tool nobody fully uses." },
+  { id: "s15", title: "Watches: GSC CTR optimisation +44% clicks", brand: "Meridian Watch Co.", industry: "Shopify · Watches", category: "SEO", metric: "+44%", metricLabel: "GSC clicks", duration: "8 weeks", problem: "Ranking well but losing clicks to richer SERP snippets.", strategy: ["Rewrote 80 underperforming title tags via GSC data", "Power words + brackets + year in titles", "Meta descriptions with explicit benefit"], results: [{ v: "+44%", l: "Clicks" }, { v: "+18%", l: "Avg position" }, { v: "+29%", l: "Rev" }], takeaway: "Search Console is the highest-ROI SEO tool nobody fully uses." },
   { id: "s16", title: "Candles: AI Overviews citations on 22 queries", brand: "Hearthwax", industry: "Shopify · Home", category: "SEO", metric: "22", metricLabel: "AI cites", duration: "5 months", problem: "Losing traffic to Google AI Overviews with no presence inside them.", strategy: ["Restructured posts into question/answer chunks", "Added definition blocks + sourced statistics", "Implemented Article + HowTo schema"], results: [{ v: "22", l: "AIO cites" }, { v: "+38%", l: "Referral" }, { v: "Top 3", l: "Avg cited" }], takeaway: "In the AI Overviews era, structure and citations matter more than length." },
 
   // CRO (12)
@@ -171,7 +171,7 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "c2", title: "Gadgets: checkout abandonment -38%", brand: "GearLoop", industry: "Shopify · Gadgets", category: "CRO", metric: "-38%", metricLabel: "Abandonment", duration: "4 weeks", problem: "Express checkout missing, shipping shock at step 3.", strategy: ["Shop Pay + Apple Pay above fold", "Shipping cost in cart, not checkout", "Trust badges next to CTA"], results: [{ v: "-38%", l: "Abandon" }, { v: "+24%", l: "Conv" }, { v: "$32K", l: "Recovered" }], takeaway: "Show all costs in cart. Never surprise at checkout." },
   { id: "c3", title: "Skincare: bundle builder +41% AOV", brand: "Pure Botanica", industry: "Shopify · Skincare", category: "CRO", metric: "+41%", metricLabel: "AOV", duration: "6 weeks", problem: "Single-product purchases dominant, no bundling logic.", strategy: ["Build-your-own routine widget", "Tiered discount: 3 = 10%, 5 = 20%", "Subscription bundle CTA"], results: [{ v: "+41%", l: "AOV" }, { v: "+22%", l: "CR" }, { v: "44%", l: "Bundle rate" }], takeaway: "Bundles change unit economics more than discounts do." },
   { id: "c4", title: "Footwear: size confidence +28% CR", brand: "Stride Co.", industry: "Shopify · Footwear", category: "CRO", metric: "+28%", metricLabel: "CR", duration: "5 weeks", problem: "30% returns due to size, hesitation visible in heatmaps.", strategy: ["AI fit finder quiz", "True-to-size badge from reviews", "Free returns prominent"], results: [{ v: "+28%", l: "CR" }, { v: "-18%", l: "Returns" }, { v: "+34%", l: "Margin" }], takeaway: "Size anxiety kills footwear CR. Confidence widgets pay back instantly." },
-  { id: "c5", title: "Beauty: quiz funnel 6.2% conversion", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "CRO", metric: "6.2%", metricLabel: "Quiz CR", duration: "8 weeks", problem: "Too many SKUs, decision paralysis on collection page.", strategy: ["6-question skin quiz", "Personalized routine result page", "Email capture mid-quiz"], results: [{ v: "6.2%", l: "Quiz CR" }, { v: "+88%", l: "AOV" }, { v: "+44%", l: "Email" }], takeaway: "Quizzes work because they reduce choice load and personalize." },
+  { id: "c5", title: "Beauty: quiz funnel 6.2% conversion", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "CRO", metric: "6.2%", metricLabel: "Quiz CR", duration: "8 weeks", problem: "Too many SKUs, decision paralysis on collection page.", strategy: ["6-question skin quiz", "Personalised routine result page", "Email capture mid-quiz"], results: [{ v: "6.2%", l: "Quiz CR" }, { v: "+88%", l: "AOV" }, { v: "+44%", l: "Email" }], takeaway: "Quizzes work because they reduce choice load and personalise." },
   { id: "c6", title: "Supplements: subscription opt-in +220%", brand: "VitalCore", industry: "Shopify · Supplements", category: "CRO", metric: "+220%", metricLabel: "Sub opt-in", duration: "4 weeks", problem: "Sub option buried, no visible benefit.", strategy: ["Sub as default selection", "Save % framing instead of dollar amount", "Cancel-anytime trust line under CTA"], results: [{ v: "+220%", l: "Sub" }, { v: "+62%", l: "LTV" }, { v: "+18%", l: "AOV" }], takeaway: "Defaults are the most powerful CRO lever." },
   { id: "c7", title: "Pet: cart drawer redesign +19% CR", brand: "Pawform", industry: "Shopify · Pet", category: "CRO", metric: "+19%", metricLabel: "CR", duration: "3 weeks", problem: "Cart page friction, lost users at edit step.", strategy: ["Slide-out cart drawer replaces cart page", "Free shipping progress bar", "Upsell carousel inside drawer"], results: [{ v: "+19%", l: "CR" }, { v: "+14%", l: "AOV" }, { v: "-22%", l: "Drop-off" }], takeaway: "Cart drawers consistently beat cart pages in modern ecom." },
   { id: "c8", title: "Home goods: reviews block +32% CR", brand: "Hearthline", industry: "WooCommerce · Home", category: "CRO", metric: "+32%", metricLabel: "CR", duration: "2 weeks", problem: "Reviews in footer, invisible above fold.", strategy: ["Pulled top-rated reviews above ATC", "Star rating in product title area", "Photo reviews gallery"], results: [{ v: "+32%", l: "CR" }, { v: "+11%", l: "AOV" }, { v: "+47%", l: "Rev" }], takeaway: "Social proof location matters more than social proof quantity." },
@@ -185,12 +185,12 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "w2", title: "Gadgets store: headless storefront", brand: "GearLoop", industry: "Hydrogen · Gadgets", category: "Website", metric: "0.9s", metricLabel: "LCP", duration: "7 weeks", problem: "Liquid theme couldn't keep up with traffic spikes.", strategy: ["Hydrogen + Oxygen migration", "Edge-rendered PDPs", "Persistent cart drawer"], results: [{ v: "0.9s", l: "LCP" }, { v: "+71%", l: "Mobile CR" }, { v: "+38%", l: "Rev" }], takeaway: "Headless pays back when traffic and SKU count both scale." },
   { id: "w3", title: "Skincare: brand-led redesign", brand: "Pure Botanica", industry: "Shopify · Skincare", category: "Website", metric: "+96%", metricLabel: "AOV", duration: "6 weeks", problem: "Generic theme, no brand storytelling, weak hierarchy.", strategy: ["Editorial homepage with story sections", "Routine builder on collection page", "Press logo + ingredient deep dives"], results: [{ v: "+96%", l: "AOV" }, { v: "+62%", l: "CR" }, { v: "+44%", l: "Time on site" }], takeaway: "Brand storytelling on the homepage compounds every channel below it." },
   { id: "w4", title: "Footwear: PDP-first redesign", brand: "Stride Co.", industry: "Shopify · Footwear", category: "Website", metric: "+128%", metricLabel: "PDP CR", duration: "4 weeks", problem: "PDP buried features below the fold.", strategy: ["Above-fold size + reviews + ATC", "AI fit recommendation widget", "Inline video for each colorway"], results: [{ v: "+128%", l: "PDP CR" }, { v: "-22%", l: "Returns" }, { v: "+41%", l: "Rev" }], takeaway: "Footwear PDPs live or die above the fold on mobile." },
-  { id: "w5", title: "Beauty DTC: quiz-driven homepage", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "Website", metric: "6.4%", metricLabel: "Site-wide CR", duration: "5 weeks", problem: "Too many SKUs, no clear entry path.", strategy: ["Quiz as primary homepage CTA", "Routine results page = personalized PLP", "Email + SMS capture mid-quiz"], results: [{ v: "6.4%", l: "CR" }, { v: "+88%", l: "Email list" }, { v: "+52%", l: "AOV" }], takeaway: "Quizzes turn the homepage into a sales associate that scales." },
+  { id: "w5", title: "Beauty DTC: quiz-driven homepage", brand: "Lumen Beauty", industry: "Shopify · Beauty", category: "Website", metric: "6.4%", metricLabel: "Site-wide CR", duration: "5 weeks", problem: "Too many SKUs, no clear entry path.", strategy: ["Quiz as primary homepage CTA", "Routine results page = personalised PLP", "Email + SMS capture mid-quiz"], results: [{ v: "6.4%", l: "CR" }, { v: "+88%", l: "Email list" }, { v: "+52%", l: "AOV" }], takeaway: "Quizzes turn the homepage into a sales associate that scales." },
   { id: "w6", title: "Pet brand: subscription site rebuild", brand: "Pawform", industry: "Shopify · Pet", category: "Website", metric: "+74%", metricLabel: "Sub starts", duration: "6 weeks", problem: "Subscription buried 3 clicks deep.", strategy: ["Subscription hero on homepage", "Visual delivery preview", "One-page subscription checkout"], results: [{ v: "+74%", l: "Subs" }, { v: "+62%", l: "LTV" }, { v: "+34%", l: "MRR" }], takeaway: "If subscription is the business model, it belongs on the homepage." },
   { id: "w7", title: "Furniture: 3D configurator site", brand: "Mason Living", industry: "WooCommerce · Furniture", category: "Website", metric: "+44%", metricLabel: "Rev", duration: "10 weeks", problem: "High AOV, no way to visualize options.", strategy: ["Three.js product configurator", "Live price + save-and-share", "AR view on mobile"], results: [{ v: "+44%", l: "Rev" }, { v: "+62%", l: "AOV" }, { v: "+28%", l: "Time on site" }], takeaway: "Visualization tools turn browsers into buyers in high-AOV verticals." },
-  { id: "w8", title: "Jewelry: luxury Shopify Plus build", brand: "Auralune", industry: "Shopify Plus · Jewelry", category: "Website", metric: "+212%", metricLabel: "Q4 rev", duration: "8 weeks", problem: "Old Magento, slow, poor gifting flow.", strategy: ["Plus migration with custom checkout", "Gift toggle + free engraving widget", "Editorial homepage with collections"], results: [{ v: "+212%", l: "Q4 rev" }, { v: "+56%", l: "AOV" }, { v: "+91%", l: "Repeat" }], takeaway: "Luxury sites should feel like a flagship store, not a catalog." },
+  { id: "w8", title: "Jewelry: luxury Shopify Plus build", brand: "Auralune", industry: "Shopify Plus · Jewelry", category: "Website", metric: "+212%", metricLabel: "Q4 rev", duration: "8 weeks", problem: "Old Magento, slow, poor gifting flow.", strategy: ["Plus migration with custom checkout", "Gift toggle + free engraving widget", "Editorial homepage with collections"], results: [{ v: "+212%", l: "Q4 rev" }, { v: "+56%", l: "AOV" }, { v: "+91%", l: "Repeat" }], takeaway: "Luxury sites should feel like a flagship store, not a catalogue." },
   { id: "w9", title: "Coffee brand: subscription-first site", brand: "Roast & Co.", industry: "Shopify · Beverage", category: "Website", metric: "+88%", metricLabel: "Sub CR", duration: "5 weeks", problem: "One-time purchase model, high CAC.", strategy: ["Subscription hero animation", "Roast quiz funneling into subs", "Customer photo grid throughout"], results: [{ v: "+88%", l: "Sub CR" }, { v: "+34%", l: "Sub starts" }, { v: "+22%", l: "MRR" }], takeaway: "Subscription sites need to feel like a product, not a contract." },
-  { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimized hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
+  { id: "w10", title: "Outdoor: speed + UX rebuild", brand: "TrailGear", industry: "Shopify · Outdoor", category: "Website", metric: "+51%", metricLabel: "Organic + CR", duration: "6 weeks", problem: "Poor Core Web Vitals + clumsy collection UX.", strategy: ["Edge-cached collection pages", "Inline left-rail filters", "Optimised hero LCP under 1.5s"], results: [{ v: "+51%", l: "Sessions" }, { v: "92", l: "PageSpeed" }, { v: "+38%", l: "Rev" }], takeaway: "Speed and UX compound across SEO, paid, and direct traffic." },
 ];
 
 export const studies: (Study & { screenshot: string })[] = RAW.map((s, i) => ({
@@ -248,13 +248,13 @@ function AdsPreview({ seed }: { seed: number }) {
   return (
     <div className="h-full w-full bg-white flex flex-col text-ink">
       {/* FB Ads Manager-style header */}
-      <div className="flex items-center justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-center gap-1.5">
+      <div className="flex items-centre justify-between px-3 pt-2 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-centre gap-1.5">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12Z"/></svg>
           <span className="text-[10px] font-semibold text-ink">Ads Manager</span>
           <span className="text-[8px] text-muted-foreground">· Last 7 days</span>
         </div>
-        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-center gap-1">
+        <span className="text-[8px] font-bold text-emerald-600 inline-flex items-centre gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Live
         </span>
       </div>
@@ -290,9 +290,9 @@ function AdsPreview({ seed }: { seed: number }) {
         {campaigns.map((c, i) => (
           <div
             key={i}
-            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-center border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
+            className="grid grid-cols-[1.6fr_0.7fr_0.8fr_0.7fr] gap-1 px-3 py-1.5 items-centre border-b border-border/40 last:border-b-0 hover:bg-[#f0f6ff] transition-colors"
           >
-            <div className="flex items-center gap-1 min-w-0">
+            <div className="flex items-centre gap-1 min-w-0">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
               <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
@@ -336,8 +336,8 @@ function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
   return (
     <div className="h-full w-full bg-white flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
-        <div className="flex items-center gap-1.5">
+      <div className="flex items-centre justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+        <div className="flex items-centre gap-1.5">
           <svg viewBox="0 0 24 24" className="w-3 h-3"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
           <span className="text-[10px] font-semibold text-ink">Search Console</span>
         </div>
@@ -370,7 +370,7 @@ function SeoPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
       {/* Top queries list */}
       <div className="flex-1 px-3 pb-2 space-y-0.5 min-h-0 overflow-hidden">
         {queries.map((q, i) => (
-          <div key={i} className="flex items-center justify-between text-[9px]">
+          <div key={i} className="flex items-centre justify-between text-[9px]">
             <span className="truncate text-ink/80 flex-1">{q.kw}</span>
             <span className="text-emerald-600 font-bold tabular-nums ml-2">#{q.pos + (seed % 3)}</span>
           </div>
@@ -397,7 +397,7 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
   return (
     <div className="h-full w-full bg-white flex flex-col">
       {/* Header A/B */}
-      <div className="flex items-center justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
+      <div className="flex items-centre justify-between px-3 pt-2.5 pb-2 border-b border-border/70 shrink-0">
         <span className="text-[10px] font-semibold text-ink">Conversion funnel</span>
         <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">A/B WIN</span>
       </div>
@@ -413,10 +413,10 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
         </div>
       </div>
       {/* Funnel bars */}
-      <div className="flex-1 flex flex-col justify-center gap-1 px-3 pb-2.5 min-h-0">
+      <div className="flex-1 flex flex-col justify-centre gap-1 px-3 pb-2.5 min-h-0">
         {steps.map((s, i) => (
           <div key={i} className="space-y-0.5">
-            <div className="flex items-center justify-between text-[8px] font-medium">
+            <div className="flex items-centre justify-between text-[8px] font-medium">
               <span className="text-ink/70">{s.l}</span>
               <span className="tabular-nums text-ink/60">{s.v}</span>
             </div>
@@ -456,8 +456,8 @@ function CaseStudies() {
       <section className="relative pt-20 pb-12 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-[480px] h-[480px] bg-primary/15 blur-[140px] rounded-full float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-centre lg:text-left">
+          <div className="inline-flex items-centre gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Case Studies
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04] text-ink">
@@ -475,7 +475,7 @@ function CaseStudies() {
               { v: "400+", l: "A/B tests run" },
               { v: "4.1×", l: "Avg ROAS lift" },
             ].map((s) => (
-              <div key={s.l} className="card-surface p-4 text-center">
+              <div key={s.l} className="card-surface p-4 text-centre">
                 <div className="text-xl md:text-2xl font-bold text-gradient">{s.v}</div>
                 <div className="text-[11px] uppercase tracking-wide text-muted-foreground mt-1">{s.l}</div>
               </div>
@@ -488,8 +488,8 @@ function CaseStudies() {
       <section className="py-10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Filter segmented control */}
-          <div className="flex justify-center mb-10">
-            <div className="flex flex-nowrap overflow-x-auto justify-center items-center gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:flex-wrap sm:overflow-visible">
+          <div className="flex justify-centre mb-10">
+            <div className="flex flex-nowrap overflow-x-auto justify-centre items-centre gap-1 p-1.5 rounded-2xl bg-white border border-border shadow-sm w-full sm:flex-wrap sm:overflow-visible">
               {(["All", "Website", "Ads", "SEO", "CRO"] as const).map((f) => {
                 const Icon = categoryIcon[f];
                 const isActive = filter === f;
@@ -497,7 +497,7 @@ function CaseStudies() {
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
-                    className={`relative inline-flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
+                    className={`relative inline-flex items-centre justify-centre gap-1.5 rounded-xl px-2.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
                       isActive
                         ? "bg-gradient-to-br from-primary to-[oklch(0.55_0.2_265)] text-white shadow-md shadow-primary/25"
                         : "text-ink/65 hover:text-ink hover:bg-secondary/60"
@@ -534,10 +534,10 @@ function CaseStudies() {
                   className="text-left card-surface overflow-hidden group flex flex-col hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {/* Category-specific preview */}
-                  <div className={`relative h-52 bg-gradient-to-br ${s.color} p-2.5 overflow-hidden`}>
+                  <div className={`relative h-52 bg-gradient-to-br ${s.colour} p-2.5 overflow-hidden`}>
                     <div className="relative h-full w-full rounded-lg bg-white shadow-xl overflow-hidden flex flex-col">
                       {/* App-style chrome */}
-                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
+                      <div className="flex items-centre gap-1.5 px-3 py-1.5 bg-[#f7f8fa] border-b border-border/70 shrink-0">
                         <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                         <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
                         <span className="w-2 h-2 rounded-full bg-[#28c840]" />
@@ -549,7 +549,7 @@ function CaseStudies() {
                         {s.category === "Website" && <WebsitePreview screenshot={s.screenshot} />}
                       </div>
                     </div>
-                    <span className="absolute top-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
+                    <span className="absolute top-5 left-5 inline-flex items-centre gap-1.5 text-[10px] font-bold uppercase tracking-widest bg-ink/85 text-white backdrop-blur px-2 py-1 rounded-full shadow-lg z-10">
                       <Icon className="w-3 h-3" /> {s.category}
                     </span>
                     <div className="absolute bottom-4 right-4 text-right bg-white/95 backdrop-blur rounded-lg px-2.5 py-1.5 shadow-lg z-10">

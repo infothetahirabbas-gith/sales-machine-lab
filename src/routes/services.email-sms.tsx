@@ -28,11 +28,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
     meta: [
-      { title: "Klaviyo Email & SMS Marketing for Ecommerce | BeingEcom" },
-      { name: "description", content: "Klaviyo email & SMS flows that recover lost sales and add 25-35% revenue for Shopify & WooCommerce brands. Welcome, abandoned cart, post-purchase, winback." },
+      { title: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
+      { name: "description", content: "Klaviyo email and SMS marketing agency in the UK. Lifecycle flows, campaign calendars and segmentation that add 20–35% owned revenue for Shopify brands." },
       { name: "keywords", content: "klaviyo agency uk, klaviyo email agency london, ecommerce email marketing agency uk, shopify email marketing agency, sms marketing agency uk, abandoned cart flow, lifecycle marketing agency, retention marketing agency uk, best klaviyo agency uk" },
-      { property: "og:title", content: "Klaviyo Email & SMS Marketing for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Klaviyo email & SMS flows that recover lost sales and add 25-35% revenue for Shopify & WooCommerce brands. Welcome, abandoned cart, post-purchase, winback." },
+      { property: "og:title", content: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
+      { property: "og:description", content: "Klaviyo email and SMS marketing agency in the UK. Lifecycle flows, campaign calendars and segmentation that add 20–35% owned revenue for Shopify brands." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },
       { property: "og:type", content: "website" },
     ],
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/services/email-sms")({
         { title: "Deliverability", body: "Inbox placement, warm-up, and reputation protection." },
       ],
       deepBlocks: [
-        { title: "Abandoned cart recovery", body: "3-4 email sequence, timing-optimized, discount strategy tiered.", tags: ["Email","Timing","Discount tier"] },
+        { title: "Abandoned cart recovery", body: "3-4 email sequence, timing-optimised, discount strategy tiered.", tags: ["Email","Timing","Discount tier"] },
         { title: "Welcome flow", body: "Brand story, hero product, social proof, soft offer.", tags: ["Brand","Hero","Offer"] },
         { title: "Post-purchase flow", body: "Thank you, education, cross-sell, review request, subscription nudge.", tags: ["Thank you","Cross-sell","Reviews"] },
         { title: "Winback campaigns", body: "Lapsed buyer segment, offer ladder, sunset rules.", tags: ["Winback","Sunset"] },
