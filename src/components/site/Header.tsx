@@ -66,19 +66,88 @@ export default function Header() {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  const navigate = useNavigate();
+  const [prefs, setPrefs] = useState<Prefs | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = sessionStorage.getItem(PREFS_KEY);
+      if (raw) setPrefs(JSON.parse(raw));
+    } catch {}
+  }, [pathname]);
+
+  const updatePref = (key: keyof Prefs, value: string) => {
+    const next: Prefs = { ...(prefs ?? { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" }), [key]: value };
+    setPrefs(next);
+    try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
+    navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
+  };
+
+  const showPersonalised = !isHome && !!prefs;
+  const cityLabel = LOCATIONS.find((l) => l.slug === prefs?.location)?.city ?? "London";
+  const industryLabel = INDUSTRIES.find((i) => i.slug === prefs?.industry)?.name ?? "Industry";
+  const langLabel = LANG_OPTIONS.find((l) => l.code === prefs?.language)?.name ?? "English";
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
       <div className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 h-8 flex items-center justify-start gap-2 text-[11px] text-muted-foreground">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 min-h-8 py-1 flex items-center justify-start gap-2 flex-wrap text-[11px] text-muted-foreground">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="City">
-            <MapPin className="size-3" /> London
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Language">
-            <Globe className="size-3" /> English
-          </span>
+          {showPersonalised ? (
+            <>
+              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
+                <MapPin className="size-3" />
+                <span>{cityLabel}</span>
+                <select
+                  value={prefs!.location}
+                  onChange={(e) => updatePref("location", e.target.value)}
+                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1"
+                  aria-label="Change city"
+                >
+                  {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
+                </select>
+                <ChevronDown className="size-3 opacity-60" />
+              </label>
+              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
+                <Briefcase className="size-3" />
+                <span className="truncate max-w-[140px]">{industryLabel}</span>
+                <select
+                  value={prefs!.industry}
+                  onChange={(e) => updatePref("industry", e.target.value)}
+                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1 w-0"
+                  aria-label="Change industry"
+                >
+                  {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
+                </select>
+                <ChevronDown className="size-3 opacity-60" />
+              </label>
+              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
+                <Languages className="size-3" />
+                <span>{langLabel}</span>
+                <select
+                  value={prefs!.language}
+                  onChange={(e) => updatePref("language", e.target.value)}
+                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1 w-0"
+                  aria-label="Change language"
+                >
+                  {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
+                </select>
+                <ChevronDown className="size-3 opacity-60" />
+              </label>
+            </>
+          ) : (
+            <>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="City">
+                <MapPin className="size-3" /> London
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Language">
+                <Globe className="size-3" /> English
+              </span>
+            </>
+          )}
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
