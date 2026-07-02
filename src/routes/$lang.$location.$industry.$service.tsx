@@ -73,7 +73,7 @@ function PersonalisedPage() {
           <div>
             <h2 className="text-2xl font-bold text-ink">Why {loc.city}-based {ind.name} brands choose us</h2>
             <ul className="mt-4 space-y-2">
-              {ind.highlights.map((h) => (
+              {ind.highlights.map((h: string) => (
                 <li key={h} className="flex gap-2 text-sm"><span className="text-primary">✓</span>{h}</li>
               ))}
             </ul>
@@ -81,7 +81,7 @@ function PersonalisedPage() {
           <div>
             <h2 className="text-2xl font-bold text-ink">Local advantage in {loc.region}</h2>
             <ul className="mt-4 space-y-2">
-              {loc.highlights.map((h) => (
+              {loc.highlights.map((h: string) => (
                 <li key={h} className="flex gap-2 text-sm"><span className="text-primary">✓</span>{h}</li>
               ))}
             </ul>
