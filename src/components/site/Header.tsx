@@ -75,8 +75,6 @@ export default function Header() {
         </Link>
         <nav className="hidden lg:flex items-center gap-6 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
-          <div className="relative group">
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
           {isHome && (
             <>
               <div className="relative group">
