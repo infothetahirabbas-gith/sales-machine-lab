@@ -133,23 +133,23 @@
   }
 
   /* Buttons */
-  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform whitespace-nowrap text-sm sm:text-base w-auto max-w-full; }
+  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform text-sm sm:text-base w-auto max-w-full text-center leading-tight; }
   .btn-primary {
     background: var(--primary);
     color: var(--primary-foreground);
     box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--primary) 55%, transparent);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0;
   }
   .btn-dark {
     background: var(--ink);
     color: var(--primary-foreground);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
   }
   .btn-ghost {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-4 py-2.5 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10;
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
@@ -161,9 +161,10 @@
   }
   .btn-shimmer:hover::before { transform: translateX(100%); }
 
-  .btn-pair { @apply grid grid-cols-2 gap-3 items-stretch w-full sm:inline-flex sm:w-auto sm:items-center; }
-  .btn-pair .btn { @apply flex w-full min-w-0 h-full px-2.5 py-2.5 text-[12px] sm:w-auto sm:px-6 sm:py-3 sm:text-base; }
-  .btn-pair .btn svg { @apply w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0; }
+  .btn-pair { @apply flex flex-col gap-3 items-stretch w-full sm:flex-row sm:inline-flex sm:w-auto sm:items-center; }
+  .btn-pair .btn { @apply w-full min-w-0 justify-center sm:w-auto; }
+  .btn-pair .btn svg { @apply w-4 h-4 shrink-0; }
+
 
   /* Cards */
   .card-surface {
