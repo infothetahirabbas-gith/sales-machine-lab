@@ -45,12 +45,16 @@ export default function WelcomeBanner() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const seen = localStorage.getItem(STORAGE_KEY);
-    if (!seen) {
-      const t = setTimeout(() => setOpen(true), 600);
-      return () => clearTimeout(t);
-    }
+    const done = sessionStorage.getItem(STORAGE_KEY);
+    if (!done) setOpen(true);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
 
   if (!open) return null;
 
@@ -63,8 +67,9 @@ export default function WelcomeBanner() {
   };
 
   const submit = () => {
-    localStorage.setItem(STORAGE_KEY, "1");
-    localStorage.setItem(
+    if (!currentSelected) return;
+    sessionStorage.setItem(STORAGE_KEY, "1");
+    sessionStorage.setItem(
       `${STORAGE_KEY}_prefs`,
       JSON.stringify({ country, location, industry, service, language })
     );
