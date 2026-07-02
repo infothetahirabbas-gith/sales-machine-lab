@@ -48,7 +48,7 @@ export default function WelcomeBanner() {
     // Re-show the banner on any fresh visit. A completion is only honoured
     // for 30 minutes of continuous activity; after that (tab closed, or user
     // returns later), the banner starts from scratch.
-    const TTL_MS = 30 * 60 * 1000;
+    const TTL_MS = 5 * 60 * 1000;
     const ts = Number(sessionStorage.getItem(`${STORAGE_KEY}_ts`) || 0);
     const fresh = ts && Date.now() - ts < TTL_MS;
     if (!fresh) {
