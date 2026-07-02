@@ -66,9 +66,8 @@ export default function Header() {
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0">
-          <Link to="/contact" className="inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-sm hover:bg-primary/90 transition-colors text-[11px] px-3 py-1.5 lg:text-sm lg:px-4 lg:py-2">
-            <span className="lg:hidden">Book Call</span>
-            <span className="hidden lg:inline">Book Strategy Call →</span>
+          <Link to="/contact" className="hidden lg:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-sm hover:bg-primary/90 transition-colors text-sm px-4 py-2">
+            Book Strategy Call →
           </Link>
            <button onClick={() => setOpen(!open)} className="lg:hidden shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-6" strokeWidth={2.5} /> : <Menu className="size-6" strokeWidth={2.5} />}
