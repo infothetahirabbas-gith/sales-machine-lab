@@ -3,6 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { Globe, MapPin, Briefcase, Sparkles, Languages, ArrowRight, Check } from "lucide-react";
 import { LOCATIONS, INDUSTRIES } from "../../lib/locations-industries";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
+import { setSiteLanguage } from "@/components/site/GoogleTranslate";
 
 const LOGO_URL = logoAsset.url;
 
