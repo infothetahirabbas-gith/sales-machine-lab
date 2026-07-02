@@ -98,19 +98,13 @@ function Home() {
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
               </Link>
-              <Link
-                to="/audit"
-                className="btn group relative border-2 border-primary/40 bg-white/70 backdrop-blur text-ink hover:border-primary hover:-translate-y-0.5 overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/15 to-primary/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                <span className="relative flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
-                  Free Store Audit
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              <Link to="/audit" className="btn btn-ghost btn-shimmer group">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
+                Free Store Audit
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
