@@ -12,7 +12,7 @@ const pricingFaqs = [
   },
   {
     q: "What ad budget do I need?",
-    a: "We work best with stores spending $3K+/mo on ads. If you're earlier stage, a CRO Sprint or SEO engagement is the better starting point.",
+    a: "We work best with stores spending £3K+/mo on ads. If you're earlier stage, a CRO Sprint or SEO engagement is the better starting point.",
   },
 ];
 
@@ -45,7 +45,7 @@ const tiers = [
       "A/B test setup",
     ],
     duration: "6-week fixed engagement",
-    price: "$2,500",
+    price: "£2,500",
     popular: false,
   },
   {
@@ -58,7 +58,7 @@ const tiers = [
       "Weekly reporting",
     ],
     duration: "90-day onboarding, then month-to-month",
-    price: "$4,500",
+    price: "£4,500",
     popular: true,
   },
   {
@@ -72,7 +72,7 @@ const tiers = [
       "Fractional CMO access",
     ],
     duration: "90-day onboarding, then month-to-month",
-    price: "$8,000",
+    price: "£8,000",
     popular: false,
   },
 ];

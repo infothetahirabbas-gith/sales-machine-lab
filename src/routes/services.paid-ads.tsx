@@ -81,15 +81,15 @@ export const Route = createFileRoute("/services/paid-ads")({
       triggersTitle: "Creative angles that work in 2025.",
       triggers: ["Problem-solution UGC","Founder story","Before/after","Product demo","Testimonial stack","List/Top-X","Comparison","Native review","Stitch / duet"],
       beforeAfter: {
-        before: ["1.6× ROAS","2 ads, no testing","$80 CAC","Stuck at $15K/mo"],
-        after: ["3.4× ROAS","12+ creatives in rotation","$38 CAC","$95K/mo with stable ROAS"],
+        before: ["1.6× ROAS","2 ads, no testing","£80 CAC","Stuck at £15K/mo"],
+        after: ["3.4× ROAS","12+ creatives in rotation","£38 CAC","£95K/mo with stable ROAS"],
       },
       caseStudy: {
-        title: "Gadget store: 0 → $62K/mo in 90 days",
+        title: "Gadget store: 0 → £62K/mo in 90 days",
         problem: "Cold launch, weak creatives, untested angles.",
         strategy: "10 creator-driven UGC ads, ASC+ scaling, exclusions tightened.",
-        result: "Scaled to $62K MRR at 2.6× ROAS in 90 days.",
-        metrics: [{ label: "MRR", value: "$62K" }, { label: "ROAS", value: "2.6×" }, { label: "Days", value: "90" }],
+        result: "Scaled to £62K MRR at 2.6× ROAS in 90 days.",
+        metrics: [{ label: "MRR", value: "£62K" }, { label: "ROAS", value: "2.6×" }, { label: "Days", value: "90" }],
       },
       ctaTitle: "Want ad spend to actually print revenue?",
       impactStats: [
@@ -102,7 +102,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { label: "CPA", before: 48, after: 22, unit: "$", description: "Cost per acquired customer. Lower CPA = profitable scaling room." },
         { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads — the hook-rate signal." },
         { label: "CPM efficiency", before: 32, after: 18, unit: "$", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
-        { label: "Monthly ad revenue", before: 64, after: 246, unit: "$k", description: "Top-line revenue attributable to paid channels per month." },
+        { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
       faqs: FAQ_LIST,
     }} />

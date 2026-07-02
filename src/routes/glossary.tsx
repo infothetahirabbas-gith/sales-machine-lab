@@ -74,7 +74,7 @@ const terms = [
       "Organic traffic is the unpaid visitors who land on your store directly from search engines like Google and Bing. No ad spend — pure earned attention.",
     why: "It's the most profitable channel in ecommerce. Unlike paid ads, organic traffic compounds month after month and keeps converting long after the work is done.",
     example:
-      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits — the equivalent of $15K–$40K/month in paid ad spend.",
+      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits — the equivalent of £15K–£40K/month in paid ad spend.",
   },
   {
     term: "Alt Text",
@@ -122,7 +122,7 @@ const terms = [
       "Schema markup is structured code added to your pages that helps Google understand your content — products, prices, reviews, FAQs, breadcrumbs, and more.",
     why: "It unlocks rich results: star ratings, price, stock status, and FAQs directly in the SERP. These rich snippets can lift CTR by 30–80% with zero ranking change.",
     example:
-      "A product page with Product + Review + FAQ schema shows ⭐ 4.8 (212 reviews), $49, In stock — and steals clicks from the position above it.",
+      "A product page with Product + Review + FAQ schema shows ⭐ 4.8 (212 reviews), £49, In stock — and steals clicks from the position above it.",
   },
 ];
 

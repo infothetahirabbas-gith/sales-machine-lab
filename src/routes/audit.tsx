@@ -370,15 +370,15 @@ function AuditPage() {
                 <select value={revenue} onChange={(e) => setRevenue(e.target.value)} disabled={loading}
                   className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm">
                   <option value="">Select revenue range</option>
-                  <option value="Under $5k">Under $5k</option>
-                  <option value="$5k - $20k">$5k - $20k</option>
-                  <option value="$20k - $50k">$20k - $50k</option>
-                  <option value="$50k - $100k">$50k - $100k</option>
-                  <option value="$100k - $250k">$100k - $250k</option>
-                  <option value="$250k - $500k">$250k - $500k</option>
-                  <option value="$500k - $1M">$500k - $1M</option>
-                  <option value="$1M - $5M">$1M - $5M</option>
-                  <option value="$5M+">$5M+</option>
+                  <option value="Under £5k">Under £5k</option>
+                  <option value="£5k - £20k">£5k - £20k</option>
+                  <option value="£20k - £50k">£20k - £50k</option>
+                  <option value="£50k - £100k">£50k - £100k</option>
+                  <option value="£100k - £250k">£100k - £250k</option>
+                  <option value="£250k - £500k">£250k - £500k</option>
+                  <option value="£500k - £1M">£500k - £1M</option>
+                  <option value="£1M - £5M">£1M - £5M</option>
+                  <option value="£5M+">£5M+</option>
                 </select>
               </div>
               <div>
@@ -386,15 +386,15 @@ function AuditPage() {
                 <select value={adSpend} onChange={(e) => setAdSpend(e.target.value)} disabled={loading}
                   className="mt-1.5 w-full px-3 py-2 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none text-sm">
                   <option value="">Select ad spend</option>
-                  <option value="$0 (no ads)">$0 (no ads)</option>
-                  <option value="Under $1k">Under $1k</option>
-                  <option value="$1k - $5k">$1k - $5k</option>
-                  <option value="$5k - $10k">$5k - $10k</option>
-                  <option value="$10k - $25k">$10k - $25k</option>
-                  <option value="$25k - $50k">$25k - $50k</option>
-                  <option value="$50k - $100k">$50k - $100k</option>
-                  <option value="$100k - $250k">$100k - $250k</option>
-                  <option value="$250k+">$250k+</option>
+                  <option value="£0 (no ads)">£0 (no ads)</option>
+                  <option value="Under £1k">Under £1k</option>
+                  <option value="£1k - £5k">£1k - £5k</option>
+                  <option value="£5k - £10k">£5k - £10k</option>
+                  <option value="£10k - £25k">£10k - £25k</option>
+                  <option value="£25k - £50k">£25k - £50k</option>
+                  <option value="£50k - £100k">£50k - £100k</option>
+                  <option value="£100k - £250k">£100k - £250k</option>
+                  <option value="£250k+">£250k+</option>
                 </select>
               </div>
               <div>
