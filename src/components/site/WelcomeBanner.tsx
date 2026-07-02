@@ -164,7 +164,7 @@ export default function WelcomeBanner() {
         </div>
 
         {/* Step body */}
-        <div className="px-6 pb-6 max-h-[55vh] overflow-y-auto">
+        <div className="px-6 pb-6 max-h-[45vh] overflow-y-auto">
           {step === 0 && (
             <Grid>
               {COUNTRIES.map((c) => (
@@ -178,63 +178,49 @@ export default function WelcomeBanner() {
             </Grid>
           )}
           {step === 1 && (
-            <Grid>
-              {LOCATIONS.map((l) => (
-                <Choice
-                  key={l.slug}
-                  active={location === l.slug}
-                  onClick={() => setLocation(l.slug)}
-                  title={l.city}
-                  sub={l.region}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your city"
+              value={location}
+              onChange={setLocation}
+              placeholder="Choose a city…"
+              options={LOCATIONS.map((l) => ({ value: l.slug, label: `${l.city} — ${l.region}` }))}
+            />
           )}
           {step === 2 && (
-            <Grid>
-              {INDUSTRIES.map((i) => (
-                <Choice
-                  key={i.slug}
-                  active={industry === i.slug}
-                  onClick={() => setIndustry(i.slug)}
-                  title={i.name}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your industry"
+              value={industry}
+              onChange={setIndustry}
+              placeholder="Choose an industry…"
+              options={INDUSTRIES.map((i) => ({ value: i.slug, label: i.name }))}
+            />
           )}
           {step === 3 && (
-            <Grid>
-              {SERVICES.map((s) => (
-                <Choice
-                  key={s.slug}
-                  active={service === s.slug}
-                  onClick={() => setService(s.slug)}
-                  title={s.name}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select the service you need"
+              value={service}
+              onChange={setService}
+              placeholder="Choose a service…"
+              options={SERVICES.map((s) => ({ value: s.slug, label: s.name }))}
+            />
           )}
           {step === 4 && (
-            <Grid>
-              {LANGUAGES.map((l) => (
-                <Choice
-                  key={l.code}
-                  active={language === l.code}
-                  onClick={() => setLanguage(l.code)}
-                  title={l.name}
-                  sub={l.code.toUpperCase()}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your language"
+              value={language}
+              onChange={setLanguage}
+              placeholder="Choose a language…"
+              options={LANGUAGES.map((l) => ({ value: l.code, label: l.name }))}
+            />
           )}
         </div>
 
-        {/* Footer actions */}
-        <div className="border-t border-border px-6 py-4 flex items-center justify-between gap-4 bg-secondary/30">
+        {/* Footer actions — sticky, prominent CTA */}
+        <div className="sticky bottom-0 border-t-2 border-primary/20 px-5 py-4 md:py-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-background shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)]">
           <button
             onClick={() => step > 0 && setStep((step - 1) as Step)}
             disabled={step === 0}
-            className="text-sm font-semibold text-muted-foreground hover:text-ink transition disabled:opacity-30 disabled:cursor-not-allowed"
+            className="text-sm font-semibold text-muted-foreground hover:text-ink transition disabled:opacity-30 disabled:cursor-not-allowed py-2 sm:py-0"
           >
             ← Back
           </button>
@@ -242,17 +228,17 @@ export default function WelcomeBanner() {
             <button
               onClick={goNext}
               disabled={!currentSelected}
-              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              className="btn btn-primary btn-shimmer w-full sm:w-auto justify-center text-base font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              {currentSelected ? "Continue" : "Select an option"} <ArrowRight className="w-4 h-4" />
+              {currentSelected ? "Continue" : "Select an option"} <ArrowRight className="w-5 h-5" />
             </button>
           ) : (
             <button
               onClick={submit}
               disabled={!currentSelected}
-              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary btn-shimmer w-full sm:w-auto justify-center text-base font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Personalise My Experience <ArrowRight className="w-4 h-4" />
+              Personalise My Experience <ArrowRight className="w-5 h-5" />
             </button>
           )}
         </div>
