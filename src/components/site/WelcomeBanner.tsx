@@ -87,22 +87,7 @@ export default function WelcomeBanner() {
       JSON.stringify({ country, location, industry, service, language })
     );
     setOpen(false);
-    const target = `/${language}/${location}/${industry}/${service}`;
-    if (language && language !== "en") {
-      // Set Google Translate cookie then hard-navigate so the target page
-      // renders in the chosen language.
-      const host = window.location.hostname;
-      const value = `/en/${language}`;
-      document.cookie = `googtrans=${value}; path=/`;
-      document.cookie = `googtrans=${value}; path=/; domain=${host}`;
-      document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
-      try { localStorage.setItem("site_lang", language); } catch {}
-      window.location.href = target;
-      return;
-    }
-    // English: clear any prior translation cookie, then SPA-navigate.
-    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-    try { localStorage.setItem("site_lang", "en"); } catch {}
+    try { localStorage.setItem("site_lang", language); } catch {}
     navigate({
       to: "/$lang/$location/$industry/$service",
       params: { lang: language, location, industry, service },
@@ -179,7 +164,7 @@ export default function WelcomeBanner() {
         </div>
 
         {/* Step body */}
-        <div className="px-6 pb-6 max-h-[55vh] overflow-y-auto">
+        <div className="px-6 pb-6 max-h-[45vh] overflow-y-auto">
           {step === 0 && (
             <Grid>
               {COUNTRIES.map((c) => (
@@ -193,63 +178,49 @@ export default function WelcomeBanner() {
             </Grid>
           )}
           {step === 1 && (
-            <Grid>
-              {LOCATIONS.map((l) => (
-                <Choice
-                  key={l.slug}
-                  active={location === l.slug}
-                  onClick={() => setLocation(l.slug)}
-                  title={l.city}
-                  sub={l.region}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your city"
+              value={location}
+              onChange={setLocation}
+              placeholder="Choose a city…"
+              options={LOCATIONS.map((l) => ({ value: l.slug, label: `${l.city} — ${l.region}` }))}
+            />
           )}
           {step === 2 && (
-            <Grid>
-              {INDUSTRIES.map((i) => (
-                <Choice
-                  key={i.slug}
-                  active={industry === i.slug}
-                  onClick={() => setIndustry(i.slug)}
-                  title={i.name}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your industry"
+              value={industry}
+              onChange={setIndustry}
+              placeholder="Choose an industry…"
+              options={INDUSTRIES.map((i) => ({ value: i.slug, label: i.name }))}
+            />
           )}
           {step === 3 && (
-            <Grid>
-              {SERVICES.map((s) => (
-                <Choice
-                  key={s.slug}
-                  active={service === s.slug}
-                  onClick={() => setService(s.slug)}
-                  title={s.name}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select the service you need"
+              value={service}
+              onChange={setService}
+              placeholder="Choose a service…"
+              options={SERVICES.map((s) => ({ value: s.slug, label: s.name }))}
+            />
           )}
           {step === 4 && (
-            <Grid>
-              {LANGUAGES.map((l) => (
-                <Choice
-                  key={l.code}
-                  active={language === l.code}
-                  onClick={() => setLanguage(l.code)}
-                  title={l.name}
-                  sub={l.code.toUpperCase()}
-                />
-              ))}
-            </Grid>
+            <Dropdown
+              label="Select your language"
+              value={language}
+              onChange={setLanguage}
+              placeholder="Choose a language…"
+              options={LANGUAGES.map((l) => ({ value: l.code, label: l.name }))}
+            />
           )}
         </div>
 
-        {/* Footer actions */}
-        <div className="border-t border-border px-6 py-4 flex items-center justify-between gap-4 bg-secondary/30">
+        {/* Footer actions — sticky, prominent CTA */}
+        <div className="sticky bottom-0 border-t-2 border-primary/20 px-5 py-4 md:py-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-background shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)]">
           <button
             onClick={() => step > 0 && setStep((step - 1) as Step)}
             disabled={step === 0}
-            className="text-sm font-semibold text-muted-foreground hover:text-ink transition disabled:opacity-30 disabled:cursor-not-allowed"
+            className="text-sm font-semibold text-muted-foreground hover:text-ink transition disabled:opacity-30 disabled:cursor-not-allowed py-2 sm:py-0"
           >
             ← Back
           </button>
@@ -257,17 +228,17 @@ export default function WelcomeBanner() {
             <button
               onClick={goNext}
               disabled={!currentSelected}
-              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              className="btn btn-primary btn-shimmer w-full sm:w-auto justify-center text-base font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              {currentSelected ? "Continue" : "Select an option"} <ArrowRight className="w-4 h-4" />
+              {currentSelected ? "Continue" : "Select an option"} <ArrowRight className="w-5 h-5" />
             </button>
           ) : (
             <button
               onClick={submit}
               disabled={!currentSelected}
-              className="btn btn-primary btn-shimmer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary btn-shimmer w-full sm:w-auto justify-center text-base font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Personalise My Experience <ArrowRight className="w-4 h-4" />
+              Personalise My Experience <ArrowRight className="w-5 h-5" />
             </button>
           )}
         </div>
@@ -303,5 +274,40 @@ function Choice({
       <div className={`text-sm font-semibold ${active ? "text-primary" : "text-ink"}`}>{title}</div>
       {sub && <div className="text-xs text-muted-foreground mt-0.5">{sub}</div>}
     </button>
+  );
+}
+
+function Dropdown({
+  label,
+  value,
+  onChange,
+  placeholder,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+  options: { value: string; label: string }[];
+}) {
+  return (
+    <div className="pt-4 pb-2">
+      <label className="block text-sm font-semibold text-ink mb-2">{label}</label>
+      <div className="relative">
+        <select
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className={`w-full appearance-none rounded-xl border-2 bg-background px-4 py-4 pr-12 text-base font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-primary/30 ${
+            value ? "border-primary text-ink" : "border-border text-muted-foreground"
+          }`}
+        >
+          <option value="" disabled>{placeholder}</option>
+          {options.map((o) => (
+            <option key={o.value} value={o.value}>{o.label}</option>
+          ))}
+        </select>
+        <ArrowRight className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 rotate-90 text-muted-foreground" />
+      </div>
+    </div>
   );
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
-import { setSiteLanguage } from "@/components/site/GoogleTranslate";
+
 const logo = logoAsset.url;
 
 const LANG_OPTIONS = [
@@ -83,11 +83,6 @@ export default function Header() {
     const next: Prefs = { ...(prefs ?? { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" }), [key]: value };
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
-    if (key === "language") {
-      // Translate the page via Google Translate and reload.
-      setSiteLanguage(value);
-      return;
-    }
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
