@@ -48,15 +48,24 @@ export default function GoogleTranslate() {
     <>
       <div id="google_translate_element" aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: 0, width: 1, height: 1, overflow: "hidden" }} />
       <style>{`
-        /* Hide Google's UI chrome but keep translation active */
+        /* Fully hide Google Translate UI chrome while keeping translation active */
+        .goog-te-banner-frame,
         .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        iframe.skiptranslate,
         .goog-te-gadget,
+        .goog-te-gadget-simple,
+        .goog-te-combo,
         .goog-logo-link,
         #goog-gt-tt,
-        .goog-te-balloon-frame { display: none !important; }
-        body { top: 0 !important; }
+        .goog-te-balloon-frame,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+        .VIpgJd-ZVi9od-aZ2wEe-OiiCO { display: none !important; visibility: hidden !important; }
+        body { top: 0 !important; position: static !important; }
         .goog-tooltip, .goog-tooltip:hover { display: none !important; }
         .goog-text-highlight { background: transparent !important; box-shadow: none !important; }
+        #google_translate_element { display: none !important; }
       `}</style>
     </>
   );
