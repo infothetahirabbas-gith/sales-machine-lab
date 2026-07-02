@@ -56,11 +56,11 @@ export default function Footer() {
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background shrink-0" />
-              <a href="mailto:hello@beingecom.com" className="hover:text-accent transition-colors">hello@beingecom.com</a>
+              <a href="mailto:info@beingecom.com" className="hover:text-accent transition-colors">info@beingecom.com</a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-background shrink-0" />
-              <a href="tel:+442045251900" className="hover:text-accent transition-colors">+44 20 4525 1900</a>
+              <a href="tel:+447882743592" className="hover:text-accent transition-colors">+44 7882 743592</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-background shrink-0 mt-0.5" />
