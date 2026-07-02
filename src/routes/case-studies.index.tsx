@@ -312,11 +312,17 @@ function WebsitePreview({ screenshot }: { screenshot: string }) {
         src={screenshot}
         alt="Website homepage"
         loading="lazy"
+        decoding="async"
+        // @ts-ignore fetchpriority is a valid HTML attribute
+        fetchpriority="low"
+        width={520}
+        height={340}
         className="w-full h-full object-cover object-top transition-transform duration-[2400ms] ease-linear hover:[transform:translateY(-30%)]"
       />
     </div>
   );
 }
+
 
 const SEO_KEYWORDS_BY_INDUSTRY: Record<string, { kw: string; pos: number; clicks: string }[]> = {
   Skincare: [{ kw: "vitamin c serum uk", pos: 3, clicks: "2.4K" }, { kw: "best retinol for beginners", pos: 5, clicks: "1.8K" }, { kw: "ceramide moisturiser", pos: 2, clicks: "3.1K" }],
