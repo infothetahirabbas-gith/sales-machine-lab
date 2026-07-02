@@ -181,12 +181,17 @@
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
 
-  .section-hover {
-    transition: background-color 0.6s ease;
+  /* Section bands — subtle alternating light background to separate sections.
+     Default sections stay on the page background; `alt` sections get a soft
+     warm tint. A hairline divider appears only where two bands meet, so we
+     avoid stacked borders and keep the rhythm calm. */
+  .section-band { background-color: var(--background); transition: background-color 0.4s ease; }
+  .section-band--alt { background-color: color-mix(in oklab, var(--secondary) 45%, var(--background)); }
+  .section-band + .section-band--alt,
+  .section-band--alt + .section-band {
+    border-top: 1px solid color-mix(in oklab, var(--border) 55%, transparent);
   }
-  .section-hover:hover {
-    background-color: var(--card);
-  }
+
 
   /* Enforce the site-wide no-gradient, WiseRank brand system. */
   [class*="bg-gradient"],
