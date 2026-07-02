@@ -48,6 +48,7 @@ import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './r
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
 import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
+import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -250,6 +251,12 @@ const ApiPublicDebugFaqJsonldRoute = ApiPublicDebugFaqJsonldRouteImport.update({
   path: '/api/public/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangLocationIndustryServiceRoute =
+  LangLocationIndustryServiceRouteImport.update({
+    id: '/$lang/$location/$industry/$service',
+    path: '/$lang/$location/$industry/$service',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -290,6 +297,7 @@ export interface FileRoutesByFullPath {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesByTo {
@@ -331,6 +339,7 @@ export interface FileRoutesByTo {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRoutesById {
@@ -373,6 +382,7 @@ export interface FileRoutesById {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
 export interface FileRouteTypes {
@@ -416,6 +426,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -457,6 +468,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   id:
     | '__root__'
@@ -498,6 +510,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
 }
@@ -536,6 +549,7 @@ export interface RootRouteChildren {
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  LangLocationIndustryServiceRoute: typeof LangLocationIndustryServiceRoute
   ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
 }
 
@@ -814,6 +828,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicDebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/$location/$industry/$service': {
+      id: '/$lang/$location/$industry/$service'
+      path: '/$lang/$location/$industry/$service'
+      fullPath: '/$lang/$location/$industry/$service'
+      preLoaderRoute: typeof LangLocationIndustryServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -877,6 +898,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  LangLocationIndustryServiceRoute: LangLocationIndustryServiceRoute,
   ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
 }
 export const routeTree = rootRouteImport
