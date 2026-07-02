@@ -86,7 +86,7 @@ export function professionalServiceJsonLd() {
       itemListElement: [
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Store Development", url: `${SITE_URL}/services/store-development` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimisation", url: `${SITE_URL}/services/cro` } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Paid Advertising", url: `${SITE_URL}/services/paid-ads` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Performance Marketing", url: `${SITE_URL}/services/performance-marketing` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ecommerce SEO", url: `${SITE_URL}/services/seo` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email & SMS Marketing", url: `${SITE_URL}/services/email-sms` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Creative Production", url: `${SITE_URL}/services/creative` } },
@@ -234,5 +234,5 @@ export const caseStudyFaqs: FAQ[] = [
   { q: "Are these case studies real?", a: "Yes. Every result is from a real client engagement. Brand names are sometimes anonymized for NDA reasons." },
   { q: "Can I talk to one of your clients as a reference?", a: "Yes - after the discovery call we'll connect you with a brand in your category and stage." },
   { q: "What's your typical time-to-result?", a: "CRO and email lift in 2-4 weeks, paid ads stabilize in 30-60 days, SEO compounds over 3-6 months." },
-  { q: "Do results like these guarantee my outcome?", a: "No agency can guarantee outcomes. We can guarantee senior operators, weekly execution, and complete transparency on the numbers." },
+  { q: "Do results like these predict my outcome?", a: "No — past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers each week." },
 ];
