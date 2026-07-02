@@ -34,7 +34,7 @@ const terms = [
       "Crawling is how Google's bots discover the pages on your store by following links and reading your sitemap. If a page isn't crawled, it cannot rank — period.",
     why: "Most ecommerce stores waste their crawl budget on filters, tags, and duplicate URLs. Cleaning this up lets Google find and rank the pages that actually make money.",
     example:
-      "A Shopify store with 800 filter URLs (colour, size, price) often has only 60 product pages crawled. Blocking the noise gets the real PDPs indexed in days.",
+      "A Shopify store with 800 filter URLs (color, size, price) often has only 60 product pages crawled. Blocking the noise gets the real PDPs indexed in days.",
   },
   {
     term: "SERP (Search Engine Results Page)",
