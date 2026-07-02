@@ -21,6 +21,7 @@ export const Route = createFileRoute("/pricing")({
     meta: [
       { title: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
       { name: "description", content: "Three ways to engage BeingEcom — CRO Sprint, Growth System, or Full Partnership. Transparent pricing for Shopify & WooCommerce growth." },
+      { name: "keywords", content: "ecommerce agency pricing uk, shopify agency pricing uk, ecommerce agency retainer cost, how much does an ecommerce agency cost uk, cro agency pricing london, ppc agency pricing uk" },
       { property: "og:title", content: "Pricing & Engagement Tiers — How We Work | BeingEcom" },
       { property: "og:description", content: "Three engagement tiers built around one goal: profitable ecommerce growth." },
       { property: "og:url", content: "https://beingecom.com/pricing" },

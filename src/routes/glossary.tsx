@@ -143,7 +143,7 @@ export const Route = createFileRoute("/glossary")({
       {
         name: "keywords",
         content:
-          "SEO glossary, ecommerce SEO terms, SEO definitions, Shopify SEO glossary, what is schema markup, what are backlinks, what is a SERP, on-page SEO, off-page SEO",
+          "ecommerce glossary uk, shopify glossary, ecommerce marketing terms, dtc glossary, cro glossary, ppc glossary, ecommerce seo glossary uk",
       },
       { property: "og:title", content: "SEO Glossary 2026 — 15 Essential SEO Terms for Ecommerce" },
       {
