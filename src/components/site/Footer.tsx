@@ -17,6 +17,8 @@ export default function Footer() {
           <div className="mt-6 flex items-center gap-3">
             {[
               { Icon: Linkedin, href: "https://www.linkedin.com/company/beingecom", label: "LinkedIn" },
+              { Icon: Instagram, href: "https://www.instagram.com/beingecom", label: "Instagram" },
+              { Icon: Twitter, href: "https://x.com/beingecom", label: "X (Twitter)" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
