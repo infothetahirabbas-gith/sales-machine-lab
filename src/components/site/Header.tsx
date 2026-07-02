@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Globe, Briefcase, Languages } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 const logo = logoAsset.url;
