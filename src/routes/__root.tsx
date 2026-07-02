@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
 import WelcomeBanner from "../components/site/WelcomeBanner";
+import GoogleTranslate from "../components/site/GoogleTranslate";
 
 
 
@@ -146,6 +147,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleTranslate />
       <WelcomeBanner />
       <Outlet />
     </QueryClientProvider>
