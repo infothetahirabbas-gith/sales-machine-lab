@@ -7,11 +7,15 @@ const logo = logoAsset.url;
 
 const LANG_OPTIONS = [
   { code: "en", name: "English" },
-  { code: "en-gb", name: "English (UK)" },
+  { code: "zh", name: "中文 (Mandarin)" },
+  { code: "hi", name: "हिन्दी (Hindi)" },
   { code: "es", name: "Español" },
-  { code: "fr", name: "Français" },
-  { code: "de", name: "Deutsch" },
   { code: "ar", name: "العربية" },
+  { code: "fr", name: "Français" },
+  { code: "bn", name: "বাংলা (Bengali)" },
+  { code: "pt", name: "Português" },
+  { code: "ru", name: "Русский" },
+  { code: "ur", name: "اردو" },
 ];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
