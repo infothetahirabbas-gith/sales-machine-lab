@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/seo")({
     meta: [
       { title: "Ecommerce SEO — Shopify & WooCommerce SEO Agency | BeingEcom" },
       { name: "description", content: "Rank products, collections and content on Google. Technical SEO, on-page, content and link building for Shopify & WooCommerce — free traffic forever." },
-      { name: "keywords", content: "ecommerce SEO, Shopify SEO, WooCommerce SEO, product page SEO, collection page SEO, ecommerce SEO agency, technical SEO, ecommerce link building" },
+      { name: "keywords", content: "ecommerce seo agency, ecommerce seo services, ecommerce seo services uk, ecommerce seo company, ecommerce seo consultant, ecommerce seo expert, ecommerce seo agency london, ecommerce seo agency uk, ecommerce seo packages, shopify seo agency uk, shopify seo services, woocommerce seo agency, seo services for ecommerce websites, seo agency for ecommerce, ecommerce seo london, best ecommerce seo company uk, product page seo, collection page seo, technical seo ecommerce, ai overview optimisation, aeo seo agency, chatgpt search optimisation, how to rank a shopify store on google uk" },
       { property: "og:title", content: "Ecommerce SEO — Shopify & WooCommerce SEO Agency | BeingEcom" },
       { property: "og:description", content: "Rank products, collections and content on Google. Technical SEO, on-page, content and link building for Shopify & WooCommerce — free traffic forever." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },

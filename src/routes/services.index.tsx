@@ -11,7 +11,7 @@ export const Route = createFileRoute("/services/")({
     meta: [
       { title: "Ecommerce Services — Shopify & WooCommerce Growth | BeingEcom" },
       { name: "description", content: "Nine ecommerce growth services in one operating system: store development, CRO, paid ads, SEO, email automation, creative, funnels, analytics and scaling." },
-      { name: "keywords", content: "ecommerce services, Shopify services, WooCommerce services, ecommerce CRO, Shopify SEO, ecommerce paid ads, Klaviyo email marketing, ecommerce funnel, ecommerce analytics" },
+      { name: "keywords", content: "ecommerce services uk, shopify services uk, woocommerce services uk, ecommerce marketing services, ecommerce agency services london, shopify plus services, ecommerce cro services, ecommerce seo services uk, ecommerce ppc services, klaviyo email marketing services, ecommerce analytics services, ecommerce funnel services, dtc growth services, ecommerce consultancy uk, best ecommerce services uk" },
       { property: "og:title", content: "Ecommerce Growth Services — Shopify & WooCommerce" },
       { property: "og:description", content: "Nine growth services, one operating system for Shopify & WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services" },

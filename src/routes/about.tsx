@@ -12,6 +12,7 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About BeingEcom — Ecommerce Growth Partner for Shopify & WooCommerce" },
       { name: "description", content: "BeingEcom is the growth operating system for Shopify & WooCommerce brands — strategy, SEO, ads, CRO, automation and analytics under one roof. Meet our team and methodology." },
+      { name: "keywords", content: "about beingecom, ecommerce agency london about, uk shopify agency team, ecommerce growth consultants uk, dtc agency founders london, ecommerce agency mission uk" },
       { property: "og:title", content: "About BeingEcom — Ecommerce Growth Partner" },
       { property: "og:description", content: "Who we are, how we plan growth, our strategy framework, and our mission to scale ecommerce brands profitably." },
       { property: "og:url", content: "https://beingecom.com/about" },

@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
     meta: [
       { title: "Facebook Ads Agency UK — Meta Ads for Shopify & WooCommerce | BeingEcom" },
       { name: "description", content: "UK Facebook & Instagram ads agency. Creative-led Meta ads, ASC+ scaling and break-even media buying for ecommerce brands." },
-      { name: "keywords", content: "facebook ads agency uk, meta ads agency, instagram ads agency, shopify facebook ads, dtc meta ads, ASC+ scaling" },
+      { name: "keywords", content: "facebook ads agency uk, meta ads agency uk, instagram ads agency uk, facebook ads agency london, shopify facebook ads agency, dtc meta ads agency, asc+ scaling agency, meta ads consultant uk, best facebook ads agency uk 2026, how much do facebook ads cost uk" },
       { property: "og:title", content: "Facebook Ads Agency UK | BeingEcom" },
       { property: "og:description", content: "Profitable Meta ads — creative volume, ASC+ scaling and break-even math." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },

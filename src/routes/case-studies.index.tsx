@@ -69,7 +69,7 @@ export const Route = createFileRoute("/case-studies/")({
     meta: [
       { title: "Ecommerce Case Studies — Shopify & WooCommerce Growth Results | BeingEcom" },
       { name: "description", content: "40+ real Shopify & WooCommerce case studies. See revenue, ROAS, SEO, and conversion lifts from BeingEcom's ecommerce growth system." },
-      { name: "keywords", content: "ecommerce case studies, Shopify case studies, WooCommerce case studies, DTC growth results, ROAS case study, ecommerce SEO results, CRO case study" },
+      { name: "keywords", content: "ecommerce case studies uk, shopify case studies uk, woocommerce case studies, dtc growth case studies london, roas case study uk, ecommerce seo results case study, cro case study shopify uk" },
       { property: "og:title", content: "Ecommerce Case Studies — Real Shopify & WooCommerce Growth Results" },
       { property: "og:description", content: "40+ wins across Ads, SEO and CRO for Shopify & WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },

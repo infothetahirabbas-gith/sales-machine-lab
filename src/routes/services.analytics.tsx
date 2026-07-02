@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/analytics")({
     meta: [
       { title: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
       { name: "description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
-      { name: "keywords", content: "ecommerce analytics, GA4 setup, Meta Pixel CAPI, Shopify tracking, ecommerce attribution, conversion tracking, GA4 ecommerce" },
+      { name: "keywords", content: "ecommerce analytics agency uk, ga4 setup agency, ga4 ecommerce tracking uk, meta pixel capi setup, shopify tracking agency, ecommerce attribution uk, server side tracking uk, conversion tracking agency london" },
       { property: "og:title", content: "Ecommerce Analytics & Tracking — GA4, Meta CAPI & Dashboards | BeingEcom" },
       { property: "og:description", content: "Set up GA4, Meta Pixel, Conversion API and revenue dashboards correctly for your Shopify or WooCommerce store. Clean ecommerce data, real attribution." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },

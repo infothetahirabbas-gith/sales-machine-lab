@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/performance-marketing")({
     meta: [
       { title: "Performance Marketing Agency UK — Meta, Google, TikTok & Media Buying | BeingEcom" },
       { name: "description", content: "UK performance marketing agency running profitable Facebook Ads, Google Ads, TikTok Ads and full-funnel media buying for Shopify & WooCommerce brands." },
-      { name: "keywords", content: "performance marketing agency uk, facebook ads agency, google ads agency, tiktok ads agency, media buying agency, ecommerce ppc uk" },
+      { name: "keywords", content: "performance marketing agency uk, performance marketing agency london, ecommerce performance marketing, paid media agency uk, growth marketing agency uk, full funnel performance agency, media buying agency uk, ecommerce ppc uk, best performance marketing agency london 2026" },
       { property: "og:title", content: "Performance Marketing Agency UK | BeingEcom" },
       { property: "og:description", content: "Facebook, Google, TikTok ads and media buying engineered for profitable ecommerce scale." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },

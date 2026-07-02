@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/email-sms")({
     meta: [
       { title: "Klaviyo Email & SMS Marketing for Ecommerce | BeingEcom" },
       { name: "description", content: "Klaviyo email & SMS flows that recover lost sales and add 25-35% revenue for Shopify & WooCommerce brands. Welcome, abandoned cart, post-purchase, winback." },
-      { name: "keywords", content: "Klaviyo agency, ecommerce email marketing, Shopify email marketing, SMS marketing, abandoned cart flow, lifecycle marketing, retention marketing" },
+      { name: "keywords", content: "klaviyo agency uk, klaviyo email agency london, ecommerce email marketing agency uk, shopify email marketing agency, sms marketing agency uk, abandoned cart flow, lifecycle marketing agency, retention marketing agency uk, best klaviyo agency uk" },
       { property: "og:title", content: "Klaviyo Email & SMS Marketing for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Klaviyo email & SMS flows that recover lost sales and add 25-35% revenue for Shopify & WooCommerce brands. Welcome, abandoned cart, post-purchase, winback." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },

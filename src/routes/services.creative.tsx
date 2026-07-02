@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/creative")({
     meta: [
       { title: "Ecommerce Creative Production — UGC, Video & Ad Creatives | BeingEcom" },
       { name: "description", content: "Scroll-stopping UGC, video and static ad creatives engineered to convert for Shopify & WooCommerce brands. Hooks, scripts and weekly creative testing." },
-      { name: "keywords", content: "ecommerce ad creatives, UGC ads, video ad production, Shopify ad creative, Meta ad creative, TikTok creative, ecommerce creative agency" },
+      { name: "keywords", content: "ecommerce creative agency uk, ugc agency uk, ugc ads agency london, video ad production ecommerce, meta ad creative agency, tiktok creative agency uk, shopify ad creative agency, best ugc agency uk 2026" },
       { property: "og:title", content: "Ecommerce Creative Production — UGC, Video & Ad Creatives | BeingEcom" },
       { property: "og:description", content: "Scroll-stopping UGC, video and static ad creatives engineered to convert for Shopify & WooCommerce brands. Hooks, scripts and weekly creative testing." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },

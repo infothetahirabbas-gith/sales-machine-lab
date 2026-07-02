@@ -29,7 +29,7 @@ export const Route = createFileRoute("/audit")({
     meta: [
       { title: "Free Ecommerce Store Audit — AI Shopify & WooCommerce Growth Report | BeingEcom" },
       { name: "description", content: "Get a free AI-powered Being Ecom Brain™ audit. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a 90-day action plan in 90 seconds." },
-      { name: "keywords", content: "free Shopify audit, WooCommerce audit, ecommerce store audit, AI ecommerce audit, CRO audit, ecommerce SEO audit, store conversion audit, growth intelligence" },
+      { name: "keywords", content: "free shopify audit uk, free ecommerce audit uk, woocommerce audit uk, ai ecommerce store audit, cro audit shopify, ecommerce seo audit uk, store conversion audit london, free growth audit for shopify" },
       { property: "og:title", content: "Free AI Ecommerce Store Audit — Being Ecom Brain™" },
       { property: "og:description", content: "Board-level growth intelligence on your Shopify or WooCommerce store. 17-phase report in 90 seconds." },
       { property: "og:url", content: "https://beingecom.com/audit" },

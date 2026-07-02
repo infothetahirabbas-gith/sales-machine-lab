@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/store-development")({
     meta: [
       { title: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
       { name: "description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
-      { name: "keywords", content: "Shopify development, WooCommerce development, Shopify theme development, headless Shopify, Shopify migration, ecommerce web development, custom Shopify store" },
+      { name: "keywords", content: "shopify development agency uk, shopify development partners, shopify plus agency uk, shopify theme development uk, headless shopify agency, shopify migration agency uk, woocommerce development uk, ecommerce web design agency uk, ecommerce website design agency london, custom shopify store development, shopify developers uk" },
       { property: "og:title", content: "Shopify & WooCommerce Store Development — Conversion-First Builds | BeingEcom" },
       { property: "og:description", content: "Custom Shopify & WooCommerce store development engineered for speed, conversion and scale. Theme builds, headless, migrations, apps and integrations." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },

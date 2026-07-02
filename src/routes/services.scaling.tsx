@@ -30,7 +30,7 @@ export const Route = createFileRoute("/services/scaling")({
     meta: [
       { title: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
       { name: "description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
-      { name: "keywords", content: "scale Shopify store, 7-figure ecommerce, ecommerce scaling, LTV ecommerce, ecommerce retention, DTC scaling, offer engineering" },
+      { name: "keywords", content: "scale shopify store uk, 7 figure ecommerce agency, ecommerce scaling agency uk, ltv agency ecommerce, ecommerce retention agency, dtc scaling agency london, offer engineering ecommerce" },
       { property: "og:title", content: "Ecommerce Scaling & Retention — Grow from 6 to 7 Figures | BeingEcom" },
       { property: "og:description", content: "Systems to scale Shopify & WooCommerce stores from 6 to 7 figures profitably — retention, LTV, channel mix, ops and offer engineering." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
