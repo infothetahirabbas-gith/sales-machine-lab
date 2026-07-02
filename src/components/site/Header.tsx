@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "@/assets/beingecom-logo.webp";
+import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
+const logo = logoAsset.url;
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
