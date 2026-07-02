@@ -30,9 +30,9 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 h-20 flex items-center justify-between gap-6">
-        <Link to="/" className="flex items-center shrink-0 leading-none" aria-label="BeingEcom home">
-          <img src={logo} alt="Being Ecom" width="680" height="200" decoding="async" fetchPriority="high" className="h-11 md:h-14 w-auto block object-contain" />
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
+        <Link to="/" className="flex items-center shrink-0 leading-none min-w-0" aria-label="BeingEcom home">
+          <img src={logo} alt="Being Ecom" width="680" height="200" decoding="async" fetchPriority="high" className="h-9 md:h-11 lg:h-14 w-auto block object-contain" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
@@ -65,15 +65,19 @@ export default function Header() {
           <Link to="/about" className="text-muted-foreground hover:text-foreground transition">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground transition">Contact</Link>
         </nav>
-        <div className="flex items-center gap-3">
-          <Link to="/contact" className="hidden lg:flex btn btn-primary btn-shimmer text-sm py-2 px-4">
+        <div className="flex items-center gap-2 shrink-0">
+          <Link to="/contact" className="hidden lg:inline-flex btn btn-primary btn-shimmer text-sm py-2 px-4">
             Book Strategy Call →
           </Link>
-           <button onClick={() => setOpen(!open)} className="lg:hidden size-10 rounded-full border border-border inline-flex items-center justify-center text-foreground hover:bg-accent/10 hover:border-accent transition-colors" aria-label={open ? "Close menu" : "Open menu"}>
+          <Link to="/contact" className="lg:hidden inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold px-3 py-1.5 whitespace-nowrap shadow-sm hover:bg-primary/90 transition-colors">
+            Book Call
+          </Link>
+           <button onClick={() => setOpen(!open)} className="lg:hidden shrink-0 size-10 rounded-full border-2 border-primary/60 bg-background inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
+
       {open && (
          <div className="lg:hidden border-t border-border bg-background shadow-xl">
           <div className="px-5 py-3 grid gap-1 text-sm">
