@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Globe } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 const logo = logoAsset.url;
 
@@ -54,6 +54,19 @@ export default function Header() {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
+      <div className="border-b border-border/60 bg-secondary/40">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 h-8 flex items-center justify-start gap-2 text-[11px] text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Country">
+            <span aria-hidden="true">🇬🇧</span> UK
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="City">
+            <MapPin className="size-3" /> London
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Language">
+            <Globe className="size-3" /> English
+          </span>
+        </div>
+      </div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
         <Link to="/" className="flex items-center shrink-0 leading-none min-w-0" aria-label="BeingEcom home">
           <img src={logo} alt="Being Ecom" width="680" height="200" decoding="async" fetchPriority="high" className="h-9 md:h-11 lg:h-14 w-auto block object-contain" />
