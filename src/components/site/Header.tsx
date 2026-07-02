@@ -84,8 +84,6 @@ export default function Header() {
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
-    return;
-    navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
   
