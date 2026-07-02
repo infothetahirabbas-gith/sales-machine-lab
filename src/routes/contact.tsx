@@ -78,7 +78,7 @@ function Contact() {
             )}
           </div>
 
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <Card>
               <h3 className="font-semibold">What happens after booking</h3>
               <ol className="mt-3 grid gap-2 text-sm text-muted-foreground">
