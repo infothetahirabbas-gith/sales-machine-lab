@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Globe, Briefcase, Languages } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Briefcase, Languages } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 const logo = logoAsset.url;
@@ -84,7 +84,7 @@ export default function Header() {
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
-  const showPersonalised = !isHome && !!prefs;
+  
   const cityLabel = LOCATIONS.find((l) => l.slug === prefs?.location)?.city ?? "London";
   const industryLabel = INDUSTRIES.find((i) => i.slug === prefs?.industry)?.name ?? "Industry";
   const langLabel = LANG_OPTIONS.find((l) => l.code === prefs?.language)?.name ?? "English";
@@ -96,58 +96,45 @@ export default function Header() {
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          {showPersonalised ? (
-            <>
-              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
-                <MapPin className="size-3" />
-                <span>{cityLabel}</span>
-                <select
-                  value={prefs!.location}
-                  onChange={(e) => updatePref("location", e.target.value)}
-                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1"
-                  aria-label="Change city"
-                >
-                  {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
-                </select>
-                <ChevronDown className="size-3 opacity-60" />
-              </label>
-              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
-                <Briefcase className="size-3" />
-                <span className="truncate max-w-[140px]">{industryLabel}</span>
-                <select
-                  value={prefs!.industry}
-                  onChange={(e) => updatePref("industry", e.target.value)}
-                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1 w-0"
-                  aria-label="Change industry"
-                >
-                  {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
-                </select>
-                <ChevronDown className="size-3 opacity-60" />
-              </label>
-              <label className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
-                <Languages className="size-3" />
-                <span>{langLabel}</span>
-                <select
-                  value={prefs!.language}
-                  onChange={(e) => updatePref("language", e.target.value)}
-                  className="bg-transparent outline-none appearance-none text-[11px] font-semibold cursor-pointer -mr-1 w-0"
-                  aria-label="Change language"
-                >
-                  {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
-                </select>
-                <ChevronDown className="size-3 opacity-60" />
-              </label>
-            </>
-          ) : (
-            <>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="City">
-                <MapPin className="size-3" /> London
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Language">
-                <Globe className="size-3" /> English
-              </span>
-            </>
-          )}
+          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
+            <MapPin className="size-3" />
+            <span>{cityLabel}</span>
+            <ChevronDown className="size-3 opacity-60" />
+            <select
+              value={prefs?.location ?? "london"}
+              onChange={(e) => updatePref("location", e.target.value)}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              aria-label="Change city"
+            >
+              {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
+            </select>
+          </label>
+          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
+            <Briefcase className="size-3" />
+            <span className="truncate max-w-[140px]">{industryLabel}</span>
+            <ChevronDown className="size-3 opacity-60" />
+            <select
+              value={prefs?.industry ?? "fashion-apparel"}
+              onChange={(e) => updatePref("industry", e.target.value)}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              aria-label="Change industry"
+            >
+              {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
+            </select>
+          </label>
+          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
+            <Languages className="size-3" />
+            <span>{langLabel}</span>
+            <ChevronDown className="size-3 opacity-60" />
+            <select
+              value={prefs?.language ?? "en"}
+              onChange={(e) => updatePref("language", e.target.value)}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              aria-label="Change language"
+            >
+              {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
+            </select>
+          </label>
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
