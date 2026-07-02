@@ -72,6 +72,10 @@ function Contact() {
                   </select>
                 </div>
                 <textarea rows={4} placeholder="Where do you feel revenue is leaking?" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
+                <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
+                  <input required type="checkbox" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
+                  <span>I agree to be contacted by BeingEcom about my enquiry and accept the <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>. We never share or sell your data.</span>
+                </label>
                 <button className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">Send Audit Request →</button>
               </form>
             )}
