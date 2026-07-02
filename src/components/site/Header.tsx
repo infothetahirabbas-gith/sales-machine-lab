@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Globe } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
@@ -52,6 +52,8 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
       <div className="border-b border-border/60 bg-secondary/40">
@@ -73,30 +75,34 @@ export default function Header() {
         </Link>
         <nav className="hidden lg:flex items-center gap-6 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
-          <div className="relative group">
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-              <div className="w-64 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-                {locations.map((l) => (
-                  <Link key={l.to} to={l.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
-                    {l.label}
-                  </Link>
-                ))}
+          {isHome && (
+            <>
+              <div className="relative group">
+                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                  <div className="w-64 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                    {locations.map((l) => (
+                      <Link key={l.to} to={l.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                        {l.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="relative group">
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-              <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-                {industries.map((i) => (
-                  <Link key={i.to} to={i.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
-                    {i.label}
-                  </Link>
-                ))}
+              <div className="relative group">
+                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                  <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                    {industries.map((i) => (
+                      <Link key={i.to} to={i.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                        {i.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
           <div className="relative group">
             <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
@@ -141,40 +147,44 @@ export default function Header() {
          <div className="lg:hidden border-t border-border bg-background shadow-xl">
           <div className="px-5 py-3 grid gap-1 text-sm">
             <Link to="/" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Home</Link>
-            <div>
-              <button
-                onClick={() => setLocationsOpen(!locationsOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
-                aria-expanded={locationsOpen}
-              >
-                <span>Locations</span>
-                <span className={`transition-transform ${locationsOpen ? "rotate-180" : ""}`}>▾</span>
-              </button>
-              {locationsOpen && (
-                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
-                  {locations.map((l) => (
-                    <Link key={l.to} to={l.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setLocationsOpen(false); }}>{l.label}</Link>
-                  ))}
+            {isHome && (
+              <>
+                <div>
+                  <button
+                    onClick={() => setLocationsOpen(!locationsOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                    aria-expanded={locationsOpen}
+                  >
+                    <span>Locations</span>
+                    <span className={`transition-transform ${locationsOpen ? "rotate-180" : ""}`}>▾</span>
+                  </button>
+                  {locationsOpen && (
+                    <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                      {locations.map((l) => (
+                        <Link key={l.to} to={l.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setLocationsOpen(false); }}>{l.label}</Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            <div>
-              <button
-                onClick={() => setIndustriesOpen(!industriesOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
-                aria-expanded={industriesOpen}
-              >
-                <span>Industries</span>
-                <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
-              </button>
-              {industriesOpen && (
-                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
-                  {industries.map((i) => (
-                    <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
-                  ))}
+                <div>
+                  <button
+                    onClick={() => setIndustriesOpen(!industriesOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                    aria-expanded={industriesOpen}
+                  >
+                    <span>Industries</span>
+                    <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
+                  </button>
+                  {industriesOpen && (
+                    <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                      {industries.map((i) => (
+                        <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </>
+            )}
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
