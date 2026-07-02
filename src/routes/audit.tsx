@@ -189,7 +189,7 @@ function MiniScore({ value, label }: { value: number; label: string }) {
     : value >= 50 ? "text-amber-600 bg-amber-500/10 border-amber-500/30"
     : "text-destructive bg-destructive/10 border-destructive/30";
   return (
-    <div className={`p-3 rounded-xl border ${color} text-center min-w-0`}>
+    <div className={`p-3 rounded-xl border ${colour} text-center min-w-0`}>
       <div className="text-2xl font-bold tabular-nums">{value}</div>
       <div className="text-[10px] uppercase tracking-wider mt-0.5 leading-tight font-semibold opacity-80 break-words">{label}</div>
     </div>
@@ -244,7 +244,7 @@ function ScoreLine({ label, score, verdict }: { label: string; score: number; ve
         <span className="font-bold tabular-nums text-ink">{score}/100</span>
       </div>
       <div className="h-1.5 bg-secondary rounded-full overflow-hidden mb-1.5">
-        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: `${score}%` }} />
+        <div className={`h-full ${colour} rounded-full transition-all duration-700`} style={{ width: `${score}%` }} />
       </div>
       <p className="text-xs text-muted-foreground">{verdict}</p>
     </div>
@@ -813,7 +813,7 @@ function AuditPage() {
                     <div key={label} className="grid grid-cols-[140px_1fr_44px] items-center gap-3">
                       <div className="text-xs text-ink truncate">{label}</div>
                       <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: `${v}%` }} />
+                        <div className={`h-full ${colour} rounded-full transition-all duration-700`} style={{ width: `${v}%` }} />
                       </div>
                       <div className="text-xs font-bold tabular-nums text-ink text-right">{v}</div>
                     </div>

@@ -239,7 +239,7 @@ function beforeAfterPairs(s: Study) {
   const baselines: Record<string, { label: string; before: string; after: string; beforePct: number; afterPct: number; delta: string }[]> = {
     Ads: [
       { label: "ROAS", before: "1.4×", after: "3.8×", beforePct: 28, afterPct: 76, delta: "+170%" },
-      { label: "CAC", before: "$48", after: "$29", beforePct: 80, afterPct: 48, delta: "−40%" },
+      { label: "CAC", before: "£48", after: "£29", beforePct: 80, afterPct: 48, delta: "−40%" },
       { label: "Creative cadence / mo", before: "6", after: "30+", beforePct: 18, afterPct: 92, delta: "5×" },
     ],
     SEO: [
@@ -249,7 +249,7 @@ function beforeAfterPairs(s: Study) {
     ],
     CRO: [
       { label: "Conversion rate", before: "1.2%", after: "4.4%", beforePct: 24, afterPct: 88, delta: "+267%" },
-      { label: "AOV", before: "$58", after: "$92", beforePct: 50, afterPct: 80, delta: "+58%" },
+      { label: "AOV", before: "£58", after: "£92", beforePct: 50, afterPct: 80, delta: "+58%" },
       { label: "Cart abandonment", before: "72%", after: "48%", beforePct: 90, afterPct: 60, delta: "−33%" },
     ],
     Website: [
@@ -275,7 +275,7 @@ function CaseStudyDetail() {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className={`relative bg-gradient-to-br ${s.color} text-white overflow-hidden`}>
+      <section className={`relative bg-gradient-to-br ${s.colour} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
         <div className="mx-auto max-w-6xl px-5 lg:px-8 pt-24 lg:pt-32 pb-16 lg:pb-20 relative">
           <Link
@@ -592,7 +592,7 @@ function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
                 params={{ id: x.id }}
                 className={`card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition`}
               >
-                <div className={`h-24 bg-gradient-to-br ${x.color} relative px-3 py-2 flex items-end`}>
+                <div className={`h-24 bg-gradient-to-br ${x.colour} relative px-3 py-2 flex items-end`}>
                   <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
                     <Icon className="w-2.5 h-2.5" /> {x.category}
                   </span>

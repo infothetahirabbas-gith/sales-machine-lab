@@ -51,11 +51,11 @@ export const Route = createFileRoute("/services/ai-automation")({
       problemTitle: "Why most ecommerce teams drown in busywork.",
       problemBullets: [
         "Manual support tickets eating margin.",
-        "Product catalog enriched by hand every launch.",
+        "Product catalogue enriched by hand every launch.",
         "Marketing ops stitched together with screenshots.",
       ],
       whatIsTitle: "AI is leverage, not a feature.",
-      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift — support deflection, catalog enrichment, personalisation, content velocity — and build them into your stack.",
+      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift — support deflection, catalogue enrichment, personalisation, content velocity — and build them into your stack.",
       systemTitle: "Our AI automation system.",
       systemSteps: [
         { title: "Workflow audit", body: "Map manual workflows, cost-rank, automation-rank." },
@@ -79,7 +79,7 @@ export const Route = createFileRoute("/services/ai-automation")({
       triggersTitle: "AI use-cases that pay back fast.",
       triggers: ["Tier-1 support","Product copy","Alt text","Hero personalisation","Email segmentation","Reporting agents","Review summarisation","Returns triage"],
       beforeAfter: {
-        before: ["40% margin lost to ops","24h support response","Manual catalog launches","Static hero for everyone"],
+        before: ["40% margin lost to ops","24h support response","Manual catalogue launches","Static hero for everyone"],
         after: ["AI handles 65% of tickets","<5min first response","Bulk AI enrichment","Personalised hero per segment"],
       },
       caseStudy: {
