@@ -12,6 +12,8 @@ const LANG_OPTIONS = [
   { code: "pl", name: "Polski (Polish)" },
   { code: "ro", name: "Română (Romanian)" },
   { code: "pt", name: "Português (Portuguese)" },
+  { code: "de", name: "Deutsch (German)" },
+  { code: "fr", name: "Français (French)" },
 ];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
