@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -55,6 +56,11 @@ const SitemapServicesDotxmlRoute = SitemapServicesDotxmlRouteImport.update({
 const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
   id: '/sitemap-pages.xml',
   path: '/sitemap-pages.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -216,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -250,6 +257,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -285,6 +293,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -321,6 +330,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/glossary'
     | '/pricing'
+    | '/privacy'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -355,6 +365,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/glossary'
     | '/pricing'
+    | '/privacy'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -389,6 +400,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/glossary'
     | '/pricing'
+    | '/privacy'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
     | '/sitemap.xml'
@@ -424,6 +436,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -469,6 +482,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-pages.xml'
       fullPath: '/sitemap-pages.xml'
       preLoaderRoute: typeof SitemapPagesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -708,6 +728,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
