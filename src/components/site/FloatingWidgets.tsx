@@ -221,7 +221,7 @@ function SmartCTAs({ messages, isLoading }: { messages: Msg[]; isLoading: boolea
   if (/(cro|conversion|checkout|pdp|cart)/.test(text)) push({ label: "CRO services", href: "/services/cro" });
   if (/(email|klaviyo|sms|flow)/.test(text)) push({ label: "Email & SMS", href: "/services/email-sms" });
   if (/(case stud|results|wins|portfolio|examples)/.test(text)) push({ label: "Case studies", href: "/case-studies" });
-  if (/(whatsapp|chat now|message)/.test(text)) push({ label: "WhatsApp us", href: "https://wa.me/923186230122", external: true });
+  if (/(whatsapp|chat now|message)/.test(text)) push({ label: "WhatsApp us", href: WHATSAPP_URL, external: true });
 
   // Default fallback after 2+ exchanges
   if (ctas.length === 0 && messages.length >= 4) {
