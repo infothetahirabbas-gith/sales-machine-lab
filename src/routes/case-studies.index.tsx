@@ -325,27 +325,39 @@ function WebsitePreview({ screenshot }: { screenshot: string }) {
 
 
 const SEO_KEYWORDS_BY_INDUSTRY: Record<string, { kw: string; pos: number; clicks: string }[]> = {
-  Skincare: [{ kw: "vitamin c serum uk", pos: 3, clicks: "2.4K" }, { kw: "best retinol for beginners", pos: 5, clicks: "1.8K" }, { kw: "ceramide moisturiser", pos: 2, clicks: "3.1K" }],
-  Apparel: [{ kw: "linen trousers women uk", pos: 4, clicks: "2.1K" }, { kw: "oversized shirt mens", pos: 6, clicks: "1.4K" }, { kw: "sustainable knitwear uk", pos: 3, clicks: "1.9K" }],
-  Supplements: [{ kw: "magnesium glycinate uk", pos: 2, clicks: "3.6K" }, { kw: "creatine monohydrate 500g", pos: 4, clicks: "2.2K" }, { kw: "best ashwagandha uk", pos: 3, clicks: "2.8K" }],
-  Homeware: [{ kw: "linen bedding uk", pos: 3, clicks: "2.5K" }, { kw: "modern floor lamp", pos: 5, clicks: "1.6K" }, { kw: "ceramic dinner set", pos: 4, clicks: "1.9K" }],
-  Furniture: [{ kw: "modern sofa uk", pos: 4, clicks: "2.7K" }, { kw: "solid oak dining table", pos: 3, clicks: "2.1K" }, { kw: "small space armchair", pos: 6, clicks: "1.3K" }],
-  Pets: [{ kw: "grain free dog food uk", pos: 3, clicks: "3.2K" }, { kw: "cat subscription box", pos: 5, clicks: "1.7K" }, { kw: "puppy training treats", pos: 4, clicks: "2.0K" }],
-  Beauty: [{ kw: "clean beauty uk", pos: 4, clicks: "2.3K" }, { kw: "vegan lipstick brands", pos: 6, clicks: "1.5K" }, { kw: "hyaluronic serum review", pos: 3, clicks: "2.9K" }],
-  Jewellery: [{ kw: "gold vermeil necklace uk", pos: 3, clicks: "2.2K" }, { kw: "stacking rings silver", pos: 5, clicks: "1.4K" }, { kw: "birthstone jewellery", pos: 4, clicks: "1.8K" }],
-  Coffee: [{ kw: "speciality coffee subscription", pos: 3, clicks: "2.6K" }, { kw: "single origin beans uk", pos: 4, clicks: "1.9K" }, { kw: "espresso beans 1kg", pos: 5, clicks: "1.5K" }],
-  Baby: [{ kw: "organic baby clothes uk", pos: 3, clicks: "2.4K" }, { kw: "wooden baby toys", pos: 4, clicks: "1.7K" }, { kw: "muslin swaddle set", pos: 5, clicks: "1.6K" }],
-  Fitness: [{ kw: "resistance bands set uk", pos: 4, clicks: "2.3K" }, { kw: "adjustable dumbbells", pos: 3, clicks: "2.9K" }, { kw: "yoga mat 6mm", pos: 5, clicks: "1.6K" }],
-  Beverage: [{ kw: "low sugar kombucha uk", pos: 3, clicks: "2.0K" }, { kw: "cold brew coffee cans", pos: 5, clicks: "1.5K" }, { kw: "alcohol free spirits", pos: 4, clicks: "2.2K" }],
-  Food: [{ kw: "gluten free snacks uk", pos: 3, clicks: "2.5K" }, { kw: "protein bar low sugar", pos: 4, clicks: "2.0K" }, { kw: "meal prep box uk", pos: 5, clicks: "1.7K" }],
-  Gadgets: [{ kw: "phone stand desk", pos: 5, clicks: "1.5K" }, { kw: "portable power bank uk", pos: 4, clicks: "2.0K" }, { kw: "wireless charger fast", pos: 3, clicks: "2.4K" }],
-  Footwear: [{ kw: "trail running shoes uk", pos: 3, clicks: "2.6K" }, { kw: "leather loafers mens", pos: 4, clicks: "1.9K" }, { kw: "chunky trainers women", pos: 5, clicks: "1.7K" }],
+  skincare: [{ kw: "vitamin c serum uk", pos: 3, clicks: "2.4K" }, { kw: "best retinol for beginners", pos: 5, clicks: "1.8K" }, { kw: "ceramide moisturiser uk", pos: 2, clicks: "3.1K" }],
+  apparel: [{ kw: "linen trousers women uk", pos: 4, clicks: "2.1K" }, { kw: "oversized shirt mens", pos: 6, clicks: "1.4K" }, { kw: "sustainable knitwear uk", pos: 3, clicks: "1.9K" }],
+  supplements: [{ kw: "magnesium glycinate uk", pos: 2, clicks: "3.6K" }, { kw: "creatine monohydrate 500g", pos: 4, clicks: "2.2K" }, { kw: "best ashwagandha uk", pos: 3, clicks: "2.8K" }],
+  home: [{ kw: "soy candles uk", pos: 3, clicks: "2.6K" }, { kw: "reed diffuser gift set", pos: 5, clicks: "1.7K" }, { kw: "handmade candles london", pos: 4, clicks: "1.9K" }],
+  homeware: [{ kw: "linen bedding uk", pos: 3, clicks: "2.5K" }, { kw: "modern floor lamp", pos: 5, clicks: "1.6K" }, { kw: "ceramic dinner set", pos: 4, clicks: "1.9K" }],
+  furniture: [{ kw: "modern sofa uk", pos: 4, clicks: "2.7K" }, { kw: "solid oak dining table", pos: 3, clicks: "2.1K" }, { kw: "small space armchair", pos: 6, clicks: "1.3K" }],
+  pet: [{ kw: "grain free dog food uk", pos: 3, clicks: "3.2K" }, { kw: "cat subscription box", pos: 5, clicks: "1.7K" }, { kw: "puppy training treats", pos: 4, clicks: "2.0K" }],
+  beauty: [{ kw: "clean beauty uk", pos: 4, clicks: "2.3K" }, { kw: "vegan lipstick brands", pos: 6, clicks: "1.5K" }, { kw: "hyaluronic serum review", pos: 3, clicks: "2.9K" }],
+  jewelry: [{ kw: "gold vermeil necklace uk", pos: 3, clicks: "2.2K" }, { kw: "stacking rings silver", pos: 5, clicks: "1.4K" }, { kw: "birthstone jewellery uk", pos: 4, clicks: "1.8K" }],
+  jewellery: [{ kw: "gold vermeil necklace uk", pos: 3, clicks: "2.2K" }, { kw: "stacking rings silver", pos: 5, clicks: "1.4K" }, { kw: "birthstone jewellery uk", pos: 4, clicks: "1.8K" }],
+  coffee: [{ kw: "speciality coffee subscription", pos: 3, clicks: "2.6K" }, { kw: "single origin beans uk", pos: 4, clicks: "1.9K" }, { kw: "espresso beans 1kg", pos: 5, clicks: "1.5K" }],
+  baby: [{ kw: "organic baby clothes uk", pos: 3, clicks: "2.4K" }, { kw: "wooden baby toys", pos: 4, clicks: "1.7K" }, { kw: "muslin swaddle set", pos: 5, clicks: "1.6K" }],
+  fitness: [{ kw: "resistance bands set uk", pos: 4, clicks: "2.3K" }, { kw: "adjustable dumbbells", pos: 3, clicks: "2.9K" }, { kw: "yoga mat 6mm", pos: 5, clicks: "1.6K" }],
+  beverage: [{ kw: "low sugar kombucha uk", pos: 3, clicks: "2.0K" }, { kw: "cold brew coffee cans", pos: 5, clicks: "1.5K" }, { kw: "loose leaf tea uk", pos: 4, clicks: "2.2K" }],
+  food: [{ kw: "gluten free snacks uk", pos: 3, clicks: "2.5K" }, { kw: "protein bar low sugar", pos: 4, clicks: "2.0K" }, { kw: "meal prep box uk", pos: 5, clicks: "1.7K" }],
+  gadgets: [{ kw: "phone stand desk", pos: 5, clicks: "1.5K" }, { kw: "portable power bank uk", pos: 4, clicks: "2.0K" }, { kw: "wireless charger fast", pos: 3, clicks: "2.4K" }],
+  footwear: [{ kw: "trail running shoes uk", pos: 3, clicks: "2.6K" }, { kw: "leather loafers mens", pos: 4, clicks: "1.9K" }, { kw: "chunky trainers women", pos: 5, clicks: "1.7K" }],
+  outdoor: [{ kw: "waterproof hiking jacket uk", pos: 3, clicks: "2.8K" }, { kw: "camping stove lightweight", pos: 4, clicks: "1.9K" }, { kw: "merino base layer", pos: 5, clicks: "1.6K" }],
+  toys: [{ kw: "wooden toys uk", pos: 3, clicks: "2.7K" }, { kw: "montessori toys 2 year old", pos: 4, clicks: "2.0K" }, { kw: "stem toys age 6", pos: 5, clicks: "1.5K" }],
+  cosmetics: [{ kw: "cruelty free foundation uk", pos: 3, clicks: "2.5K" }, { kw: "lip oil tinted", pos: 5, clicks: "1.7K" }, { kw: "matte liquid lipstick", pos: 4, clicks: "1.9K" }],
+  eyewear: [{ kw: "prescription sunglasses uk", pos: 3, clicks: "2.9K" }, { kw: "blue light glasses", pos: 4, clicks: "2.2K" }, { kw: "acetate frames round", pos: 5, clicks: "1.6K" }],
+  streetwear: [{ kw: "streetwear brands uk", pos: 3, clicks: "3.0K" }, { kw: "heavyweight tshirt oversized", pos: 4, clicks: "2.1K" }, { kw: "cargo pants mens uk", pos: 5, clicks: "1.7K" }],
+  watches: [{ kw: "automatic watches under 500", pos: 3, clicks: "2.6K" }, { kw: "mens dress watch uk", pos: 4, clicks: "2.0K" }, { kw: "dive watch 200m", pos: 5, clicks: "1.5K" }],
 };
 
 function pickSeoKeywords(industry: string) {
-  const key = Object.keys(SEO_KEYWORDS_BY_INDUSTRY).find((k) => industry.toLowerCase().includes(k.toLowerCase()));
-  return key ? SEO_KEYWORDS_BY_INDUSTRY[key] : [{ kw: "shopify seo agency uk", pos: 3, clicks: "2.1K" }, { kw: "ecommerce seo services", pos: 4, clicks: "1.8K" }, { kw: "product page seo", pos: 5, clicks: "1.5K" }];
+  const lower = industry.toLowerCase();
+  const key = Object.keys(SEO_KEYWORDS_BY_INDUSTRY).find((k) => lower.includes(k));
+  return key
+    ? SEO_KEYWORDS_BY_INDUSTRY[key]
+    : [{ kw: "shopify seo agency uk", pos: 3, clicks: "2.1K" }, { kw: "ecommerce seo services", pos: 4, clicks: "1.8K" }, { kw: "product page seo", pos: 5, clicks: "1.5K" }];
 }
+
 
 function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; metric: string; metricLabel: string; industry: string }) {
   const r = rng(seed + 23);

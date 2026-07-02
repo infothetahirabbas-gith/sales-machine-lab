@@ -14,7 +14,7 @@ const variants: Record<string, Variant> = {
     line: [18, 22, 28, 26, 35, 42, 48, 55, 62, 70, 78, 88],
     bars: [30, 38, 45, 42, 55, 62, 68, 72, 78, 82, 88, 95],
     xLabels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
-    yLabel: "$K",
+    yLabel: "£K",
   },
   seo: {
     label: "Organic clicks",
@@ -35,7 +35,7 @@ const variants: Record<string, Variant> = {
     line: [12, 18, 24, 30, 36, 44, 50, 56, 64, 72, 80, 88],
     bars: [20, 28, 35, 40, 48, 55, 62, 68, 74, 80, 86, 92],
     xLabels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12"],
-    yLabel: "$K",
+    yLabel: "£K",
   },
   cro: {
     label: "Conv rate",

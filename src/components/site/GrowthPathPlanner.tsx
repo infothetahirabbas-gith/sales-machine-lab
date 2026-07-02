@@ -209,8 +209,8 @@ export default function GrowthPathPlanner() {
                   className="w-full accent-primary cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
-                  <span>{goal === "sales" ? "100" : "$5K"}</span>
-                  <span>{goal === "sales" ? "5K orders" : "$500K"}</span>
+                  <span>{goal === "sales" ? "100" : "£5K"}</span>
+                  <span>{goal === "sales" ? "5K orders" : "£500K"}</span>
                 </div>
               </div>
 
