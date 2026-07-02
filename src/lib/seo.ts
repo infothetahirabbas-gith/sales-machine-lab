@@ -76,7 +76,7 @@ export function professionalServiceJsonLd() {
     description: ORG_INFO.description,
     email: ORG_INFO.email,
     telephone: ORG_INFO.telephone,
-    priceRange: "$$$",
+    priceRange: "££££",
     address: { "@type": "PostalAddress", ...ORG_INFO.address },
     areaServed: { "@type": "Country", name: "United Kingdom" },
     sameAs: ORG_INFO.sameAs,

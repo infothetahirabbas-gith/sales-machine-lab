@@ -100,7 +100,7 @@ export const Route = createFileRoute("/services/analytics")({
         { label: "iOS attribution match", before: 41, after: 82, unit: "%", description: "Conversions matched server-side after iOS 14.5 + cookie loss." },
         { label: "Data-to-decision lag", before: 7, after: 1, unit: " d", description: "Days from event → dashboard → action. Faster loops = faster compounding." },
         { label: "ROAS reporting variance", before: 38, after: 6, unit: "%", description: "Gap between Meta-reported ROAS and true server-side ROAS." },
-        { label: "Tracked monthly revenue", before: 124, after: 312, unit: "$k", description: "Revenue correctly attributed back to its channel each month." },
+        { label: "Tracked monthly revenue", before: 124, after: 312, unit: "£k", description: "Revenue correctly attributed back to its channel each month." },
       ],
       faqs: FAQ_LIST,
     }} />

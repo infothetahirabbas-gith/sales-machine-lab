@@ -405,9 +405,9 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 bars={cfg.metricBars ?? [
                   { label: "Conversion rate", before: 1.4, after: 3.8, unit: "%", description: "Share of visitors who complete a purchase. Benchmark: top-quartile DTC stores hit 3.5–4.5%." },
                   { label: "ROAS", before: 1.9, after: 4.2, unit: "×", description: "Revenue ÷ ad spend. Healthy paid-social ROAS for scaling brands sits at 3–4×." },
-                  { label: "AOV", before: 42, after: 71, unit: "$", description: "Average order value. Lifted via bundles, upsells, and post-purchase offers." },
+                  { label: "AOV", before: 42, after: 71, unit: "£", description: "Average order value. Lifted via bundles, upsells, and post-purchase offers." },
                   { label: "Repeat rate", before: 18, after: 47, unit: "%", description: "Customers who buy again within 90 days. The single biggest LTV lever." },
-                  { label: "Monthly revenue", before: 38, after: 142, unit: "$k", description: "Top-line monthly revenue once the full growth system is operating." },
+                  { label: "Monthly revenue", before: 38, after: 142, unit: "£k", description: "Top-line monthly revenue once the full growth system is operating." },
                 ]}
               />
               <p className="mt-4 text-[11px] text-muted-foreground leading-relaxed">

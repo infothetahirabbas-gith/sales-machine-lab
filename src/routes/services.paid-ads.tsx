@@ -99,9 +99,9 @@ export const Route = createFileRoute("/services/paid-ads")({
       ],
       metricBars: [
         { label: "ROAS", before: 1.6, after: 4.1, unit: "×", description: "Revenue ÷ ad spend across Meta + Google + TikTok blended." },
-        { label: "CPA", before: 48, after: 22, unit: "$", description: "Cost per acquired customer. Lower CPA = profitable scaling room." },
+        { label: "CPA", before: 48, after: 22, unit: "£", description: "Cost per acquired customer. Lower CPA = profitable scaling room." },
         { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads — the hook-rate signal." },
-        { label: "CPM efficiency", before: 32, after: 18, unit: "$", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
+        { label: "CPM efficiency", before: 32, after: 18, unit: "£", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
       faqs: FAQ_LIST,

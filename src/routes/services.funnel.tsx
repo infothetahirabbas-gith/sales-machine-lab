@@ -102,7 +102,7 @@ export const Route = createFileRoute("/services/funnel")({
         { label: "ATC → Checkout", before: 42, after: 71, unit: "%", description: "How well your cart drawer + ATC modal pushes shoppers forward." },
         { label: "Checkout → Buy", before: 38, after: 74, unit: "%", description: "Final friction stage. Express pay + trust + clarity unlock the close." },
         { label: "Full funnel CR", before: 0.9, after: 2.9, unit: "%", description: "Compound rate from LP visit to purchase — the truest funnel score." },
-        { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "$", description: "RPV across the engineered funnel — the metric scale operators live by." },
+        { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "£", description: "RPV across the engineered funnel — the metric scale operators live by." },
       ],
       faqs: FAQ_LIST,
     }} />
