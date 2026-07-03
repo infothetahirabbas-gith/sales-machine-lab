@@ -1,3 +1,4 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -6,13 +7,17 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ClientOnly,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
-import WelcomeBanner from "../components/site/WelcomeBanner";
-import GoogleTranslate from "../components/site/GoogleTranslate";
+
+// Deferred — these are not needed for first paint. Loading them lazily
+// removes ~significant JS from the initial bundle and keeps LCP fast.
+const WelcomeBanner = lazy(() => import("../components/site/WelcomeBanner"));
+const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
 
 
 
