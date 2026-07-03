@@ -83,6 +83,13 @@ export const industries = [
   { to: "/industries/pets", label: "Pets & Accessories" },
 ];
 
+export const caseStudyCategories = [
+  { to: "/case-studies?category=website", label: "Website" },
+  { to: "/case-studies?category=ads", label: "Ads" },
+  { to: "/case-studies?category=seo", label: "SEO" },
+  { to: "/case-studies?category=cro", label: "CRO" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
