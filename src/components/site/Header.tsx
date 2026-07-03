@@ -289,44 +289,40 @@ export default function Header() {
          <div className="lg:hidden border-t border-border bg-background shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain">
           <div className="px-5 py-3 pb-8 grid gap-1 text-sm">
             <Link to="/" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Home</Link>
-            {isHome && (
-              <>
-                <div>
-                  <button
-                    onClick={() => setLocationsOpen(!locationsOpen)}
-                    className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
-                    aria-expanded={locationsOpen}
-                  >
-                    <span>Locations</span>
-                    <span className={`transition-transform ${locationsOpen ? "rotate-180" : ""}`}>▾</span>
-                  </button>
-                  {locationsOpen && (
-                    <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
-                      {locations.map((l) => (
-                        <Link key={l.to} to={l.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setLocationsOpen(false); }}>{l.label}</Link>
-                      ))}
-                    </div>
-                  )}
+            <div>
+              <button
+                onClick={() => setLocationsOpen(!locationsOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                aria-expanded={locationsOpen}
+              >
+                <span>Locations</span>
+                <span className={`transition-transform ${locationsOpen ? "rotate-180" : ""}`}>▾</span>
+              </button>
+              {locationsOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  {locations.map((l) => (
+                    <Link key={l.to} to={l.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setLocationsOpen(false); }}>{l.label}</Link>
+                  ))}
                 </div>
-                <div>
-                  <button
-                    onClick={() => setIndustriesOpen(!industriesOpen)}
-                    className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
-                    aria-expanded={industriesOpen}
-                  >
-                    <span>Industries</span>
-                    <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
-                  </button>
-                  {industriesOpen && (
-                    <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
-                      {industries.map((i) => (
-                        <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
-                      ))}
-                    </div>
-                  )}
+              )}
+            </div>
+            <div>
+              <button
+                onClick={() => setIndustriesOpen(!industriesOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                aria-expanded={industriesOpen}
+              >
+                <span>Industries</span>
+                <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
+              </button>
+              {industriesOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  {industries.map((i) => (
+                    <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                  ))}
                 </div>
-              </>
-            )}
+              )}
+            </div>
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
