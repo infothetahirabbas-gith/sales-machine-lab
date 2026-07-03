@@ -178,9 +178,9 @@ export default function RevenueLossCalculator() {
                 </div>
               </div>
 
-              <a href="/contact" className="btn btn-primary btn-shimmer mt-6 w-full text-center text-sm sm:text-base whitespace-normal leading-snug px-4 py-3 break-words">
+              <Link to="/contact" className="btn btn-primary btn-shimmer mt-6 w-full text-center text-sm sm:text-base whitespace-normal leading-snug px-4 py-3 break-words">
                 Stop losing {fmt(calc.totalMonthlyMiss)}/mo — Book Strategy Call →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
