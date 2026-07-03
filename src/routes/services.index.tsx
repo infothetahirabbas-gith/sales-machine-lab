@@ -25,19 +25,34 @@ export const Route = createFileRoute("/services/")({
 
 
 const all = [
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections - free traffic forever.", tag: "Acquire" },
-  { to: "/services/performance-marketing", title: "Performance Marketing", body: "Facebook, Google, TikTok & media buying as one P&L.", tag: "Acquire" },
-  { to: "/services/creative", title: "Creative Testing", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
-  { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimise" },
-  { to: "/services/email-sms", title: "Email Marketing", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
+  // 1. Ecommerce SEO + subs
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections — free traffic forever.", tag: "Acquire" },
+  { to: "/services/seo/on-page", title: "On-Page SEO", body: "Titles, schema, copy & internal links that rank.", tag: "SEO" },
+  { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Digital PR & editorial links that build DR.", tag: "SEO" },
+  { to: "/services/seo/technical", title: "Technical SEO", body: "CWV, crawl, indexation & schema, fixed properly.", tag: "SEO" },
+  { to: "/services/seo/local", title: "Local SEO", body: "GBP, city pages & reviews that win 'near me'.", tag: "SEO" },
+  { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Cited in ChatGPT, Perplexity & AI Overviews.", tag: "SEO" },
+  { to: "/services/seo/international", title: "International SEO", body: "Scale UK brands into the US, EU & beyond.", tag: "SEO" },
+
+  // 2. Performance Marketing + subs
+  { to: "/services/performance-marketing", title: "Performance Marketing", body: "Facebook, Instagram, TikTok, Google & YouTube as one P&L.", tag: "Acquire" },
+  { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "ASC+, creator UGC & CAPI-clean Meta scaling.", tag: "Ads" },
+  { to: "/services/performance-marketing/instagram-ads", title: "Instagram Ads", body: "Reels-first, Stories & creator UGC that scale.", tag: "Ads" },
+  { to: "/services/performance-marketing/tiktok-ads", title: "TikTok Ads", body: "Native TikTok creative built for Spark scaling.", tag: "Ads" },
+  { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Search, Shopping & PMax with true incrementality.", tag: "Ads" },
+  { to: "/services/performance-marketing/youtube-ads", title: "YouTube Ads", body: "VAC, Demand Gen & Shorts for profitable video.", tag: "Ads" },
+  { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Multi-channel media buying as one revenue P&L.", tag: "Ads" },
+
+  // 3. Store Development + subs
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", tag: "Build" },
-  { to: "/services/store-development/shopify", title: "Shopify Development", body: "Shopify & Shopify Plus stores built to sell.", tag: "Build" },
-  { to: "/services/store-development/woocommerce", title: "WooCommerce Development", body: "Fast, lean WordPress + Woo stores that scale.", tag: "Build" },
+  { to: "/services/store-development/shopify", title: "Shopify Store Development", body: "Shopify & Shopify Plus stores built to sell.", tag: "Build" },
+  { to: "/services/store-development/woocommerce", title: "WooCommerce Store Development", body: "Fast, lean WordPress + Woo stores that scale.", tag: "Build" },
+
+  // 4-7
+  { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimise" },
+  { to: "/services/creative", title: "Creative Testing", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
+  { to: "/services/email-sms", title: "Email Marketing", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/ai-automation", title: "AI Automation", body: "AI agents & workflows that compound margin.", tag: "Automate" },
-  { to: "/services/paid-ads", title: "Paid Advertising (Overview)", body: "Meta, Google & TikTok ads built to scale profitably.", tag: "Acquire" },
-  { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond £10K-£100K/month, profitably.", tag: "Scale" },
-  { to: "/services/analytics", title: "Analytics & Tracking", body: "Track every sale, click, and behavior.", tag: "Measure" },
-  { to: "/services/funnel", title: "Funnel & Journey Optimisation", body: "Turn visitors into buyers automatically.", tag: "Optimise" },
 ];
 
 function ServicesIndex() {

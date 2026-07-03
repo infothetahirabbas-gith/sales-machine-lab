@@ -23,28 +23,41 @@ type Prefs = { country: string; location: string; industry: string; service: str
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
 const services: ServiceItem[] = [
-  { to: "/services/seo", label: "Ecommerce SEO" },
+  {
+    to: "/services/seo",
+    label: "Ecommerce SEO",
+    children: [
+      { to: "/services/seo/on-page", label: "On-Page SEO" },
+      { to: "/services/seo/off-page", label: "Off-Page SEO" },
+      { to: "/services/seo/technical", label: "Technical SEO" },
+      { to: "/services/seo/local", label: "Local SEO" },
+      { to: "/services/seo/aeo", label: "AEO / AI Search" },
+      { to: "/services/seo/international", label: "International SEO" },
+    ],
+  },
   {
     to: "/services/performance-marketing",
     label: "Performance Marketing",
     children: [
       { to: "/services/performance-marketing/facebook-ads", label: "Facebook Ads" },
-      { to: "/services/performance-marketing/google-ads", label: "Google Ads" },
+      { to: "/services/performance-marketing/instagram-ads", label: "Instagram Ads" },
       { to: "/services/performance-marketing/tiktok-ads", label: "TikTok Ads" },
+      { to: "/services/performance-marketing/google-ads", label: "Google Ads" },
+      { to: "/services/performance-marketing/youtube-ads", label: "YouTube Ads" },
       { to: "/services/performance-marketing/media-buying", label: "Media Buying" },
     ],
   },
-  { to: "/services/creative", label: "Creative Testing" },
-  { to: "/services/cro", label: "Conversion Rate Optimisation" },
-  { to: "/services/email-sms", label: "Email Marketing" },
   {
     to: "/services/store-development",
     label: "Store Development",
     children: [
-      { to: "/services/store-development/shopify", label: "Shopify Development" },
-      { to: "/services/store-development/woocommerce", label: "WooCommerce Development" },
+      { to: "/services/store-development/shopify", label: "Shopify Store Development" },
+      { to: "/services/store-development/woocommerce", label: "WooCommerce Store Development" },
     ],
   },
+  { to: "/services/cro", label: "Conversion Rate Optimisation" },
+  { to: "/services/creative", label: "Creative Testing" },
+  { to: "/services/email-sms", label: "Email Marketing" },
   { to: "/services/ai-automation", label: "AI Automation" },
 ];
 
