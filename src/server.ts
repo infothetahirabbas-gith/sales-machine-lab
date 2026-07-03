@@ -71,10 +71,35 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      return withCacheHeaders(request, normalized);
     } catch (error) {
       console.error(error);
       return brandedErrorResponse();
     }
   },
 };
+
+// Add sensible cache headers so refreshes are cheap:
+// - HTML: revalidate every time (must-revalidate) but allow conditional GET
+// - hashed JS/CSS/font/img assets: immutable, cached for a year
+function withCacheHeaders(request: Request, response: Response): Response {
+  // Never override explicit Cache-Control set by a handler.
+  if (response.headers.has("cache-control")) return response;
+  const url = new URL(request.url);
+  const pathname = url.pathname;
+  const contentType = response.headers.get("content-type") ?? "";
+  const isHashedAsset = /\.[0-9a-f]{8,}\.(?:js|css|woff2?|ttf|otf|png|jpg|jpeg|webp|avif|svg|gif|ico)$/i.test(pathname);
+  const isHtml = contentType.includes("text/html");
+  const headers = new Headers(response.headers);
+  if (isHashedAsset) {
+    headers.set("cache-control", "public, max-age=31536000, immutable");
+  } else if (isHtml) {
+    headers.set("cache-control", "public, max-age=0, must-revalidate");
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
