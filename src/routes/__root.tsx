@@ -148,7 +148,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleTranslate />
-      <WelcomeBanner />
+      {/* WelcomeBanner temporarily hidden — re-enable when site is ready */}
+      {false && <WelcomeBanner />}
       <Outlet />
     </QueryClientProvider>
   );
