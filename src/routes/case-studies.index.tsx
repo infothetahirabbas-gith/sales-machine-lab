@@ -65,6 +65,13 @@ const showcaseImages = [
 ];
 
 export const Route = createFileRoute("/case-studies/")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = typeof search.category === "string" ? search.category.toLowerCase() : "";
+    const map: Record<string, "All" | "Ads" | "SEO" | "CRO" | "Website"> = {
+      all: "All", ads: "Ads", seo: "SEO", cro: "CRO", website: "Website",
+    };
+    return { category: map[raw] ?? "All" };
+  },
   head: () => ({
     meta: [
       { title: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
