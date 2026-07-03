@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Megaphone, Search, MousePointerClick, TrendingUp, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { CTA } from "../components/site/Section";
