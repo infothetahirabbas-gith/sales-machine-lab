@@ -131,10 +131,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
       <div className="border-b border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 min-h-8 py-1 flex items-center justify-start gap-2 flex-wrap text-[11px] text-muted-foreground">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Country">
+          <span className="order-1 lg:order-none inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
+          <label className="order-2 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
             <MapPin className="size-3" />
             <span>{cityLabel}</span>
             <ChevronDown className="size-3 opacity-60" />
@@ -147,7 +147,22 @@ export default function Header() {
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
             </select>
           </label>
-          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
+          <label className="order-3 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
+            <Languages className="size-3" />
+            <span>{langLabel}</span>
+            <ChevronDown className="size-3 opacity-60" />
+            <select
+              value={prefs?.language ?? "en"}
+              onChange={(e) => updatePref("language", e.target.value)}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              aria-label="Change language"
+            >
+              {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
+            </select>
+          </label>
+          {/* Mobile-only line break after Language */}
+          <div className="order-4 basis-full h-0 lg:hidden" aria-hidden="true" />
+          <label className="order-5 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
             <Briefcase className="size-3" />
             <span className="truncate max-w-[140px]">{industryLabel}</span>
             <ChevronDown className="size-3 opacity-60" />
@@ -160,7 +175,7 @@ export default function Header() {
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
             </select>
           </label>
-          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Jump to service">
+          <label className="order-6 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Jump to service">
             <Sparkles className="size-3" />
             <span className="truncate max-w-[120px]">Services</span>
             <ChevronDown className="size-3 opacity-60" />
@@ -179,19 +194,6 @@ export default function Header() {
                   ))}
                 </optgroup>
               ))}
-            </select>
-          </label>
-          <label className="relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
-            <Languages className="size-3" />
-            <span>{langLabel}</span>
-            <ChevronDown className="size-3 opacity-60" />
-            <select
-              value={prefs?.language ?? "en"}
-              onChange={(e) => updatePref("language", e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer"
-              aria-label="Change language"
-            >
-              {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
             </select>
           </label>
         </div>
