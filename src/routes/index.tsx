@@ -224,7 +224,9 @@ function Home() {
       </Section>
 
       {/* 4.5 GROWTH PATH PLANNER */}
-      <GrowthPathPlanner />
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <GrowthPathPlanner />
+      </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
