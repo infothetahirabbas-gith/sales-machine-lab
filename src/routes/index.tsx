@@ -255,7 +255,9 @@ function Home() {
         intro="Drag the slider. Same store, same product, same audience - different system."
       >
         <Reveal>
-          <BeforeAfter />
+          <Suspense fallback={<div className="min-h-[300px]" />}>
+            <BeforeAfter />
+          </Suspense>
         </Reveal>
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-5">
