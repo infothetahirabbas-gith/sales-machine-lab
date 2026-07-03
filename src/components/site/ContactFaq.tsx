@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { Mail, Phone, MapPin, Plus, Minus, Send } from "lucide-react";
 import { toast } from "sonner";
+import { faqs } from "./faqs-data";
 
 export { faqs } from "./faqs-data";
 export { faqJsonLd } from "@/lib/seo";
