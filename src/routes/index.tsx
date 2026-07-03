@@ -1,17 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
-import BeforeAfter from "../components/site/BeforeAfter";
-import ContactFaq, { faqs as homeFaqs } from "../components/site/ContactFaq";
+import { faqs as homeFaqs } from "../components/site/ContactFaq";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
-
-import RevenueLossCalculator from "../components/site/RevenueLossCalculator";
 import CountUp from "../components/site/CountUp";
-import GrowthPathPlanner from "../components/site/GrowthPathPlanner";
 import { Reveal } from "../hooks/useReveal";
+
+// Below-the-fold — never in the critical bundle.
+const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
+const RevenueLossCalculator = lazy(() => import("../components/site/RevenueLossCalculator"));
+const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanner"));
+const ContactFaq = lazy(() => import("../components/site/ContactFaq"));
 
 export const Route = createFileRoute("/")({
   component: Home,
