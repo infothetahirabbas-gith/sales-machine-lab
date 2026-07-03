@@ -1,52 +1,56 @@
-# Performance & SEO Hardening Pass
+# Make BeingEcom feel instant
 
-Goal: Push Lighthouse Performance and SEO as close to 100 as realistically achievable on mobile + desktop, verify every internal link works, and cut first-paint toward ~1s on a warm cache.
+Goal: page refresh (F5) under ~1s on a warm cache, in-app navigation feels instant (SPA transitions, no full reloads), and Lighthouse Performance ≥95 on mobile + desktop.
 
-> Note: A literal "100/100" on every run isn't guaranteeable — scores depend on network, device, and third-party scripts. I'll target ≥95 on both categories and fix every actionable issue.
+Note: "nano-second" refresh is not physically possible — a full reload always pays network + parse cost. What we CAN do:
+- Keep in-app navigation as pure SPA transitions (0 network for HTML, feels instant).
+- Cut the actual F5 cost dramatically (smaller JS, preloaded LCP, cached assets, no blocking scripts).
+- Preload routes on hover/intent so the next click is already downloaded.
 
-## 1. Audit (read-only, no code changes yet)
+Your stack (TanStack Start on Cloudflare Workers) is already the same class as Next.js — the slowness is not the framework, it's the payload and blocking work. Switching to Next.js would not help and would be a full rewrite.
 
-- Run the built-in SEO scanner (`seo_chat--trigger_scan`) and list findings.
-- Crawl every route in `src/routes/` and:
-  - Verify each `<Link to="...">` target resolves to an existing route file.
-  - Verify each route has unique `head()` metadata (title, description, og:*).
-  - Confirm JSON-LD renders on the routes it should.
-- Run `browser--performance_profile` on `/`, `/services`, `/case-studies`, `/about`, `/audit`, `/contact` at mobile (390px) and desktop (1366px) viewports.
-- Inventory images, fonts, and third-party scripts that block paint.
+---
 
-## 2. Performance fixes
+## 1. Fix what's blocking first paint today (biggest wins)
 
-- **Images**: convert hero/LCP images to AVIF+WebP via `vite-imagetools`, add explicit `width`/`height` to prevent CLS, mark non-LCP images `loading="lazy"` + `decoding="async"`.
-- **LCP preload**: add `<link rel="preload" as="image" fetchpriority="high">` for each route's LCP image inside its `head().links`.
-- **Fonts**: ensure `font-display: swap`, preconnect to font origin, subset where possible.
-- **Code splitting**: confirm route components are not exported (TanStack auto-splits only non-exported components). Convert any oversized client component to a `.lazy.tsx` split.
-- **Third-party scripts**: defer/async, or move below-the-fold.
-- **Bundle**: check for accidental large imports (full lodash, full icon packs) and switch to per-file imports.
+- **Google Translate widget**: currently loads translate.google.com script on every page — one of the heaviest third-party blockers. Load only when the user opens the language switcher (lazy, on click).
+- **LCP image preload**: add `<link rel="preload" as="image" fetchpriority="high">` in each route's `head().links` for its hero image. Convert hero images to AVIF + WebP via `vite-imagetools` (plugin is already installed).
+- **Fonts**: add `font-display: swap`, preconnect to font origin, drop unused weights.
+- **Welcome banner**: currently blocks interaction with a full-screen modal on first visit — defer its JS until after first paint (dynamic import), so it doesn't delay LCP.
+- **Floating widgets (WhatsApp / chat)**: lazy-load below the fold, not on initial render.
+- **Cookie consent**: same — lazy after first paint.
 
-## 3. SEO fixes
+## 2. Routing = instant SPA navigation
 
-- Per-route `head()` with unique title/description/og:title/og:description/og:image/twitter:image.
-- Canonical link per route.
-- Validate sitemap.xml index + per-section sitemaps return 200 and list every public route.
-- Validate robots.txt references the sitemap.
-- Validate all JSON-LD (Organization, FAQ, BreadcrumbList) with schema.org rules.
-- Single `<h1>` per page, semantic heading order, descriptive `alt` text on every image, descriptive link text (no "click here").
+- Confirm every internal navigation uses `<Link to>` (not `<a href>`) so it's client-side. Audit and fix any `<a href="/...">` in the codebase.
+- Raise `defaultPreloadStaleTime` and keep `defaultPreload: "intent"` (already set) — this preloads route code + data on hover, so the click has zero wait.
+- Lower `defaultPreloadDelay` from 40ms to 0 for near-zero hover-to-preload latency.
+- Add `<Link preload="viewport">` on primary nav / footer links so they preload as soon as they enter the viewport on mobile (where there's no hover).
 
-## 4. Link & data integrity
+## 3. Bundle diet
 
-- Script that walks every route, extracts every `<Link to>` / `<a href>`, and reports broken or missing targets.
-- Spot-check each page renders all expected sections (no empty arrays, no missing copy).
+- Audit `lucide-react` and any icon/util imports — ensure per-icon imports (should already be, verify).
+- Convert oversized route components (Header, WelcomeBanner, GrowthChart, RevenueLossCalculator, GoogleTranslate) to lazy chunks so the home route ships less JS.
+- Remove any unused shadcn components from the bundle (tree-shaking check).
+
+## 4. Caching & delivery
+
+- Add long-lived `Cache-Control: public, max-age=31536000, immutable` on hashed assets (Cloudflare default, verify).
+- Add `Cache-Control: public, max-age=0, must-revalidate` on HTML so a refresh uses conditional GET (near-zero bytes when unchanged).
+- Confirm Brotli/gzip is on (Cloudflare default).
 
 ## 5. Verify
 
-- Re-run `browser--performance_profile` per route at both viewports, capture before/after.
-- Re-run SEO scan, mark findings fixed.
-- Report what improved and what's blocked by external factors (e.g. third-party embeds).
+- Run Lighthouse (mobile + desktop) on `/`, `/services`, `/case-studies`, `/about`, `/contact` before/after.
+- Playwright script that clicks through main nav and records navigation timing per click — target <100ms for preloaded routes.
+- Confirm F5 on `/` finishes `load` event in <1s on a warm cache.
+
+---
 
 ## What I need from you
 
-1. Are there any **third-party scripts** (analytics, chat widget, pixel, embedded video) you require? Some can't be made fully non-blocking.
-2. Any specific routes you've noticed feel slow or have wrong/missing data? That helps me prioritize.
-3. OK to **remove or defer** anything purely decorative (large background videos, heavy animations on mobile) if it costs performance?
+1. **Google Translate**: OK to lazy-load only when the user opens the language switcher? (Big win, tiny UX change.)
+2. **WelcomeBanner**: OK to defer it until after first paint (so it appears ~200ms later but doesn't delay LCP)?
+3. **Third-party scripts**: any analytics/pixel/chat widget you must keep loading eagerly? If not, I'll defer them all.
 
-Once you confirm, I'll run the audit and start the fixes in batches so each step is reviewable.
+Once you confirm, I'll ship the changes in 3 batches (blocking scripts → routing/preload → bundle split) so each is reviewable.

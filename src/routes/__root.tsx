@@ -1,3 +1,4 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -6,13 +7,17 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  ClientOnly,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
-import WelcomeBanner from "../components/site/WelcomeBanner";
-import GoogleTranslate from "../components/site/GoogleTranslate";
+
+// Deferred — these are not needed for first paint. Loading them lazily
+// removes ~significant JS from the initial bundle and keeps LCP fast.
+const WelcomeBanner = lazy(() => import("../components/site/WelcomeBanner"));
+const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
 
 
 
@@ -144,12 +149,33 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // Mount deferred client-only widgets AFTER first paint so they never
+  // block LCP or TTI on the initial load.
+  const [deferredReady, setDeferredReady] = useState(false);
+  useEffect(() => {
+    const w = window as unknown as {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      const id = w.requestIdleCallback(() => setDeferredReady(true), { timeout: 2000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setDeferredReady(true), 400);
+    return () => window.clearTimeout(t);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GoogleTranslate />
-      <WelcomeBanner />
       <Outlet />
+      <ClientOnly fallback={null}>
+        {deferredReady ? (
+          <Suspense fallback={null}>
+            <GoogleTranslate />
+            <WelcomeBanner />
+          </Suspense>
+        ) : null}
+      </ClientOnly>
     </QueryClientProvider>
   );
 }

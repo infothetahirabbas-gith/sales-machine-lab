@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import {
@@ -1196,8 +1196,8 @@ function AuditPage() {
                 BeingEcom turns Being Ecom Brain™ reports like this into real revenue. Book a free 30-minute strategy call and we'll walk you through the exact plan to ship these fixes.
               </p>
               <div className="mt-6 btn-pair mx-auto justify-center">
-                <a href="/contact" className="btn btn-primary btn-shimmer">Book Free Strategy Call <ArrowRight className="w-4 h-4" /></a>
-                <a href="/services" className="btn btn-dark"><Mail className="w-4 h-4" /> See Growth Services</a>
+                <Link to="/contact" className="btn btn-primary btn-shimmer">Book Free Strategy Call <ArrowRight className="w-4 h-4" /></Link>
+                <Link to="/services" className="btn btn-dark"><Mail className="w-4 h-4" /> See Growth Services</Link>
               </div>
             </div>
 

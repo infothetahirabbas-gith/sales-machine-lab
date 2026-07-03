@@ -18,30 +18,51 @@ export function setSiteLanguage(code: string) {
   window.location.reload();
 }
 
-// Injects the Google Website Translator widget once. Hidden by CSS; we
-// drive it via the googtrans cookie above.
+// Injects the Google Website Translator widget. Hidden by CSS; we drive it
+// via the googtrans cookie above. To keep first paint fast, the heavy
+// translate.google.com script is loaded ONLY when a translation is actually
+// active (googtrans cookie present) or when the browser is idle after paint.
 export default function GoogleTranslate() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (document.getElementById("google-translate-script")) return;
 
-    (window as any).googleTranslateElementInit = () => {
-      // @ts-ignore
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,es,pl,ro,pt,de,fr",
-          autoDisplay: false,
-        },
-        "google_translate_element"
-      );
+    const inject = () => {
+      if (document.getElementById("google-translate-script")) return;
+      (window as any).googleTranslateElementInit = () => {
+        // @ts-ignore
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,es,pl,ro,pt,de,fr",
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      };
+      const s = document.createElement("script");
+      s.id = "google-translate-script";
+      s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      s.async = true;
+      document.body.appendChild(s);
     };
 
-    const s = document.createElement("script");
-    s.id = "google-translate-script";
-    s.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    s.async = true;
-    document.body.appendChild(s);
+    // If a translation cookie is already set, we need the widget to activate
+    // it — inject right away (still async, non-blocking).
+    const hasTranslation = /(?:^|;\s*)googtrans=/.test(document.cookie);
+    if (hasTranslation) {
+      inject();
+      return;
+    }
+
+    // Otherwise defer until the browser is idle so it never blocks first paint.
+    const w = window as any;
+    if (typeof w.requestIdleCallback === "function") {
+      const id = w.requestIdleCallback(inject, { timeout: 4000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(inject, 3000);
+    return () => window.clearTimeout(t);
   }, []);
 
   return (
