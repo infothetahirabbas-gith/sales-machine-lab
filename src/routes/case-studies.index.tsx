@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Megaphone, Search, MousePointerClick, TrendingUp, Globe } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { CTA } from "../components/site/Section";
@@ -65,6 +65,13 @@ const showcaseImages = [
 ];
 
 export const Route = createFileRoute("/case-studies/")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = typeof search.category === "string" ? search.category.toLowerCase() : "";
+    const map: Record<string, "All" | "Ads" | "SEO" | "CRO" | "Website"> = {
+      all: "All", ads: "Ads", seo: "SEO", cro: "CRO", website: "Website",
+    };
+    return { category: map[raw] ?? "All" };
+  },
   head: () => ({
     meta: [
       { title: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
@@ -546,7 +553,12 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 }
 
 function CaseStudies() {
-  const [filter, setFilter] = useState<Category | "All">("All");
+  const { category } = Route.useSearch();
+  const [filter, setFilter] = useState<Category | "All">(category);
+
+  useEffect(() => {
+    setFilter(category);
+  }, [category]);
 
   const filtered = useMemo(
     () => studies.filter((s) => filter === "All" || s.category === filter),
