@@ -31,6 +31,8 @@ const all = [
   { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimise" },
   { to: "/services/email-sms", title: "Email Marketing", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", tag: "Build" },
+  { to: "/services/store-development/shopify", title: "Shopify Development", body: "Shopify & Shopify Plus stores built to sell.", tag: "Build" },
+  { to: "/services/store-development/woocommerce", title: "WooCommerce Development", body: "Fast, lean WordPress + Woo stores that scale.", tag: "Build" },
   { to: "/services/ai-automation", title: "AI Automation", body: "AI agents & workflows that compound margin.", tag: "Automate" },
   { to: "/services/paid-ads", title: "Paid Advertising (Overview)", body: "Meta, Google & TikTok ads built to scale profitably.", tag: "Acquire" },
   { to: "/services/scaling", title: "Scaling & Revenue Strategy", body: "Scale beyond £10K-£100K/month, profitably.", tag: "Scale" },

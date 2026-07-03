@@ -37,7 +37,14 @@ const services: ServiceItem[] = [
   { to: "/services/creative", label: "Creative Testing" },
   { to: "/services/cro", label: "Conversion Rate Optimisation" },
   { to: "/services/email-sms", label: "Email Marketing" },
-  { to: "/services/store-development", label: "Store Development" },
+  {
+    to: "/services/store-development",
+    label: "Store Development",
+    children: [
+      { to: "/services/store-development/shopify", label: "Shopify Development" },
+      { to: "/services/store-development/woocommerce", label: "WooCommerce Development" },
+    ],
+  },
   { to: "/services/ai-automation", label: "AI Automation" },
 ];
 
