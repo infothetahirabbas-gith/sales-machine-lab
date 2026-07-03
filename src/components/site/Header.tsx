@@ -244,7 +244,7 @@ export default function Header() {
                         >
                           {s.label}
                         </Link>
-                        {s.children ? (
+                        {s.children && (
                           <div className="grid gap-1">
                             {s.children.map((c) => (
                               <Link
@@ -256,8 +256,6 @@ export default function Header() {
                               </Link>
                             ))}
                           </div>
-                        ) : (
-                          <p className="text-xs text-muted-foreground px-2">Overview →</p>
                         )}
                       </div>
                     ))}
