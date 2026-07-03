@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { TrendingDown, AlertTriangle, DollarSign, ShoppingCart, Target } from "lucide-react";
 
 function fmt(n: number) {
