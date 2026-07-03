@@ -45,8 +45,16 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 import { Route as ServicesStoreDevelopmentWoocommerceRouteImport } from './routes/services.store-development.woocommerce'
 import { Route as ServicesStoreDevelopmentShopifyRouteImport } from './routes/services.store-development.shopify'
+import { Route as ServicesSeoTechnicalRouteImport } from './routes/services.seo.technical'
+import { Route as ServicesSeoOnPageRouteImport } from './routes/services.seo.on-page'
+import { Route as ServicesSeoOffPageRouteImport } from './routes/services.seo.off-page'
+import { Route as ServicesSeoLocalRouteImport } from './routes/services.seo.local'
+import { Route as ServicesSeoInternationalRouteImport } from './routes/services.seo.international'
+import { Route as ServicesSeoAeoRouteImport } from './routes/services.seo.aeo'
+import { Route as ServicesPerformanceMarketingYoutubeAdsRouteImport } from './routes/services.performance-marketing.youtube-ads'
 import { Route as ServicesPerformanceMarketingTiktokAdsRouteImport } from './routes/services.performance-marketing.tiktok-ads'
 import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './routes/services.performance-marketing.media-buying'
+import { Route as ServicesPerformanceMarketingInstagramAdsRouteImport } from './routes/services.performance-marketing.instagram-ads'
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
 import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
@@ -236,6 +244,43 @@ const ServicesStoreDevelopmentShopifyRoute =
     path: '/shopify',
     getParentRoute: () => ServicesStoreDevelopmentRoute,
   } as any)
+const ServicesSeoTechnicalRoute = ServicesSeoTechnicalRouteImport.update({
+  id: '/technical',
+  path: '/technical',
+  getParentRoute: () => ServicesSeoRoute,
+} as any)
+const ServicesSeoOnPageRoute = ServicesSeoOnPageRouteImport.update({
+  id: '/on-page',
+  path: '/on-page',
+  getParentRoute: () => ServicesSeoRoute,
+} as any)
+const ServicesSeoOffPageRoute = ServicesSeoOffPageRouteImport.update({
+  id: '/off-page',
+  path: '/off-page',
+  getParentRoute: () => ServicesSeoRoute,
+} as any)
+const ServicesSeoLocalRoute = ServicesSeoLocalRouteImport.update({
+  id: '/local',
+  path: '/local',
+  getParentRoute: () => ServicesSeoRoute,
+} as any)
+const ServicesSeoInternationalRoute =
+  ServicesSeoInternationalRouteImport.update({
+    id: '/international',
+    path: '/international',
+    getParentRoute: () => ServicesSeoRoute,
+  } as any)
+const ServicesSeoAeoRoute = ServicesSeoAeoRouteImport.update({
+  id: '/aeo',
+  path: '/aeo',
+  getParentRoute: () => ServicesSeoRoute,
+} as any)
+const ServicesPerformanceMarketingYoutubeAdsRoute =
+  ServicesPerformanceMarketingYoutubeAdsRouteImport.update({
+    id: '/youtube-ads',
+    path: '/youtube-ads',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
 const ServicesPerformanceMarketingTiktokAdsRoute =
   ServicesPerformanceMarketingTiktokAdsRouteImport.update({
     id: '/tiktok-ads',
@@ -246,6 +291,12 @@ const ServicesPerformanceMarketingMediaBuyingRoute =
   ServicesPerformanceMarketingMediaBuyingRouteImport.update({
     id: '/media-buying',
     path: '/media-buying',
+    getParentRoute: () => ServicesPerformanceMarketingRoute,
+  } as any)
+const ServicesPerformanceMarketingInstagramAdsRoute =
+  ServicesPerformanceMarketingInstagramAdsRouteImport.update({
+    id: '/instagram-ads',
+    path: '/instagram-ads',
     getParentRoute: () => ServicesPerformanceMarketingRoute,
   } as any)
 const ServicesPerformanceMarketingGoogleAdsRoute =
@@ -301,7 +352,7 @@ export interface FileRoutesByFullPath {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/seo': typeof ServicesSeoRoute
+  '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -309,8 +360,16 @@ export interface FileRoutesByFullPath {
   '/services/': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/performance-marketing/youtube-ads': typeof ServicesPerformanceMarketingYoutubeAdsRoute
+  '/services/seo/aeo': typeof ServicesSeoAeoRoute
+  '/services/seo/international': typeof ServicesSeoInternationalRoute
+  '/services/seo/local': typeof ServicesSeoLocalRoute
+  '/services/seo/off-page': typeof ServicesSeoOffPageRoute
+  '/services/seo/on-page': typeof ServicesSeoOnPageRoute
+  '/services/seo/technical': typeof ServicesSeoTechnicalRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
@@ -345,7 +404,7 @@ export interface FileRoutesByTo {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/seo': typeof ServicesSeoRoute
+  '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies': typeof CaseStudiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
@@ -353,8 +412,16 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/performance-marketing/youtube-ads': typeof ServicesPerformanceMarketingYoutubeAdsRoute
+  '/services/seo/aeo': typeof ServicesSeoAeoRoute
+  '/services/seo/international': typeof ServicesSeoInternationalRoute
+  '/services/seo/local': typeof ServicesSeoLocalRoute
+  '/services/seo/off-page': typeof ServicesSeoOffPageRoute
+  '/services/seo/on-page': typeof ServicesSeoOnPageRoute
+  '/services/seo/technical': typeof ServicesSeoTechnicalRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
@@ -390,7 +457,7 @@ export interface FileRoutesById {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/seo': typeof ServicesSeoRoute
+  '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -398,8 +465,16 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
+  '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/performance-marketing/youtube-ads': typeof ServicesPerformanceMarketingYoutubeAdsRoute
+  '/services/seo/aeo': typeof ServicesSeoAeoRoute
+  '/services/seo/international': typeof ServicesSeoInternationalRoute
+  '/services/seo/local': typeof ServicesSeoLocalRoute
+  '/services/seo/off-page': typeof ServicesSeoOffPageRoute
+  '/services/seo/on-page': typeof ServicesSeoOnPageRoute
+  '/services/seo/technical': typeof ServicesSeoTechnicalRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
@@ -444,8 +519,16 @@ export interface FileRouteTypes {
     | '/services/'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/instagram-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/performance-marketing/youtube-ads'
+    | '/services/seo/aeo'
+    | '/services/seo/international'
+    | '/services/seo/local'
+    | '/services/seo/off-page'
+    | '/services/seo/on-page'
+    | '/services/seo/technical'
     | '/services/store-development/shopify'
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
@@ -488,8 +571,16 @@ export interface FileRouteTypes {
     | '/services'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/instagram-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/performance-marketing/youtube-ads'
+    | '/services/seo/aeo'
+    | '/services/seo/international'
+    | '/services/seo/local'
+    | '/services/seo/off-page'
+    | '/services/seo/on-page'
+    | '/services/seo/technical'
     | '/services/store-development/shopify'
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
@@ -532,8 +623,16 @@ export interface FileRouteTypes {
     | '/services/'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
+    | '/services/performance-marketing/instagram-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/performance-marketing/youtube-ads'
+    | '/services/seo/aeo'
+    | '/services/seo/international'
+    | '/services/seo/local'
+    | '/services/seo/off-page'
+    | '/services/seo/on-page'
+    | '/services/seo/technical'
     | '/services/store-development/shopify'
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
@@ -569,7 +668,7 @@ export interface RootRouteChildren {
   ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
   ServicesPerformanceMarketingRoute: typeof ServicesPerformanceMarketingRouteWithChildren
   ServicesScalingRoute: typeof ServicesScalingRoute
-  ServicesSeoRoute: typeof ServicesSeoRoute
+  ServicesSeoRoute: typeof ServicesSeoRouteWithChildren
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
@@ -833,6 +932,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesStoreDevelopmentShopifyRouteImport
       parentRoute: typeof ServicesStoreDevelopmentRoute
     }
+    '/services/seo/technical': {
+      id: '/services/seo/technical'
+      path: '/technical'
+      fullPath: '/services/seo/technical'
+      preLoaderRoute: typeof ServicesSeoTechnicalRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/seo/on-page': {
+      id: '/services/seo/on-page'
+      path: '/on-page'
+      fullPath: '/services/seo/on-page'
+      preLoaderRoute: typeof ServicesSeoOnPageRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/seo/off-page': {
+      id: '/services/seo/off-page'
+      path: '/off-page'
+      fullPath: '/services/seo/off-page'
+      preLoaderRoute: typeof ServicesSeoOffPageRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/seo/local': {
+      id: '/services/seo/local'
+      path: '/local'
+      fullPath: '/services/seo/local'
+      preLoaderRoute: typeof ServicesSeoLocalRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/seo/international': {
+      id: '/services/seo/international'
+      path: '/international'
+      fullPath: '/services/seo/international'
+      preLoaderRoute: typeof ServicesSeoInternationalRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/seo/aeo': {
+      id: '/services/seo/aeo'
+      path: '/aeo'
+      fullPath: '/services/seo/aeo'
+      preLoaderRoute: typeof ServicesSeoAeoRouteImport
+      parentRoute: typeof ServicesSeoRoute
+    }
+    '/services/performance-marketing/youtube-ads': {
+      id: '/services/performance-marketing/youtube-ads'
+      path: '/youtube-ads'
+      fullPath: '/services/performance-marketing/youtube-ads'
+      preLoaderRoute: typeof ServicesPerformanceMarketingYoutubeAdsRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
     '/services/performance-marketing/tiktok-ads': {
       id: '/services/performance-marketing/tiktok-ads'
       path: '/tiktok-ads'
@@ -845,6 +993,13 @@ declare module '@tanstack/react-router' {
       path: '/media-buying'
       fullPath: '/services/performance-marketing/media-buying'
       preLoaderRoute: typeof ServicesPerformanceMarketingMediaBuyingRouteImport
+      parentRoute: typeof ServicesPerformanceMarketingRoute
+    }
+    '/services/performance-marketing/instagram-ads': {
+      id: '/services/performance-marketing/instagram-ads'
+      path: '/instagram-ads'
+      fullPath: '/services/performance-marketing/instagram-ads'
+      preLoaderRoute: typeof ServicesPerformanceMarketingInstagramAdsRouteImport
       parentRoute: typeof ServicesPerformanceMarketingRoute
     }
     '/services/performance-marketing/google-ads': {
@@ -881,8 +1036,10 @@ declare module '@tanstack/react-router' {
 interface ServicesPerformanceMarketingRouteChildren {
   ServicesPerformanceMarketingFacebookAdsRoute: typeof ServicesPerformanceMarketingFacebookAdsRoute
   ServicesPerformanceMarketingGoogleAdsRoute: typeof ServicesPerformanceMarketingGoogleAdsRoute
+  ServicesPerformanceMarketingInstagramAdsRoute: typeof ServicesPerformanceMarketingInstagramAdsRoute
   ServicesPerformanceMarketingMediaBuyingRoute: typeof ServicesPerformanceMarketingMediaBuyingRoute
   ServicesPerformanceMarketingTiktokAdsRoute: typeof ServicesPerformanceMarketingTiktokAdsRoute
+  ServicesPerformanceMarketingYoutubeAdsRoute: typeof ServicesPerformanceMarketingYoutubeAdsRoute
 }
 
 const ServicesPerformanceMarketingRouteChildren: ServicesPerformanceMarketingRouteChildren =
@@ -891,16 +1048,42 @@ const ServicesPerformanceMarketingRouteChildren: ServicesPerformanceMarketingRou
       ServicesPerformanceMarketingFacebookAdsRoute,
     ServicesPerformanceMarketingGoogleAdsRoute:
       ServicesPerformanceMarketingGoogleAdsRoute,
+    ServicesPerformanceMarketingInstagramAdsRoute:
+      ServicesPerformanceMarketingInstagramAdsRoute,
     ServicesPerformanceMarketingMediaBuyingRoute:
       ServicesPerformanceMarketingMediaBuyingRoute,
     ServicesPerformanceMarketingTiktokAdsRoute:
       ServicesPerformanceMarketingTiktokAdsRoute,
+    ServicesPerformanceMarketingYoutubeAdsRoute:
+      ServicesPerformanceMarketingYoutubeAdsRoute,
   }
 
 const ServicesPerformanceMarketingRouteWithChildren =
   ServicesPerformanceMarketingRoute._addFileChildren(
     ServicesPerformanceMarketingRouteChildren,
   )
+
+interface ServicesSeoRouteChildren {
+  ServicesSeoAeoRoute: typeof ServicesSeoAeoRoute
+  ServicesSeoInternationalRoute: typeof ServicesSeoInternationalRoute
+  ServicesSeoLocalRoute: typeof ServicesSeoLocalRoute
+  ServicesSeoOffPageRoute: typeof ServicesSeoOffPageRoute
+  ServicesSeoOnPageRoute: typeof ServicesSeoOnPageRoute
+  ServicesSeoTechnicalRoute: typeof ServicesSeoTechnicalRoute
+}
+
+const ServicesSeoRouteChildren: ServicesSeoRouteChildren = {
+  ServicesSeoAeoRoute: ServicesSeoAeoRoute,
+  ServicesSeoInternationalRoute: ServicesSeoInternationalRoute,
+  ServicesSeoLocalRoute: ServicesSeoLocalRoute,
+  ServicesSeoOffPageRoute: ServicesSeoOffPageRoute,
+  ServicesSeoOnPageRoute: ServicesSeoOnPageRoute,
+  ServicesSeoTechnicalRoute: ServicesSeoTechnicalRoute,
+}
+
+const ServicesSeoRouteWithChildren = ServicesSeoRoute._addFileChildren(
+  ServicesSeoRouteChildren,
+)
 
 interface ServicesStoreDevelopmentRouteChildren {
   ServicesStoreDevelopmentShopifyRoute: typeof ServicesStoreDevelopmentShopifyRoute
@@ -949,7 +1132,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesPerformanceMarketingRoute:
     ServicesPerformanceMarketingRouteWithChildren,
   ServicesScalingRoute: ServicesScalingRoute,
-  ServicesSeoRoute: ServicesSeoRoute,
+  ServicesSeoRoute: ServicesSeoRouteWithChildren,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
