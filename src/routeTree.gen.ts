@@ -43,6 +43,7 @@ import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
+import { Route as ServicesStoreDevelopmentWoocommerceRouteImport } from './routes/services.store-development.woocommerce'
 import { Route as ServicesStoreDevelopmentShopifyRouteImport } from './routes/services.store-development.shopify'
 import { Route as ServicesPerformanceMarketingTiktokAdsRouteImport } from './routes/services.performance-marketing.tiktok-ads'
 import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './routes/services.performance-marketing.media-buying'
@@ -223,6 +224,12 @@ const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   path: '/admin/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesStoreDevelopmentWoocommerceRoute =
+  ServicesStoreDevelopmentWoocommerceRouteImport.update({
+    id: '/woocommerce',
+    path: '/woocommerce',
+    getParentRoute: () => ServicesStoreDevelopmentRoute,
+  } as any)
 const ServicesStoreDevelopmentShopifyRoute =
   ServicesStoreDevelopmentShopifyRouteImport.update({
     id: '/shopify',
@@ -305,6 +312,7 @@ export interface FileRoutesByFullPath {
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
+  '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -348,6 +356,7 @@ export interface FileRoutesByTo {
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
+  '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -392,6 +401,7 @@ export interface FileRoutesById {
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
   '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
+  '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -437,6 +447,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
     | '/services/store-development/shopify'
+    | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
@@ -480,6 +491,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
     | '/services/store-development/shopify'
+    | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   id:
@@ -523,6 +535,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
     | '/services/store-development/shopify'
+    | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
@@ -806,6 +819,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/store-development/woocommerce': {
+      id: '/services/store-development/woocommerce'
+      path: '/woocommerce'
+      fullPath: '/services/store-development/woocommerce'
+      preLoaderRoute: typeof ServicesStoreDevelopmentWoocommerceRouteImport
+      parentRoute: typeof ServicesStoreDevelopmentRoute
+    }
     '/services/store-development/shopify': {
       id: '/services/store-development/shopify'
       path: '/shopify'
@@ -884,11 +904,14 @@ const ServicesPerformanceMarketingRouteWithChildren =
 
 interface ServicesStoreDevelopmentRouteChildren {
   ServicesStoreDevelopmentShopifyRoute: typeof ServicesStoreDevelopmentShopifyRoute
+  ServicesStoreDevelopmentWoocommerceRoute: typeof ServicesStoreDevelopmentWoocommerceRoute
 }
 
 const ServicesStoreDevelopmentRouteChildren: ServicesStoreDevelopmentRouteChildren =
   {
     ServicesStoreDevelopmentShopifyRoute: ServicesStoreDevelopmentShopifyRoute,
+    ServicesStoreDevelopmentWoocommerceRoute:
+      ServicesStoreDevelopmentWoocommerceRoute,
   }
 
 const ServicesStoreDevelopmentRouteWithChildren =
