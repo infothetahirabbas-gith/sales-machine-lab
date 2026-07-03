@@ -43,6 +43,7 @@ import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
+import { Route as ServicesStoreDevelopmentShopifyRouteImport } from './routes/services.store-development.shopify'
 import { Route as ServicesPerformanceMarketingTiktokAdsRouteImport } from './routes/services.performance-marketing.tiktok-ads'
 import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './routes/services.performance-marketing.media-buying'
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
@@ -222,6 +223,12 @@ const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   path: '/admin/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesStoreDevelopmentShopifyRoute =
+  ServicesStoreDevelopmentShopifyRouteImport.update({
+    id: '/shopify',
+    path: '/shopify',
+    getParentRoute: () => ServicesStoreDevelopmentRoute,
+  } as any)
 const ServicesPerformanceMarketingTiktokAdsRoute =
   ServicesPerformanceMarketingTiktokAdsRouteImport.update({
     id: '/tiktok-ads',
@@ -288,7 +295,7 @@ export interface FileRoutesByFullPath {
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -297,6 +304,7 @@ export interface FileRoutesByFullPath {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -330,7 +338,7 @@ export interface FileRoutesByTo {
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies': typeof CaseStudiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
@@ -339,6 +347,7 @@ export interface FileRoutesByTo {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -373,7 +382,7 @@ export interface FileRoutesById {
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRouteWithChildren
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -382,6 +391,7 @@ export interface FileRoutesById {
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/media-buying': typeof ServicesPerformanceMarketingMediaBuyingRoute
   '/services/performance-marketing/tiktok-ads': typeof ServicesPerformanceMarketingTiktokAdsRoute
+  '/services/store-development/shopify': typeof ServicesStoreDevelopmentShopifyRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
 }
@@ -426,6 +436,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/store-development/shopify'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesByTo: FileRoutesByTo
@@ -468,6 +479,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/store-development/shopify'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   id:
@@ -510,6 +522,7 @@ export interface FileRouteTypes {
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/media-buying'
     | '/services/performance-marketing/tiktok-ads'
+    | '/services/store-development/shopify'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
   fileRoutesById: FileRoutesById
@@ -544,7 +557,7 @@ export interface RootRouteChildren {
   ServicesPerformanceMarketingRoute: typeof ServicesPerformanceMarketingRouteWithChildren
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesSeoRoute: typeof ServicesSeoRoute
-  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRoute
+  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
@@ -793,6 +806,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/store-development/shopify': {
+      id: '/services/store-development/shopify'
+      path: '/shopify'
+      fullPath: '/services/store-development/shopify'
+      preLoaderRoute: typeof ServicesStoreDevelopmentShopifyRouteImport
+      parentRoute: typeof ServicesStoreDevelopmentRoute
+    }
     '/services/performance-marketing/tiktok-ads': {
       id: '/services/performance-marketing/tiktok-ads'
       path: '/tiktok-ads'
@@ -862,6 +882,20 @@ const ServicesPerformanceMarketingRouteWithChildren =
     ServicesPerformanceMarketingRouteChildren,
   )
 
+interface ServicesStoreDevelopmentRouteChildren {
+  ServicesStoreDevelopmentShopifyRoute: typeof ServicesStoreDevelopmentShopifyRoute
+}
+
+const ServicesStoreDevelopmentRouteChildren: ServicesStoreDevelopmentRouteChildren =
+  {
+    ServicesStoreDevelopmentShopifyRoute: ServicesStoreDevelopmentShopifyRoute,
+  }
+
+const ServicesStoreDevelopmentRouteWithChildren =
+  ServicesStoreDevelopmentRoute._addFileChildren(
+    ServicesStoreDevelopmentRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -893,7 +927,7 @@ const rootRouteChildren: RootRouteChildren = {
     ServicesPerformanceMarketingRouteWithChildren,
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesSeoRoute: ServicesSeoRoute,
-  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRoute,
+  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
@@ -904,13 +938,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
