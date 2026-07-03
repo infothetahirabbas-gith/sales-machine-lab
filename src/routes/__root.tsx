@@ -149,12 +149,33 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // Mount deferred client-only widgets AFTER first paint so they never
+  // block LCP or TTI on the initial load.
+  const [deferredReady, setDeferredReady] = useState(false);
+  useEffect(() => {
+    const w = window as unknown as {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof w.requestIdleCallback === "function") {
+      const id = w.requestIdleCallback(() => setDeferredReady(true), { timeout: 2000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setDeferredReady(true), 400);
+    return () => window.clearTimeout(t);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GoogleTranslate />
-      <WelcomeBanner />
       <Outlet />
+      <ClientOnly fallback={null}>
+        {deferredReady ? (
+          <Suspense fallback={null}>
+            <GoogleTranslate />
+            <WelcomeBanner />
+          </Suspense>
+        ) : null}
+      </ClientOnly>
     </QueryClientProvider>
   );
 }
