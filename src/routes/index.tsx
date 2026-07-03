@@ -189,7 +189,9 @@ function Home() {
       </Section>
 
       {/* REVENUE LOSS CALCULATOR */}
-      <RevenueLossCalculator />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <RevenueLossCalculator />
+      </Suspense>
 
       {/* 4. SOLUTION - 4 PILLARS */}
       <Section
