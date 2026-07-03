@@ -83,12 +83,20 @@ export const industries = [
   { to: "/industries/pets", label: "Pets & Accessories" },
 ];
 
+export const caseStudyCategories = [
+  { to: "/case-studies?category=website", label: "Website" },
+  { to: "/case-studies?category=ads", label: "Ads" },
+  { to: "/case-studies?category=seo", label: "SEO" },
+  { to: "/case-studies?category=cro", label: "CRO" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [openServiceChildren, setOpenServiceChildren] = useState<Record<string, boolean>>({});
+  const [caseStudiesOpen, setCaseStudiesOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   const navigate = useNavigate();
@@ -385,7 +393,41 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <Link to="/case-studies" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Case Studies</Link>
+            <div>
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-stretch">
+                <Link
+                  to="/case-studies"
+                  className="min-w-0 px-3 py-2 rounded-l hover:bg-secondary truncate"
+                  onClick={() => setOpen(false)}
+                >
+                  Case Studies
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setCaseStudiesOpen((v) => !v)}
+                  className="shrink-0 px-3 py-2 rounded-r hover:bg-secondary text-muted-foreground"
+                  aria-expanded={caseStudiesOpen}
+                  aria-label="Toggle case study categories"
+                >
+                  <ChevronDown className={`size-4 transition-transform ${caseStudiesOpen ? "rotate-180" : ""}`} />
+                </button>
+              </div>
+              {caseStudiesOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  {caseStudyCategories.map((c) => (
+                    <Link
+                      key={c.to}
+                      to="/case-studies"
+                      search={{ category: c.to.split("=")[1] }}
+                      className="px-3 py-1.5 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block"
+                      onClick={() => { setOpen(false); setCaseStudiesOpen(false); }}
+                    >
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link to="/audit" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Store Audit</Link>
             <Link to="/pricing" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Pricing</Link>
             <Link to="/about" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>About</Link>
