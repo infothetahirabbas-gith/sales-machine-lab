@@ -13,11 +13,24 @@ const COUNTRIES = [
 
 const SERVICES = [
   { slug: "seo", name: "Ecommerce SEO" },
+  { slug: "seo-on-page", name: "— On-Page SEO" },
+  { slug: "seo-off-page", name: "— Off-Page SEO" },
+  { slug: "seo-technical", name: "— Technical SEO" },
+  { slug: "seo-local", name: "— Local SEO" },
+  { slug: "seo-aeo", name: "— AEO / AI Search" },
+  { slug: "seo-international", name: "— International SEO" },
   { slug: "performance-marketing", name: "Performance Marketing" },
-  { slug: "cro", name: "Conversion Rate Optimisation" },
-  { slug: "email-sms", name: "Email & SMS Marketing" },
+  { slug: "ads-facebook", name: "— Facebook Ads" },
+  { slug: "ads-instagram", name: "— Instagram Ads" },
+  { slug: "ads-tiktok", name: "— TikTok Ads" },
+  { slug: "ads-google", name: "— Google Ads" },
+  { slug: "ads-youtube", name: "— YouTube Ads" },
   { slug: "store-development", name: "Store Development" },
-  { slug: "creative", name: "Creative Production" },
+  { slug: "store-shopify", name: "— Shopify Development" },
+  { slug: "store-woocommerce", name: "— WooCommerce Development" },
+  { slug: "cro", name: "Conversion Rate Optimisation" },
+  { slug: "creative", name: "Creative Testing" },
+  { slug: "email-sms", name: "Email Marketing" },
   { slug: "ai-automation", name: "AI Automation" },
 ];
 
