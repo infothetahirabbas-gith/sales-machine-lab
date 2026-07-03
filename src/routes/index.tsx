@@ -415,7 +415,9 @@ function Home() {
       </section>
 
       {/* 12. CONTACT + FAQ */}
-      <ContactFaq />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <ContactFaq />
+      </Suspense>
 
       {/* 13. FINAL CTA */}
       <CTA
