@@ -221,26 +221,43 @@ export default function Header() {
               </div>
             </>
           )}
-          <div className="relative group">
+          <div className="relative group static lg:static">
             <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
-              <div className="w-80 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-                {services.map((s) => (
-                  <div key={s.to}>
-                    <Link to={s.to} className="block px-3 py-2.5 rounded-xl text-sm hover:bg-accent/10 hover:text-foreground transition-colors font-medium">
-                      {s.label}
-                    </Link>
-                    {s.children && (
-                      <div className="ml-3 pl-3 border-l border-border my-1 grid">
-                        {s.children.map((c) => (
-                          <Link key={c.to} to={c.to} className="block px-3 py-2 rounded-lg text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors">
-                            {c.label}
-                          </Link>
-                        ))}
+            <div className="absolute left-0 right-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
+              <div className="mx-auto max-w-7xl px-4 lg:px-8">
+                <div className="rounded-2xl border border-border bg-background p-6 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-5">
+                    {services.map((s) => (
+                      <div key={s.to} className="min-w-0">
+                        <Link
+                          to={s.to}
+                          className="block text-sm font-semibold text-foreground hover:text-primary transition-colors mb-2 pb-2 border-b border-border"
+                        >
+                          {s.label}
+                        </Link>
+                        {s.children ? (
+                          <div className="grid gap-1">
+                            {s.children.map((c) => (
+                              <Link
+                                key={c.to}
+                                to={c.to}
+                                className="block px-2 py-1 rounded-md text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                              >
+                                {c.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-xs text-muted-foreground px-2">Overview →</p>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
-                ))}
+                  <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
+                    <span className="text-muted-foreground">7 core services · 14 specialisations</span>
+                    <Link to="/services" className="font-semibold text-primary hover:underline">View all services →</Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
