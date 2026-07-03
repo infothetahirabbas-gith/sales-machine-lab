@@ -89,6 +89,7 @@ export default function Header() {
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [openServiceChildren, setOpenServiceChildren] = useState<Record<string, boolean>>({});
+  const [caseStudiesOpen, setCaseStudiesOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   const navigate = useNavigate();
