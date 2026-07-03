@@ -553,7 +553,12 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 }
 
 function CaseStudies() {
-  const [filter, setFilter] = useState<Category | "All">("All");
+  const { category } = Route.useSearch();
+  const [filter, setFilter] = useState<Category | "All">(category);
+
+  useEffect(() => {
+    setFilter(category);
+  }, [category]);
 
   const filtered = useMemo(
     () => studies.filter((s) => filter === "All" || s.category === filter),
