@@ -19,8 +19,11 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreload: "intent",
-    defaultPreloadStaleTime: 30_000,
-    defaultPreloadDelay: 40,
+    // Let TanStack Query own freshness; router just triggers the fetch.
+    defaultPreloadStaleTime: 0,
+    // Fire preload immediately on hover/focus for near-zero click latency.
+    defaultPreloadDelay: 0,
+    defaultPendingMs: 0,
   });
 
 
