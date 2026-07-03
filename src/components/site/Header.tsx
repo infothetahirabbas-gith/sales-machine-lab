@@ -279,8 +279,8 @@ export default function Header() {
       </div>
 
       {open && (
-         <div className="lg:hidden border-t border-border bg-background shadow-xl">
-          <div className="px-5 py-3 grid gap-1 text-sm">
+         <div className="lg:hidden border-t border-border bg-background shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain">
+          <div className="px-5 py-3 pb-8 grid gap-1 text-sm">
             <Link to="/" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Home</Link>
             {isHome && (
               <>
@@ -323,7 +323,7 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary font-medium"
                 aria-expanded={servicesOpen}
               >
                 <span>Services</span>
@@ -331,18 +331,56 @@ export default function Header() {
               </button>
               {servicesOpen && (
                 <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
-                  {services.map((s) => (
-                    <div key={s.to}>
-                      <Link to={s.to} className="px-3 py-2 rounded text-foreground font-medium hover:bg-secondary block" onClick={() => { setOpen(false); setServicesOpen(false); }}>{s.label}</Link>
-                      {s.children && (
-                        <div className="ml-3 pl-3 border-l border-border grid gap-1">
-                          {s.children.map((c) => (
-                            <Link key={c.to} to={c.to} className="px-3 py-1.5 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setServicesOpen(false); }}>{c.label}</Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                  {services.map((s) => {
+                    const hasChildren = !!s.children?.length;
+                    const isOpen = !!openServiceChildren[s.to];
+                    return (
+                      <div key={s.to}>
+                        {hasChildren ? (
+                          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-stretch">
+                            <Link
+                              to={s.to}
+                              className="min-w-0 px-3 py-2 rounded-l text-foreground font-medium hover:bg-secondary truncate"
+                              onClick={() => { setOpen(false); setServicesOpen(false); }}
+                            >
+                              {s.label}
+                            </Link>
+                            <button
+                              type="button"
+                              onClick={() => setOpenServiceChildren((prev) => ({ ...prev, [s.to]: !prev[s.to] }))}
+                              className="shrink-0 px-3 py-2 rounded-r hover:bg-secondary text-muted-foreground"
+                              aria-expanded={isOpen}
+                              aria-label={`Toggle ${s.label} sub-services`}
+                            >
+                              <ChevronDown className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                            </button>
+                          </div>
+                        ) : (
+                          <Link
+                            to={s.to}
+                            className="block px-3 py-2 rounded text-foreground font-medium hover:bg-secondary"
+                            onClick={() => { setOpen(false); setServicesOpen(false); }}
+                          >
+                            {s.label}
+                          </Link>
+                        )}
+                        {hasChildren && isOpen && (
+                          <div className="ml-3 pl-3 border-l border-border grid gap-1 my-1">
+                            {s.children!.map((c) => (
+                              <Link
+                                key={c.to}
+                                to={c.to}
+                                className="px-3 py-1.5 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block"
+                                onClick={() => { setOpen(false); setServicesOpen(false); }}
+                              >
+                                {c.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
