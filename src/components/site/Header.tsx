@@ -459,7 +459,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Full-width Industries mega menu (desktop) */}
+      {/* Full-width Industries mega menu (desktop) — Thumbtack-style two-column:
+          left rail lists main industries; hovering one reveals its sub-categories
+          on the right. */}
+      {(() => {
+        const active = industries.find((i) => i.to === activeIndustry) ?? industries[0];
+        return (
       <div
         className={`hidden lg:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onMouseEnter={() => openMenu("industries")}
@@ -467,41 +472,76 @@ export default function Header() {
       >
         <div className="pt-3">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="rounded-2xl border border-border bg-background p-6 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-5">
-                {industries.map((i) => (
-                  <div key={i.to} className="min-w-0">
+            <div className="rounded-2xl border border-border bg-background shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)] overflow-hidden">
+              <div className="grid grid-cols-[minmax(260px,320px)_1fr] min-h-[420px]">
+                {/* Left rail */}
+                <ul className="border-r border-border bg-secondary/30 py-2">
+                  {industries.map((i) => {
+                    const isActive = i.to === active.to;
+                    return (
+                      <li key={i.to}>
+                        <Link
+                          to={i.to}
+                          onMouseEnter={() => setActiveIndustry(i.to)}
+                          onFocus={() => setActiveIndustry(i.to)}
+                          onClick={() => setDesktopMenu(null)}
+                          className={`flex items-center justify-between gap-2 px-5 py-3 text-sm transition-colors ${
+                            isActive
+                              ? "bg-background text-foreground font-semibold"
+                              : "text-muted-foreground hover:bg-background/60 hover:text-foreground"
+                          }`}
+                        >
+                          <span>{i.label}</span>
+                          <ChevronDown className={`size-3.5 -rotate-90 shrink-0 transition-opacity ${isActive ? "opacity-100" : "opacity-40"}`} />
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                {/* Right panel */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-4 mb-4 pb-3 border-b border-border">
                     <Link
-                      to={i.to}
+                      to={active.to}
                       onClick={() => setDesktopMenu(null)}
-                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors mb-2 pb-2 border-b border-border"
+                      className="text-base font-semibold text-foreground hover:text-primary transition-colors"
                     >
-                      {i.label}
+                      {active.label}
                     </Link>
-                    {i.children && (
-                      <div className="grid gap-1">
-                        {i.children.map((c) => (
-                          <Link
-                            key={c.to}
-                            to={c.to}
-                            onClick={() => setDesktopMenu(null)}
-                            className="block px-2 py-1 rounded-md text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
-                          >
-                            {c.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                    <Link
+                      to={active.to}
+                      onClick={() => setDesktopMenu(null)}
+                      className="text-xs font-semibold text-primary hover:underline whitespace-nowrap"
+                    >
+                      View overview →
+                    </Link>
                   </div>
-                ))}
+                  {active.children && (
+                    <div className="grid grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-1">
+                      {active.children.map((c) => (
+                        <Link
+                          key={c.to}
+                          to={c.to}
+                          onClick={() => setDesktopMenu(null)}
+                          className="block px-2 py-2 rounded-md text-sm text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
+              <div className="px-6 py-3 border-t border-border flex items-center justify-between text-xs bg-secondary/20">
                 <span className="text-muted-foreground">12 industries · 55+ sub-categories</span>
                 <Link to="/industries" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all industries →</Link>
               </div>
             </div>
           </div>
         </div>
+      </div>
+        );
+      })()}
       </div>
 
 
