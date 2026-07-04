@@ -285,6 +285,54 @@ export default function Header() {
 
       </div>
 
+      {/* Full-width Services mega menu (desktop). Anchored to the header so it
+          spans the whole viewport; the trigger and this panel share hover
+          intent via desktopMenu state + 220ms close delay. */}
+      <div
+        className={`hidden lg:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        onMouseEnter={() => openMenu("services")}
+        onMouseLeave={scheduleClose}
+      >
+        <div className="pt-3">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="rounded-2xl border border-border bg-background p-6 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-5">
+                {services.map((s) => (
+                  <div key={s.to} className="min-w-0">
+                    <Link
+                      to={s.to}
+                      onClick={() => setDesktopMenu(null)}
+                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors mb-2 pb-2 border-b border-border"
+                    >
+                      {s.label}
+                    </Link>
+                    {s.children && (
+                      <div className="grid gap-1">
+                        {s.children.map((c) => (
+                          <Link
+                            key={c.to}
+                            to={c.to}
+                            onClick={() => setDesktopMenu(null)}
+                            className="block px-2 py-1 rounded-md text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
+                <span className="text-muted-foreground">7 core services · 14 specialisations</span>
+                <Link to="/services" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all services →</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       {open && (
          <div className="lg:hidden border-t border-border bg-background shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain">
           <div className="px-5 py-3 pb-8 grid gap-1 text-sm">
