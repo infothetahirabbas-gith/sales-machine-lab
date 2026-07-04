@@ -80,13 +80,17 @@ export const locations = [
 
 export const industries = [
   { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
-  { to: "/industries/beauty-skincare", label: "Beauty & Skincare" },
-  { to: "/industries/health-supplements", label: "Health & Supplements" },
+  { to: "/industries/beauty-personal-care", label: "Beauty & Personal Care" },
+  { to: "/industries/electronics-technology", label: "Electronics & Technology" },
   { to: "/industries/home-garden", label: "Home & Garden" },
-  { to: "/industries/electronics", label: "Electronics & Gadgets" },
   { to: "/industries/food-beverage", label: "Food & Beverage" },
-  { to: "/industries/jewellery", label: "Jewellery & Watches" },
-  { to: "/industries/pets", label: "Pets & Accessories" },
+  { to: "/industries/health-wellness", label: "Health & Wellness" },
+  { to: "/industries/sports-fitness", label: "Sports & Fitness" },
+  { to: "/industries/furniture-interiors", label: "Furniture & Interiors" },
+  { to: "/industries/baby-kids", label: "Baby & Kids" },
+  { to: "/industries/jewellery-watches", label: "Jewellery & Watches" },
+  { to: "/industries/pets-supplies", label: "Pets & Pet Supplies" },
+  { to: "/industries/arts-prints-stationery", label: "Arts, Prints & Stationery" },
 ];
 
 export const caseStudyCategories = [
