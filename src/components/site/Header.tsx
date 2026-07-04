@@ -117,7 +117,7 @@ export default function Header() {
   const scheduleClose = () => {
     if (typeof window === "undefined") return;
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => setDesktopMenu(null), 220);
+    closeTimer.current = window.setTimeout(() => setDesktopMenu(null), 800);
   };
 
 
