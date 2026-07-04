@@ -536,9 +536,18 @@ export default function Header() {
                 <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
               </button>
               {industriesOpen && (
-                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-2">
                   {industries.map((i) => (
-                    <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                    <div key={i.to}>
+                      <Link to={i.to} className="px-3 py-1.5 rounded text-sm font-semibold text-foreground hover:bg-secondary block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                      {i.children && (
+                        <div className="ml-3 pl-3 border-l border-border grid gap-0.5 mt-0.5">
+                          {i.children.map((c) => (
+                            <Link key={c.to} to={c.to} className="px-3 py-1 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{c.label}</Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
