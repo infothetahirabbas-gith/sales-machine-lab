@@ -106,11 +106,11 @@ export default function Header() {
   const [prefs, setPrefs] = useState<Prefs | null>(null);
 
   // Delay closing so cursor can travel from trigger button to panel items.
-  const closeTimer = (typeof window !== "undefined" ? { current: 0 as number } : { current: 0 });
+  const closeTimer = useRef<number | null>(null);
   const openMenu = (name: "locations" | "industries" | "services") => {
-    if (typeof window !== "undefined" && closeTimer.current) {
+    if (closeTimer.current) {
       window.clearTimeout(closeTimer.current);
-      closeTimer.current = 0;
+      closeTimer.current = null;
     }
     setDesktopMenu(name);
   };
@@ -119,6 +119,7 @@ export default function Header() {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     closeTimer.current = window.setTimeout(() => setDesktopMenu(null), 220);
   };
+
 
 
   useEffect(() => {
