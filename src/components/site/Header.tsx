@@ -78,19 +78,132 @@ export const locations = [
   { to: "/locations/bradford", label: "Bradford" },
 ];
 
-export const industries = [
-  { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
-  { to: "/industries/beauty-personal-care", label: "Beauty & Personal Care" },
-  { to: "/industries/electronics-technology", label: "Electronics & Technology" },
-  { to: "/industries/home-garden", label: "Home & Garden" },
-  { to: "/industries/food-beverage", label: "Food & Beverage" },
-  { to: "/industries/health-wellness", label: "Health & Wellness" },
-  { to: "/industries/sports-fitness", label: "Sports & Fitness" },
-  { to: "/industries/furniture-interiors", label: "Furniture & Interiors" },
-  { to: "/industries/baby-kids", label: "Baby & Kids" },
-  { to: "/industries/jewellery-watches", label: "Jewellery & Watches" },
-  { to: "/industries/pets-supplies", label: "Pets & Pet Supplies" },
-  { to: "/industries/arts-prints-stationery", label: "Arts, Prints & Stationery" },
+type IndustryItem = { to: string; label: string; children?: { to: string; label: string }[] };
+
+export const industries: IndustryItem[] = [
+  {
+    to: "/industries/fashion-apparel",
+    label: "Fashion & Apparel",
+    children: [
+      { to: "/industries/fashion-apparel#womens-fashion", label: "Women's Fashion" },
+      { to: "/industries/fashion-apparel#mens-fashion", label: "Men's Fashion" },
+      { to: "/industries/fashion-apparel#streetwear-sportswear", label: "Streetwear & Sportswear" },
+      { to: "/industries/fashion-apparel#luxury-fashion", label: "Luxury Fashion" },
+      { to: "/industries/fashion-apparel#footwear", label: "Footwear" },
+      { to: "/industries/fashion-apparel#handbags-accessories", label: "Handbags & Accessories" },
+    ],
+  },
+  {
+    to: "/industries/beauty-personal-care",
+    label: "Beauty & Personal Care",
+    children: [
+      { to: "/industries/beauty-personal-care#skincare", label: "Skincare" },
+      { to: "/industries/beauty-personal-care#haircare", label: "Haircare" },
+      { to: "/industries/beauty-personal-care#makeup-cosmetics", label: "Makeup & Cosmetics" },
+      { to: "/industries/beauty-personal-care#mens-grooming", label: "Men's Grooming" },
+      { to: "/industries/beauty-personal-care#fragrances-perfumes", label: "Fragrances & Perfumes" },
+    ],
+  },
+  {
+    to: "/industries/electronics-technology",
+    label: "Electronics & Technology",
+    children: [
+      { to: "/industries/electronics-technology#consumer-electronics", label: "Consumer Electronics" },
+      { to: "/industries/electronics-technology#mobile-computer-accessories", label: "Mobile & Computer Accessories" },
+      { to: "/industries/electronics-technology#gaming", label: "Gaming" },
+      { to: "/industries/electronics-technology#smart-home", label: "Smart Home" },
+      { to: "/industries/electronics-technology#audio-wearables", label: "Audio & Wearables" },
+    ],
+  },
+  {
+    to: "/industries/home-garden",
+    label: "Home & Garden",
+    children: [
+      { to: "/industries/home-garden#homeware-decor", label: "Homeware & Décor" },
+      { to: "/industries/home-garden#kitchen-dining", label: "Kitchen & Dining" },
+      { to: "/industries/home-garden#garden-outdoor", label: "Garden & Outdoor Living" },
+      { to: "/industries/home-garden#diy-home-improvement", label: "DIY & Home Improvement" },
+    ],
+  },
+  {
+    to: "/industries/food-beverage",
+    label: "Food & Beverage",
+    children: [
+      { to: "/industries/food-beverage#organic-health-food", label: "Organic & Health Food" },
+      { to: "/industries/food-beverage#coffee-tea", label: "Coffee & Tea" },
+      { to: "/industries/food-beverage#subscription-meal-kits", label: "Subscription Meal Kits" },
+      { to: "/industries/food-beverage#wine-spirits", label: "Wine & Spirits" },
+    ],
+  },
+  {
+    to: "/industries/health-wellness",
+    label: "Health & Wellness",
+    children: [
+      { to: "/industries/health-wellness#vitamins-supplements", label: "Vitamins & Supplements" },
+      { to: "/industries/health-wellness#sports-nutrition", label: "Sports Nutrition" },
+      { to: "/industries/health-wellness#cbd-wellness", label: "CBD & Wellness" },
+    ],
+  },
+  {
+    to: "/industries/sports-fitness",
+    label: "Sports & Fitness",
+    children: [
+      { to: "/industries/sports-fitness#fitness-equipment", label: "Fitness Equipment & Gym Accessories" },
+      { to: "/industries/sports-fitness#activewear", label: "Activewear" },
+      { to: "/industries/sports-fitness#running-cycling", label: "Running & Cycling" },
+      { to: "/industries/sports-fitness#yoga-outdoor", label: "Yoga & Outdoor / Adventure" },
+    ],
+  },
+  {
+    to: "/industries/furniture-interiors",
+    label: "Furniture & Interiors",
+    children: [
+      { to: "/industries/furniture-interiors#living-bedroom", label: "Living & Bedroom Furniture" },
+      { to: "/industries/furniture-interiors#office-furniture", label: "Office Furniture" },
+      { to: "/industries/furniture-interiors#outdoor-furniture", label: "Outdoor Furniture" },
+      { to: "/industries/furniture-interiors#soft-furnishings-storage", label: "Soft Furnishings & Storage" },
+    ],
+  },
+  {
+    to: "/industries/baby-kids",
+    label: "Baby & Kids",
+    children: [
+      { to: "/industries/baby-kids#baby-clothing-gear", label: "Baby Clothing & Gear" },
+      { to: "/industries/baby-kids#kids-fashion", label: "Kids Fashion" },
+      { to: "/industries/baby-kids#toys-educational", label: "Toys & Educational Toys" },
+      { to: "/industries/baby-kids#maternity", label: "Maternity" },
+    ],
+  },
+  {
+    to: "/industries/jewellery-watches",
+    label: "Jewellery & Watches",
+    children: [
+      { to: "/industries/jewellery-watches#fine-jewellery", label: "Fine Jewellery" },
+      { to: "/industries/jewellery-watches#fashion-jewellery", label: "Fashion Jewellery" },
+      { to: "/industries/jewellery-watches#watches", label: "Watches" },
+      { to: "/industries/jewellery-watches#engagement-wedding", label: "Engagement & Wedding" },
+    ],
+  },
+  {
+    to: "/industries/pets-supplies",
+    label: "Pets & Pet Supplies",
+    children: [
+      { to: "/industries/pets-supplies#dog-supplies", label: "Dog Supplies" },
+      { to: "/industries/pets-supplies#cat-supplies", label: "Cat Supplies" },
+      { to: "/industries/pets-supplies#pet-food-treats", label: "Pet Food & Treats" },
+      { to: "/industries/pets-supplies#pet-healthcare-grooming", label: "Pet Healthcare & Grooming" },
+    ],
+  },
+  {
+    to: "/industries/arts-prints-stationery",
+    label: "Arts, Prints & Stationery",
+    children: [
+      { to: "/industries/arts-prints-stationery#wall-art-prints", label: "Wall Art & Prints" },
+      { to: "/industries/arts-prints-stationery#stationery-planners", label: "Stationery & Planners" },
+      { to: "/industries/arts-prints-stationery#craft-supplies", label: "Craft Supplies" },
+      { to: "/industries/arts-prints-stationery#personalised-gifts", label: "Personalised Gifts" },
+    ],
+  },
 ];
 
 export const caseStudyCategories = [
