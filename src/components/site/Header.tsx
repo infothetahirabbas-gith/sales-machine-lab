@@ -223,6 +223,7 @@ export default function Header() {
   // Desktop hover-menu state with close delay so moving the cursor into the
   // panel does not accidentally dismiss it.
   const [desktopMenu, setDesktopMenu] = useState<null | "locations" | "industries" | "services">(null);
+  const [activeIndustry, setActiveIndustry] = useState<string>(industries[0].to);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   const navigate = useNavigate();
