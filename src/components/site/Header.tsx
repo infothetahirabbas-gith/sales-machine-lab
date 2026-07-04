@@ -97,10 +97,29 @@ export default function Header() {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [openServiceChildren, setOpenServiceChildren] = useState<Record<string, boolean>>({});
   const [caseStudiesOpen, setCaseStudiesOpen] = useState(false);
+  // Desktop hover-menu state with close delay so moving the cursor into the
+  // panel does not accidentally dismiss it.
+  const [desktopMenu, setDesktopMenu] = useState<null | "locations" | "industries" | "services">(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
   const navigate = useNavigate();
   const [prefs, setPrefs] = useState<Prefs | null>(null);
+
+  // Delay closing so cursor can travel from trigger button to panel items.
+  const closeTimer = (typeof window !== "undefined" ? { current: 0 as number } : { current: 0 });
+  const openMenu = (name: "locations" | "industries" | "services") => {
+    if (typeof window !== "undefined" && closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = 0;
+    }
+    setDesktopMenu(name);
+  };
+  const scheduleClose = () => {
+    if (typeof window === "undefined") return;
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setDesktopMenu(null), 220);
+  };
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
