@@ -78,19 +78,132 @@ export const locations = [
   { to: "/locations/bradford", label: "Bradford" },
 ];
 
-export const industries = [
-  { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
-  { to: "/industries/beauty-personal-care", label: "Beauty & Personal Care" },
-  { to: "/industries/electronics-technology", label: "Electronics & Technology" },
-  { to: "/industries/home-garden", label: "Home & Garden" },
-  { to: "/industries/food-beverage", label: "Food & Beverage" },
-  { to: "/industries/health-wellness", label: "Health & Wellness" },
-  { to: "/industries/sports-fitness", label: "Sports & Fitness" },
-  { to: "/industries/furniture-interiors", label: "Furniture & Interiors" },
-  { to: "/industries/baby-kids", label: "Baby & Kids" },
-  { to: "/industries/jewellery-watches", label: "Jewellery & Watches" },
-  { to: "/industries/pets-supplies", label: "Pets & Pet Supplies" },
-  { to: "/industries/arts-prints-stationery", label: "Arts, Prints & Stationery" },
+type IndustryItem = { to: string; label: string; children?: { to: string; label: string }[] };
+
+export const industries: IndustryItem[] = [
+  {
+    to: "/industries/fashion-apparel",
+    label: "Fashion & Apparel",
+    children: [
+      { to: "/industries/fashion-apparel#womens-fashion", label: "Women's Fashion" },
+      { to: "/industries/fashion-apparel#mens-fashion", label: "Men's Fashion" },
+      { to: "/industries/fashion-apparel#streetwear-sportswear", label: "Streetwear & Sportswear" },
+      { to: "/industries/fashion-apparel#luxury-fashion", label: "Luxury Fashion" },
+      { to: "/industries/fashion-apparel#footwear", label: "Footwear" },
+      { to: "/industries/fashion-apparel#handbags-accessories", label: "Handbags & Accessories" },
+    ],
+  },
+  {
+    to: "/industries/beauty-personal-care",
+    label: "Beauty & Personal Care",
+    children: [
+      { to: "/industries/beauty-personal-care#skincare", label: "Skincare" },
+      { to: "/industries/beauty-personal-care#haircare", label: "Haircare" },
+      { to: "/industries/beauty-personal-care#makeup-cosmetics", label: "Makeup & Cosmetics" },
+      { to: "/industries/beauty-personal-care#mens-grooming", label: "Men's Grooming" },
+      { to: "/industries/beauty-personal-care#fragrances-perfumes", label: "Fragrances & Perfumes" },
+    ],
+  },
+  {
+    to: "/industries/electronics-technology",
+    label: "Electronics & Technology",
+    children: [
+      { to: "/industries/electronics-technology#consumer-electronics", label: "Consumer Electronics" },
+      { to: "/industries/electronics-technology#mobile-computer-accessories", label: "Mobile & Computer Accessories" },
+      { to: "/industries/electronics-technology#gaming", label: "Gaming" },
+      { to: "/industries/electronics-technology#smart-home", label: "Smart Home" },
+      { to: "/industries/electronics-technology#audio-wearables", label: "Audio & Wearables" },
+    ],
+  },
+  {
+    to: "/industries/home-garden",
+    label: "Home & Garden",
+    children: [
+      { to: "/industries/home-garden#homeware-decor", label: "Homeware & Décor" },
+      { to: "/industries/home-garden#kitchen-dining", label: "Kitchen & Dining" },
+      { to: "/industries/home-garden#garden-outdoor", label: "Garden & Outdoor Living" },
+      { to: "/industries/home-garden#diy-home-improvement", label: "DIY & Home Improvement" },
+    ],
+  },
+  {
+    to: "/industries/food-beverage",
+    label: "Food & Beverage",
+    children: [
+      { to: "/industries/food-beverage#organic-health-food", label: "Organic & Health Food" },
+      { to: "/industries/food-beverage#coffee-tea", label: "Coffee & Tea" },
+      { to: "/industries/food-beverage#subscription-meal-kits", label: "Subscription Meal Kits" },
+      { to: "/industries/food-beverage#wine-spirits", label: "Wine & Spirits" },
+    ],
+  },
+  {
+    to: "/industries/health-wellness",
+    label: "Health & Wellness",
+    children: [
+      { to: "/industries/health-wellness#vitamins-supplements", label: "Vitamins & Supplements" },
+      { to: "/industries/health-wellness#sports-nutrition", label: "Sports Nutrition" },
+      { to: "/industries/health-wellness#cbd-wellness", label: "CBD & Wellness" },
+    ],
+  },
+  {
+    to: "/industries/sports-fitness",
+    label: "Sports & Fitness",
+    children: [
+      { to: "/industries/sports-fitness#fitness-equipment", label: "Fitness Equipment & Gym Accessories" },
+      { to: "/industries/sports-fitness#activewear", label: "Activewear" },
+      { to: "/industries/sports-fitness#running-cycling", label: "Running & Cycling" },
+      { to: "/industries/sports-fitness#yoga-outdoor", label: "Yoga & Outdoor / Adventure" },
+    ],
+  },
+  {
+    to: "/industries/furniture-interiors",
+    label: "Furniture & Interiors",
+    children: [
+      { to: "/industries/furniture-interiors#living-bedroom", label: "Living & Bedroom Furniture" },
+      { to: "/industries/furniture-interiors#office-furniture", label: "Office Furniture" },
+      { to: "/industries/furniture-interiors#outdoor-furniture", label: "Outdoor Furniture" },
+      { to: "/industries/furniture-interiors#soft-furnishings-storage", label: "Soft Furnishings & Storage" },
+    ],
+  },
+  {
+    to: "/industries/baby-kids",
+    label: "Baby & Kids",
+    children: [
+      { to: "/industries/baby-kids#baby-clothing-gear", label: "Baby Clothing & Gear" },
+      { to: "/industries/baby-kids#kids-fashion", label: "Kids Fashion" },
+      { to: "/industries/baby-kids#toys-educational", label: "Toys & Educational Toys" },
+      { to: "/industries/baby-kids#maternity", label: "Maternity" },
+    ],
+  },
+  {
+    to: "/industries/jewellery-watches",
+    label: "Jewellery & Watches",
+    children: [
+      { to: "/industries/jewellery-watches#fine-jewellery", label: "Fine Jewellery" },
+      { to: "/industries/jewellery-watches#fashion-jewellery", label: "Fashion Jewellery" },
+      { to: "/industries/jewellery-watches#watches", label: "Watches" },
+      { to: "/industries/jewellery-watches#engagement-wedding", label: "Engagement & Wedding" },
+    ],
+  },
+  {
+    to: "/industries/pets-supplies",
+    label: "Pets & Pet Supplies",
+    children: [
+      { to: "/industries/pets-supplies#dog-supplies", label: "Dog Supplies" },
+      { to: "/industries/pets-supplies#cat-supplies", label: "Cat Supplies" },
+      { to: "/industries/pets-supplies#pet-food-treats", label: "Pet Food & Treats" },
+      { to: "/industries/pets-supplies#pet-healthcare-grooming", label: "Pet Healthcare & Grooming" },
+    ],
+  },
+  {
+    to: "/industries/arts-prints-stationery",
+    label: "Arts, Prints & Stationery",
+    children: [
+      { to: "/industries/arts-prints-stationery#wall-art-prints", label: "Wall Art & Prints" },
+      { to: "/industries/arts-prints-stationery#stationery-planners", label: "Stationery & Planners" },
+      { to: "/industries/arts-prints-stationery#craft-supplies", label: "Craft Supplies" },
+      { to: "/industries/arts-prints-stationery#personalised-gifts", label: "Personalised Gifts" },
+    ],
+  },
 ];
 
 export const caseStudyCategories = [
@@ -253,20 +366,16 @@ export default function Header() {
                 </div>
               </div>
               <div
-                className="relative"
+                className="py-2"
                 onMouseEnter={() => openMenu("industries")}
                 onMouseLeave={scheduleClose}
               >
-                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} /></button>
-                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-                    {industries.map((i) => (
-                      <Link key={i.to} to={i.to} onClick={() => setDesktopMenu(null)} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
-                        {i.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <button
+                  onClick={() => setDesktopMenu(desktopMenu === "industries" ? null : "industries")}
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+                >
+                  Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} />
+                </button>
               </div>
             </>
           )}
@@ -349,6 +458,52 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Full-width Industries mega menu (desktop) */}
+      <div
+        className={`hidden lg:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        onMouseEnter={() => openMenu("industries")}
+        onMouseLeave={scheduleClose}
+      >
+        <div className="pt-3">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="rounded-2xl border border-border bg-background p-6 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-5">
+                {industries.map((i) => (
+                  <div key={i.to} className="min-w-0">
+                    <Link
+                      to={i.to}
+                      onClick={() => setDesktopMenu(null)}
+                      className="block text-sm font-semibold text-foreground hover:text-primary transition-colors mb-2 pb-2 border-b border-border"
+                    >
+                      {i.label}
+                    </Link>
+                    {i.children && (
+                      <div className="grid gap-1">
+                        {i.children.map((c) => (
+                          <Link
+                            key={c.to}
+                            to={c.to}
+                            onClick={() => setDesktopMenu(null)}
+                            className="block px-2 py-1 rounded-md text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
+                <span className="text-muted-foreground">12 industries · 55+ sub-categories</span>
+                <Link to="/industries" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all industries →</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
       {open && (
          <div className="lg:hidden border-t border-border bg-background shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain">
@@ -381,9 +536,18 @@ export default function Header() {
                 <span className={`transition-transform ${industriesOpen ? "rotate-180" : ""}`}>▾</span>
               </button>
               {industriesOpen && (
-                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-2">
                   {industries.map((i) => (
-                    <Link key={i.to} to={i.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                    <div key={i.to}>
+                      <Link to={i.to} className="px-3 py-1.5 rounded text-sm font-semibold text-foreground hover:bg-secondary block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{i.label}</Link>
+                      {i.children && (
+                        <div className="ml-3 pl-3 border-l border-border grid gap-0.5 mt-0.5">
+                          {i.children.map((c) => (
+                            <Link key={c.to} to={c.to} className="px-3 py-1 rounded text-xs text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setIndustriesOpen(false); }}>{c.label}</Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
