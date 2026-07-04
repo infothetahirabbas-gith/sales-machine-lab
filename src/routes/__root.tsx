@@ -172,7 +172,6 @@ function RootComponent() {
         {deferredReady ? (
           <Suspense fallback={null}>
             <GoogleTranslate />
-            <WelcomeBanner />
           </Suspense>
         ) : null}
       </ClientOnly>
