@@ -263,9 +263,16 @@ export default function Header() {
           <div
             onMouseEnter={() => openMenu("services")}
             onMouseLeave={scheduleClose}
+            className="py-2"
           >
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "services" ? "rotate-180" : ""}`} /></button>
+            <button
+              onClick={() => setDesktopMenu(desktopMenu === "services" ? null : "services")}
+              className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+            >
+              Services <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "services" ? "rotate-180" : ""}`} />
+            </button>
           </div>
+
 
 
           <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
