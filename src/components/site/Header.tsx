@@ -65,11 +65,17 @@ export const locations = [
   { to: "/locations/london", label: "London" },
   { to: "/locations/manchester", label: "Manchester" },
   { to: "/locations/birmingham", label: "Birmingham" },
-  { to: "/locations/leeds", label: "Leeds" },
-  { to: "/locations/bristol", label: "Bristol" },
-  { to: "/locations/liverpool", label: "Liverpool" },
   { to: "/locations/glasgow", label: "Glasgow" },
+  { to: "/locations/bristol", label: "Bristol" },
+  { to: "/locations/leeds", label: "Leeds" },
+  { to: "/locations/liverpool", label: "Liverpool" },
+  { to: "/locations/leicester", label: "Leicester" },
+  { to: "/locations/nottingham", label: "Nottingham" },
   { to: "/locations/edinburgh", label: "Edinburgh" },
+  { to: "/locations/sheffield", label: "Sheffield" },
+  { to: "/locations/poole", label: "Poole" },
+  { to: "/locations/newcastle-upon-tyne", label: "Newcastle upon Tyne" },
+  { to: "/locations/bradford", label: "Bradford" },
 ];
 
 export const industries = [
