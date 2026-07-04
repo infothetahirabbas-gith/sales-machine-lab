@@ -95,11 +95,11 @@ export function CountUp({
     ? `${parsed.prefix}${formatNumber(parsed.num, parsed.decimals)}${parsed.suffix}`
     : value;
 
-  const [display, setDisplay] = useState<string>(
-    reduced || !parsed
-      ? finalDisplay
-      : `${parsed.prefix}${formatNumber(0, parsed.decimals)}${parsed.suffix}`
-  );
+  // Always SSR the final formatted value so raw HTML (and non-JS crawlers
+  // like ChatGPT / Perplexity / Claude) see the real numbers, never "0".
+  // After mount, if motion is allowed and the element scrolls into view,
+  // reset to 0 and animate up.
+  const [display, setDisplay] = useState<string>(finalDisplay);
 
   useEffect(() => {
     if (!parsed) {
@@ -113,6 +113,8 @@ export function CountUp({
     if (!inView) return;
     const start = performance.now();
     let raf = 0;
+    // Kick the animation off from 0 now that we're client-side and visible.
+    setDisplay(`${parsed.prefix}${formatNumber(0, parsed.decimals)}${parsed.suffix}`);
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
