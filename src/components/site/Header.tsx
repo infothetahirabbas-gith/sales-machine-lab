@@ -226,24 +226,32 @@ export default function Header() {
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
           {isHome && (
             <>
-              <div className="relative group">
-                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              <div
+                className="relative"
+                onMouseEnter={() => openMenu("locations")}
+                onMouseLeave={scheduleClose}
+              >
+                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Locations <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "locations" ? "rotate-180" : ""}`} /></button>
+                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition ${desktopMenu === "locations" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
                   <div className="w-64 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
                     {locations.map((l) => (
-                      <Link key={l.to} to={l.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                      <Link key={l.to} to={l.to} onClick={() => setDesktopMenu(null)} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
                         {l.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="relative group">
-                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              <div
+                className="relative"
+                onMouseEnter={() => openMenu("industries")}
+                onMouseLeave={scheduleClose}
+              >
+                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} /></button>
+                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
                   <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
                     {industries.map((i) => (
-                      <Link key={i.to} to={i.to} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
+                      <Link key={i.to} to={i.to} onClick={() => setDesktopMenu(null)} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
                         {i.label}
                       </Link>
                     ))}
@@ -252,9 +260,13 @@ export default function Header() {
               </div>
             </>
           )}
-          <div className="relative group static lg:static">
-            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" /></button>
-            <div className="absolute left-0 right-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
+          <div
+            className="relative"
+            onMouseEnter={() => openMenu("services")}
+            onMouseLeave={scheduleClose}
+          >
+            <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Services <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "services" ? "rotate-180" : ""}`} /></button>
+            <div className={`absolute left-0 right-0 top-full pt-3 z-50 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
               <div className="mx-auto max-w-7xl px-4 lg:px-8">
                 <div className="rounded-2xl border border-border bg-background p-6 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-5">
@@ -262,6 +274,7 @@ export default function Header() {
                       <div key={s.to} className="min-w-0">
                         <Link
                           to={s.to}
+                          onClick={() => setDesktopMenu(null)}
                           className="block text-sm font-semibold text-foreground hover:text-primary transition-colors mb-2 pb-2 border-b border-border"
                         >
                           {s.label}
@@ -272,6 +285,7 @@ export default function Header() {
                               <Link
                                 key={c.to}
                                 to={c.to}
+                                onClick={() => setDesktopMenu(null)}
                                 className="block px-2 py-1 rounded-md text-xs text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
                               >
                                 {c.label}
@@ -284,12 +298,13 @@ export default function Header() {
                   </div>
                   <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">7 core services · 14 specialisations</span>
-                    <Link to="/services" className="font-semibold text-primary hover:underline">View all services →</Link>
+                    <Link to="/services" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all services →</Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition">Case Studies</Link>
           <Link to="/audit" className="text-muted-foreground hover:text-foreground transition">Store Audit</Link>
           <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition">Pricing</Link>
