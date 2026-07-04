@@ -366,20 +366,16 @@ export default function Header() {
                 </div>
               </div>
               <div
-                className="relative"
+                className="py-2"
                 onMouseEnter={() => openMenu("industries")}
                 onMouseLeave={scheduleClose}
               >
-                <button className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition">Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} /></button>
-                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
-                    {industries.map((i) => (
-                      <Link key={i.to} to={i.to} onClick={() => setDesktopMenu(null)} className="block px-3 py-2 rounded-lg text-sm hover:bg-accent/10 hover:text-foreground transition-colors">
-                        {i.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                <button
+                  onClick={() => setDesktopMenu(desktopMenu === "industries" ? null : "industries")}
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+                >
+                  Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} />
+                </button>
               </div>
             </>
           )}
