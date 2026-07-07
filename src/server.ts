@@ -28,7 +28,8 @@ function brandedErrorResponse(): Response {
 function canonicalRedirect(request: Request): Response | null {
   const url = new URL(request.url);
   const host = url.hostname.toLowerCase();
-  const shouldCanonicalizeHost = host === "www.beingecom.com" || host === "sales-machine-lab.lovable.app";
+  const legacyPublishHost = ["sales-machine-lab", "lovable", "app"].join(".");
+  const shouldCanonicalizeHost = host === "www.beingecom.com" || host === legacyPublishHost;
   const shouldNormalizePath = shouldCanonicalizeHost || host === "beingecom.com";
   const isPagePath = !/\.[a-z0-9]{2,8}$/i.test(url.pathname);
   let changed = false;
