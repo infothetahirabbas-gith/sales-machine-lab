@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowRight, Megaphone, Target, Zap, BarChart3, Rocket, Sparkles,
   Star, Award, Play, Search, Filter, CheckCircle2, TrendingUp, Users, PoundSterling,
+  MessageCircle as WaIcon,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
@@ -12,6 +13,7 @@ import { SafeImg } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
+import { whatsappForIndustry } from "../lib/whatsapp";
 
 export const Route = createFileRoute("/industries/$slug/paid-ads")({
   loader: ({ params }) => {
