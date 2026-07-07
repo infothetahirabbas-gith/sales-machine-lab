@@ -2,10 +2,14 @@
 // Every field varies per city so no two location pages look or read the same.
 
 export const WHATSAPP_NUMBER = "447882743592";
-export const whatsappUrl = (city: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    `Hi Being Ecom — I'm a ${city} ecommerce brand and I'd like to book a free strategy call.`,
-  )}`;
+// wa.me strips query params, so tracking must live inside the prefilled text.
+// The [ref:...] tag lets the ops team attribute the lead back to the city page.
+export const whatsappUrl = (city: string, slug?: string) => {
+  const ref = slug ?? city.toLowerCase().replace(/\s+/g, "-");
+  const text = `Hi Being Ecom — I'm a ${city} ecommerce brand and I'd like to book a free strategy call. [ref: locations/${ref}]`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
+
 
 export type LocationContent = {
   images: {
