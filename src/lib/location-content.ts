@@ -47,11 +47,25 @@ export type LocationContent = {
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
-// Deterministic seeded photo — guarantees a unique real image URL per
-// (city, slot) pair. Used to normalise every non-hero slot so no two
-// location pages ever share an image URL. Picsum returns real photography.
+// Deterministic seeded topical photo. Returns a real Unsplash-quality photo
+// matching the given ecommerce/marketing keywords, keyed by a per-(city,slot)
+// seed so no two location pages ever share an image URL — and every image
+// is contextually relevant to the section it illustrates (shopify, ads, seo,
+// analytics, klaviyo, etc.) rather than a random landscape.
+const hash = (s: string) => {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString();
+};
+const topical = (tags: string, seed: string, w = 1600, h = 900) =>
+  `https://loremflickr.com/${w}/${h}/${encodeURIComponent(tags)}/all?lock=${hash(seed)}`;
+// legacy random helper kept for hero fallback only
 const pic = (seed: string, w = 1600, h = 900) =>
   `https://picsum.photos/seed/beingecom-${seed}/${w}/${h}`;
+
 
 
 export const LOCATION_CONTENT: Record<string, LocationContent> = {
@@ -546,10 +560,11 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   },
 };
 
-// Guarantee unique image URLs across ALL location pages.
-// Keeps each city's recognisable Unsplash hero photo, but overwrites every
-// other slot with a deterministic per-(city, slot) seeded URL so no two
-// locations ever share a single image URL.
+// Guarantee unique + contextually relevant image URLs across all location pages.
+// Every non-hero slot maps to keywords that match the section it illustrates
+// (Shopify store, ads dashboard, SEO analytics, Klaviyo email, UGC creative,
+// team meeting, etc.) and is seeded per-city so no two location pages ever
+// share an image URL.
 {
   const seenHeros = new Set<string>();
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
@@ -558,23 +573,38 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     }
     seenHeros.add(c.images.hero);
   }
-  const slots: Array<
-    Exclude<keyof LocationContent["images"], "hero" | "founders">
-  > = [
-    "skyline", "team", "ads", "seo", "cro", "email",
-    "creative", "analytics", "shopify", "meeting", "caseStudy", "process",
-  ];
+
+  const slotTags: Record<
+    Exclude<keyof LocationContent["images"], "hero" | "founders">,
+    string
+  > = {
+    skyline: "city,skyline,uk,architecture",
+    team: "team,office,meeting,agency",
+    ads: "advertising,marketing,dashboard,laptop",
+    seo: "seo,analytics,search,laptop",
+    cro: "website,ux,design,conversion",
+    email: "email,newsletter,inbox,laptop",
+    creative: "camera,studio,creative,photography",
+    analytics: "analytics,charts,data,dashboard",
+    shopify: "ecommerce,shopping,store,online-shop",
+    meeting: "meeting,whiteboard,office,strategy",
+    caseStudy: "growth,chart,success,revenue",
+    process: "workflow,strategy,planning,notebook",
+  };
+
+  const slots = Object.keys(slotTags) as Array<keyof typeof slotTags>;
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
     for (const key of slots) {
-      c.images[key] = pic(`${slug}-${key}`, 1600, 900);
+      c.images[key] = topical(slotTags[key], `${slug}-${key}`, 1600, 900);
     }
     c.images.founders = [
-      pic(`${slug}-founder-1`, 500, 500),
-      pic(`${slug}-founder-2`, 500, 500),
-      pic(`${slug}-founder-3`, 500, 500),
+      topical("portrait,ceo,professional,headshot", `${slug}-founder-1`, 500, 500),
+      topical("portrait,founder,business,headshot", `${slug}-founder-2`, 500, 500),
+      topical("portrait,entrepreneur,professional,headshot", `${slug}-founder-3`, 500, 500),
     ];
   }
 }
+
 
 export function contentFor(slug: string, cityFallback: string): LocationContent {
   const c = LOCATION_CONTENT[slug];
