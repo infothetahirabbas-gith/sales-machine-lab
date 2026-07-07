@@ -57,6 +57,7 @@ import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './r
 import { Route as ServicesPerformanceMarketingInstagramAdsRouteImport } from './routes/services.performance-marketing.instagram-ads'
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
 import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
+import { Route as IndustriesSlugPaidAdsRouteImport } from './routes/industries.$slug.paid-ads'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
@@ -311,6 +312,11 @@ const ServicesPerformanceMarketingFacebookAdsRoute =
     path: '/facebook-ads',
     getParentRoute: () => ServicesPerformanceMarketingRoute,
   } as any)
+const IndustriesSlugPaidAdsRoute = IndustriesSlugPaidAdsRouteImport.update({
+  id: '/paid-ads',
+  path: '/paid-ads',
+  getParentRoute: () => IndustriesSlugRoute,
+} as any)
 const ApiPublicDebugFaqJsonldRoute = ApiPublicDebugFaqJsonldRouteImport.update({
   id: '/api/public/debug/faq-jsonld',
   path: '/api/public/debug/faq-jsonld',
@@ -341,7 +347,7 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
-  '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -358,6 +364,7 @@ export interface FileRoutesByFullPath {
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -393,7 +400,7 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
-  '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -410,6 +417,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -446,7 +454,7 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
-  '/industries/$slug': typeof IndustriesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
@@ -463,6 +471,7 @@ export interface FileRoutesById {
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -517,6 +526,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/locations/'
     | '/services/'
+    | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -569,6 +579,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/locations'
     | '/services'
+    | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -621,6 +632,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/locations/'
     | '/services/'
+    | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -657,7 +669,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   CaseStudiesIdRoute: typeof CaseStudiesIdRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
-  IndustriesSlugRoute: typeof IndustriesSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRouteWithChildren
   LocationsSlugRoute: typeof LocationsSlugRoute
   ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
@@ -1016,6 +1028,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesPerformanceMarketingFacebookAdsRouteImport
       parentRoute: typeof ServicesPerformanceMarketingRoute
     }
+    '/industries/$slug/paid-ads': {
+      id: '/industries/$slug/paid-ads'
+      path: '/paid-ads'
+      fullPath: '/industries/$slug/paid-ads'
+      preLoaderRoute: typeof IndustriesSlugPaidAdsRouteImport
+      parentRoute: typeof IndustriesSlugRoute
+    }
     '/api/public/debug/faq-jsonld': {
       id: '/api/public/debug/faq-jsonld'
       path: '/api/public/debug/faq-jsonld'
@@ -1032,6 +1051,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface IndustriesSlugRouteChildren {
+  IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
+}
+
+const IndustriesSlugRouteChildren: IndustriesSlugRouteChildren = {
+  IndustriesSlugPaidAdsRoute: IndustriesSlugPaidAdsRoute,
+}
+
+const IndustriesSlugRouteWithChildren = IndustriesSlugRoute._addFileChildren(
+  IndustriesSlugRouteChildren,
+)
 
 interface ServicesPerformanceMarketingRouteChildren {
   ServicesPerformanceMarketingFacebookAdsRoute: typeof ServicesPerformanceMarketingFacebookAdsRoute
@@ -1120,7 +1151,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   CaseStudiesIdRoute: CaseStudiesIdRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
-  IndustriesSlugRoute: IndustriesSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRouteWithChildren,
   LocationsSlugRoute: LocationsSlugRoute,
   ServicesAiAutomationRoute: ServicesAiAutomationRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
