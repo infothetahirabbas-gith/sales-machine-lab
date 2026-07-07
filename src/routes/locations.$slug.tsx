@@ -306,7 +306,7 @@ function LocationPage() {
                 </Reveal>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 btn-pair">
               <Link to="/services/paid-ads" className="btn btn-primary">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
               <WhatsAppBtn label="Ask about paid ads" />
             </div>
@@ -324,7 +324,7 @@ function LocationPage() {
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Target className="w-4 h-4 text-primary" />{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/seo" className="btn btn-primary">SEO services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
             </div>
@@ -344,7 +344,7 @@ function LocationPage() {
                 <div key={x} className="p-4 rounded-xl border border-border bg-white text-sm font-medium text-ink card-hover">{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/store-development/shopify" className="btn btn-primary">Shopify services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/store-development/woocommerce" className="btn btn-ghost border border-border">WooCommerce</Link>
             </div>
@@ -377,7 +377,7 @@ function LocationPage() {
             <div className="mt-6 flex flex-wrap gap-2">
               {["Welcome flow", "Abandoned cart", "Browse abandonment", "Post-purchase", "Winback", "VIP loyalty", "SMS campaigns", "Segmentation"].map(x => <Pill key={x}>{x}</Pill>)}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/email-sms" className="btn btn-primary">Email & SMS <ArrowRight className="w-4 h-4" /></Link>
               <WhatsAppBtn label="Ask about Klaviyo" />
             </div>
@@ -443,20 +443,37 @@ function LocationPage() {
 
       {/* 18. TESTIMONIALS */}
       <Section eyebrow="Loved by founders" title={`What ${city} clients say`} alt>
-        <div className="grid md:grid-cols-3 gap-5">
-          {C.testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-              <div className="card-surface card-hover p-6 h-full flex flex-col">
-                <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
-                <p className="text-ink flex-1">"{t.quote}"</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover" />
-                  <div><div className="font-semibold text-ink text-sm">{t.name}</div><div className="text-xs text-muted-foreground">{t.role}</div></div>
+        {(() => {
+          const TestimonialCard = ({ t, i }: { t: (typeof C.testimonials)[number]; i: number }) => (
+            <div className="card-surface card-hover p-6 h-full flex flex-col w-[85vw] sm:w-[380px] md:w-[360px] shrink-0">
+              <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
+              <p className="text-ink flex-1">"{t.quote}"</p>
+              <div className="mt-5 flex items-center gap-3">
+                <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
+                <div className="min-w-0"><div className="font-semibold text-ink text-sm truncate">{t.name}</div><div className="text-xs text-muted-foreground truncate">{t.role}</div></div>
+              </div>
+            </div>
+          );
+          const items = [...C.testimonials, ...C.testimonials, ...C.testimonials];
+          return (
+            <>
+              {/* Mobile: one-by-one snap scroll */}
+              <div className="md:hidden -mx-5 px-5 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {C.testimonials.map((t, i) => (
+                  <div key={t.name} className="snap-center shrink-0"><TestimonialCard t={t} i={i} /></div>
+                ))}
+              </div>
+              {/* Desktop: continuous marquee */}
+              <div className="hidden md:block relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                <div className="marquee-track">
+                  {items.map((t, i) => (
+                    <TestimonialCard key={`${t.name}-${i}`} t={t} i={i} />
+                  ))}
                 </div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+            </>
+          );
+        })()}
       </Section>
 
       {/* 19. CASE STUDY */}
@@ -474,7 +491,7 @@ function LocationPage() {
                 <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.emailPct} suffix="%" /></div><div className="opacity-80">Email revenue</div></div>
                 <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.months} suffix=" mo" /></div><div className="opacity-80">Timeframe</div></div>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 btn-pair">
                 <Link to="/case-studies" className="btn btn-primary">Read case studies <ArrowRight className="w-4 h-4" /></Link>
                 <WhatsAppBtn label={`Talk to ${city} team`} />
               </div>
