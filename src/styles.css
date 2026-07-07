@@ -281,3 +281,41 @@
 @media (prefers-reduced-motion: reduce) {
   .wa-float, .wa-wiggle { animation: none; }
 }
+
+/* Inline WhatsApp CTA — matches floating widget, works in .btn-pair grid */
+.wa-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 8px 20px -6px rgb(37 211 102 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.wa-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px -8px rgb(37 211 102 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.3);
+  filter: brightness(1.05);
+}
+.wa-btn:active { transform: translateY(0) scale(0.98); }
+.wa-btn-ping {
+  position: absolute; inset: 0; border-radius: inherit;
+  box-shadow: 0 0 0 0 rgb(37 211 102 / 0.55);
+  animation: wa-btn-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+@keyframes wa-btn-ping {
+  0%   { box-shadow: 0 0 0 0 rgb(37 211 102 / 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgb(37 211 102 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(37 211 102 / 0); }
+}
+.wa-icon { animation: wa-icon-wiggle 3.5s ease-in-out infinite; transform-origin: center; }
+@keyframes wa-icon-wiggle {
+  0%, 85%, 100% { transform: rotate(0); }
+  88% { transform: rotate(-14deg); }
+  92% { transform: rotate(14deg); }
+  96% { transform: rotate(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-btn-ping, .wa-icon { animation: none; }
+  .wa-btn:hover { transform: none; }
+}

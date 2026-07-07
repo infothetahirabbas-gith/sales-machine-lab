@@ -190,12 +190,23 @@ function LocationPage() {
   ];
 
   const WhatsAppBtn = ({ label = `WhatsApp ${city} team` }: { label?: string }) => (
-    <a href={WA} target="_blank" rel="noreferrer noopener"
-      className="btn hover-scale"
-      style={{ background: "#25D366", color: "#0b3d1f", fontWeight: 700 }}>
-      <MessageCircle className="w-4 h-4" /> {label}
+    <a
+      href={WA}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`${label} on WhatsApp`}
+      className="btn wa-btn group relative overflow-hidden"
+    >
+      <span className="wa-btn-ping" aria-hidden="true" />
+      <span className="relative flex items-center justify-center w-5 h-5 rounded-full bg-white/25 shrink-0">
+        <svg viewBox="0 0 32 32" className="w-3.5 h-3.5 wa-icon" fill="currentColor" aria-hidden="true">
+          <path d="M19.11 17.28c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.09 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM16.03 5.33c-5.9 0-10.68 4.78-10.68 10.68 0 1.88.49 3.72 1.43 5.34l-1.52 5.55 5.69-1.49a10.66 10.66 0 0 0 5.08 1.29h.01c5.89 0 10.67-4.78 10.67-10.68 0-2.85-1.11-5.53-3.13-7.55a10.63 10.63 0 0 0-7.55-3.14z" />
+        </svg>
+      </span>
+      <span className="relative truncate">{label}</span>
     </a>
   );
+
 
   return (
     <PageLayout>
@@ -379,8 +390,9 @@ function LocationPage() {
             </div>
             <div className="mt-8 btn-pair">
               <Link to="/services/seo" className="btn btn-primary">SEO services <ArrowRight className="w-4 h-4" /></Link>
-              <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
+              <WhatsAppBtn label={`Ask about ${city} SEO`} />
             </div>
+
           </div>
           <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
@@ -448,7 +460,11 @@ function LocationPage() {
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Sparkles className="w-4 h-4 text-primary" />{x}</div>
               ))}
             </div>
-            <Link to="/services/creative" className="btn btn-primary mt-8">Creative services <ArrowRight className="w-4 h-4" /></Link>
+            <div className="mt-8 btn-pair">
+              <Link to="/services/creative" className="btn btn-primary">Creative services <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label="Ask about creative" />
+            </div>
+
           </div>
           <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
