@@ -15,6 +15,7 @@ import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-serv
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-locations[.]xml'
 import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
+import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -93,6 +94,12 @@ const SitemapIndustriesDotxmlRoute = SitemapIndustriesDotxmlRouteImport.update({
   path: '/sitemap-industries.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapCaseStudiesDotxmlRoute =
+  SitemapCaseStudiesDotxmlRouteImport.update({
+    id: '/sitemap-case-studies.xml',
+    path: '/sitemap-case-studies.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -350,6 +357,7 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -405,6 +413,7 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -461,6 +470,7 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -518,6 +528,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-case-studies.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -573,6 +584,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-case-studies.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -628,6 +640,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-case-studies.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -684,6 +697,7 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
   SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
   SitemapLocationsDotxmlRoute: typeof SitemapLocationsDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
@@ -758,6 +772,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-industries.xml'
       fullPath: '/sitemap-industries.xml'
       preLoaderRoute: typeof SitemapIndustriesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-case-studies.xml': {
+      id: '/sitemap-case-studies.xml'
+      path: '/sitemap-case-studies.xml'
+      fullPath: '/sitemap-case-studies.xml'
+      preLoaderRoute: typeof SitemapCaseStudiesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1182,6 +1203,7 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
   SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
   SitemapLocationsDotxmlRoute: SitemapLocationsDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
