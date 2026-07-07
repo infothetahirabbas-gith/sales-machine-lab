@@ -567,7 +567,12 @@ function LocationPage() {
                 <li key={x} className="flex items-center gap-3 text-ink"><BarChart3 className="w-5 h-5 text-primary" />{x}</li>
               ))}
             </ul>
+            <div className="mt-8 btn-pair">
+              <Link to="/services/analytics" className="btn btn-primary">Analytics services <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label="Ask about analytics" />
+            </div>
           </div>
+
         </div>
       </Section>
 
