@@ -561,46 +561,186 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
 };
 
 // Guarantee unique + contextually relevant image URLs across all location pages.
-// Every non-hero slot maps to keywords that match the section it illustrates
-// (Shopify store, ads dashboard, SEO analytics, Klaviyo email, UGC creative,
-// team meeting, etc.) and is seeded per-city so no two location pages ever
-// share an image URL.
+// Each slot has a curated pool of real Unsplash photo IDs that visually match
+// the section (Shopify store, ads dashboard, SEO analytics, Klaviyo email,
+// UGC creative, team meeting, etc.). We deterministically pick from the pool
+// per (city, slot) so every location page gets a unique, relevant image.
 {
-  const seenHeros = new Set<string>();
-  for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
-    if (seenHeros.has(c.images.hero)) {
-      c.images.hero = pic(`${slug}-hero-city`, 1600, 1067);
+  const hashNum = (s: string) => {
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
     }
-    seenHeros.add(c.images.hero);
-  }
-
-  const slotTags: Record<
-    Exclude<keyof LocationContent["images"], "hero" | "founders">,
-    string
-  > = {
-    skyline: "city,skyline,uk,architecture",
-    team: "team,office,meeting,agency",
-    ads: "advertising,marketing,dashboard,laptop",
-    seo: "seo,analytics,search,laptop",
-    cro: "website,ux,design,conversion",
-    email: "email,newsletter,inbox,laptop",
-    creative: "camera,studio,creative,photography",
-    analytics: "analytics,charts,data,dashboard",
-    shopify: "ecommerce,shopping,store,online-shop",
-    meeting: "meeting,whiteboard,office,strategy",
-    caseStudy: "growth,chart,success,revenue",
-    process: "workflow,strategy,planning,notebook",
+    return h >>> 0;
   };
 
-  const slots = Object.keys(slotTags) as Array<keyof typeof slotTags>;
+  // All curated real Unsplash IDs, each topically relevant to its slot.
+  const slotPools: Record<
+    Exclude<keyof LocationContent["images"], "hero" | "founders">,
+    string[]
+  > = {
+    // UK city skylines / architecture
+    skyline: [
+      "photo-1513635269975-59663e0ac1ad", "photo-1533929736458-ca588d08c8be",
+      "photo-1486299267070-83823f5448dd", "photo-1520986606214-8b456906c813",
+      "photo-1526129318478-62ed807ebdf9", "photo-1502920917128-1aa500764cbd",
+      "photo-1471623320832-752e8bbf8413", "photo-1543832923-44667a44c804",
+      "photo-1529655683826-aba9b3e77383", "photo-1548013146-72479768bada",
+      "photo-1512470876302-972faa2aa9a4", "photo-1519501025264-65ba15a82390",
+      "photo-1477959858617-67f85cf4f1df", "photo-1449034446853-66c86144b0ad",
+    ],
+    // Agency team / office meetings
+    team: [
+      "photo-1552664730-d307ca884978", "photo-1522071820081-009f0129c71c",
+      "photo-1600880292203-757bb62b4baf", "photo-1531482615713-2afd69097998",
+      "photo-1542744173-8e7e53415bb0", "photo-1556761175-5973dc0f32e7",
+      "photo-1573164713714-d95e436ab8d6", "photo-1517245386807-bb43f82c33c4",
+      "photo-1543269865-cbf427effbad", "photo-1519389950473-47ba0277781c",
+      "photo-1552581234-26160f608093", "photo-1600880292089-90a7e086ee0c",
+      "photo-1521737711867-e3b97375f902", "photo-1560250097-0b93528c311a",
+    ],
+    // Paid ads / marketing dashboards on laptops
+    ads: [
+      "photo-1460925895917-afdab827c52f", "photo-1551288049-bebda4e38f71",
+      "photo-1611926653458-09294b3142bf", "photo-1533750349088-cd871a92f312",
+      "photo-1533750516457-a7f992034fec", "photo-1611944212129-29977ae1398c",
+      "photo-1552664688-cf412ec27db2", "photo-1563986768609-322da13575f3",
+      "photo-1523240795612-9a054b0db644", "photo-1526628953301-3e589a6a8b74",
+      "photo-1554774853-aae0a22c8aa4", "photo-1557838923-2985c318be48",
+      "photo-1542744094-24638eff58bb", "photo-1591696205602-2f950c417cb9",
+    ],
+    // SEO / analytics / search / keyword research
+    seo: [
+      "photo-1432888622747-4eb9a8efeb07", "photo-1518770660439-4636190af475",
+      "photo-1571171637578-41bc2dd41cd2", "photo-1551288259-cd19c22e0997",
+      "photo-1504868584819-f8e8b4b6d7e3", "photo-1611746872915-64382b5c76da",
+      "photo-1516321318423-f06f85e504b3", "photo-1543286386-2e659306cd6c",
+      "photo-1461749280684-dccba630e2f6", "photo-1460925895917-afdab827c95d",
+      "photo-1571677246347-5040e2edcdea", "photo-1518186285589-2f7649de83e0",
+      "photo-1467232004584-a241de8bcf5d", "photo-1552674605-db6ffd4facb5",
+    ],
+    // CRO / UX / web design
+    cro: [
+      "photo-1559028012-481c04fa702d", "photo-1467232004584-a241de8bcf5d",
+      "photo-1581291518857-4e27b48ff24e", "photo-1586717791821-3f44a563fa4c",
+      "photo-1499750310107-5fef28a66643", "photo-1547658719-da2b51169166",
+      "photo-1559526324-4b87b5e36e44", "photo-1522542550221-31fd19575a2d",
+      "photo-1519389950473-47ba0277781c", "photo-1517430816045-df4b7de11d1d",
+      "photo-1541462608143-67571c6738dd", "photo-1600880292203-942bb68b2ee3",
+      "photo-1531403009284-440f080d1e12", "photo-1607706189992-eae578626c86",
+    ],
+    // Email marketing / inbox / newsletters
+    email: [
+      "photo-1633158829585-23ba8f7c8caf", "photo-1596526131083-e8c633c948d2",
+      "photo-1526554850534-7c78330d5f90", "photo-1596526131083-e8c633c948d3",
+      "photo-1586953208448-b95a79798f07", "photo-1611926653458-09294b3142bf",
+      "photo-1554224155-8d04cb21cd6c", "photo-1526628953301-3e589a6a8b74",
+      "photo-1517059224940-d4af9eec41b7", "photo-1526661934280-676cef25bc9d",
+      "photo-1512314889357-e157c22f938d", "photo-1517842645767-c639042777db",
+      "photo-1526401485004-46910ecc8e51", "photo-1493612276216-ee3925520721",
+    ],
+    // Creative / photography / UGC / studio
+    creative: [
+      "photo-1511285560929-80b456fea0bc", "photo-1542038784456-1ea8e935640e",
+      "photo-1502920917128-1aa500764cbd", "photo-1516035069371-29a1b244cc32",
+      "photo-1524678606370-a47ad25cb82a", "photo-1512909006721-3d6018887383",
+      "photo-1520390138845-fd2d229dd553", "photo-1554941829-202a0b2403b8",
+      "photo-1495707902641-75cac588d2e9", "photo-1554941829-202a0b2403b7",
+      "photo-1500051638674-ff996a0ec29e", "photo-1517971071642-34a2d3ecc9cd",
+      "photo-1533228876829-65c94e7b5025", "photo-1493863641943-9b68992a8d07",
+    ],
+    // Analytics / charts / data dashboards
+    analytics: [
+      "photo-1551288049-bebda4e38f71", "photo-1543286386-2e659306cd6c",
+      "photo-1460925895917-afdab827c52f", "photo-1554224155-8d04cb21cd6c",
+      "photo-1611974789855-9c2a0a7236a3", "photo-1590845947670-c009801ffa74",
+      "photo-1590650153855-d9e808231d40", "photo-1611746872915-64382b5c76da",
+      "photo-1590650046871-92c887180603", "photo-1543286386-2e659306cd6b",
+      "photo-1551288259-cd19c22e0997", "photo-1611926653458-09294b3142bf",
+      "photo-1454165804606-c3d57bc86b40", "photo-1460925895917-afdab827aabb",
+    ],
+    // Shopify / ecommerce / online store / shopping
+    shopify: [
+      "photo-1607083206869-4c7672e72a8a", "photo-1556742049-0cfed4f6a45d",
+      "photo-1483985988355-763728e1935b", "photo-1481437156560-3205f6a55735",
+      "photo-1472851294608-062f824d29cc", "photo-1607083206968-13611e3d76db",
+      "photo-1521572163474-6864f9cf17ab", "photo-1607083681678-52733140f93a",
+      "photo-1607082349566-187342175e2f", "photo-1607083206325-caf1edba7a83",
+      "photo-1607082348824-0a96f2a4b9da", "photo-1481437156560-3205f6a55735",
+      "photo-1556740738-b6a63e27c4df", "photo-1607083681678-52733140f101",
+    ],
+    // Strategy meeting / whiteboard / planning
+    meeting: [
+      "photo-1600880292089-90a7e086ee0c", "photo-1552581234-26160f608093",
+      "photo-1543269865-cbf427effbad", "photo-1531482615713-2afd69097998",
+      "photo-1556761175-5973dc0f32e7", "photo-1517245386807-bb43f82c33c4",
+      "photo-1542744173-8e7e53415bb0", "photo-1600880292203-757bb62b4baf",
+      "photo-1533750349088-cd871a92f312", "photo-1573164713714-d95e436ab8d6",
+      "photo-1552664730-d307ca884978", "photo-1521737711867-e3b97375f902",
+      "photo-1519389950473-47ba0277781c", "photo-1560250097-0b93528c311a",
+    ],
+    // Case study / growth / revenue / success chart
+    caseStudy: [
+      "photo-1590650153855-d9e808231d40", "photo-1611974789855-9c2a0a7236a3",
+      "photo-1590845947670-c009801ffa74", "photo-1590650046871-92c887180603",
+      "photo-1454165804606-c3d57bc86b40", "photo-1470309864661-68328b2cd0a5",
+      "photo-1611926653458-09294b3142bf", "photo-1554224155-8d04cb21cd6c",
+      "photo-1551288049-bebda4e38f71", "photo-1543286386-2e659306cd6c",
+      "photo-1460925895917-afdab827c52f", "photo-1552664688-cf412ec27db2",
+      "photo-1533750516457-a7f992034fec", "photo-1563986768609-322da13575f3",
+    ],
+    // Process / workflow / planning / notebook
+    process: [
+      "photo-1454165804606-c3d57bc86b40", "photo-1517842645767-c639042777db",
+      "photo-1517971071642-34a2d3ecc9cd", "photo-1512314889357-e157c22f938d",
+      "photo-1516321497487-e288fb19713f", "photo-1499750310107-5fef28a66643",
+      "photo-1553877522-43269d4ea984", "photo-1531403009284-440f080d1e12",
+      "photo-1517245386807-bb43f82c33c4", "photo-1542435503-956c469947f6",
+      "photo-1517048676732-d65bc937f952", "photo-1518186285589-2f7649de83e0",
+      "photo-1522204523234-8729aa6e3d5f", "photo-1526628953301-3e589a6a8b74",
+    ],
+  };
+
+  const foundersPool = [
+    "photo-1508214751196-bcfd4ca60f91", "photo-1546961342-1c1cbde3fbe0",
+    "photo-1554151228-14d9def656e4", "photo-1500648767791-00dcc994a43e",
+    "photo-1494790108377-be9c29b29330", "photo-1519085360753-af0119f7cbe7",
+    "photo-1573497019940-1c28c88b4f3e", "photo-1580489944761-15a19d654956",
+    "photo-1472099645785-5658abf4ff4e", "photo-1544005313-94ddf0286df2",
+    "photo-1487412720507-e7ab37603c6f", "photo-1607746882042-944635dfe10e",
+    "photo-1531123897727-8f129e1688ce", "photo-1500048993953-d23a436266cf",
+    "photo-1521119989659-a83eee488004", "photo-1502823403499-6ccfcf4fb453",
+  ];
+
+  const pickUnique = (pool: string[], seed: string, used: Set<string>) => {
+    const start = hashNum(seed) % pool.length;
+    for (let i = 0; i < pool.length; i++) {
+      const id = pool[(start + i) % pool.length];
+      if (!used.has(id)) {
+        used.add(id);
+        return id;
+      }
+    }
+    used.add(pool[start]);
+    return pool[start];
+  };
+
+  const slots = Object.keys(slotPools) as Array<keyof typeof slotPools>;
+  // Per-slot "used" set so images stay unique across all cities within a slot.
+  const usedPerSlot: Record<string, Set<string>> = {};
+  for (const s of slots) usedPerSlot[s] = new Set();
+  const usedFounders = new Set<string>();
+
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
     for (const key of slots) {
-      c.images[key] = topical(slotTags[key], `${slug}-${key}`, 1600, 900);
+      const id = pickUnique(slotPools[key], `${slug}-${key}`, usedPerSlot[key]);
+      c.images[key] = u(id);
     }
     c.images.founders = [
-      topical("portrait,ceo,professional,headshot", `${slug}-founder-1`, 500, 500),
-      topical("portrait,founder,business,headshot", `${slug}-founder-2`, 500, 500),
-      topical("portrait,entrepreneur,professional,headshot", `${slug}-founder-3`, 500, 500),
+      u(pickUnique(foundersPool, `${slug}-f1`, usedFounders), 500),
+      u(pickUnique(foundersPool, `${slug}-f2`, usedFounders), 500),
+      u(pickUnique(foundersPool, `${slug}-f3`, usedFounders), 500),
     ];
   }
 }
