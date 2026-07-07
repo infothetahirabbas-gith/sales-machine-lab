@@ -69,12 +69,16 @@ const rotatingPhrases = [
   "Ecommerce Growth Agency",
 ];
 
+// Cache-bust version - bump when hero images are updated so browsers/CDN fetch fresh
+const HERO_IMG_V = "20260707a";
+const bust = (src: string) => `${src}${src.includes("?") ? "&" : "?"}v=${HERO_IMG_V}`;
+
 const dashboards = [
-  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroShopifyCommerce, alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
-  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroWoocommerceStore, alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
-  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: heroSeoGrowth, alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
-  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: heroPaidAds, alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
-  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: heroCroTesting, alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
+  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: bust(heroShopifyCommerce), alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", focal: "center 35%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
+  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: bust(heroWoocommerceStore), alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", focal: "center 40%", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
+  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: bust(heroSeoGrowth), alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", focal: "center 45%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: bust(heroPaidAds), alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", focal: "center 40%", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
+  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: bust(heroCroTesting), alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", focal: "center 40%", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
 ] as const;
 
 function Home() {
@@ -162,20 +166,26 @@ function Home() {
                 </div>
                 <span key={`b-${dash.key}`} className="text-foreground font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
               </div>
-              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <img
                   src={dash.img}
+                  srcSet={`${dash.img} 1x, ${dash.img} 2x`}
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  style={{ objectPosition: dash.focal }}
                   className="block w-full h-56 md:h-64 object-cover"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-multiply" />
-                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20" />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                {/* Dark contrast gradient for readable badges */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+                {/* Brand tint */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-overlay" />
+                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/15" />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">
                   {dash.key}
                 </div>
               </div>
