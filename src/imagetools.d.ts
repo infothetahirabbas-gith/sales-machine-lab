@@ -1,14 +1,8 @@
 // Ambient module declarations for vite-imagetools query-string imports.
-// Any import ending with `format=webp` or `format=avif` resolves to a string URL.
-declare module "*format=webp" {
-  const src: string;
-  export default src;
-}
-declare module "*format=avif" {
-  const src: string;
-  export default src;
-}
-declare module "*&as=srcset" {
-  const src: string;
-  export default src;
-}
+// TypeScript wildcards in module declarations only match a single `*` segment,
+// so we enumerate the common suffix patterns used across the app.
+declare module "*&format=webp&quality=72" { const src: string; export default src; }
+declare module "*?format=webp&quality=72&w=1200" { const src: string; export default src; }
+declare module "*?format=webp&quality=70&w=640" { const src: string; export default src; }
+declare module "*?w=520&format=webp&quality=72" { const src: string; export default src; }
+declare module "*&as=srcset" { const src: string; export default src; }
