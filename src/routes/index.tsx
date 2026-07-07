@@ -8,6 +8,27 @@ import { faqs as homeFaqs } from "../components/site/faqs-data";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { Reveal } from "../hooks/useReveal";
+import { SafeImg } from "../components/SafeImg";
+
+// Curated Unsplash portraits (all verified live). Kept small (w=200) since they
+// render as 44px circles in the testimonial marquee.
+const founderPhoto = (id: string, w = 200) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=faces&w=${w}&q=75`;
+const FOUNDER_PHOTOS = [
+  founderPhoto("photo-1508214751196-bcfd4ca60f91"),
+  founderPhoto("photo-1494790108377-be9c29b29330"),
+  founderPhoto("photo-1500648767791-00dcc994a43e"),
+  founderPhoto("photo-1519085360753-af0119f7cbe7"),
+  founderPhoto("photo-1580489944761-15a19d654956"),
+  founderPhoto("photo-1472099645785-5658abf4ff4e"),
+  founderPhoto("photo-1544005313-94ddf0286df2"),
+  founderPhoto("photo-1487412720507-e7ab37603c6f"),
+  founderPhoto("photo-1607746882042-944635dfe10e"),
+  founderPhoto("photo-1573497019940-1c28c88b4f3e"),
+];
+const CASE_STUDY_IMG =
+  "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&crop=entropy&w=1200&q=75";
+
 
 // Below-the-fold — never in the critical bundle.
 const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
@@ -284,9 +305,21 @@ function Home() {
       {/* 7. CASE STUDY */}
       <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl border border-border bg-card/60 p-4">
-            <GrowthChart className="w-full h-auto" />
+          <div className="relative rounded-2xl border border-border bg-card/60 p-4 overflow-hidden">
+            <SafeImg
+              src={CASE_STUDY_IMG}
+              alt="UK Shopify apparel brand product page shown on a laptop — 11.9× revenue case study"
+              loading="lazy"
+              decoding="async"
+              width={1200}
+              height={800}
+              className="w-full h-56 md:h-64 object-cover rounded-xl"
+            />
+            <div className="mt-4">
+              <GrowthChart className="w-full h-auto" />
+            </div>
           </div>
+
           <div>
             <p className="text-lg text-muted-foreground">
               A UK Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. As their ecommerce digital marketing agency UK,
@@ -367,26 +400,30 @@ function Home() {
                 { q: "Scaled from £30K to £180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Aurum Jewelry" },
                 { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, GearLoop Electronics" },
               ].map((t, i) => {
-                const initials = t.n.split(/\s+/).map((p) => p[0]).join("").slice(0, 2).toUpperCase();
+                const photo = FOUNDER_PHOTOS[(k * 10 + i) % FOUNDER_PHOTOS.length];
                 return (
                   <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
                     <div className="card-surface card-hover p-6 h-full mx-2">
                       <div className="text-primary text-3xl font-display leading-none">“</div>
                       <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
                       <div className="mt-5 flex items-center gap-3">
-                        <div
-                          aria-label={t.n}
-                          className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-sm font-bold shadow-md ring-2 ring-white"
-                        >
-                          {initials}
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-ink">{t.n}</div>
-                          <div className="text-[11px] text-muted-foreground">{t.r}</div>
+                        <SafeImg
+                          src={photo}
+                          alt={`${t.n} — ${t.r}`}
+                          loading="lazy"
+                          decoding="async"
+                          width={88}
+                          height={88}
+                          className="w-11 h-11 rounded-full object-cover shadow-md ring-2 ring-white shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <div className="text-sm font-semibold text-ink truncate">{t.n}</div>
+                          <div className="text-[11px] text-muted-foreground truncate">{t.r}</div>
                         </div>
                       </div>
                     </div>
                   </div>
+
                 );
               })
             )}
