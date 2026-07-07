@@ -193,7 +193,7 @@ function LocationPage() {
   const city = loc.city;
   const C = contentFor(loc.slug, city);
   const IMG = C.images;
-  const WA = whatsappUrl(city);
+  const WA = whatsappUrl(city, loc.slug);
 
   const services = [
     { icon: Megaphone, title: `Paid Ads in ${city}`, desc: `Meta, Google, TikTok & YouTube ads managed by senior media buyers for ${city} DTC brands.`, kw: `PPC agency ${city}` },
