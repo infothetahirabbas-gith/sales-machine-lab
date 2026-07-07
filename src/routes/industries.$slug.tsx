@@ -170,19 +170,67 @@ function IndustryPage() {
       {/* 3. SUB-VERTICALS */}
       <Section eyebrow="Sub-verticals" title={`${ind.name} categories we scale`} intro="One shared growth engine — tuned per sub-category so nothing is generic.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {C.categories.map((c, i) => (
-            <Reveal key={c.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-              <Card>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
-                  <ShoppingBag className="size-5" />
+          {C.categories.map((c, i) => {
+            const anchor = c.id ?? c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+            return (
+              <Reveal key={c.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div id={anchor} className="card-surface card-hover group p-6 scroll-mt-24">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3">
+                    <ShoppingBag className="size-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-ink">{c.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{c.body}</p>
                 </div>
-                <h3 className="text-lg font-bold text-ink">{c.name}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{c.body}</p>
-              </Card>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* 3b. KICKOFF → 90 DAY TIMELINE */}
+      <Section eyebrow="Kickoff → 90 days" title="What the first 90 days look like" alt>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { w: "Week 1", t: "Audit + strategy", b: "Deep-dive on data, competitors, buyer research and a 90-day plan agreed." },
+            { w: "Week 2-3", t: "Tracking + creative sprint", b: "GA4 / CAPI / Triple Whale rebuilt. First UGC + motion batches shipped." },
+            { w: "Week 4-6", t: "Media buying live", b: "Meta + Google structured, tests running, PDPs rewired for CRO." },
+            { w: "Week 7-12", t: "Scale + retention", b: "Winners scaled, Klaviyo flows live, subscription CRO in market." },
+          ].map((s, i) => (
+            <Reveal key={s.w} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-5">
+                <Pill>{s.w}</Pill>
+                <h4 className="mt-3 font-bold text-ink">{s.t}</h4>
+                <p className="text-sm text-muted-foreground mt-2">{s.b}</p>
+              </div>
             </Reveal>
           ))}
         </div>
       </Section>
+
+      {/* 3c. WEEKLY CADENCE */}
+      <Section eyebrow="Weekly cadence" title={`What you'll actually get every week`}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { n: "3", u: "UGC + motion creatives", d: "Named tests with a clear hypothesis." },
+            { n: "5+", u: "Ad tests shipped", d: "Hooks, offers, audiences — one variable at a time." },
+            { n: "1", u: "Loom performance walk-through", d: "What worked, what failed, what's next." },
+            { n: "1-2", u: "Klaviyo campaigns", d: "Segmented sends tuned to your lifecycle." },
+            { n: "1", u: "Flow / PDP CRO update", d: "One meaningful conversion improvement live." },
+            { n: "1", u: "Founder Slack sync", d: "Direct line to your senior operators — no account managers." },
+          ].map((c, i) => (
+            <Reveal key={c.u} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-5 flex gap-4">
+                <div className="shrink-0 w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-display font-bold">{c.n}</div>
+                <div>
+                  <h4 className="font-semibold text-ink">{c.u}</h4>
+                  <p className="text-sm text-muted-foreground mt-1">{c.d}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
 
       {/* 4. BUYER PSYCHOLOGY */}
       <Section eyebrow="Buyer psychology" title={`How ${ind.name.toLowerCase()} shoppers actually buy`} alt>
