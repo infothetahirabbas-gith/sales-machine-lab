@@ -393,12 +393,25 @@ function LocationPage() {
       </Section>
 
       {/* 5. NEIGHBOURHOODS */}
-      <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`}>
-        <div className="flex flex-wrap gap-2 mb-6">
-          {C.neighbourhoods.map(n => <Pill key={n}>{n}</Pill>)}
+      <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`} intro={`From founders in ${C.neighbourhoods[0]} to warehouses in ${C.neighbourhoods[C.neighbourhoods.length - 1]}, we partner with ecommerce brands across every corner of ${city} and ${loc.region}.`}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {C.neighbourhoods.map((n, i) => (
+            <Reveal key={n} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
+              <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-4 flex items-center gap-3 card-hover">
+                <span className="shrink-0 grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary/15 to-accent/25 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                  <MapPin className="w-5 h-5" />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-bold text-ink text-sm sm:text-base leading-tight truncate">{n}</div>
+                  <div className="text-[11px] text-muted-foreground truncate">{city} · {loc.region}</div>
+                </div>
+                <span className="pointer-events-none absolute -right-6 -bottom-6 w-20 h-20 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            </Reveal>
+          ))}
         </div>
-        <p className="text-muted-foreground max-w-3xl">From founders in {C.neighbourhoods[0]} to warehouses in {C.neighbourhoods[C.neighbourhoods.length - 1]}, we work with ecommerce brands across every corner of {city} and {loc.region}.</p>
       </Section>
+
 
       {/* 6. SERVICES GRID */}
       <Section eyebrow="Services" title={`Full-stack ecommerce services in ${city}`} intro={`Every channel you need to scale profitably — under one senior team in ${city}.`} alt>
