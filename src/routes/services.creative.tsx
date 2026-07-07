@@ -29,7 +29,7 @@ export const Route = createFileRoute("/services/creative")({
   head: () => ({
     meta: [
       { title: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
-      { name: "description", content: "UK ecommerce creative and UGC agency. Static, motion and creator ads engineered to hook, convert and scale on Meta, TikTok and YouTube." },
+      { name: "description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands — built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
       { property: "og:title", content: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
       { property: "og:description", content: "UK ecommerce creative and UGC agency. Static, motion and creator ads engineered to hook, convert and scale on Meta, TikTok and YouTube." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
