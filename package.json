@@ -13,7 +13,6 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
-
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^2.0.50",
@@ -92,6 +91,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "lighthouse": "^13.4.0",
     "prettier": "^3.7.3",
     "sharp": "^0.35.3",
     "typescript": "^5.8.3",
