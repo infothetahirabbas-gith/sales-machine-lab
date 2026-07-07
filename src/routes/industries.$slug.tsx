@@ -332,7 +332,7 @@ function IndustryPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
             <div className="rounded-3xl overflow-hidden border border-border">
-              <SafeImg src={C.images.buyers} alt={`${ind.name} shopper research`} width={1600} height={900} className="w-full h-[360px] object-cover" skeleton brandOverlay />
+              <SafeImg src={C.images.buyers} alt={`${ind.name} shopper research`} width={1600} height={900} className="w-full h-[360px] object-cover" brandOverlay loading="eager" fetchPriority="high" />
             </div>
           </Reveal>
           <div className="space-y-3">
