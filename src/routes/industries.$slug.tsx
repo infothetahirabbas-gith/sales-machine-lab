@@ -135,7 +135,7 @@ function IndustryPage() {
                 skeleton
                 brandOverlay
                 className="w-full h-[420px] object-cover"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </div>
           </Reveal>
