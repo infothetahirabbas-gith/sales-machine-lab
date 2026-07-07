@@ -61,7 +61,7 @@ export function Section({
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {(eyebrow || title || intro) && (
-          <div className={`max-w-3xl mb-12 ${center ? "mx-auto text-center" : "text-center lg:text-left"}`}>
+          <div className={`max-w-3xl mx-auto text-center mb-12 ${center ? "" : ""}`}>
             {eyebrow && (
               <Reveal>
                 <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
