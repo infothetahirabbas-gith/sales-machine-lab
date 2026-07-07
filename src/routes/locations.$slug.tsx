@@ -222,11 +222,21 @@ function LocationPage() {
     { title: "Report & Iterate", body: `Weekly Loom updates, monthly strategy calls and a live dashboard — no reporting theatre.` },
   ];
 
-  const industries = [
-    "Fashion & Apparel", "Beauty & Skincare", "Health & Supplements", "Home & Furniture",
-    "Food & Beverage", "Jewellery & Accessories", "Fitness & Sports", "Baby & Kids",
-    "Pet Products", "Tech & Gadgets", "Sustainable Brands", "Premium & Luxury",
+  const industries: { name: string; emoji: string; tint: string }[] = [
+    { name: "Fashion & Apparel",      emoji: "👗", tint: "from-pink-500/15 to-rose-500/5   text-pink-600" },
+    { name: "Beauty & Skincare",      emoji: "💄", tint: "from-fuchsia-500/15 to-pink-500/5 text-fuchsia-600" },
+    { name: "Health & Supplements",   emoji: "🌿", tint: "from-emerald-500/15 to-teal-500/5 text-emerald-600" },
+    { name: "Home & Furniture",       emoji: "🛋️", tint: "from-amber-500/15 to-orange-500/5 text-amber-700" },
+    { name: "Food & Beverage",        emoji: "🍫", tint: "from-orange-500/15 to-red-500/5   text-orange-600" },
+    { name: "Jewellery & Accessories",emoji: "💎", tint: "from-indigo-500/15 to-violet-500/5 text-indigo-600" },
+    { name: "Fitness & Sports",       emoji: "🏋️", tint: "from-red-500/15 to-orange-500/5   text-red-600" },
+    { name: "Baby & Kids",            emoji: "🧸", tint: "from-sky-500/15 to-cyan-500/5     text-sky-600" },
+    { name: "Pet Products",           emoji: "🐾", tint: "from-yellow-500/15 to-amber-500/5 text-yellow-700" },
+    { name: "Tech & Gadgets",         emoji: "🎧", tint: "from-slate-500/15 to-zinc-500/5   text-slate-700" },
+    { name: "Sustainable Brands",     emoji: "♻️", tint: "from-lime-500/15 to-green-500/5   text-lime-700" },
+    { name: "Premium & Luxury",       emoji: "👑", tint: "from-amber-500/15 to-yellow-500/5 text-amber-700" },
   ];
+
 
   const tech = [
     "Shopify Plus", "WooCommerce", "Klaviyo", "Meta Ads", "Google Ads", "TikTok Ads",
@@ -555,10 +565,29 @@ function LocationPage() {
 
       {/* 16. INDUSTRIES */}
       <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds — here's where we've shipped the most wins." alt>
-        <div className="flex flex-wrap gap-3">
-          {industries.map(x => <Pill key={x}>{x}</Pill>)}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {industries.map((ind, i) => (
+            <Reveal key={ind.name} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
+              <div
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${ind.tint} p-4 sm:p-5 flex items-center gap-3 sm:gap-4 card-hover cursor-default`}
+              >
+                <span
+                  className="shrink-0 grid place-items-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white shadow-sm text-2xl sm:text-[26px] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                  aria-hidden="true"
+                >
+                  {ind.emoji}
+                </span>
+                <div className="min-w-0">
+                  <div className="font-bold text-ink text-sm sm:text-base leading-tight truncate">{ind.name}</div>
+                  <div className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 truncate">{city} DTC & ecommerce</div>
+                </div>
+                <span className="pointer-events-none absolute -right-6 -bottom-6 w-20 h-20 rounded-full bg-white/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
+
 
       {/* 17. TECH STACK */}
       <Section eyebrow="Tech stack" title={`The tools we run for ${city} clients`}>
