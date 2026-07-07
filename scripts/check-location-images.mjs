@@ -13,6 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SOURCES = [
   "../src/lib/location-content.ts",
   "../src/lib/home-images.ts",
+  "../src/lib/industry-content.ts",
 ];
 
 const idSet = new Set();
