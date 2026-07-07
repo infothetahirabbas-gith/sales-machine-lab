@@ -80,8 +80,18 @@ export const Route = createFileRoute("/locations/$slug")({
     const title = loc
       ? `Ecommerce Agency in ${loc.city} | Shopify, SEO & Paid Ads — Being Ecom`
       : "Location — Being Ecom";
+    const descOverrides: Record<string, string> = {
+      london: "Ecommerce growth agency for London-based Shopify & WooCommerce brands — SEO, CRO, and paid ads built around UK buyer behaviour, not templated playbooks.",
+      manchester: "Shopify & WooCommerce growth support for Manchester ecommerce brands — SEO, CRO, and paid ads managed by a UK-focused team.",
+      birmingham: "SEO-first ecommerce support for Birmingham-based Shopify & WooCommerce brands — compounding organic growth alongside paid and CRO.",
+      leeds: "Retention-first growth for Leeds-based Shopify & WooCommerce brands — email, CRO, and paid ads engineered to turn buyers into repeat customers.",
+      liverpool: "Data-driven ecommerce support for Liverpool-based Shopify & WooCommerce brands — clean tracking, SEO, and paid ads with revenue attribution you can trust.",
+      glasgow: "Full-stack ecommerce growth for Glasgow-based Shopify & WooCommerce brands — SEO, CRO, and paid ads run by senior UK operators.",
+      edinburgh: "Conversion-led ecommerce support for Edinburgh-based Shopify & WooCommerce brands — CRO, SEO, and paid ads focused on profitable revenue.",
+      bristol: "Growth-focused ecommerce support for Bristol-based Shopify & WooCommerce brands — SEO, paid ads, and email built for sustainable scale.",
+    };
     const desc = loc
-      ? `Award-winning ecommerce agency in ${loc.city}, ${loc.region}. Senior UK team delivering Shopify development, technical SEO, Google & Meta Ads, CRO and Klaviyo email for ${loc.city} DTC brands scaling profitably.`
+      ? (descOverrides[loc.slug] ?? `${loc.slug === "london" ? "" : ""}Ecommerce growth support for ${loc.city}-based Shopify & WooCommerce brands — SEO, CRO, and paid ads managed by a UK-focused senior team.`)
       : "UK ecommerce growth agency locations.";
     const kw = loc
       ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO agency ${loc.city}, PPC agency ${loc.city}, Meta ads ${loc.city}, Google Ads ${loc.city}, Klaviyo agency ${loc.city}, CRO agency ${loc.city}, digital marketing agency ${loc.city}, ecommerce experts ${loc.region}`
