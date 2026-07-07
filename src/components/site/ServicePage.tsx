@@ -13,6 +13,12 @@ import {
   Shield,
   Zap,
   Star,
+  MessageCircle as WaIcon,
+  Calendar,
+  Package,
+  Wrench,
+  Award,
+  Quote,
 } from "lucide-react";
 import PageLayout from "./PageLayout";
 import { Section, Pill, CTA } from "./Section";
@@ -21,12 +27,17 @@ import GrowthChart from "./GrowthChart";
 import { CountUp } from "../../hooks/useCountUp";
 import RevenueBars, { type Bar } from "./RevenueBars";
 import type { FAQ } from "../../lib/seo";
+import { SafeImg } from "../SafeImg";
+import { whatsappUrl } from "../../lib/whatsapp";
+import { INDUSTRIES } from "../../lib/locations-industries";
 
 export type ServiceConfig = {
   slug: string;
   eyebrow: string;
   heroTitle: string;
   heroSub: string;
+  /** Optional hero image (Unsplash URL). Rendered eagerly for fast LCP. */
+  heroImage?: string;
   problemTitle: string;
   problemBullets: string[];
   whatIsTitle: string;
@@ -47,12 +58,21 @@ export type ServiceConfig = {
     metrics: { label: string; value: string }[];
   };
   ctaTitle?: string;
-  /** Per-service "Why this matters" headline metrics (animated count-up). */
   impactStats?: { value: string; label: string }[];
-  /** Per-service Before vs After benchmark bars with tooltips. */
   metricBars?: Bar[];
-  /** Per-service FAQs — also wire faqJsonLd into the route head for rich results. */
   faqs?: FAQ[];
+  /** Section 17 — sub-service pages this service links out to. */
+  subServices?: { title: string; body: string; to: string }[];
+  /** Section 20 — deliverables you get. Falls back to a smart default. */
+  deliverables?: { title: string; body: string }[];
+  /** Section 21 — tech stack pills. Falls back to sensible defaults. */
+  techStack?: string[];
+  /** Section 22 — pricing tiers. Falls back to Starter/Growth/Scale defaults. */
+  packages?: { tier: string; price: string; body: string; features: string[]; featured?: boolean }[];
+  /** Section 23 — testimonials. Falls back to a rotating default set. */
+  testimonials?: { quote: string; name: string; role: string }[];
+  /** Section 25 — related sibling services (title + href). */
+  relatedServices?: { title: string; body: string; to: string }[];
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
