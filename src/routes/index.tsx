@@ -166,20 +166,26 @@ function Home() {
                 </div>
                 <span key={`b-${dash.key}`} className="text-foreground font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
               </div>
-              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <img
                   src={dash.img}
+                  srcSet={`${dash.img} 1x, ${dash.img} 2x`}
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  style={{ objectPosition: dash.focal }}
                   className="block w-full h-56 md:h-64 object-cover"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-multiply" />
-                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20" />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                {/* Dark contrast gradient for readable badges */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+                {/* Brand tint */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-overlay" />
+                <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/15" />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">
                   {dash.key}
                 </div>
               </div>
