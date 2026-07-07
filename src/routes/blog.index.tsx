@@ -14,6 +14,15 @@ type PostMeta = {
 
 const POSTS: PostMeta[] = [
   {
+    slug: "shopify-plus-migration-uk",
+    title: "Shopify Plus migration for UK brands: WooCommerce to Shopify Plus without losing rankings",
+    description:
+      "A UK-specific Shopify Plus migration guide — when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
+    category: "Ecommerce strategy",
+    readMins: 12,
+    datePublished: "2026-07-08",
+  },
+  {
     slug: "shopify-vs-woocommerce-uk",
     title: "Shopify vs WooCommerce UK 2026: honest comparison for growing DTC brands",
     description:
