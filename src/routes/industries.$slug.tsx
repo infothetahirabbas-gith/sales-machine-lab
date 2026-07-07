@@ -10,7 +10,7 @@ import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../compone
 import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
-import { SafeImg } from "../components/SafeImg";
+import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
