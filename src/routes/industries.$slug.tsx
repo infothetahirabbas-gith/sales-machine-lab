@@ -6,7 +6,7 @@ import {
   MessageCircle, Play, AlertTriangle, TrendingDown, Globe, Compass,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
+import { Section, SplitHeading, Card, Pill, CTA } from "../components/site/Section";
 import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
