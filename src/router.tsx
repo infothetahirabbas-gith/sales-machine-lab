@@ -18,12 +18,15 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    defaultPreload: "intent",
+    // Preload on viewport entry AND on intent — links visible on screen are
+    // fetched proactively so clicks feel instant (nano-second perceived).
+    defaultPreload: "viewport",
     // Let TanStack Query own freshness; router just triggers the fetch.
     defaultPreloadStaleTime: 0,
     // Fire preload immediately on hover/focus for near-zero click latency.
     defaultPreloadDelay: 0,
     defaultPendingMs: 0,
+    defaultPendingMinMs: 0,
   });
 
 
