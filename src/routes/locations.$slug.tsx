@@ -11,7 +11,8 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
-import { contentFor, imageSeoProps, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
+import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
+import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 
 export const Route = createFileRoute("/locations/$slug")({
@@ -31,7 +32,10 @@ export const Route = createFileRoute("/locations/$slug")({
     const kw = loc
       ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO ${loc.city}, digital marketing ${loc.city}, PPC ${loc.city}, Meta ads ${loc.city}, ecommerce experts ${loc.region}`
       : "ecommerce agency UK";
+    const C = loc ? contentFor(loc.slug, loc.city) : undefined;
+    const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
+    const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     return {
       meta: [
         { title },
@@ -42,8 +46,30 @@ export const Route = createFileRoute("/locations/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
+        ...(heroImage ? [{ property: "og:image", content: heroImage }, { name: "twitter:image", content: heroImage }] : []),
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      scripts: loc && C ? [
+        { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: loc.city, path: `/locations/${loc.slug}` }])) },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            "@id": `${SITE_URL}/locations/${loc.slug}#marketing-images`,
+            name: `${loc.city} ecommerce marketing image set`,
+            description: `Relevant ecommerce, Shopify, WooCommerce, SEO, paid ads and marketing images for BeingEcom in ${loc.city}.`,
+            associatedMedia: imageSlots.map((slot) => ({
+              "@type": "ImageObject",
+              contentUrl: C.images[slot],
+              name: `${loc.city} ${IMAGE_SLOT_LABELS[slot]}`,
+              caption: imageAlt(loc.city, slot),
+              keywords: `${IMAGE_SLOT_LABELS[slot]}, ecommerce agency ${loc.city}, Shopify ${loc.city}, WooCommerce ${loc.city}, digital marketing ${loc.city}`,
+              ...(geo ? { contentLocation: { "@type": "Place", name: loc.city, geo: { "@type": "GeoCoordinates", latitude: geo.latitude, longitude: geo.longitude } } } : {}),
+            })),
+          }),
+        },
+      ] : [],
     };
   },
   component: LocationPage,
