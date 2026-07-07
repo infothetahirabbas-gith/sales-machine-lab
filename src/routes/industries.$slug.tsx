@@ -727,16 +727,17 @@ function IndustryPage() {
               ] },
             { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30–40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list",
               subs: [
-                { label: "Welcome Flows", to: "/services/email-sms" as const },
-                { label: "Abandoned Cart", to: "/services/email-sms" as const },
-                { label: "Winback & VIP", to: "/services/email-sms" as const },
+                { label: "Email & SMS", to: "/services/email-sms" as const },
+                { label: "Funnel Design", to: "/services/funnel" as const },
+                { label: "Analytics", to: "/services/analytics" as const },
+                { label: "AI Automation", to: "/services/ai-automation" as const },
               ] },
             { to: "/services/creative" as const, img: C.images.caseStudy, icon: Palette, title: "Creative Studio", desc: `UGC, static and motion tuned to ${ind.name.toLowerCase()} hooks that actually convert.`, tag: "Creative that ships",
               subs: [
-                { label: "UGC Creators", to: "/services/creative" as const },
-                { label: "Static Ads", to: "/services/creative" as const },
-                { label: "Motion & Video", to: "/services/creative" as const },
+                { label: "Creative Studio", to: "/services/creative" as const },
+                { label: "Performance Marketing", to: "/services/performance-marketing" as const },
                 { label: "AI Automation", to: "/services/ai-automation" as const },
+                { label: "Scaling", to: "/services/scaling" as const },
               ] },
           ] as const).map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
