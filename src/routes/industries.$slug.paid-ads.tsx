@@ -162,10 +162,11 @@ function IndustryPaidAdsPage() {
                 alt={`${ind.name} paid ads dashboard`}
                 width={1600}
                 height={1000}
-                skeleton
                 brandOverlay
                 className="w-full h-[420px] object-cover"
                 fetchPriority="high"
+                loading="eager"
+                decoding="sync"
               />
             </div>
           </Reveal>
@@ -250,7 +251,7 @@ function IndustryPaidAdsPage() {
         <div className="grid lg:grid-cols-3 gap-10 items-start">
           <Reveal>
             <div className="rounded-3xl overflow-hidden border border-border">
-              <SafeImg src={C.images.creative} alt="Creative studio" width={1200} height={1400} className="w-full h-[420px] object-cover" skeleton brandOverlay />
+              <SafeImg src={C.images.creative} alt="Creative studio" width={1200} height={1400} className="w-full h-[420px] object-cover" brandOverlay loading="eager" />
             </div>
           </Reveal>
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-3">
