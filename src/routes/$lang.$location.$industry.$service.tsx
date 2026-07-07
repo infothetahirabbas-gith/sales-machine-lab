@@ -14,7 +14,7 @@ const SERVICE_MAP: Record<string, { name: string; blurb: string; route: string }
 };
 
 const LANG_LABEL: Record<string, string> = {
-  "en": "English", "en-gb": "English (UK)", "es": "Español", "fr": "Français", "de": "Deutsch", "ar": "العربية",
+  "en": "English", "en-gb": "English (UK)", "es": "Español", "fr": "Français", "de": "Deutsch", "pl": "Polski", "ro": "Română", "pt": "Português", "ar": "العربية",
 };
 
 export const Route = createFileRoute("/$lang/$location/$industry/$service")({
