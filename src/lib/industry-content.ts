@@ -16,7 +16,7 @@ export type IndustryContent = {
     process: string;
     tech: string;
   };
-  categories: { name: string; body: string }[];   // 4–6 sub-verticals
+  categories: { id?: string; name: string; body: string }[];   // 4–6 sub-verticals
   buyerPsychology: { title: string; body: string }[]; // 3–4
   painPoints: { title: string; body: string }[]; // 4
   creativeAngles: string[];                       // 6–8
