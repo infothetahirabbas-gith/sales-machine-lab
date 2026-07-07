@@ -204,6 +204,26 @@ function IndustryPaidAdsPage() {
         </div>
       </Section>
 
+      {/* KICKOFF TIMELINE */}
+      <Section eyebrow="Kickoff" title="From signed to scaling in 30 days" alt>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { d: "Day 1-3", t: "Access + audit", b: "Ad accounts, GA4, Shopify — full baseline audit shipped." },
+            { d: "Day 4-10", t: "Tracking rebuild", b: "CAPI, Enhanced Conversions, GA4 server-side, Triple Whale." },
+            { d: "Day 8-14", t: "First creatives live", b: "3 UGC + motion batches shot, edited, uploaded." },
+            { d: "Day 14-30", t: "Media buying scale", b: "Meta + Google restructured, budgets shifted onto winners." },
+          ].map((s, i) => (
+            <Reveal key={s.d} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-5">
+                <Pill>{s.d}</Pill>
+                <h4 className="mt-3 font-bold text-ink">{s.t}</h4>
+                <p className="text-sm text-muted-foreground mt-2">{s.b}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       {/* META APPROACH */}
       <Section eyebrow="Meta Ads" title={`How we scale Meta for ${ind.name.toLowerCase()}`} alt>
         <NumberedList items={META} />

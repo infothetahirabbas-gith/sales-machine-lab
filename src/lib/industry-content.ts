@@ -16,7 +16,7 @@ export type IndustryContent = {
     process: string;
     tech: string;
   };
-  categories: { name: string; body: string }[];   // 4–6 sub-verticals
+  categories: { id?: string; name: string; body: string }[];   // 4–6 sub-verticals
   buyerPsychology: { title: string; body: string }[]; // 3–4
   painPoints: { title: string; body: string }[]; // 4
   creativeAngles: string[];                       // 6–8
@@ -45,20 +45,20 @@ const COMMON = {
   caseStudy: u("photo-1483985988355-763728e1935b"),
 };
 
-// per-industry hero + secondary imagery (verified IDs from existing pool)
-const IMG: Record<string, { hero: string; buyers: string }> = {
-  "fashion-apparel":        { hero: u("photo-1490578474895-699cd4e2cf59"), buyers: u("photo-1483985988355-763728e1935b") },
-  "beauty-personal-care":   { hero: u("photo-1522337360788-8b13dee7a37e", 1600) || u("photo-1494790108377-be9c29b29330"), buyers: u("photo-1522337660859-02fbefca4702", 1600) || u("photo-1487412720507-e7ab37603c6f") },
-  "electronics-technology": { hero: u("photo-1518770660439-4636190af475"), buyers: u("photo-1516035069371-29a1b244cc32") },
-  "home-garden":            { hero: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1519710164239-da123dc03ef4", 1600) || u("photo-1470309864661-68328b2cd0a5") },
-  "food-beverage":          { hero: u("photo-1504674900247-0877df9cc836", 1600) || u("photo-1481437156560-3205f6a55735"), buyers: u("photo-1414235077428-338989a2e8c0", 1600) || u("photo-1504384308090-c894fdcc538d") },
-  "health-wellness":        { hero: u("photo-1490645935967-10de6ba17061", 1600) || u("photo-1502786129293-79981df4e689"), buyers: u("photo-1512621776951-a57141f2eefd", 1600) || u("photo-1499750310107-5fef28a66643") },
-  "sports-fitness":         { hero: u("photo-1517836357463-d25dfeac3438", 1600) || u("photo-1517245386807-bb43f82c33c4"), buyers: u("photo-1517245386807-bb43f82c33c4", 1600) || u("photo-1502378735452-bc7d86632805") },
-  "furniture-interiors":    { hero: u("photo-1555041469-a586c61ea9bc", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1519389950473-47ba0277781c") },
-  "baby-kids":              { hero: u("photo-1519689680058-324335c77eba", 1600) || u("photo-1519389950473-47ba0277781c"), buyers: u("photo-1476703993599-0035a21b17a9", 1600) || u("photo-1503428593586-e225b39bddfe") },
-  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338", 1600) || u("photo-1493612276216-ee3925520721"), buyers: u("photo-1523275335684-37898b6baf30", 1600) || u("photo-1493612276216-ee3925520721") },
-  "pets-supplies":          { hero: u("photo-1450778869180-41d0601e046e", 1600) || u("photo-1518020382113-a7e8fc38eac9"), buyers: u("photo-1548199973-03cce0bbc87b", 1600) || u("photo-1583337130417-3346a1be7dee") },
-  "arts-prints-stationery": { hero: u("photo-1513116476489-7635e79feb27", 1600) || u("photo-1500462918059-b1a0cb512f1d"), buyers: u("photo-1499336315816-097655dcfbda", 1600) || u("photo-1518791841217-8f162f1e1131") },
+// per-industry imagery — every ID hand-picked to visually match the vertical
+const IMG: Record<string, { hero: string; buyers: string; creative: string; caseStudy: string }> = {
+  "fashion-apparel":        { hero: u("photo-1490481651871-ab68de25d43d"), buyers: u("photo-1483985988355-763728e1935b"), creative: u("photo-1445205170230-053b83016050"), caseStudy: u("photo-1490578474895-699cd4e2cf59") },
+  "beauty-personal-care":   { hero: u("photo-1571781926291-c477ebfd024b"), buyers: u("photo-1512496015851-a90fb38ba796"), creative: u("photo-1522337360788-8b13dee7a37e"), caseStudy: u("photo-1522337660859-02fbefca4702") },
+  "electronics-technology": { hero: u("photo-1518770660439-4636190af475"), buyers: u("photo-1505740420928-5e560c06d30e"), creative: u("photo-1550009158-9ebf69173e03"), caseStudy: u("photo-1516035069371-29a1b244cc32") },
+  "home-garden":            { hero: u("photo-1616486338812-3dadae4b4ace"), buyers: u("photo-1493663284031-b7e3aefcae8e"), creative: u("photo-1449034446853-66c86144b0ad"), caseStudy: u("photo-1519710164239-da123dc03ef4") },
+  "food-beverage":          { hero: u("photo-1504674900247-0877df9cc836"), buyers: u("photo-1414235077428-338989a2e8c0"), creative: u("photo-1481070414801-51fd732d7184"), caseStudy: u("photo-1481437156560-3205f6a55735") },
+  "health-wellness":        { hero: u("photo-1584017911766-d451b3d0e843"), buyers: u("photo-1544367567-0f2fcb009e0b"), creative: u("photo-1490645935967-10de6ba17061"), caseStudy: u("photo-1512621776951-a57141f2eefd") },
+  "sports-fitness":         { hero: u("photo-1571019613454-1cb2f99b2d8b"), buyers: u("photo-1526401485004-46910ecc8e51"), creative: u("photo-1517836357463-d25dfeac3438"), caseStudy: u("photo-1517245386807-bb43f82c33c4") },
+  "furniture-interiors":    { hero: u("photo-1555041469-a586c61ea9bc"), buyers: u("photo-1567538096630-e0c55bd6374c"), creative: u("photo-1493663284031-b7e3aefcae8e"), caseStudy: u("photo-1519389950473-47ba0277781c") },
+  "baby-kids":              { hero: u("photo-1519689680058-324335c77eba"), buyers: u("photo-1476703993599-0035a21b17a9"), creative: u("photo-1503428593586-e225b39bddfe"), caseStudy: u("photo-1519389950473-47ba0277781c") },
+  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338"), buyers: u("photo-1611652022419-a9419f74343d"), creative: u("photo-1523275335684-37898b6baf30"), caseStudy: u("photo-1493612276216-ee3925520721") },
+  "pets-supplies":          { hero: u("photo-1450778869180-41d0601e046e"), buyers: u("photo-1548199973-03cce0bbc87b"), creative: u("photo-1583337130417-3346a1be7dee"), caseStudy: u("photo-1518020382113-a7e8fc38eac9") },
+  "arts-prints-stationery": { hero: u("photo-1513116476489-7635e79feb27"), buyers: u("photo-1499336315816-097655dcfbda"), creative: u("photo-1518791841217-8f162f1e1131"), caseStudy: u("photo-1500462918059-b1a0cb512f1d") },
 };
 
 const SEASONS_UK: { month: string; play: string }[] = [
@@ -91,14 +91,14 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "fashion-apparel": {
     hero: "Scale UK fashion & apparel without discounting your brand into the floor.",
     vibe: "Fashion buyers decide in seconds and return 30–40% of what they buy. Winning requires ruthless creative velocity, PDP CRO and a retention engine that lifts LTV — not perpetual sales.",
-    images: { hero: IMG["fashion-apparel"].hero, buyers: IMG["fashion-apparel"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["fashion-apparel"].hero, buyers: IMG["fashion-apparel"].buyers, creative: IMG["fashion-apparel"].creative, caseStudy: IMG["fashion-apparel"].caseStudy },
     categories: [
-      { name: "Women's Fashion",       body: "Contemporary, occasion and everyday collections scaling on Meta + Pinterest." },
-      { name: "Men's Fashion",         body: "Considered basics, tailoring and premium streetwear with strong AOV." },
-      { name: "Streetwear & Sportswear", body: "Drop-driven brands using TikTok, waitlists and hype-loop launches." },
-      { name: "Luxury Fashion",        body: "High-consideration paid growth with polished creative and Google brand defence." },
-      { name: "Footwear & Accessories", body: "Cross-sell engines, Google Shopping and lifecycle sizing flows." },
-      { name: "Kids & Modest Fashion",  body: "Community-led paid social and lifecycle marketing tuned to purchase cycles." },
+      { id: "womens-fashion",      name: "Women's Fashion",       body: "Contemporary, occasion and everyday collections scaling on Meta + Pinterest." },
+      { id: "mens-fashion",        name: "Men's Fashion",         body: "Considered basics, tailoring and premium streetwear with strong AOV." },
+      { id: "streetwear",          name: "Streetwear & Sportswear", body: "Drop-driven brands using TikTok, waitlists and hype-loop launches." },
+      { id: "luxury-fashion",      name: "Luxury Fashion",        body: "High-consideration paid growth with polished creative and Google brand defence." },
+      { id: "footwear-accessories", name: "Footwear & Accessories", body: "Cross-sell engines, Google Shopping and lifecycle sizing flows." },
+      { id: "kids-modest-fashion", name: "Kids & Modest Fashion",  body: "Community-led paid social and lifecycle marketing tuned to purchase cycles." },
     ],
     buyerPsychology: [
       { title: "Fit anxiety is #1 blocker", body: "Size charts, model-on-me imagery and video try-on lift PDP conversion 15–25%." },
@@ -132,7 +132,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "beauty-personal-care": {
     hero: "Beauty growth that survives ASA, iOS 17 and rising CPMs.",
     vibe: "Beauty is won on repeat rate. We rebuild the full funnel around review velocity, subscription, and creative built for how UK shoppers actually browse.",
-    images: { hero: IMG["beauty-personal-care"].hero, buyers: IMG["beauty-personal-care"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["beauty-personal-care"].hero, buyers: IMG["beauty-personal-care"].buyers, creative: IMG["beauty-personal-care"].creative, caseStudy: IMG["beauty-personal-care"].caseStudy },
     categories: [
       { name: "Skincare",     body: "Routine-led PDPs, before/after UGC, ingredient education." },
       { name: "Haircare",     body: "Concern-based funnels (frizz, damage, growth) with quiz-led CRO." },
@@ -172,7 +172,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "electronics-technology": {
     hero: "Sell higher-consideration tech without burning margin on brand-defence Google.",
     vibe: "Electronics buyers research hard. We build the PDP, review, comparison and remarketing infrastructure that converts research into orders.",
-    images: { hero: IMG["electronics-technology"].hero, buyers: IMG["electronics-technology"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["electronics-technology"].hero, buyers: IMG["electronics-technology"].buyers, creative: IMG["electronics-technology"].creative, caseStudy: IMG["electronics-technology"].caseStudy },
     categories: [
       { name: "Consumer Electronics",  body: "Hero-SKU launches with Meta + Google Shopping." },
       { name: "Audio & Wearables",     body: "Creator-led launches, TikTok demo content." },
@@ -211,7 +211,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "home-garden": {
     hero: "Higher-AOV home & garden growth using Shopping, Pinterest and premium CRO.",
     vibe: "Home is a considered purchase built on inspiration. We connect Pinterest + Google discovery to Shopify PDPs designed to convert big baskets.",
-    images: { hero: IMG["home-garden"].hero, buyers: IMG["home-garden"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["home-garden"].hero, buyers: IMG["home-garden"].buyers, creative: IMG["home-garden"].creative, caseStudy: IMG["home-garden"].caseStudy },
     categories: [
       { name: "Homeware & Décor",  body: "Pinterest-led inspiration to conversion funnels." },
       { name: "Kitchen & Dining",  body: "Gifting angles + bundle CRO." },
@@ -250,7 +250,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "food-beverage": {
     hero: "DTC food & drink growth built around subscription, not one-off orders.",
     vibe: "Food is a habit business. We build retention systems, subscription CRO and creative that turns first-order buyers into 6+ month subscribers.",
-    images: { hero: IMG["food-beverage"].hero, buyers: IMG["food-beverage"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["food-beverage"].hero, buyers: IMG["food-beverage"].buyers, creative: IMG["food-beverage"].creative, caseStudy: IMG["food-beverage"].caseStudy },
     categories: [
       { name: "Coffee & Tea",       body: "Subscription-first funnels + taste-guide onboarding." },
       { name: "Health / Organic",   body: "Compliant claims + goal-based funnels." },
@@ -289,7 +289,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "health-wellness": {
     hero: "Compliant, subscription-first growth for UK health & wellness brands.",
     vibe: "MHRA + ASA rules make health growth a minefield. We ship compliant creative weekly, run subscription-first funnels, and treat LTV as the KPI.",
-    images: { hero: IMG["health-wellness"].hero, buyers: IMG["health-wellness"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["health-wellness"].hero, buyers: IMG["health-wellness"].buyers, creative: IMG["health-wellness"].creative, caseStudy: IMG["health-wellness"].caseStudy },
     categories: [
       { name: "Vitamins & Supplements", body: "Goal-based funnels + subscription CRO." },
       { name: "Sports Nutrition",       body: "Community-led paid social + creator UGC." },
@@ -328,7 +328,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "sports-fitness": {
     hero: "Community-led sports & fitness scaling built on UGC velocity and lifecycle.",
     vibe: "Sports brands live and die on community. We ship athlete UGC weekly, run TikTok-native creative, and build retention flows around training cycles.",
-    images: { hero: IMG["sports-fitness"].hero, buyers: IMG["sports-fitness"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["sports-fitness"].hero, buyers: IMG["sports-fitness"].buyers, creative: IMG["sports-fitness"].creative, caseStudy: IMG["sports-fitness"].caseStudy },
     categories: [
       { name: "Fitness Equipment",  body: "High-AOV funnels + finance options." },
       { name: "Activewear",         body: "Fit + fabric-story creative, PDP CRO." },
@@ -367,7 +367,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "furniture-interiors": {
     hero: "High-AOV furniture growth without discounting the brand.",
     vibe: "Furniture is a considered, high-basket purchase. We invest in premium PDP CRO, Pinterest / Google discovery and 0% finance to unlock scale.",
-    images: { hero: IMG["furniture-interiors"].hero, buyers: IMG["furniture-interiors"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["furniture-interiors"].hero, buyers: IMG["furniture-interiors"].buyers, creative: IMG["furniture-interiors"].creative, caseStudy: IMG["furniture-interiors"].caseStudy },
     categories: [
       { name: "Living & Bedroom",  body: "Room-context PDPs, Pinterest discovery." },
       { name: "Office Furniture",  body: "B2B + B2C funnels, remote-work angles." },
@@ -406,7 +406,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "baby-kids": {
     hero: "Trust-led baby & kids growth tuned to parent buying cycles.",
     vibe: "Parents buy on trust, safety and reviews. We build the review engine, community UGC and lifecycle flows that turn one purchase into three years of AOV.",
-    images: { hero: IMG["baby-kids"].hero, buyers: IMG["baby-kids"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["baby-kids"].hero, buyers: IMG["baby-kids"].buyers, creative: IMG["baby-kids"].creative, caseStudy: IMG["baby-kids"].caseStudy },
     categories: [
       { name: "Baby Clothing & Gear", body: "Gift-first funnels + parent-community UGC." },
       { name: "Kids Fashion",         body: "Size-progression flows, back-to-school ramps." },
@@ -445,7 +445,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "jewellery-watches": {
     hero: "Premium jewellery & watch scaling with margin-safe media buying.",
     vibe: "Jewellery buyers take weeks to decide. We invest in story-driven creative, Google brand + non-brand Search and retargeting nurtures built for high-AOV.",
-    images: { hero: IMG["jewellery-watches"].hero, buyers: IMG["jewellery-watches"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["jewellery-watches"].hero, buyers: IMG["jewellery-watches"].buyers, creative: IMG["jewellery-watches"].creative, caseStudy: IMG["jewellery-watches"].caseStudy },
     categories: [
       { name: "Fine Jewellery",       body: "Story + craftsmanship creative, premium CRO." },
       { name: "Fashion Jewellery",    body: "Creator-led social + gifting angles." },
@@ -484,7 +484,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "pets-supplies": {
     hero: "Subscription-first pet brand growth built on community and repeat.",
     vibe: "Pet parents buy on love and loyalty. We build subscription funnels, community UGC and lifecycle flows tuned to real pet-parent habits.",
-    images: { hero: IMG["pets-supplies"].hero, buyers: IMG["pets-supplies"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["pets-supplies"].hero, buyers: IMG["pets-supplies"].buyers, creative: IMG["pets-supplies"].creative, caseStudy: IMG["pets-supplies"].caseStudy },
     categories: [
       { name: "Dog Supplies",     body: "Subscription-first funnels + community UGC." },
       { name: "Cat Supplies",     body: "Subscription CRO + gifting angles." },
@@ -523,7 +523,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "arts-prints-stationery": {
     hero: "Arts, prints & stationery growth tuned to gifting cycles.",
     vibe: "Arts brands live on inspiration + gifting. We plug Pinterest, Meta and Google Shopping into a Shopify PDP built for gift-mode conversion.",
-    images: { hero: IMG["arts-prints-stationery"].hero, buyers: IMG["arts-prints-stationery"].buyers, ...COMMON },
+    images: { ...COMMON, hero: IMG["arts-prints-stationery"].hero, buyers: IMG["arts-prints-stationery"].buyers, creative: IMG["arts-prints-stationery"].creative, caseStudy: IMG["arts-prints-stationery"].caseStudy },
     categories: [
       { name: "Wall Art & Prints",   body: "Pinterest + Meta discovery + room-context PDPs." },
       { name: "Stationery & Planners", body: "Community-led UGC + subscription add-ons." },
