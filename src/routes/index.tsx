@@ -8,6 +8,27 @@ import { faqs as homeFaqs } from "../components/site/faqs-data";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { Reveal } from "../hooks/useReveal";
+import { SafeImg } from "../components/SafeImg";
+
+// Curated Unsplash portraits (all verified live). Kept small (w=200) since they
+// render as 44px circles in the testimonial marquee.
+const founderPhoto = (id: string, w = 200) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=faces&w=${w}&q=75`;
+const FOUNDER_PHOTOS = [
+  founderPhoto("photo-1508214751196-bcfd4ca60f91"),
+  founderPhoto("photo-1494790108377-be9c29b29330"),
+  founderPhoto("photo-1500648767791-00dcc994a43e"),
+  founderPhoto("photo-1519085360753-af0119f7cbe7"),
+  founderPhoto("photo-1580489944761-15a19d654956"),
+  founderPhoto("photo-1472099645785-5658abf4ff4e"),
+  founderPhoto("photo-1544005313-94ddf0286df2"),
+  founderPhoto("photo-1487412720507-e7ab37603c6f"),
+  founderPhoto("photo-1607746882042-944635dfe10e"),
+  founderPhoto("photo-1573497019940-1c28c88b4f3e"),
+];
+const CASE_STUDY_IMG =
+  "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&crop=entropy&w=1200&q=75";
+
 
 // Below-the-fold — never in the critical bundle.
 const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
