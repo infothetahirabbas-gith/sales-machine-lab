@@ -11,12 +11,14 @@ import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
-import { HERO_LAPTOP, HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
-import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg";
-import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg";
-import heroSeoGrowth from "../assets/hero-seo-growth.jpg";
-import heroPaidAds from "../assets/hero-paid-ads.jpg";
-import heroCroTesting from "../assets/hero-cro-testing.jpg";
+import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
+// WebP variants generated at build time by vite-imagetools — ~60-70% smaller than the JPGs.
+import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=72&w=1200";
+import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=72&w=1200";
+import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=72&w=1200";
+import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=72&w=1200";
+import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=72&w=1200";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=70&w=640";
 
 
 
