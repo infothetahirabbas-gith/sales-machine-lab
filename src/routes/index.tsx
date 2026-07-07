@@ -305,9 +305,21 @@ function Home() {
       {/* 7. CASE STUDY */}
       <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl border border-border bg-card/60 p-4">
-            <GrowthChart className="w-full h-auto" />
+          <div className="relative rounded-2xl border border-border bg-card/60 p-4 overflow-hidden">
+            <SafeImg
+              src={CASE_STUDY_IMG}
+              alt="UK Shopify apparel brand product page shown on a laptop — 11.9× revenue case study"
+              loading="lazy"
+              decoding="async"
+              width={1200}
+              height={800}
+              className="w-full h-56 md:h-64 object-cover rounded-xl"
+            />
+            <div className="mt-4">
+              <GrowthChart className="w-full h-auto" />
+            </div>
           </div>
+
           <div>
             <p className="text-lg text-muted-foreground">
               A UK Shopify apparel brand stuck at 1.2% CR and 1.5× ROAS. As their ecommerce digital marketing agency UK,
