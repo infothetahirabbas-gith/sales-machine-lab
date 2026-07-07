@@ -162,10 +162,11 @@ function IndustryPaidAdsPage() {
                 alt={`${ind.name} paid ads dashboard`}
                 width={1600}
                 height={1000}
-                skeleton
                 brandOverlay
                 className="w-full h-[420px] object-cover"
                 fetchPriority="high"
+                loading="eager"
+                decoding="sync"
               />
             </div>
           </Reveal>
