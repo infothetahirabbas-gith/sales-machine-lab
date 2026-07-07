@@ -86,6 +86,7 @@ export const Route = createFileRoute("/blog/")({
 function BlogIndex() {
   return (
     <PageLayout>
+      <h1 className="sr-only">Ecommerce Growth Journal — Shopify & WooCommerce UK</h1>
       <Section
         eyebrow="Blog"
         title="The BeingEcom ecommerce growth journal"
