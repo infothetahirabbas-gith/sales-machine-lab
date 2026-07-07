@@ -7,13 +7,16 @@
     "dev": "vite dev",
     "check:images": "node scripts/check-location-images.mjs",
     "check:industries": "node scripts/verify-industry-pages.mjs",
+    "check:preload": "node scripts/verify-industry-preload.mjs",
+    "check:a11y": "node scripts/verify-industry-a11y.mjs",
+    "check:perf": "node scripts/lighthouse-industries.mjs",
+    "check:ci": "npm run check:images && npm run check:industries && npm run check:preload && npm run check:a11y && npm run check:perf",
     "prebuild": "node scripts/check-location-images.mjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
-
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^2.0.50",
@@ -92,6 +95,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "lighthouse": "^13.4.0",
     "prettier": "^3.7.3",
     "sharp": "^0.35.3",
     "typescript": "^5.8.3",

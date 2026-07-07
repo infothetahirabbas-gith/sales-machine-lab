@@ -1,0 +1,7 @@
+{
+  "$comment": "Performance budgets enforced by scripts/lighthouse-industries.mjs on mobile emulation with default Lighthouse throttling.",
+  "perfScore": 80,
+  "lcpMs": 2500,
+  "cls": 0.1,
+  "tbtMs": 300
+}
