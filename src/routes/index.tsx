@@ -9,7 +9,7 @@ import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
-import { HERO_LAPTOP, HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
+import { HERO_LAPTOP, HERO_PHONE, HERO_PLATFORMS, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
 
 
 
