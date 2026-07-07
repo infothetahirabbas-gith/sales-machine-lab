@@ -131,7 +131,22 @@ function Home() {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-5 relative" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+            {/* Real ecommerce photo behind the animated dashboard for warmth + realism */}
+            <div className="absolute -top-6 -right-4 lg:-right-8 w-40 h-52 md:w-52 md:h-64 rotate-6 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/40 hidden md:block">
+              <SafeImg
+                src={HERO_PHONE}
+                alt="Shopify product page shown on a phone during a UK ecommerce growth sprint"
+                width={520}
+                height={640}
+                loading="eager"
+                fetchPriority="high"
+                skeleton
+                brandOverlay
+                className="w-full h-full object-cover"
+                wrapperClassName="w-full h-full"
+              />
+            </div>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)] float">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
@@ -151,6 +166,7 @@ function Home() {
               </div>
             </div>
           </div>
+
 
         </div>
       </section>
