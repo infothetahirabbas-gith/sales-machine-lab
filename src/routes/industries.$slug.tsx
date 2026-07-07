@@ -3,16 +3,16 @@ import {
   ArrowRight, Layers, CheckCircle2, TrendingUp, Target, Zap,
   BarChart3, Rocket, Sparkles, Star, Award, Calendar, LineChart,
   ShoppingBag, Search, Megaphone, Users, Palette, Wrench, Filter,
-  MessageCircle, Play,
+  MessageCircle, Play, AlertTriangle, TrendingDown, Globe, Compass,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
+import { Section, SplitHeading, Card, Pill, CTA } from "../components/site/Section";
 import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
-import { industryContentFor } from "../lib/industry-content";
+import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
 
 export const Route = createFileRoute("/industries/$slug")({
@@ -182,14 +182,9 @@ function IndustryPage() {
 
   const TECH = ["Shopify Plus", "Klaviyo", "Meta Ads Manager", "Google Ads + GMC", "TikTok Ads + Shop", "GA4", "Triple Whale", "Recharge", "Yotpo / Okendo", "Postscript / Attentive"];
 
-  const PROCESS = [
-    { title: "Audit + intelligence", body: "Deep-dive on your data, competitors and customer research to find the fastest wins." },
-    { title: "Rebuild tracking",     body: "GA4, server-side, CAPI and Triple Whale — attribution you can actually trust." },
-    { title: "Creative sprint",      body: "3 UGC + motion batches a week tuned to your buyer's psychology." },
-    { title: "Media buying",         body: "Meta, Google, TikTok run by senior operators — no juniors touching your account." },
-    { title: "CRO + PDP rebuild",    body: "Landing pages and PDPs rewired around real conversion friction." },
-    { title: "Retention engine",     body: "Klaviyo + SMS flows tied to your lifecycle and subscription CRO." },
-  ];
+  const PROCESS = industryProcessFor(ind.name, C.categories);
+  const WHY_NO_SALES = whyNoSalesFor(ind.name, C.categories);
+  const WHY_SEO = whySeoMattersFor(ind.name, C.categories);
 
   return (
     <PageLayout>
@@ -366,6 +361,79 @@ function IndustryPage() {
         </div>
       </Section>
 
+      {/* 5b. WHY ECOMMERCE STORES AREN'T GETTING SALES (industry-specific) */}
+      <Section eyebrow="The uncomfortable truth" title={`Why ${ind.name.toLowerCase()} stores aren't getting orders`} alt>
+        <Reveal><p className="max-w-3xl text-muted-foreground -mt-4 mb-8">{WHY_NO_SALES.intro}</p></Reveal>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {WHY_NO_SALES.items.map((p, i) => (
+            <Reveal key={p.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-6 h-full border-l-4 border-primary/60 hover:border-primary transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                    <AlertTriangle className="size-5" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary">Issue #{i + 1}</span>
+                </div>
+                <h4 className="font-bold text-ink text-lg">{p.title}</h4>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{p.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <div className="mt-8 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/5 border border-primary/20 p-6 flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
+            <div className="flex items-start gap-3">
+              <TrendingDown className="w-6 h-6 text-primary shrink-0 mt-1" />
+              <div>
+                <div className="font-bold text-ink">Get the exact leaks in your store — free.</div>
+                <div className="text-sm text-muted-foreground">Our Being Ecom Brain™ audit scores 17 phases in under 60 seconds.</div>
+              </div>
+            </div>
+            <Link to="/audit" className="btn btn-primary shrink-0">Run free audit <ArrowRight className="w-4 h-4" /></Link>
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* 5c. WHY SEO MATTERS (industry-specific) */}
+      <Section eyebrow="Own your traffic" title={`Why SEO matters for ${ind.name.toLowerCase()} brands`}>
+        <div className="grid lg:grid-cols-5 gap-10 items-start">
+          <Reveal>
+            <div className="lg:col-span-2 space-y-5">
+              <p className="text-muted-foreground text-lg leading-relaxed">{WHY_SEO.intro}</p>
+              <div className="rounded-2xl bg-secondary/40 border border-border p-5 space-y-3">
+                <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">
+                  <Globe className="size-4" /> Traffic ownership
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-ink"><CountUp end={0} />%</span>
+                  <span className="text-sm text-muted-foreground">CAC on organic clicks — forever.</span>
+                </div>
+                <div className="text-sm text-muted-foreground">Meanwhile Meta CPMs rose 61% YoY. SEO is the only channel where scale <span className="font-semibold text-ink">lowers</span> unit cost.</div>
+              </div>
+              <div className="flex gap-3">
+                <Link to="/services/seo" className="btn btn-primary">Explore SEO service <ArrowRight className="w-4 h-4" /></Link>
+                <Link to="/services/seo/aeo" className="btn btn-ghost border border-border">AI Search (AEO)</Link>
+              </div>
+            </div>
+          </Reveal>
+          <div className="lg:col-span-3 space-y-3">
+            {WHY_SEO.points.map((p, i) => (
+              <Reveal key={p.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface p-5 flex gap-4 group hover:shadow-lg transition-shadow">
+                  <div className="shrink-0 w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-lg group-hover:bg-primary group-hover:text-white transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-ink">{p.title}</h4>
+                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{p.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* 6. OUR GROWTH ENGINE OVERVIEW */}
       <Section eyebrow="The engine" title="One integrated growth system" alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -396,9 +464,36 @@ function IndustryPage() {
         </div>
       </Section>
 
-      {/* 7. 6-STEP PROCESS */}
-      <Section eyebrow="How we work" title="Our 6-step scaling process">
-        <NumberedList items={PROCESS} />
+      {/* 7. OUR PROCESS — industry-flavored, 7 steps unique per vertical */}
+      <Section eyebrow="How we work" title={`Our process for scaling ${ind.name.toLowerCase()} brands`}>
+        <Reveal>
+          <p className="max-w-3xl text-muted-foreground -mt-4 mb-8">
+            The same operating system that scaled 120+ UK stores — sequenced for how {ind.name.toLowerCase()} buyers actually shop, from first click to third repeat order.
+          </p>
+        </Reveal>
+        <div className="relative">
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent -translate-x-1/2" aria-hidden="true" />
+          <div className="space-y-6">
+            {PROCESS.map((p, i) => {
+              const left = i % 2 === 0;
+              return (
+                <Reveal key={p.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                  <div className={`md:grid md:grid-cols-2 md:gap-8 items-center ${left ? "" : "md:[&>*:first-child]:col-start-2"}`}>
+                    <div className={`card-surface p-6 relative ${left ? "md:text-right" : ""}`}>
+                      <div className={`inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary mb-3`}>
+                        <Compass className="size-3" /> Step {i + 1} of {PROCESS.length}
+                      </div>
+                      <h4 className="text-lg md:text-xl font-bold text-ink">{p.title.replace(/^\d+\.\s*/, "")}</h4>
+                      <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{p.body}</p>
+                      <span className="hidden md:block absolute top-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-white shadow-md -translate-y-1/2" style={left ? { right: "-1.4rem" } : { left: "-1.4rem" }} aria-hidden="true" />
+                    </div>
+                    <div className="hidden md:block" aria-hidden="true" />
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
       </Section>
 
       {/* 8. CREATIVE ANGLES */}
