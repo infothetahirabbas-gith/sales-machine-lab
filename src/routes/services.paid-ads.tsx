@@ -29,7 +29,7 @@ export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
       { title: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
-      { name: "description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
+      { name: "description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably — not just drive traffic. Managed by a team that ties spend directly to revenue." },
       { property: "og:title", content: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
       { property: "og:description", content: "Paid ads agency in the UK managing Meta, Google and TikTok campaigns for ecommerce brands. Full-funnel media buying built for profitable ROAS on Shopify and WooCommerce." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
