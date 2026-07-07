@@ -28,6 +28,45 @@ type Post = {
 };
 
 const POSTS: Record<string, Post> = {
+  "shopify-plus-migration-uk": {
+    slug: "shopify-plus-migration-uk",
+    title: "Shopify Plus migration for UK brands: WooCommerce to Shopify Plus without losing rankings",
+    metaTitle: "Shopify Plus Migration UK — WooCommerce to Shopify Plus | BeingEcom",
+    description:
+      "A UK-specific Shopify Plus migration guide — when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
+    datePublished: "2026-07-08",
+    dateModified: "2026-07-08",
+    readMins: 12,
+    category: "Ecommerce strategy",
+    primaryKeyword: "shopify plus migration uk",
+    about: "Shopify Plus migration for UK WooCommerce ecommerce brands",
+    faqs: [
+      {
+        q: "When does it make sense for a UK brand to move from WooCommerce to Shopify Plus?",
+        a: "Usually at £2–5M/year revenue, 5,000+ SKUs, or when your team is spending more time on WooCommerce maintenance (hosting, plugin conflicts, security patches, checkout bugs) than on marketing. Shopify Plus makes sense earlier if you're running B2B and DTC on one backend, need Shopify Markets for international selling, or want the highest-converting hosted checkout on the market. Below £1M/year, staying on WooCommerce is usually the cheaper decision.",
+      },
+      {
+        q: "How do you migrate a WooCommerce store to Shopify Plus without losing SEO rankings?",
+        a: "Three things matter: preserve every URL with a 301 redirect map (old /product/slug → new /products/slug), keep meta titles, descriptions and H1s identical on launch day, and don't change your primary product-URL slug pattern. Use Cart2Cart or LitExtension for product, customer and order data. Rebuild internal linking before launch, not after. Expect a 4–8 week ranking dip while Google re-crawls, then recovery to pre-migration levels or higher if technical SEO improved.",
+      },
+      {
+        q: "How does Shopify Plus handle UK VAT and international selling versus WooCommerce?",
+        a: "Shopify Plus with Shopify Markets handles UK VAT natively (VAT-inclusive pricing, digital-goods rules, EU OSS reporting), plus country-specific pricing, duties and taxes at checkout, and currency conversion. WooCommerce reaches parity with WooCommerce Tax, EU VAT Compliance Assistant, and Aelia Currency Switcher, but each is a plugin to maintain. For UK-to-EU or UK-to-US expansion, Shopify Markets collapses a multi-week integration into a settings screen.",
+      },
+      {
+        q: "What does a Shopify Plus migration cost for a UK brand?",
+        a: "Typical range: £8,000–£25,000 for a store under 5,000 SKUs, depending on custom Liquid, app rebuilds, third-party integrations (ERP, 3PL, subscription apps), and design work. Shopify Plus itself starts at $2,300/month (roughly £1,800/month) plus payment processing. Total year-one investment usually £30,000–£60,000 including platform fees, migration, and app stack. Payback typically 6–12 months from conversion-rate lift and reduced maintenance overhead.",
+      },
+      {
+        q: "How long does a WooCommerce to Shopify Plus migration take?",
+        a: "Realistic timeline: 6–12 weeks end-to-end for a store with under 5,000 SKUs, standard checkout, and a UK-only market. Weeks 1–2: discovery, URL mapping, theme scoping. Weeks 3–6: theme build, data migration, app integration. Weeks 7–9: QA, staging tests, 301 redirect implementation. Weeks 10–12: launch, monitoring, ranking recovery. B2B stores, multi-region stores, or heavy custom-logic sites (subscriptions with edge cases, wholesale portals) can extend to 4–6 months.",
+      },
+      {
+        q: "Will I lose customer accounts and order history when migrating to Shopify Plus?",
+        a: "No — Cart2Cart and LitExtension migrate customer records, order history and product data cleanly. Customers keep their email and address book. Passwords do not transfer (Shopify uses different hashing) so customers set a new password on first login — send a proactive email 48 hours before launch explaining this. Subscription customers need special handling: migrate to Recharge or Bold Subscriptions before switching platforms, not after.",
+      },
+    ],
+  },
   "shopify-vs-woocommerce-uk": {
     slug: "shopify-vs-woocommerce-uk",
     title: "Shopify vs WooCommerce UK 2026: honest comparison for growing DTC brands",
