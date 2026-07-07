@@ -21,6 +21,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -28,6 +29,7 @@ import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -43,6 +45,7 @@ import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
@@ -125,6 +128,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuditRoute = AuditRouteImport.update({
   id: '/audit',
   path: '/audit',
@@ -159,6 +167,11 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
   path: '/case-studies/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
 } as any)
 const ServicesStoreDevelopmentRoute =
   ServicesStoreDevelopmentRouteImport.update({
@@ -236,6 +249,11 @@ const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
   id: '/case-studies/$id',
   path: '/case-studies/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
@@ -352,6 +370,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/glossary': typeof GlossaryRoute
@@ -367,6 +386,7 @@ export interface FileRoutesByFullPath {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -382,6 +402,7 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -423,6 +444,7 @@ export interface FileRoutesByTo {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -438,6 +460,7 @@ export interface FileRoutesByTo {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
@@ -465,6 +488,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
+  '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/glossary': typeof GlossaryRoute
@@ -480,6 +504,7 @@ export interface FileRoutesById {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -495,6 +520,7 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/seo': typeof ServicesSeoRouteWithChildren
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -523,6 +549,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
+    | '/blog'
     | '/contact'
     | '/cookies'
     | '/glossary'
@@ -538,6 +565,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/blog/$slug'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
@@ -553,6 +581,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/blog/'
     | '/case-studies/'
     | '/industries/'
     | '/locations/'
@@ -594,6 +623,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/blog/$slug'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
@@ -609,6 +639,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/blog'
     | '/case-studies'
     | '/industries'
     | '/locations'
@@ -635,6 +666,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
+    | '/blog'
     | '/contact'
     | '/cookies'
     | '/glossary'
@@ -650,6 +682,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/blog/$slug'
     | '/case-studies/$id'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
@@ -665,6 +698,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/seo'
     | '/services/store-development'
+    | '/blog/'
     | '/case-studies/'
     | '/industries/'
     | '/locations/'
@@ -692,6 +726,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AuditRoute: typeof AuditRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   GlossaryRoute: typeof GlossaryRoute
@@ -816,6 +851,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/audit': {
       id: '/audit'
       path: '/audit'
@@ -864,6 +906,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/case-studies/'
       preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/services/store-development': {
       id: '/services/store-development'
@@ -969,6 +1018,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/case-studies/$id'
       preLoaderRoute: typeof CaseStudiesIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
     }
     '/api/chat': {
       id: '/api/chat'
@@ -1113,6 +1169,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 interface IndustriesSlugRouteChildren {
   IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
 }
@@ -1198,6 +1266,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AuditRoute: AuditRoute,
+  BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   GlossaryRoute: GlossaryRoute,
@@ -1239,13 +1308,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
