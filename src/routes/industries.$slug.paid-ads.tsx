@@ -69,6 +69,7 @@ export const Route = createFileRoute("/industries/$slug/paid-ads")({
 function IndustryPaidAdsPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
+  const wa = whatsappForIndustry(ind.name, "Interested in your paid ads service (Meta, Google, TikTok).");
 
   const CHANNELS = [
     { icon: Megaphone, name: "Meta Ads (Facebook + Instagram)", body: "Creative-led broad scaling with Advantage+ shopping and manual campaigns for control." },
