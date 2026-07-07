@@ -19,6 +19,7 @@ const LANG_OPTIONS = [
 ];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
+const DEFAULT_PREFS: Prefs = { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" };
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
@@ -213,6 +214,34 @@ export const caseStudyCategories = [
   { to: "/case-studies?category=cro", label: "CRO" },
 ];
 
+function prefsFromPath(pathname: string): Partial<Prefs> {
+  const parts = pathname.split("/").filter(Boolean).map((part) => {
+    try {
+      return decodeURIComponent(part);
+    } catch {
+      return part;
+    }
+  });
+  const next: Partial<Prefs> = {};
+  const isLocation = (slug?: string) => !!slug && LOCATIONS.some((l) => l.slug === slug);
+  const isIndustry = (slug?: string) => !!slug && INDUSTRIES.some((i) => i.slug === slug);
+  const isLanguage = (code?: string) => !!code && LANG_OPTIONS.some((l) => l.code === code);
+  const isService = (slug?: string) => !!slug && services.some((s) => s.to === `/services/${slug}`);
+
+  if (parts[0] === "locations" && isLocation(parts[1])) next.location = parts[1];
+  if (parts[0] === "industries" && isIndustry(parts[1])) next.industry = parts[1];
+  if (parts[0] === "services" && isService(parts[1])) next.service = parts[1];
+
+  if (isLanguage(parts[0]) && isLocation(parts[1]) && isIndustry(parts[2])) {
+    next.language = parts[0];
+    next.location = parts[1];
+    next.industry = parts[2];
+    if (isService(parts[3])) next.service = parts[3];
+  }
+
+  return next;
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -225,9 +254,9 @@ export default function Header() {
   const [desktopMenu, setDesktopMenu] = useState<null | "locations" | "industries" | "services">(null);
   const [activeIndustry, setActiveIndustry] = useState<string>(industries[0].to);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isHome = pathname === "/";
   const navigate = useNavigate();
   const [prefs, setPrefs] = useState<Prefs | null>(null);
+  const currentPrefs: Prefs = { ...DEFAULT_PREFS, ...(prefs ?? {}), ...prefsFromPath(pathname) };
 
   // Delay closing so cursor can travel from trigger button to panel items.
   const closeTimer = useRef<number | null>(null);
@@ -250,12 +279,15 @@ export default function Header() {
     if (typeof window === "undefined") return;
     try {
       const raw = sessionStorage.getItem(PREFS_KEY);
-      if (raw) setPrefs(JSON.parse(raw));
+      const stored = raw ? JSON.parse(raw) : {};
+      const next = { ...DEFAULT_PREFS, ...stored, ...prefsFromPath(pathname) };
+      setPrefs(next);
+      sessionStorage.setItem(PREFS_KEY, JSON.stringify(next));
     } catch {}
   }, [pathname]);
 
   const updatePref = (key: keyof Prefs, value: string) => {
-    const next: Prefs = { ...(prefs ?? { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" }), [key]: value };
+    const next: Prefs = { ...currentPrefs, [key]: value };
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
     if (key === "language") {
@@ -267,9 +299,9 @@ export default function Header() {
 
 
   
-  const cityLabel = LOCATIONS.find((l) => l.slug === prefs?.location)?.city ?? "London";
-  const industryLabel = INDUSTRIES.find((i) => i.slug === prefs?.industry)?.name ?? "Industry";
-  const langLabel = LANG_OPTIONS.find((l) => l.code === prefs?.language)?.name ?? "English";
+  const cityLabel = LOCATIONS.find((l) => l.slug === currentPrefs.location)?.city ?? "London";
+  const industryLabel = INDUSTRIES.find((i) => i.slug === currentPrefs.industry)?.name ?? "Fashion & Apparel";
+  const langLabel = LANG_OPTIONS.find((l) => l.code === currentPrefs.language)?.name ?? "English";
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
@@ -283,7 +315,7 @@ export default function Header() {
             <span>{cityLabel}</span>
             <ChevronDown className="size-3 opacity-60" />
             <select
-              value={prefs?.location ?? "london"}
+              value={currentPrefs.location}
               onChange={(e) => updatePref("location", e.target.value)}
               className="absolute inset-0 opacity-0 cursor-pointer"
               aria-label="Change city"
@@ -296,7 +328,7 @@ export default function Header() {
             <span>{langLabel}</span>
             <ChevronDown className="size-3 opacity-60" />
             <select
-              value={prefs?.language ?? "en"}
+              value={currentPrefs.language}
               onChange={(e) => updatePref("language", e.target.value)}
               className="absolute inset-0 opacity-0 cursor-pointer"
               aria-label="Change language"
@@ -311,7 +343,7 @@ export default function Header() {
             <span className="truncate max-w-[140px]">{industryLabel}</span>
             <ChevronDown className="size-3 opacity-60" />
             <select
-              value={prefs?.industry ?? "fashion-apparel"}
+              value={currentPrefs.industry}
               onChange={(e) => updatePref("industry", e.target.value)}
               className="absolute inset-0 opacity-0 cursor-pointer"
               aria-label="Change industry"
