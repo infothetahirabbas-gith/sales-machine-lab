@@ -31,7 +31,11 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/" },
+      { rel: "preload", as: "image", href: HERO_LAPTOP, fetchpriority: "high" },
+    ],
+
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(professionalServiceJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(homeFaqs, "/")) },
