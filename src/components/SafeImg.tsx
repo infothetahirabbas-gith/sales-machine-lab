@@ -19,21 +19,73 @@ const FALLBACK =
     </svg>`,
   );
 
+type Props = ImgHTMLAttributes<HTMLImageElement> & {
+  /** Show a shimmering placeholder while the image is loading (default: true). */
+  skeleton?: boolean;
+  /** Overlay a subtle brand-tinted gradient on top of the image for cohesion (default: false). */
+  brandOverlay?: boolean;
+  /** Optional class applied to the wrapping <span> when skeleton/overlay are on. */
+  wrapperClassName?: string;
+};
+
 export function SafeImg({
   src,
   onError,
+  onLoad,
+  skeleton = true,
+  brandOverlay = false,
+  wrapperClassName = "",
+  className = "",
+  loading = "lazy",
+  decoding = "async",
   ...rest
-}: ImgHTMLAttributes<HTMLImageElement>) {
+}: Props) {
   const [current, setCurrent] = useState(src);
-  return (
+  const [loaded, setLoaded] = useState(false);
+
+  const img = (
     <img
       {...rest}
       src={current}
+      loading={loading}
+      decoding={decoding}
+      onLoad={(e) => {
+        setLoaded(true);
+        onLoad?.(e);
+      }}
       onError={(e) => {
         if (current !== FALLBACK) setCurrent(FALLBACK);
+        setLoaded(true);
         onError?.(e);
       }}
+      className={`${className} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`.trim()}
     />
+  );
+
+  if (!skeleton && !brandOverlay) return img;
+
+  return (
+    <span className={`relative block overflow-hidden ${wrapperClassName}`.trim()}>
+      {skeleton && !loaded && (
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-100/60 to-orange-100 animate-pulse"
+        />
+      )}
+      {img}
+      {brandOverlay && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-multiply"
+        />
+      )}
+      {brandOverlay && (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20"
+        />
+      )}
+    </span>
   );
 }
 
