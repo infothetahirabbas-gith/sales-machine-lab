@@ -88,6 +88,8 @@ export const HOME_IMAGE_URLS: readonly string[] = [
   HERO_LAPTOP,
   HERO_PHONE,
   ...HOME_BENTO.map((i) => i.src),
+  ...HERO_PLATFORMS.map((i) => i.src),
+
   CASE_STUDY_IMG,
   ...FOUNDER_PHOTOS,
 ];
