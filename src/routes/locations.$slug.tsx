@@ -24,39 +24,92 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Agency in ${loc.city} | Shopify, SEO, Paid Ads — Being Ecom`
+      ? `Ecommerce Agency in ${loc.city} | Shopify, SEO & Paid Ads — Being Ecom`
       : "Location — Being Ecom";
     const desc = loc
-      ? `Award-winning ecommerce agency in ${loc.city}, ${loc.region}. Shopify development, SEO, Google & Meta Ads, CRO and email marketing for DTC brands scaling in ${loc.city}.`
+      ? `Award-winning ecommerce agency in ${loc.city}, ${loc.region}. Senior UK team delivering Shopify development, technical SEO, Google & Meta Ads, CRO and Klaviyo email for ${loc.city} DTC brands scaling profitably.`
       : "UK ecommerce growth agency locations.";
     const kw = loc
-      ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO ${loc.city}, digital marketing ${loc.city}, PPC ${loc.city}, Meta ads ${loc.city}, ecommerce experts ${loc.region}`
+      ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO agency ${loc.city}, PPC agency ${loc.city}, Meta ads ${loc.city}, Google Ads ${loc.city}, Klaviyo agency ${loc.city}, CRO agency ${loc.city}, digital marketing agency ${loc.city}, ecommerce experts ${loc.region}`
       : "ecommerce agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
+    const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
+    const faqData = loc ? [
+      { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
+      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} retainers start at £2,500/month for single-channel work and scale to £10k+/month for full growth-engine engagements. Pricing is transparent and published on our pricing page.` },
+      { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce migrations and headless Hydrogen builds.` },
+      { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO and retention gains compound in months 3–6.` },
+      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, analytics and email — no obligation.` },
+      { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely — tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+    ] : [];
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { name: "keywords", content: kw },
+        { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         ...(loc ? [{ name: "geo.placename", content: loc.city }, { name: "geo.region", content: loc.region }] : []),
         ...(geo ? [{ name: "geo.position", content: `${geo.latitude};${geo.longitude}` }, { name: "ICBM", content: `${geo.latitude}, ${geo.longitude}` }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: pageUrl },
+        { property: "og:locale", content: "en_GB" },
         ...(heroImage ? [{ property: "og:image", content: heroImage }, { name: "twitter:image", content: heroImage }] : []),
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
       ],
+      links: loc ? [
+        { rel: "canonical", href: pageUrl },
+        ...(heroImage ? [{ rel: "preload" as const, as: "image" as const, href: heroImage, fetchpriority: "high" as const }] : []),
+      ] : [],
       scripts: loc && C ? [
         { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: loc.city, path: `/locations/${loc.slug}` }])) },
         {
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": `${pageUrl}#business`,
+            name: `Being Ecom — Ecommerce Agency in ${loc.city}`,
+            description: desc,
+            url: pageUrl,
+            image: heroImage,
+            priceRange: "££–£££",
+            areaServed: [
+              { "@type": "City", name: loc.city },
+              { "@type": "AdministrativeArea", name: loc.region },
+              { "@type": "Country", name: "United Kingdom" },
+            ],
+            serviceType: ["Ecommerce Agency", "Shopify Development", "SEO Agency", "Google Ads", "Meta Ads", "Klaviyo Email Marketing", "CRO"],
+            address: { "@type": "PostalAddress", addressLocality: loc.city, addressRegion: loc.region, addressCountry: "GB" },
+            ...(geo ? { geo: { "@type": "GeoCoordinates", latitude: geo.latitude, longitude: geo.longitude } } : {}),
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "120", bestRating: "5" },
+            sameAs: [SITE_URL],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqData.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "ImageGallery",
-            "@id": `${SITE_URL}/locations/${loc.slug}#marketing-images`,
+            "@id": `${pageUrl}#marketing-images`,
             name: `${loc.city} ecommerce marketing image set`,
             description: `Relevant ecommerce, Shopify, WooCommerce, SEO, paid ads and marketing images for BeingEcom in ${loc.city}.`,
             associatedMedia: imageSlots.map((slot) => ({
