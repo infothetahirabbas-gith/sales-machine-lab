@@ -41,6 +41,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://beingecom.com/" },
       { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 640w, ${heroShopifyCommerce} 1200w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw" } as never,
     ],
 
