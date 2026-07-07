@@ -207,8 +207,11 @@ function IndustryPage() {
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">{C.hero}</p>
               <p className="mt-3 text-sm text-muted-foreground/80 max-w-xl">{C.vibe}</p>
               <div className="mt-8 btn-pair">
-                <Link to="/contact" className="btn btn-primary">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
-                <Link to="/audit" className="btn btn-ghost border border-border">Free Store Audit</Link>
+                <Link to="/contact" className="btn btn-primary hover-scale">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md" aria-label={`Chat about ${ind.name} on WhatsApp`}>
+                  <WaIcon className="w-4 h-4" /> WhatsApp us
+                </a>
+                <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free Store Audit</Link>
               </div>
               <div className="mt-6 flex items-center gap-4 text-xs text-muted-foreground">
                 <span className="inline-flex items-center gap-1"><Star className="w-4 h-4 text-primary" /> 4.9/5 across 120+ UK brands</span>
