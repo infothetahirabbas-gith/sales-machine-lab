@@ -637,22 +637,14 @@ function LocationPage() {
           );
           const items = [...C.testimonials, ...C.testimonials, ...C.testimonials];
           return (
-            <>
-              {/* Mobile: one-by-one snap scroll */}
-              <div className="md:hidden -mx-5 px-5 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                {C.testimonials.map((t, i) => (
-                  <div key={t.name} className="snap-center shrink-0"><TestimonialCard t={t} i={i} /></div>
+            <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+              <div className="marquee-track">
+                {items.map((t, i) => (
+                  <TestimonialCard key={`${t.name}-${i}`} t={t} i={i} />
                 ))}
               </div>
-              {/* Desktop: continuous marquee */}
-              <div className="hidden md:block relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-                <div className="marquee-track">
-                  {items.map((t, i) => (
-                    <TestimonialCard key={`${t.name}-${i}`} t={t} i={i} />
-                  ))}
-                </div>
-              </div>
-            </>
+            </div>
+
           );
         })()}
       </Section>
