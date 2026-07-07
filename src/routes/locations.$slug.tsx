@@ -577,8 +577,42 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 21. FAQ */}
-      <FaqSection faqs={faqs} title={`FAQs about our ${city} ecommerce`} highlight="agency" intro={`Common questions from ${city} and ${loc.region} founders.`} />
+      {/* 21a. NEARBY LOCATIONS — internal linking / topical authority */}
+      <Section eyebrow="Nearby cities" title={`Ecommerce agency serving cities near ${city}`} intro={`We work with DTC and Shopify brands across ${loc.region} and the wider UK. Explore our nearest ecommerce agency locations to ${city}.`} alt>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {LOCATIONS.filter((l) => l.slug !== loc.slug).slice(0, 8).map((l) => (
+            <Link
+              key={l.slug}
+              to="/locations/$slug"
+              params={{ slug: l.slug }}
+              className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-white p-4 card-hover"
+              title={`Ecommerce agency in ${l.city}, ${l.region}`}
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 text-ink font-semibold truncate"><MapPin className="w-4 h-4 text-primary shrink-0" />{l.city}</div>
+                <div className="text-xs text-muted-foreground truncate">Ecommerce agency · {l.region}</div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-primary shrink-0 transition-transform group-hover:translate-x-1" />
+            </Link>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3 text-sm">
+          <Link to="/locations" className="story-link text-primary font-semibold">View all UK locations</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/store-development/shopify" className="story-link text-primary font-semibold">Shopify development</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/seo" className="story-link text-primary font-semibold">SEO services</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/paid-ads" className="story-link text-primary font-semibold">Paid ads</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/email-sms" className="story-link text-primary font-semibold">Email & SMS</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/case-studies" className="story-link text-primary font-semibold">Case studies</Link>
+        </div>
+      </Section>
+
+      {/* 21. FAQ (People Also Ask) */}
+      <FaqSection faqs={faqs} title={`People also ask about ecommerce agencies in ${city}`} highlight="agencies" intro={`Answers to the questions ${city} and ${loc.region} founders ask most. Structured for Google, AI Overviews and ChatGPT search.`} />
 
       {/* 22. CONTACT */}
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
