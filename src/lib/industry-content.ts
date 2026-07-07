@@ -93,12 +93,12 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
     vibe: "Fashion buyers decide in seconds and return 30–40% of what they buy. Winning requires ruthless creative velocity, PDP CRO and a retention engine that lifts LTV — not perpetual sales.",
     images: { ...COMMON, hero: IMG["fashion-apparel"].hero, buyers: IMG["fashion-apparel"].buyers, creative: IMG["fashion-apparel"].creative, caseStudy: IMG["fashion-apparel"].caseStudy },
     categories: [
-      { name: "Women's Fashion",       body: "Contemporary, occasion and everyday collections scaling on Meta + Pinterest." },
-      { name: "Men's Fashion",         body: "Considered basics, tailoring and premium streetwear with strong AOV." },
-      { name: "Streetwear & Sportswear", body: "Drop-driven brands using TikTok, waitlists and hype-loop launches." },
-      { name: "Luxury Fashion",        body: "High-consideration paid growth with polished creative and Google brand defence." },
-      { name: "Footwear & Accessories", body: "Cross-sell engines, Google Shopping and lifecycle sizing flows." },
-      { name: "Kids & Modest Fashion",  body: "Community-led paid social and lifecycle marketing tuned to purchase cycles." },
+      { id: "womens-fashion",      name: "Women's Fashion",       body: "Contemporary, occasion and everyday collections scaling on Meta + Pinterest." },
+      { id: "mens-fashion",        name: "Men's Fashion",         body: "Considered basics, tailoring and premium streetwear with strong AOV." },
+      { id: "streetwear",          name: "Streetwear & Sportswear", body: "Drop-driven brands using TikTok, waitlists and hype-loop launches." },
+      { id: "luxury-fashion",      name: "Luxury Fashion",        body: "High-consideration paid growth with polished creative and Google brand defence." },
+      { id: "footwear-accessories", name: "Footwear & Accessories", body: "Cross-sell engines, Google Shopping and lifecycle sizing flows." },
+      { id: "kids-modest-fashion", name: "Kids & Modest Fashion",  body: "Community-led paid social and lifecycle marketing tuned to purchase cycles." },
     ],
     buyerPsychology: [
       { title: "Fit anxiety is #1 blocker", body: "Size charts, model-on-me imagery and video try-on lift PDP conversion 15–25%." },
