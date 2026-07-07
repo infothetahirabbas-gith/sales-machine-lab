@@ -31,7 +31,7 @@ export const Route = createFileRoute("/services/analytics")({
       { title: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
       { name: "description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores — so your ad spend decisions are based on real data, not guesswork." },
       { property: "og:title", content: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
-      { property: "og:description", content: "GA4, Meta CAPI and server-side tracking for UK ecommerce. Clean attribution, dashboards and insights that drive real growth decisions." },
+      { property: "og:description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores — so your ad spend decisions are based on real data, not guesswork." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
     ],
