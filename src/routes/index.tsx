@@ -158,7 +158,23 @@ function Home() {
                 </div>
                 <span key={`b-${dash.key}`} className="text-foreground font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
               </div>
-              <GrowthChart key={dash.key} className="w-full h-auto" variant={dash.key} />
+              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+                <SafeImg
+                  src={dash.img}
+                  alt={dash.alt}
+                  width={900}
+                  height={560}
+                  loading="eager"
+                  fetchPriority="high"
+                  skeleton
+                  brandOverlay
+                  className="w-full h-56 md:h-64 object-cover"
+                  wrapperClassName="w-full h-56 md:h-64"
+                />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                  {dash.key}
+                </div>
+              </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {dash.metrics.map((m)=>(
                   <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-accent/10 hover:-translate-y-0.5" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
