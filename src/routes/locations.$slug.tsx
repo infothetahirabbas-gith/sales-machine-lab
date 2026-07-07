@@ -222,11 +222,21 @@ function LocationPage() {
     { title: "Report & Iterate", body: `Weekly Loom updates, monthly strategy calls and a live dashboard — no reporting theatre.` },
   ];
 
-  const industries = [
-    "Fashion & Apparel", "Beauty & Skincare", "Health & Supplements", "Home & Furniture",
-    "Food & Beverage", "Jewellery & Accessories", "Fitness & Sports", "Baby & Kids",
-    "Pet Products", "Tech & Gadgets", "Sustainable Brands", "Premium & Luxury",
+  const industries: { name: string; emoji: string; tint: string }[] = [
+    { name: "Fashion & Apparel",      emoji: "👗", tint: "from-pink-500/15 to-rose-500/5   text-pink-600" },
+    { name: "Beauty & Skincare",      emoji: "💄", tint: "from-fuchsia-500/15 to-pink-500/5 text-fuchsia-600" },
+    { name: "Health & Supplements",   emoji: "🌿", tint: "from-emerald-500/15 to-teal-500/5 text-emerald-600" },
+    { name: "Home & Furniture",       emoji: "🛋️", tint: "from-amber-500/15 to-orange-500/5 text-amber-700" },
+    { name: "Food & Beverage",        emoji: "🍫", tint: "from-orange-500/15 to-red-500/5   text-orange-600" },
+    { name: "Jewellery & Accessories",emoji: "💎", tint: "from-indigo-500/15 to-violet-500/5 text-indigo-600" },
+    { name: "Fitness & Sports",       emoji: "🏋️", tint: "from-red-500/15 to-orange-500/5   text-red-600" },
+    { name: "Baby & Kids",            emoji: "🧸", tint: "from-sky-500/15 to-cyan-500/5     text-sky-600" },
+    { name: "Pet Products",           emoji: "🐾", tint: "from-yellow-500/15 to-amber-500/5 text-yellow-700" },
+    { name: "Tech & Gadgets",         emoji: "🎧", tint: "from-slate-500/15 to-zinc-500/5   text-slate-700" },
+    { name: "Sustainable Brands",     emoji: "♻️", tint: "from-lime-500/15 to-green-500/5   text-lime-700" },
+    { name: "Premium & Luxury",       emoji: "👑", tint: "from-amber-500/15 to-yellow-500/5 text-amber-700" },
   ];
+
 
   const tech = [
     "Shopify Plus", "WooCommerce", "Klaviyo", "Meta Ads", "Google Ads", "TikTok Ads",
