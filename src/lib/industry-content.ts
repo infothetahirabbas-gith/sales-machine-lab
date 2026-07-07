@@ -566,11 +566,7 @@ export function industryContentFor(slug: string, name: string): IndustryContent 
   return {
     hero: `${name} growth built for UK DTC.`,
     vibe: `We install the same growth engine across ${name.toLowerCase()} brands — creative, media, CRO and retention as one system.`,
-    images: {
-      hero: u("photo-1454165804606-c3d57bc86b40"),
-      buyers: u("photo-1483985988355-763728e1935b"),
-      ...COMMON,
-    },
+    images: imgs("fashion-apparel"),
     categories: [],
     buyerPsychology: [],
     painPoints: [],
