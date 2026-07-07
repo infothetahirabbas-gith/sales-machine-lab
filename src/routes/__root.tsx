@@ -168,6 +168,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RouteProgressBar />
       <Outlet />
       <ClientOnly fallback={null}>
         {deferredReady ? (
