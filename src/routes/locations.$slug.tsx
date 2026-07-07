@@ -11,7 +11,7 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
-import { contentFor, whatsappUrl } from "../lib/location-content";
+import { contentFor, imageSeoProps, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
 import type { FAQ } from "../lib/seo";
 
 export const Route = createFileRoute("/locations/$slug")({
@@ -31,11 +31,14 @@ export const Route = createFileRoute("/locations/$slug")({
     const kw = loc
       ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO ${loc.city}, digital marketing ${loc.city}, PPC ${loc.city}, Meta ads ${loc.city}, ecommerce experts ${loc.region}`
       : "ecommerce agency UK";
+    const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { name: "keywords", content: kw },
+        ...(loc ? [{ name: "geo.placename", content: loc.city }, { name: "geo.region", content: loc.region }] : []),
+        ...(geo ? [{ name: "geo.position", content: `${geo.latitude};${geo.longitude}` }, { name: "ICBM", content: `${geo.latitude}, ${geo.longitude}` }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
@@ -158,7 +161,7 @@ function LocationPage() {
           </div>
           <Reveal delay={2}>
             <div className="relative">
-              <img src={IMG.hero} alt={`Ecommerce agency serving ${city} DTC brands`}
+              <img src={IMG.hero} {...imageSeoProps(loc.slug, city, "hero")}
                 className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" width={1600} height={1067} />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
@@ -207,7 +210,7 @@ function LocationPage() {
       <Section eyebrow={`Why ${city}`} title={`${city} is a smart place to scale ecommerce`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.skyline} alt={`${city} skyline — ecommerce agency city guide`} loading="lazy" width={1600} height={900}
+            <img src={IMG.skyline} {...imageSeoProps(loc.slug, city, "skyline")} loading="lazy" width={1600} height={900}
               className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
@@ -267,7 +270,7 @@ function LocationPage() {
       {/* 8. PAID ADS */}
       <Section eyebrow="Paid Media" title={`Meta, Google & TikTok Ads for ${city} brands`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.ads} alt={`Paid ads dashboard for ${city} ecommerce`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.ads} {...imageSeoProps(loc.slug, city, "ads")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Our senior media buyers manage 8-figure annual ad spend for {city} DTC brands. Every campaign is built to a blended profit target, not a platform ROAS vanity metric.</p>
             <ul className="mt-6 space-y-3">
@@ -300,14 +303,14 @@ function LocationPage() {
               <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
             </div>
           </div>
-          <Reveal><img src={IMG.seo} alt={`SEO strategy for ${city} ecommerce brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
+          <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
       </Section>
 
       {/* 10. SHOPIFY */}
       <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.shopify} alt={`Shopify Plus build for ${city} brand`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
@@ -335,14 +338,14 @@ function LocationPage() {
               { title: "Launch & measure", body: "Statistically valid A/B tests with revenue-level significance." },
             ]} />
           </div>
-          <Reveal><img src={IMG.cro} alt={`CRO testing for ${city} ecommerce brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 12. EMAIL */}
       <Section eyebrow="Retention" title={`Klaviyo email & SMS for ${city} DTC`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.email} alt={`Klaviyo email automations for ${city} DTC brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -368,14 +371,14 @@ function LocationPage() {
             </div>
             <Link to="/services/creative" className="btn btn-primary mt-8">Creative services <ArrowRight className="w-4 h-4" /></Link>
           </div>
-          <Reveal><img src={IMG.creative} alt={`Creative studio for ${city} DTC ads`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 14. ANALYTICS */}
       <Section eyebrow="Analytics" title={`Attribution & analytics for ${city} founders`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.analytics} alt={`Analytics dashboard for ${city} ecommerce`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV — dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
             <ul className="mt-6 space-y-3">
@@ -421,7 +424,7 @@ function LocationPage() {
                 <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
                 <p className="text-ink flex-1">"{t.quote}"</p>
                 <div className="mt-5 flex items-center gap-3">
-                  <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} founder`} loading="lazy" width={500} height={500} className="w-11 h-11 rounded-full object-cover" />
+                  <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover" />
                   <div><div className="font-semibold text-ink text-sm">{t.name}</div><div className="text-xs text-muted-foreground">{t.role}</div></div>
                 </div>
               </div>
@@ -434,7 +437,7 @@ function LocationPage() {
       <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
-            <img src={IMG.caseStudy} alt={`Case study from ${city} ecommerce brand`} loading="lazy" width={1600} height={900} className="w-full h-[420px] object-cover" />
+            <img src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" width={1600} height={900} className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{C.caseStudy.category}</div>
@@ -485,7 +488,7 @@ function LocationPage() {
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.meeting} alt={`Strategy call with ${city} ecommerce team`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
+            <img src={IMG.meeting} {...imageSeoProps(loc.slug, city, "meeting")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
             {[
