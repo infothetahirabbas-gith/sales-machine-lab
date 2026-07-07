@@ -626,8 +626,11 @@ function IndustryPage() {
                   <div className="text-xs text-muted-foreground">Time to scale</div>
                 </div>
               </div>
-              <div className="mt-6 flex gap-3">
-                <Link to="/case-studies" className="btn btn-primary">See all case studies <ArrowRight className="w-4 h-4" /></Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/case-studies" className="btn btn-primary hover-scale">See all case studies <ArrowRight className="w-4 h-4" /></Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57]" aria-label={`Chat about ${ind.name} case studies on WhatsApp`}>
+                  <WaIcon className="w-4 h-4" /> Chat on WhatsApp
+                </a>
               </div>
             </div>
           </div>
