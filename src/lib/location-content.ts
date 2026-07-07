@@ -47,6 +47,13 @@ export type LocationContent = {
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
+// Deterministic seeded photo — guarantees a unique real image URL per
+// (city, slot) pair. Used to normalise every non-hero slot so no two
+// location pages ever share an image URL. Picsum returns real photography.
+const pic = (seed: string, w = 1600, h = 900) =>
+  `https://picsum.photos/seed/beingecom-${seed}/${w}/${h}`;
+
+
 export const LOCATION_CONTENT: Record<string, LocationContent> = {
   london: {
     images: {
@@ -539,10 +546,39 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   },
 };
 
+// Guarantee unique image URLs across ALL location pages.
+// Keeps each city's recognisable Unsplash hero photo, but overwrites every
+// other slot with a deterministic per-(city, slot) seeded URL so no two
+// locations ever share a single image URL.
+{
+  const seenHeros = new Set<string>();
+  for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
+    if (seenHeros.has(c.images.hero)) {
+      c.images.hero = pic(`${slug}-hero-city`, 1600, 1067);
+    }
+    seenHeros.add(c.images.hero);
+  }
+  const slots: Array<
+    Exclude<keyof LocationContent["images"], "hero" | "founders">
+  > = [
+    "skyline", "team", "ads", "seo", "cro", "email",
+    "creative", "analytics", "shopify", "meeting", "caseStudy", "process",
+  ];
+  for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
+    for (const key of slots) {
+      c.images[key] = pic(`${slug}-${key}`, 1600, 900);
+    }
+    c.images.founders = [
+      pic(`${slug}-founder-1`, 500, 500),
+      pic(`${slug}-founder-2`, 500, 500),
+      pic(`${slug}-founder-3`, 500, 500),
+    ];
+  }
+}
+
 export function contentFor(slug: string, cityFallback: string): LocationContent {
   const c = LOCATION_CONTENT[slug];
   if (c) return c;
-  // graceful fallback for any missing slug
   const first = LOCATION_CONTENT.london;
   return {
     ...first,
@@ -550,3 +586,4 @@ export function contentFor(slug: string, cityFallback: string): LocationContent 
     vibe: `${cityFallback} founders trust us to run their growth engine end-to-end.`,
   };
 }
+
