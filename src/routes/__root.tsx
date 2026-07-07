@@ -104,10 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "BeingEcom" },
       { name: "twitter:title", content: "BeingEcom - Ecommerce Growth System for Shopify & WooCommerce" },
       { name: "twitter:description", content: "We turn struggling Shopify & WooCommerce stores into scalable revenue machines with ads, CRO, SEO, and automation." },
-      { property: "og:image", content: "https://beingecom.com/og-image.png" },
-      { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
-      { property: "og:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
-      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
     ],
     links: [

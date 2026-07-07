@@ -33,7 +33,7 @@ function Terms() {
           <h2>Governing law</h2>
           <p>These terms are governed by the laws of England and Wales.</p>
           <h2>Contact</h2>
-          <p><a href="mailto:hello@beingecom.com">hello@beingecom.com</a></p>
+          <p><a href="mailto:info@beingecom.com">info@beingecom.com</a></p>
         </div>
       </Section>
     </PageLayout>

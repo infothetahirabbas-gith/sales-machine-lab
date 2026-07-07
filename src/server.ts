@@ -25,6 +25,35 @@ function brandedErrorResponse(): Response {
   });
 }
 
+function canonicalRedirect(request: Request): Response | null {
+  const url = new URL(request.url);
+  const host = url.hostname.toLowerCase();
+  const legacyPublishHost = ["sales-machine-lab", "lovable", "app"].join(".");
+  const shouldCanonicalizeHost = host === "www.beingecom.com" || host === legacyPublishHost;
+  const shouldNormalizePath = shouldCanonicalizeHost || host === "beingecom.com";
+  const isPagePath = !/\.[a-z0-9]{2,8}$/i.test(url.pathname);
+  let changed = false;
+
+  if (shouldCanonicalizeHost) {
+    url.protocol = "https:";
+    url.hostname = "beingecom.com";
+    changed = true;
+  }
+
+  if (shouldNormalizePath && isPagePath && url.pathname.length > 1 && url.pathname.endsWith("/")) {
+    url.pathname = url.pathname.replace(/\/+$/, "");
+    changed = true;
+  }
+
+  if (shouldNormalizePath && isPagePath && /[A-Z]/.test(url.pathname)) {
+    url.pathname = url.pathname.toLowerCase();
+    changed = true;
+  }
+
+  if (!changed) return null;
+  return new Response(null, { status: 301, headers: { location: url.toString() } });
+}
+
 function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boolean {
   let payload: unknown;
   try {
@@ -69,6 +98,8 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const redirect = canonicalRedirect(request);
+      if (redirect) return redirect;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       const normalized = await normalizeCatastrophicSsrResponse(response);

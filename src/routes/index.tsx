@@ -38,7 +38,11 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
+      { property: "og:image", content: "https://beingecom.com/og-image.png" },
+      { property: "og:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
+      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
