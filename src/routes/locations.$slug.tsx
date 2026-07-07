@@ -565,10 +565,29 @@ function LocationPage() {
 
       {/* 16. INDUSTRIES */}
       <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds — here's where we've shipped the most wins." alt>
-        <div className="flex flex-wrap gap-3">
-          {industries.map(x => <Pill key={x}>{x}</Pill>)}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {industries.map((ind, i) => (
+            <Reveal key={ind.name} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
+              <div
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${ind.tint} p-4 sm:p-5 flex items-center gap-3 sm:gap-4 card-hover cursor-default`}
+              >
+                <span
+                  className="shrink-0 grid place-items-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white shadow-sm text-2xl sm:text-[26px] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
+                  aria-hidden="true"
+                >
+                  {ind.emoji}
+                </span>
+                <div className="min-w-0">
+                  <div className="font-bold text-ink text-sm sm:text-base leading-tight truncate">{ind.name}</div>
+                  <div className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 truncate">{city} DTC & ecommerce</div>
+                </div>
+                <span className="pointer-events-none absolute -right-6 -bottom-6 w-20 h-20 rounded-full bg-white/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
+
 
       {/* 17. TECH STACK */}
       <Section eyebrow="Tech stack" title={`The tools we run for ${city} clients`}>
