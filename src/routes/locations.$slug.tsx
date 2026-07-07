@@ -2,8 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowRight, MapPin, CheckCircle2, TrendingUp, Target, Zap, Users,
   BarChart3, Rocket, ShieldCheck, Sparkles, Star, Clock, Award,
-  Phone, Mail, Calendar, LineChart, ShoppingBag, Search, Megaphone,
-  Layers, PieChart, Globe2, Handshake, Play,
+  Phone, Calendar, LineChart, ShoppingBag, Search, Megaphone,
+  Layers, PieChart, Globe2, Handshake, Play, MessageCircle,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
@@ -11,6 +11,7 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
+import { contentFor, whatsappUrl } from "../lib/location-content";
 import type { FAQ } from "../lib/seo";
 
 export const Route = createFileRoute("/locations/$slug")({
@@ -52,36 +53,19 @@ export const Route = createFileRoute("/locations/$slug")({
   ),
 });
 
-// Curated Unsplash imagery — stable, free to hot-link.
-const IMG = {
-  hero: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1600&q=80",
-  skyline: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80",
-  team: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
-  strategy: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-  ads: "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=1600&q=80",
-  seo: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
-  cro: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-  email: "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&w=1600&q=80",
-  creative: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80",
-  analytics: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
-  shopify: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
-  meeting: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
-  founder: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-  founder2: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80",
-  founder3: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
-  process: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
-};
-
 function LocationPage() {
   const { loc } = Route.useLoaderData();
   const city = loc.city;
+  const C = contentFor(loc.slug, city);
+  const IMG = C.images;
+  const WA = whatsappUrl(city);
 
   const services = [
     { icon: Megaphone, title: `Paid Ads in ${city}`, desc: `Meta, Google, TikTok & YouTube ads managed by senior media buyers for ${city} DTC brands.`, kw: `PPC agency ${city}` },
     { icon: Search, title: `SEO for ${city} Brands`, desc: `Technical, on-page and local SEO to rank ${city} stores for high-intent buyer keywords.`, kw: `SEO agency ${city}` },
     { icon: ShoppingBag, title: `Shopify Development`, desc: `Shopify Plus builds, migrations & CRO tuned for ${city} ecommerce conversion rates.`, kw: `Shopify experts ${city}` },
     { icon: LineChart, title: `CRO & UX`, desc: `Landing page, PDP and checkout optimisation for ${city} stores leaking revenue.`, kw: `CRO ${city}` },
-    { icon: Mail, title: `Email & SMS`, desc: `Klaviyo flows, campaigns and lifecycle marketing driving 30–45% of revenue.`, kw: `Klaviyo agency ${city}` },
+    { icon: MessageCircle, title: `Email & SMS`, desc: `Klaviyo flows, campaigns and lifecycle marketing driving 30–45% of revenue.`, kw: `Klaviyo agency ${city}` },
     { icon: Sparkles, title: `Creative Studio`, desc: `UGC, static, motion & video ad creative built in-house for ${city} brands.`, kw: `creative agency ${city}` },
     { icon: PieChart, title: `Analytics & Attribution`, desc: `GA4, server-side tracking and blended CAC/ROAS dashboards you actually understand.`, kw: `analytics ${city}` },
     { icon: Zap, title: `AI Automation`, desc: `AI-driven workflows for support, ops and ad iteration built for lean ${city} teams.`, kw: `AI agency ${city}` },
@@ -91,7 +75,7 @@ function LocationPage() {
     { end: 120, suffix: "+", label: "UK DTC brands scaled" },
     { end: 47, suffix: "M+", prefix: "£", label: "Client revenue driven" },
     { end: 4.9, decimals: 1, suffix: "/5", label: "Average client rating" },
-    { end: 12, suffix: "×", label: "Best ROAS achieved" },
+    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Best ROAS in ${city}` },
   ];
 
   const process = [
@@ -114,20 +98,22 @@ function LocationPage() {
     "GA4", "Triple Whale", "Northbeam", "Recharge", "Yotpo", "Gorgias",
   ];
 
-  const testimonials = [
-    { name: "Sophie R.", role: `Founder, ${city} beauty brand`, img: IMG.founder, quote: `We tripled monthly revenue in 6 months. The ${city} team feel like an in-house growth department, not an agency.`, rating: 5 },
-    { name: "James P.", role: `CEO, Shopify Plus apparel`, img: IMG.founder2, quote: `Finally an agency that speaks P&L, not vanity metrics. Our blended ROAS is up 62% since onboarding.`, rating: 5 },
-    { name: "Aisha K.", role: `Marketing Lead, DTC supplements`, img: IMG.founder3, quote: `Their creative team alone is worth the retainer. Weekly UGC batches keep our ${city} Meta account fresh.`, rating: 5 },
-  ];
-
   const faqs: FAQ[] = [
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
     { q: `How much does an ecommerce agency in ${city} cost?`, a: `Our ${city} retainers start at £2,500/mo for focused single-channel work and scale to £10k+/mo for full growth-engine engagements. We publish transparent pricing on our pricing page.` },
     { q: `Which platforms do you work with?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
     { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO and retention gains follow in months 3–6.` },
     { q: `Do you offer a free audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, analytics and email — no obligation, no sales pitch.` },
-    { q: `Do you work with new or pre-revenue brands?`, a: `We specialise in brands doing £30k/mo+ already. If you're pre-launch, our store development team can build the foundation first.` },
+    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly — usually a reply within an hour on UK business days.` },
   ];
+
+  const WhatsAppBtn = ({ label = `WhatsApp ${city} team` }: { label?: string }) => (
+    <a href={WA} target="_blank" rel="noreferrer noopener"
+      className="btn hover-scale"
+      style={{ background: "#25D366", color: "#0b3d1f", fontWeight: 700 }}>
+      <MessageCircle className="w-4 h-4" /> {label}
+    </a>
+  );
 
   return (
     <PageLayout>
@@ -149,23 +135,21 @@ function LocationPage() {
               </h1>
             </Reveal>
             <Reveal delay={2}>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl">{loc.intro}</p>
+              <p className="mt-6 text-lg text-muted-foreground max-w-xl">{C.heroTagline} {loc.intro}</p>
             </Reveal>
             <Reveal delay={2}>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/contact" className="btn btn-primary btn-shimmer hover-scale">
                   Book Free {city} Strategy Call <ArrowRight className="w-4 h-4" />
                 </Link>
+                <WhatsAppBtn label={`Chat on WhatsApp`} />
                 <Link to="/audit" className="btn btn-ghost border border-border hover-scale">
                   <Play className="w-4 h-4" /> Get Free Audit
-                </Link>
-                <Link to="/case-studies" className="btn btn-ghost border border-border hover-scale">
-                  See Case Studies
                 </Link>
               </div>
             </Reveal>
             <Reveal delay={3}>
-              <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
+              <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground flex-wrap">
                 <div className="flex items-center gap-2"><Star className="w-4 h-4 fill-primary text-primary" /> 4.9/5 rating</div>
                 <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary" /> Shopify Partner</div>
                 <div className="flex items-center gap-2"><Award className="w-4 h-4 text-primary" /> Meta Business Partner</div>
@@ -174,11 +158,11 @@ function LocationPage() {
           </div>
           <Reveal delay={2}>
             <div className="relative">
-              <img src={IMG.hero} alt={`Ecommerce team working with brands in ${city}`}
-                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" />
+              <img src={IMG.hero} alt={`Ecommerce agency serving ${city} DTC brands`}
+                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" width={1600} height={1067} />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
-                <div><div className="text-2xl font-bold text-ink"><CountUp end={347} suffix="%" /></div><div className="text-xs text-muted-foreground">Avg. revenue lift</div></div>
+                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-border animate-fade-in">
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary"><span className="w-2 h-2 rounded-full bg-primary pulse-dot" /> LIVE {city} clients</div>
@@ -189,7 +173,7 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* 2. LOGO BAR / TRUST */}
+      {/* 2. TRUST BAR */}
       <section className="border-y border-border bg-secondary/40 py-8">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-6 text-sm text-muted-foreground">
@@ -204,7 +188,7 @@ function LocationPage() {
       </section>
 
       {/* 3. STATS */}
-      <Section eyebrow={`${city} results`} title={`Numbers ${city} founders care about`} intro={`Real outcomes from real brands scaling across ${city} and ${loc.region}.`} center>
+      <Section eyebrow={`${city} results`} title={`Numbers ${city} founders care about`} intro={C.vibe} center>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s) => (
             <Reveal key={s.label}>
@@ -220,31 +204,38 @@ function LocationPage() {
       </Section>
 
       {/* 4. WHY CITY */}
-      <Section eyebrow={`Why ${city}`} title={`${city} is one of the UK's fastest ecommerce markets`} alt>
+      <Section eyebrow={`Why ${city}`} title={`${city} is a smart place to scale ecommerce`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.skyline} alt={`${city} skyline representing ecommerce growth`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
+            <img src={IMG.skyline} alt={`${city} skyline — ecommerce agency city guide`} loading="lazy" width={1600} height={900}
+              className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
-            {[
-              { icon: Globe2, t: `A ${loc.region} customer base ready to buy online`, b: `${city} shoppers over-index on mobile commerce and repeat purchase behaviour.` },
-              { icon: Users, t: `Deep talent pool of ${city} operators`, b: `We hire senior ex-brand marketers — no juniors on your account.` },
-              { icon: Rocket, t: `Rising DTC scene`, b: `${city} is home to a new wave of 7- and 8-figure Shopify Plus brands scaling nationally.` },
-              { icon: Handshake, t: `In-person strategy days`, b: `We fly to ${city} quarterly for workshops, offsites and creative shoots with your team.` },
-            ].map((f, i) => (
-              <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-                <div className="flex gap-4 p-5 card-surface card-hover">
-                  <f.icon className="w-6 h-6 text-primary shrink-0" />
-                  <div><h4 className="font-semibold text-ink">{f.t}</h4><p className="text-sm text-muted-foreground mt-1">{f.b}</p></div>
-                </div>
-              </Reveal>
-            ))}
+            {C.whyCity.map((f, i) => {
+              const Icon = [Globe2, Users, Rocket, Handshake][i % 4];
+              return (
+                <Reveal key={f.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                  <div className="flex gap-4 p-5 card-surface card-hover">
+                    <Icon className="w-6 h-6 text-primary shrink-0" />
+                    <div><h4 className="font-semibold text-ink">{f.title}</h4><p className="text-sm text-muted-foreground mt-1">{f.body}</p></div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </Section>
 
-      {/* 5. SERVICES GRID */}
-      <Section eyebrow="Services" title={`Full-stack ecommerce services in ${city}`} intro={`Every channel you need to scale profitably — under one senior team in ${city}.`}>
+      {/* 5. NEIGHBOURHOODS */}
+      <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`}>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {C.neighbourhoods.map(n => <Pill key={n}>{n}</Pill>)}
+        </div>
+        <p className="text-muted-foreground max-w-3xl">From founders in {C.neighbourhoods[0]} to warehouses in {C.neighbourhoods[C.neighbourhoods.length - 1]}, we work with ecommerce brands across every corner of {city} and {loc.region}.</p>
+      </Section>
+
+      {/* 6. SERVICES GRID */}
+      <Section eyebrow="Services" title={`Full-stack ecommerce services in ${city}`} intro={`Every channel you need to scale profitably — under one senior team in ${city}.`} alt>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
@@ -259,8 +250,8 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 6. HIGHLIGHTS (existing) */}
-      <Section eyebrow={`What we do in ${city}`} title={`Your ${city} growth engine`} alt>
+      {/* 7. HIGHLIGHTS */}
+      <Section eyebrow={`What we do in ${city}`} title={`Your ${city} growth engine`}>
         <div className="grid md:grid-cols-2 gap-4 max-w-5xl">
           {loc.highlights.map((h: string, i: number) => (
             <Reveal key={h} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -273,10 +264,10 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 7. PAID ADS DEEP DIVE */}
-      <Section eyebrow="Paid Media" title={`Meta, Google & TikTok Ads for ${city} brands`}>
+      {/* 8. PAID ADS */}
+      <Section eyebrow="Paid Media" title={`Meta, Google & TikTok Ads for ${city} brands`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.ads} alt={`Paid ads dashboard for ${city} ecommerce`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.ads} alt={`Paid ads dashboard for ${city} ecommerce`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Our senior media buyers manage 8-figure annual ad spend for {city} DTC brands. Every campaign is built to a blended profit target, not a platform ROAS vanity metric.</p>
             <ul className="mt-6 space-y-3">
@@ -286,13 +277,16 @@ function LocationPage() {
                 </Reveal>
               ))}
             </ul>
-            <Link to="/services/paid-ads" className="btn btn-primary mt-8">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/services/paid-ads" className="btn btn-primary">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label="Ask about paid ads" />
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* 8. SEO DEEP DIVE */}
-      <Section eyebrow="Search" title={`SEO agency in ${city} that ranks stores fast`} alt>
+      {/* 9. SEO */}
+      <Section eyebrow="Search" title={`SEO agency in ${city} that ranks stores fast`}>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="order-2 lg:order-1">
             <p className="text-lg text-muted-foreground">We combine technical SEO, product-led content and authority link building to grow organic revenue for {city} brands compounding month over month.</p>
@@ -301,19 +295,19 @@ function LocationPage() {
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Target className="w-4 h-4 text-primary" />{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex gap-3 flex-wrap">
               <Link to="/services/seo" className="btn btn-primary">SEO services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
             </div>
           </div>
-          <Reveal><img src={IMG.seo} alt={`SEO strategy for ${city} ecommerce`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
+          <Reveal><img src={IMG.seo} alt={`SEO strategy for ${city} ecommerce brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
       </Section>
 
-      {/* 9. SHOPIFY / DEV */}
-      <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`}>
+      {/* 10. SHOPIFY */}
+      <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.shopify} alt={`Shopify build for ${city} brand`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.shopify} alt={`Shopify Plus build for ${city} brand`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
@@ -321,7 +315,7 @@ function LocationPage() {
                 <div key={x} className="p-4 rounded-xl border border-border bg-white text-sm font-medium text-ink card-hover">{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex gap-3 flex-wrap">
               <Link to="/services/store-development/shopify" className="btn btn-primary">Shopify services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/store-development/woocommerce" className="btn btn-ghost border border-border">WooCommerce</Link>
             </div>
@@ -329,8 +323,8 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 10. CRO */}
-      <Section eyebrow="CRO" title={`Conversion optimisation for ${city} stores`} alt>
+      {/* 11. CRO */}
+      <Section eyebrow="CRO" title={`Conversion optimisation for ${city} stores`}>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <p className="text-lg text-muted-foreground">Turn more of your existing {city} traffic into revenue. We run structured A/B testing across PDPs, landing pages and checkout to lift AOV and CVR month over month.</p>
@@ -341,26 +335,29 @@ function LocationPage() {
               { title: "Launch & measure", body: "Statistically valid A/B tests with revenue-level significance." },
             ]} />
           </div>
-          <Reveal><img src={IMG.cro} alt={`CRO testing for ${city} ecommerce`} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.cro} alt={`CRO testing for ${city} ecommerce brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
         </div>
       </Section>
 
-      {/* 11. EMAIL / RETENTION */}
-      <Section eyebrow="Retention" title={`Klaviyo email & SMS for ${city} DTC`}>
+      {/* 12. EMAIL */}
+      <Section eyebrow="Retention" title={`Klaviyo email & SMS for ${city} DTC`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.email} alt={`Klaviyo automations for ${city}`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.email} alt={`Klaviyo email automations for ${city} DTC brands`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
-            <p className="text-lg text-muted-foreground">Email and SMS drive 30–45% of revenue for our {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
+            <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["Welcome flow", "Abandoned cart", "Browse abandonment", "Post-purchase", "Winback", "VIP loyalty", "SMS campaigns", "Segmentation"].map(x => <Pill key={x}>{x}</Pill>)}
             </div>
-            <Link to="/services/email-sms" className="btn btn-primary mt-8">Email & SMS <ArrowRight className="w-4 h-4" /></Link>
+            <div className="mt-8 flex gap-3 flex-wrap">
+              <Link to="/services/email-sms" className="btn btn-primary">Email & SMS <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label="Ask about Klaviyo" />
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* 12. CREATIVE STUDIO */}
-      <Section eyebrow="Creative" title={`In-house creative studio serving ${city}`} alt>
+      {/* 13. CREATIVE */}
+      <Section eyebrow="Creative" title={`In-house creative studio serving ${city}`}>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <p className="text-lg text-muted-foreground">Static, motion, UGC and video ad creative built for the scroll — batches shipped weekly for your {city} Meta and TikTok accounts.</p>
@@ -371,14 +368,14 @@ function LocationPage() {
             </div>
             <Link to="/services/creative" className="btn btn-primary mt-8">Creative services <ArrowRight className="w-4 h-4" /></Link>
           </div>
-          <Reveal><img src={IMG.creative} alt={`Creative studio ${city}`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.creative} alt={`Creative studio for ${city} DTC ads`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
       </Section>
 
-      {/* 13. ANALYTICS */}
-      <Section eyebrow="Analytics" title={`Attribution & analytics for ${city} founders`}>
+      {/* 14. ANALYTICS */}
+      <Section eyebrow="Analytics" title={`Attribution & analytics for ${city} founders`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.analytics} alt={`Analytics dashboard for ${city} ecommerce`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.analytics} alt={`Analytics dashboard for ${city} ecommerce`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV — dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
             <ul className="mt-6 space-y-3">
@@ -390,20 +387,20 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 14. PROCESS */}
-      <Section eyebrow="Process" title={`How we scale ${city} ecommerce brands`} intro="A repeatable 6-step system built from 120+ UK engagements." alt>
+      {/* 15. PROCESS */}
+      <Section eyebrow="Process" title={`How we scale ${city} ecommerce brands`} intro="A repeatable 6-step system built from 120+ UK engagements.">
         <NumberedList items={process} />
       </Section>
 
-      {/* 15. INDUSTRIES */}
-      <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds — here's where we've shipped the most wins.">
+      {/* 16. INDUSTRIES */}
+      <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds — here's where we've shipped the most wins." alt>
         <div className="flex flex-wrap gap-3">
           {industries.map(x => <Pill key={x}>{x}</Pill>)}
         </div>
       </Section>
 
-      {/* 16. TECH STACK */}
-      <Section eyebrow="Tech stack" title={`The tools we run for ${city} clients`} alt>
+      {/* 17. TECH STACK */}
+      <Section eyebrow="Tech stack" title={`The tools we run for ${city} clients`}>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {tech.map((t, i) => (
             <Reveal key={t} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
@@ -415,16 +412,16 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 17. TESTIMONIALS */}
-      <Section eyebrow="Loved by founders" title={`What ${city} clients say`}>
+      {/* 18. TESTIMONIALS */}
+      <Section eyebrow="Loved by founders" title={`What ${city} clients say`} alt>
         <div className="grid md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
+          {C.testimonials.map((t, i) => (
             <Reveal key={t.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <div className="card-surface card-hover p-6 h-full flex flex-col">
-                <div className="flex gap-1 mb-3">{Array.from({ length: t.rating }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
                 <p className="text-ink flex-1">"{t.quote}"</p>
                 <div className="mt-5 flex items-center gap-3">
-                  <img src={t.img} alt={t.name} className="w-11 h-11 rounded-full object-cover" />
+                  <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} founder`} loading="lazy" width={500} height={500} className="w-11 h-11 rounded-full object-cover" />
                   <div><div className="font-semibold text-ink text-sm">{t.name}</div><div className="text-xs text-muted-foreground">{t.role}</div></div>
                 </div>
               </div>
@@ -433,28 +430,32 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 18. CASE STUDY TEASER */}
-      <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`} alt>
+      {/* 19. CASE STUDY */}
+      <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
-            <img src={IMG.strategy} alt={`Case study ${city}`} className="w-full h-[420px] object-cover" />
+            <img src={IMG.caseStudy} alt={`Case study from ${city} ecommerce brand`} loading="lazy" width={1600} height={900} className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{city} · Fashion DTC</div>
-              <h3 className="mt-3 text-2xl md:text-4xl font-bold max-w-2xl">From £42k → £310k monthly revenue in 9 months</h3>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{C.caseStudy.category}</div>
+              <h3 className="mt-3 text-2xl md:text-4xl font-bold max-w-2xl">{C.caseStudy.headline}</h3>
               <div className="mt-6 flex flex-wrap gap-6 text-sm">
-                <div><div className="text-2xl font-bold"><CountUp end={638} suffix="%" /></div><div className="opacity-80">Revenue growth</div></div>
-                <div><div className="text-2xl font-bold"><CountUp end={4.2} decimals={1} suffix="×" /></div><div className="opacity-80">Blended ROAS</div></div>
-                <div><div className="text-2xl font-bold"><CountUp end={52} suffix="%" /></div><div className="opacity-80">Email revenue</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="opacity-80">Revenue growth</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.roas} decimals={1} suffix="×" /></div><div className="opacity-80">Blended ROAS</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.emailPct} suffix="%" /></div><div className="opacity-80">Email revenue</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.months} suffix=" mo" /></div><div className="opacity-80">Timeframe</div></div>
               </div>
-              <Link to="/case-studies" className="btn btn-primary mt-6 inline-flex">Read case studies <ArrowRight className="w-4 h-4" /></Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/case-studies" className="btn btn-primary">Read case studies <ArrowRight className="w-4 h-4" /></Link>
+                <WhatsAppBtn label={`Talk to ${city} team`} />
+              </div>
             </div>
           </div>
         </Reveal>
       </Section>
 
-      {/* 19. PRICING TEASER */}
-      <Section eyebrow="Pricing" title={`Transparent ecommerce agency pricing in ${city}`}>
+      {/* 20. PRICING */}
+      <Section eyebrow="Pricing" title={`Transparent ecommerce agency pricing in ${city}`} alt>
         <div className="grid md:grid-cols-3 gap-5">
           {[
             { name: "Launch", price: "£2,500", desc: `Single-channel focus for smaller ${city} brands.`, features: ["1 growth channel", "Weekly reporting", "Creative refresh", "Slack support"] },
@@ -477,20 +478,21 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 20. LOCAL FAQS */}
+      {/* 21. FAQ */}
       <FaqSection faqs={faqs} title={`FAQs about our ${city} ecommerce`} highlight="agency" intro={`Common questions from ${city} and ${loc.region} founders.`} />
 
-      {/* 21. CONTACT / QUICK FORM */}
+      {/* 22. CONTACT */}
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.meeting} alt={`Strategy call with ${city} ecommerce team`} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
+            <img src={IMG.meeting} alt={`Strategy call with ${city} ecommerce team`} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
             {[
               { icon: Calendar, t: "45-minute strategy call", b: `Live audit of your ${city} store, ads and funnel.` },
               { icon: Clock, t: "No sales pitch", b: "Actionable ideas even if we never work together." },
               { icon: Phone, t: "Direct with senior operators", b: "You'll speak with the people who'd run the account." },
+              { icon: MessageCircle, t: "WhatsApp available", b: `Prefer WhatsApp? Tap below — a senior ${city} operator will reply directly.` },
             ].map((x, i) => (
               <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <div className="flex gap-4 p-5 card-surface card-hover">
@@ -501,13 +503,13 @@ function LocationPage() {
             ))}
             <div className="flex flex-wrap gap-3 pt-2">
               <Link to="/contact" className="btn btn-primary btn-shimmer hover-scale">Book strategy call <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label={`WhatsApp ${city} team`} />
               <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free audit</Link>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* 22. FINAL CTA */}
       <CTA
         heading={`Grow your ${city} ecommerce brand — starting this week`}
         sub={`Join 120+ UK DTC brands scaling with Being Ecom. Free ${city} audit, no commitment.`}
