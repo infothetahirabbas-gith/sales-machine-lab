@@ -58,7 +58,7 @@ export function SafeImg({
         setLoaded(true);
         onError?.(e);
       }}
-      className={`${className} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`.trim()}
+      className={`${className} ${skeleton ? `transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}` : ""}`.trim()}
     />
   );
 
