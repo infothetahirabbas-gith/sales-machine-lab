@@ -103,6 +103,20 @@ export const Route = createFileRoute("/services/seo")({
         { label: "Indexed product pages", before: 122, after: 1840, description: "PDPs + collection pages indexed by Google after schema + crawl fixes." },
       ],
       faqs: FAQ_LIST,
+      heroImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1920&q=80",
+      subServices: [
+        { to: "/services/seo/technical", title: "Technical SEO", body: "Core Web Vitals, indexation, schema and crawl budget rebuilt for Shopify + Woo." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "Category and PDP optimisation, internal linking and content depth that ranks." },
+        { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial link building and digital PR from real UK publishers." },
+        { to: "/services/seo/local", title: "Local SEO", body: "Google Business, local packs and multi-location schema for UK retailers." },
+        { to: "/services/seo/international", title: "International SEO", body: "hreflang, currency routing and multi-region Shopify markets set up right." },
+        { to: "/services/seo/aeo", title: "AEO (AI Search)", body: "Get cited by ChatGPT, Perplexity and Google AI Overviews — the new SERP." },
+      ],
+      relatedServices: [
+        { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn the organic traffic you rank for into orders." },
+        { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and attribution so SEO impact is measurable." },
+        { to: "/services/funnel", title: "Funnels & Landing Pages", body: "High-intent landing pages that convert SEO clicks." },
+      ],
     }} />
   ),
 });
