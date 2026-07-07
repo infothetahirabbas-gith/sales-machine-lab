@@ -498,7 +498,9 @@ function LocationPage() {
             <div className="mt-8 btn-pair">
               <Link to="/services/store-development/shopify" className="btn btn-primary">Shopify services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/store-development/woocommerce" className="btn btn-ghost border border-border">WooCommerce</Link>
+              <WhatsAppBtn label={`Ask about ${city} store build`} />
             </div>
+
           </div>
         </div>
       </Section>
