@@ -648,7 +648,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       "photo-1520390138845-fd2d229dd553", "photo-1554941829-202a0b2403b8",
       "photo-1495707902641-75cac588d2e9", "photo-1554941829-202a0b2403b7",
       "photo-1500051638674-ff996a0ec29e", "photo-1517971071642-34a2d3ecc9cd",
-      "photo-1533228876829-65c94e7b5025", "photo-1487било0-e657796258",
+      "photo-1533228876829-65c94e7b5025", "photo-1493863641943-9b68992a8d07",
     ],
     // Analytics / charts / data dashboards
     analytics: [
