@@ -344,12 +344,14 @@ function Home() {
             <SafeImg
               src={CASE_STUDY_IMG}
               alt="UK Shopify apparel brand product page shown on a laptop — 11.9× revenue case study"
-              loading="lazy"
-              decoding="async"
               width={1200}
               height={800}
+              skeleton
+              brandOverlay
               className="w-full h-56 md:h-64 object-cover rounded-xl"
+              wrapperClassName="w-full h-56 md:h-64 rounded-xl"
             />
+
             <div className="mt-4">
               <GrowthChart className="w-full h-auto" />
             </div>
