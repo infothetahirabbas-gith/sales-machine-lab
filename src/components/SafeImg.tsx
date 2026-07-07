@@ -57,15 +57,26 @@ export function SafeImg({
   className = "",
   loading = "lazy",
   decoding = "async",
+  sizes,
+  srcSet,
   ...rest
 }: Props) {
   const [current, setCurrent] = useState(src);
   const [loaded, setLoaded] = useState(false);
 
+  // Auto-derive srcset for Unsplash images so mobile devices don't pull 1600w JPGs.
+  const autoSrcSet = useMemo(
+    () => srcSet ?? (current === src ? unsplashSrcSet(String(src ?? "")) : undefined),
+    [srcSet, current, src],
+  );
+  const autoSizes = sizes ?? (autoSrcSet ? DEFAULT_SIZES : undefined);
+
   const img = (
     <img
       {...rest}
       src={current}
+      srcSet={autoSrcSet}
+      sizes={autoSizes}
       loading={loading}
       decoding={decoding}
       onLoad={(e) => {
