@@ -29,7 +29,7 @@ export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
     meta: [
       { title: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
-      { name: "description", content: "Klaviyo email and SMS marketing agency in the UK. Lifecycle flows, campaign calendars and segmentation that add 20–35% owned revenue for Shopify brands." },
+      { name: "description", content: "Klaviyo email & SMS flows that recover lost sales and multiply repeat customers for UK Shopify & WooCommerce brands — retention-first, not just campaigns." },
       { property: "og:title", content: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
       { property: "og:description", content: "Klaviyo email and SMS marketing agency in the UK. Lifecycle flows, campaign calendars and segmentation that add 20–35% owned revenue for Shopify brands." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },
