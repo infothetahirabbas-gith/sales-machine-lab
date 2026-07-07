@@ -465,7 +465,7 @@ function IndustryPage() {
           </div>
           <Reveal delay={2}>
             <div className="rounded-3xl overflow-hidden border border-border">
-              <SafeImg src={C.images.process} alt={`${ind.name} growth engine process`} width={1600} height={900} className="w-full h-[360px] object-cover" skeleton brandOverlay />
+              <SafeImg src={C.images.process} alt={`${ind.name} growth engine process`} width={1600} height={900} className="w-full h-[360px] object-cover" brandOverlay loading="eager" />
             </div>
           </Reveal>
         </div>
