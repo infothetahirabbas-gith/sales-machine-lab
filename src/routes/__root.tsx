@@ -18,6 +18,7 @@ import faviconAsset from "../assets/favicon-b.png.asset.json";
 // removes ~significant JS from the initial bundle and keeps LCP fast.
 const WelcomeBanner = lazy(() => import("../components/site/WelcomeBanner"));
 const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
+import { RouteProgressBar } from "../components/site/RouteTransition";
 
 
 

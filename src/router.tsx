@@ -1,6 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import PageSkeleton from "./components/site/PageSkeleton";
 
 export const getRouter = () => {
   const queryClient = new QueryClient({
@@ -25,8 +26,12 @@ export const getRouter = () => {
     defaultPreloadStaleTime: 0,
     // Fire preload immediately on hover/focus for near-zero click latency.
     defaultPreloadDelay: 0,
-    defaultPendingMs: 0,
-    defaultPendingMinMs: 0,
+    // Only show the skeleton if the next route takes >150ms to be ready —
+    // instant/preloaded navigations never flash it. Once shown, keep it up
+    // for at least 300ms so it doesn't blink.
+    defaultPendingMs: 150,
+    defaultPendingMinMs: 300,
+    defaultPendingComponent: PageSkeleton,
   });
 
 
