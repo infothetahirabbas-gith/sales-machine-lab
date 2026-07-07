@@ -13,7 +13,9 @@ import FaqSection from "../components/site/FaqSection";
 import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
+import { SITE_URL } from "../lib/seo";
 import { whatsappForIndustry } from "../lib/whatsapp";
+import { MessageCircle as WaIcon } from "lucide-react";
 
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
