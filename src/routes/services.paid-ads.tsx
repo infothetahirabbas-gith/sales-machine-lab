@@ -105,6 +105,20 @@ export const Route = createFileRoute("/services/paid-ads")({
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
       faqs: FAQ_LIST,
+      heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
+      subServices: [
+        { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta + Instagram scaling with ASC+ and creative velocity." },
+        { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Search, Shopping and PMax engineered for intent capture." },
+        { to: "/services/performance-marketing/tiktok-ads", title: "TikTok Ads", body: "Native UGC + Spark Ads that drive top-funnel virality." },
+        { to: "/services/performance-marketing/instagram-ads", title: "Instagram Ads", body: "Reels, Stories and shopping-first placements." },
+        { to: "/services/performance-marketing/youtube-ads", title: "YouTube Ads", body: "Long-form + shorts for high-consideration DTC." },
+        { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel MER, blended ROAS and full-funnel budgets." },
+      ],
+      relatedServices: [
+        { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product — 3 batches/week." },
+        { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },
+        { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where ad traffic actually turns into revenue." },
+      ],
     }} />
   ),
 });

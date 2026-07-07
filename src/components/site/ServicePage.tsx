@@ -13,6 +13,12 @@ import {
   Shield,
   Zap,
   Star,
+  MessageCircle as WaIcon,
+  Calendar,
+  Package,
+  Wrench,
+  Award,
+  Quote,
 } from "lucide-react";
 import PageLayout from "./PageLayout";
 import { Section, Pill, CTA } from "./Section";
@@ -21,12 +27,17 @@ import GrowthChart from "./GrowthChart";
 import { CountUp } from "../../hooks/useCountUp";
 import RevenueBars, { type Bar } from "./RevenueBars";
 import type { FAQ } from "../../lib/seo";
+import { SafeImg } from "../SafeImg";
+import { whatsappUrl } from "../../lib/whatsapp";
+import { INDUSTRIES } from "../../lib/locations-industries";
 
 export type ServiceConfig = {
   slug: string;
   eyebrow: string;
   heroTitle: string;
   heroSub: string;
+  /** Optional hero image (Unsplash URL). Rendered eagerly for fast LCP. */
+  heroImage?: string;
   problemTitle: string;
   problemBullets: string[];
   whatIsTitle: string;
@@ -47,12 +58,21 @@ export type ServiceConfig = {
     metrics: { label: string; value: string }[];
   };
   ctaTitle?: string;
-  /** Per-service "Why this matters" headline metrics (animated count-up). */
   impactStats?: { value: string; label: string }[];
-  /** Per-service Before vs After benchmark bars with tooltips. */
   metricBars?: Bar[];
-  /** Per-service FAQs — also wire faqJsonLd into the route head for rich results. */
   faqs?: FAQ[];
+  /** Section 17 — sub-service pages this service links out to. */
+  subServices?: { title: string; body: string; to: string }[];
+  /** Section 20 — deliverables you get. Falls back to a smart default. */
+  deliverables?: { title: string; body: string }[];
+  /** Section 21 — tech stack pills. Falls back to sensible defaults. */
+  techStack?: string[];
+  /** Section 22 — pricing tiers. Falls back to Starter/Growth/Scale defaults. */
+  packages?: { tier: string; price: string; body: string; features: string[]; featured?: boolean }[];
+  /** Section 23 — testimonials. Falls back to a rotating default set. */
+  testimonials?: { quote: string; name: string; role: string }[];
+  /** Section 25 — related sibling services (title + href). */
+  relatedServices?: { title: string; body: string; to: string }[];
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
@@ -491,7 +511,255 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </Section>
       )}
 
-      {/* 16. CTA */}
+      {/* 16. HERO SHOWCASE IMAGE — eager load for perceived speed */}
+      {cfg.heroImage && (
+        <Section>
+          <Reveal>
+            <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl group">
+              <SafeImg
+                src={cfg.heroImage}
+                alt={`${cfg.eyebrow} — Being Ecom growth engine`}
+                width={1920}
+                height={900}
+                className="w-full h-[280px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="eager"
+                fetchPriority="high"
+                decoding="sync"
+                brandOverlay
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent text-white">
+                <div className="max-w-2xl">
+                  <div className="text-xs font-bold uppercase tracking-widest text-white/80">{cfg.eyebrow}</div>
+                  <div className="mt-2 text-xl md:text-3xl font-bold leading-tight">One integrated growth engine, executed by senior operators.</div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </Section>
+      )}
+
+      {/* 17. SUB-SERVICES — linked out to child service pages */}
+      {cfg.subServices && cfg.subServices.length > 0 && (
+        <Section eyebrow="Go deeper" title={`Everything inside ${cfg.eyebrow.toLowerCase()}`} alt>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cfg.subServices.map((s, i) => (
+              <Reveal key={s.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <Link to={s.to} className="card-surface card-hover p-6 group block h-full">
+                  <div className="w-11 h-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Layers className="size-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-ink">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.body}</p>
+                  <div className="mt-4 inline-flex items-center gap-1 text-sm text-primary font-semibold group-hover:gap-2 transition-all">
+                    Explore <ArrowRight className="w-4 h-4" />
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 18. WHAT YOU GET — deliverables checklist */}
+      <Section eyebrow="What you get" title="Deliverables in every engagement">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {(cfg.deliverables ?? [
+            { title: "Senior operator on your account", body: "Ex-DTC founders and CMOs — no juniors, ever." },
+            { title: "Weekly Loom performance review", body: "What worked, what failed, what's next — plain English." },
+            { title: "Live Triple Whale dashboard", body: "Real revenue, MER and CAC — not platform fiction." },
+            { title: "3 creative batches per week", body: "UGC + motion tests shipped, with named hypotheses." },
+            { title: "Founder Slack access", body: "Direct line to your pod — replies in hours, not days." },
+            { title: "Full asset ownership", body: "You own every ad, flow, creative and integration on day one." },
+          ]).map((d, i) => (
+            <Reveal key={d.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-5 flex gap-3 group hover:border-primary/40 transition-colors">
+                <div className="shrink-0 w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Package className="size-4" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-ink">{d.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{d.body}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 19. 90-DAY KICKOFF TIMELINE */}
+      <Section eyebrow="First 90 days" title="From signed contract to compounding revenue" alt>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { w: "Week 1", t: "Audit + strategy", b: "Full baseline audit, GA4 review, competitor teardown, 90-day plan agreed." },
+            { w: "Week 2-3", t: "Tracking rebuilt", b: "Server-side, CAPI, Enhanced Conversions and Triple Whale wired." },
+            { w: "Week 4-6", t: "First wins shipped", b: "New creative live, PDPs rewired, flows rebuilt — first ROAS lift lands." },
+            { w: "Week 7-12", t: "Scale + retention", b: "Winners scaled hard, subscription + VIP flows live, forecast on track." },
+          ].map((s, i) => (
+            <Reveal key={s.w} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-5 relative overflow-hidden group">
+                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-500" />
+                <div className="relative">
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
+                    <Calendar className="size-3" /> {s.w}
+                  </div>
+                  <h4 className="mt-3 font-bold text-ink">{s.t}</h4>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{s.b}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 20. TECH STACK */}
+      <Section eyebrow="Stack" title="The tools we deploy and manage for you">
+        <div className="flex flex-wrap gap-2">
+          {(cfg.techStack ?? [
+            "Shopify Plus", "Klaviyo", "Meta Ads Manager", "Google Ads + GMC", "TikTok Ads + Shop",
+            "GA4 + server-side", "Triple Whale", "Recharge", "Yotpo / Okendo", "Postscript", "Attentive", "Fondue",
+          ]).map((t, i) => (
+            <Reveal key={t} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
+              <span className="inline-flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:border-primary/40 hover:bg-primary/5 transition-all hover-scale">
+                <Wrench className="size-3.5 text-primary" /> {t}
+              </span>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 21. INDUSTRIES WE SERVE */}
+      <Section eyebrow="Industries" title={`${cfg.eyebrow} for every ecommerce vertical`} alt>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {INDUSTRIES.slice(0, 8).map((ind, i) => (
+            <Reveal key={ind.slug} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Link to="/industries/$slug" params={{ slug: ind.slug }} className="card-surface card-hover p-5 block group">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Layers className="size-4" />
+                </div>
+                <h4 className="font-bold text-ink text-sm">{ind.name}</h4>
+                <div className="mt-3 inline-flex items-center gap-1 text-xs text-primary font-semibold">
+                  {cfg.eyebrow} <ArrowRight className="size-3" />
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Link to="/industries" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+            See all 12 industries we scale <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </Section>
+
+      {/* 22. TESTIMONIALS */}
+      <Section eyebrow="Real founders" title="What our clients actually say">
+        <div className="grid md:grid-cols-3 gap-5">
+          {(cfg.testimonials ?? [
+            { quote: "Blended ROAS 1.9 → 4.3 in 90 days. Compliant, converting creative shipped weekly.", name: "Amelia H.", role: "Founder, Shoreditch skincare" },
+            { quote: "They rebuilt our Google Shopping in three weeks. Non-brand Search finally became a profit centre.", name: "Daniel R.", role: "Founder, wearables startup" },
+            { quote: "Ad fatigue used to break us in a week. Now we get three UGC batches a week and ROAS holds.", name: "Sara J.", role: "Founder, women's fashion" },
+          ]).map((t, i) => (
+            <Reveal key={t.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className="card-surface p-6 h-full relative group hover:shadow-xl transition-shadow">
+                <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/20" />
+                <div className="flex gap-1 text-primary mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-ink leading-relaxed">"{t.quote}"</p>
+                <footer className="mt-5 pt-4 border-t border-border">
+                  <div className="font-semibold text-ink text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                </footer>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 23. PACKAGES / PRICING TIERS */}
+      <Section eyebrow="Investment" title="Simple, transparent packages" alt>
+        <div className="grid md:grid-cols-3 gap-5">
+          {(cfg.packages ?? [
+            { tier: "Starter", price: "£2,500/mo", body: "Single-channel focus to prove economics.", features: ["1 paid channel or CRO", "Weekly Loom review", "Monthly strategy call", "3-month minimum"] },
+            { tier: "Growth", price: "£5,500/mo", body: "The full growth engine for scaling brands.", features: ["Meta + Google + creative", "Weekly Loom + Slack access", "Bi-weekly strategy", "Triple Whale live dashboard"], featured: true },
+            { tier: "Scale", price: "£10k+/mo", body: "Full team, all channels, senior pod on demand.", features: ["Full-channel stack", "Weekly strategy days", "In-house creative studio", "Founder-level direct line"] },
+          ]).map((p, i) => (
+            <Reveal key={p.tier} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <div className={`card-surface p-6 h-full relative overflow-hidden group ${p.featured ? "ring-2 ring-primary shadow-xl" : ""}`}>
+                {p.featured && (
+                  <div className="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-2xl">Most popular</div>
+                )}
+                <div className="flex items-center gap-2">
+                  <Award className="size-4 text-primary" />
+                  <div className="text-sm font-bold uppercase tracking-widest text-primary">{p.tier}</div>
+                </div>
+                <div className="mt-3 text-3xl font-bold text-ink">{p.price}</div>
+                <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
+                <ul className="mt-5 space-y-2">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-ink">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/contact" className={`mt-6 w-full btn ${p.featured ? "btn-primary" : "btn-ghost border border-border"} hover-scale`}>
+                  Get started <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 24. WHATSAPP QUICK BAR */}
+      <Section>
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-r from-[#25D366]/10 via-primary/5 to-accent/10 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 animate-pulse">
+                <WaIcon className="size-6" />
+              </div>
+              <div>
+                <div className="font-bold text-ink text-lg">Ask a senior {cfg.eyebrow.toLowerCase()} operator on WhatsApp</div>
+                <div className="text-sm text-muted-foreground">Average reply time <span className="font-bold text-ink"><CountUp value="7 minutes" /></span> on UK business hours. No forms, no juniors.</div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={whatsappUrl(`Hi BeingEcom — I want to talk about ${cfg.eyebrow.toLowerCase()} for my ecommerce store.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md"
+              >
+                <WaIcon className="w-4 h-4" /> Message on WhatsApp
+              </a>
+              <Link to="/contact" className="btn btn-ghost border border-border hover-scale">Book a call</Link>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* 25. RELATED SERVICES */}
+      {cfg.relatedServices && cfg.relatedServices.length > 0 && (
+        <Section eyebrow="Also explore" title="Related services we ship together" alt>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cfg.relatedServices.map((r, i) => (
+              <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <Link to={r.to} className="card-surface card-hover p-5 group block h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <ArrowUpRight className="size-5" />
+                  </div>
+                  <h4 className="font-bold text-ink">{r.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-2">{r.body}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 26. FINAL CTA */}
       <CTA heading={cfg.ctaTitle ?? "Ready to fix this for your store?"} />
     </PageLayout>
   );

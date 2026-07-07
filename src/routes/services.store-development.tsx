@@ -105,6 +105,16 @@ export const Route = createFileRoute("/services/store-development")({
         { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed score (0–100). Directly affects SEO + ad quality." },
       ],
       faqs: FAQ_LIST,
+      heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=80",
+      subServices: [
+        { to: "/services/store-development/shopify", title: "Shopify Development", body: "Shopify + Shopify Plus builds, migrations and headless Hydrogen — engineered to convert." },
+        { to: "/services/store-development/woocommerce", title: "WooCommerce Development", body: "WooCommerce and WordPress commerce built for speed, SEO and scale." },
+      ],
+      relatedServices: [
+        { to: "/services/cro", title: "Conversion Rate Optimisation", body: "PDP + checkout rebuilt around real conversion friction." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Get the new store ranking on Google from day one." },
+        { to: "/services/paid-ads", title: "Paid Ads", body: "Drive traffic to your new store profitably from launch." },
+      ],
     }} />
   ),
 });
