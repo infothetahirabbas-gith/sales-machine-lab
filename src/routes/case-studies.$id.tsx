@@ -322,7 +322,7 @@ function CaseStudyDetail() {
             tactics and build a compounding growth engine. Operating in the {s.industry} space, the
             brand had a strong product but had hit a plateau where additional ad spend and content
             output were no longer translating into proportional revenue. Our engagement focused on
-            re-architecting the {s.category.toLowerCase()} system so that every dollar and every
+            re-architecting the {s.category.toLowerCase()} system so that every pound and every
             hour pushed pipeline forward — not just impressions or clicks.
           </p>
         </section>
