@@ -3,7 +3,7 @@ import {
   ArrowRight, Layers, CheckCircle2, TrendingUp, Target, Zap,
   BarChart3, Rocket, Sparkles, Star, Award, Calendar, LineChart,
   ShoppingBag, Search, Megaphone, Users, Palette, Wrench, Filter,
-  MessageCircle, Play,
+  MessageCircle, Play, AlertTriangle, TrendingDown, Globe, Compass,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
