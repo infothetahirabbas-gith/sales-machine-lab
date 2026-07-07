@@ -58,6 +58,86 @@ export const Route = createFileRoute("/industries/$slug")({
                 "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
               fetchpriority: "high",
             },
+            { rel: "canonical", href: pageUrl },
+          ]
+        : [{ rel: "canonical", href: pageUrl }],
+      scripts: ind && C
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Organization",
+                    "@id": `${SITE_URL}#organization`,
+                    name: "Being Ecom",
+                    url: SITE_URL,
+                    logo: `${SITE_URL}/favicon.ico`,
+                    sameAs: [
+                      "https://www.linkedin.com/company/being-ecom",
+                      "https://www.instagram.com/being.ecom",
+                    ],
+                  },
+                  {
+                    "@type": "WebPage",
+                    "@id": `${pageUrl}#webpage`,
+                    url: pageUrl,
+                    name: title,
+                    description: desc,
+                    inLanguage: "en-GB",
+                    isPartOf: { "@id": `${SITE_URL}#website` },
+                    primaryImageOfPage: heroImage
+                      ? { "@type": "ImageObject", url: heroImage }
+                      : undefined,
+                    breadcrumb: { "@id": `${pageUrl}#breadcrumbs` },
+                  },
+                  {
+                    "@type": "BreadcrumbList",
+                    "@id": `${pageUrl}#breadcrumbs`,
+                    itemListElement: [
+                      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+                      { "@type": "ListItem", position: 2, name: "Industries", item: `${SITE_URL}/industries` },
+                      { "@type": "ListItem", position: 3, name: ind.name, item: pageUrl },
+                    ],
+                  },
+                  {
+                    "@type": "Service",
+                    "@id": `${pageUrl}#service`,
+                    serviceType: `${ind.name} ecommerce growth agency`,
+                    name: `${ind.name} Ecommerce Growth`,
+                    description: C.vibe,
+                    provider: { "@id": `${SITE_URL}#organization` },
+                    areaServed: { "@type": "Country", name: "United Kingdom" },
+                    audience: { "@type": "BusinessAudience", audienceType: `${ind.name} DTC brands` },
+                    image: heroImage,
+                    url: pageUrl,
+                    hasOfferCatalog: {
+                      "@type": "OfferCatalog",
+                      name: `${ind.name} growth services`,
+                      itemListElement: (C.offers ?? []).slice(0, 6).map((o, i) => ({
+                        "@type": "Offer",
+                        position: i + 1,
+                        itemOffered: { "@type": "Service", name: o },
+                      })),
+                    },
+                  },
+                  ...(C.faqs && C.faqs.length
+                    ? [
+                        {
+                          "@type": "FAQPage",
+                          "@id": `${pageUrl}#faq`,
+                          mainEntity: C.faqs.map((f) => ({
+                            "@type": "Question",
+                            name: f.q,
+                            acceptedAnswer: { "@type": "Answer", text: f.a },
+                          })),
+                        },
+                      ]
+                    : []),
+                ],
+              }),
+            },
           ]
         : [],
     };
