@@ -47,6 +47,19 @@ export const Route = createFileRoute("/industries/$slug")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
       ],
+      links: heroImage
+        ? [
+            {
+              rel: "preload",
+              as: "image",
+              href: heroImage,
+              imagesrcset: unsplashSrcSet(heroImage),
+              imagesizes:
+                "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
+              fetchpriority: "high",
+            },
+          ]
+        : [],
     };
   },
   component: IndustryPage,
