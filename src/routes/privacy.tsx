@@ -20,6 +20,7 @@ function Privacy() {
   return (
     <PageLayout>
       <Section eyebrow="Legal" title="Privacy Policy">
+        <h1 className="sr-only">BeingEcom Privacy Policy</h1>
         <div className="prose prose-slate max-w-3xl">
           <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}</p>
           <h2>Who we are</h2>
