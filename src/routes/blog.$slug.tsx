@@ -1,3 +1,4 @@
+import { type ReactElement } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
@@ -207,7 +208,7 @@ function formatDate(iso: string) {
   });
 }
 
-const ARTICLES: Record<string, () => JSX.Element> = {
+const ARTICLES: Record<string, () => ReactElement> = {
   "shopify-vs-woocommerce-uk": ShopifyVsWooCommerceUK,
 };
 
