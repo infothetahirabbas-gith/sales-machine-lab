@@ -96,7 +96,11 @@ function PricingPage() {
         </div>
       </section>
 
-      <Section>
+      <Section
+        eyebrow="Engagement models"
+        title="Pricing plans built for ecommerce growth"
+        intro="Pick the engagement that matches your stage — sprint, retainer, or performance partnership."
+      >
         <div className="grid md:grid-cols-3 gap-5 items-stretch">
           {tiers.map((t) => (
             <div

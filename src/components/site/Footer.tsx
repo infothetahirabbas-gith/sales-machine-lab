@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-4">
           <Link to="/" className="inline-flex items-center rounded-xl bg-background px-3 py-2" aria-label="BeingEcom home">
-            <img src={logo} alt="BeingEcom" width="150" height="47" className="h-9 w-auto" />
+            <img src={logo} alt="BeingEcom logo" width="150" height="47" className="h-9 w-auto" />
           </Link>
           <p className="mt-6 text-background/60 leading-relaxed max-w-xs">
             The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
