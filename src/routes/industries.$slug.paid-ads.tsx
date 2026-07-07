@@ -368,6 +368,29 @@ function IndustryPaidAdsPage() {
         highlight="most weeks"
       />
 
+      {/* WHATSAPP QUICK BAR */}
+      <Section>
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-r from-[#25D366]/10 via-primary/5 to-accent/10 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 animate-pulse">
+                <WaIcon className="size-6" />
+              </div>
+              <div>
+                <div className="font-bold text-ink text-lg">Free {ind.name.toLowerCase()} ad account audit — on WhatsApp</div>
+                <div className="text-sm text-muted-foreground">Send us your ad account and a senior buyer replies in <span className="font-bold text-ink"><CountUp end={7} /> minutes</span> on UK hours.</div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md">
+                <WaIcon className="w-4 h-4" /> Message us now
+              </a>
+              <Link to="/contact" className="btn btn-ghost border border-border hover-scale">Book a call instead</Link>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
       {/* CTA */}
       <CTA
         heading={`Ready to scale ${ind.name.toLowerCase()} paid ads?`}
