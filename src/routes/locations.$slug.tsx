@@ -241,7 +241,7 @@ function LocationPage() {
           <Reveal delay={2}>
             <div className="relative">
               <img src={IMG.hero} {...imageSeoProps(loc.slug, city, "hero")}
-                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" width={1600} height={1067} />
+                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
                 <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
