@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-locations[.]xml'
+import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -85,6 +86,11 @@ const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
 const SitemapLocationsDotxmlRoute = SitemapLocationsDotxmlRouteImport.update({
   id: '/sitemap-locations.xml',
   path: '/sitemap-locations.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapIndustriesDotxmlRoute = SitemapIndustriesDotxmlRouteImport.update({
+  id: '/sitemap-industries.xml',
+  path: '/sitemap-industries.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -344,6 +350,7 @@ export interface FileRoutesByFullPath {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
@@ -398,6 +405,7 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
@@ -453,6 +461,7 @@ export interface FileRoutesById {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
@@ -509,6 +518,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
@@ -563,6 +573,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
@@ -617,6 +628,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
     | '/sitemap-services.xml'
@@ -672,6 +684,7 @@ export interface RootRouteChildren {
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
   SitemapLocationsDotxmlRoute: typeof SitemapLocationsDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
@@ -738,6 +751,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-locations.xml'
       fullPath: '/sitemap-locations.xml'
       preLoaderRoute: typeof SitemapLocationsDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-industries.xml': {
+      id: '/sitemap-industries.xml'
+      path: '/sitemap-industries.xml'
+      fullPath: '/sitemap-industries.xml'
+      preLoaderRoute: typeof SitemapIndustriesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1162,6 +1182,7 @@ const rootRouteChildren: RootRouteChildren = {
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
   SitemapLocationsDotxmlRoute: SitemapLocationsDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
