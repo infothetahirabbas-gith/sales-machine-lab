@@ -692,29 +692,53 @@ function IndustryPage() {
         </div>
       </Section>
 
-      {/* 18. SUB-SERVICES */}
-      <Section eyebrow="Go deeper" title="Service pages built for this industry" alt>
-        <div className="grid md:grid-cols-2 gap-4">
-          <Reveal>
-            <Link to="/industries/$slug/paid-ads" params={{ slug: ind.slug }} className="card-surface card-hover p-6 flex items-center gap-4 group">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><Megaphone className="size-6" /></div>
-              <div className="flex-1">
-                <h4 className="text-lg font-bold text-ink">{ind.name} Paid Ads</h4>
-                <p className="text-sm text-muted-foreground">Meta, Google & TikTok scaling built for {ind.name.toLowerCase()} brands.</p>
-              </div>
-              <ArrowRight className="size-5 text-primary transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Reveal>
-          <Reveal delay={1}>
-            <Link to="/services" className="card-surface card-hover p-6 flex items-center gap-4 group">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><Wrench className="size-6" /></div>
-              <div className="flex-1">
-                <h4 className="text-lg font-bold text-ink">All services</h4>
-                <p className="text-sm text-muted-foreground">SEO, CRO, Email/SMS, Store development and more.</p>
-              </div>
-              <ArrowRight className="size-5 text-primary transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Reveal>
+      {/* 18. SUB-SERVICES — deep-dive service pages built for this industry */}
+      <Section eyebrow="Go deeper" title={`Service pages built for ${ind.name.toLowerCase()} brands`} intro="Every service below is tuned for your vertical. Click through for scope, deliverables and pricing." alt>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { to: "/industries/$slug/paid-ads" as const, params: { slug: ind.slug }, img: C.images.creative, icon: Megaphone, title: `${ind.name} Paid Ads`, desc: `Meta, Google, TikTok & YouTube scaling built for ${ind.name.toLowerCase()} DTC brands.`, tag: "Industry-specific" },
+            { to: "/services/seo" as const, img: C.images.tech, icon: Search, title: `SEO for ${ind.name}`, desc: `Technical, on-page, off-page & AEO to own ${ind.name.toLowerCase()} search demand.`, tag: "Own your traffic" },
+            { to: "/services/store-development" as const, img: C.images.process, icon: Wrench, title: "Store Development", desc: `Shopify & WooCommerce builds engineered to convert ${ind.name.toLowerCase()} shoppers.`, tag: "Build to convert" },
+            { to: "/services/cro" as const, img: C.images.funnel, icon: TrendingUp, title: "CRO & Landing Pages", desc: `Session recordings, A/B testing and PDP rebuilds to lift ${ind.name.toLowerCase()} AOV.`, tag: "Higher AOV" },
+            { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30–40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list" },
+            { to: "/services/creative" as const, img: C.images.caseStudy, icon: Palette, title: "Creative Studio", desc: `UGC, static and motion tuned to ${ind.name.toLowerCase()} hooks that actually convert.`, tag: "Creative that ships" },
+          ].map((s, i) => (
+            <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Link
+                to={s.to}
+                {...(s.params ? { params: s.params } : {})}
+                className="card-surface card-hover group flex flex-col overflow-hidden h-full"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <SafeImg
+                    src={s.img}
+                    srcSet={unsplashSrcSet(s.img)}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    alt={`${s.title} for ${ind.name.toLowerCase()} brands`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    skeleton
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/95 text-ink text-[11px] font-semibold px-2.5 py-1 shadow-sm">
+                      <s.icon className="size-3.5 text-primary" /> {s.tag}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h4 className="text-lg font-bold text-ink">{s.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-1 flex-1">{s.desc}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                    Explore service <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+            See all services <ArrowRight className="size-4" />
+          </Link>
         </div>
       </Section>
 
