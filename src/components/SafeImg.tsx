@@ -1,4 +1,23 @@
-import { useState, type ImgHTMLAttributes } from "react";
+import { useState, useMemo, type ImgHTMLAttributes } from "react";
+
+// Build a responsive srcset for Unsplash-hosted images. The URL already carries
+// a `w=` param that Unsplash uses to size the delivered JPG/AVIF, so we swap it
+// for each width and let the browser pick the smallest correct file.
+const UNSPLASH_WIDTHS = [400, 640, 800, 1200, 1600, 1920];
+export function unsplashSrcSet(src: string): string | undefined {
+  if (!src || !src.includes("images.unsplash.com")) return undefined;
+  try {
+    const url = new URL(src);
+    return UNSPLASH_WIDTHS.map((w) => {
+      url.searchParams.set("w", String(w));
+      return `${url.toString()} ${w}w`;
+    }).join(", ");
+  } catch {
+    return undefined;
+  }
+}
+const DEFAULT_SIZES =
+  "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px";
 
 // Inline SVG placeholder — no extra network hop when a real image 404s.
 const FALLBACK =
