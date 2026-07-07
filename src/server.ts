@@ -95,7 +95,13 @@ function withCacheHeaders(request: Request, response: Response): Response {
   if (isHashedAsset) {
     headers.set("cache-control", "public, max-age=31536000, immutable");
   } else if (isHtml) {
-    headers.set("cache-control", "public, max-age=0, must-revalidate");
+    // Serve HTML from browser + CDN cache instantly on refresh, then
+    // revalidate in the background. Turns F5 into a near-instant paint
+    // instead of a full network round-trip.
+    headers.set(
+      "cache-control",
+      "public, max-age=60, s-maxage=300, stale-while-revalidate=86400",
+    );
   }
   return new Response(response.body, {
     status: response.status,
