@@ -12,6 +12,11 @@ BeingEcom is not a generalist agency. Every engagement is ecommerce-only and rev
 - [Contact](/contact): Book a strategy call or request a free 12-point growth audit; typical reply within 24 hours.
 - [Free AI Store Audit](/audit): 60-second AI-powered Shopify/WooCommerce audit returning traffic, ads, CRO and SEO scores plus a prioritized action plan.
 
+## Blog
+
+- [Ecommerce Growth Journal](/blog): Playbooks, benchmarks and teardowns for UK Shopify and WooCommerce brands — ecommerce SEO, CRO, paid ads and retention, written by senior operators.
+- [Shopify vs WooCommerce UK 2026](/blog/shopify-vs-woocommerce-uk): Honest comparison for growing UK DTC brands — total cost of ownership, SEO, checkout, VAT, apps, speed and scaling limits by revenue stage.
+
 ## Services
 
 - [All Services](/services): Index of the nine ecommerce growth services and how they combine into one operating system.
