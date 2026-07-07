@@ -390,8 +390,9 @@ function LocationPage() {
             </div>
             <div className="mt-8 btn-pair">
               <Link to="/services/seo" className="btn btn-primary">SEO services <ArrowRight className="w-4 h-4" /></Link>
-              <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
+              <WhatsAppBtn label={`Ask about ${city} SEO`} />
             </div>
+
           </div>
           <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
