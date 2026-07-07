@@ -122,19 +122,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap", media: "print", "data-fonts": "swap" } as never,
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(organizationJsonLd()),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(websiteJsonLd()),
-      },
-      {
-        children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();`,
-      },
-    ],
+    scripts: (() => {
+      const gaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
+      const base: Array<Record<string, unknown>> = [
+        { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
+        { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
+        { children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();` },
+      ];
+      if (gaId && /^G-[A-Z0-9]+$/i.test(gaId)) {
+        base.push(
+          { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
+          {
+            children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`,
+          },
+        );
+      }
+      return base;
+    })(),
 
   }),
   shellComponent: RootShell,
