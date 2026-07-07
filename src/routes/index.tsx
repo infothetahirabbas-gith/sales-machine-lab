@@ -231,36 +231,6 @@ function Home() {
         </div>
       </section>
 
-      {/* 2.5 ECOMMERCE IN ACTION — real photography strip */}
-      <section className="py-14 lg:py-20">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="text-xs uppercase tracking-widest text-primary font-bold">In action</div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-ink">Real UK ecommerce work — not stock pitch decks.</h2>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-            {HOME_BENTO.map((img, i) => (
-              <Reveal key={img.src} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-                <figure className="group relative rounded-2xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl transition-shadow">
-                  <SafeImg
-                    src={img.src}
-                    alt={img.alt}
-                    width={1200}
-                    height={900}
-                    skeleton
-                    brandOverlay
-                    className="w-full h-52 md:h-60 object-cover transition-transform duration-500 group-hover:scale-105"
-                    wrapperClassName="w-full h-52 md:h-60"
-                  />
-                  <figcaption className="absolute bottom-0 inset-x-0 p-3 text-white text-xs font-semibold bg-gradient-to-t from-ink/85 to-transparent">
-                    {img.label}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 3. PROBLEM */}
 
