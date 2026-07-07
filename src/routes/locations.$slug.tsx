@@ -14,6 +14,7 @@ import { LOCATIONS } from "../lib/locations-industries";
 import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
+import { SafeImg } from "../components/SafeImg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -193,7 +194,7 @@ function LocationPage() {
   const city = loc.city;
   const C = contentFor(loc.slug, city);
   const IMG = C.images;
-  const WA = whatsappUrl(city);
+  const WA = whatsappUrl(city, loc.slug);
 
   const services = [
     { icon: Megaphone, title: `Paid Ads in ${city}`, desc: `Meta, Google, TikTok & YouTube ads managed by senior media buyers for ${city} DTC brands.`, kw: `PPC agency ${city}` },
@@ -314,7 +315,7 @@ function LocationPage() {
           </div>
           <Reveal delay={2}>
             <div className="relative">
-              <img src={IMG.hero} {...imageSeoProps(loc.slug, city, "hero")}
+              <SafeImg src={IMG.hero} {...imageSeoProps(loc.slug, city, "hero")}
                 className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
@@ -373,7 +374,7 @@ function LocationPage() {
       <Section eyebrow={`Why ${city}`} title={`${city} is a smart place to scale ecommerce`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.skyline} {...imageSeoProps(loc.slug, city, "skyline")} loading="lazy" decoding="async" width={1600} height={900}
+            <SafeImg src={IMG.skyline} {...imageSeoProps(loc.slug, city, "skyline")} loading="lazy" decoding="async" width={1600} height={900}
               className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
@@ -446,7 +447,7 @@ function LocationPage() {
       {/* 8. PAID ADS */}
       <Section eyebrow="Paid Media" title={`Meta, Google & TikTok Ads for ${city} brands`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.ads} {...imageSeoProps(loc.slug, city, "ads")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.ads} {...imageSeoProps(loc.slug, city, "ads")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Our senior media buyers manage 8-figure annual ad spend for {city} DTC brands. Every campaign is built to a blended profit target, not a platform ROAS vanity metric.</p>
             <ul className="mt-6 space-y-3">
@@ -480,14 +481,14 @@ function LocationPage() {
             </div>
 
           </div>
-          <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
+          <Reveal><SafeImg src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
       </Section>
 
       {/* 10. SHOPIFY */}
       <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
@@ -517,14 +518,14 @@ function LocationPage() {
               { title: "Launch & measure", body: "Statistically valid A/B tests with revenue-level significance." },
             ]} />
           </div>
-          <Reveal><img src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 12. EMAIL */}
       <Section eyebrow="Retention" title={`Klaviyo email & SMS for ${city} DTC`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -554,14 +555,14 @@ function LocationPage() {
             </div>
 
           </div>
-          <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 14. ANALYTICS */}
       <Section eyebrow="Analytics" title={`Attribution & analytics for ${city} founders`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV — dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
             <ul className="mt-6 space-y-3">
@@ -630,7 +631,7 @@ function LocationPage() {
               <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
               <p className="text-ink flex-1">"{t.quote}"</p>
               <div className="mt-5 flex items-center gap-3">
-                <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
+                <SafeImg src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
                 <div className="min-w-0"><div className="font-semibold text-ink text-sm truncate">{t.name}</div><div className="text-xs text-muted-foreground truncate">{t.role}</div></div>
               </div>
             </div>
@@ -653,7 +654,7 @@ function LocationPage() {
       <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
-            <img src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" decoding="async" width={1600} height={900} className="w-full h-[420px] object-cover" />
+            <SafeImg src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" decoding="async" width={1600} height={900} className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/75 to-ink/50" />
             <div className="absolute inset-0 bg-ink/25" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
@@ -739,7 +740,7 @@ function LocationPage() {
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.meeting} {...imageSeoProps(loc.slug, city, "meeting")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
+            <SafeImg src={IMG.meeting} {...imageSeoProps(loc.slug, city, "meeting")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
             {[
