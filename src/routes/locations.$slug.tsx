@@ -24,39 +24,92 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Agency in ${loc.city} | Shopify, SEO, Paid Ads — Being Ecom`
+      ? `Ecommerce Agency in ${loc.city} | Shopify, SEO & Paid Ads — Being Ecom`
       : "Location — Being Ecom";
     const desc = loc
-      ? `Award-winning ecommerce agency in ${loc.city}, ${loc.region}. Shopify development, SEO, Google & Meta Ads, CRO and email marketing for DTC brands scaling in ${loc.city}.`
+      ? `Award-winning ecommerce agency in ${loc.city}, ${loc.region}. Senior UK team delivering Shopify development, technical SEO, Google & Meta Ads, CRO and Klaviyo email for ${loc.city} DTC brands scaling profitably.`
       : "UK ecommerce growth agency locations.";
     const kw = loc
-      ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO ${loc.city}, digital marketing ${loc.city}, PPC ${loc.city}, Meta ads ${loc.city}, ecommerce experts ${loc.region}`
+      ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO agency ${loc.city}, PPC agency ${loc.city}, Meta ads ${loc.city}, Google Ads ${loc.city}, Klaviyo agency ${loc.city}, CRO agency ${loc.city}, digital marketing agency ${loc.city}, ecommerce experts ${loc.region}`
       : "ecommerce agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
+    const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
+    const faqData = loc ? [
+      { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
+      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} retainers start at £2,500/month for single-channel work and scale to £10k+/month for full growth-engine engagements. Pricing is transparent and published on our pricing page.` },
+      { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce migrations and headless Hydrogen builds.` },
+      { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO and retention gains compound in months 3–6.` },
+      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, analytics and email — no obligation.` },
+      { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely — tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+    ] : [];
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { name: "keywords", content: kw },
+        { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         ...(loc ? [{ name: "geo.placename", content: loc.city }, { name: "geo.region", content: loc.region }] : []),
         ...(geo ? [{ name: "geo.position", content: `${geo.latitude};${geo.longitude}` }, { name: "ICBM", content: `${geo.latitude}, ${geo.longitude}` }] : []),
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: pageUrl },
+        { property: "og:locale", content: "en_GB" },
         ...(heroImage ? [{ property: "og:image", content: heroImage }, { name: "twitter:image", content: heroImage }] : []),
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
       ],
+      links: loc ? [
+        { rel: "canonical", href: pageUrl },
+        ...(heroImage ? [{ rel: "preload" as const, as: "image" as const, href: heroImage, fetchpriority: "high" as const }] : []),
+      ] : [],
       scripts: loc && C ? [
         { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: loc.city, path: `/locations/${loc.slug}` }])) },
         {
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": `${pageUrl}#business`,
+            name: `Being Ecom — Ecommerce Agency in ${loc.city}`,
+            description: desc,
+            url: pageUrl,
+            image: heroImage,
+            priceRange: "££–£££",
+            areaServed: [
+              { "@type": "City", name: loc.city },
+              { "@type": "AdministrativeArea", name: loc.region },
+              { "@type": "Country", name: "United Kingdom" },
+            ],
+            serviceType: ["Ecommerce Agency", "Shopify Development", "SEO Agency", "Google Ads", "Meta Ads", "Klaviyo Email Marketing", "CRO"],
+            address: { "@type": "PostalAddress", addressLocality: loc.city, addressRegion: loc.region, addressCountry: "GB" },
+            ...(geo ? { geo: { "@type": "GeoCoordinates", latitude: geo.latitude, longitude: geo.longitude } } : {}),
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "120", bestRating: "5" },
+            sameAs: [SITE_URL],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqData.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "ImageGallery",
-            "@id": `${SITE_URL}/locations/${loc.slug}#marketing-images`,
+            "@id": `${pageUrl}#marketing-images`,
             name: `${loc.city} ecommerce marketing image set`,
             description: `Relevant ecommerce, Shopify, WooCommerce, SEO, paid ads and marketing images for BeingEcom in ${loc.city}.`,
             associatedMedia: imageSlots.map((slot) => ({
@@ -188,7 +241,7 @@ function LocationPage() {
           <Reveal delay={2}>
             <div className="relative">
               <img src={IMG.hero} {...imageSeoProps(loc.slug, city, "hero")}
-                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" width={1600} height={1067} />
+                className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
                 <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
@@ -236,7 +289,7 @@ function LocationPage() {
       <Section eyebrow={`Why ${city}`} title={`${city} is a smart place to scale ecommerce`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.skyline} {...imageSeoProps(loc.slug, city, "skyline")} loading="lazy" width={1600} height={900}
+            <img src={IMG.skyline} {...imageSeoProps(loc.slug, city, "skyline")} loading="lazy" decoding="async" width={1600} height={900}
               className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
@@ -296,7 +349,7 @@ function LocationPage() {
       {/* 8. PAID ADS */}
       <Section eyebrow="Paid Media" title={`Meta, Google & TikTok Ads for ${city} brands`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.ads} {...imageSeoProps(loc.slug, city, "ads")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.ads} {...imageSeoProps(loc.slug, city, "ads")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Our senior media buyers manage 8-figure annual ad spend for {city} DTC brands. Every campaign is built to a blended profit target, not a platform ROAS vanity metric.</p>
             <ul className="mt-6 space-y-3">
@@ -329,14 +382,14 @@ function LocationPage() {
               <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
             </div>
           </div>
-          <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
+          <Reveal><img src={IMG.seo} {...imageSeoProps(loc.slug, city, "seo")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover order-1 lg:order-2" /></Reveal>
         </div>
       </Section>
 
       {/* 10. SHOPIFY */}
       <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
@@ -364,14 +417,14 @@ function LocationPage() {
               { title: "Launch & measure", body: "Statistically valid A/B tests with revenue-level significance." },
             ]} />
           </div>
-          <Reveal><img src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 12. EMAIL */}
       <Section eyebrow="Retention" title={`Klaviyo email & SMS for ${city} DTC`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -397,14 +450,14 @@ function LocationPage() {
             </div>
             <Link to="/services/creative" className="btn btn-primary mt-8">Creative services <ArrowRight className="w-4 h-4" /></Link>
           </div>
-          <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
       </Section>
 
       {/* 14. ANALYTICS */}
       <Section eyebrow="Analytics" title={`Attribution & analytics for ${city} founders`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><img src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><img src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV — dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
             <ul className="mt-6 space-y-3">
@@ -449,7 +502,7 @@ function LocationPage() {
               <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
               <p className="text-ink flex-1">"{t.quote}"</p>
               <div className="mt-5 flex items-center gap-3">
-                <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
+                <img src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
                 <div className="min-w-0"><div className="font-semibold text-ink text-sm truncate">{t.name}</div><div className="text-xs text-muted-foreground truncate">{t.role}</div></div>
               </div>
             </div>
@@ -480,7 +533,7 @@ function LocationPage() {
       <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
-            <img src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" width={1600} height={900} className="w-full h-[420px] object-cover" />
+            <img src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" decoding="async" width={1600} height={900} className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{C.caseStudy.category}</div>
@@ -524,14 +577,48 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 21. FAQ */}
-      <FaqSection faqs={faqs} title={`FAQs about our ${city} ecommerce`} highlight="agency" intro={`Common questions from ${city} and ${loc.region} founders.`} />
+      {/* 21a. NEARBY LOCATIONS — internal linking / topical authority */}
+      <Section eyebrow="Nearby cities" title={`Ecommerce agency serving cities near ${city}`} intro={`We work with DTC and Shopify brands across ${loc.region} and the wider UK. Explore our nearest ecommerce agency locations to ${city}.`} alt>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {LOCATIONS.filter((l) => l.slug !== loc.slug).slice(0, 8).map((l) => (
+            <Link
+              key={l.slug}
+              to="/locations/$slug"
+              params={{ slug: l.slug }}
+              className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-white p-4 card-hover"
+              title={`Ecommerce agency in ${l.city}, ${l.region}`}
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 text-ink font-semibold truncate"><MapPin className="w-4 h-4 text-primary shrink-0" />{l.city}</div>
+                <div className="text-xs text-muted-foreground truncate">Ecommerce agency · {l.region}</div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-primary shrink-0 transition-transform group-hover:translate-x-1" />
+            </Link>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3 text-sm">
+          <Link to="/locations" className="story-link text-primary font-semibold">View all UK locations</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/store-development/shopify" className="story-link text-primary font-semibold">Shopify development</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/seo" className="story-link text-primary font-semibold">SEO services</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/paid-ads" className="story-link text-primary font-semibold">Paid ads</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/services/email-sms" className="story-link text-primary font-semibold">Email & SMS</Link>
+          <span className="text-muted-foreground">·</span>
+          <Link to="/case-studies" className="story-link text-primary font-semibold">Case studies</Link>
+        </div>
+      </Section>
+
+      {/* 21. FAQ (People Also Ask) */}
+      <FaqSection faqs={faqs} title={`People also ask about ecommerce agencies in ${city}`} highlight="agencies" intro={`Answers to the questions ${city} and ${loc.region} founders ask most. Structured for Google, AI Overviews and ChatGPT search.`} />
 
       {/* 22. CONTACT */}
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal>
-            <img src={IMG.meeting} {...imageSeoProps(loc.slug, city, "meeting")} loading="lazy" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
+            <img src={IMG.meeting} {...imageSeoProps(loc.slug, city, "meeting")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" />
           </Reveal>
           <div className="space-y-4">
             {[
