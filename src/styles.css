@@ -288,9 +288,13 @@
   color: #ffffff !important;
   font-weight: 700;
   border: none;
+  padding: 0.625rem 1rem;
   box-shadow: 0 8px 20px -6px rgb(37 211 102 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
+@media (min-width: 640px) { .wa-btn { padding: 0.75rem 1.5rem; } }
+.btn-pair .wa-btn { padding: 0.625rem 0.75rem; }
+@media (min-width: 640px) { .btn-pair .wa-btn { padding: 0.75rem 1.5rem; } }
 .wa-btn:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 14px 28px -8px rgb(37 211 102 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.3);
