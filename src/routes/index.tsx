@@ -388,26 +388,30 @@ function Home() {
                 { q: "Scaled from £30K to £180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Aurum Jewelry" },
                 { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, GearLoop Electronics" },
               ].map((t, i) => {
-                const initials = t.n.split(/\s+/).map((p) => p[0]).join("").slice(0, 2).toUpperCase();
+                const photo = FOUNDER_PHOTOS[(k * 10 + i) % FOUNDER_PHOTOS.length];
                 return (
                   <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
                     <div className="card-surface card-hover p-6 h-full mx-2">
                       <div className="text-primary text-3xl font-display leading-none">“</div>
                       <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
                       <div className="mt-5 flex items-center gap-3">
-                        <div
-                          aria-label={t.n}
-                          className="w-11 h-11 rounded-full bg-gradient-to-br from-primary/20 to-accent/30 text-ink flex items-center justify-center text-sm font-bold shadow-md ring-2 ring-white"
-                        >
-                          {initials}
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-ink">{t.n}</div>
-                          <div className="text-[11px] text-muted-foreground">{t.r}</div>
+                        <SafeImg
+                          src={photo}
+                          alt={`${t.n} — ${t.r}`}
+                          loading="lazy"
+                          decoding="async"
+                          width={88}
+                          height={88}
+                          className="w-11 h-11 rounded-full object-cover shadow-md ring-2 ring-white shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <div className="text-sm font-semibold text-ink truncate">{t.n}</div>
+                          <div className="text-[11px] text-muted-foreground truncate">{t.r}</div>
                         </div>
                       </div>
                     </div>
                   </div>
+
                 );
               })
             )}
