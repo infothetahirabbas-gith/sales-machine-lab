@@ -44,8 +44,8 @@ export type LocationContent = {
 
 // Curated fixed Unsplash IDs only — no random image services.
 // Format helper keeps images stable, SEO-friendly and cacheable.
-const u = (id: string, w = 1600) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=entropy&w=${w}&q=82`;
+const u = (id: string, w = 1100) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=entropy&w=${w}&q=70`;
 
 const hashNum = (s: string) => {
   let h = 2166136261;
