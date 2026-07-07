@@ -164,6 +164,7 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
+  const wa = whatsappForIndustry(ind.name);
   const related = INDUSTRIES.filter((i) => i.slug !== ind.slug).slice(0, 4);
 
   const CHANNELS = [
