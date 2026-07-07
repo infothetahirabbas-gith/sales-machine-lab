@@ -306,7 +306,7 @@ function LocationPage() {
                 </Reveal>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 btn-pair">
               <Link to="/services/paid-ads" className="btn btn-primary">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
               <WhatsAppBtn label="Ask about paid ads" />
             </div>
@@ -324,7 +324,7 @@ function LocationPage() {
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Target className="w-4 h-4 text-primary" />{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/seo" className="btn btn-primary">SEO services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/seo/local" className="btn btn-ghost border border-border">Local SEO</Link>
             </div>
@@ -344,7 +344,7 @@ function LocationPage() {
                 <div key={x} className="p-4 rounded-xl border border-border bg-white text-sm font-medium text-ink card-hover">{x}</div>
               ))}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/store-development/shopify" className="btn btn-primary">Shopify services <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/services/store-development/woocommerce" className="btn btn-ghost border border-border">WooCommerce</Link>
             </div>
@@ -377,7 +377,7 @@ function LocationPage() {
             <div className="mt-6 flex flex-wrap gap-2">
               {["Welcome flow", "Abandoned cart", "Browse abandonment", "Post-purchase", "Winback", "VIP loyalty", "SMS campaigns", "Segmentation"].map(x => <Pill key={x}>{x}</Pill>)}
             </div>
-            <div className="mt-8 flex gap-3 flex-wrap">
+            <div className="mt-8 btn-pair">
               <Link to="/services/email-sms" className="btn btn-primary">Email & SMS <ArrowRight className="w-4 h-4" /></Link>
               <WhatsAppBtn label="Ask about Klaviyo" />
             </div>
@@ -491,7 +491,7 @@ function LocationPage() {
                 <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.emailPct} suffix="%" /></div><div className="opacity-80">Email revenue</div></div>
                 <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.months} suffix=" mo" /></div><div className="opacity-80">Timeframe</div></div>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 btn-pair">
                 <Link to="/case-studies" className="btn btn-primary">Read case studies <ArrowRight className="w-4 h-4" /></Link>
                 <WhatsAppBtn label={`Talk to ${city} team`} />
               </div>
