@@ -70,7 +70,7 @@ export default function ContactFaq() {
               <div className="text-center py-6">
                 <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center text-2xl">✓</div>
                 <h3 className="mt-4 text-xl font-bold text-ink">Thanks — we'll be in touch within 24 hours (weekdays only).</h3>
-                <p className="mt-2 text-sm text-muted-foreground">In the meantime, reply directly to <a className="text-primary font-semibold" href="mailto:hello@beingecom.com">hello@beingecom.com</a> if it's urgent.</p>
+                <p className="mt-2 text-sm text-muted-foreground">In the meantime, reply directly to <a className="text-primary font-semibold" href="mailto:info@beingecom.com">info@beingecom.com</a> if it's urgent.</p>
               </div>
             ) : (
               <>
@@ -134,13 +134,13 @@ export default function ContactFaq() {
 
                   {status === "error" && (
                     <div className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
-                      Something went wrong. Please email us directly at <a className="underline" href="mailto:hello@beingecom.com">hello@beingecom.com</a>
+                      Something went wrong. Please email us directly at <a className="underline" href="mailto:info@beingecom.com">info@beingecom.com</a>
                     </div>
                   )}
                 </form>
 
                 <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>hello@beingecom.com</span></div>
+                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>info@beingecom.com</span></div>
                   <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
                 </div>
               </>

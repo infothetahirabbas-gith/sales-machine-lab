@@ -23,7 +23,7 @@ function Privacy() {
         <div className="prose prose-slate max-w-3xl">
           <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}</p>
           <h2>Who we are</h2>
-          <p>BeingEcom (“we”, “us”, “our”) is an ecommerce growth agency serving UK and international clients. Contact: <a href="mailto:hello@beingecom.com">hello@beingecom.com</a>.</p>
+          <p>BeingEcom (“we”, “us”, “our”) is an ecommerce growth agency serving UK and international clients. Contact: <a href="mailto:info@beingecom.com">info@beingecom.com</a>.</p>
           <h2>What we collect</h2>
           <ul>
             <li>Contact form data: name, email, store URL, revenue range, message.</li>
@@ -39,7 +39,7 @@ function Privacy() {
             <li>We do not sell your data. We do not share it with third parties for marketing.</li>
           </ul>
           <h2>Your rights</h2>
-          <p>You have the right to access, correct, delete or export your data, and to withdraw consent at any time. Email <a href="mailto:hello@beingecom.com">hello@beingecom.com</a> and we’ll action it within 30 days. You can also complain to the ICO (ico.org.uk).</p>
+          <p>You have the right to access, correct, delete or export your data, and to withdraw consent at any time. Email <a href="mailto:info@beingecom.com">info@beingecom.com</a> and we’ll action it within 30 days. You can also complain to the ICO (ico.org.uk).</p>
           <h2>Retention</h2>
           <p>Contact-form data is retained for up to 24 months from your last interaction, unless you request earlier deletion.</p>
           <h2>Cookies</h2>

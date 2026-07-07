@@ -7,8 +7,8 @@ type Goal = "sales" | "mrr" | "revenue";
 
 const goals: { key: Goal; label: string; sub: string }[] = [
   { key: "sales", label: "Sales", sub: "orders / month" },
-  { key: "mrr", label: "MRR", sub: "recurring $ / mo" },
-  { key: "revenue", label: "Revenue", sub: "total $ / mo" },
+  { key: "mrr", label: "MRR", sub: "recurring £ / mo" },
+  { key: "revenue", label: "Revenue", sub: "total £ / mo" },
 ];
 
 export default function GrowthPathPlanner() {
@@ -34,9 +34,9 @@ export default function GrowthPathPlanner() {
         spend: requiredSpend,
         monthlySpend: Math.min(budget, requiredSpend),
         kpi: `${roas}× ROAS`,
-        sub: `~${newCustomers} new customers/mo at $${cac} CAC`,
+        sub: `~${newCustomers} new customers/mo at £${cac} CAC`,
         speed: "Fast - results in weeks",
-        warning: requiredSpend > budget ? `Your ${budget.toLocaleString()}/mo budget needs ${months} months to hit $${targetRevenue.toLocaleString()}/mo.` : null,
+        warning: requiredSpend > budget ? `Your £${budget.toLocaleString()}/mo budget needs ${months} months to hit £${targetRevenue.toLocaleString()}/mo.` : null,
       };
     }
     const cpc = 1.8;
@@ -48,7 +48,7 @@ export default function GrowthPathPlanner() {
       spend: budget * months,
       monthlySpend: budget,
       kpi: `${monthlyClicks.toLocaleString()} clicks/mo`,
-      sub: `Worth ~$${adEquivalent.toLocaleString()}/mo in free traffic. Compounds forever.`,
+      sub: `Worth ~£${adEquivalent.toLocaleString()}/mo in free traffic. Compounds forever.`,
       speed: "Slow start, lifetime asset",
       warning: null,
     };
@@ -172,7 +172,7 @@ export default function GrowthPathPlanner() {
                   </div>
                   <div className="text-right">
                     <div className="text-3xl font-bold text-sky-gradient leading-none">
-                      {goal === "sales" ? target.toLocaleString() : `$${(target / 1000).toFixed(0)}K`}
+                      {goal === "sales" ? target.toLocaleString() : `£${(target / 1000).toFixed(0)}K`}
                     </div>
                     <div className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">{goals.find(g => g.key === goal)?.sub}</div>
                   </div>
@@ -221,7 +221,7 @@ export default function GrowthPathPlanner() {
                     <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-bold">Step 4</div>
                     <div className="font-semibold text-ink mt-0.5">{path === "ads" ? "Monthly ad budget" : "Monthly SEO investment"}</div>
                   </div>
-                  <div className="text-3xl font-bold text-sky-gradient leading-none">${budget.toLocaleString()}<span className="text-xs text-muted-foreground font-normal">/mo</span></div>
+                   <div className="text-3xl font-bold text-sky-gradient leading-none">£{budget.toLocaleString()}<span className="text-xs text-muted-foreground font-normal">/mo</span></div>
                 </div>
                 <input
                   type="range"
@@ -233,8 +233,8 @@ export default function GrowthPathPlanner() {
                   className="w-full accent-primary cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
-                  <span>${(path === "ads" ? 500 : 1000).toLocaleString()}</span>
-                  <span>${(path === "ads" ? 50000 : 15000).toLocaleString()}</span>
+                  <span>£{(path === "ads" ? 500 : 1000).toLocaleString()}</span>
+                  <span>£{(path === "ads" ? 50000 : 15000).toLocaleString()}</span>
                 </div>
               </div>
             </div>
@@ -256,11 +256,11 @@ export default function GrowthPathPlanner() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <div className="text-xs opacity-60 flex items-center gap-1.5"><DollarSign className="w-3 h-3" /> Total spend</div>
-                        <div className="text-xl font-bold mt-1">${plan?.spend.toLocaleString()}</div>
+                         <div className="text-xl font-bold mt-1">£{plan?.spend.toLocaleString()}</div>
                       </div>
                       <div>
                         <div className="text-xs opacity-60">Monthly</div>
-                        <div className="text-xl font-bold mt-1">${plan?.monthlySpend.toLocaleString()}</div>
+                         <div className="text-xl font-bold mt-1">£{plan?.monthlySpend.toLocaleString()}</div>
                       </div>
                     </div>
                     <div className="h-px bg-white/10" />

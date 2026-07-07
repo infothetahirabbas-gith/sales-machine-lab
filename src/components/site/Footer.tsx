@@ -38,15 +38,13 @@ export default function Footer() {
         <div className="lg:col-span-5">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">SERVICES</div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-background/60">
-            <li><Link to="/services/creative" className="hover:text-accent transition-colors">Creative Production</Link></li>
-            <li><Link to="/services/store-development" className="hover:text-accent transition-colors">Store Development</Link></li>
-            <li><Link to="/services/scaling" className="hover:text-accent transition-colors">Scaling Strategy</Link></li>
-            <li><Link to="/services/cro" className="hover:text-accent transition-colors">Conversion Optimization</Link></li>
-            <li><Link to="/services/analytics" className="hover:text-accent transition-colors">Analytics & Tracking</Link></li>
-            <li><Link to="/services/performance-marketing" className="hover:text-accent transition-colors">Performance Marketing</Link></li>
-            <li><Link to="/services/funnel" className="hover:text-accent transition-colors">Funnel Optimization</Link></li>
             <li><Link to="/services/seo" className="hover:text-accent transition-colors">Ecommerce SEO</Link></li>
+            <li><Link to="/services/performance-marketing" className="hover:text-accent transition-colors">Performance Marketing</Link></li>
+            <li><Link to="/services/store-development" className="hover:text-accent transition-colors">Store Development</Link></li>
+            <li><Link to="/services/cro" className="hover:text-accent transition-colors">Conversion Optimization</Link></li>
+            <li><Link to="/services/creative" className="hover:text-accent transition-colors">Creative Testing</Link></li>
             <li><Link to="/services/email-sms" className="hover:text-accent transition-colors">Email Marketing</Link></li>
+            <li><Link to="/services/ai-automation" className="hover:text-accent transition-colors">AI Automation</Link></li>
           </ul>
         </div>
 

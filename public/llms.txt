@@ -23,7 +23,7 @@ BeingEcom is not a generalist agency. Every engagement is ecommerce-only and rev
 - [Creative & Ad Production](/services/creative): UGC, video and static ad creatives with hooks, scripts and weekly creative testing.
 - [Funnel & Landing Pages](/services/funnel): High-converting bridge pages, retargeting funnels and post-purchase journeys.
 - [Analytics & Tracking](/services/analytics): GA4, Meta Pixel, Conversion API and revenue dashboards with clean attribution.
-- [Scaling & Revenue Strategy](/services/scaling): Profitable scaling from $10K to $100K+/month with full-funnel revenue strategy.
+- [Scaling & Revenue Strategy](/services/scaling): Profitable scaling from £10K to £100K+/month with full-funnel revenue strategy.
 
 ## Optional
 

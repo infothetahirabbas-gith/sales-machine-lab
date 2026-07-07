@@ -5,8 +5,8 @@ export const ORG_INFO = {
   legalName: "BeingEcom",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
-  email: "hello@beingecom.com",
-  telephone: "+44 20 4525 1900",
+  email: "info@beingecom.com",
+  telephone: "+44 7882 743592",
   description:
     "UK ecommerce growth agency for Shopify & WooCommerce brands. Paid ads, CRO, SEO, email automation and analytics.",
   address: {
@@ -18,6 +18,8 @@ export const ORG_INFO = {
   },
   sameAs: [
     "https://www.linkedin.com/company/beingecom",
+    "https://www.instagram.com/beingecom",
+    "https://x.com/beingecom",
   ],
 };
 
