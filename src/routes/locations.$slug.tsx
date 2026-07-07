@@ -460,7 +460,11 @@ function LocationPage() {
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Sparkles className="w-4 h-4 text-primary" />{x}</div>
               ))}
             </div>
-            <Link to="/services/creative" className="btn btn-primary mt-8">Creative services <ArrowRight className="w-4 h-4" /></Link>
+            <div className="mt-8 btn-pair">
+              <Link to="/services/creative" className="btn btn-primary">Creative services <ArrowRight className="w-4 h-4" /></Link>
+              <WhatsAppBtn label="Ask about creative" />
+            </div>
+
           </div>
           <Reveal><img src={IMG.creative} {...imageSeoProps(loc.slug, city, "creative")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
         </div>
