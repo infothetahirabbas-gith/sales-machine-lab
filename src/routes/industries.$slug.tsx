@@ -182,14 +182,9 @@ function IndustryPage() {
 
   const TECH = ["Shopify Plus", "Klaviyo", "Meta Ads Manager", "Google Ads + GMC", "TikTok Ads + Shop", "GA4", "Triple Whale", "Recharge", "Yotpo / Okendo", "Postscript / Attentive"];
 
-  const PROCESS = [
-    { title: "Audit + intelligence", body: "Deep-dive on your data, competitors and customer research to find the fastest wins." },
-    { title: "Rebuild tracking",     body: "GA4, server-side, CAPI and Triple Whale — attribution you can actually trust." },
-    { title: "Creative sprint",      body: "3 UGC + motion batches a week tuned to your buyer's psychology." },
-    { title: "Media buying",         body: "Meta, Google, TikTok run by senior operators — no juniors touching your account." },
-    { title: "CRO + PDP rebuild",    body: "Landing pages and PDPs rewired around real conversion friction." },
-    { title: "Retention engine",     body: "Klaviyo + SMS flows tied to your lifecycle and subscription CRO." },
-  ];
+  const PROCESS = industryProcessFor(ind.name, C.categories);
+  const WHY_NO_SALES = whyNoSalesFor(ind.name, C.categories);
+  const WHY_SEO = whySeoMattersFor(ind.name, C.categories);
 
   return (
     <PageLayout>
