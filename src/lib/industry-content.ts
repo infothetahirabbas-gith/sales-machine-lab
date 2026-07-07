@@ -45,20 +45,20 @@ const COMMON = {
   caseStudy: u("photo-1483985988355-763728e1935b"),
 };
 
-// per-industry hero + secondary imagery (verified IDs from existing pool)
-const IMG: Record<string, { hero: string; buyers: string }> = {
-  "fashion-apparel":        { hero: u("photo-1490578474895-699cd4e2cf59"), buyers: u("photo-1483985988355-763728e1935b") },
-  "beauty-personal-care":   { hero: u("photo-1522337360788-8b13dee7a37e", 1600) || u("photo-1494790108377-be9c29b29330"), buyers: u("photo-1522337660859-02fbefca4702", 1600) || u("photo-1487412720507-e7ab37603c6f") },
-  "electronics-technology": { hero: u("photo-1518770660439-4636190af475"), buyers: u("photo-1516035069371-29a1b244cc32") },
-  "home-garden":            { hero: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1519710164239-da123dc03ef4", 1600) || u("photo-1470309864661-68328b2cd0a5") },
-  "food-beverage":          { hero: u("photo-1504674900247-0877df9cc836", 1600) || u("photo-1481437156560-3205f6a55735"), buyers: u("photo-1414235077428-338989a2e8c0", 1600) || u("photo-1504384308090-c894fdcc538d") },
-  "health-wellness":        { hero: u("photo-1490645935967-10de6ba17061", 1600) || u("photo-1502786129293-79981df4e689"), buyers: u("photo-1512621776951-a57141f2eefd", 1600) || u("photo-1499750310107-5fef28a66643") },
-  "sports-fitness":         { hero: u("photo-1517836357463-d25dfeac3438", 1600) || u("photo-1517245386807-bb43f82c33c4"), buyers: u("photo-1517245386807-bb43f82c33c4", 1600) || u("photo-1502378735452-bc7d86632805") },
-  "furniture-interiors":    { hero: u("photo-1555041469-a586c61ea9bc", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1519389950473-47ba0277781c") },
-  "baby-kids":              { hero: u("photo-1519689680058-324335c77eba", 1600) || u("photo-1519389950473-47ba0277781c"), buyers: u("photo-1476703993599-0035a21b17a9", 1600) || u("photo-1503428593586-e225b39bddfe") },
-  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338", 1600) || u("photo-1493612276216-ee3925520721"), buyers: u("photo-1523275335684-37898b6baf30", 1600) || u("photo-1493612276216-ee3925520721") },
-  "pets-supplies":          { hero: u("photo-1450778869180-41d0601e046e", 1600) || u("photo-1518020382113-a7e8fc38eac9"), buyers: u("photo-1548199973-03cce0bbc87b", 1600) || u("photo-1583337130417-3346a1be7dee") },
-  "arts-prints-stationery": { hero: u("photo-1513116476489-7635e79feb27", 1600) || u("photo-1500462918059-b1a0cb512f1d"), buyers: u("photo-1499336315816-097655dcfbda", 1600) || u("photo-1518791841217-8f162f1e1131") },
+// per-industry imagery — every ID hand-picked to visually match the vertical
+const IMG: Record<string, { hero: string; buyers: string; creative: string; caseStudy: string }> = {
+  "fashion-apparel":        { hero: u("photo-1490481651871-ab68de25d43d"), buyers: u("photo-1483985988355-763728e1935b"), creative: u("photo-1445205170230-053b83016050"), caseStudy: u("photo-1490578474895-699cd4e2cf59") },
+  "beauty-personal-care":   { hero: u("photo-1571781926291-c477ebfd024b"), buyers: u("photo-1512496015851-a90fb38ba796"), creative: u("photo-1522337360788-8b13dee7a37e"), caseStudy: u("photo-1522337660859-02fbefca4702") },
+  "electronics-technology": { hero: u("photo-1518770660439-4636190af475"), buyers: u("photo-1505740420928-5e560c06d30e"), creative: u("photo-1550009158-9ebf69173e03"), caseStudy: u("photo-1516035069371-29a1b244cc32") },
+  "home-garden":            { hero: u("photo-1616486338812-3dadae4b4ace"), buyers: u("photo-1493663284031-b7e3aefcae8e"), creative: u("photo-1449034446853-66c86144b0ad"), caseStudy: u("photo-1519710164239-da123dc03ef4") },
+  "food-beverage":          { hero: u("photo-1504674900247-0877df9cc836"), buyers: u("photo-1414235077428-338989a2e8c0"), creative: u("photo-1481070414801-51fd732d7184"), caseStudy: u("photo-1481437156560-3205f6a55735") },
+  "health-wellness":        { hero: u("photo-1584017911766-d451b3d0e843"), buyers: u("photo-1544367567-0f2fcb009e0b"), creative: u("photo-1490645935967-10de6ba17061"), caseStudy: u("photo-1512621776951-a57141f2eefd") },
+  "sports-fitness":         { hero: u("photo-1571019613454-1cb2f99b2d8b"), buyers: u("photo-1526401485004-46910ecc8e51"), creative: u("photo-1517836357463-d25dfeac3438"), caseStudy: u("photo-1517245386807-bb43f82c33c4") },
+  "furniture-interiors":    { hero: u("photo-1555041469-a586c61ea9bc"), buyers: u("photo-1567538096630-e0c55bd6374c"), creative: u("photo-1493663284031-b7e3aefcae8e"), caseStudy: u("photo-1519389950473-47ba0277781c") },
+  "baby-kids":              { hero: u("photo-1519689680058-324335c77eba"), buyers: u("photo-1476703993599-0035a21b17a9"), creative: u("photo-1503428593586-e225b39bddfe"), caseStudy: u("photo-1519389950473-47ba0277781c") },
+  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338"), buyers: u("photo-1611652022419-a9419f74343d"), creative: u("photo-1523275335684-37898b6baf30"), caseStudy: u("photo-1493612276216-ee3925520721") },
+  "pets-supplies":          { hero: u("photo-1450778869180-41d0601e046e"), buyers: u("photo-1548199973-03cce0bbc87b"), creative: u("photo-1583337130417-3346a1be7dee"), caseStudy: u("photo-1518020382113-a7e8fc38eac9") },
+  "arts-prints-stationery": { hero: u("photo-1513116476489-7635e79feb27"), buyers: u("photo-1499336315816-097655dcfbda"), creative: u("photo-1518791841217-8f162f1e1131"), caseStudy: u("photo-1500462918059-b1a0cb512f1d") },
 };
 
 const SEASONS_UK: { month: string; play: string }[] = [
