@@ -165,11 +165,33 @@ function Home() {
                 ))}
               </div>
             </div>
+
+            {/* Platform strip — the 5 channels we grow, with real ecommerce imagery */}
+            <div className="mt-6 grid grid-cols-5 gap-2 md:gap-3" style={{ animation: "rise 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+              {HERO_PLATFORMS.map((p) => (
+                <figure key={p.label} className="group relative rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition">
+                  <SafeImg
+                    src={p.src}
+                    alt={p.alt}
+                    width={240}
+                    height={240}
+                    skeleton
+                    brandOverlay
+                    className="w-full h-16 md:h-20 object-cover transition-transform duration-500 group-hover:scale-110"
+                    wrapperClassName="w-full h-16 md:h-20"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 px-1 py-1 text-[9px] md:text-[10px] font-bold text-white text-center bg-gradient-to-t from-ink/90 to-transparent leading-tight">
+                    {p.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
 
 
         </div>
       </section>
+
 
       {/* 2. TRUST BAR - running marquee */}
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
