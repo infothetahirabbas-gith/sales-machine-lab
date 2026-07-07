@@ -75,4 +75,51 @@ if (broken.length) {
   process.exit(1);
 }
 
-console.log(`✅ [check-images] all ${ids.length} image IDs OK.`);
+// ───────────────────────────────────────────────────────────────────────────
+// Strict rule: no industry page may reuse an image URL across sections.
+// Parses src/lib/industry-content.ts and, for every industry entry in IMG,
+// asserts the 7 slot IDs (hero/buyers/creative/funnel/caseStudy/process/tech)
+// are all distinct. Blocks publish on any duplicate.
+// ───────────────────────────────────────────────────────────────────────────
+const industrySrc = readFileSync(
+  resolve(__dirname, "../src/lib/industry-content.ts"),
+  "utf8",
+);
+const imgBlock = industrySrc.match(/const IMG:[^=]*=\s*\{([\s\S]*?)\n\};/);
+if (!imgBlock) {
+  console.error("❌ [check-images] could not locate IMG table in industry-content.ts");
+  process.exit(1);
+}
+const industryDupes = [];
+const entryRe = /"([a-z0-9-]+)":\s*\{([^}]+)\}/g;
+let m;
+while ((m = entryRe.exec(imgBlock[1])) !== null) {
+  const [, slug, body] = m;
+  const ids = [...body.matchAll(/photo-[0-9a-z-]+/gi)].map((x) => x[0]);
+  if (ids.length < 7) {
+    industryDupes.push(`${slug}: only ${ids.length} image slots (expected 7)`);
+    continue;
+  }
+  const seen = new Map();
+  for (const id of ids) seen.set(id, (seen.get(id) ?? 0) + 1);
+  const repeats = [...seen.entries()].filter(([, n]) => n > 1);
+  if (repeats.length) {
+    industryDupes.push(
+      `${slug}: reused image(s) → ${repeats.map(([id, n]) => `${id} ×${n}`).join(", ")}`,
+    );
+  }
+}
+if (industryDupes.length) {
+  console.error(
+    `\n❌ [check-images] ${industryDupes.length} industry page(s) reuse images across sections:`,
+  );
+  for (const d of industryDupes) console.error(`   - ${d}`);
+  console.error(
+    "\nFix: give each of the 7 image slots (hero/buyers/creative/funnel/caseStudy/process/tech) a unique Unsplash ID in src/lib/industry-content.ts.",
+  );
+  process.exit(1);
+}
+
+console.log(
+  `✅ [check-images] all ${ids.length} image IDs OK, all industry pages use unique images per section.`,
+);

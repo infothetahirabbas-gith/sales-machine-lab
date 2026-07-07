@@ -1,4 +1,23 @@
-import { useState, type ImgHTMLAttributes } from "react";
+import { useState, useMemo, type ImgHTMLAttributes } from "react";
+
+// Build a responsive srcset for Unsplash-hosted images. The URL already carries
+// a `w=` param that Unsplash uses to size the delivered JPG/AVIF, so we swap it
+// for each width and let the browser pick the smallest correct file.
+const UNSPLASH_WIDTHS = [400, 640, 800, 1200, 1600, 1920];
+export function unsplashSrcSet(src: string): string | undefined {
+  if (!src || !src.includes("images.unsplash.com")) return undefined;
+  try {
+    const url = new URL(src);
+    return UNSPLASH_WIDTHS.map((w) => {
+      url.searchParams.set("w", String(w));
+      return `${url.toString()} ${w}w`;
+    }).join(", ");
+  } catch {
+    return undefined;
+  }
+}
+const DEFAULT_SIZES =
+  "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px";
 
 // Inline SVG placeholder — no extra network hop when a real image 404s.
 const FALLBACK =
@@ -38,15 +57,26 @@ export function SafeImg({
   className = "",
   loading = "lazy",
   decoding = "async",
+  sizes,
+  srcSet,
   ...rest
 }: Props) {
   const [current, setCurrent] = useState(src);
   const [loaded, setLoaded] = useState(false);
 
+  // Auto-derive srcset for Unsplash images so mobile devices don't pull 1600w JPGs.
+  const autoSrcSet = useMemo(
+    () => srcSet ?? (current === src ? unsplashSrcSet(String(src ?? "")) : undefined),
+    [srcSet, current, src],
+  );
+  const autoSizes = sizes ?? (autoSrcSet ? DEFAULT_SIZES : undefined);
+
   const img = (
     <img
       {...rest}
       src={current}
+      srcSet={autoSrcSet}
+      sizes={autoSizes}
       loading={loading}
       decoding={decoding}
       onLoad={(e) => {

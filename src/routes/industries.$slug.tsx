@@ -10,7 +10,7 @@ import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../compone
 import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
-import { SafeImg } from "../components/SafeImg";
+import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
@@ -47,6 +47,19 @@ export const Route = createFileRoute("/industries/$slug")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
       ],
+      links: heroImage
+        ? [
+            {
+              rel: "preload",
+              as: "image",
+              href: heroImage,
+              imagesrcset: unsplashSrcSet(heroImage),
+              imagesizes:
+                "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
+              fetchpriority: "high",
+            },
+          ]
+        : [],
     };
   },
   component: IndustryPage,
