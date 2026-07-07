@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowRight, Megaphone, Target, Zap, BarChart3, Rocket, Sparkles,
   Star, Award, Play, Search, Filter, CheckCircle2, TrendingUp, Users, PoundSterling,
+  MessageCircle as WaIcon,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
@@ -12,6 +13,7 @@ import { SafeImg } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
+import { whatsappForIndustry } from "../lib/whatsapp";
 
 export const Route = createFileRoute("/industries/$slug/paid-ads")({
   loader: ({ params }) => {
@@ -67,6 +69,7 @@ export const Route = createFileRoute("/industries/$slug/paid-ads")({
 function IndustryPaidAdsPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
+  const wa = whatsappForIndustry(ind.name, "Interested in your paid ads service (Meta, Google, TikTok).");
 
   const CHANNELS = [
     { icon: Megaphone, name: "Meta Ads (Facebook + Instagram)", body: "Creative-led broad scaling with Advantage+ shopping and manual campaigns for control." },
@@ -140,8 +143,11 @@ function IndustryPaidAdsPage() {
                 Performance advertising built for {ind.name.toLowerCase()} brands. Senior UK team, creative velocity, and attribution you can actually trust.
               </p>
               <div className="mt-8 btn-pair">
-                <Link to="/contact" className="btn btn-primary">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
-                <Link to="/audit" className="btn btn-ghost border border-border">Free Ads Audit</Link>
+                <Link to="/contact" className="btn btn-primary hover-scale">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md" aria-label={`Chat about ${ind.name} paid ads on WhatsApp`}>
+                  <WaIcon className="w-4 h-4" /> WhatsApp us
+                </a>
+                <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free Ads Audit</Link>
               </div>
               <div className="mt-6 flex items-center gap-4 text-xs text-muted-foreground">
                 <span className="inline-flex items-center gap-1"><Star className="w-4 h-4 text-primary" /> 4.9/5 across 120+ UK brands</span>
@@ -361,6 +367,29 @@ function IndustryPaidAdsPage() {
         title="Questions we get"
         highlight="most weeks"
       />
+
+      {/* WHATSAPP QUICK BAR */}
+      <Section>
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-r from-[#25D366]/10 via-primary/5 to-accent/10 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 animate-pulse">
+                <WaIcon className="size-6" />
+              </div>
+              <div>
+                <div className="font-bold text-ink text-lg">Free {ind.name.toLowerCase()} ad account audit — on WhatsApp</div>
+                <div className="text-sm text-muted-foreground">Send us your ad account and a senior buyer replies in <span className="font-bold text-ink"><CountUp end={7} /> minutes</span> on UK hours.</div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md">
+                <WaIcon className="w-4 h-4" /> Message us now
+              </a>
+              <Link to="/contact" className="btn btn-ghost border border-border hover-scale">Book a call instead</Link>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
 
       {/* CTA */}
       <CTA

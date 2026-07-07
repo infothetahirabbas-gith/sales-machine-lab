@@ -14,6 +14,8 @@ import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
+import { whatsappForIndustry } from "../lib/whatsapp";
+import { MessageCircle as WaIcon } from "lucide-react";
 
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
@@ -162,6 +164,7 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
+  const wa = whatsappForIndustry(ind.name);
   const related = INDUSTRIES.filter((i) => i.slug !== ind.slug).slice(0, 4);
 
   const CHANNELS = [
@@ -204,8 +207,11 @@ function IndustryPage() {
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">{C.hero}</p>
               <p className="mt-3 text-sm text-muted-foreground/80 max-w-xl">{C.vibe}</p>
               <div className="mt-8 btn-pair">
-                <Link to="/contact" className="btn btn-primary">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
-                <Link to="/audit" className="btn btn-ghost border border-border">Free Store Audit</Link>
+                <Link to="/contact" className="btn btn-primary hover-scale">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md" aria-label={`Chat about ${ind.name} on WhatsApp`}>
+                  <WaIcon className="w-4 h-4" /> WhatsApp us
+                </a>
+                <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free Store Audit</Link>
               </div>
               <div className="mt-6 flex items-center gap-4 text-xs text-muted-foreground">
                 <span className="inline-flex items-center gap-1"><Star className="w-4 h-4 text-primary" /> 4.9/5 across 120+ UK brands</span>
@@ -620,8 +626,11 @@ function IndustryPage() {
                   <div className="text-xs text-muted-foreground">Time to scale</div>
                 </div>
               </div>
-              <div className="mt-6 flex gap-3">
-                <Link to="/case-studies" className="btn btn-primary">See all case studies <ArrowRight className="w-4 h-4" /></Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/case-studies" className="btn btn-primary hover-scale">See all case studies <ArrowRight className="w-4 h-4" /></Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57]" aria-label={`Chat about ${ind.name} case studies on WhatsApp`}>
+                  <WaIcon className="w-4 h-4" /> Chat on WhatsApp
+                </a>
               </div>
             </div>
           </div>
@@ -734,7 +743,30 @@ function IndustryPage() {
         intro="If we haven't answered it, message the team on WhatsApp — usually a reply within the hour on UK business days."
       />
 
-      {/* 21. FINAL CTA */}
+      {/* 21. WHATSAPP QUICK BAR */}
+      <Section>
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-r from-[#25D366]/10 via-primary/5 to-accent/10 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 animate-pulse">
+                <WaIcon className="size-6" />
+              </div>
+              <div>
+                <div className="font-bold text-ink text-lg">Talk to a senior {ind.name.toLowerCase()} operator now</div>
+                <div className="text-sm text-muted-foreground">Average reply time <span className="font-bold text-ink"><CountUp end={7} /> minutes</span> on UK business hours. No forms, no juniors.</div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md">
+                <WaIcon className="w-4 h-4" /> Message on WhatsApp
+              </a>
+              <Link to="/contact" className="btn btn-ghost border border-border hover-scale">Book a call instead</Link>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* 22. FINAL CTA */}
       <CTA
         heading={`Ready to scale your ${ind.name.toLowerCase()} brand?`}
         sub="Book a free strategy call — we'll show you the exact plays your competitors are already running."
