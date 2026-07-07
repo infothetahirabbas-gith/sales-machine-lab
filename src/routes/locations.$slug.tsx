@@ -266,19 +266,29 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* 2. TRUST BAR */}
+      {/* 2. TRUST BAR — running colored brand logos */}
       <section className="border-y border-border bg-secondary/40 py-8">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-6 text-sm text-muted-foreground">
-            <span className="font-semibold text-ink">Trusted by {city} ecommerce brands</span>
-            <div className="flex flex-wrap gap-6 opacity-80">
-              {["Shopify Plus", "Klaviyo Master", "Meta Partner", "Google Partner", "TikTok Partner", "GA4 Certified"].map(x => (
-                <span key={x} className="font-semibold tracking-wide">{x}</span>
+          <div className="text-center mb-5">
+            <span className="text-sm font-semibold text-ink">Trusted by {city} ecommerce brands · certified partners</span>
+          </div>
+          <div
+            className="relative overflow-hidden"
+            style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}
+          >
+            <div className="marquee-track items-center">
+              {[...TRUST_LOGOS, ...TRUST_LOGOS, ...TRUST_LOGOS].map((L, i) => (
+                <div key={`${L.name}-${i}`} className="flex items-center gap-2.5 shrink-0 px-2" aria-label={L.name} title={L.name}>
+                  <L.Icon />
+                  <span className="font-semibold text-ink text-sm whitespace-nowrap">{L.name}</span>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* 3. STATS */}
       <Section eyebrow={`${city} results`} title={`Numbers ${city} founders care about`} intro={C.vibe} center>
