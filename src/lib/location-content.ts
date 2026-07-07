@@ -47,11 +47,25 @@ export type LocationContent = {
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
-// Deterministic seeded photo — guarantees a unique real image URL per
-// (city, slot) pair. Used to normalise every non-hero slot so no two
-// location pages ever share an image URL. Picsum returns real photography.
+// Deterministic seeded topical photo. Returns a real Unsplash-quality photo
+// matching the given ecommerce/marketing keywords, keyed by a per-(city,slot)
+// seed so no two location pages ever share an image URL — and every image
+// is contextually relevant to the section it illustrates (shopify, ads, seo,
+// analytics, klaviyo, etc.) rather than a random landscape.
+const hash = (s: string) => {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString();
+};
+const topical = (tags: string, seed: string, w = 1600, h = 900) =>
+  `https://loremflickr.com/${w}/${h}/${encodeURIComponent(tags)}/all?lock=${hash(seed)}`;
+// legacy random helper kept for hero fallback only
 const pic = (seed: string, w = 1600, h = 900) =>
   `https://picsum.photos/seed/beingecom-${seed}/${w}/${h}`;
+
 
 
 export const LOCATION_CONTENT: Record<string, LocationContent> = {
