@@ -28,6 +28,45 @@ type Post = {
 };
 
 const POSTS: Record<string, Post> = {
+  "shopify-plus-migration-uk": {
+    slug: "shopify-plus-migration-uk",
+    title: "Shopify Plus migration for UK brands: WooCommerce to Shopify Plus without losing rankings",
+    metaTitle: "Shopify Plus Migration UK — WooCommerce to Shopify Plus | BeingEcom",
+    description:
+      "A UK-specific Shopify Plus migration guide — when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
+    datePublished: "2026-07-08",
+    dateModified: "2026-07-08",
+    readMins: 12,
+    category: "Ecommerce strategy",
+    primaryKeyword: "shopify plus migration uk",
+    about: "Shopify Plus migration for UK WooCommerce ecommerce brands",
+    faqs: [
+      {
+        q: "When does it make sense for a UK brand to move from WooCommerce to Shopify Plus?",
+        a: "Usually at £2–5M/year revenue, 5,000+ SKUs, or when your team is spending more time on WooCommerce maintenance (hosting, plugin conflicts, security patches, checkout bugs) than on marketing. Shopify Plus makes sense earlier if you're running B2B and DTC on one backend, need Shopify Markets for international selling, or want the highest-converting hosted checkout on the market. Below £1M/year, staying on WooCommerce is usually the cheaper decision.",
+      },
+      {
+        q: "How do you migrate a WooCommerce store to Shopify Plus without losing SEO rankings?",
+        a: "Three things matter: preserve every URL with a 301 redirect map (old /product/slug → new /products/slug), keep meta titles, descriptions and H1s identical on launch day, and don't change your primary product-URL slug pattern. Use Cart2Cart or LitExtension for product, customer and order data. Rebuild internal linking before launch, not after. Expect a 4–8 week ranking dip while Google re-crawls, then recovery to pre-migration levels or higher if technical SEO improved.",
+      },
+      {
+        q: "How does Shopify Plus handle UK VAT and international selling versus WooCommerce?",
+        a: "Shopify Plus with Shopify Markets handles UK VAT natively (VAT-inclusive pricing, digital-goods rules, EU OSS reporting), plus country-specific pricing, duties and taxes at checkout, and currency conversion. WooCommerce reaches parity with WooCommerce Tax, EU VAT Compliance Assistant, and Aelia Currency Switcher, but each is a plugin to maintain. For UK-to-EU or UK-to-US expansion, Shopify Markets collapses a multi-week integration into a settings screen.",
+      },
+      {
+        q: "What does a Shopify Plus migration cost for a UK brand?",
+        a: "Typical range: £8,000–£25,000 for a store under 5,000 SKUs, depending on custom Liquid, app rebuilds, third-party integrations (ERP, 3PL, subscription apps), and design work. Shopify Plus itself starts at $2,300/month (roughly £1,800/month) plus payment processing. Total year-one investment usually £30,000–£60,000 including platform fees, migration, and app stack. Payback typically 6–12 months from conversion-rate lift and reduced maintenance overhead.",
+      },
+      {
+        q: "How long does a WooCommerce to Shopify Plus migration take?",
+        a: "Realistic timeline: 6–12 weeks end-to-end for a store with under 5,000 SKUs, standard checkout, and a UK-only market. Weeks 1–2: discovery, URL mapping, theme scoping. Weeks 3–6: theme build, data migration, app integration. Weeks 7–9: QA, staging tests, 301 redirect implementation. Weeks 10–12: launch, monitoring, ranking recovery. B2B stores, multi-region stores, or heavy custom-logic sites (subscriptions with edge cases, wholesale portals) can extend to 4–6 months.",
+      },
+      {
+        q: "Will I lose customer accounts and order history when migrating to Shopify Plus?",
+        a: "No — Cart2Cart and LitExtension migrate customer records, order history and product data cleanly. Customers keep their email and address book. Passwords do not transfer (Shopify uses different hashing) so customers set a new password on first login — send a proactive email 48 hours before launch explaining this. Subscription customers need special handling: migrate to Recharge or Bold Subscriptions before switching platforms, not after.",
+      },
+    ],
+  },
   "shopify-vs-woocommerce-uk": {
     slug: "shopify-vs-woocommerce-uk",
     title: "Shopify vs WooCommerce UK 2026: honest comparison for growing DTC brands",
@@ -209,8 +248,191 @@ function formatDate(iso: string) {
 }
 
 const ARTICLES: Record<string, () => ReactElement> = {
+  "shopify-plus-migration-uk": ShopifyPlusMigrationUK,
   "shopify-vs-woocommerce-uk": ShopifyVsWooCommerceUK,
 };
+
+function ShopifyPlusMigrationUK() {
+  return (
+    <>
+      <h2 id="tldr">Short answer first</h2>
+      <p>
+        If your UK ecommerce brand is between <strong>£2M and £15M/year</strong>, running
+        WooCommerce, and spending more team hours on hosting, plugin conflicts and
+        checkout bugs than on marketing — <strong>it's time to migrate to Shopify
+        Plus</strong>. If you're under £1M and Woo is stable, stay put.
+      </p>
+      <p>
+        Below is the UK-specific migration playbook: the business case, VAT and
+        Shopify Markets setup, the 301 redirect strategy that protects your Google
+        rankings, and a technical checklist for going live without losing revenue.
+      </p>
+
+      <h2 id="key-takeaways">Key takeaways</h2>
+      <ul>
+        <li><strong>Trigger point:</strong> £2–5M/year revenue, 5,000+ SKUs, or maintenance eating more than 15% of team time.</li>
+        <li><strong>Budget:</strong> £8K–£25K migration + ~£1,800/month Shopify Plus + apps.</li>
+        <li><strong>Timeline:</strong> 6–12 weeks for a standard UK-only store; 4–6 months for multi-region or B2B.</li>
+        <li><strong>SEO risk:</strong> real but manageable — 4–8 week dip, then recovery to pre-migration levels if you do the redirect map properly.</li>
+        <li><strong>Biggest UK-specific wins:</strong> Shopify Markets for EU/US expansion, native VAT handling, Shop Pay conversion lift.</li>
+      </ul>
+
+      <h2 id="business-case">1. The business case: when Shopify Plus actually pays back</h2>
+      <p>
+        Don't migrate because Shopify Plus sounds more premium. Migrate when the numbers
+        make sense. Payback usually comes from three sources:
+      </p>
+      <ul>
+        <li><strong>Conversion rate lift:</strong> Shopify's checkout plus Shop Pay typically adds 8–18% to store conversion versus WooCommerce's default checkout, based on our UK migration data.</li>
+        <li><strong>Reduced maintenance:</strong> teams save 10–25 hours/month on hosting, plugin updates, security patching and checkout bug-fixing.</li>
+        <li><strong>Faster iteration:</strong> merchandising, campaigns, landing pages and international expansion ship in days instead of weeks.</li>
+      </ul>
+      <p>
+        For a £3M/year brand at a 2.4% conversion rate, a 12% relative conversion lift
+        is roughly <strong>£360,000 in additional annual revenue</strong>. That pays for
+        the migration and 18 months of Shopify Plus fees in year one.
+      </p>
+
+      <h2 id="cost">2. Real UK cost of a Shopify Plus migration</h2>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Line item</th>
+              <th>Typical UK range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Shopify Plus platform</td><td>~£1,800 / month (from $2,300)</td></tr>
+            <tr><td>Migration (theme, data, apps, redirects)</td><td>£8,000 – £25,000 one-off</td></tr>
+            <tr><td>App stack (Klaviyo, Judge.me, Rebuy, Gorgias, etc.)</td><td>£400 – £1,200 / month</td></tr>
+            <tr><td>Custom Liquid / integrations (ERP, 3PL, subscriptions)</td><td>£3,000 – £15,000 one-off</td></tr>
+            <tr><td>Payment processing (Shopify Payments UK)</td><td>1.5% – 2.4% + 20p</td></tr>
+            <tr><td><strong>Year 1 total (typical)</strong></td><td><strong>£30,000 – £60,000</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="seo-migration">3. The SEO migration plan — protect your rankings</h2>
+      <p>
+        This is where most migrations fail. UK brands lose 30–70% of organic traffic
+        when they skip the redirect work. Here's the sequence that protects rankings:
+      </p>
+      <ol>
+        <li><strong>Crawl the old site</strong> with Screaming Frog. Export every indexed URL, title, description, H1 and canonical.</li>
+        <li><strong>Build the redirect map</strong> before touching the new store. Every old URL needs a 301 to its closest match on Shopify — usually <code>/product/slug</code> → <code>/products/slug</code> and <code>/product-category/x</code> → <code>/collections/x</code>.</li>
+        <li><strong>Preserve on-page SEO:</strong> keep meta titles, descriptions and H1s identical on launch day. Rewrite later, not now.</li>
+        <li><strong>Rebuild internal linking</strong> before launch, not after. Collections should link to related collections, PDPs to related PDPs.</li>
+        <li><strong>Keep the URL slug pattern.</strong> If your old product URLs were <code>/product/blue-hoodie</code>, the new ones should be <code>/products/blue-hoodie</code> — not <code>/products/blue-hoodie-v2</code>.</li>
+        <li><strong>Submit a new XML sitemap</strong> to Google Search Console on day one. Keep the old sitemap accessible for two weeks so Google can crawl the redirects.</li>
+      </ol>
+      <p>
+        Expect a <strong>4–8 week ranking dip</strong> as Google re-crawls and processes
+        the redirects. Traffic recovers to pre-migration levels — often higher — because
+        Shopify's Core Web Vitals scores are usually better than a plugin-heavy Woo
+        stack.
+      </p>
+
+      <h2 id="vat-markets">4. UK VAT and Shopify Markets setup</h2>
+      <p>
+        This is where Shopify Plus quietly beats WooCommerce for UK brands. Native
+        handling of:
+      </p>
+      <ul>
+        <li>VAT-inclusive pricing (required for UK B2C display)</li>
+        <li>Digital goods VAT rules</li>
+        <li>EU OSS reporting for post-Brexit EU sales</li>
+        <li>Country-specific pricing via Shopify Markets</li>
+        <li>Duties and taxes collected at checkout (no surprise fees for customers)</li>
+        <li>Automatic currency conversion in 130+ currencies</li>
+      </ul>
+      <p>
+        Setup checklist for a UK brand: enable Shopify Payments UK, set your primary
+        market to United Kingdom with GBP and VAT-inclusive display, add EU as a
+        secondary market with EUR and OSS enabled, and add US as a third market with
+        USD and duties-at-checkout for orders over £135.
+      </p>
+
+      <h2 id="checkout">5. Checkout, Shop Pay and abandoned cart</h2>
+      <p>
+        Shopify's hosted checkout is the highest-converting on the market. Shop Pay
+        one-tap-returning-customer sessions convert around <strong>1.7x higher than
+        guest checkout</strong> in our UK client data. Migrating from a Woo +
+        WooCommerce Payments setup to Shopify Payments + Shop Pay is usually the
+        single biggest conversion lift.
+      </p>
+      <p>
+        Rebuild abandoned cart flows in Klaviyo before launch — don't wait. Match the
+        old flow's timing and offer, then optimise post-launch.
+      </p>
+
+      <h2 id="data">6. Data migration: products, customers, orders, subscriptions</h2>
+      <p>
+        Use <strong>Cart2Cart</strong> or <strong>LitExtension</strong> to move product
+        catalogue, customer records and order history. Both cost £300–£1,500 depending
+        on data volume.
+      </p>
+      <ul>
+        <li><strong>Products:</strong> maps cleanly. Watch for custom Woo product attributes — they need to become Shopify metafields or variants.</li>
+        <li><strong>Customers:</strong> emails and address books transfer. Passwords don't (different hashing). Send a proactive email 48 hours before launch explaining the one-time password reset.</li>
+        <li><strong>Orders:</strong> full order history transfers with line items and totals. Historical order status stays intact.</li>
+        <li><strong>Subscriptions:</strong> the hard one. Migrate to Recharge or Bold Subscriptions <em>before</em> switching platforms, not after. Failed migrations here churn subscribers immediately.</li>
+        <li><strong>Reviews:</strong> export from Woo Reviews or Judge.me, import to Judge.me on Shopify. Preserves star ratings and review schema.</li>
+      </ul>
+
+      <h2 id="apps">7. The Shopify Plus app stack a UK DTC brand actually needs</h2>
+      <p>
+        Don't rebuild every Woo plugin as a Shopify app — most add cost and slow the
+        store. Minimum viable stack for a £3–15M UK brand:
+      </p>
+      <ul>
+        <li><strong>Klaviyo</strong> — email and SMS, replaces MailPoet or FluentCRM</li>
+        <li><strong>Judge.me</strong> — reviews, replaces Woo Reviews</li>
+        <li><strong>Rebuy or Bold Upsell</strong> — post-purchase and cart upsells</li>
+        <li><strong>Gorgias</strong> — helpdesk, integrates with Shopify orders natively</li>
+        <li><strong>Loox or Judge.me photo reviews</strong> — UGC gallery</li>
+        <li><strong>Recharge</strong> — only if you have subscriptions</li>
+      </ul>
+      <p>
+        That's £400–£800/month all-in. Add tools when a specific revenue lever is
+        proven, not on launch.
+      </p>
+
+      <h2 id="timeline">8. Realistic migration timeline</h2>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr><th>Weeks</th><th>What ships</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1–2</td><td>Discovery, URL crawl and redirect map, theme scoping, app stack decisions</td></tr>
+            <tr><td>3–6</td><td>Theme build on Shopify Dawn or a Plus theme, data migration to staging, app integration</td></tr>
+            <tr><td>7–9</td><td>QA on staging, 301 redirect implementation, Klaviyo flows rebuilt, checkout tests, VAT tests, Markets setup</td></tr>
+            <tr><td>10</td><td>Soft launch — DNS switch, password reset email to customers, sitemap submitted to Google Search Console</td></tr>
+            <tr><td>11–12</td><td>Monitor 404s, refine redirects, watch Search Console for indexing signals, optimise Core Web Vitals</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="mistakes">9. The five most expensive mistakes UK brands make</h2>
+      <ol>
+        <li><strong>Skipping the redirect map.</strong> Cost: 30–70% of organic traffic, permanently.</li>
+        <li><strong>Rewriting meta titles on launch day.</strong> Cost: unnecessary ranking volatility. Rewrite after week 8.</li>
+        <li><strong>Migrating subscriptions after launch.</strong> Cost: 20–40% subscriber churn.</li>
+        <li><strong>Not testing Shopify Payments UK before DNS switch.</strong> Cost: hours of missed revenue on day one.</li>
+        <li><strong>Rebuilding every WooCommerce plugin as a Shopify app.</strong> Cost: £1,500+/month in unused subscriptions and a slower store.</li>
+      </ol>
+
+      <h2 id="next">Ready to move?</h2>
+      <p>
+        A properly planned Shopify Plus migration is one of the highest-ROI decisions
+        a scaling UK ecommerce brand makes. A rushed one is one of the most expensive.
+        The difference is 4 weeks of planning and a real redirect map.
+      </p>
+    </>
+  );
+}
+
 
 function ShopifyVsWooCommerceUK() {
   return (

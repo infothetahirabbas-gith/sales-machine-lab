@@ -64,10 +64,10 @@ function Contact() {
                 </div>
                 <input required placeholder="Store URL (Shopify / WooCommerce)" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
+                  <select aria-label="Monthly revenue" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
                     <option>Monthly revenue</option><option>£0 - £5K</option><option>£5K - £25K</option><option>£25K - £100K</option><option>£100K+</option>
                   </select>
-                  <select className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
+                  <select aria-label="Monthly ad spend" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
                     <option>Monthly ad spend</option><option>£0 - £1K</option><option>£1K - £5K</option><option>£5K - £25K</option><option>£25K+</option>
                   </select>
                 </div>

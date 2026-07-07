@@ -16,6 +16,7 @@ BeingEcom is not a generalist agency. Every engagement is ecommerce-only and rev
 
 - [Ecommerce Growth Journal](/blog): Playbooks, benchmarks and teardowns for UK Shopify and WooCommerce brands — ecommerce SEO, CRO, paid ads and retention, written by senior operators.
 - [Shopify vs WooCommerce UK 2026](/blog/shopify-vs-woocommerce-uk): Honest comparison for growing UK DTC brands — total cost of ownership, SEO, checkout, VAT, apps, speed and scaling limits by revenue stage.
+- [Shopify Plus Migration for UK Brands](/blog/shopify-plus-migration-uk): WooCommerce to Shopify Plus migration guide — business case, UK VAT & Shopify Markets, 301 redirect strategy, timeline and cost.
 
 ## Services
 
