@@ -53,10 +53,10 @@ const IMG: Record<string, { hero: string; buyers: string }> = {
   "home-garden":            { hero: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1519710164239-da123dc03ef4", 1600) || u("photo-1470309864661-68328b2cd0a5") },
   "food-beverage":          { hero: u("photo-1504674900247-0877df9cc836", 1600) || u("photo-1481437156560-3205f6a55735"), buyers: u("photo-1414235077428-338989a2e8c0", 1600) || u("photo-1504384308090-c894fdcc538d") },
   "health-wellness":        { hero: u("photo-1490645935967-10de6ba17061", 1600) || u("photo-1502786129293-79981df4e689"), buyers: u("photo-1512621776951-a57141f2eefd", 1600) || u("photo-1499750310107-5fef28a66643") },
-  "sports-fitness":         { hero: u("photo-1517836357463-d25dfeac3438", 1600) || u("photo-1517245386807-bb43f82c33c4"), buyers: u("photo-1517963628607-235ccdd5476b", 1600) || u("photo-1502378735452-bc7d86632805") },
+  "sports-fitness":         { hero: u("photo-1517836357463-d25dfeac3438", 1600) || u("photo-1517245386807-bb43f82c33c4"), buyers: u("photo-1517245386807-bb43f82c33c4", 1600) || u("photo-1502378735452-bc7d86632805") },
   "furniture-interiors":    { hero: u("photo-1555041469-a586c61ea9bc", 1600) || u("photo-1449034446853-66c86144b0ad"), buyers: u("photo-1493663284031-b7e3aefcae8e", 1600) || u("photo-1519389950473-47ba0277781c") },
   "baby-kids":              { hero: u("photo-1519689680058-324335c77eba", 1600) || u("photo-1519389950473-47ba0277781c"), buyers: u("photo-1476703993599-0035a21b17a9", 1600) || u("photo-1503428593586-e225b39bddfe") },
-  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338", 1600) || u("photo-1517045647976-9f7a0b0e0a17"), buyers: u("photo-1523275335684-37898b6baf30", 1600) || u("photo-1493612276216-ee3925520721") },
+  "jewellery-watches":      { hero: u("photo-1515562141207-7a88fb7ce338", 1600) || u("photo-1493612276216-ee3925520721"), buyers: u("photo-1523275335684-37898b6baf30", 1600) || u("photo-1493612276216-ee3925520721") },
   "pets-supplies":          { hero: u("photo-1450778869180-41d0601e046e", 1600) || u("photo-1518020382113-a7e8fc38eac9"), buyers: u("photo-1548199973-03cce0bbc87b", 1600) || u("photo-1583337130417-3346a1be7dee") },
   "arts-prints-stationery": { hero: u("photo-1513116476489-7635e79feb27", 1600) || u("photo-1500462918059-b1a0cb512f1d"), buyers: u("photo-1499336315816-097655dcfbda", 1600) || u("photo-1518791841217-8f162f1e1131") },
 };
