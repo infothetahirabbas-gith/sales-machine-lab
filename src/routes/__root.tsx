@@ -5,6 +5,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   ClientOnly,
@@ -166,10 +167,13 @@ function RootComponent() {
     return () => window.clearTimeout(t);
   }, []);
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <QueryClientProvider client={queryClient}>
       <RouteProgressBar />
-      <Outlet />
+      <div key={pathname} className="animate-[fadeIn_300ms_ease-out_both]">
+        <Outlet />
+      </div>
       <ClientOnly fallback={null}>
         {deferredReady ? (
           <Suspense fallback={null}>
