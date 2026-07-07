@@ -69,12 +69,16 @@ const rotatingPhrases = [
   "Ecommerce Growth Agency",
 ];
 
+// Cache-bust version - bump when hero images are updated so browsers/CDN fetch fresh
+const HERO_IMG_V = "20260707a";
+const bust = (src: string) => `${src}${src.includes("?") ? "&" : "?"}v=${HERO_IMG_V}`;
+
 const dashboards = [
-  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroShopifyCommerce, alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
-  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroWoocommerceStore, alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
-  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: heroSeoGrowth, alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
-  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: heroPaidAds, alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
-  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: heroCroTesting, alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
+  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: bust(heroShopifyCommerce), alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", focal: "center 35%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
+  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: bust(heroWoocommerceStore), alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", focal: "center 40%", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
+  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: bust(heroSeoGrowth), alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", focal: "center 45%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: bust(heroPaidAds), alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", focal: "center 40%", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
+  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: bust(heroCroTesting), alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", focal: "center 40%", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
 ] as const;
 
 function Home() {
