@@ -695,21 +695,58 @@ function IndustryPage() {
       {/* 18. SUB-SERVICES — deep-dive service pages built for this industry */}
       <Section eyebrow="Go deeper" title={`Service pages built for ${ind.name.toLowerCase()} brands`} intro="Every service below is tuned for your vertical. Click through for scope, deliverables and pricing." alt>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { to: "/industries/$slug/paid-ads" as const, params: { slug: ind.slug }, img: C.images.creative, icon: Megaphone, title: `${ind.name} Paid Ads`, desc: `Meta, Google, TikTok & YouTube scaling built for ${ind.name.toLowerCase()} DTC brands.`, tag: "Industry-specific" },
-            { to: "/services/seo" as const, img: C.images.tech, icon: Search, title: `SEO for ${ind.name}`, desc: `Technical, on-page, off-page & AEO to own ${ind.name.toLowerCase()} search demand.`, tag: "Own your traffic" },
-            { to: "/services/store-development" as const, img: C.images.process, icon: Wrench, title: "Store Development", desc: `Shopify & WooCommerce builds engineered to convert ${ind.name.toLowerCase()} shoppers.`, tag: "Build to convert" },
-            { to: "/services/cro" as const, img: C.images.funnel, icon: TrendingUp, title: "CRO & Landing Pages", desc: `Session recordings, A/B testing and PDP rebuilds to lift ${ind.name.toLowerCase()} AOV.`, tag: "Higher AOV" },
-            { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30–40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list" },
-            { to: "/services/creative" as const, img: C.images.caseStudy, icon: Palette, title: "Creative Studio", desc: `UGC, static and motion tuned to ${ind.name.toLowerCase()} hooks that actually convert.`, tag: "Creative that ships" },
-          ].map((s, i) => (
+          {([
+            { to: "/industries/$slug/paid-ads" as const, params: { slug: ind.slug }, img: C.images.creative, icon: Megaphone, title: `${ind.name} Paid Ads`, desc: `Meta, Google, TikTok & YouTube scaling built for ${ind.name.toLowerCase()} DTC brands.`, tag: "Industry-specific",
+              subs: [
+                { label: "Facebook Ads", to: "/services/performance-marketing/facebook-ads" as const },
+                { label: "Google Ads", to: "/services/performance-marketing/google-ads" as const },
+                { label: "TikTok Ads", to: "/services/performance-marketing/tiktok-ads" as const },
+                { label: "Instagram Ads", to: "/services/performance-marketing/instagram-ads" as const },
+                { label: "YouTube Ads", to: "/services/performance-marketing/youtube-ads" as const },
+                { label: "Media Buying", to: "/services/performance-marketing/media-buying" as const },
+              ] },
+            { to: "/services/seo" as const, img: C.images.tech, icon: Search, title: `SEO for ${ind.name}`, desc: `Technical, on-page, off-page & AEO to own ${ind.name.toLowerCase()} search demand.`, tag: "Own your traffic",
+              subs: [
+                { label: "Technical SEO", to: "/services/seo/technical" as const },
+                { label: "On-Page SEO", to: "/services/seo/on-page" as const },
+                { label: "Off-Page SEO", to: "/services/seo/off-page" as const },
+                { label: "Local SEO", to: "/services/seo/local" as const },
+                { label: "International SEO", to: "/services/seo/international" as const },
+                { label: "AEO", to: "/services/seo/aeo" as const },
+              ] },
+            { to: "/services/store-development" as const, img: C.images.process, icon: Wrench, title: "Store Development", desc: `Shopify & WooCommerce builds engineered to convert ${ind.name.toLowerCase()} shoppers.`, tag: "Build to convert",
+              subs: [
+                { label: "Shopify", to: "/services/store-development/shopify" as const },
+                { label: "WooCommerce", to: "/services/store-development/woocommerce" as const },
+              ] },
+            { to: "/services/cro" as const, img: C.images.funnel, icon: TrendingUp, title: "CRO & Landing Pages", desc: `Session recordings, A/B testing and PDP rebuilds to lift ${ind.name.toLowerCase()} AOV.`, tag: "Higher AOV",
+              subs: [
+                { label: "Funnel Design", to: "/services/funnel" as const },
+                { label: "Analytics", to: "/services/analytics" as const },
+                { label: "Scaling", to: "/services/scaling" as const },
+              ] },
+            { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30–40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list",
+              subs: [
+                { label: "Welcome Flows", to: "/services/email-sms" as const },
+                { label: "Abandoned Cart", to: "/services/email-sms" as const },
+                { label: "Winback & VIP", to: "/services/email-sms" as const },
+              ] },
+            { to: "/services/creative" as const, img: C.images.caseStudy, icon: Palette, title: "Creative Studio", desc: `UGC, static and motion tuned to ${ind.name.toLowerCase()} hooks that actually convert.`, tag: "Creative that ships",
+              subs: [
+                { label: "UGC Creators", to: "/services/creative" as const },
+                { label: "Static Ads", to: "/services/creative" as const },
+                { label: "Motion & Video", to: "/services/creative" as const },
+                { label: "AI Automation", to: "/services/ai-automation" as const },
+              ] },
+          ] as const).map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-              <Link
-                to={s.to}
-                {...(s.params ? { params: s.params } : {})}
-                className="card-surface card-hover group flex flex-col overflow-hidden h-full"
-              >
-                <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="card-surface card-hover group flex flex-col overflow-hidden h-full">
+                <Link
+                  to={s.to}
+                  {...(("params" in s && s.params) ? { params: s.params } : {})}
+                  className="block relative aspect-[16/9] overflow-hidden"
+                  aria-label={`${s.title} — overview`}
+                >
                   <SafeImg
                     src={s.img}
                     srcSet={unsplashSrcSet(s.img)}
@@ -723,15 +760,39 @@ function IndustryPage() {
                       <s.icon className="size-3.5 text-primary" /> {s.tag}
                     </span>
                   </div>
-                </div>
+                </Link>
                 <div className="p-5 flex-1 flex flex-col">
-                  <h4 className="text-lg font-bold text-ink">{s.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-1 flex-1">{s.desc}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  <Link
+                    to={s.to}
+                    {...(("params" in s && s.params) ? { params: s.params } : {})}
+                    className="text-lg font-bold text-ink hover:text-primary transition-colors"
+                  >
+                    {s.title}
+                  </Link>
+                  <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
+                  <div className="mt-4">
+                    <div className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground mb-2">Sub-services</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {s.subs.map((sub) => (
+                        <Link
+                          key={sub.label + sub.to}
+                          to={sub.to}
+                          className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary/40 text-primary text-[12px] font-medium px-2.5 py-1 transition-colors"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <Link
+                    to={s.to}
+                    {...(("params" in s && s.params) ? { params: s.params } : {})}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
+                  >
                     Explore service <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>
