@@ -32,7 +32,7 @@ export function SafeImg({
   src,
   onError,
   onLoad,
-  skeleton = true,
+  skeleton = false,
   brandOverlay = false,
   wrapperClassName = "",
   className = "",
