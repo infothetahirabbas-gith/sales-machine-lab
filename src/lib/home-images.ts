@@ -36,38 +36,8 @@ export const HOME_BENTO = [
   },
 ] as const;
 
-// Hero platform strip — the 5 channels we grow (Shopify, WooCommerce, Meta Ads, SEO, Email).
-export const HERO_PLATFORMS = [
-  {
-    src: u("photo-1556742049-0cfed4f6a45d", 600),
-    alt: "Shopify storefront on mobile — UK ecommerce agency",
-    label: "Shopify",
-  },
-  {
-    src: u("photo-1607083206869-4c7672e72a8a", 600),
-    alt: "WooCommerce store dashboard on laptop — UK WooCommerce agency",
-    label: "WooCommerce",
-  },
-  {
-    src: u("photo-1611944212129-29977ae1398c", 600),
-    alt: "Facebook and Meta ads creative for a UK ecommerce brand",
-    label: "Meta Ads",
-  },
-  {
-    src: u("photo-1460925895917-afdab827c52f", 600),
-    alt: "Ecommerce SEO analytics and Google rankings dashboard",
-    label: "SEO & AI Search",
-  },
-  {
-    src: u("photo-1611974789855-9c2a0a7236a3", 600),
-    alt: "Klaviyo email revenue dashboard for a UK Shopify brand",
-    label: "Email · Klaviyo",
-  },
-] as const;
-
 // Case-study photo — Shopify store on laptop.
 export const CASE_STUDY_IMG = u("photo-1607083206869-4c7672e72a8a", 1200);
-
 
 // Testimonial founder headshots — cycled through the marquee.
 export const FOUNDER_PHOTOS = [
@@ -88,8 +58,6 @@ export const HOME_IMAGE_URLS: readonly string[] = [
   HERO_LAPTOP,
   HERO_PHONE,
   ...HOME_BENTO.map((i) => i.src),
-  ...HERO_PLATFORMS.map((i) => i.src),
-
   CASE_STUDY_IMG,
   ...FOUNDER_PHOTOS,
 ];
