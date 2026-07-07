@@ -10,9 +10,9 @@ import founder from "@/assets/founder-ceo.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { title: "About BeingEcom — UK Shopify & WooCommerce Agency" },
       { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
-      { property: "og:title", content: "About BeingEcom — UK Ecommerce Growth Agency | Shopify & WooCommerce" },
+      { property: "og:title", content: "About BeingEcom — UK Shopify & WooCommerce Agency" },
       { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

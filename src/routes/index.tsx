@@ -32,9 +32,9 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
+      { title: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
       { name: "description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
-      { property: "og:title", content: "Ecommerce Agency UK — Shopify, WooCommerce Growth & AI Search SEO | BeingEcom" },
+      { property: "og:title", content: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
       { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
