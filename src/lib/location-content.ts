@@ -159,7 +159,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   manchester: {
     images: {
       hero: u("photo-1568827999250-3f6afff96e66"), // manchester
-      skyline: u("photo-1580333307823-70d92085b6ba"),
+      skyline: u("photo-1460925895917-afdab827c52f"),
       team: u("photo-1517048676732-d65bc937f952"),
       ads: u("photo-1611926653458-09294b3142bf"),
       seo: u("photo-1533750516457-a7f992034fec"),
@@ -229,7 +229,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   glasgow: {
     images: {
       hero: u("photo-1548783307-f63adc3f200b"),
-      skyline: u("photo-1587049016823-c90a2ab2072b"),
+      skyline: u("photo-1552664730-d307ca884978"),
       team: u("photo-1573497019940-1c28c88b4f3e"),
       ads: u("photo-1553484771-371a605b060b"),
       seo: u("photo-1571677246347-5040036b95cc"),
@@ -298,7 +298,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
 
   leeds: {
     images: {
-      hero: u("photo-1568317675006-e78b3fce6e93"),
+      hero: u("photo-1552664730-d307ca884978"),
       skyline: u("photo-1595351298020-038700609878"),
       team: u("photo-1600880292203-757bb62b4baf"),
       ads: u("photo-1517245386807-bb43f82c33c4"),
@@ -311,7 +311,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       meeting: u("photo-1573167243872-43c6433b9d40"),
       caseStudy: u("photo-1490578474895-699cd4e2cf59"),
       process: u("photo-1454165804606-c3d57bc86b40"),
-      founders: [u("photo-1500648767791-00dcc994a43e", 500), u("photo-1546961342-1c1cbde3fbe0", 500), u("photo-1548142813-c348350df52b", 500)],
+      founders: [u("photo-1500648767791-00dcc994a43e", 500), u("photo-1494790108377-be9c29b29330", 500), u("photo-1548142813-c348350df52b", 500)],
     },
     heroTagline: "Yorkshire ecommerce — plainspoken strategy, oversized returns.",
     vibe: "Leeds brands don't do fluff. Neither do we. Just relentless testing and compounding growth.",
@@ -368,7 +368,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
 
   leicester: {
     images: {
-      hero: u("photo-1560364897-91578ff41977"),
+      hero: u("photo-1552664730-d307ca884978"),
       skyline: u("photo-1580847097346-72d80f164702"),
       team: u("photo-1587560699334-cc4ff634909a"),
       ads: u("photo-1517245386807-bb43f82c33c4"),
@@ -473,7 +473,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
 
   sheffield: {
     images: {
-      hero: u("photo-1580136608054-8f6ed52a9c8f"),
+      hero: u("photo-1460925895917-afdab827c52f"),
       skyline: u("photo-1503428593586-e225b39bddfe"),
       team: u("photo-1573497019940-1c28c88b4f3e"),
       ads: u("photo-1611926653458-09294b3142bf"),
@@ -486,7 +486,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       meeting: u("photo-1573167243872-43c6433b9d40"),
       caseStudy: u("photo-1470309864661-68328b2cd0a5"),
       process: u("photo-1454165804606-c3d57bc86b40"),
-      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1546961342-1c1cbde3fbe0", 500), u("photo-1489424731084-a5d8b219a5bb", 500)],
+      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1494790108377-be9c29b29330", 500), u("photo-1489424731084-a5d8b219a5bb", 500)],
     },
     heroTagline: "Steel City ecommerce — built with grit, scaled with data.",
     vibe: "Sheffield brands are engineered like the city itself — solid fundamentals, no shortcuts.",
@@ -544,7 +544,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   "newcastle-upon-tyne": {
     images: {
       hero: u("photo-1583766395091-2eb9994ed094"),
-      skyline: u("photo-1543858733-1eb1c34fca5c"),
+      skyline: u("photo-1533929736458-ca588d08c8be"),
       team: u("photo-1573497019940-1c28c88b4f3e"),
       ads: u("photo-1517245386807-bb43f82c33c4"),
       seo: u("photo-1533750516457-a7f992034fec"),
@@ -556,7 +556,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       meeting: u("photo-1573167243872-43c6433b9d40"),
       caseStudy: u("photo-1470309864661-68328b2cd0a5"),
       process: u("photo-1454165804606-c3d57bc86b40"),
-      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1546961342-1c1cbde3fbe0", 500), u("photo-1607746882042-944635dfe10e", 500)],
+      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1494790108377-be9c29b29330", 500), u("photo-1607746882042-944635dfe10e", 500)],
     },
     heroTagline: "Toon DTC — big personality brands, serious growth engineering.",
     vibe: "Newcastle brands scale on personality-driven creative that outperforms polished agency work.",
@@ -591,7 +591,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       meeting: u("photo-1560439514-4e9645039924"),
       caseStudy: u("photo-1470309864661-68328b2cd0a5"),
       process: u("photo-1454165804606-c3d57bc86b40"),
-      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1546961342-1c1cbde3fbe0", 500), u("photo-1554151228-14d9def656e4", 500)],
+      founders: [u("photo-1508214751196-bcfd4ca60f91", 500), u("photo-1494790108377-be9c29b29330", 500), u("photo-1554151228-14d9def656e4", 500)],
     },
     heroTagline: "Bradford DTC — heritage brands with modern scaling systems.",
     vibe: "Bradford blends deep manufacturing heritage with a diverse, ambitious founder scene — a natural fit for scaling DTC.",
@@ -661,7 +661,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     // SEO / analytics / search / keyword research.
     seo: [
       "photo-1432888622747-4eb9a8efeb07", "photo-1518770660439-4636190af475",
-      "photo-1571171637578-41bc2dd41cd2", "photo-1551288259-cd19c22e0997",
+      "photo-1571171637578-41bc2dd41cd2", "photo-1551288049-bebda4e38f71",
       "photo-1504868584819-f8e8b4b6d7e3", "photo-1611746872915-64382b5c76da",
       "photo-1516321318423-f06f85e504b3", "photo-1543286386-2e659306cd6c",
       "photo-1461749280684-dccba630e2f6", "photo-1460925895917-afdab827c52f",
@@ -684,7 +684,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       "photo-1526554850534-7c78330d5f90", "photo-1586953208448-b95a79798f07",
       "photo-1516321497487-e288fb19713f", "photo-1517842645767-c639042777db",
       "photo-1512314889357-e157c22f938d", "photo-1526628953301-3e589a6a8b74",
-      "photo-1517059224940-d4af9eec41b7", "photo-1526661934280-676cef25bc9d",
+      "photo-1517059224940-d4af9eec41b7", "photo-1596526131083-e8c633c948d2",
       "photo-1526401485004-46910ecc8e51", "photo-1493612276216-ee3925520721",
       "photo-1611926653458-09294b3142bf", "photo-1554224155-8d04cb21cd6c",
     ],
@@ -704,7 +704,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       "photo-1460925895917-afdab827c52f", "photo-1554224155-8d04cb21cd6c",
       "photo-1611974789855-9c2a0a7236a3", "photo-1590845947670-c009801ffa74",
       "photo-1590650153855-d9e808231d41", "photo-1611746872915-64382b5c76da",
-      "photo-1590650046871-92c887180603", "photo-1551288259-cd19c22e0997",
+      "photo-1590650046871-92c887180603", "photo-1551288049-bebda4e38f71",
       "photo-1611926653458-09294b3142bf", "photo-1454165804606-c3d57bc86b40",
       "photo-1516321497487-e288fb19713f", "photo-1526628953301-3e589a6a8b74",
     ],
@@ -714,7 +714,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       "photo-1483985988355-763728e1935b", "photo-1481437156560-3205f6a55735",
       "photo-1472851294608-062f824d29cc", "photo-1607083206968-13611e3d76db",
       "photo-1521572163474-6864f9cf17ab", "photo-1607083681678-52733140f93a",
-      "photo-1607082349566-187342175e2f", "photo-1607083206325-caf1edba7a83",
+      "photo-1607082349566-187342175e2f", "photo-1607083206869-4c7672e72a8a",
       "photo-1607082348824-0a96f2a4b9da", "photo-1556740738-b6a63e27c4df",
       "photo-1523275335684-37898b6baf30", "photo-1542291026-7eec264c27ff",
     ],
@@ -751,7 +751,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   };
 
   const foundersPool = [
-    "photo-1508214751196-bcfd4ca60f91", "photo-1546961342-1c1cbde3fbe0",
+    "photo-1508214751196-bcfd4ca60f91", "photo-1494790108377-be9c29b29330",
     "photo-1554151228-14d9def656e4", "photo-1500648767791-00dcc994a43e",
     "photo-1494790108377-be9c29b29330", "photo-1519085360753-af0119f7cbe7",
     "photo-1573497019940-1c28c88b4f3e", "photo-1580489944761-15a19d654956",
