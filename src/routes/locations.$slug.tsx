@@ -91,7 +91,7 @@ export const Route = createFileRoute("/locations/$slug")({
       bristol: "Growth-focused ecommerce support for Bristol-based Shopify & WooCommerce brands — SEO, paid ads, and email built for sustainable scale.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `${loc.slug === "london" ? "" : ""}Ecommerce growth support for ${loc.city}-based Shopify & WooCommerce brands — SEO, CRO, and paid ads managed by a UK-focused senior team.`)
+      ? (descOverrides[loc.slug] ?? `Ecommerce growth support for ${loc.city}-based Shopify & WooCommerce brands — SEO, CRO, and paid ads managed by a UK-focused senior team.`)
       : "UK ecommerce growth agency locations.";
     const kw = loc
       ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO agency ${loc.city}, PPC agency ${loc.city}, Meta ads ${loc.city}, Google Ads ${loc.city}, Klaviyo agency ${loc.city}, CRO agency ${loc.city}, digital marketing agency ${loc.city}, ecommerce experts ${loc.region}`
