@@ -546,24 +546,11 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   },
 };
 
-export function contentFor(slug: string, cityFallback: string): LocationContent {
-  const c = LOCATION_CONTENT[slug];
-  if (c) return c;
-  // graceful fallback for any missing slug
-  const first = LOCATION_CONTENT.london;
-  return {
-    ...first,
-    heroTagline: `Scale your ${cityFallback} ecommerce brand with a senior UK team.`,
-    vibe: `${cityFallback} founders trust us to run their growth engine end-to-end.`,
-};
-
 // Guarantee unique image URLs across ALL location pages.
 // Keeps each city's recognisable Unsplash hero photo, but overwrites every
 // other slot with a deterministic per-(city, slot) seeded URL so no two
-// locations ever share a single image URL — verified by a startup dedupe pass.
+// locations ever share a single image URL.
 {
-  // Fix any hero collisions between cities (e.g. two cities pointing at the
-  // same Unsplash photo) by swapping later collisions to seeded picsum heroes.
   const seenHeros = new Set<string>();
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
     if (seenHeros.has(c.images.hero)) {
@@ -571,7 +558,6 @@ export function contentFor(slug: string, cityFallback: string): LocationContent 
     }
     seenHeros.add(c.images.hero);
   }
-
   const slots: Array<
     Exclude<keyof LocationContent["images"], "hero" | "founders">
   > = [
@@ -590,4 +576,14 @@ export function contentFor(slug: string, cityFallback: string): LocationContent 
   }
 }
 
+export function contentFor(slug: string, cityFallback: string): LocationContent {
+  const c = LOCATION_CONTENT[slug];
+  if (c) return c;
+  const first = LOCATION_CONTENT.london;
+  return {
+    ...first,
+    heroTagline: `Scale your ${cityFallback} ecommerce brand with a senior UK team.`,
+    vibe: `${cityFallback} founders trust us to run their growth engine end-to-end.`,
+  };
 }
+
