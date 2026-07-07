@@ -86,6 +86,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      // Security headers (browser-honored equivalents; HSTS/X-Frame-Options
+      // must also be set as HTTP response headers by the host)
+      { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
+      { httpEquiv: "Referrer-Policy", content: "strict-origin-when-cross-origin" },
+      { name: "referrer", content: "strict-origin-when-cross-origin" },
+      { httpEquiv: "Permissions-Policy", content: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+      { name: "format-detection", content: "telephone=no" },
+      { name: "theme-color", content: "#0F172A" },
       { name: "google-site-verification", content: "w_9CNCsYa-LbUVVIhpJi9baWOsIZaIjsG4jWxAoU2Eg" },
       { title: "BeingEcom - Ecommerce Growth System for Shopify & WooCommerce" },
       { name: "description", content: "We turn struggling Shopify & WooCommerce stores into scalable revenue machines with ads, CRO, SEO, and automation." },
@@ -100,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
       { property: "og:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
       { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -114,19 +122,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap", media: "print", "data-fonts": "swap" } as never,
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(organizationJsonLd()),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(websiteJsonLd()),
-      },
-      {
-        children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();`,
-      },
-    ],
+    scripts: (() => {
+      const gaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
+      const base: Array<Record<string, unknown>> = [
+        { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
+        { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
+        { children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();` },
+      ];
+      if (gaId && /^G-[A-Z0-9]+$/i.test(gaId)) {
+        base.push(
+          { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
+          {
+            children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`,
+          },
+        );
+      }
+      return base;
+    })(),
 
   }),
   shellComponent: RootShell,
