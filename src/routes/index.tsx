@@ -62,12 +62,15 @@ const rotatingPhrases = [
   "Ecommerce Growth Agency",
 ];
 
+const heroImg = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=entropy&w=900&q=80`;
+
 const dashboards = [
-  { key: "revenue", title: "Revenue · Last 30 days", badge: "+312%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
-  { key: "seo", title: "SEO · Organic traffic", badge: "+218%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
-  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
-  { key: "email", title: "Email · Klaviyo flows", badge: "+41% rev", metrics: [{l:"Open",v:"52%"},{l:"Click",v:"6.4%"},{l:"Rev/Recip",v:"£2.10"}] },
-  { key: "cro", title: "Store CRO · Shopify", badge: "+186% CR", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
+  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroImg("photo-1556742049-0cfed4f6a45d"), alt: "Shopify store dashboard on laptop showing revenue growth", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
+  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroImg("photo-1523206489230-c012c64b2b48"), alt: "WooCommerce online storefront on desktop", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
+  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: heroImg("photo-1432888622747-4eb9a8efeb07"), alt: "SEO ranking analytics on screen", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: heroImg("photo-1611944212129-29977ae1398c"), alt: "Meta and Google ad creative on phone", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
+  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: heroImg("photo-1563013544-824ae1b704d3"), alt: "Ecommerce checkout conversion optimisation on mobile", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
 ] as const;
 
 function Home() {
