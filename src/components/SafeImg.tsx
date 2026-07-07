@@ -1,4 +1,4 @@
-import { useState, useMemo, type ImgHTMLAttributes } from "react";
+import { useEffect, useMemo, useRef, useState, type ImgHTMLAttributes } from "react";
 
 // Build a responsive srcset for Unsplash-hosted images. The URL already carries
 // a `w=` param that Unsplash uses to size the delivered JPG/AVIF, so we swap it
@@ -61,8 +61,19 @@ export function SafeImg({
   srcSet,
   ...rest
 }: Props) {
+  const imgRef = useRef<HTMLImageElement>(null);
   const [current, setCurrent] = useState(src);
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setCurrent(src);
+    setLoaded(false);
+  }, [src]);
+
+  useEffect(() => {
+    const image = imgRef.current;
+    if (image?.complete && image.naturalWidth > 0) setLoaded(true);
+  }, [current]);
 
   // Auto-derive srcset for Unsplash images so mobile devices don't pull 1600w JPGs.
   const autoSrcSet = useMemo(
@@ -73,6 +84,7 @@ export function SafeImg({
 
   const img = (
     <img
+      ref={imgRef}
       {...rest}
       src={current}
       srcSet={autoSrcSet}
@@ -88,7 +100,7 @@ export function SafeImg({
         setLoaded(true);
         onError?.(e);
       }}
-      className={`${className} ${skeleton ? `transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}` : ""}`.trim()}
+      className={`${className} ${skeleton || brandOverlay ? "relative z-10" : ""} ${skeleton ? `transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}` : ""}`.trim()}
     />
   );
 
@@ -99,20 +111,20 @@ export function SafeImg({
       {skeleton && !loaded && (
         <span
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-100/60 to-orange-100 animate-pulse"
+          className="absolute inset-0 z-0 bg-gradient-to-br from-orange-50 via-amber-100/60 to-orange-100 animate-pulse"
         />
       )}
       {img}
       {brandOverlay && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-multiply"
+          className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-tr from-primary/25 via-transparent to-accent/20 mix-blend-multiply"
         />
       )}
       {brandOverlay && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20"
+          className="pointer-events-none absolute inset-0 z-20 ring-1 ring-inset ring-white/20"
         />
       )}
     </span>
