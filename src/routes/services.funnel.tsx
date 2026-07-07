@@ -29,9 +29,9 @@ export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
       { title: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
-      { name: "description", content: "UK ecommerce funnel agency. High-converting Shopify landing pages, bridge funnels and post-purchase journeys designed for higher AOV and LTV." },
+      { name: "description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers — designed to turn one-time buyers into repeat customers." },
       { property: "og:title", content: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
-      { property: "og:description", content: "UK ecommerce funnel agency. High-converting Shopify landing pages, bridge funnels and post-purchase journeys designed for higher AOV and LTV." },
+      { property: "og:description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers — designed to turn one-time buyers into repeat customers." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
     ],
