@@ -169,13 +169,13 @@ function Home() {
               <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <img
                   src={dash.img}
-                  srcSet={`${dash.img} 1x, ${dash.img} 2x`}
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 640w, ${dash.img} 1200w` : undefined}
                   sizes="(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
-                  loading="eager"
-                  fetchPriority="high"
+                  loading={dashIdx === 0 ? "eager" : "lazy"}
+                  fetchPriority={dashIdx === 0 ? "high" : "low"}
                   decoding="async"
                   style={{ objectPosition: dash.focal }}
                   className="block w-full h-56 md:h-64 object-cover"
