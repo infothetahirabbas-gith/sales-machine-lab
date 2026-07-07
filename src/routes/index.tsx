@@ -9,25 +9,8 @@ import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
+import { HERO_LAPTOP, HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
 
-// Curated Unsplash portraits (all verified live). Kept small (w=200) since they
-// render as 44px circles in the testimonial marquee.
-const founderPhoto = (id: string, w = 200) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=faces&w=${w}&q=75`;
-const FOUNDER_PHOTOS = [
-  founderPhoto("photo-1508214751196-bcfd4ca60f91"),
-  founderPhoto("photo-1494790108377-be9c29b29330"),
-  founderPhoto("photo-1500648767791-00dcc994a43e"),
-  founderPhoto("photo-1519085360753-af0119f7cbe7"),
-  founderPhoto("photo-1580489944761-15a19d654956"),
-  founderPhoto("photo-1472099645785-5658abf4ff4e"),
-  founderPhoto("photo-1544005313-94ddf0286df2"),
-  founderPhoto("photo-1487412720507-e7ab37603c6f"),
-  founderPhoto("photo-1607746882042-944635dfe10e"),
-  founderPhoto("photo-1573497019940-1c28c88b4f3e"),
-];
-const CASE_STUDY_IMG =
-  "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&crop=entropy&w=1200&q=75";
 
 
 // Below-the-fold — never in the critical bundle.
@@ -48,7 +31,11 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://beingecom.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/" },
+      { rel: "preload", as: "image", href: HERO_LAPTOP, fetchpriority: "high" },
+    ],
+
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(professionalServiceJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(homeFaqs, "/")) },
@@ -144,7 +131,22 @@ function Home() {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-5 relative" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+            {/* Real ecommerce photo behind the animated dashboard for warmth + realism */}
+            <div className="absolute -top-6 -right-4 lg:-right-8 w-40 h-52 md:w-52 md:h-64 rotate-6 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/40 hidden md:block">
+              <SafeImg
+                src={HERO_PHONE}
+                alt="Shopify product page shown on a phone during a UK ecommerce growth sprint"
+                width={520}
+                height={640}
+                loading="eager"
+                fetchPriority="high"
+                skeleton
+                brandOverlay
+                className="w-full h-full object-cover"
+                wrapperClassName="w-full h-full"
+              />
+            </div>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)] float">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
@@ -164,6 +166,7 @@ function Home() {
               </div>
             </div>
           </div>
+
 
         </div>
       </section>
@@ -191,7 +194,39 @@ function Home() {
         </div>
       </section>
 
+      {/* 2.5 ECOMMERCE IN ACTION — real photography strip */}
+      <section className="py-14 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="text-xs uppercase tracking-widest text-primary font-bold">In action</div>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold text-ink">Real UK ecommerce work — not stock pitch decks.</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            {HOME_BENTO.map((img, i) => (
+              <Reveal key={img.src} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <figure className="group relative rounded-2xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl transition-shadow">
+                  <SafeImg
+                    src={img.src}
+                    alt={img.alt}
+                    width={1200}
+                    height={900}
+                    skeleton
+                    brandOverlay
+                    className="w-full h-52 md:h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+                    wrapperClassName="w-full h-52 md:h-60"
+                  />
+                  <figcaption className="absolute bottom-0 inset-x-0 p-3 text-white text-xs font-semibold bg-gradient-to-t from-ink/85 to-transparent">
+                    {img.label}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. PROBLEM */}
+
       <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
@@ -309,12 +344,14 @@ function Home() {
             <SafeImg
               src={CASE_STUDY_IMG}
               alt="UK Shopify apparel brand product page shown on a laptop — 11.9× revenue case study"
-              loading="lazy"
-              decoding="async"
               width={1200}
               height={800}
+              skeleton
+              brandOverlay
               className="w-full h-56 md:h-64 object-cover rounded-xl"
+              wrapperClassName="w-full h-56 md:h-64 rounded-xl"
             />
+
             <div className="mt-4">
               <GrowthChart className="w-full h-auto" />
             </div>

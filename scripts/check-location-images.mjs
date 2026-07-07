@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Verifies every Unsplash image URL referenced by location pages resolves (HTTP 200).
-// Runs as a prebuild step. Exits non-zero ONLY on confirmed 404s so a flaky
-// network doesn't block deploys.
+// Verifies every Unsplash image URL referenced by location pages AND the home
+// page resolves (HTTP 200). Runs as a prebuild step. Exits non-zero ONLY on
+// confirmed 404s so a flaky network doesn't block deploys.
 //
 // Usage: node scripts/check-location-images.mjs
 
@@ -10,18 +10,24 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const src = readFileSync(
-  resolve(__dirname, "../src/lib/location-content.ts"),
-  "utf8",
-);
+const SOURCES = [
+  "../src/lib/location-content.ts",
+  "../src/lib/home-images.ts",
+];
 
-const ids = Array.from(new Set(src.match(/photo-[0-9a-f-]+/gi) ?? []));
+const idSet = new Set();
+for (const rel of SOURCES) {
+  const src = readFileSync(resolve(__dirname, rel), "utf8");
+  for (const m of src.match(/photo-[0-9a-f-]+/gi) ?? []) idSet.add(m);
+}
+const ids = [...idSet];
 if (ids.length === 0) {
   console.log("[check-images] no Unsplash IDs found — skipping.");
   process.exit(0);
 }
 
-console.log(`[check-images] verifying ${ids.length} Unsplash IDs…`);
+console.log(`[check-images] verifying ${ids.length} Unsplash IDs across ${SOURCES.length} source file(s)…`);
+
 
 const CONCURRENCY = 8;
 const TIMEOUT_MS = 6000;
