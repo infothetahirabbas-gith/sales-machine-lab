@@ -655,7 +655,8 @@ function LocationPage() {
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
             <img src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" decoding="async" width={1600} height={900} className="w-full h-[420px] object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/75 to-ink/50" />
+            <div className="absolute inset-0 bg-ink/25" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
               <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{C.caseStudy.category}</div>
               <h3 className="mt-3 text-2xl md:text-4xl font-bold max-w-2xl">{C.caseStudy.headline}</h3>
