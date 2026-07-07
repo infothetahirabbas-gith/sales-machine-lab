@@ -29,7 +29,7 @@ export const Route = createFileRoute("/services/store-development")({
   head: () => ({
     meta: [
       { title: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
-      { name: "description", content: "UK Shopify Plus and WooCommerce development agency. Custom themes, headless builds and platform migrations optimised for speed, SEO and conversion." },
+      { name: "description", content: "Shopify & WooCommerce store builds and redesigns engineered for conversion — for UK ecommerce brands who want a site that sells, not just looks good." },
       { property: "og:title", content: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
       { property: "og:description", content: "UK Shopify Plus and WooCommerce development agency. Custom themes, headless builds and platform migrations optimised for speed, SEO and conversion." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },
