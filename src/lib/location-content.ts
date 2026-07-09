@@ -181,7 +181,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     vibe: "Manchester brands scale on efficiency — every pound of ad spend has to earn its place on the P&L.",
     whyCity: [
       { title: "UK's fastest-growing tech hub", body: "MediaCity and NOMA gave Manchester a talent flywheel — most of our senior ops team is Manchester-based." },
-      { title: "Lower CPMs, higher intent", body: "Manchester DTC clients see 18-24% lower Meta CPMs than London on comparable audiences." },
+      { title: "Efficient media market", body: "Manchester audiences tend to convert on offer-led, benefit-first creative — we brief for that from day one." },
       { title: "Retail heritage runs deep", body: "From Trafford Centre to Deansgate, Manchester shoppers know quality — perfect testbed for premium DTC." },
       { title: "Two-hour drive to 60% of UK GDP", body: "Ideal fulfilment geography for next-day delivery promises that lift CVR." },
     ],
