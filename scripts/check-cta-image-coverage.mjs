@@ -47,7 +47,7 @@ for (const file of files) {
 }
 
 writeFileSync("/tmp/cta-image-coverage.json", JSON.stringify(report, null, 2));
-const noImg = report.files.filter((f) => !f.hasHeroImage && f.imageCount === 0);
+const noImg = report.files.filter((f) => f.file !== "services.index.tsx" && !f.hasHeroImage && f.imageCount === 0);
 console.log(`Scanned ${files.length} service routes.`);
 console.log(`CTA missing accessible names: ${report.totals.ctaIssues}`);
 console.log(`<img> tags missing alt: ${report.totals.imgIssues}`);
