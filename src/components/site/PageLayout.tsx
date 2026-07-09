@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 import { ClientOnly } from "@tanstack/react-router";
 import Header from "./Header";
 import Footer from "./Footer";
+import RelatedHub from "./RelatedHub";
 
 // Below-the-fold widgets - never block initial render.
 const FloatingWidgets = lazy(() => import("./FloatingWidgets"));
@@ -54,6 +55,7 @@ export default function PageLayout({ children }: { children: ReactNode }) {
     <div className="min-h-dvh flex flex-col overflow-x-clip">
       <Header />
       <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
+      <RelatedHub />
       <Footer />
       <ClientOnly fallback={null}>
         <DeferredWidgets />
