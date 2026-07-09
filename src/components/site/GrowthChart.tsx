@@ -48,12 +48,27 @@ const variants: Record<string, Variant> = {
 
 const W = 600;
 const H = 280;
-const PAD_L = 36;
+const PAD_L = 52;
 const PAD_R = 16;
 const PAD_T = 20;
 const PAD_B = 30;
 const CHART_W = W - PAD_L - PAD_R;
 const CHART_H = H - PAD_T - PAD_B;
+
+/**
+ * Format an axis tick so the unit sits in the right place — currency goes
+ * BEFORE the number ("£100K"), symbols/percent go AFTER ("88%", "4.2×").
+ * Previously we concatenated `${t}${yLabel}` which produced "100£K".
+ */
+function formatTick(value: number, unit: string): string {
+  const isCurrency = unit.startsWith("£") || unit.startsWith("$") || unit.startsWith("€");
+  if (isCurrency) {
+    const currency = unit.charAt(0);
+    const suffix = unit.slice(1);
+    return `${currency}${value}${suffix}`;
+  }
+  return `${value}${unit}`;
+}
 
 function buildLine(values: number[]) {
   const step = CHART_W / (values.length - 1);
