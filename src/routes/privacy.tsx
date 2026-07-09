@@ -6,9 +6,9 @@ import { breadcrumbJsonLd } from "../lib/seo";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — BeingEcom UK" },
+      { title: "Privacy Policy - BeingEcom UK" },
       { name: "description", content: "How BeingEcom collects, uses and protects your data under UK GDPR." },
-      { property: "og:title", content: "Privacy Policy — BeingEcom UK" },
+      { property: "og:title", content: "Privacy Policy - BeingEcom UK" },
       { property: "og:description", content: "How BeingEcom collects, uses and protects your data under UK GDPR." },
       { property: "og:url", content: "https://beingecom.com/privacy" },
     ],

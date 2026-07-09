@@ -48,7 +48,7 @@ export default function GoogleTranslate() {
     };
 
     // If a translation cookie is already set, we need the widget to activate
-    // it — inject right away (still async, non-blocking).
+    // it - inject right away (still async, non-blocking).
     const hasTranslation = /(?:^|;\s*)googtrans=/.test(document.cookie);
     if (hasTranslation) {
       inject();

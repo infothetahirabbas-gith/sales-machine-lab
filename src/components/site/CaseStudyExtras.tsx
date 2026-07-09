@@ -12,15 +12,15 @@ import showcaseSupplements from "@/assets/showcase-supplements.jpg";
 
 /* ------------------- 1. FEATURED STORE WEBSITES (auto-running carousel) ------------------- */
 const featuredStores = [
-  { img: showcaseApparel, metrics: [{ v: "11.9×", l: "Revenue lift" }, { v: "3.8×", l: "Blended ROAS" }, { v: "4.6%", l: "Conv. rate" }], live: "3.8×", summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows — £18K → £214K MRR." },
-  { img: showcaseCoffee, metrics: [{ v: "3.9×", l: "LTV growth" }, { v: "68%", l: "Sub-rate" }, { v: "+88%", l: "Page CR" }], live: "4.2×", summary: "Subscription-only funnel + new sub-page design — 68% of new buyers convert to recurring." },
-  { img: showcaseJewelry, metrics: [{ v: "5.6×", l: "BFCM ROAS" }, { v: "£420K", l: "Q4 revenue" }, { v: "+56%", l: "AOV" }], live: "5.6×", summary: "90-day pre-warm + gifting CRO — Q4 grew 212% YoY with 5.6× ROAS during BFCM." },
-  { img: showcaseBeauty, metrics: [{ v: "4.1×", l: "TikTok ROAS" }, { v: "+62%", l: "New customers" }, { v: "-28%", l: "CPM" }], live: "4.1×", summary: "Creator-led UGC stack on TikTok with 1:1 landing pages per angle — Meta no longer the only channel." },
-  { img: showcaseFurniture, metrics: [{ v: "£310K", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "£1.2K", l: "AOV" }], live: "4.1×", summary: "High-AOV Meta funnel with 21-day attribution and showroom-style video — scaled to £310K/mo." },
-  { img: showcaseActivewear, metrics: [{ v: "+£71K", l: "New rev" }, { v: "3.4×", l: "Affiliate ROAS" }, { v: "62", l: "Creators" }], live: "3.4×", summary: "TikTok Shop seeding + affiliate program — monetized massive organic into +£71K/mo." },
-  { img: showcasePet, metrics: [{ v: "£94K", l: "MRR" }, { v: "5.2×", l: "ROAS" }, { v: "+340%", l: "Non-brand" }], live: "5.2×", summary: "Google PMax + Standard Shopping split with weekly negative pruning — non-brand traffic up 340%." },
-  { img: showcaseEyewear, metrics: [{ v: "+180%", l: "CTR" }, { v: "-34%", l: "CPC" }, { v: "+71%", l: "ROAS" }], live: "4.7×", summary: "Hook-first creative storyboards, 30 hooks tested per concept — CTR up 180% and CPC down 34%." },
-  { img: showcaseSupplements, metrics: [{ v: "£180K", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], live: "3.1×", summary: "Bundle-focused offer architecture + subscription upsell — broke through £25K plateau to £180K/mo." },
+  { img: showcaseApparel, metrics: [{ v: "11.9×", l: "Revenue lift" }, { v: "3.8×", l: "Blended ROAS" }, { v: "4.6%", l: "Conv. rate" }], live: "3.8×", summary: "Rebuilt PDP, restructured Meta funnel, launched 9 Klaviyo flows - £18K → £214K MRR." },
+  { img: showcaseCoffee, metrics: [{ v: "3.9×", l: "LTV growth" }, { v: "68%", l: "Sub-rate" }, { v: "+88%", l: "Page CR" }], live: "4.2×", summary: "Subscription-only funnel + new sub-page design - 68% of new buyers convert to recurring." },
+  { img: showcaseJewelry, metrics: [{ v: "5.6×", l: "BFCM ROAS" }, { v: "£420K", l: "Q4 revenue" }, { v: "+56%", l: "AOV" }], live: "5.6×", summary: "90-day pre-warm + gifting CRO - Q4 grew 212% YoY with 5.6× ROAS during BFCM." },
+  { img: showcaseBeauty, metrics: [{ v: "4.1×", l: "TikTok ROAS" }, { v: "+62%", l: "New customers" }, { v: "-28%", l: "CPM" }], live: "4.1×", summary: "Creator-led UGC stack on TikTok with 1:1 landing pages per angle - Meta no longer the only channel." },
+  { img: showcaseFurniture, metrics: [{ v: "£310K", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "£1.2K", l: "AOV" }], live: "4.1×", summary: "High-AOV Meta funnel with 21-day attribution and showroom-style video - scaled to £310K/mo." },
+  { img: showcaseActivewear, metrics: [{ v: "+£71K", l: "New rev" }, { v: "3.4×", l: "Affiliate ROAS" }, { v: "62", l: "Creators" }], live: "3.4×", summary: "TikTok Shop seeding + affiliate program - monetized massive organic into +£71K/mo." },
+  { img: showcasePet, metrics: [{ v: "£94K", l: "MRR" }, { v: "5.2×", l: "ROAS" }, { v: "+340%", l: "Non-brand" }], live: "5.2×", summary: "Google PMax + Standard Shopping split with weekly negative pruning - non-brand traffic up 340%." },
+  { img: showcaseEyewear, metrics: [{ v: "+180%", l: "CTR" }, { v: "-34%", l: "CPC" }, { v: "+71%", l: "ROAS" }], live: "4.7×", summary: "Hook-first creative storyboards, 30 hooks tested per concept - CTR up 180% and CPC down 34%." },
+  { img: showcaseSupplements, metrics: [{ v: "£180K", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], live: "3.1×", summary: "Bundle-focused offer architecture + subscription upsell - broke through £25K plateau to £180K/mo." },
 ];
 
 function StoreCard({ s }: { s: typeof featuredStores[number] }) {
@@ -92,7 +92,7 @@ export function FeaturedStoresSection() {
           </h2>
         </div>
 
-        {/* Paginated slider — 3 at a time, 3 pages */}
+        {/* Paginated slider - 3 at a time, 3 pages */}
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="overflow-hidden">
             <div
@@ -304,7 +304,7 @@ export function FunnelSection() {
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink leading-tight">
             Same traffic. <span className="text-gradient">4× more revenue.</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">{f.label} — every step of the funnel rebuilt with CRO + UX.</p>
+          <p className="mt-3 text-muted-foreground">{f.label} - every step of the funnel rebuilt with CRO + UX.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
@@ -346,7 +346,7 @@ export function FunnelSection() {
 /* ------------------- 4. REVENUE GROWTH TIMELINE ------------------- */
 const timeline = [
   { m: "Month 1", t: "Audit + foundations", d: "Tech audit, GA4 / Pixel cleanup, baseline reporting locked in.", v: "£22K MRR" },
-  { m: "Month 2", t: "Quick CRO wins", d: "PDP rebuild, cart drawer, trust signals — first CR lift visible.", v: "£41K MRR" },
+  { m: "Month 2", t: "Quick CRO wins", d: "PDP rebuild, cart drawer, trust signals - first CR lift visible.", v: "£41K MRR" },
   { m: "Month 3", t: "Creative engine live", d: "25+ ads/week pipeline. ASC consolidation. CAC starts dropping.", v: "£78K MRR" },
   { m: "Month 4", t: "Email + SMS flows", d: "9 Klaviyo flows live. Email share of revenue jumps to 22%.", v: "£118K MRR" },
   { m: "Month 5", t: "Scaling phase", d: "Daily spend up 3.1× at same blended CAC. SEO content shipping weekly.", v: "£162K MRR" },
@@ -613,11 +613,11 @@ export function ProofSection() {
               </div>
               <div>
                 <div className="text-sm font-bold text-ink leading-tight">Senior operator team</div>
-                <div className="text-[11px] text-muted-foreground mt-0.5">Ex-DTC founders, media buyers &amp; SEO leads — no juniors on your account.</div>
+                <div className="text-[11px] text-muted-foreground mt-0.5">Ex-DTC founders, media buyers &amp; SEO leads - no juniors on your account.</div>
               </div>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
-              Client names abbreviated for NDA reasons — full references shared on request after a discovery call.
+              Client names abbreviated for NDA reasons - full references shared on request after a discovery call.
             </p>
           </div>
 

@@ -20,9 +20,9 @@ const pricingFaqs = [
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { title: "Ecommerce Agency Pricing UK - Shopify Retainers & Packages | BeingEcom" },
       { name: "description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
-      { property: "og:title", content: "Ecommerce Agency Pricing UK — Shopify Retainers & Packages | BeingEcom" },
+      { property: "og:title", content: "Ecommerce Agency Pricing UK - Shopify Retainers & Packages | BeingEcom" },
       { property: "og:description", content: "Transparent ecommerce agency pricing in the UK. Retainers, sprints and performance packages for Shopify and WooCommerce brands at every stage." },
       { property: "og:url", content: "https://beingecom.com/pricing" },
     ],
@@ -51,7 +51,7 @@ function PricingPage() {
             How we <span className="text-gradient">work</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Three ways to engage — all built around one goal: profitable growth.
+            Three ways to engage - all built around one goal: profitable growth.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ function PricingPage() {
       <Section
         eyebrow="Engagement models"
         title="Pricing plans built for ecommerce growth"
-        intro="Pick the engagement that matches your stage — sprint, retainer, or performance partnership."
+        intro="Pick the engagement that matches your stage - sprint, retainer, or performance partnership."
       >
         <div className="grid md:grid-cols-3 gap-5 items-stretch">
           {tiers.map((t) => (
@@ -110,7 +110,7 @@ function PricingPage() {
 
       <FaqSection
         faqs={pricingFaqs}
-        title="Pricing —"
+        title="Pricing -"
         highlight="quick answers"
         intro="What founders ask before picking a tier."
       />

@@ -8,10 +8,10 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quot
 import heroPM from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio — never optimising one channel in isolation." },
-  { q: "What's a healthy blended ROAS (MER) for a scaling ecommerce brand?", a: "Depends on contribution margin. Most UK DTC brands need 3.0–4.5× MER to hit contribution-margin positive. We back-solve target MER from your unit economics — not from a vanity number." },
+  { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio - never optimising one channel in isolation." },
+  { q: "What's a healthy blended ROAS (MER) for a scaling ecommerce brand?", a: "Depends on contribution margin. Most UK DTC brands need 3.0–4.5× MER to hit contribution-margin positive. We back-solve target MER from your unit economics - not from a vanity number." },
   { q: "How much should I spend to properly test a channel?", a: "Meta: minimum £5-8k/mo to test 15+ creatives fairly. Google: £3-6k/mo depending on category CPCs. TikTok: £3k/mo minimum with a real creator pipeline. YouTube: £2k/mo for demand capture; £6k+ for demand generation." },
-  { q: "Do you handle creative production?", a: "Yes — 3-6 UGC + motion + static creatives shipped per week, briefed against a written creative testing framework (angle, hook, format, offer). No creative volume, no scale." },
+  { q: "Do you handle creative production?", a: "Yes - 3-6 UGC + motion + static creatives shipped per week, briefed against a written creative testing framework (angle, hook, format, offer). No creative volume, no scale." },
   { q: "What tracking stack do you set up?", a: "Server-side GA4, Meta CAPI, Google Enhanced Conversions, TikTok Events API 2.0, LinkedIn CAPI where relevant. Triple Whale or Northbeam for blended attribution. Set up properly in week one." },
   { q: "Can we scale without ruining ROAS?", a: "Yes, if creative velocity, offer discipline and audience structure are right. We've scaled brands 3-8× in 6 months while keeping ROAS within 10% of baseline. The key: never scale on the same creative pool." },
   { q: "How do you decide where to allocate budget?", a: "MER-first: which channel earns the most incremental profit per pound at your current spend level. Then geo-fenced holdout tests validate every reallocation before we commit." },
@@ -22,10 +22,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Performance Marketing Agency UK — Full-Funnel Paid Media for Ecommerce | BeingEcom" },
-      { name: "description", content: "Best performance marketing agency UK for Shopify and DTC ecommerce brands. Blended-ROAS media buying across Facebook, Google, TikTok, Instagram and YouTube Ads — engineered for MER, LTV and profitable growth." },
+      { title: "Performance Marketing Agency UK - Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best performance marketing agency UK for Shopify and DTC ecommerce brands. Blended-ROAS media buying across Facebook, Google, TikTok, Instagram and YouTube Ads - engineered for MER, LTV and profitable growth." },
       { name: "keywords", content: "performance marketing agency UK, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Meta Google TikTok agency, Shopify paid media" },
-      { property: "og:title", content: "Performance Marketing Agency UK — Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "Performance Marketing Agency UK - Full-Funnel Paid Media for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Facebook, Google, TikTok, Instagram and YouTube Ads managed as one P&L. Blended-ROAS, LTV-driven ecommerce growth by a UK performance marketing agency." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
@@ -45,18 +45,18 @@ export const Route = createFileRoute("/services/performance-marketing")({
 const channels = [
   { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta and Instagram ads built on creative volume, ASC+ scaling and break-even MER math.", tag: "Meta" },
   { to: "/services/performance-marketing/instagram-ads", title: "Instagram Ads", body: "Reels, Stories and shopping ads engineered for scroll-native creative and profitable acquisition.", tag: "Meta" },
-  { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Search, Shopping, Performance Max and brand defence — engineered for high-intent capture.", tag: "Google" },
+  { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Search, Shopping, Performance Max and brand defence - engineered for high-intent capture.", tag: "Google" },
   { to: "/services/performance-marketing/tiktok-ads", title: "TikTok Ads", body: "Native creator UGC, Spark Ads and hook-first scripting driving top-funnel demand.", tag: "TikTok" },
-  { to: "/services/performance-marketing/youtube-ads", title: "YouTube Ads", body: "Long-form pre-roll, in-stream and Shorts — demand generation that lifts every other channel.", tag: "YouTube" },
-  { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel budget allocation and MER-based reporting — one P&L, one operator.", tag: "Strategy" },
+  { to: "/services/performance-marketing/youtube-ads", title: "YouTube Ads", body: "Long-form pre-roll, in-stream and Shorts - demand generation that lifts every other channel.", tag: "YouTube" },
+  { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel budget allocation and MER-based reporting - one P&L, one operator.", tag: "Strategy" },
 ];
 
 const deepBlocks = [
   { title: "Blended-ROAS operating system", body: "Every channel budgeted, scaled and evaluated against blended MER, not channel-attributed ROAS. We back-solve target MER from your contribution margin, then defend it as we scale.", tags: ["MER","Contribution margin","Payback"] },
-  { title: "Full-funnel creative engine", body: "3-6 creatives per week per channel — UGC, motion, static, founder POV — briefed against a written testing framework. Kill fast, scale winners hard, never let one hero carry the account.", tags: ["UGC","Motion","Static","Iteration"] },
-  { title: "Server-side tracking stack", body: "Meta CAPI, Google Enhanced Conversions, TikTok Events API 2.0, GA4 server-side and Triple Whale — set up in week one so decisions rest on real data, not iOS-14-broken pixels.", tags: ["CAPI","GA4 SS","Triple Whale"] },
-  { title: "Cohort + LTV modelling", body: "First-purchase profitability isn't the goal — LTV is. We model 30/60/90-day cohorts, back-calculate allowable CAC, and buy media against forward LTV rather than day-one ROAS.", tags: ["LTV","Cohort","CAC:LTV"] },
-  { title: "Offer and landing-page loop", body: "Ads are only half the funnel. We test offers (bundles, free-gift thresholds, subscription) and matching landing pages weekly — because winning creative on a losing offer still loses." },
+  { title: "Full-funnel creative engine", body: "3-6 creatives per week per channel - UGC, motion, static, founder POV - briefed against a written testing framework. Kill fast, scale winners hard, never let one hero carry the account.", tags: ["UGC","Motion","Static","Iteration"] },
+  { title: "Server-side tracking stack", body: "Meta CAPI, Google Enhanced Conversions, TikTok Events API 2.0, GA4 server-side and Triple Whale - set up in week one so decisions rest on real data, not iOS-14-broken pixels.", tags: ["CAPI","GA4 SS","Triple Whale"] },
+  { title: "Cohort + LTV modelling", body: "First-purchase profitability isn't the goal - LTV is. We model 30/60/90-day cohorts, back-calculate allowable CAC, and buy media against forward LTV rather than day-one ROAS.", tags: ["LTV","Cohort","CAC:LTV"] },
+  { title: "Offer and landing-page loop", body: "Ads are only half the funnel. We test offers (bundles, free-gift thresholds, subscription) and matching landing pages weekly - because winning creative on a losing offer still loses." },
   { title: "Geo-fenced incrementality tests", body: "Every material budget shift is validated with a geo-holdout so we know each channel's true incremental contribution, not last-click fiction.", tags: ["Geo lift","Holdout","Incrementality"] },
   { title: "Weekly war-room reporting", body: "One dashboard. Blended MER, contribution margin, cohort LTV, creative fatigue heatmap. Reviewed weekly on Loom, monthly on video." },
   { title: "Retention loop with email + SMS", body: "Paid acquires the customer; email/SMS turns them into LTV. We connect flows and campaigns to the paid layer so repeat-rate becomes an acquisition weapon." },
@@ -90,12 +90,12 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={1}>
                 <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
-                  <span className="text-gradient">Performance marketing agency UK</span> — full-funnel paid media, one P&L.
+                  <span className="text-gradient">Performance marketing agency UK</span> - full-funnel paid media, one P&L.
                 </h1>
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  Facebook, Google, TikTok, Instagram and YouTube Ads managed by UK ecommerce media buyers — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify and DTC growth.
+                  Facebook, Google, TikTok, Instagram and YouTube Ads managed by UK ecommerce media buyers - one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify and DTC growth.
                 </p>
               </Reveal>
               <Reveal delay={3}>
@@ -132,7 +132,7 @@ function PerformanceMarketingPage() {
                 <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-2xl">
                   <img
                     src={heroPM}
-                    alt="Performance marketing dashboard — blended-ROAS analytics across Meta, Google, TikTok and YouTube"
+                    alt="Performance marketing dashboard - blended-ROAS analytics across Meta, Google, TikTok and YouTube"
                     width={1200}
                     height={900}
                     loading="eager"
@@ -141,7 +141,7 @@ function PerformanceMarketingPage() {
                   />
                   <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent">
                     <div className="text-[11px] font-bold uppercase tracking-widest text-white/85">Live dashboard</div>
-                    <div className="mt-1 text-sm sm:text-base font-semibold text-white leading-snug">Every channel in one P&L — reported weekly, defended monthly.</div>
+                    <div className="mt-1 text-sm sm:text-base font-semibold text-white leading-snug">Every channel in one P&L - reported weekly, defended monthly.</div>
                   </div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ function PerformanceMarketingPage() {
         <div className="grid md:grid-cols-3 gap-5">
           {[
             "Reporting 5× ROAS on £2k/day while blended MER quietly collapses below break-even.",
-            "One 'hero' creative carrying the account until fatigue hits — then the whole account crashes overnight.",
+            "One 'hero' creative carrying the account until fatigue hits - then the whole account crashes overnight.",
             "Channels managed by silo teams who never talk to each other, double-counting credit and hiding waste.",
           ].map((t, i) => (
             <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -176,7 +176,7 @@ function PerformanceMarketingPage() {
         <div className="grid lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3">
             <p className="text-lg md:text-xl text-ink/80 leading-relaxed">
-              We stop thinking in channel silos. Meta, Google, TikTok and YouTube become line items in one media plan, budgeted against one blended-ROAS target derived from your contribution margin — not a vanity number. Every budget shift is validated with geo-fenced incrementality tests. Every creative is briefed against a written framework. Every account is reviewed weekly, on video, with revenue impact quantified.
+              We stop thinking in channel silos. Meta, Google, TikTok and YouTube become line items in one media plan, budgeted against one blended-ROAS target derived from your contribution margin - not a vanity number. Every budget shift is validated with geo-fenced incrementality tests. Every creative is briefed against a written framework. Every account is reviewed weekly, on video, with revenue impact quantified.
             </p>
           </div>
           <div className="lg:col-span-2">
@@ -287,7 +287,7 @@ function PerformanceMarketingPage() {
           <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-r from-primary/10 via-white to-accent/15 p-8 md:p-12 text-center">
             <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/20 blur-3xl" />
             <div className="relative max-w-3xl mx-auto">
-              <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight">Free ad-account audit — 48 hour turnaround.</h3>
+              <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight">Free ad-account audit - 48 hour turnaround.</h3>
               <p className="mt-4 text-lg text-muted-foreground">Send us your Meta + Google accounts. We'll return a Loom walking through the 5 biggest MER leaks and the fastest path to fix them.</p>
               <div className="mt-8 btn-pair justify-center">
                 <Link to="/audit" className="btn btn-primary btn-shimmer group">Get my free audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></Link>
@@ -413,9 +413,9 @@ function PerformanceMarketingPage() {
       <Section eyebrow="Vertical impact" title="How paid moves the needle in your category." alt>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { industry: "Beauty & skincare", pain: "Creator-heavy category — brand loses to UGC-native competitors.", outcome: "Weekly creator pipeline + Spark Ads unlock native scale on Meta and TikTok." },
+            { industry: "Beauty & skincare", pain: "Creator-heavy category - brand loses to UGC-native competitors.", outcome: "Weekly creator pipeline + Spark Ads unlock native scale on Meta and TikTok." },
             { industry: "Fashion & apparel", pain: "Seasonal demand + returns pressure margins.", outcome: "Cohort-LTV buying protects margin through peak; catalogue ads scale non-hero SKUs." },
-            { industry: "Home & garden", pain: "High AOV, long consideration window — pixel misattributes.", outcome: "Server-side tracking + view-through modelling recover 20-30% of hidden revenue." },
+            { industry: "Home & garden", pain: "High AOV, long consideration window - pixel misattributes.", outcome: "Server-side tracking + view-through modelling recover 20-30% of hidden revenue." },
             { industry: "Electronics & tech", pain: "Amazon eats the intent; Google Shopping cannibalises brand.", outcome: "PMax with brand exclusions + YouTube demand-gen shift buyers to your own site." },
             { industry: "Sports & fitness", pain: "Video-first category; static ads collapse in weeks.", outcome: "Motion + creator UGC engine keeps ROAS stable through fatigue cycles." },
             { industry: "Baby & kids", pain: "Trust-heavy category; cold traffic converts poorly.", outcome: "Full-funnel with founder-story creative + subscription flows lifts LTV 40-60%." },
@@ -511,7 +511,7 @@ function PerformanceMarketingPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { to: "/services/creative", title: "Creative Production", body: "UGC + motion + static engine that keeps paid media alive." },
-            { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Convert the traffic paid media buys — 2-3× the same spend." },
+            { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Convert the traffic paid media buys - 2-3× the same spend." },
             { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side CAPI + Triple Whale + GA4 built right." },
           ].map((r) => (
             <Link key={r.to} to={r.to} className="card-surface card-hover p-5 block h-full">
@@ -525,7 +525,7 @@ function PerformanceMarketingPage() {
         </div>
       </Section>
 
-      <CTA heading="Ready to manage paid as one P&L — and finally see profit?" />
+      <CTA heading="Ready to manage paid as one P&L - and finally see profit?" />
     </PageLayout>
   );
 }

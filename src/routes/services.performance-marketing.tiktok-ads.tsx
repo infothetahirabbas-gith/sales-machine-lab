@@ -13,26 +13,26 @@ const FAQ_LIST: FAQ[] = [
     "a": "£2–3k/mo for a real test across 6–8 creatives. Below that, you'll never see daylight."
   },
   {
-    "q": "Spark Ads vs in-feed — what's the difference?",
+    "q": "Spark Ads vs in-feed - what's the difference?",
     "a": "Spark Ads run from a real creator handle and earn 1.4–2× CTR. We use Spark whenever the creator allows it."
   },
   {
     "q": "How fast does creative fatigue hit on TikTok?",
-    "a": "Fast — usually 7–10 days at meaningful spend. Weekly creator drops are non-negotiable."
+    "a": "Fast - usually 7–10 days at meaningful spend. Weekly creator drops are non-negotiable."
   },
   {
     "q": "Do you handle creator sourcing?",
-    "a": "Yes — full UGC pipeline: casting, briefs, shipping, footage review and editing."
+    "a": "Yes - full UGC pipeline: casting, briefs, shipping, footage review and editing."
   }
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/tiktok-ads")({
   head: () => ({
     meta: [
-      { title: "TikTok Ads Agency UK — Spark Ads, Creator UGC & TikTok Shop for Ecommerce | BeingEcom" },
+      { title: "TikTok Ads Agency UK - Spark Ads, Creator UGC & TikTok Shop for Ecommerce | BeingEcom" },
       { name: "description", content: "Best TikTok Ads agency UK for Shopify and DTC ecommerce brands. Creator-led UGC, Spark Ads, TikTok Shop and hook-first scripting that turn TikTok into a profitable revenue channel." },
       { name: "keywords", content: "TikTok Ads agency UK, TikTok Ads management UK, Spark Ads agency, TikTok Shop agency, ecommerce TikTok Ads, Shopify TikTok Ads, creator UGC agency" },
-      { property: "og:title", content: "TikTok Ads Agency UK — Spark Ads, Creator UGC & TikTok Shop | BeingEcom" },
+      { property: "og:title", content: "TikTok Ads Agency UK - Spark Ads, Creator UGC & TikTok Shop | BeingEcom" },
       { property: "og:description", content: "UK TikTok Ads agency for Shopify and DTC brands. Creator-led UGC, Spark Ads and hook-first scripting that turn TikTok into a profitable revenue channel." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
     ],
@@ -51,16 +51,16 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       slug: "tiktok-ads",
       eyebrow: "TikTok Ads",
       heroImage: heroImg,
-      heroTitle: "TikTok Ads agency UK — content-native ads that convert.",
-      heroSub: "Creator-led UGC, Spark Ads and hook-first scripting for Shopify and DTC brands — native virality that drives real ecommerce sales.",
+      heroTitle: "TikTok Ads agency UK - content-native ads that convert.",
+      heroSub: "Creator-led UGC, Spark Ads and hook-first scripting for Shopify and DTC brands - native virality that drives real ecommerce sales.",
       problemTitle: "Why most TikTok accounts flop.",
       problemBullets: [
-        "Repurposing Meta creative — dies in 3 seconds.",
+        "Repurposing Meta creative - dies in 3 seconds.",
         "No creator pipeline, no native voice.",
         "Optimising for views instead of purchases.",
       ],
       whatIsTitle: "TikTok rewards native creative.",
-      whatIsBody: "Hooks win the first 1.5 seconds. We script for scroll, brief creators, and structure Spark Ads so winners scale fast — and losers die faster.",
+      whatIsBody: "Hooks win the first 1.5 seconds. We script for scroll, brief creators, and structure Spark Ads so winners scale fast - and losers die faster.",
       systemTitle: "Our TikTok Ads system.",
       systemSteps: [
         { title: "Pixel & events audit", body: "Events 2.0, deduplication, attribution settings." },

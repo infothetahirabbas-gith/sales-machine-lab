@@ -1,6 +1,6 @@
 // Canonical single source of truth for contact, address, socials, hours,
 // and legal identity. Every page/component that renders any of these
-// values MUST import from here — never hardcode.
+// values MUST import from here - never hardcode.
 //
 // Re-exported from `src/lib/seo.ts` so schema (Organization/LocalBusiness)
 // and UI (Footer/Contact) stay in lock-step.

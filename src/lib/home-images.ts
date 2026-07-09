@@ -8,7 +8,7 @@ const u = (id: string, w = 1200) =>
 const face = (id: string, w = 200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&crop=faces&w=${w}&q=75`;
 
-// Hero / above-the-fold visuals — Shopify store + phone commerce.
+// Hero / above-the-fold visuals - Shopify store + phone commerce.
 export const HERO_LAPTOP = u("photo-1607083206869-4c7672e72a8a", 1400);
 export const HERO_PHONE = u("photo-1556742049-0cfed4f6a45d", 900);
 
@@ -36,10 +36,10 @@ export const HOME_BENTO = [
   },
 ] as const;
 
-// Case-study photo — Shopify store on laptop.
+// Case-study photo - Shopify store on laptop.
 export const CASE_STUDY_IMG = u("photo-1607083206869-4c7672e72a8a", 1200);
 
-// Testimonial founder headshots — cycled through the marquee.
+// Testimonial founder headshots - cycled through the marquee.
 export const FOUNDER_PHOTOS = [
   face("photo-1508214751196-bcfd4ca60f91"),
   face("photo-1494790108377-be9c29b29330"),

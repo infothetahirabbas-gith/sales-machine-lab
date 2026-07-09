@@ -19,7 +19,7 @@ export const Route = createFileRoute("/sitemap-industries.xml")({
             `  <url>\n    <loc>${BASE_URL}/industries/${ind.slug}/paid-ads</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           );
         }
-        // Optional: lang × location × industry × service — kept out to avoid
+        // Optional: lang × location × industry × service - kept out to avoid
         // an exponential sitemap. Add only when those routes are ready.
         void LOCATIONS;
         const xml = [

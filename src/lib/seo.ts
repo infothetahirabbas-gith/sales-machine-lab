@@ -72,7 +72,7 @@ export function contactPageJsonLd() {
     "@type": "ContactPage",
     url: `${SITE_URL}/contact`,
     name: `Contact ${ORG_INFO.name}`,
-    description: `Contact ${ORG_INFO.name} for a free ecommerce growth audit — reply within 48 hours.`,
+    description: `Contact ${ORG_INFO.name} for a free ecommerce growth audit - reply within 48 hours.`,
     mainEntity: {
       "@type": "Organization",
       name: ORG_INFO.name,
@@ -241,8 +241,8 @@ export const aboutFaqs: FAQ[] = [
 export const auditFaqs: FAQ[] = [
   { q: "Is the audit really free?", a: "Yes. The Being Ecom Brain™ audit is 100% free with no credit card and no sales call required." },
   { q: "How long does the audit take?", a: "Typically 20–40 seconds, with a hard 90-second timeout. We scan your store across 17 phases and return a full growth intelligence report." },
-  { q: "Does it work for both Shopify and WooCommerce?", a: "Yes — and BigCommerce, Magento, Wix and Squarespace. Tool, app and platform recommendations branch automatically to match what you're actually running." },
-  { q: "What do I get at the end?", a: "15 growth scores, recommendation confidence with signal drivers, revenue leakage map, competitor intel, a 90-day action plan and 5 founder lenses — exportable as PDF, Excel, CSV, JSON or Markdown." },
+  { q: "Does it work for both Shopify and WooCommerce?", a: "Yes - and BigCommerce, Magento, Wix and Squarespace. Tool, app and platform recommendations branch automatically to match what you're actually running." },
+  { q: "What do I get at the end?", a: "15 growth scores, recommendation confidence with signal drivers, revenue leakage map, competitor intel, a 90-day action plan and 5 founder lenses - exportable as PDF, Excel, CSV, JSON or Markdown." },
   { q: "Will it match my market?", a: "Yes. We detect currency, phone prefix and country signals on the page and adjust retention channel advice (e.g. SMS for UK/US/AU, WhatsApp Business API where deliverability is stronger)." },
 ];
 
@@ -261,8 +261,8 @@ export const servicesFaqs: FAQ[] = [
 ];
 
 export const caseStudyFaqs: FAQ[] = [
-  { q: "Are these case studies real?", a: "They're illustrative — representative playbooks, not verified client dashboards. Every card is drawn from patterns we've run for real UK Shopify and WooCommerce brands, but brand names, screenshots and exact dashboard figures are anonymised for NDA reasons and the numbers illustrate realistic outcome ranges rather than a single client's live account." },
-  { q: "Can I see verified numbers for a specific client?", a: "Yes — after a discovery call we can share verified references and, where the client consents, walk you through real dashboards for a brand in your category and stage." },
+  { q: "Are these case studies real?", a: "They're illustrative - representative playbooks, not verified client dashboards. Every card is drawn from patterns we've run for real UK Shopify and WooCommerce brands, but brand names, screenshots and exact dashboard figures are anonymised for NDA reasons and the numbers illustrate realistic outcome ranges rather than a single client's live account." },
+  { q: "Can I see verified numbers for a specific client?", a: "Yes - after a discovery call we can share verified references and, where the client consents, walk you through real dashboards for a brand in your category and stage." },
   { q: "What's your typical time-to-result?", a: "CRO and email lift in 2–4 weeks, paid ads stabilise in 30–60 days, SEO compounds over 3–6 months." },
-  { q: "Do results like these predict my outcome?", a: "No — past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers each week." },
+  { q: "Do results like these predict my outcome?", a: "No - past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers each week." },
 ];

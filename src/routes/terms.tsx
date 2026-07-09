@@ -6,9 +6,9 @@ import { breadcrumbJsonLd } from "../lib/seo";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms of Service — BeingEcom UK" },
+      { title: "Terms of Service - BeingEcom UK" },
       { name: "description", content: "Terms governing use of BeingEcom’s website and services." },
-      { property: "og:title", content: "Terms of Service — BeingEcom UK" },
+      { property: "og:title", content: "Terms of Service - BeingEcom UK" },
       { property: "og:description", content: "Terms governing use of BeingEcom’s website and services." },
       { property: "og:url", content: "https://beingecom.com/terms" },
     ],

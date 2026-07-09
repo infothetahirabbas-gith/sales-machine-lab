@@ -18,7 +18,7 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you handle creative?",
-    "a": "Yes — UGC, statics and video all in-house. Creative wins more than account structure on Meta and TikTok."
+    "a": "Yes - UGC, statics and video all in-house. Creative wins more than account structure on Meta and TikTok."
   },
   {
     "q": "How long is the contract?",
@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
-      { name: "description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably — not just drive traffic. Managed by a team that ties spend directly to revenue." },
-      { property: "og:title", content: "Paid Ads Agency UK — Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
-      { property: "og:description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably — not just drive traffic. Managed by a team that ties spend directly to revenue." },
+      { title: "Paid Ads Agency UK - Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
+      { name: "description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably - not just drive traffic. Managed by a team that ties spend directly to revenue." },
+      { property: "og:title", content: "Paid Ads Agency UK - Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
+      { property: "og:description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably - not just drive traffic. Managed by a team that ties spend directly to revenue." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
@@ -101,7 +101,7 @@ export const Route = createFileRoute("/services/paid-ads")({
       metricBars: [
         { label: "ROAS", before: 1.6, after: 4.1, unit: "×", description: "Revenue ÷ ad spend across Meta + Google + TikTok blended." },
         { label: "CPA", before: 48, after: 22, unit: "£", description: "Cost per acquired customer. Lower CPA = profitable scaling room." },
-        { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads — the hook-rate signal." },
+        { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads - the hook-rate signal." },
         { label: "CPM efficiency", before: 32, after: 18, unit: "£", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
@@ -116,7 +116,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel MER, blended ROAS and full-funnel budgets." },
       ],
       relatedServices: [
-        { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product — 3 batches/week." },
+        { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product - 3 batches/week." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where ad traffic actually turns into revenue." },
       ],

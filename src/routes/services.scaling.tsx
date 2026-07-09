@@ -14,7 +14,7 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you help with offer and pricing?",
-    "a": "Yes — bundles, tiered pricing, free-shipping thresholds, subscription, and back-end upsells are part of the scaling plan."
+    "a": "Yes - bundles, tiered pricing, free-shipping thresholds, subscription, and back-end upsells are part of the scaling plan."
   },
   {
     "q": "What margins do I need to scale?",
@@ -22,17 +22,17 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you provide a CFO-style view of the business?",
-    "a": "Yes — weekly MER, contribution-margin, inventory-turn and cash dashboards so you scale on profit, not vanity revenue."
+    "a": "Yes - weekly MER, contribution-margin, inventory-turn and cash dashboards so you scale on profit, not vanity revenue."
   }
 ];
 
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
-      { name: "description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way — retention and growth built to work together, not against each other." },
-      { property: "og:title", content: "Ecommerce Scaling & Retention Agency UK — 7-Figure Shopify Growth | BeingEcom" },
-      { property: "og:description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way — retention and growth built to work together, not against each other." },
+      { title: "Ecommerce Scaling & Retention Agency UK - 7-Figure Shopify Growth | BeingEcom" },
+      { name: "description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way - retention and growth built to work together, not against each other." },
+      { property: "og:title", content: "Ecommerce Scaling & Retention Agency UK - 7-Figure Shopify Growth | BeingEcom" },
+      { property: "og:description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way - retention and growth built to work together, not against each other." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
       { property: "og:type", content: "website" },
     ],
@@ -102,7 +102,7 @@ export const Route = createFileRoute("/services/scaling")({
       metricBars: [
         { label: "Monthly revenue", before: 86, after: 412, unit: "£k", description: "Top-line monthly revenue once the scaling system stabilises." },
         { label: "Blended ROAS", before: 2.1, after: 3.4, unit: "×", description: "Total revenue ÷ total marketing spend across every channel." },
-        { label: "Contribution margin", before: 18, after: 34, unit: "%", description: "Revenue minus COGS + shipping + ad cost — the real profit lever." },
+        { label: "Contribution margin", before: 18, after: 34, unit: "%", description: "Revenue minus COGS + shipping + ad cost - the real profit lever." },
         { label: "Repeat revenue share", before: 22, after: 48, unit: "%", description: "Share of monthly revenue coming from returning customers." },
         { label: "Channel diversification", before: 1, after: 4, description: "Profitable revenue channels (Meta, Google, TikTok, Email, Organic)." },
       ],

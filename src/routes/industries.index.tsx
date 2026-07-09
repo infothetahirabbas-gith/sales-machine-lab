@@ -15,7 +15,7 @@ export const Route = createFileRoute("/industries/")({
       { name: "description", content: "UK ecommerce agency serving fashion, beauty, health, home, electronics, food, jewellery, pets and more. Growth systems built per vertical." },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: "Ecommerce Industries We Scale in the UK | Being Ecom" },
-      { property: "og:description", content: "Industry-specific ecommerce growth for UK DTC brands — creative, media, CRO and retention." },
+      { property: "og:description", content: "Industry-specific ecommerce growth for UK DTC brands - creative, media, CRO and retention." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/industries" },
     ],
@@ -46,7 +46,7 @@ function IndustriesIndex() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Our system adapts to your vertical — creative, CRO, media buying and retention all tuned to how your customers actually buy.
+              Our system adapts to your vertical - creative, CRO, media buying and retention all tuned to how your customers actually buy.
             </p>
           </Reveal>
         </div>
@@ -90,7 +90,7 @@ function IndustriesIndex() {
         </div>
       </Section>
 
-      <CTA heading="Not sure which vertical fits?" sub="Book a strategy call — we'll map your growth engine live on the call." />
+      <CTA heading="Not sure which vertical fits?" sub="Book a strategy call - we'll map your growth engine live on the call." />
     </PageLayout>
   );
 }

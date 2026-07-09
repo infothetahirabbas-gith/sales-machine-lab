@@ -15,7 +15,7 @@ import { SafeImg } from "../components/SafeImg";
 import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
 import caseStudyGrowth from "../assets/case-study-growth-v2.jpg.asset.json";
 
-// WebP variants generated at build time by vite-imagetools — ~60-70% smaller than the JPGs.
+// WebP variants generated at build time by vite-imagetools - ~60-70% smaller than the JPGs.
 import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=68&w=960";
 import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=68&w=960";
 import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=68&w=960";
@@ -26,7 +26,7 @@ import heroShopifyCommerceMd from "../assets/hero-shopify-commerce.jpg?format=we
 
 
 
-// Below-the-fold — never in the critical bundle.
+// Below-the-fold - never in the critical bundle.
 const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
 const RevenueLossCalculator = lazy(() => import("../components/site/RevenueLossCalculator"));
 const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanner"));
@@ -37,17 +37,17 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { title: "Ecommerce Marketing Agency UK - Shopify & WooCommerce Growth | BeingEcom" },
       { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
-      { property: "og:title", content: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
-      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics — one team, one revenue P&L." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK - Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics - one team, one revenue P&L." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
-      { property: "og:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
+      { property: "og:image:alt", content: "BeingEcom - Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
-      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
+      { name: "twitter:image:alt", content: "BeingEcom - Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
@@ -82,7 +82,7 @@ const rotatingPhrases = [
 ];
 
 // Vite hashes bundled asset filenames, so no query-string cache-buster is
-// needed — appending `?v=` actually defeats immutable long-term caching.
+// needed - appending `?v=` actually defeats immutable long-term caching.
 const dashboards = [
   { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroShopifyCommerce, imgMd: heroShopifyCommerceMd, imgSm: heroShopifyCommerceSm, alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", focal: "center 35%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
   { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroWoocommerceStore, imgMd: heroWoocommerceStore, imgSm: heroWoocommerceStore, alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", focal: "center 40%", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
@@ -123,7 +123,7 @@ function Home() {
               <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email — one senior team, one revenue P&L, measurable growth from month one.
+              BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email - one senior team, one revenue P&L, measurable growth from month one.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
 
@@ -302,7 +302,7 @@ function Home() {
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok — managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
+            { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok - managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
             { t: "Conversion", b: "Store, product page & checkout optimised for sales with proven CRO services UK.", Icon: MousePointerClick },
             { t: "Organic", b: "Ecommerce SEO services UK that compound free revenue and dominate AI search overviews.", Icon: Search },
             { t: "Scale", b: "Email, retention & data systems that multiply LTV through Klaviyo email marketing automation.", Icon: Rocket },
@@ -387,7 +387,7 @@ function Home() {
           <div className="relative rounded-2xl border border-border bg-card/60 p-3 overflow-hidden">
             <img
               src={caseStudyGrowth.url}
-              alt="UK Shopify apparel brand case study — dashboard showing revenue growth from £18K to £214K with 11.9× revenue, 3.8× ROAS and +285% conversion rate uplift"
+              alt="UK Shopify apparel brand case study - dashboard showing revenue growth from £18K to £214K with 11.9× revenue, 3.8× ROAS and +285% conversion rate uplift"
               width={1280}
               height={960}
               loading="lazy"
@@ -432,7 +432,7 @@ function Home() {
           {/* connector line */}
           <div className="hidden md:block absolute top-[68px] left-[16%] right-[16%] h-px bg-primary/20" />
           {[
-            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages — find every leak in your ecommerce funnel optimisation.", Icon: ClipboardCheck },
+            { step: "Step 1", title: "Audit", body: "We tear down funnel, ads, analytics & product pages - find every leak in your ecommerce funnel optimisation.", Icon: ClipboardCheck },
             { step: "Step 2", title: "Fix", body: "Rebuild the highest-impact pieces: PDP, checkout, ad funnel, and Klaviyo email marketing automation flows.", Icon: Wrench },
             { step: "Step 3", title: "Scale", body: "Once unit economics work, we scale spend, channels & retention together as your dedicated ecommerce growth agency.", Icon: Rocket },
           ].map((s, i) => (
@@ -450,18 +450,18 @@ function Home() {
         </div>
       </Section>
 
-      {/* 9. TOOLS — grouped by job-to-be-done */}
+      {/* 9. TOOLS - grouped by job-to-be-done */}
       <Section
         center
         eyebrow="Stack"
         title="The tools we run on every store."
-        intro="One integrated stack — platform, paid media, analytics, and retention — wired together so revenue, spend, and LTV live in the same view."
+        intro="One integrated stack - platform, paid media, analytics, and retention - wired together so revenue, spend, and LTV live in the same view."
       >
         <div className="grid gap-5 md:grid-cols-2">
           {[
             {
               group: "Ecommerce platforms",
-              body: "We build, theme, and optimise directly inside your store — fast PDPs, clean checkout, headless when it earns its keep.",
+              body: "We build, theme, and optimise directly inside your store - fast PDPs, clean checkout, headless when it earns its keep.",
               tools: [
                 { name: "Shopify", color: "#95BF47", initial: "S" },
                 { name: "WooCommerce", color: "#7F54B3", initial: "W" },
@@ -470,7 +470,7 @@ function Home() {
             },
             {
               group: "Paid media & tracking",
-              body: "Full-funnel ad buying across Meta, Google, and TikTok — with server-side events and GA4 so every click is attributed.",
+              body: "Full-funnel ad buying across Meta, Google, and TikTok - with server-side events and GA4 so every click is attributed.",
               tools: [
                 { name: "Meta Ads", color: "#1877F2", initial: "M" },
                 { name: "Google Ads", color: "#4285F4", initial: "G" },
@@ -488,7 +488,7 @@ function Home() {
             },
             {
               group: "Email, SMS & retention",
-              body: "Klaviyo flows, subscription revenue, and reviews stack into 25–35% of monthly revenue — on autopilot.",
+              body: "Klaviyo flows, subscription revenue, and reviews stack into 25–35% of monthly revenue - on autopilot.",
               tools: [
                 { name: "Klaviyo", color: "#1E1E1E", initial: "K" },
                 { name: "Recharge", color: "#3D1D72", initial: "R" },
@@ -529,15 +529,15 @@ function Home() {
         center
         eyebrow="Why UK brands choose BeingEcom"
         title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
-        intro="Senior operators, transparent reporting and one integrated growth system — not siloed retainers. Here's what UK Shopify and WooCommerce brands hire us for."
+        intro="Senior operators, transparent reporting and one integrated growth system - not siloed retainers. Here's what UK Shopify and WooCommerce brands hire us for."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget." },
-            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead — so channels compound instead of competing." },
+            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing." },
             { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand." },
-            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo — plus a weekly Loom and monthly strategy call. No black boxes." },
-            { t: "Senior team on every account", b: "You work directly with the people running your account — no junior handovers, no rotating account managers." },
+            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes." },
+            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers." },
             { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it." },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -646,7 +646,7 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics — and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
+                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics - and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
               </p>
             </div>
             <Link to="/audit" className="relative flex shrink-0 btn btn-primary btn-shimmer">

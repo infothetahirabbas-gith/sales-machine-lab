@@ -6,7 +6,7 @@ import heroImg from "../assets/hero-shopify-commerce.jpg";
 const FAQ_LIST: FAQ[] = [
   {
     "q": "Do you build Shopify or WooCommerce stores?",
-    "a": "Both — and Shopify Plus / WooCommerce headless when the brand needs it."
+    "a": "Both - and Shopify Plus / WooCommerce headless when the brand needs it."
   },
   {
     "q": "How long does a new store take?",
@@ -14,15 +14,15 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Will the store be fast and pass Core Web Vitals?",
-    "a": "Yes. We engineer for green CWV on mobile out of the box — that's a ranking and conversion lever."
+    "a": "Yes. We engineer for green CWV on mobile out of the box - that's a ranking and conversion lever."
   },
   {
     "q": "Do you migrate from another platform?",
-    "a": "Yes — Magento, BigCommerce, Wix and custom carts. We preserve SEO with 301 mapping and replicate flows in Klaviyo."
+    "a": "Yes - Magento, BigCommerce, Wix and custom carts. We preserve SEO with 301 mapping and replicate flows in Klaviyo."
   },
   {
     "q": "Do you handle apps, themes and custom development?",
-    "a": "Yes — Liquid, React, Hydrogen, Remix, custom apps, and integrations with ERPs, 3PLs and CRMs."
+    "a": "Yes - Liquid, React, Hydrogen, Remix, custom apps, and integrations with ERPs, 3PLs and CRMs."
   }
 ];
 
@@ -30,15 +30,15 @@ export const Route = createFileRoute("/services/store-development")({
   head: () => ({
     meta: [
       { title: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
-      { name: "description", content: "Shopify & WooCommerce store builds and redesigns engineered for conversion — for UK ecommerce brands who want a site that sells, not just looks good." },
+      { name: "description", content: "Shopify & WooCommerce store builds and redesigns engineered for conversion - for UK ecommerce brands who want a site that sells, not just looks good." },
       { property: "og:title", content: "Shopify & WooCommerce Development Agency UK | BeingEcom" },
-      { property: "og:description", content: "Shopify & WooCommerce store builds and redesigns engineered for conversion — for UK ecommerce brands who want a site that sells, not just looks good." },
+      { property: "og:description", content: "Shopify & WooCommerce store builds and redesigns engineered for conversion - for UK ecommerce brands who want a site that sells, not just looks good." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/store-development" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Store Development", description: "Custom Shopify and WooCommerce store development — themes, headless, migrations, apps and integrations." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Store Development", description: "Custom Shopify and WooCommerce store development - themes, headless, migrations, apps and integrations." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Store Development", path: "/services/store-development" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/store-development")) },
     ],
@@ -101,14 +101,14 @@ export const Route = createFileRoute("/services/store-development")({
       metricBars: [
         { label: "Conversion rate", before: 1.2, after: 3.6, unit: "%", description: "Default-theme CR vs a store engineered with PDP system + trust + ATC patterns." },
         { label: "Page load (s)", before: 4.8, after: 1.4, unit: "s", description: "Largest Contentful Paint. Every 1s faster ≈ 7% more conversions." },
-        { label: "Mobile CR", before: 0.9, after: 3.2, unit: "%", description: "Mobile conversion rate — where 70% of ecommerce traffic actually buys." },
+        { label: "Mobile CR", before: 0.9, after: 3.2, unit: "%", description: "Mobile conversion rate - where 70% of ecommerce traffic actually buys." },
         { label: "AOV", before: 46, after: 78, unit: "£", description: "Average order value lifted with bundles, upsells, and tiered offers built-in." },
         { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed score (0–100). Directly affects SEO + ad quality." },
       ],
       faqs: FAQ_LIST,
       heroImage: heroImg,
       subServices: [
-        { to: "/services/store-development/shopify", title: "Shopify Development", body: "Shopify + Shopify Plus builds, migrations and headless Hydrogen — engineered to convert." },
+        { to: "/services/store-development/shopify", title: "Shopify Development", body: "Shopify + Shopify Plus builds, migrations and headless Hydrogen - engineered to convert." },
         { to: "/services/store-development/woocommerce", title: "WooCommerce Development", body: "WooCommerce and WordPress commerce built for speed, SEO and scale." },
       ],
       relatedServices: [

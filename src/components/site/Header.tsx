@@ -289,7 +289,7 @@ export default function Header() {
     } catch {}
   }, [pathname]);
 
-  // Body scroll lock while the mobile menu is open — prevents background
+  // Body scroll lock while the mobile menu is open - prevents background
   // scroll bleed on iOS and keeps focus trapped inside the panel.
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -382,7 +382,7 @@ export default function Header() {
               <option value="" disabled>Choose a service…</option>
               {services.map((s) => (
                 <optgroup key={s.to} label={s.label}>
-                  <option value={s.to}>{s.label} — Overview</option>
+                  <option value={s.to}>{s.label} - Overview</option>
                   {s.children?.map((c) => (
                     <option key={c.to} value={c.to}>↳ {c.label}</option>
                   ))}
@@ -505,7 +505,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Full-width Industries mega menu (desktop) — Thumbtack-style two-column:
+      {/* Full-width Industries mega menu (desktop) - Thumbtack-style two-column:
           left rail lists main industries; hovering one reveals its sub-categories
           on the right. */}
       {(() => {

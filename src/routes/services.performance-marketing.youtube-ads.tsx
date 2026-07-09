@@ -4,20 +4,20 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "Do YouTube ads work for ecommerce?", a: "Yes — Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking." },
+  { q: "Do YouTube ads work for ecommerce?", a: "Yes - Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking." },
   { q: "What's the minimum spend to test YouTube?", a: "£3k–£5k/mo for a 30-day read. Below that, YouTube's learning can't stabilise." },
-  { q: "Which YouTube ad formats do you run?", a: "Video Action Campaigns (VAC), Demand Gen, Shorts ads, and In-stream skippable — matched to funnel stage." },
+  { q: "Which YouTube ad formats do you run?", a: "Video Action Campaigns (VAC), Demand Gen, Shorts ads, and In-stream skippable - matched to funnel stage." },
   { q: "How long should a YouTube ad be?", a: "15–60s for cold prospecting VAC; 6s bumpers for retargeting; 15–30s vertical Shorts for mobile-first reach." },
-  { q: "Do I need a Google Ads account already?", a: "Yes — YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
+  { q: "Do I need a Google Ads account already?", a: "Yes - YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
   head: () => ({
     meta: [
-      { title: "YouTube Ads Agency UK — Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
-      { name: "description", content: "Best YouTube Ads agency UK for Shopify and DTC ecommerce brands. Video Action Campaigns, Demand Gen, YouTube Shorts and skippable in-stream — built for profitable ROAS." },
+      { title: "YouTube Ads Agency UK - Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best YouTube Ads agency UK for Shopify and DTC ecommerce brands. Video Action Campaigns, Demand Gen, YouTube Shorts and skippable in-stream - built for profitable ROAS." },
       { name: "keywords", content: "YouTube Ads agency UK, YouTube Ads management UK, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads, ecommerce video advertising" },
-      { property: "og:title", content: "YouTube Ads Agency UK — Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "YouTube Ads Agency UK - Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
       { property: "og:description", content: "YouTube Ads agency UK for Shopify and DTC brands. Video Action Campaigns, Demand Gen and Shorts creative built for profitable performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/youtube-ads" },
       { property: "og:type", content: "website" },
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads", description: "YouTube Ads for ecommerce — VAC, Demand Gen, Shorts and skippable in-stream." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads", description: "YouTube Ads for ecommerce - VAC, Demand Gen, Shorts and skippable in-stream." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "YouTube Ads", path: "/services/performance-marketing/youtube-ads" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/youtube-ads")) },
     ],
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
-      heroTitle: "YouTube Ads agency UK — engineered for revenue, not just views.",
+      heroTitle: "YouTube Ads agency UK - engineered for revenue, not just views.",
       heroSub: "Video Action Campaigns, Demand Gen and YouTube Shorts ads for Shopify and DTC brands that want profitable, measurable YouTube growth.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
@@ -56,13 +56,13 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       ],
       pillarsTitle: "What we run on YouTube.",
       pillars: [
-        { title: "Video Action Campaigns", body: "Google's core DR video product — scales with the right creative." },
+        { title: "Video Action Campaigns", body: "Google's core DR video product - scales with the right creative." },
         { title: "Demand Gen", body: "YouTube + Discover + Gmail unified across the ecosystem." },
         { title: "Shorts ads", body: "9:16 vertical inventory Meta doesn't own." },
         { title: "Retargeting", body: "6s bumpers + skippable stacks to warm audiences." },
       ],
       deepBlocks: [
-        { title: "Video Action Campaigns", body: "Skippable in-stream + in-feed + Shorts — bidding for conversions.", tags: ["VAC","In-stream","In-feed"] },
+        { title: "Video Action Campaigns", body: "Skippable in-stream + in-feed + Shorts - bidding for conversions.", tags: ["VAC","In-stream","In-feed"] },
         { title: "Demand Gen", body: "Cross-surface Google DG for reach + conversion at scale.", tags: ["Demand Gen","YouTube","Discover"] },
         { title: "Shorts creative", body: "9:16 vertical, hook in 2s, native to the Shorts feed.", tags: ["Shorts","9:16","Hook"] },
         { title: "Tracking & attribution", body: "Enhanced conversions, GA4, Merchant Center, offline import.", tags: ["Enhanced","GA4","Offline"] },

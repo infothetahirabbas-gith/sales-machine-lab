@@ -17,7 +17,7 @@ const POSTS: PostMeta[] = [
     slug: "shopify-plus-migration-uk",
     title: "Shopify Plus migration for UK brands: WooCommerce to Shopify Plus without losing rankings",
     description:
-      "A UK-specific Shopify Plus migration guide — when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
+      "A UK-specific Shopify Plus migration guide - when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
     category: "Ecommerce strategy",
     readMins: 12,
     datePublished: "2026-07-08",
@@ -26,7 +26,7 @@ const POSTS: PostMeta[] = [
     slug: "shopify-vs-woocommerce-uk",
     title: "Shopify vs WooCommerce UK 2026: honest comparison for growing DTC brands",
     description:
-      "Shopify or WooCommerce for a UK ecommerce brand in 2026? Real total cost of ownership, SEO, checkout, VAT, apps, scaling limits — decided by revenue stage, not marketing copy.",
+      "Shopify or WooCommerce for a UK ecommerce brand in 2026? Real total cost of ownership, SEO, checkout, VAT, apps, scaling limits - decided by revenue stage, not marketing copy.",
     category: "Ecommerce strategy",
     readMins: 14,
     datePublished: "2026-07-07",
@@ -60,13 +60,13 @@ const blogListJsonLd = {
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Growth Blog — Shopify & WooCommerce UK | BeingEcom" },
+      { title: "Ecommerce Growth Blog - Shopify & WooCommerce UK | BeingEcom" },
       {
         name: "description",
         content:
-          "Playbooks, benchmarks and teardowns for UK Shopify and WooCommerce brands. Ecommerce SEO, CRO, paid ads and retention — written by senior operators, not interns.",
+          "Playbooks, benchmarks and teardowns for UK Shopify and WooCommerce brands. Ecommerce SEO, CRO, paid ads and retention - written by senior operators, not interns.",
       },
-      { property: "og:title", content: "Ecommerce Growth Blog — Shopify & WooCommerce UK | BeingEcom" },
+      { property: "og:title", content: "Ecommerce Growth Blog - Shopify & WooCommerce UK | BeingEcom" },
       {
         property: "og:description",
         content:
@@ -95,11 +95,11 @@ export const Route = createFileRoute("/blog/")({
 function BlogIndex() {
   return (
     <PageLayout>
-      <h1 className="sr-only">Ecommerce Growth Journal — Shopify & WooCommerce UK</h1>
+      <h1 className="sr-only">Ecommerce Growth Journal - Shopify & WooCommerce UK</h1>
       <Section
         eyebrow="Blog"
         title="The BeingEcom ecommerce growth journal"
-        intro="Field notes from senior operators running Shopify and WooCommerce stores across the UK — the same playbooks we bill for, written out in full."
+        intro="Field notes from senior operators running Shopify and WooCommerce stores across the UK - the same playbooks we bill for, written out in full."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {POSTS.map((p) => (
@@ -128,7 +128,7 @@ function BlogIndex() {
       </Section>
       <CTA
         heading="Want the playbook applied to your store?"
-        sub="Book a 30-minute strategy call and we'll show you where the revenue is leaking — and the fastest way to plug it."
+        sub="Book a 30-minute strategy call and we'll show you where the revenue is leaking - and the fastest way to plug it."
       />
     </PageLayout>
   );

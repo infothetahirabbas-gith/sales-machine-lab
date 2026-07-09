@@ -11,9 +11,9 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
   head: () => ({
     meta: [
-      { title: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { title: "Contact BeingEcom UK - Free Shopify & WooCommerce Growth Audit" },
       { name: "description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
-      { property: "og:title", content: "Contact BeingEcom UK — Free Shopify & WooCommerce Growth Audit" },
+      { property: "og:title", content: "Contact BeingEcom UK - Free Shopify & WooCommerce Growth Audit" },
       { property: "og:description", content: "Contact BeingEcom, a UK ecommerce growth agency. Get a free 12-point Shopify or WooCommerce audit and a revenue-leakage plan within 48 hours." },
       { property: "og:url", content: "https://beingecom.com/contact" },
     ],
@@ -143,7 +143,7 @@ function Contact() {
 
       <FaqSection
         faqs={contactFaqs}
-        title="Contact —"
+        title="Contact -"
         highlight="quick answers"
         intro="What founders ask before sending us their store."
       />

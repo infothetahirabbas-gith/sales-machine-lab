@@ -69,7 +69,7 @@ export default function ContactFaq() {
             {status === "success" ? (
               <div className="text-center py-6">
                 <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center text-2xl">✓</div>
-                <h3 className="mt-4 text-xl font-bold text-ink">Thanks — we'll be in touch within 24 hours (weekdays only).</h3>
+                <h3 className="mt-4 text-xl font-bold text-ink">Thanks - we'll be in touch within 24 hours (weekdays only).</h3>
                 <p className="mt-2 text-sm text-muted-foreground">In the meantime, reply directly to <a className="text-primary font-semibold" href="mailto:info@beingecom.com">info@beingecom.com</a> if it's urgent.</p>
               </div>
             ) : (

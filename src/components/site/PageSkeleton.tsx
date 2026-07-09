@@ -1,6 +1,6 @@
 /**
  * Lightweight skeleton shown as the router's defaultPendingComponent.
- * Only visible when a route takes longer than `defaultPendingMs` to load —
+ * Only visible when a route takes longer than `defaultPendingMs` to load -
  * for cached / preloaded routes it never appears.
  */
 export default function PageSkeleton() {

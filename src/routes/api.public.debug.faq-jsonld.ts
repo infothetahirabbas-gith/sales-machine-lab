@@ -67,7 +67,7 @@ export function validateFaqJsonLd(jsonld: unknown): string[] {
     return errors;
   }
   if (mainEntity.length === 0) {
-    errors.push("mainEntity is empty — FAQPage requires at least one Question");
+    errors.push("mainEntity is empty - FAQPage requires at least one Question");
   }
 
   const seenIds = new Set<string>();

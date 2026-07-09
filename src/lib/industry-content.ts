@@ -37,7 +37,7 @@ export type IndustryContent = {
 };
 
 // ── shared visual pools (all IDs verified in home-images/location-content) ──
-// Per-industry imagery — every one of the 7 slots is unique across all 12
+// Per-industry imagery - every one of the 7 slots is unique across all 12
 // verticals (84 IDs total). Every ID is HEAD-checked at prebuild by
 // scripts/check-location-images.mjs so no thumbnail 404s in production.
 type ImgSet = { hero: string; buyers: string; creative: string; funnel: string; caseStudy: string; process: string; tech: string };
@@ -61,7 +61,7 @@ const IMG: Record<string, ImgSet> = {
 const imgs = (slug: keyof typeof IMG): ImgSet => IMG[slug];
 
 const SEASONS_UK: { month: string; play: string }[] = [
-  { month: "Jan", play: "Post-holiday retention push — winback flows + loyalty relaunch" },
+  { month: "Jan", play: "Post-holiday retention push - winback flows + loyalty relaunch" },
   { month: "Mar", play: "Mother's Day + Spring collection creative sprint" },
   { month: "May", play: "Bank holiday promo windows + testing new hooks" },
   { month: "Aug", play: "Back-to-life / autumn drop teasers, list building" },
@@ -81,7 +81,7 @@ const FAQ_BASE = (name: string) => [
   { q: `How fast can we see results?`, a: `Most ${name.toLowerCase()} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. Compound gains land months 3–6.` },
   { q: `What size of ${name.toLowerCase()} brand do you work with?`, a: `We're a fit from £30k/month revenue up to £3M/month. Below that we recommend our free growth audit and DIY playbooks first.` },
   { q: `Which platforms do you run?`, a: `Shopify & Shopify Plus by default, WooCommerce migrations when needed, plus Meta, Google, TikTok, Klaviyo, GA4 and Triple Whale.` },
-  { q: `Do you provide creative production?`, a: `Yes — in-house UGC, studio product photography and motion graphics. No waiting on external agencies to ship new ad variants.` },
+  { q: `Do you provide creative production?`, a: `Yes - in-house UGC, studio product photography and motion graphics. No waiting on external agencies to ship new ad variants.` },
   { q: `What does pricing look like?`, a: `Three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for stores ready to scale, and £10,000+/mo Scale for full dedicated growth teams. See /pricing for what's included.` },
 ];
 
@@ -89,7 +89,7 @@ const FAQ_BASE = (name: string) => [
 export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
   "fashion-apparel": {
     hero: "Scale UK fashion & apparel without discounting your brand into the floor.",
-    vibe: "Fashion buyers decide in seconds and return 30–40% of what they buy. Winning requires ruthless creative velocity, PDP CRO and a retention engine that lifts LTV — not perpetual sales.",
+    vibe: "Fashion buyers decide in seconds and return 30–40% of what they buy. Winning requires ruthless creative velocity, PDP CRO and a retention engine that lifts LTV - not perpetual sales.",
     images: imgs("fashion-apparel"),
     categories: [
       { id: "womens-fashion",      name: "Women's Fashion",       body: "Contemporary, occasion and everyday collections scaling on Meta + Pinterest." },
@@ -106,9 +106,9 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
     ],
     painPoints: [
       { title: "Creative burnout in 7 days",       body: "We ship 3 UGC batches a week so ad fatigue never breaks scale." },
-      { title: "Discounting-addicted CAC",         body: "Rebuild offers around bundles and gifting — margin comes back." },
+      { title: "Discounting-addicted CAC",         body: "Rebuild offers around bundles and gifting - margin comes back." },
       { title: "PDPs designed like catalogues",     body: "Rewire PDPs around fit, social proof, and next-day-delivery reassurance." },
-      { title: "Klaviyo left on defaults",         body: "Segmented flows by size, category and repeat behaviour — 30%+ email rev share." },
+      { title: "Klaviyo left on defaults",         body: "Segmented flows by size, category and repeat behaviour - 30%+ email rev share." },
     ],
     creativeAngles: [
       "Founder POV drop teasers",
@@ -142,13 +142,13 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
     buyerPsychology: [
       { title: "Reviews > everything",    body: "Under 200 reviews = under-performing PDP. We plug in review-gen flows day one." },
       { title: "Routine framing sells",   body: "AM/PM routine PDPs outperform single-hero SKUs on new customer AOV." },
-      { title: "Compliance eats claims",  body: "ASA-safe creative that still converts — we own the rewrite process." },
+      { title: "Compliance eats claims",  body: "ASA-safe creative that still converts - we own the rewrite process." },
     ],
     painPoints: [
       { title: "Meta rejections stalling scale", body: "Compliant creative library shipped weekly." },
       { title: "No subscription lever",         body: "Rebuild recurring flows and win-back to lift LTV 40–60%." },
       { title: "Klaviyo flows generic",         body: "Segment by routine step, skin type and category." },
-      { title: "Google Shopping starved",       body: "Feed and structure for beauty verticals — high-intent volume unlocked." },
+      { title: "Google Shopping starved",       body: "Feed and structure for beauty verticals - high-intent volume unlocked." },
     ],
     creativeAngles: [
       "Founder-story origin ads",
@@ -258,7 +258,7 @@ export const INDUSTRY_CONTENT: Record<string, IndustryContent> = {
     ],
     buyerPsychology: [
       { title: "First order = trial", body: "Subscription-first offers convert 2x better than one-off SKUs." },
-      { title: "Habit-loop matters",  body: "First 30 days decide LTV — we build onboarding flows around that." },
+      { title: "Habit-loop matters",  body: "First 30 days decide LTV - we build onboarding flows around that." },
       { title: "Taste anxiety",       body: "Sampler packs + guarantees drive first-purchase conversion." },
     ],
     painPoints: [
@@ -565,7 +565,7 @@ export function industryContentFor(slug: string, name: string): IndustryContent 
   // fallback template so a new industry never renders blank
   return {
     hero: `${name} growth built for UK DTC.`,
-    vibe: `We install the same growth engine across ${name.toLowerCase()} brands — creative, media, CRO and retention as one system.`,
+    vibe: `We install the same growth engine across ${name.toLowerCase()} brands - creative, media, CRO and retention as one system.`,
     images: imgs("fashion-apparel"),
     categories: [],
     buyerPsychology: [],
@@ -589,11 +589,11 @@ export function whyNoSalesFor(name: string, categories: { name: string }[] = [])
   const first = categories[0]?.name?.toLowerCase() ?? lower;
   const second = categories[1]?.name?.toLowerCase() ?? lower;
   return {
-    intro: `9 out of 10 ${lower} stores we audit are leaking traffic before it ever reaches checkout. Here's what actually breaks orders in ${name} — and the fix we ship in the first 60 days.`,
+    intro: `9 out of 10 ${lower} stores we audit are leaking traffic before it ever reaches checkout. Here's what actually breaks orders in ${name} - and the fix we ship in the first 60 days.`,
     items: [
       { title: `Traffic isn't ${lower}-qualified`, body: `Broad Meta and un-branded Google spend pulls tyre-kickers. We rebuild targeting around real ${first} buyer intent so every click has a chance of converting.` },
-      { title: `PDPs read like a catalogue`, body: `${name} PDPs need social proof, comparison, and objection-handling above the fold — not just a hero image and a spec sheet. We rewire the top 20% of PDPs first.` },
-      { title: `Trust signals missing`, body: `Under 200 reviews, no UGC, no shipping/returns clarity — ${lower} shoppers bounce in under 8 seconds. Review-gen flows, badges and delivery promise fix this in week 2.` },
+      { title: `PDPs read like a catalogue`, body: `${name} PDPs need social proof, comparison, and objection-handling above the fold - not just a hero image and a spec sheet. We rewire the top 20% of PDPs first.` },
+      { title: `Trust signals missing`, body: `Under 200 reviews, no UGC, no shipping/returns clarity - ${lower} shoppers bounce in under 8 seconds. Review-gen flows, badges and delivery promise fix this in week 2.` },
       { title: `Checkout friction`, body: `Forced accounts, hidden delivery costs, no Apple / Google Pay, no Klarna. Every extra field on a ${lower} checkout drops conversion 2–7%.` },
       { title: `No retention engine`, body: `${name} brands leave 30–40% of revenue on the table by relying on default Klaviyo flows. Segmented ${second} lifecycle flows recover it fast.` },
       { title: `Attribution is lying`, body: `Meta over-reports, GA4 under-reports, and iOS breaks the middle. Without server-side + Triple Whale, ${lower} budgets get scaled on fiction.` },
@@ -608,10 +608,10 @@ export function whySeoMattersFor(name: string, categories: { name: string }[] = 
   return {
     intro: `Paid ads rent your traffic. SEO owns it. In ${name}, non-brand organic is the difference between a 3× ROAS ceiling and a compounding, profitable growth engine.`,
     points: [
-      { title: `${name} buyers Google before they buy`, body: `70%+ of ${lower} purchases start with a search — "best ${first.toLowerCase()}", "${second.toLowerCase()} vs", "reviews". If you're not on page 1, you're invisible where the decision actually happens.` },
+      { title: `${name} buyers Google before they buy`, body: `70%+ of ${lower} purchases start with a search - "best ${first.toLowerCase()}", "${second.toLowerCase()} vs", "reviews". If you're not on page 1, you're invisible where the decision actually happens.` },
       { title: `Zero-CAC compounding traffic`, body: `Every ${lower} category page and blog we rank is unpaid revenue every month, forever. It's the only channel where cost per acquisition drops as you scale.` },
-      { title: `AI search is the new SERP`, body: `ChatGPT, Perplexity and Google AI Overviews already recommend ${lower} products by name. AEO-optimised content gets you cited — everyone else disappears.` },
-      { title: `Defensive moat vs. competitors`, body: `Ranking for "${first.toLowerCase()} UK" and long-tail buying queries locks competitors out of your category — they can't outspend organic rank.` },
+      { title: `AI search is the new SERP`, body: `ChatGPT, Perplexity and Google AI Overviews already recommend ${lower} products by name. AEO-optimised content gets you cited - everyone else disappears.` },
+      { title: `Defensive moat vs. competitors`, body: `Ranking for "${first.toLowerCase()} UK" and long-tail buying queries locks competitors out of your category - they can't outspend organic rank.` },
       { title: `Lower CAC across every channel`, body: `Strong organic authority lifts Quality Score on Google Ads, drops Meta CPM (branded searches spike), and increases direct traffic. SEO is a rising tide for the whole engine.` },
     ],
   };
@@ -622,11 +622,11 @@ export function industryProcessFor(name: string, categories: { name: string }[] 
   const first = categories[0]?.name?.toLowerCase() ?? lower;
   return [
     { title: `1. Deep ${lower} audit`,      body: `We tear into your data, competitors, ${first} buyer research and the last 90 days of ad spend to find where revenue is actually leaking.` },
-    { title: `2. Rebuild the tracking`,      body: `GA4, server-side, Meta CAPI and Triple Whale wired so every ${lower} conversion is measured properly — no more scaling on Meta's fiction.` },
+    { title: `2. Rebuild the tracking`,      body: `GA4, server-side, Meta CAPI and Triple Whale wired so every ${lower} conversion is measured properly - no more scaling on Meta's fiction.` },
     { title: `3. Creative sprint (weekly)`,  body: `3 UGC + motion batches shipped per week, built specifically around how ${lower} shoppers scroll, compare and decide.` },
-    { title: `4. Media buying by seniors`,   body: `Meta, Google and TikTok run by ex-DTC operators — no juniors on your ${lower} account, ever. One variable tested at a time.` },
-    { title: `5. CRO + PDP rebuild`,         body: `The top 20% of your ${lower} PDPs and landing pages rewired around fit, proof, urgency and objection-handling — usually a 15–25% CVR lift.` },
-    { title: `6. Retention engine live`,     body: `Segmented Klaviyo + SMS flows for ${first}, win-back, VIP and subscription CRO — the LTV lever most ${lower} brands ignore.` },
+    { title: `4. Media buying by seniors`,   body: `Meta, Google and TikTok run by ex-DTC operators - no juniors on your ${lower} account, ever. One variable tested at a time.` },
+    { title: `5. CRO + PDP rebuild`,         body: `The top 20% of your ${lower} PDPs and landing pages rewired around fit, proof, urgency and objection-handling - usually a 15–25% CVR lift.` },
+    { title: `6. Retention engine live`,     body: `Segmented Klaviyo + SMS flows for ${first}, win-back, VIP and subscription CRO - the LTV lever most ${lower} brands ignore.` },
     { title: `7. Weekly scale + report`,     body: `Every Friday: Loom walk-through, updated forecast, next-week test plan. Founders stay in the loop without living in dashboards.` },
   ];
 }
