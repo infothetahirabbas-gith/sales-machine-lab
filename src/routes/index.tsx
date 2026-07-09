@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 1200w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 960w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
     ],
 
     scripts: [
