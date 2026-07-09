@@ -14,6 +14,7 @@ import { LOCATIONS } from "../lib/locations-industries";
 import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
+import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 
 // Colored partner/brand logos for the running trust bar
@@ -103,7 +104,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
     const faqData = loc ? [
       { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
-      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} retainers start at £2,500/month for single-channel work and scale to £10k+/month for full growth-engine engagements. Pricing is transparent and published on our pricing page.` },
+      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements start with a £2,500 CRO Sprint (6-week fixed), a £4,500/mo Growth System retainer, and an £8,000/mo Full Partnership. Same transparent pricing on our pricing page.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce migrations and headless Hydrogen builds.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO and retention gains compound in months 3–6.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, analytics and email — no obligation.` },
@@ -256,7 +257,7 @@ function LocationPage() {
 
   const faqs: FAQ[] = [
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Our ${city} retainers start at £2,500/mo for focused single-channel work and scale to £10k+/mo for full growth-engine engagements. We publish transparent pricing on our pricing page.` },
+    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Our ${city} engagements: £2,500 CRO Sprint (6-week fixed), £4,500/mo Growth System, £8,000/mo Full Partnership. Same transparent pricing published on our pricing page.` },
     { q: `Which platforms do you work with?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
     { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO and retention gains follow in months 3–6.` },
     { q: `Do you offer a free audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, analytics and email — no obligation, no sales pitch.` },
@@ -332,8 +333,8 @@ function LocationPage() {
                 <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-border animate-fade-in">
-                <div className="flex items-center gap-2 text-xs font-semibold text-primary"><span className="w-2 h-2 rounded-full bg-primary pulse-dot" /> LIVE {city} clients</div>
-                <div className="mt-1 text-lg font-bold text-ink">18 brands scaling</div>
+                <div className="flex items-center gap-2 text-xs font-semibold text-primary"><ShieldCheck className="w-3.5 h-3.5" /> {loc.region} coverage</div>
+                <div className="mt-1 text-lg font-bold text-ink">Senior UK operators</div>
               </div>
             </div>
           </Reveal>
@@ -688,21 +689,17 @@ function LocationPage() {
       {/* 20. PRICING */}
       <Section eyebrow="Pricing" title={`Transparent ecommerce agency pricing in ${city}`} alt>
         <div className="grid md:grid-cols-3 gap-5">
-          {[
-            { name: "Launch", price: "£2,500", desc: `Single-channel focus for smaller ${city} brands.`, features: ["1 growth channel", "Weekly reporting", "Creative refresh", "Slack support"] },
-            { name: "Scale", price: "£5,500", desc: `Multi-channel engine for growing ${city} DTC brands.`, features: ["3 channels", "CRO sprints", "Email + SMS", "Bi-weekly strategy"], featured: true },
-            { name: "Growth Engine", price: "£10k+", desc: `Full-stack team for 7-figure ${city} operators.`, features: ["All channels", "Dedicated pod", "Creative studio", "Weekly leadership call"] },
-          ].map((p) => (
+          {PRICING_TIERS.map((p) => (
             <Reveal key={p.name}>
-              <div className={`card-surface card-hover p-8 h-full flex flex-col ${p.featured ? "ring-2 ring-primary" : ""}`}>
-                {p.featured && <div className="inline-flex items-center gap-1 text-xs font-bold text-primary mb-2"><Sparkles className="w-3.5 h-3.5" /> MOST POPULAR</div>}
+              <div className={`card-surface card-hover p-8 h-full flex flex-col ${p.popular ? "ring-2 ring-primary" : ""}`}>
+                {p.popular && <div className="inline-flex items-center gap-1 text-xs font-bold text-primary mb-2"><Sparkles className="w-3.5 h-3.5" /> MOST POPULAR</div>}
                 <h3 className="text-xl font-bold text-ink">{p.name}</h3>
-                <div className="mt-3 text-3xl font-bold text-gradient">{p.price}<span className="text-sm text-muted-foreground font-normal">/mo</span></div>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                <div className="mt-3 text-3xl font-bold text-gradient">{p.price}<span className="text-sm text-muted-foreground font-normal">{p.period === "month" ? "/mo" : " fixed"}</span></div>
+                <p className="mt-2 text-sm text-muted-foreground">{p.best} — for {city} brands.</p>
                 <ul className="mt-5 space-y-2 flex-1">
-                  {p.features.map(f => <li key={f} className="flex gap-2 text-sm text-ink"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" />{f}</li>)}
+                  {p.includes.map(f => <li key={f} className="flex gap-2 text-sm text-ink"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" />{f}</li>)}
                 </ul>
-                <Link to="/pricing" className="btn btn-primary mt-6">Get started <ArrowRight className="w-4 h-4" /></Link>
+                <Link to="/pricing" className="btn btn-primary mt-6">See full pricing <ArrowRight className="w-4 h-4" /></Link>
               </div>
             </Reveal>
           ))}
@@ -744,7 +741,7 @@ function LocationPage() {
       </Section>
 
       {/* 21. FAQ (People Also Ask) */}
-      <FaqSection faqs={faqs} title={`People also ask about ecommerce agencies in ${city}`} highlight="agencies" intro={`Answers to the questions ${city} and ${loc.region} founders ask most. Structured for Google, AI Overviews and ChatGPT search.`} />
+      <FaqSection faqs={faqs} title={`People also ask about ecommerce in`} highlight={city} intro={`Answers to the questions ${city} and ${loc.region} founders ask most. Structured for Google, AI Overviews and ChatGPT search.`} />
 
       {/* 22. CONTACT */}
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
