@@ -259,12 +259,12 @@
   @keyframes slideRight { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
   @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 55%, transparent); }
-    100% { box-shadow: 0 0 0 18px transparent; }
+    0% { transform: scale(1); opacity: 0.55; }
+    100% { transform: scale(2.4); opacity: 0; }
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  @keyframes drawLine { from { opacity: 0; } to { opacity: 1; } }
   @keyframes tilt {
     0%,100% { transform: perspective(800px) rotateX(0) rotateY(0); }
     25% { transform: perspective(800px) rotateX(1deg) rotateY(-1deg); }
