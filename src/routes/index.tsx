@@ -225,7 +225,7 @@ function Home() {
                   { name: "WooCommerce",   slug: "woocommerce",       color: "#7F54B3" },
                   { name: "Meta Ads",      slug: "meta",              color: "#0866FF" },
                   { name: "Google Ads",    slug: "googleads",         color: "#4285F4" },
-                  { name: "Klaviyo",       slug: "klaviyo",           color: "#232323" },
+                  { name: "Klaviyo",       slug: null,                color: "#232323" },
                   { name: "GA4",           slug: "googleanalytics",   color: "#E37400" },
                   { name: "TikTok Ads",    slug: "tiktok",            color: "#000000" },
                   { name: "Triple Whale",  slug: null,                color: "#7C3AED" },

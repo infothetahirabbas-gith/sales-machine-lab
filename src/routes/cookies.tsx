@@ -29,7 +29,9 @@ function Cookies() {
   };
   return (
     <PageLayout>
+      <h1 className="sr-only">Cookie Policy</h1>
       <Section eyebrow="Legal" title="Cookie Policy">
+
         <div className="prose prose-slate max-w-3xl">
           <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}</p>
           <h2>What we use</h2>
