@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-analytics.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/services/analytics")({
     <ServicePage cfg={{
       slug: "analytics",
       eyebrow: "Analytics & Tracking",
+      heroImage: heroImg,
       heroTitle: "Track every sale, click, and customer behavior.",
       heroSub: "GA4, Meta Pixel, conversion API, dashboards, and attribution - set up correctly, once.",
       problemTitle: "Most stores are flying blind.",

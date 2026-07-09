@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-cro-testing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What conversion rate should a Shopify store be hitting?", a: "Healthy UK DTC stores run 2.5–4% on cold traffic and 6–9% on warm. Below 1.8% almost always means PDP, offer or trust issues — not a traffic problem. We diagnose which of the three is killing you in the first two weeks." },
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/services/cro")({
     <ServicePage cfg={{
       slug: "cro",
       eyebrow: "Conversion Rate Optimisation",
+      heroImage: heroImg,
       heroTitle: "Same traffic. Same spend. 2-3× the revenue.",
       heroSub: "UK Conversion Rate Optimisation for Shopify and WooCommerce stores — weekly A/B tests, PDP rewrites, checkout surgery and behavioural research that unlocks the revenue already inside your funnel.",
       problemTitle: "Your store leaks revenue at every step.",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
     <ServicePage cfg={{
       slug: "media-buying",
       eyebrow: "Media Buying",
+      heroImage: heroImg,
       heroTitle: "Cross-channel media buying engineered for blended ROAS.",
       heroSub: "Meta, Google and TikTok run as one P&L — MER targets, full-funnel allocation and weekly capital reallocation.",
       problemTitle: "Why single-channel buyers cap your scale.",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-shopify-commerce.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do you build on Shopify or Shopify Plus?", a: "Both — standard Shopify for growing DTC brands, Shopify Plus for £5m+ merchants needing Scripts, Flow, checkout extensibility and B2B." },
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/services/store-development/shopify")({
     <ServicePage cfg={{
       slug: "store-development-shopify",
       eyebrow: "Shopify & Shopify Plus Development",
+      heroImage: heroImg,
       heroTitle: "Build a Shopify store engineered to sell — not just to look pretty.",
       heroSub: "Shopify & Shopify Plus stores built by an operator team obsessed with conversion, speed and margin.",
       problemTitle: "Why most Shopify stores quietly bleed revenue.",

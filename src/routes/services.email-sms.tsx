@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-email-sms.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/services/email-sms")({
     <ServicePage cfg={{
       slug: "email-sms",
       eyebrow: "Email Marketing Automation",
+      heroImage: heroImg,
       heroTitle: "Recover lost sales and multiply repeat customers.",
       heroSub: "Klaviyo email flows that quietly add 25-35% of revenue without lifting ad spend.",
       problemTitle: "Most stores leave money on the table after the visit.",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Are Instagram ads different from Facebook ads?", a: "Same Meta Ads Manager, but different creative rules. Reels, Stories and feed-native content dramatically outperform repurposed Facebook assets." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
     <ServicePage cfg={{
       slug: "instagram-ads",
       eyebrow: "Instagram Ads",
+      heroImage: heroImg,
       heroTitle: "Instagram ads that stop the scroll — and convert.",
       heroSub: "Reels-first creative, Stories placements and ASC+ scaling engineered for profitable Instagram performance.",
       problemTitle: "Why most Instagram accounts stall.",

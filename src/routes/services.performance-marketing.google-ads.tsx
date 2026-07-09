@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
     <ServicePage cfg={{
       slug: "google-ads",
       eyebrow: "Google Ads",
+      heroImage: heroImg,
       heroTitle: "Google Ads that capture every buying moment.",
       heroSub: "Search, Shopping, Performance Max, feed optimisation and brand defence — engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",

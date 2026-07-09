@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-woocommerce-store.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do you build WooCommerce stores from scratch?", a: "Yes — custom WordPress + WooCommerce builds with performant hosting, conversion-ready templates and every plugin justified against revenue impact." },
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/services/store-development/woocommerce")(
     <ServicePage cfg={{
       slug: "store-development-woocommerce",
       eyebrow: "WooCommerce & WordPress Development",
+      heroImage: heroImg,
       heroTitle: "Build a WooCommerce store that's fast, flexible — and actually converts.",
       heroSub: "Custom WordPress + WooCommerce builds engineered for speed, SEO and margin — no plugin bloat.",
       problemTitle: "Why most WooCommerce stores quietly bleed revenue.",

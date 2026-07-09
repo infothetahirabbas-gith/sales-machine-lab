@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
     <ServicePage cfg={{
       slug: "tiktok-ads",
       eyebrow: "TikTok Ads",
+      heroImage: heroImg,
       heroTitle: "TikTok ads that look like content, not ads.",
       heroSub: "Creator-led UGC, Spark Ads and hook-first scripting — native virality that drives real ecommerce sales.",
       problemTitle: "Why most TikTok accounts flop.",

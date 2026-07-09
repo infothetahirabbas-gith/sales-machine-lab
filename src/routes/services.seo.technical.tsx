@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What is technical SEO for ecommerce?", a: "Everything that lets Google crawl, render and index your store — Core Web Vitals, crawl budget, faceted-nav indexing, canonicals, sitemaps, schema and JS rendering." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/technical")({
     <ServicePage cfg={{
       slug: "seo-technical",
       eyebrow: "Technical SEO",
+      heroImage: heroImg,
       heroTitle: "A crawlable, fast, indexable store — the boring foundation that unlocks everything.",
       heroSub: "Technical SEO that turns Shopify and WooCommerce stores into machines Google can actually rank.",
       problemTitle: "Why technical debt caps ecommerce SEO.",

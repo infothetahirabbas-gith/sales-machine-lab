@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Does local SEO matter for ecommerce?", a: "Yes if you have physical stores, showrooms, click-and-collect or serve specific UK regions. It also captures 'near me' and city-modifier searches you're leaving on the table." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/local")({
     <ServicePage cfg={{
       slug: "seo-local",
       eyebrow: "Local SEO",
+      heroImage: heroImg,
       heroTitle: "Own 'near me' and every UK city that matters.",
       heroSub: "Local SEO for ecommerce, retail and multi-location brands — Google Business Profile, local pages, citations and reviews, done right.",
       problemTitle: "Why local rankings vanish for ecommerce brands.",
