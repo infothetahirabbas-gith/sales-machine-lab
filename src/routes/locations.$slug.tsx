@@ -332,7 +332,7 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={1}>
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
-                <SplitHeading value={`Ecommerce Growth Agency in ${city}`} />
+                <SplitHeading value={`Ecommerce Marketing Agency in ${city}`} />
               </h1>
             </Reveal>
             <Reveal delay={2}>
