@@ -228,6 +228,10 @@
     position: absolute; inset: 0;
     border-radius: 9999px;
     background: var(--accent);
+    /* Animate transform + opacity (compositor-friendly) instead of box-shadow. */
+    transform: scale(1);
+    opacity: 0.55;
+    will-change: transform, opacity;
     animation: pulseGlow 2.4s ease-out infinite;
   }
 
@@ -244,7 +248,9 @@
   .marquee-track { display: flex; gap: 3rem; animation: marquee 28s linear infinite; width: max-content; }
   .marquee-fast { animation-duration: 14s; }
 
-  .draw-line { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: drawLine 2.4s ease-out forwards; }
+  /* Fade the drawn stroke in via opacity (composited) instead of animating
+     stroke-dashoffset, which the compositor cannot handle. */
+  .draw-line { opacity: 0; will-change: opacity; animation: drawLine 1.2s ease-out forwards; }
   .draw-line-delay { animation-delay: 0.3s; }
 
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
