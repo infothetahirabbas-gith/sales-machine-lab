@@ -228,6 +228,10 @@
     position: absolute; inset: 0;
     border-radius: 9999px;
     background: var(--accent);
+    /* Animate transform + opacity (compositor-friendly) instead of box-shadow. */
+    transform: scale(1);
+    opacity: 0.55;
+    will-change: transform, opacity;
     animation: pulseGlow 2.4s ease-out infinite;
   }
 
@@ -244,7 +248,9 @@
   .marquee-track { display: flex; gap: 3rem; animation: marquee 28s linear infinite; width: max-content; }
   .marquee-fast { animation-duration: 14s; }
 
-  .draw-line { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: drawLine 2.4s ease-out forwards; }
+  /* Fade the drawn stroke in via opacity (composited) instead of animating
+     stroke-dashoffset, which the compositor cannot handle. */
+  .draw-line { opacity: 0; will-change: opacity; animation: drawLine 1.2s ease-out forwards; }
   .draw-line-delay { animation-delay: 0.3s; }
 
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -253,12 +259,12 @@
   @keyframes slideRight { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
   @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   @keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 55%, transparent); }
-    100% { box-shadow: 0 0 0 18px transparent; }
+    0% { transform: scale(1); opacity: 0.55; }
+    100% { transform: scale(2.4); opacity: 0; }
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  @keyframes drawLine { from { opacity: 0; } to { opacity: 1; } }
   @keyframes tilt {
     0%,100% { transform: perspective(800px) rotateX(0) rotateY(0); }
     25% { transform: perspective(800px) rotateX(1deg) rotateY(-1deg); }

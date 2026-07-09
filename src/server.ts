@@ -120,7 +120,14 @@ function withCacheHeaders(request: Request, response: Response): Response {
   const url = new URL(request.url);
   const pathname = url.pathname;
   const contentType = response.headers.get("content-type") ?? "";
-  const isHashedAsset = /\.[0-9a-f]{8,}\.(?:js|css|woff2?|ttf|otf|png|jpg|jpeg|webp|avif|svg|gif|ico)$/i.test(pathname);
+  // Vite emits hashed filenames like `styles-BO_2nt2C.css` / `index-Qfyts7iA.js`
+  // under `/assets/`. Hashes use base64url characters (A-Z, a-z, 0-9, _, -), so a
+  // simple lowercase-hex check misses them and drops assets down to the default
+  // short TTL. Cache everything under `/assets/` immutably; the hash in the
+  // filename guarantees safe long-term caching.
+  const isHashedAsset =
+    /^\/assets\/.+\.(?:js|mjs|css|woff2?|ttf|otf|png|jpg|jpeg|webp|avif|svg|gif|ico)$/i.test(pathname) ||
+    /\.[0-9A-Za-z_-]{8,}\.(?:js|mjs|css|woff2?|ttf|otf|png|jpg|jpeg|webp|avif|svg|gif|ico)$/i.test(pathname);
   const isHtml = contentType.includes("text/html");
   const headers = new Headers(response.headers);
   if (isHashedAsset) {
