@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-4">
           <Link to="/" className="inline-flex items-center gap-3" aria-label="BeingEcom home">
-            <img src="/favicon.png" alt="BeingEcom logo" width="44" height="44" className="h-11 w-11 rounded-xl bg-background p-1.5" />
+            <img src={faviconAsset.url} alt="BeingEcom logo" width="44" height="44" className="h-11 w-11 rounded-xl bg-background p-1.5" />
             <span className="text-xl font-bold tracking-tight text-background">BeingEcom</span>
           </Link>
 
