@@ -559,18 +559,19 @@ function Home() {
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {[
-            { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
-            { to: "/industries/beauty-cosmetics", label: "Beauty & Cosmetics" },
-            { to: "/industries/health-wellness", label: "Health & Wellness" },
-            { to: "/industries/home-garden", label: "Home & Garden" },
-            { to: "/industries/food-beverage", label: "Food & Beverage" },
-            { to: "/industries/electronics", label: "Electronics" },
-            { to: "/industries/jewelry-accessories", label: "Jewellery & Accessories" },
-            { to: "/industries/supplements", label: "Supplements" },
+            { slug: "fashion-apparel", label: "Fashion & Apparel" },
+            { slug: "beauty-cosmetics", label: "Beauty & Cosmetics" },
+            { slug: "health-wellness", label: "Health & Wellness" },
+            { slug: "home-garden", label: "Home & Garden" },
+            { slug: "food-beverage", label: "Food & Beverage" },
+            { slug: "electronics", label: "Electronics" },
+            { slug: "jewelry-accessories", label: "Jewellery & Accessories" },
+            { slug: "supplements", label: "Supplements" },
           ].map((v) => (
             <Link
-              key={v.to}
-              to={v.to}
+              key={v.slug}
+              to="/industries/$slug"
+              params={{ slug: v.slug }}
               className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
               {v.label} →
