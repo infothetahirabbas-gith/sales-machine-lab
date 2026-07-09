@@ -4,6 +4,7 @@ import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
 import { faqJsonLd, breadcrumbJsonLd } from "../lib/seo";
+import { PRICING_TIERS, PRICING_MIN_AD_SPEND } from "../lib/pricing";
 
 const pricingFaqs = [
   {
@@ -12,7 +13,7 @@ const pricingFaqs = [
   },
   {
     q: "What ad budget do I need?",
-    a: "We work best with stores spending £3K+/mo on ads. If you're earlier stage, a CRO Sprint or SEO engagement is the better starting point.",
+    a: `We work best with stores spending ${PRICING_MIN_AD_SPEND} on ads. If you're earlier stage, a CRO Sprint or SEO engagement is the better starting point.`,
   },
 ];
 
@@ -34,48 +35,7 @@ export const Route = createFileRoute("/pricing")({
   component: PricingPage,
 });
 
-const tiers = [
-  {
-    name: "CRO Sprint",
-    best: "Stores with traffic but poor conversion",
-    includes: [
-      "Full CRO audit",
-      "PDP rebuild",
-      "Checkout optimisation",
-      "A/B test setup",
-    ],
-    duration: "6-week fixed engagement",
-    price: "£2,500",
-    popular: false,
-  },
-  {
-    name: "Growth System",
-    best: "Stores ready to scale profitably across ads + CRO + email",
-    includes: [
-      "Paid ads management (Meta / Google)",
-      "Conversion rate optimisation",
-      "Klaviyo email flows",
-      "Weekly reporting",
-    ],
-    duration: "90-day onboarding, then month-to-month",
-    price: "£4,500",
-    popular: true,
-  },
-  {
-    name: "Full Partnership",
-    best: "6–7 figure stores wanting a dedicated growth team",
-    includes: [
-      "Everything in Growth System",
-      "Ecommerce SEO",
-      "Creative production",
-      "Analytics & tracking setup",
-      "Fractional CMO access",
-    ],
-    duration: "90-day onboarding, then month-to-month",
-    price: "£8,000",
-    popular: false,
-  },
-];
+const tiers = PRICING_TIERS;
 
 function PricingPage() {
   return (
@@ -123,7 +83,7 @@ function PricingPage() {
                 <div className="text-[11px] uppercase tracking-widest text-primary font-bold">Starting from</div>
                 <div className="mt-1 flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-gradient">{t.price}</span>
-                  <span className="text-sm text-muted-foreground">/mo</span>
+                  <span className="text-sm text-muted-foreground">{t.period === "month" ? "/mo" : " fixed"}</span>
                 </div>
                 <div className="mt-1 text-xs text-muted-foreground">{t.duration}</div>
               </div>
