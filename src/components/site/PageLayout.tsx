@@ -32,7 +32,7 @@ function DeferredWidgets() {
 
 export default function PageLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col overflow-x-clip">
+    <div className="min-h-dvh flex flex-col overflow-x-clip">
       <Header />
       <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
       <Footer />

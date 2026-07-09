@@ -27,8 +27,8 @@ export default function CookieConsent() {
           Read our <Link to="/cookies" className="underline text-primary">Cookie Policy</Link>.
         </p>
         <div className="mt-3 flex gap-2">
-          <button onClick={() => set("accepted")} className="flex-1 rounded-full bg-primary text-primary-foreground px-4 py-2 font-semibold text-xs">Accept all</button>
-          <button onClick={() => set("rejected")} className="flex-1 rounded-full border border-border px-4 py-2 font-semibold text-xs text-ink hover:border-primary">Reject non-essential</button>
+          <button onClick={() => set("accepted")} className="flex-1 min-h-11 rounded-full bg-primary text-primary-foreground px-4 py-2 font-semibold text-xs">Accept all</button>
+          <button onClick={() => set("rejected")} className="flex-1 min-h-11 rounded-full border border-border px-4 py-2 font-semibold text-xs text-ink hover:border-primary">Reject non-essential</button>
         </div>
       </div>
     </div>

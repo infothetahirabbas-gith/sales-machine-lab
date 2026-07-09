@@ -66,7 +66,7 @@
   --secondary: oklch(0.953 0.024 67);               /* #FBEDDF */
   --secondary-foreground: oklch(0.36 0.018 264);
   --muted: oklch(0.949 0 0);                        /* #EEEEEE */
-  --muted-foreground: oklch(0.48 0.020 260);        /* softer slate */
+  --muted-foreground: oklch(0.42 0.020 260);        /* AA contrast on white (~5.5:1) */
   --accent: oklch(0.687183 0.165136 57.381);        /* #E47B02 */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.2 25);
@@ -167,7 +167,7 @@
   .btn-shimmer:hover::before { transform: translateX(100%); }
 
   .btn-pair { @apply grid grid-cols-2 gap-2 sm:gap-3 items-stretch w-full sm:inline-flex sm:flex-row sm:w-auto sm:items-center; }
-  .btn-pair .btn { @apply w-full min-w-0 justify-center px-3 py-2.5 text-[13px] leading-tight whitespace-nowrap overflow-hidden text-ellipsis sm:text-sm sm:w-auto sm:px-6 sm:py-3; }
+  .btn-pair .btn { @apply w-full min-w-0 justify-center px-2 py-2.5 text-[12px] leading-tight whitespace-normal text-center sm:text-sm sm:w-auto sm:px-6 sm:py-3 sm:whitespace-nowrap; }
   .btn-pair .btn svg { @apply w-3.5 h-3.5 shrink-0 sm:w-4 sm:h-4; }
 
 
@@ -380,10 +380,35 @@ img, video, svg, canvas, iframe { max-width: 100%; height: auto; }
 }
 /* Long-word / URL wrapping so nothing breaks the viewport */
 p, li, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: normal; }
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+/* Respect reduced motion — kill entrance/loop animations for users who
+   requested it. Complements the WhatsApp-specific rules above. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .marquee-track { animation: none !important; }
+}
 
 /* Skip painting/layout for offscreen sections — big TBT/INP win. Apply via
    className on any below-the-fold <section>. */
 @utility cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 800px;
+}
+
+/* Full dynamic viewport height — accounts for mobile browser chrome. */
+@utility min-h-dvh { min-height: 100dvh; }
+
+/* Ensure interactive elements clear the WCAG 2.5.5 44×44 target on touch. */
+@media (hover: none) and (pointer: coarse) {
+  a[role="button"], button:not([aria-hidden="true"]) {
+    min-height: 44px;
+  }
 }

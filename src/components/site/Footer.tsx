@@ -11,7 +11,7 @@ export default function Footer() {
           <Link to="/" className="inline-flex items-center rounded-xl bg-background px-3 py-2" aria-label="BeingEcom home">
             <img src={logo} alt="BeingEcom logo" width="150" height="47" className="h-9 w-auto" />
           </Link>
-          <p className="mt-6 text-background/60 leading-relaxed max-w-xs">
+          <p className="mt-6 text-background/80 leading-relaxed max-w-xs">
             The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
           </p>
           <div className="mt-6 flex items-center gap-3">
@@ -26,7 +26,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center text-background/65 hover:text-foreground hover:bg-accent hover:border-accent transition-colors"
+                className="w-11 h-11 rounded-full border border-background/30 flex items-center justify-center text-background hover:text-foreground hover:bg-accent hover:border-accent transition-colors"
               >
                 <Icon className="w-4 h-4" />
               </a>
