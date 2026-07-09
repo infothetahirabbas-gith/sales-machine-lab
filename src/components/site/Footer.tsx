@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from "lucide-react";
 import { SITE } from "@/config/site";
+import faviconAsset from "@/assets/favicon-b.png.asset.json";
 
 export default function Footer() {
   return (
