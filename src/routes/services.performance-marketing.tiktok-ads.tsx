@@ -29,13 +29,17 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/tiktok-ads")({
   head: () => ({
     meta: [
-      { title: "TikTok Ads Agency UK — Spark Ads, UGC & TikTok Shop | BeingEcom" },
-      { name: "description", content: "UK TikTok Ads agency for ecommerce brands. Creator-led UGC, Spark Ads and hook-first scripting that turns TikTok into a real revenue channel." },
-      { property: "og:title", content: "TikTok Ads Agency UK — Spark Ads, UGC & TikTok Shop | BeingEcom" },
-      { property: "og:description", content: "UK TikTok Ads agency for ecommerce brands. Creator-led UGC, Spark Ads and hook-first scripting that turns TikTok into a real revenue channel." },
+      { title: "TikTok Ads Agency UK — Spark Ads, Creator UGC & TikTok Shop for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best TikTok Ads agency UK for Shopify and DTC ecommerce brands. Creator-led UGC, Spark Ads, TikTok Shop and hook-first scripting that turn TikTok into a profitable revenue channel." },
+      { name: "keywords", content: "TikTok Ads agency UK, TikTok Ads management UK, Spark Ads agency, TikTok Shop agency, ecommerce TikTok Ads, Shopify TikTok Ads, creator UGC agency" },
+      { property: "og:title", content: "TikTok Ads Agency UK — Spark Ads, Creator UGC & TikTok Shop | BeingEcom" },
+      { property: "og:description", content: "UK TikTok Ads agency for Shopify and DTC brands. Creator-led UGC, Spark Ads and hook-first scripting that turn TikTok into a profitable revenue channel." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/tiktok-ads" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/tiktok-ads", name: "TikTok Ads", description: "Creator UGC, Spark Ads and hook-first scripting for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "TikTok Ads", path: "/services/performance-marketing/tiktok-ads" }])) },
@@ -47,8 +51,8 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       slug: "tiktok-ads",
       eyebrow: "TikTok Ads",
       heroImage: heroImg,
-      heroTitle: "TikTok ads that look like content, not ads.",
-      heroSub: "Creator-led UGC, Spark Ads and hook-first scripting — native virality that drives real ecommerce sales.",
+      heroTitle: "TikTok Ads agency UK — content-native ads that convert.",
+      heroSub: "Creator-led UGC, Spark Ads and hook-first scripting for Shopify and DTC brands — native virality that drives real ecommerce sales.",
       problemTitle: "Why most TikTok accounts flop.",
       problemBullets: [
         "Repurposing Meta creative — dies in 3 seconds.",

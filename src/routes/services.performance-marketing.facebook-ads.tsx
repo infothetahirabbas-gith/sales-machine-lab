@@ -29,13 +29,17 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/facebook-ads")({
   head: () => ({
     meta: [
-      { title: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
-      { name: "description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
-      { property: "og:title", content: "Facebook & Meta Ads Agency UK — Shopify Meta Ads Experts | BeingEcom" },
-      { property: "og:description", content: "Facebook and Instagram Ads agency in the UK for Shopify and DTC brands. ASC+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
+      { title: "Facebook Ads Agency UK — Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
+      { name: "description", content: "Best Facebook Ads agency UK for Shopify and DTC ecommerce brands. Meta Ads management, Advantage+ Shopping, creator UGC and Conversions API — engineered for profitable ROAS." },
+      { name: "keywords", content: "Facebook Ads agency UK, Meta Ads agency, Shopify Facebook Ads, ecommerce Facebook Ads, Advantage+ Shopping, Meta Conversions API, Facebook Ads management UK" },
+      { property: "og:title", content: "Facebook Ads Agency UK — Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
+      { property: "og:description", content: "Best Facebook Ads agency UK for Shopify and DTC ecommerce brands. Advantage+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/facebook-ads" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/facebook-ads" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/facebook-ads", name: "Facebook Ads", description: "Meta & Instagram ads engineered to scale ROAS for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Facebook Ads", path: "/services/performance-marketing/facebook-ads" }])) },
@@ -47,8 +51,8 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       slug: "facebook-ads",
       eyebrow: "Facebook Ads",
       heroImage: heroImg,
-      heroTitle: "Facebook & Instagram ads that print revenue.",
-      heroSub: "Creative volume, ASC+ scaling and break-even math — Meta ads engineered for profitable ecommerce growth.",
+      heroTitle: "Facebook Ads agency UK — Meta ads that print revenue.",
+      heroSub: "Shopify and DTC Facebook Ads management by UK Meta Ads experts. Creative volume, Advantage+ scaling and Conversions API — engineered for profitable ecommerce ROAS.",
       problemTitle: "Why most Meta accounts stop scaling.",
       problemBullets: [
         "2-3 creatives in rotation, fatigue every 14 days.",

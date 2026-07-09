@@ -29,13 +29,17 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/google-ads")({
   head: () => ({
     meta: [
-      { title: "Google Ads Agency UK — Shopping, PMax & Search for Ecommerce | BeingEcom" },
-      { name: "description", content: "Google Ads agency in the UK for ecommerce. Google Shopping, Performance Max and Search campaigns with feed optimisation that turns clicks into profitable orders." },
-      { property: "og:title", content: "Google Ads Agency UK — Shopping, PMax & Search for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Google Ads agency in the UK for ecommerce. Google Shopping, Performance Max and Search campaigns with feed optimisation that turns clicks into profitable orders." },
+      { title: "Google Ads Agency UK — Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best Google Ads agency UK for Shopify and DTC ecommerce. Google Shopping, Performance Max, Search and Merchant Center feed optimisation that turns clicks into profitable orders." },
+      { name: "keywords", content: "Google Ads agency UK, Google Ads management UK, ecommerce PPC agency, Google Shopping agency, Performance Max agency, Shopify Google Ads, Merchant Center optimisation" },
+      { property: "og:title", content: "Google Ads Agency UK — Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
+      { property: "og:description", content: "Best Google Ads agency UK for ecommerce. Google Shopping, Performance Max and Search with feed optimisation that turns clicks into profitable orders." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/google-ads" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/google-ads" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/google-ads" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/google-ads", name: "Google Ads", description: "Search, Shopping and Performance Max for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Google Ads", path: "/services/performance-marketing/google-ads" }])) },
@@ -47,8 +51,8 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       slug: "google-ads",
       eyebrow: "Google Ads",
       heroImage: heroImg,
-      heroTitle: "Google Ads that capture every buying moment.",
-      heroSub: "Search, Shopping, Performance Max, feed optimisation and brand defence — engineered for profitable intent capture.",
+      heroTitle: "Google Ads agency UK — capture every buying moment.",
+      heroSub: "Ecommerce PPC across Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",
       problemBullets: [
         "PMax dumping spend into brand traffic.",

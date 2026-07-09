@@ -22,13 +22,17 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Performance Marketing Agency UK — Full-Funnel Paid Media | BeingEcom" },
-      { name: "description", content: "UK performance marketing agency for ecommerce. Blended-ROAS media buying across Meta, Google, TikTok and YouTube — engineered for MER, LTV and profitable growth." },
-      { property: "og:title", content: "Performance Marketing Agency UK — Full-Funnel Paid Media | BeingEcom" },
-      { property: "og:description", content: "Meta, Google, TikTok and YouTube ads managed as one P&L. Blended-ROAS, LTV-driven ecommerce growth." },
+      { title: "Performance Marketing Agency UK — Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best performance marketing agency UK for Shopify and DTC ecommerce brands. Blended-ROAS media buying across Facebook, Google, TikTok, Instagram and YouTube Ads — engineered for MER, LTV and profitable growth." },
+      { name: "keywords", content: "performance marketing agency UK, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Meta Google TikTok agency, Shopify paid media" },
+      { property: "og:title", content: "Performance Marketing Agency UK — Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { property: "og:description", content: "Facebook, Google, TikTok, Instagram and YouTube Ads managed as one P&L. Blended-ROAS, LTV-driven ecommerce growth by a UK performance marketing agency." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing" },
+      { rel: "preload", as: "image", href: heroPM, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing", name: "Performance Marketing", description: "Facebook, Google, TikTok ads and media buying for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }])) },
@@ -86,12 +90,12 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={1}>
                 <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
-                  <span className="text-gradient">Full-funnel paid media,</span> managed as one P&L.
+                  <span className="text-gradient">Performance marketing agency UK</span> — full-funnel paid media, one P&L.
                 </h1>
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  Meta, Google, TikTok and YouTube — one team, one operating system, one blended-ROAS target. Engineered for MER, LTV and profitable growth, not vanity ROAS.
+                  Facebook, Google, TikTok, Instagram and YouTube Ads managed by UK ecommerce media buyers — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify and DTC growth.
                 </p>
               </Reveal>
               <Reveal delay={3}>
