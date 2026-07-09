@@ -116,7 +116,7 @@ function Home() {
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">The Ecommerce Marketing</span>
+              <span className="block">We Help to Scales</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
