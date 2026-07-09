@@ -787,15 +787,15 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   const visualSlots = ["ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
   type VisualSlot = (typeof visualSlots)[number];
   const visualMeta: Record<VisualSlot, { title: string; subtitle: string; labels: [string, string, string] }> = {
-    ads: { title: "Meta · Google · TikTok Ads", subtitle: "Spend, ROAS and CAC control", labels: ["ROAS", "CAC", "CTR"] },
-    seo: { title: "SEO Growth Console", subtitle: "Keywords, rankings and organic revenue", labels: ["SERP", "GSC", "Content"] },
-    shopify: { title: "Shopify + WooCommerce Store", subtitle: "PDP, checkout and speed optimisation", labels: ["PDP", "Cart", "Checkout"] },
-    cro: { title: "CRO A/B Testing Lab", subtitle: "Variant tests, funnels and uplift", labels: ["A", "B", "CVR"] },
-    email: { title: "Klaviyo Email + SMS Flows", subtitle: "Lifecycle automations and campaigns", labels: ["Welcome", "Cart", "Winback"] },
-    creative: { title: "UGC Creative Studio", subtitle: "Product shoots, hooks and reels", labels: ["Hook", "Shoot", "Edit"] },
-    analytics: { title: "Ecommerce Analytics", subtitle: "CAC, ROAS, LTV and AOV dashboard", labels: ["CAC", "LTV", "AOV"] },
-    caseStudy: { title: "Revenue Growth Case Study", subtitle: "Before-to-after ecommerce scaling", labels: ["Before", "After", "Scale"] },
-    meeting: { title: "Global Strategy Call", subtitle: "International ecommerce planning", labels: ["UK", "EU", "US"] },
+    ads: { title: "Paid Media Command Centre", subtitle: "Meta, Google, TikTok and blended ROAS control", labels: ["Meta", "Google", "TikTok"] },
+    seo: { title: "Ecommerce SEO Growth Console", subtitle: "Search visibility, keyword clusters and organic revenue", labels: ["SERP", "GSC", "Schema"] },
+    shopify: { title: "Shopify + WooCommerce Build", subtitle: "Storefront, PDP, checkout and performance optimisation", labels: ["Shopify", "Woo", "Checkout"] },
+    cro: { title: "Conversion Optimisation Lab", subtitle: "A/B tests, heatmaps, funnel diagnosis and CVR uplift", labels: ["Variant A", "Variant B", "Uplift"] },
+    email: { title: "Klaviyo Retention Flow", subtitle: "Email, SMS and lifecycle automation revenue", labels: ["Welcome", "Cart", "Winback"] },
+    creative: { title: "UGC Creative Production", subtitle: "Product shoots, hooks, reels and paid-social assets", labels: ["Shoot", "Hook", "Edit"] },
+    analytics: { title: "Ecommerce Analytics Stack", subtitle: "GA4, CAC, ROAS, LTV, AOV and attribution dashboards", labels: ["GA4", "ROAS", "LTV"] },
+    caseStudy: { title: "Revenue Growth Case Study", subtitle: "Before-to-after ecommerce scale and margin lift", labels: ["Before", "After", "Scale"] },
+    meeting: { title: "International Strategy Call", subtitle: "UK, EU and US ecommerce growth planning", labels: ["London", "EU", "Global"] },
   };
 
   const esc = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&apos;" })[char] ?? char);
@@ -804,47 +804,118 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   const sectionVisual = (slug: string, city: string, slot: VisualSlot) => {
     const seed = hashNum(`${slug}-${slot}-unique-section-image`);
     const hue = seed % 360;
-    const accent = `hsl(${hue},82%,46%)`;
-    const warm = `hsl(${(hue + 34) % 360},88%,58%)`;
-    const cool = `hsl(${(hue + 184) % 360},72%,42%)`;
+    const accent = `hsl(${hue},78%,45%)`;
+    const warm = `hsl(${(hue + 38) % 360},86%,56%)`;
+    const cool = `hsl(${(hue + 188) % 360},70%,40%)`;
+    const dark = "#0f172a";
+    const ink = "#111827";
+    const muted = "#64748b";
+    const line = "#dbe3ef";
+    const soft = "#f8fafc";
     const meta = visualMeta[slot];
-    const barA = 210 + (seed % 160);
-    const barB = 260 + ((seed >> 4) % 190);
-    const barC = 180 + ((seed >> 8) % 210);
+    const metricA = (seed % 41) + 39;
+    const metricB = ((seed >> 4) % 36) + 24;
+    const metricC = ((seed >> 8) % 28) + 18;
+    const font = "Arial, Helvetica, sans-serif";
+    const t = (x: number, y: number, value: string, size = 24, color = ink, weight = 700, extra = "") =>
+      `<text x="${x}" y="${y}" fill="${color}" font-family="${font}" font-size="${size}" font-weight="${weight}" ${extra}>${esc(value)}</text>`;
+    const chip = (x: number, y: number, value: string, fill = "#ffffff", color = ink, w = Math.max(112, value.length * 14 + 34)) =>
+      `<rect x="${x}" y="${y}" width="${w}" height="48" rx="24" fill="${fill}" stroke="${line}"/><text x="${x + w / 2}" y="${y + 31}" text-anchor="middle" fill="${color}" font-family="${font}" font-size="18" font-weight="800">${esc(value)}</text>`;
+    const browser = (body: string, header = dark) => `
+      <rect x="96" y="78" width="1408" height="744" rx="34" fill="#ffffff" filter="url(#shadow)"/>
+      <rect x="96" y="78" width="1408" height="88" rx="34" fill="${header}"/>
+      <circle cx="154" cy="123" r="12" fill="#fb7185"/><circle cx="194" cy="123" r="12" fill="#fbbf24"/><circle cx="234" cy="123" r="12" fill="#34d399"/>
+      ${t(292, 134, `${city} · ${meta.title}`, 25, "#ffffff", 800)}
+      ${body}
+      ${t(122, 786, `Unique visual: ${slug}-${slot}`, 20, muted, 800)}
+    `;
+
+    const bodies: Record<VisualSlot, string> = {
+      ads: browser(`
+        <rect x="142" y="210" width="362" height="536" rx="28" fill="${dark}"/>
+        ${t(182, 274, "Media mix", 34, "#ffffff", 900)}
+        ${chip(182, 314, meta.labels[0], "#1877f2", "#ffffff", 126)}${chip(322, 314, meta.labels[1], "#ffffff", ink, 136)}${chip(182, 380, meta.labels[2], "#111111", "#ffffff", 130)}
+        <rect x="182" y="480" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="480" width="${170 + (seed % 92)}" height="24" rx="12" fill="${warm}"/>
+        <rect x="182" y="548" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="548" width="${150 + ((seed >> 2) % 105)}" height="24" rx="12" fill="${accent}"/>
+        <rect x="182" y="616" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="616" width="${130 + ((seed >> 5) % 115)}" height="24" rx="12" fill="${cool}"/>
+        <rect x="548" y="210" width="412" height="260" rx="26" fill="${soft}" stroke="${line}"/>${t(594, 270, `${(metricA / 10).toFixed(1)}x ROAS`, 52, ink, 900)}${t(596, 318, "blended campaign return", 22, muted, 700)}
+        <polyline points="600,410 690,358 780,382 870,312 920,330" fill="none" stroke="${accent}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="920" cy="330" r="18" fill="${accent}"/>
+        <rect x="1002" y="210" width="360" height="260" rx="26" fill="#fff7ed" stroke="#fed7aa"/>${t(1048, 270, `£${metricA + 118}K`, 50, ink, 900)}${t(1050, 318, "tracked revenue", 22, muted, 700)}
+        <rect x="550" y="512" width="812" height="190" rx="26" fill="#ffffff" stroke="${line}"/>
+        <rect x="610" y="632" width="68" height="-${95 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${warm}"/><rect x="724" y="632" width="68" height="-${120 + metricC}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${accent}"/><rect x="838" y="632" width="68" height="-${150 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${cool}"/><rect x="952" y="632" width="68" height="-${174 + metricC}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${warm}"/><rect x="1066" y="632" width="68" height="-${195 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${accent}"/>
+        ${t(1184, 608, "Spend → revenue", 28, ink, 900)}${t(1186, 646, "CAC under control", 20, muted, 700)}
+      `),
+      seo: browser(`
+        <rect x="142" y="210" width="576" height="496" rx="28" fill="#ffffff" stroke="${line}"/>
+        <rect x="182" y="252" width="456" height="56" rx="28" fill="${soft}" stroke="${line}"/>${t(218, 288, `ecommerce agency ${city}`, 22, muted, 700)}
+        ${[0, 1, 2].map((i) => `<rect x="182" y="${348 + i * 104}" width="460" height="74" rx="18" fill="${i === 0 ? '#ecfdf5' : soft}" stroke="${i === 0 ? '#86efac' : line}"/>${t(214, 385 + i * 104, `${i + 1}. ${city} Shopify SEO result`, 21, ink, 800)}${t(214, 414 + i * 104, `Organic revenue page · schema · PDP optimisation`, 16, muted, 700)}`).join("")}
+        <rect x="770" y="210" width="594" height="218" rx="28" fill="${dark}"/>${t(820, 275, `+${metricA + 139}%`, 58, "#ffffff", 900)}${t(824, 324, "organic traffic growth", 24, "#cbd5e1", 700)}
+        <polyline points="820,382 918,346 1016,364 1114,300 1212,318 1310,262" fill="none" stroke="${warm}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="770" y="470" width="282" height="236" rx="26" fill="${soft}" stroke="${line}"/>${t(814, 532, "Keyword clusters", 28, ink, 900)}${chip(814, 572, "Collections", "#ffffff", ink, 150)}${chip(814, 632, "PDP SEO", "#ffffff", ink, 126)}
+        <rect x="1082" y="470" width="282" height="236" rx="26" fill="#eff6ff" stroke="#bfdbfe"/>${t(1126, 532, "Technical fixes", 28, ink, 900)}${chip(1126, 572, "CWV", "#ffffff", ink, 92)}${chip(1228, 572, "Schema", "#ffffff", ink, 116)}${chip(1126, 632, "Indexing", "#ffffff", ink, 124)}
+      `),
+      shopify: browser(`
+        <rect x="148" y="220" width="760" height="450" rx="30" fill="${dark}"/><rect x="184" y="266" width="688" height="352" rx="18" fill="#ffffff"/>
+        <rect x="226" y="302" width="254" height="276" rx="20" fill="#dcfce7"/><path d="M286 506c44-118 86-118 132 0" fill="none" stroke="#16a34a" stroke-width="15" stroke-linecap="round"/><circle cx="352" cy="406" r="54" fill="#86efac"/>
+        ${t(522, 344, `${city} storefront`, 32, ink, 900)}${t(524, 386, "Shopify Plus PDP + WooCommerce checkout", 22, muted, 700)}
+        ${chip(524, 438, meta.labels[0], "#95bf47", "#ffffff", 132)}${chip(670, 438, meta.labels[1], "#7f54b3", "#ffffff", 104)}
+        <rect x="524" y="522" width="254" height="24" rx="12" fill="${line}"/><rect x="524" y="522" width="${154 + metricB}" height="24" rx="12" fill="${accent}"/>
+        <rect x="948" y="274" width="292" height="456" rx="38" fill="#111827"/><rect x="974" y="320" width="240" height="348" rx="24" fill="#ffffff"/>
+        <rect x="1002" y="358" width="184" height="112" rx="18" fill="#f1f5f9"/>${t(1018, 514, "Cart", 25, ink, 900)}<rect x="1018" y="544" width="138" height="18" rx="9" fill="${line}"/><rect x="1018" y="590" width="150" height="42" rx="21" fill="${dark}"/>${t(1053, 618, "Pay", 18, "#ffffff", 900)}
+        <rect x="1278" y="324" width="120" height="120" rx="26" fill="#ecfdf5" stroke="#bbf7d0"/>${t(1308, 394, `${metricA}%`, 29, "#15803d", 900)}${t(1268, 488, "Speed", 22, muted, 800)}${t(1268, 530, "Checkout", 22, muted, 800)}
+      `),
+      cro: browser(`
+        <rect x="150" y="220" width="360" height="472" rx="28" fill="#ffffff" stroke="${line}"/>${t(190, 280, "Variant A", 32, ink, 900)}<rect x="190" y="326" width="282" height="150" rx="20" fill="#fee2e2"/><rect x="218" y="520" width="204" height="22" rx="11" fill="${line}"/><rect x="218" y="570" width="168" height="48" rx="24" fill="#f97316"/>${t(266, 602, "Buy", 20, "#ffffff", 900)}
+        <rect x="552" y="220" width="360" height="472" rx="28" fill="#ecfdf5" stroke="#86efac"/>${t(592, 280, "Variant B", 32, ink, 900)}<rect x="592" y="326" width="282" height="150" rx="20" fill="#bbf7d0"/><rect x="620" y="520" width="220" height="22" rx="11" fill="#86efac"/><rect x="620" y="570" width="210" height="48" rx="24" fill="#16a34a"/>${t(682, 602, "Buy now", 20, "#ffffff", 900)}
+        <rect x="954" y="220" width="402" height="472" rx="28" fill="${dark}"/>${t(1002, 284, `+${metricB}% CVR`, 50, "#ffffff", 900)}${t(1004, 330, "statistically valid uplift", 23, "#cbd5e1", 700)}
+        <path d="M1030 404h250l-42 72h-166zM1068 510h170l-34 62h-102zM1098 604h110l-24 42h-62z" fill="${warm}" opacity="0.9"/>
+        ${[0, 1, 2, 3, 4, 5].map((i) => `<circle cx="${1064 + (i % 3) * 72}" cy="${404 + Math.floor(i / 3) * 74}" r="${18 + ((seed >> i) % 12)}" fill="${i % 2 ? accent : '#ffffff'}" opacity="0.8"/>`).join("")}
+      `),
+      email: browser(`
+        <rect x="150" y="236" width="328" height="410" rx="32" fill="#ffffff" stroke="${line}"/>${t(196, 298, "Klaviyo campaign", 30, ink, 900)}<path d="M196 350h236v142H196z" fill="#fef3c7" stroke="#f59e0b"/><path d="M196 350l118 78 118-78" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/>${chip(196, 544, "Email", "#ffffff", ink, 104)}${chip(312, 544, "SMS", "#ffffff", ink, 92)}
+        <circle cx="680" cy="288" r="72" fill="${accent}"/><circle cx="680" cy="452" r="72" fill="${warm}"/><circle cx="680" cy="616" r="72" fill="${cool}"/><path d="M680 360v20M680 524v20" stroke="${dark}" stroke-width="14" stroke-linecap="round"/>${t(624, 296, "1", 34, "#ffffff", 900)}${t(624, 460, "2", 34, "#ffffff", 900)}${t(624, 624, "3", 34, "#ffffff", 900)}
+        <rect x="840" y="224" width="512" height="186" rx="28" fill="${soft}" stroke="${line}"/>${t(892, 290, "Welcome flow", 34, ink, 900)}${t(894, 330, `${metricC}% first-order lift`, 22, muted, 700)}
+        <rect x="840" y="456" width="512" height="186" rx="28" fill="#eff6ff" stroke="#bfdbfe"/>${t(892, 522, "Abandoned cart", 34, ink, 900)}${t(894, 562, `£${metricA}K recovered revenue`, 22, muted, 700)}
+      `),
+      creative: browser(`
+        <rect x="140" y="210" width="454" height="510" rx="34" fill="${dark}"/>${t(190, 278, "UGC shoot set", 36, "#ffffff", 900)}<circle cx="270" cy="470" r="104" fill="none" stroke="#ffffff" stroke-width="20" opacity="0.9"/><circle cx="270" cy="470" r="36" fill="${warm}"/><rect x="410" y="390" width="90" height="166" rx="18" fill="#ffffff"/><rect x="435" y="342" width="40" height="48" rx="12" fill="#ffffff"/><path d="M408 610h92" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+        <rect x="650" y="230" width="282" height="452" rx="30" fill="#ffffff" stroke="${line}"/>${t(694, 292, "Hook 01", 30, ink, 900)}<rect x="694" y="326" width="194" height="240" rx="22" fill="#fde68a"/><path d="M734 514c58-146 88-146 118 0" fill="none" stroke="#f59e0b" stroke-width="14" stroke-linecap="round"/>${chip(716, 600, meta.labels[0], "#ffffff", ink, 112)}
+        <rect x="984" y="230" width="282" height="452" rx="30" fill="#ffffff" stroke="${line}"/>${t(1028, 292, "Reel edit", 30, ink, 900)}<polygon points="1070,370 1184,446 1070,522" fill="${accent}"/><rect x="1028" y="584" width="184" height="18" rx="9" fill="${line}"/><rect x="1028" y="584" width="${120 + metricB}" height="18" rx="9" fill="${accent}"/>
+        <rect x="1304" y="296" width="74" height="312" rx="30" fill="${warm}" opacity="0.88"/>${t(1278, 666, city, 24, muted, 900)}
+      `),
+      analytics: browser(`
+        <rect x="142" y="214" width="352" height="188" rx="28" fill="${dark}"/>${t(190, 286, `${(metricA / 10).toFixed(1)}x`, 56, "#ffffff", 900)}${t(194, 332, "blended ROAS", 22, "#cbd5e1", 700)}
+        <rect x="532" y="214" width="352" height="188" rx="28" fill="#ecfdf5" stroke="#bbf7d0"/>${t(580, 286, `£${metricA + 42}`, 56, ink, 900)}${t(584, 332, "average order value", 22, muted, 700)}
+        <rect x="922" y="214" width="352" height="188" rx="28" fill="#eff6ff" stroke="#bfdbfe"/>${t(970, 286, `${metricB}%`, 56, ink, 900)}${t(974, 332, "returning revenue", 22, muted, 700)}
+        <rect x="142" y="454" width="720" height="244" rx="28" fill="#ffffff" stroke="${line}"/>${t(190, 514, "Attribution path", 30, ink, 900)}<polyline points="204,644 320,588 440,612 560,544 680,566 800,500" fill="none" stroke="${accent}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="910" y="454" width="364" height="244" rx="28" fill="${soft}" stroke="${line}"/>${t(958, 514, "Cohort table", 30, ink, 900)}${[0, 1, 2, 3].map((i) => `<rect x="958" y="${552 + i * 34}" width="${110 + i * 44}" height="18" rx="9" fill="${i % 2 ? warm : accent}" opacity="0.86"/>`).join("")}
+        <circle cx="1372" cy="576" r="92" fill="none" stroke="${line}" stroke-width="28"/><path d="M1372 484 A92 92 0 1 1 1298 631" fill="none" stroke="${cool}" stroke-width="28" stroke-linecap="round"/>
+      `),
+      caseStudy: browser(`
+        <rect x="150" y="232" width="364" height="448" rx="32" fill="#fff1f2" stroke="#fecdd3"/>${t(204, 304, "Before", 38, ink, 900)}${t(204, 380, `£${metricC}K`, 64, "#be123c", 900)}${t(208, 430, "monthly revenue", 22, muted, 700)}<rect x="204" y="536" width="220" height="26" rx="13" fill="#fecdd3"/>
+        <path d="M570 456h156" stroke="${dark}" stroke-width="22" stroke-linecap="round"/><path d="M690 404l66 52-66 52" fill="none" stroke="${dark}" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="812" y="232" width="450" height="448" rx="32" fill="#ecfdf5" stroke="#86efac"/>${t(870, 304, "After", 38, ink, 900)}${t(870, 380, `£${metricA + 260}K`, 64, "#15803d", 900)}${t(874, 430, "monthly revenue", 22, muted, 700)}<polyline points="876,594 954,548 1032,566 1110,500 1200,516" fill="none" stroke="#16a34a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="1310" y="302" width="88" height="280" rx="20" fill="${accent}"/><rect x="1328" y="280" width="52" height="38" rx="12" fill="${accent}"/>${t(1282, 650, `+${metricA + 420}%`, 36, ink, 900)}
+      `),
+      meeting: browser(`
+        <rect x="144" y="220" width="358" height="220" rx="30" fill="#e0f2fe" stroke="#bae6fd"/>${t(198, 286, "UK growth lead", 30, ink, 900)}<circle cx="264" cy="358" r="44" fill="${accent}"/><rect x="330" y="336" width="112" height="18" rx="9" fill="#94a3b8"/><rect x="330" y="374" width="76" height="18" rx="9" fill="#cbd5e1"/>
+        <rect x="548" y="220" width="358" height="220" rx="30" fill="#fef3c7" stroke="#fde68a"/>${t(602, 286, "EU market", 30, ink, 900)}<circle cx="668" cy="358" r="44" fill="${warm}"/><rect x="734" y="336" width="112" height="18" rx="9" fill="#94a3b8"/><rect x="734" y="374" width="76" height="18" rx="9" fill="#cbd5e1"/>
+        <rect x="952" y="220" width="358" height="220" rx="30" fill="#dcfce7" stroke="#bbf7d0"/>${t(1006, 286, "US scaling", 30, ink, 900)}<circle cx="1072" cy="358" r="44" fill="${cool}"/><rect x="1138" y="336" width="112" height="18" rx="9" fill="#94a3b8"/><rect x="1138" y="374" width="76" height="18" rx="9" fill="#cbd5e1"/>
+        <rect x="210" y="516" width="1042" height="174" rx="30" fill="${dark}"/>${t(264, 584, `${city} international ecommerce roadmap`, 38, "#ffffff", 900)}${t(268, 632, "Paid media · SEO · store build · CRO · retention", 24, "#cbd5e1", 700)}
+        <path d="M1300 522c54-42 104-42 158 0M1322 566c36-28 72-28 108 0M1350 610c18-14 36-14 54 0" fill="none" stroke="${accent}" stroke-width="16" stroke-linecap="round"/><circle cx="1376" cy="650" r="18" fill="${accent}"/>
+      `),
+    };
+
     return svgUrl(`
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="${esc(city)} ${esc(meta.title)}">
         <defs>
-          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="0.48" stop-color="#f8fafc"/><stop offset="1" stop-color="#ecfeff"/></linearGradient>
-          <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${accent}"/><stop offset="1" stop-color="${cool}"/></linearGradient>
+          <linearGradient id="page" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="0.52" stop-color="#f8fafc"/><stop offset="1" stop-color="#ecfeff"/></linearGradient>
           <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0f172a" flood-opacity="0.18"/></filter>
         </defs>
-        <rect width="1600" height="900" fill="url(#bg)"/>
-        <path d="M0 705 C210 610 390 735 590 650 C815 555 960 625 1160 540 C1345 462 1470 500 1600 430 L1600 900 L0 900 Z" fill="${warm}" opacity="0.14"/>
-        <circle cx="1340" cy="158" r="150" fill="${accent}" opacity="0.13"/>
-        <circle cx="205" cy="710" r="190" fill="${cool}" opacity="0.1"/>
-        <rect x="130" y="95" width="1340" height="710" rx="34" fill="#ffffff" filter="url(#shadow)"/>
-        <rect x="130" y="95" width="1340" height="94" rx="34" fill="#0f172a"/>
-        <circle cx="184" cy="142" r="12" fill="#fb7185"/><circle cx="224" cy="142" r="12" fill="#fbbf24"/><circle cx="264" cy="142" r="12" fill="#34d399"/>
-        <text x="330" y="153" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">${esc(city)} · Being Ecom Global Store Agency</text>
-        <rect x="190" y="240" width="470" height="430" rx="26" fill="url(#panel)" opacity="0.96"/>
-        <text x="235" y="318" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">${esc(meta.title)}</text>
-        <text x="235" y="372" fill="#ffffff" opacity="0.86" font-family="Arial, Helvetica, sans-serif" font-size="26">${esc(meta.subtitle)}</text>
-        <rect x="235" y="448" width="128" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="299" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[0])}</text>
-        <rect x="382" y="448" width="128" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="446" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[1])}</text>
-        <rect x="529" y="448" width="96" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="577" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[2])}</text>
-        <polyline points="235,604 320,548 405,573 490,500 585,524 625,468" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.86"/>
-        <circle cx="625" cy="468" r="18" fill="#ffffff"/>
-        <rect x="740" y="250" width="650" height="132" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
-        <rect x="788" y="300" width="${barA}" height="24" rx="12" fill="${accent}"/><rect x="788" y="338" width="440" height="18" rx="9" fill="#cbd5e1"/>
-        <rect x="740" y="424" width="300" height="250" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
-        <rect x="1085" y="424" width="305" height="250" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
-        <rect x="790" y="610" width="56" height="-${barA / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${warm}"/>
-        <rect x="870" y="610" width="56" height="-${barB / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${accent}"/>
-        <rect x="950" y="610" width="56" height="-${barC / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${cool}"/>
-        <circle cx="1238" cy="548" r="82" fill="none" stroke="#e2e8f0" stroke-width="30"/>
-        <path d="M1238 466 A82 82 0 1 1 1172 597" fill="none" stroke="${accent}" stroke-width="30" stroke-linecap="round"/>
-        <text x="1238" y="560" text-anchor="middle" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800">${(seed % 41) + 39}%</text>
-        <text x="190" y="760" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Unique image ID: ${esc(slug)}-${esc(slot)}</text>
+        <rect width="1600" height="900" fill="url(#page)"/>
+        <path d="M0 720 C230 626 404 738 624 646 C844 552 1002 628 1192 530 C1376 436 1490 488 1600 410 L1600 900 L0 900 Z" fill="${warm}" opacity="0.11"/>
+        <circle cx="1392" cy="130" r="118" fill="${accent}" opacity="0.12"/>
+        ${bodies[slot]}
       </svg>
     `);
   };
