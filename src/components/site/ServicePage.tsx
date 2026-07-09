@@ -723,12 +723,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
       {/* 19. 90-DAY KICKOFF TIMELINE */}
       <Section eyebrow="First 90 days" title="From signed contract to compounding revenue" alt>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
+          {(cfg.timeline ?? [
             { w: "Week 1", t: "Audit + strategy", b: "Full baseline audit, GA4 review, competitor teardown, 90-day plan agreed." },
             { w: "Week 2-3", t: "Tracking rebuilt", b: "Server-side, CAPI, Enhanced Conversions and Triple Whale wired." },
             { w: "Week 4-6", t: "First wins shipped", b: "New creative live, PDPs rewired, flows rebuilt — first ROAS lift lands." },
             { w: "Week 7-12", t: "Scale + retention", b: "Winners scaled hard, subscription + VIP flows live, forecast on track." },
-          ].map((s, i) => (
+          ]).map((s, i) => (
             <Reveal key={s.w} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <div className="card-surface p-5 relative overflow-hidden group">
                 <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-primary/10 group-hover:scale-150 transition-transform duration-500" />
