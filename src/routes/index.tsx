@@ -524,6 +524,64 @@ function Home() {
         </div>
       </Section>
 
+      {/* 9.5 WHY UK BRANDS CHOOSE BEINGECOM */}
+      <Section
+        center
+        eyebrow="Why UK brands choose BeingEcom"
+        title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
+        intro="Senior operators, transparent reporting and one integrated growth system — not siloed retainers. Here's what UK Shopify and WooCommerce brands hire us for."
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget." },
+            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead — so channels compound instead of competing." },
+            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand." },
+            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo — plus a weekly Loom and monthly strategy call. No black boxes." },
+            { t: "Senior team on every account", b: "You work directly with the people running your account — no junior handovers, no rotating account managers." },
+            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it." },
+          ].map((p, i) => (
+            <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Card className="h-full">
+                <h3 className="font-semibold text-lg text-ink">{p.t}</h3>
+                <p className="text-sm text-muted-foreground mt-2">{p.b}</p>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 9.6 INDUSTRIES WE SERVE */}
+      <Section
+        center
+        eyebrow="Industries we serve"
+        title="Ecommerce marketing built around your category."
+        intro="We've scaled Shopify and WooCommerce brands across the categories UK consumers spend on most. Each vertical has its own creative playbook, SEO map and retention model."
+      >
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+          {[
+            { to: "/industries/fashion-apparel", label: "Fashion & Apparel" },
+            { to: "/industries/beauty-cosmetics", label: "Beauty & Cosmetics" },
+            { to: "/industries/health-wellness", label: "Health & Wellness" },
+            { to: "/industries/home-garden", label: "Home & Garden" },
+            { to: "/industries/food-beverage", label: "Food & Beverage" },
+            { to: "/industries/electronics", label: "Electronics" },
+            { to: "/industries/jewelry-accessories", label: "Jewellery & Accessories" },
+            { to: "/industries/supplements", label: "Supplements" },
+          ].map((v) => (
+            <Link
+              key={v.to}
+              to={v.to}
+              className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+            >
+              {v.label} →
+            </Link>
+          ))}
+        </div>
+        <p className="text-center text-sm text-muted-foreground mt-6">
+          Don't see your niche? <Link to="/contact" className="text-primary font-semibold hover:underline">Talk to our ecommerce experts UK</Link>.
+        </p>
+      </Section>
+
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
       <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
