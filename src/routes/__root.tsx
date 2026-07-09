@@ -194,7 +194,7 @@ function RootComponent() {
         <Outlet />
       </div>
       <ClientOnly fallback={null}>
-        {deferredReady ? (
+        {deferredReady && isDesktop ? (
           <Suspense fallback={null}>
             <GoogleTranslate />
           </Suspense>
