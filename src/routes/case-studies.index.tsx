@@ -245,11 +245,15 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
 
 function AdsPreview({ seed }: { seed: number }) {
   const r = rng(seed + 11);
-  // Realistic Facebook Ads Manager-style row data
+  // Illustrative campaign structure — names vary by seed so cards don't repeat.
+  const coldNames = ["ASC · Broad cold", "Advantage+ · Broad", "PMax · Prospecting", "Broad · Creator UGC", "Cold · Offer stack"];
+  const rtgNames = ["Retargeting · 7D", "Retargeting · 30D", "Cart abandoners · 14D", "Website · 90D pool", "VV75 · Video RTG"];
+  const testNames = ["Creative test · UGC", "Hook test · 3-sec", "Concept test · Batch", "Angle test · Founder", "Static test · Value"];
+  const pick = <T,>(arr: T[]) => arr[Math.floor(r() * arr.length)];
   const campaigns = [
-    { name: "ASC — Broad", status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
-    { name: "Retargeting 7D", status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
-    { name: "Creative test — UGC", status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
+    { name: pick(coldNames), status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
+    { name: pick(rtgNames), status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
+    { name: pick(testNames), status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
   ];
   return (
     <div className="h-full w-full bg-white flex flex-col text-ink">
@@ -269,7 +273,7 @@ function AdsPreview({ seed }: { seed: number }) {
       <div className="grid grid-cols-3 gap-2 px-3 py-1.5 border-b border-border/70 shrink-0 bg-[#f7f8fa]">
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Spend</div>
-          <div className="text-[11px] font-bold tabular-nums">${(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
+          <div className="text-[11px] font-bold tabular-nums">£{(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
         </div>
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Purchases</div>
@@ -302,7 +306,7 @@ function AdsPreview({ seed }: { seed: number }) {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
               <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
-            <span className="text-[9px] tabular-nums text-right text-ink/80">${c.spend.toLocaleString()}</span>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">£{c.spend.toLocaleString()}</span>
             <span className="text-[9px] tabular-nums text-right text-ink/80">{c.results}</span>
             <span className="text-[9px] tabular-nums text-right font-bold text-emerald-600">{c.roas.toFixed(2)}×</span>
           </div>
