@@ -968,7 +968,9 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       c.images[key] = `${u(picked)}&sig=${hashNum(`beingecom-${slug}-${key}`)}`;
     }
     const city = cityNames[slug] ?? slug.replace(/-/g, " ");
-    void sectionVisual;
+    for (const key of visualSlots) {
+      c.images[key] = sectionVisual(slug, city, key);
+    }
     void pickUnique;
     c.images.founders = [
       founderAvatar(slug, city, 0),
