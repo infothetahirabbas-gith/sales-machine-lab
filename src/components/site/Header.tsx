@@ -497,7 +497,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
-                <span className="text-muted-foreground">7 core services · 14 specialisations</span>
+                <span className="text-muted-foreground">10 core services · 14 specialisations</span>
                 <Link to="/services" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all services →</Link>
               </div>
             </div>
