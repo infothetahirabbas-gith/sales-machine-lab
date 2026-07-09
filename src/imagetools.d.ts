@@ -6,4 +6,6 @@ declare module "*?format=webp&quality=72&w=1200" { const src: string; export def
 declare module "*?format=webp&quality=70&w=640" { const src: string; export default src; }
 declare module "*?format=webp&quality=62&w=560" { const src: string; export default src; }
 declare module "*?w=520&format=webp&quality=72" { const src: string; export default src; }
+declare module "*?format=webp&quality=68&w=960" { const src: string; export default src; }
+declare module "*?format=webp&quality=58&w=560" { const src: string; export default src; }
 declare module "*&as=srcset" { const src: string; export default src; }

@@ -14,12 +14,12 @@ import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
 import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
 // WebP variants generated at build time by vite-imagetools — ~60-70% smaller than the JPGs.
-import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=72&w=1200";
-import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=72&w=1200";
-import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=72&w=1200";
-import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=72&w=1200";
-import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=72&w=1200";
-import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=62&w=560";
+import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=68&w=960";
+import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=68&w=960";
+import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=68&w=960";
+import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=68&w=960";
+import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=68&w=960";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=58&w=560";
 
 
 
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 1200w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 960w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
     ],
 
     scripts: [
@@ -170,7 +170,7 @@ function Home() {
 
                 <img
                   src={dash.img}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 1200w` : undefined}
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 960w` : undefined}
                   sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw"
                   alt={dash.alt}
                   width={900}
