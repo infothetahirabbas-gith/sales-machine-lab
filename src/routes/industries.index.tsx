@@ -6,6 +6,7 @@ import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
+import { breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
@@ -16,6 +17,11 @@ export const Route = createFileRoute("/industries/")({
       { property: "og:title", content: "Ecommerce Industries We Scale in the UK | Being Ecom" },
       { property: "og:description", content: "Industry-specific ecommerce growth for UK DTC brands — creative, media, CRO and retention." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://beingecom.com/industries" },
+    ],
+    links: [{ rel: "canonical", href: "https://beingecom.com/industries" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }])) },
     ],
   }),
   component: IndustriesIndex,

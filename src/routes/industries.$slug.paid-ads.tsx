@@ -12,7 +12,7 @@ import FaqSection from "../components/site/FaqSection";
 import { SafeImg } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
-import { SITE_URL } from "../lib/seo";
+import { SITE_URL, breadcrumbJsonLd } from "../lib/seo";
 import { whatsappForIndustry } from "../lib/whatsapp";
 
 export const Route = createFileRoute("/industries/$slug/paid-ads")({
@@ -47,6 +47,18 @@ export const Route = createFileRoute("/industries/$slug/paid-ads")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
       ],
+      links: ind ? [{ rel: "canonical", href: pageUrl }] : [],
+      scripts: ind
+        ? [{
+            type: "application/ld+json",
+            children: JSON.stringify(breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Industries", path: "/industries" },
+              { name: ind.name, path: `/industries/${ind.slug}` },
+              { name: "Paid Ads", path: `/industries/${ind.slug}/paid-ads` },
+            ])),
+          }]
+        : [],
     };
   },
   component: IndustryPaidAdsPage,
