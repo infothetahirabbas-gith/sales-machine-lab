@@ -60,6 +60,9 @@ const services: ServiceItem[] = [
   { to: "/services/creative", label: "Creative Testing" },
   { to: "/services/email-sms", label: "Email Marketing" },
   { to: "/services/ai-automation", label: "AI Automation" },
+  { to: "/services/funnel", label: "Funnel & Landing Pages" },
+  { to: "/services/analytics", label: "Analytics & Tracking" },
+  { to: "/services/scaling", label: "Scaling & Retention" },
 ];
 
 export const locations = [
