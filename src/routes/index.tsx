@@ -146,7 +146,7 @@ function Home() {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5 relative" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-5 relative">
             {/* Real ecommerce photo behind the animated dashboard for warmth + realism */}
             <div className="absolute -top-6 -right-4 lg:-right-8 w-40 h-52 md:w-52 md:h-64 rotate-6 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/40 hidden md:block">
               <SafeImg
@@ -162,15 +162,16 @@ function Home() {
                 wrapperClassName="w-full h-full"
               />
             </div>
-            <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)] float">
+            <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
                   <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
-                  <span key={`t-${dash.key}`} style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.title}</span>
+                  <span key={`t-${dash.key}`}>{dash.title}</span>
                 </div>
-                <span key={`b-${dash.key}`} className="text-foreground font-bold" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>{dash.badge}</span>
+                <span key={`b-${dash.key}`} className="text-foreground font-bold">{dash.badge}</span>
               </div>
-              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+              <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40">
+
                 <img
                   src={dash.img}
                   srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 1200w` : undefined}
