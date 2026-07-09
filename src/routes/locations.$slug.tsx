@@ -401,6 +401,30 @@ function LocationPage() {
       </section>
 
 
+      {/* 2b. SEO INTRO — primary + secondary keyword rich, EEAT & entity-focused copy */}
+      <Section eyebrow="Introduction" title={`The ecommerce marketing agency ${city} founders trust to grow revenue`}>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl">
+          <div className="lg:col-span-2 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+            <p>
+              Being Ecom is an <strong className="text-ink">ecommerce marketing agency in {city}</strong> helping Shopify, Shopify Plus and WooCommerce brands turn traffic into profitable, compounding revenue. From founders in {C.neighbourhoods[0]} to scale-ups across {loc.region}, we work as the senior growth team behind {city}&rsquo;s most ambitious online stores.
+            </p>
+            <p>
+              Our team combines <strong className="text-ink">ecommerce SEO</strong>, <strong className="text-ink">Google Ads</strong>, <strong className="text-ink">Meta Ads</strong>, <strong className="text-ink">TikTok Ads</strong>, <strong className="text-ink">Klaviyo</strong> email &amp; SMS, <strong className="text-ink">conversion rate optimisation</strong> and <strong className="text-ink">GA4 analytics</strong> into one accountable growth engine. Every decision is tied back to blended ROAS, contribution margin and customer LTV — not platform vanity metrics.
+            </p>
+            <p>
+              As a Shopify Partner, Google Partner, Meta Business Partner and Klaviyo Master, we bring proven playbooks to {city} ecommerce brands across fashion, beauty, wellness, homeware, food &amp; drink and premium DTC. Whether you need a <strong className="text-ink">Shopify marketing agency in {city}</strong>, a <strong className="text-ink">WooCommerce partner</strong>, or a full-service <strong className="text-ink">ecommerce ads agency in {city}</strong>, our senior operators build the strategy and ship the work themselves.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {[`Ecommerce Marketing Agency ${city}`, `Ecommerce SEO Agency ${city}`, `Ecommerce Ads Agency ${city}`, `Shopify Agency ${city}`, `Shopify Marketing Agency ${city}`, `WooCommerce Agency ${city}`, `Google Ads Agency ${city}`, `Meta Ads Agency ${city}`, `Klaviyo Agency ${city}`, `CRO Agency ${city}`].map((k) => (
+              <div key={k} className="flex items-center gap-2 text-sm text-ink">
+                <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                <span>{k}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       {/* 3. STATS */}
       <Section eyebrow={`${city} results`} title={`Numbers ${city} founders care about`} intro={C.vibe} center>
