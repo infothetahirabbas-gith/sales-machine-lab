@@ -415,11 +415,76 @@ function Home() {
         </div>
       </Section>
 
-      {/* 9. TOOLS */}
-      <Section center eyebrow="Stack" title="The tools we run on every store.">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {["Shopify","WooCommerce","Meta Ads","Google Ads","TikTok Ads","GA4","Hotjar","Klaviyo","Triple Whale","Recharge","Yotpo","Shogun"].map((t)=>(
-            <div key={t} className="rounded-xl border border-border bg-white px-4 py-3 text-sm font-medium text-center text-ink transition hover:-translate-y-1 hover:border-primary/40 hover:text-primary hover:shadow-[0_12px_30px_-15px_oklch(0.65_0.18_245/0.5)]">{t}</div>
+      {/* 9. TOOLS — grouped by job-to-be-done */}
+      <Section
+        center
+        eyebrow="Stack"
+        title="The tools we run on every store."
+        intro="One integrated stack — platform, paid media, analytics, and retention — wired together so revenue, spend, and LTV live in the same view."
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          {[
+            {
+              group: "Ecommerce platforms",
+              body: "We build, theme, and optimise directly inside your store — fast PDPs, clean checkout, headless when it earns its keep.",
+              tools: [
+                { name: "Shopify", color: "#95BF47", initial: "S" },
+                { name: "WooCommerce", color: "#7F54B3", initial: "W" },
+                { name: "Shogun", color: "#1F2937", initial: "Sh" },
+              ],
+            },
+            {
+              group: "Paid media & tracking",
+              body: "Full-funnel ad buying across Meta, Google, and TikTok — with server-side events and GA4 so every click is attributed.",
+              tools: [
+                { name: "Meta Ads", color: "#1877F2", initial: "M" },
+                { name: "Google Ads", color: "#4285F4", initial: "G" },
+                { name: "TikTok Ads", color: "#000000", initial: "T" },
+                { name: "GA4", color: "#F9AB00", initial: "GA" },
+              ],
+            },
+            {
+              group: "CRO & behaviour analytics",
+              body: "Heatmaps, session replays, and structured A/B tests turn traffic into conversion rate you can actually forecast.",
+              tools: [
+                { name: "Hotjar", color: "#FD3A5C", initial: "H" },
+                { name: "Triple Whale", color: "#0B0B0B", initial: "TW" },
+              ],
+            },
+            {
+              group: "Email, SMS & retention",
+              body: "Klaviyo flows, subscription revenue, and reviews stack into 25–35% of monthly revenue — on autopilot.",
+              tools: [
+                { name: "Klaviyo", color: "#1E1E1E", initial: "K" },
+                { name: "Recharge", color: "#3D1D72", initial: "R" },
+                { name: "Yotpo", color: "#0042E4", initial: "Y" },
+              ],
+            },
+          ].map((cat, i) => (
+            <Reveal key={cat.group} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Card className="h-full text-left">
+                <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-primary">
+                  {cat.group}
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">{cat.body}</p>
+                <ul className="mt-4 flex flex-wrap gap-2" role="list">
+                  {cat.tools.map((t) => (
+                    <li key={t.name}>
+                      <div className="group inline-flex items-center gap-2 rounded-full border border-border bg-white pl-1 pr-3 py-1 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_10px_24px_-14px_oklch(0.65_0.18_245/0.5)]">
+                        <span
+                          aria-hidden="true"
+                          className="inline-flex w-6 h-6 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-sm ring-1 ring-black/5"
+                          style={{ backgroundColor: t.color }}
+                        >
+                          {t.initial}
+                        </span>
+                        <span>{t.name}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </Section>
