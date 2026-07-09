@@ -206,6 +206,7 @@ export default function GrowthPathPlanner() {
                   step={goal === "sales" ? 50 : 1000}
                   value={target}
                   onChange={(e) => setTarget(Number(e.target.value))}
+                  aria-label={goal === "sales" ? `Target monthly orders: ${target.toLocaleString()}` : `Target monthly revenue: £${target.toLocaleString()}`}
                   className="w-full accent-primary cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">
@@ -230,6 +231,7 @@ export default function GrowthPathPlanner() {
                   step={250}
                   value={budget}
                   onChange={(e) => setBudget(Number(e.target.value))}
+                  aria-label={`${path === "ads" ? "Monthly ad budget" : "Monthly SEO investment"}: £${budget.toLocaleString()}`}
                   className="w-full accent-primary cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-muted-foreground mt-1 font-mono">

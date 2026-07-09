@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { TrendingDown, AlertTriangle, DollarSign, ShoppingCart, Target } from "lucide-react";
 
@@ -11,18 +11,26 @@ function fmt(n: number) {
 function Slider({
   label, value, onChange, min, max, step, suffix, prefix,
 }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number; step: number; suffix?: string; prefix?: string }) {
+  const id = useId();
+  const displayValue = `${prefix ?? ""}${value.toLocaleString()}${suffix ?? ""}`;
   return (
     <div className="w-full min-w-0">
       <div className="flex items-center justify-between gap-2 mb-2 min-w-0">
-        <label className="text-xs sm:text-sm font-semibold text-ink min-w-0 flex-1 truncate">{label}</label>
-        <span className="text-xs sm:text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap">
-          {prefix}{value.toLocaleString()}{suffix}
+        <label htmlFor={id} className="text-xs sm:text-sm font-semibold text-ink min-w-0 flex-1 truncate">{label}</label>
+        <span className="text-xs sm:text-sm font-bold text-primary tabular-nums shrink-0 whitespace-nowrap" aria-hidden="true">
+          {displayValue}
         </span>
       </div>
       <input
+        id={id}
         type="range"
         min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
+        aria-label={`${label}: ${displayValue}`}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value}
+        aria-valuetext={displayValue}
         className="w-full max-w-full h-2 rounded-full appearance-none cursor-pointer bg-secondary accent-primary"
       />
     </div>
