@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-ai-automation.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/services/ai-automation")({
     <ServicePage cfg={{
       slug: "ai-automation",
       eyebrow: "AI Automation",
+      heroImage: heroImg,
       heroTitle: "AI automations that compound ecommerce margins.",
       heroSub: "AI agents, workflows and AI-powered CRO — built to remove cost, lift conversion and free your team.",
       problemTitle: "Why most ecommerce teams drown in busywork.",

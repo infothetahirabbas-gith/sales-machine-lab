@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "How long does ecommerce SEO take to work?", a: "Technical fixes and on-page changes usually show in 4–8 weeks. Authority and category-level ranking compounding kicks in around month 4–6. Any agency promising top-3 in 30 days is selling you PBNs or a lie." },
@@ -138,7 +139,7 @@ export const Route = createFileRoute("/services/seo")({
         { label: "Indexed pages", before: 122, after: 1840, description: "PDPs + collection pages indexed by Google after schema + crawl fixes." },
       ],
       faqs: FAQ_LIST,
-      heroImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1920&q=80",
+      heroImage: heroImg,
       subServices: [
         { to: "/services/seo/technical", title: "Technical SEO", body: "Core Web Vitals, indexation, schema and crawl budget rebuilt for Shopify + Woo." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "Category and PDP optimisation, internal linking and content depth that ranks." },

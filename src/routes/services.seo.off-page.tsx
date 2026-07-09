@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What is off-page SEO for ecommerce?", a: "Everything Google sees about your store from outside it — backlinks, digital PR, brand mentions, reviews, citations and unlinked signals that build authority." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
     <ServicePage cfg={{
       slug: "seo-off-page",
       eyebrow: "Off-Page SEO",
+      heroImage: heroImg,
       heroTitle: "Authority is what makes rankings stick.",
       heroSub: "Editorial digital PR, niche-edit link building and brand-signal off-page SEO that Google actually rewards.",
       problemTitle: "Why most ecommerce stores plateau in the SERP.",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do YouTube ads work for ecommerce?", a: "Yes — Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
     <ServicePage cfg={{
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
+      heroImage: heroImg,
       heroTitle: "YouTube ads engineered for revenue — not just views.",
       heroSub: "Video Action Campaigns, Demand Gen and Shorts ads for Shopify and DTC brands that want profitable YouTube growth.",
       problemTitle: "Why most YouTube ad accounts burn cash.",

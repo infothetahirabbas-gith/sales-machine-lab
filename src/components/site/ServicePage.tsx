@@ -649,22 +649,22 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
       {cfg.heroImage && (
         <Section>
           <Reveal>
-            <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-xl group">
               <SafeImg
                 src={cfg.heroImage}
                 alt={`${cfg.eyebrow} — Being Ecom growth engine`}
                 width={1920}
                 height={900}
-                className="w-full h-[280px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-[220px] sm:h-[320px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="eager"
                 fetchPriority="high"
                 decoding="sync"
                 brandOverlay
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent text-white">
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-10 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent text-white">
                 <div className="max-w-2xl">
-                  <div className="text-xs font-bold uppercase tracking-widest text-white/80">{cfg.eyebrow}</div>
-                  <div className="mt-2 text-xl md:text-3xl font-bold leading-tight">One integrated growth engine, executed by senior operators.</div>
+                  <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white/80">{cfg.eyebrow}</div>
+                  <div className="mt-2 text-lg sm:text-2xl md:text-3xl font-bold leading-tight">One integrated growth engine, executed by senior operators.</div>
                 </div>
               </div>
             </div>

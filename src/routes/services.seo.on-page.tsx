@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What does on-page SEO cover for an ecommerce store?", a: "Title tags, meta descriptions, H-structure, unique product/collection copy, internal linking, image alts and Product/Review/FAQ schema — the on-site levers Google actually ranks." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
     <ServicePage cfg={{
       slug: "seo-on-page",
       eyebrow: "On-Page SEO",
+      heroImage: heroImg,
       heroTitle: "Rank every product and collection you already own.",
       heroSub: "On-page SEO that turns thin product pages into ranking, converting assets — titles, schema, copy and internal links, done properly.",
       problemTitle: "Why on-page SEO quietly kills ecommerce rankings.",

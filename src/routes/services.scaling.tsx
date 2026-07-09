@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-scaling.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/services/scaling")({
     <ServicePage cfg={{
       slug: "scaling",
       eyebrow: "Scaling & Revenue Growth Strategy",
+      heroImage: heroImg,
       heroTitle: "Scale your store beyond £10K-£100K/month.",
       heroSub: "Profit-led scaling system - built on margins, MER, LTV, and break-even ROAS targets.",
       problemTitle: "Most stores can't scale past their first plateau.",

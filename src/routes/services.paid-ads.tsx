@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-paid-ads.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -105,7 +106,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
       faqs: FAQ_LIST,
-      heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
+      heroImage: heroImg,
       subServices: [
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta + Instagram scaling with ASC+ and creative velocity." },
         { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Search, Shopping and PMax engineered for intent capture." },

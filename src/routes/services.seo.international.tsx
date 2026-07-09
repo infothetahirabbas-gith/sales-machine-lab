@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What is international SEO?", a: "Ranking your ecommerce store across multiple countries and languages with the right domain/URL structure, hreflang, currency, translation and local authority signals." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/international")({
     <ServicePage cfg={{
       slug: "seo-international",
       eyebrow: "International SEO",
+      heroImage: heroImg,
       heroTitle: "Scale your UK brand into the US, EU and beyond — profitably.",
       heroSub: "International SEO that gets the architecture, hreflang and localisation right the first time.",
       problemTitle: "Why UK brands stall when they go international.",

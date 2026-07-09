@@ -5,6 +5,7 @@ import { Reveal } from "../hooks/useReveal";
 import RevenueBars from "../components/site/RevenueBars";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
 import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quote, Calendar, Package, Wrench, Layers, Target, TrendingUp, Zap, Shield, AlertTriangle } from "lucide-react";
+import heroPM from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio — never optimising one channel in isolation." },
@@ -119,6 +120,30 @@ function PerformanceMarketingPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* 1b. HERO SHOWCASE IMAGE */}
+      <Section>
+        <Reveal>
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-xl group">
+            <img
+              src={heroPM}
+              alt="Performance marketing dashboard — blended-ROAS analytics across Meta, Google, TikTok and YouTube"
+              width={1920}
+              height={900}
+              loading="eager"
+              fetchPriority="high"
+              className="w-full h-[220px] sm:h-[320px] md:h-[440px] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-10 text-white">
+              <div className="max-w-2xl">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white/80">Live dashboard</div>
+                <div className="mt-2 text-lg sm:text-2xl md:text-3xl font-bold leading-tight">Every channel in one P&L — reported weekly, defended monthly.</div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
 
       {/* 2. PROBLEM */}
       <Section eyebrow="The Problem" title="Most paid-media agencies burn budget on the wrong metric." alt>

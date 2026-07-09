@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-creative.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/services/creative")({
     <ServicePage cfg={{
       slug: "creative",
       eyebrow: "Creative & Ad Content Production",
+      heroImage: heroImg,
       heroTitle: "High-converting creatives that sell products.",
       heroSub: "Hooks, scripts, UGC, statics, and videos engineered to stop the scroll and move units.",
       problemTitle: "Bad creatives are why your ads are dying.",

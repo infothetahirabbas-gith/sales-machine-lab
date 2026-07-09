@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What is AEO?", a: "Answer Engine Optimisation — optimising your store to be cited by AI answer engines like Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude." },
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
     <ServicePage cfg={{
       slug: "seo-aeo",
       eyebrow: "AEO / Generative Search Optimisation",
+      heroImage: heroImg,
       heroTitle: "Get cited by ChatGPT, Perplexity and Google AI Overviews.",
       heroSub: "Answer Engine Optimisation for ecommerce — entity SEO, schema and answer-first content built for AI search.",
       problemTitle: "Why traditional SEO alone is losing traffic.",

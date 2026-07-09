@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-funnel.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -46,6 +47,7 @@ export const Route = createFileRoute("/services/funnel")({
     <ServicePage cfg={{
       slug: "funnel",
       eyebrow: "Funnel & Customer Journey Optimisation",
+      heroImage: heroImg,
       heroTitle: "Turn visitors into buyers - automatically.",
       heroSub: "Map the journey, optimise each stage, plug every leak - from first touch to repeat purchase.",
       problemTitle: "Your store isn't a funnel - it's a maze.",

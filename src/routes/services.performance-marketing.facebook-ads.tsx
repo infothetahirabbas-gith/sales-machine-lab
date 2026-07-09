@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import heroImg from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
     <ServicePage cfg={{
       slug: "facebook-ads",
       eyebrow: "Facebook Ads",
+      heroImage: heroImg,
       heroTitle: "Facebook & Instagram ads that print revenue.",
       heroSub: "Creative volume, ASC+ scaling and break-even math — Meta ads engineered for profitable ecommerce growth.",
       problemTitle: "Why most Meta accounts stop scaling.",
