@@ -1,22 +1,39 @@
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/poppins/500.css";
-@import "@fontsource/poppins/600.css";
-@import "@fontsource/poppins/700.css";
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
-/* Metric-matched fallback for Poppins. Rendered instantly from local Arial
-   before Poppins WOFF2 arrives, sized to match Poppins so the swap barely
-   shifts layout — keeps CLS at 0 while honouring font-display: swap. */
+/* Poppins loaded manually with font-display: optional so it NEVER blocks
+   FCP/LCP — if it arrives within ~100ms it renders, otherwise the system
+   fallback stays for this page load. Body text uses system-ui outright. */
 @font-face {
-  font-family: "Poppins Fallback";
-  src: local("Arial");
-  size-adjust: 112%;
-  ascent-override: 92%;
-  descent-override: 30%;
-  line-gap-override: 8%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("@fontsource/poppins/files/poppins-latin-400-normal.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url("@fontsource/poppins/files/poppins-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url("@fontsource/poppins/files/poppins-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("@fontsource/poppins/files/poppins-latin-700-normal.woff2") format("woff2");
+}
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -49,8 +66,8 @@
   --color-sky: var(--sky);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
-  --font-display: "Poppins", "Poppins Fallback", system-ui, sans-serif;
-  --font-body: "Poppins", "Poppins Fallback", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   --animate-fade-in: fadeIn 0.7s ease-out both;
   --animate-rise: rise 0.8s cubic-bezier(0.16,1,0.3,1) both;
