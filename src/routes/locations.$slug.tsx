@@ -17,6 +17,7 @@ import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import shopifyWooImage from "../assets/shopify-woocommerce-store.jpg";
+import croImage from "../assets/cro-ab-testing.jpg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
