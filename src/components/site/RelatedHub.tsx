@@ -62,20 +62,16 @@ export default function RelatedHub() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
           <LinkColumn title="Services" items={CORE_SERVICES} />
-          <LinkColumn
+          <DynamicLinkColumn
             title="UK Locations"
-            items={topLocations.map((l) => ({
-              to: `/locations/${l.slug}`,
-              label: `Ecommerce Agency ${l.city}`,
-            }))}
+            to="/locations/$slug"
+            items={topLocations.map((l) => ({ slug: l.slug, label: `Ecommerce Agency ${l.city}` }))}
             footer={{ to: "/locations", label: "See all UK locations" }}
           />
-          <LinkColumn
+          <DynamicLinkColumn
             title="Industries"
-            items={topIndustries.map((i) => ({
-              to: `/industries/${i.slug}`,
-              label: i.name,
-            }))}
+            to="/industries/$slug"
+            items={topIndustries.map((i) => ({ slug: i.slug, label: i.name }))}
             footer={{ to: "/industries", label: "See all industries" }}
           />
           <LinkColumn title="Resources" items={RESOURCES} />
