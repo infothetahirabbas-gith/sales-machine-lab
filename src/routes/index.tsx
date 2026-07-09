@@ -13,6 +13,8 @@ import { HERO_STATS } from "../lib/stats";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
 import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
+import caseStudyGrowth from "../assets/case-study-growth.jpg.asset.json";
+
 // WebP variants generated at build time by vite-imagetools — ~60-70% smaller than the JPGs.
 import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=68&w=960";
 import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=68&w=960";
@@ -383,24 +385,18 @@ function Home() {
       {/* 7. CASE STUDY */}
       <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="relative rounded-2xl border border-border bg-card/60 p-4 overflow-hidden">
-            <SafeImg
-              src={CASE_STUDY_IMG}
-              alt="UK Shopify apparel brand product page shown on a laptop — 11.9× revenue case study"
-              width={1200}
-              height={800}
-              skeleton
-              brandOverlay
-              className="w-full h-56 md:h-64 object-cover rounded-xl"
-              wrapperClassName="w-full h-56 md:h-64 rounded-xl"
+          <div className="relative rounded-2xl border border-border bg-card/60 p-3 overflow-hidden">
+            <img
+              src={caseStudyGrowth.url}
+              alt="UK Shopify apparel brand case study — dashboard showing revenue growth from £18K to £214K with 11.9× revenue, 3.8× ROAS and +285% conversion rate uplift"
+              width={1280}
+              height={960}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto rounded-xl"
             />
-
-            <div className="mt-4 min-h-[280px]">
-              <Suspense fallback={<div className="w-full h-[280px] rounded-xl bg-secondary/40 animate-pulse" />}>
-                <GrowthChart className="w-full h-auto" />
-              </Suspense>
-            </div>
           </div>
+
 
           <div>
             <p className="text-lg text-muted-foreground">
