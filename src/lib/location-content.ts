@@ -816,6 +816,8 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     const metricA = (seed % 41) + 39;
     const metricB = ((seed >>> 4) % 36) + 24;
     const metricC = ((seed >>> 8) % 28) + 18;
+    const bar = (x: number, baseline: number, h: number, fill: string) =>
+      `<rect x="${x}" y="${baseline - h}" width="68" height="${h}" rx="14" fill="${fill}"/>`;
     const font = "Arial, Helvetica, sans-serif";
     const t = (x: number, y: number, value: string, size = 24, color = ink, weight = 700, extra = "") =>
       `<text x="${x}" y="${y}" fill="${color}" font-family="${font}" font-size="${size}" font-weight="${weight}" ${extra}>${esc(value)}</text>`;
@@ -842,7 +844,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
         <polyline points="600,410 690,358 780,382 870,312 920,330" fill="none" stroke="${accent}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="920" cy="330" r="18" fill="${accent}"/>
         <rect x="1002" y="210" width="360" height="260" rx="26" fill="#fff7ed" stroke="#fed7aa"/>${t(1048, 270, `£${metricA + 118}K`, 50, ink, 900)}${t(1050, 318, "tracked revenue", 22, muted, 700)}
         <rect x="550" y="512" width="812" height="190" rx="26" fill="#ffffff" stroke="${line}"/>
-        <rect x="610" y="632" width="68" height="-${95 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${warm}"/><rect x="724" y="632" width="68" height="-${120 + metricC}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${accent}"/><rect x="838" y="632" width="68" height="-${150 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${cool}"/><rect x="952" y="632" width="68" height="-${174 + metricC}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${warm}"/><rect x="1066" y="632" width="68" height="-${195 + metricB}" transform="scale(1 -1) translate(0 -1264)" rx="14" fill="${accent}"/>
+        ${bar(610, 632, 95 + metricB, warm)}${bar(724, 632, 120 + metricC, accent)}${bar(838, 632, 150 + metricB, cool)}${bar(952, 632, 174 + metricC, warm)}${bar(1066, 632, 195 + metricB, accent)}
         ${t(1184, 608, "Spend → revenue", 28, ink, 900)}${t(1186, 646, "CAC under control", 20, muted, 700)}
       `),
       seo: browser(`
