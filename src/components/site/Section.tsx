@@ -132,13 +132,13 @@ export function CTA({
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-5 py-10 sm:p-10 lg:p-16 text-center">
             <div className="absolute inset-0 grid-bg opacity-60" />
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
             <div className="relative">
-              <h3 className="text-3xl md:text-5xl font-bold text-ink"><SplitHeading value={heading} /></h3>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{sub}</p>
+              <h3 className="text-[2rem] leading-tight md:text-5xl md:leading-tight font-bold text-ink"><SplitHeading value={heading} /></h3>
+              <p className="mt-4 text-sm leading-relaxed md:text-base text-muted-foreground max-w-2xl mx-auto">{sub}</p>
               <div className="mt-8 btn-pair mx-auto justify-center">
                 <Link to="/contact" className="btn btn-primary btn-shimmer">
                   Book Strategy Call <span className="transition-transform group-hover:translate-x-1">→</span>

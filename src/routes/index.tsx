@@ -607,11 +607,10 @@ function Home() {
       <CTA
         heading={
           <>
-            <span className="md:hidden">
-              Ready to Grow? Work With the
-              <span className="block">Best Ecommerce</span>
-              <span className="block">Digital Marketing</span>
-              <span className="block">Agency UK</span>
+            <span className="block md:hidden">
+              <span className="block whitespace-nowrap">Best Ecommerce</span>
+              <span className="block whitespace-nowrap">Digital Marketing</span>
+              <span className="block whitespace-nowrap">Agency UK</span>
             </span>
             <span className="hidden md:inline">Ready to Grow? Work With the Best Ecommerce Digital Marketing Agency UK</span>
           </>
