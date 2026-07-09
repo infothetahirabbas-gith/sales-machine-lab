@@ -141,7 +141,7 @@ export default function ContactFaq() {
 
                 <div className="mt-6 pt-6 border-t border-border grid sm:grid-cols-2 gap-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-primary" /><span>info@beingecom.com</span></div>
-                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>Remote · Global</span></div>
+                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" /><span>London HQ · Remote team</span></div>
                 </div>
               </>
             )}
