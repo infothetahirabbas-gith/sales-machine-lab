@@ -79,35 +79,39 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Agency in ${loc.city} | Shopify, SEO & Paid Ads — Being Ecom`
+      ? `Ecommerce Marketing Agency in ${loc.city} | Shopify, SEO, Ads & CRO — Being Ecom`
       : "Location — Being Ecom";
     const descOverrides: Record<string, string> = {
-      london: "Ecommerce growth agency for London-based Shopify & WooCommerce brands — SEO, CRO, and paid ads built around UK buyer behaviour, not templated playbooks.",
-      manchester: "Shopify & WooCommerce growth support for Manchester ecommerce brands — SEO, CRO, and paid ads managed by a UK-focused team.",
-      birmingham: "SEO-first ecommerce support for Birmingham-based Shopify & WooCommerce brands — compounding organic growth alongside paid and CRO.",
-      leeds: "Retention-first growth for Leeds-based Shopify & WooCommerce brands — email, CRO, and paid ads engineered to turn buyers into repeat customers.",
-      liverpool: "Data-driven ecommerce support for Liverpool-based Shopify & WooCommerce brands — clean tracking, SEO, and paid ads with revenue attribution you can trust.",
-      glasgow: "Full-stack ecommerce growth for Glasgow-based Shopify & WooCommerce brands — SEO, CRO, and paid ads run by senior UK operators.",
-      edinburgh: "Conversion-led ecommerce support for Edinburgh-based Shopify & WooCommerce brands — CRO, SEO, and paid ads focused on profitable revenue.",
-      bristol: "Growth-focused ecommerce support for Bristol-based Shopify & WooCommerce brands — SEO, paid ads, and email built for sustainable scale.",
+      london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — built around real London buyer behaviour.",
+      manchester: "Ecommerce Marketing Agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior UK operators.",
+      birmingham: "Ecommerce Marketing Agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
+      leeds: "Ecommerce Marketing Agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
+      liverpool: "Ecommerce Marketing Agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
+      glasgow: "Ecommerce Marketing Agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
+      edinburgh: "Ecommerce Marketing Agency in Edinburgh focused on profitable revenue — CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
+      bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Ecommerce growth support for ${loc.city}-based Shopify & WooCommerce brands — SEO, CRO, and paid ads managed by a UK-focused senior team.`)
-      : "UK ecommerce growth agency locations.";
+      ? (descOverrides[loc.slug] ?? `Ecommerce Marketing Agency in ${loc.city} helping Shopify and WooCommerce brands grow revenue with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — senior UK operators, transparent reporting.`)
+      : "UK ecommerce marketing agency locations.";
     const kw = loc
-      ? `ecommerce agency ${loc.city}, Shopify agency ${loc.city}, SEO agency ${loc.city}, PPC agency ${loc.city}, Meta ads ${loc.city}, Google Ads ${loc.city}, Klaviyo agency ${loc.city}, CRO agency ${loc.city}, digital marketing agency ${loc.city}, ecommerce experts ${loc.region}`
-      : "ecommerce agency UK";
+      ? `ecommerce marketing agency ${loc.city}, ecommerce agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ads agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, ecommerce ppc agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
+      : "ecommerce marketing agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
     const faqData = loc ? [
+      { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation — all built to grow profitable revenue, not vanity metrics.` },
       { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
-      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
-      { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce migrations and headless Hydrogen builds.` },
-      { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO and retention gains compound in months 3–6.` },
-      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, analytics and email — no obligation.` },
+      { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
+      { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
+      { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3–6.` },
+      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes — we're a Google Partner and Meta Business Partner running Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands, all managed by senior UK media buyers.` },
+      { q: `Do you handle ecommerce SEO for ${loc.city} Shopify stores?`, a: `Yes. We deliver technical SEO, Shopify SEO, local SEO for ${loc.city}, product and collection page optimisation, schema markup and Core Web Vitals fixes to grow organic revenue month over month.` },
+      { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely — Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
+      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO — no obligation, no sales pitch.` },
       { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely — tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
     ] : [];
     return {
@@ -187,6 +191,35 @@ export const Route = createFileRoute("/locations/$slug")({
             })),
           }),
         },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: title,
+            description: desc,
+            inLanguage: "en-GB",
+            isPartOf: { "@type": "WebSite", url: SITE_URL, name: "Being Ecom" },
+            about: { "@id": `${pageUrl}#business` },
+            primaryImageOfPage: heroImage ? { "@type": "ImageObject", url: heroImage } : undefined,
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              { "@type": "Service", "@id": `${pageUrl}#service-seo`, name: `Ecommerce SEO Agency ${loc.city}`, serviceType: "Ecommerce SEO", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Technical, on-page and local ecommerce SEO for Shopify and WooCommerce brands in ${loc.city}. Includes Core Web Vitals, schema markup, product and collection page optimisation and digital PR link building.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-ppc`, name: `Ecommerce Ads Agency ${loc.city}`, serviceType: "Ecommerce PPC", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Google Ads, Google Shopping, Performance Max, Meta Ads, TikTok Ads and YouTube Ads managed for ${loc.city} ecommerce brands by senior UK media buyers.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-shopify`, name: `Shopify Marketing Agency ${loc.city}`, serviceType: "Shopify Marketing & Development", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Shopify Plus builds, migrations, headless Hydrogen storefronts, theme customisation, app development and speed optimisation for ${loc.city} DTC brands.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-woocommerce`, name: `WooCommerce Marketing Agency ${loc.city}`, serviceType: "WooCommerce Marketing & Development", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `WooCommerce store builds, migrations, performance and SEO optimisation for ${loc.city} ecommerce brands running on WordPress.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-email`, name: `Klaviyo Email Agency ${loc.city}`, serviceType: "Email & SMS Marketing", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Klaviyo flows, campaigns, SMS and lifecycle marketing that typically drives 30–45% of monthly revenue for ${loc.city} DTC brands.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-cro`, name: `CRO Agency ${loc.city}`, serviceType: "Conversion Rate Optimisation", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Structured A/B testing across PDPs, landing pages and checkout to lift AOV and conversion rate for ${loc.city} Shopify and WooCommerce stores.` },
+            ],
+          }),
+        },
       ] : [],
     };
   },
@@ -256,11 +289,15 @@ function LocationPage() {
   ];
 
   const faqs: FAQ[] = [
+    { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation — all built to grow profitable revenue, not vanity metrics.` },
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
-    { q: `Which platforms do you work with?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
-    { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO and retention gains follow in months 3–6.` },
-    { q: `Do you offer a free audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, analytics and email — no obligation, no sales pitch.` },
+    { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
+    { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
+    { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes — technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
+    { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. As a Google Partner and Meta Business Partner we run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands, managed by senior UK media buyers.` },
+    { q: `Can you manage Klaviyo email marketing for our ${city} brand?`, a: `Absolutely. Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for ${city} DTC brands, with segmentation and post-purchase automations built for LTV.` },
+    { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO, CRO and retention gains follow in months 3–6.` },
+    { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO — no obligation, no sales pitch.` },
     { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly — usually a reply within an hour on UK business days.` },
   ];
 
@@ -299,7 +336,7 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={1}>
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
-                <SplitHeading value={`Ecommerce Growth Agency in ${city}`} />
+                <SplitHeading value={`Ecommerce Marketing Agency in ${city}`} />
               </h1>
             </Reveal>
             <Reveal delay={2}>
@@ -364,6 +401,30 @@ function LocationPage() {
       </section>
 
 
+      {/* 2b. SEO INTRO — primary + secondary keyword rich, EEAT & entity-focused copy */}
+      <Section eyebrow="Introduction" title={`The ecommerce marketing agency ${city} founders trust to grow revenue`}>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl">
+          <div className="lg:col-span-2 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+            <p>
+              Being Ecom is an <strong className="text-ink">ecommerce marketing agency in {city}</strong> helping Shopify, Shopify Plus and WooCommerce brands turn traffic into profitable, compounding revenue. From founders in {C.neighbourhoods[0]} to scale-ups across {loc.region}, we work as the senior growth team behind {city}&rsquo;s most ambitious online stores.
+            </p>
+            <p>
+              Our team combines <strong className="text-ink">ecommerce SEO</strong>, <strong className="text-ink">Google Ads</strong>, <strong className="text-ink">Meta Ads</strong>, <strong className="text-ink">TikTok Ads</strong>, <strong className="text-ink">Klaviyo</strong> email &amp; SMS, <strong className="text-ink">conversion rate optimisation</strong> and <strong className="text-ink">GA4 analytics</strong> into one accountable growth engine. Every decision is tied back to blended ROAS, contribution margin and customer LTV — not platform vanity metrics.
+            </p>
+            <p>
+              As a Shopify Partner, Google Partner, Meta Business Partner and Klaviyo Master, we bring proven playbooks to {city} ecommerce brands across fashion, beauty, wellness, homeware, food &amp; drink and premium DTC. Whether you need a <strong className="text-ink">Shopify marketing agency in {city}</strong>, a <strong className="text-ink">WooCommerce partner</strong>, or a full-service <strong className="text-ink">ecommerce ads agency in {city}</strong>, our senior operators build the strategy and ship the work themselves.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {[`Ecommerce Marketing Agency ${city}`, `Ecommerce SEO Agency ${city}`, `Ecommerce Ads Agency ${city}`, `Shopify Agency ${city}`, `Shopify Marketing Agency ${city}`, `WooCommerce Agency ${city}`, `Google Ads Agency ${city}`, `Meta Ads Agency ${city}`, `Klaviyo Agency ${city}`, `CRO Agency ${city}`].map((k) => (
+              <div key={k} className="flex items-center gap-2 text-sm text-ink">
+                <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                <span>{k}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       {/* 3. STATS */}
       <Section eyebrow={`${city} results`} title={`Numbers ${city} founders care about`} intro={C.vibe} center>
