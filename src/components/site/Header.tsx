@@ -286,6 +286,21 @@ export default function Header() {
     } catch {}
   }, [pathname]);
 
+  // Body scroll lock while the mobile menu is open — prevents background
+  // scroll bleed on iOS and keeps focus trapped inside the panel.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
+
+  // Close the mobile menu on route change so navigating from a link inside
+  // it doesn't leave the panel stuck open on the next page.
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+
   const updatePref = (key: keyof Prefs, value: string) => {
     const next: Prefs = { ...currentPrefs, [key]: value };
     setPrefs(next);
@@ -304,7 +319,7 @@ export default function Header() {
   const langLabel = LANG_OPTIONS.find((l) => l.code === currentPrefs.language)?.name ?? "English";
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <div className="border-b border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 min-h-8 py-1 flex items-center justify-start gap-2 flex-wrap text-[11px] text-muted-foreground">
           <span className="order-1 lg:order-none inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold" title="Country">
