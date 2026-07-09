@@ -193,9 +193,9 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
 
       {/* Last value badge */}
       <g>
-        <rect x={last.x - 38} y={last.y - 30} width="36" height="18" rx="4" fill="var(--ink)" />
-        <text x={last.x - 20} y={last.y - 18} fontSize="10" fontWeight="700" fill="white" textAnchor="middle" fontFamily="ui-sans-serif, system-ui">
-          {v.line[v.line.length - 1]}{v.yLabel}
+        <rect x={last.x - 44} y={last.y - 30} width="42" height="18" rx="4" fill="var(--ink)" />
+        <text x={last.x - 23} y={last.y - 18} fontSize="10" fontWeight="700" fill="white" textAnchor="middle" fontFamily="ui-sans-serif, system-ui">
+          {formatTick(v.line[v.line.length - 1], v.yLabel)}
         </text>
       </g>
 
