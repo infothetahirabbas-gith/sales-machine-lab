@@ -17,6 +17,7 @@ import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import shopifyWooImage from "../assets/shopify-woocommerce-store.jpg";
+import croImage from "../assets/cro-ab-testing.jpg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -530,7 +531,7 @@ function LocationPage() {
               { title: "Launch & measure", body: "Statistically valid A/B tests with revenue-level significance." },
             ]} />
           </div>
-          <Reveal><SafeImg src={IMG.cro} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={croImage} {...imageSeoProps(loc.slug, city, "cro")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[420px] object-cover" /></Reveal>
         </div>
       </Section>
 
