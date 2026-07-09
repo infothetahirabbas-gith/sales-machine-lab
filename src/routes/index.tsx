@@ -6,7 +6,7 @@ import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 
 
 
-import { faqs as homeFaqs } from "../components/site/faqs-data";
+import { homeFaqs } from "../lib/home-faqs";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { HERO_STATS } from "../lib/stats";
@@ -37,17 +37,17 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
-      { name: "description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
-      { property: "og:title", content: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
-      { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
+      { title: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics — one team, one revenue P&L." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
-      { property: "og:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
+      { property: "og:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
-      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
+      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
@@ -116,14 +116,14 @@ function Home() {
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">We Help UK Brands</span>
+              <span className="block">The Ecommerce Marketing</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block">Grow Revenue & Dominate AI Search</span>
+              <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              UK's top Shopify agency & WooCommerce agency for paid ads, CRO, ecommerce SEO services & email automation. Built for store owners who want sales, not theory.
+              BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email — one senior team, one revenue P&L, measurable growth from month one.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
 
