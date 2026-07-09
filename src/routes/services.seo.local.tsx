@@ -7,16 +7,16 @@ const FAQ_LIST: FAQ[] = [
   { q: "Does local SEO matter for ecommerce?", a: "Yes if you have physical stores, showrooms, click-and-collect or serve specific UK regions. It also captures 'near me' and city-modifier searches you're leaving on the table." },
   { q: "What does local SEO include?", a: "Google Business Profile optimisation, local landing pages, NAP consistency, citations, review acquisition and localBusiness schema." },
   { q: "How many locations can you handle?", a: "From single-showroom to 200+ locations with programmatic local pages, unique content and per-store GBP management." },
-  { q: "Will local SEO help voice and 'near me' searches?", a: "Yes — that's exactly where local ranking wins the click." },
-  { q: "Do you handle reviews?", a: "Yes — review acquisition flows via Klaviyo/SMS, review response templates and rating recovery." },
+  { q: "Will local SEO help voice and 'near me' searches?", a: "Yes - that's exactly where local ranking wins the click." },
+  { q: "Do you handle reviews?", a: "Yes - review acquisition flows via Klaviyo/SMS, review response templates and rating recovery." },
 ];
 
 export const Route = createFileRoute("/services/seo/local")({
   head: () => ({
     meta: [
-      { title: "Local SEO Agency UK — Google Business & Multi-Location SEO | BeingEcom" },
+      { title: "Local SEO Agency UK - Google Business & Multi-Location SEO | BeingEcom" },
       { name: "description", content: "Local SEO in the UK for ecommerce, retail and multi-location brands. Google Business Profile, local landing pages, citations and review growth." },
-      { property: "og:title", content: "Local SEO Agency UK — Google Business & Multi-Location SEO | BeingEcom" },
+      { property: "og:title", content: "Local SEO Agency UK - Google Business & Multi-Location SEO | BeingEcom" },
       { property: "og:description", content: "Local SEO in the UK for ecommerce, retail and multi-location brands. Google Business Profile, local landing pages, citations and review growth." },
       { property: "og:url", content: "https://beingecom.com/services/seo/local" },
       { property: "og:type", content: "website" },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/local")({
       eyebrow: "Local SEO",
       heroImage: heroImg,
       heroTitle: "Own 'near me' and every UK city that matters.",
-      heroSub: "Local SEO for ecommerce, retail and multi-location brands — Google Business Profile, local pages, citations and reviews, done right.",
+      heroSub: "Local SEO for ecommerce, retail and multi-location brands - Google Business Profile, local pages, citations and reviews, done right.",
       problemTitle: "Why local rankings vanish for ecommerce brands.",
       problemBullets: [
         "GBP set up once in 2019 and never touched.",
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/services/seo/local")({
         "Inconsistent NAP across Yell, TrustPilot and 40 citation sites.",
       ],
       whatIsTitle: "Local SEO is a distinct discipline.",
-      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema — not backlinks and blog posts.",
+      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema - not backlinks and blog posts.",
       systemTitle: "Our local SEO system.",
       systemSteps: [
         { title: "GBP audit & optimisation", body: "Categories, services, products, posts, photos, Q&A." },
@@ -55,12 +55,12 @@ export const Route = createFileRoute("/services/seo/local")({
         { title: "GBP", body: "The single biggest local ranking lever." },
         { title: "Pages", body: "City / store landing pages that rank." },
         { title: "Citations", body: "Consistent NAP across UK directories." },
-        { title: "Reviews", body: "Volume, velocity and recency — all three." },
+        { title: "Reviews", body: "Volume, velocity and recency - all three." },
       ],
       deepBlocks: [
         { title: "Google Business Profile", body: "Full optimisation, weekly posts, Q&A, products, photos, insights.", tags: ["GBP","Posts","Q&A"] },
         { title: "Multi-location landing pages", body: "Programmatic city/store pages with unique content, embed, reviews.", tags: ["City","Store","Programmatic"] },
-        { title: "Citation building", body: "60+ UK directories — Yell, Thomson, Scoot, industry-specific.", tags: ["Yell","Thomson","NAP"] },
+        { title: "Citation building", body: "60+ UK directories - Yell, Thomson, Scoot, industry-specific.", tags: ["Yell","Thomson","NAP"] },
         { title: "Review acquisition", body: "Post-purchase flows via Klaviyo + SMS, review response system.", tags: ["Klaviyo","SMS","Response"] },
         { title: "LocalBusiness schema", body: "Store schema with hours, geo, price range, aggregate rating.", tags: ["Schema","Geo","Hours"] },
         { title: "Local link building", body: "Chambers, sponsorships, local press, community organisations.", tags: ["Chambers","Press","Local"] },

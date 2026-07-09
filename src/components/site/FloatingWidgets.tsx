@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 const WHATSAPP_NUMBER = "447882743592";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BeingEcom — I'd like to talk about growing my store.")}`;
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BeingEcom - I'd like to talk about growing my store.")}`;
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
@@ -59,7 +59,7 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      {/* WhatsApp — bottom-left */}
+      {/* WhatsApp - bottom-left */}
       <a
         href={WHATSAPP_URL}
         target="_blank"

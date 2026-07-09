@@ -19,7 +19,7 @@ export function unsplashSrcSet(src: string): string | undefined {
 const DEFAULT_SIZES =
   "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px";
 
-// Inline SVG placeholder — no extra network hop when a real image 404s.
+// Inline SVG placeholder - no extra network hop when a real image 404s.
 const FALLBACK =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(

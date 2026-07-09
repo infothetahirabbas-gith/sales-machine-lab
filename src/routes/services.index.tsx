@@ -9,9 +9,9 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Ecommerce Services — Shopify & Woo Growth | BeingEcom" },
+      { title: "Ecommerce Services - Shopify & Woo Growth | BeingEcom" },
       { name: "description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
-      { property: "og:title", content: "Ecommerce Services — Shopify & Woo Growth | BeingEcom" },
+      { property: "og:title", content: "Ecommerce Services - Shopify & Woo Growth | BeingEcom" },
       { property: "og:description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
       { property: "og:url", content: "https://beingecom.com/services" },
     ],
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/")({
 
 const all = [
   // 1. Ecommerce SEO + subs
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections — free traffic forever.", tag: "Acquire" },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products & collections - free traffic forever.", tag: "Acquire" },
   { to: "/services/seo/on-page", title: "On-Page SEO", body: "Titles, schema, copy & internal links that rank.", tag: "SEO" },
   { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Digital PR & editorial links that build DR.", tag: "SEO" },
   { to: "/services/seo/technical", title: "Technical SEO", body: "CWV, crawl, indexation & schema, fixed properly.", tag: "SEO" },
@@ -109,7 +109,7 @@ function ServicesIndex() {
 
       <FaqSection
         faqs={servicesFaqs}
-        title="Services —"
+        title="Services -"
         highlight="common questions"
         intro="Quick answers about how engagements work."
       />

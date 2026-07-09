@@ -24,10 +24,10 @@ export const Route = createFileRoute("/industries/$slug/paid-ads")({
   head: ({ loaderData }) => {
     const ind = loaderData?.ind;
     const title = ind
-      ? `${ind.name} Paid Ads Agency UK — Meta, Google & TikTok | Being Ecom`
-      : "Paid Ads — Being Ecom";
+      ? `${ind.name} Paid Ads Agency UK - Meta, Google & TikTok | Being Ecom`
+      : "Paid Ads - Being Ecom";
     const desc = ind
-      ? `Paid advertising built for ${ind.name.toLowerCase()} brands. Meta, Google Shopping and TikTok scaled by a senior UK team — real ROAS, real revenue.`
+      ? `Paid advertising built for ${ind.name.toLowerCase()} brands. Meta, Google Shopping and TikTok scaled by a senior UK team - real ROAS, real revenue.`
       : "UK paid ads agency.";
     const C = ind ? industryContentFor(ind.slug, ind.name) : undefined;
     const heroImage = C?.images.hero;
@@ -87,7 +87,7 @@ function IndustryPaidAdsPage() {
     { icon: Megaphone, name: "Meta Ads (Facebook + Instagram)", body: "Creative-led broad scaling with Advantage+ shopping and manual campaigns for control." },
     { icon: Search,    name: "Google Ads + Performance Max", body: "Non-brand Search, Shopping feed mastery, PMax with asset-group discipline." },
     { icon: Play,      name: "TikTok Ads + TikTok Shop", body: "Native creator content, Spark Ads, and affiliate-driven scale." },
-    { icon: Sparkles,  name: "Pinterest (where it fits)", body: "For home, arts and fashion — high-intent visual discovery layer." },
+    { icon: Sparkles,  name: "Pinterest (where it fits)", body: "For home, arts and fashion - high-intent visual discovery layer." },
   ];
 
   const META = [
@@ -101,21 +101,21 @@ function IndustryPaidAdsPage() {
     { title: "Search hierarchy",  body: "Brand + non-brand + competitor tiers with clean match types and negatives." },
     { title: "Shopping feed",     body: "Merchant Center rebuild, custom labels, item-level bidding structure." },
     { title: "Performance Max",   body: "Asset-group discipline, audience signals, first-party data feeds." },
-    { title: "Landing pages",     body: "Search-intent-matched LPs — not the homepage." },
+    { title: "Landing pages",     body: "Search-intent-matched LPs - not the homepage." },
   ];
 
   const TIKTOK = [
     { title: "Native-first creative", body: "Scripted for TikTok, not repurposed Meta. Hooks under 2 seconds." },
     { title: "Creator seeding",       body: "Ambassador + Spark Ads pipeline with monthly content refresh." },
     { title: "TikTok Shop + affiliate", body: "Shop set-up, product feed, and creator affiliate scaling." },
-    { title: "Whitelisting",          body: "Compliant creator whitelisting so ads look native — because they are." },
+    { title: "Whitelisting",          body: "Compliant creator whitelisting so ads look native - because they are." },
   ];
 
   const TESTING = [
     { title: "Weekly hypothesis",  body: "Every week we ship named tests with a clear hypothesis and success metric." },
-    { title: "Isolate variables",  body: "Hook / body / offer / audience — one variable at a time on winners." },
+    { title: "Isolate variables",  body: "Hook / body / offer / audience - one variable at a time on winners." },
     { title: "Kill fast, scale hard", body: "48-hour kill rule for under-performers, 20% daily budget lifts on winners." },
-    { title: "Insights loop",      body: "Winning angles feed back into creative sprints — nothing is one-off." },
+    { title: "Insights loop",      body: "Winning angles feed back into creative sprints - nothing is one-off." },
   ];
 
   const BUDGET = [
@@ -125,11 +125,11 @@ function IndustryPaidAdsPage() {
   ];
 
   const FAQS = [
-    { q: `Do you specialise in ${ind.name.toLowerCase()} paid ads?`, a: `Yes — a senior pod runs paid across ${ind.name.toLowerCase()} accounts only, so buyer psychology and creative angles are already tuned.` },
+    { q: `Do you specialise in ${ind.name.toLowerCase()} paid ads?`, a: `Yes - a senior pod runs paid across ${ind.name.toLowerCase()} accounts only, so buyer psychology and creative angles are already tuned.` },
     { q: `What's a realistic ROAS target?`, a: `We benchmark blended ROAS at ${C.caseStudy.roas}x sustained over 90 days, with strong outliers higher during launch/BFCM windows.` },
     { q: `What's the minimum ad spend?`, a: `£3k/month is our floor for meaningful learning. Below that, we recommend our audit + DIY playbooks first.` },
     { q: `Who runs my account day-to-day?`, a: `A senior media buyer, backed by a creative strategist and analyst. No juniors on your account.` },
-    { q: `Do you produce the creative?`, a: `Yes. In-house UGC, motion and studio product — 3 batches/week is the baseline.` },
+    { q: `Do you produce the creative?`, a: `Yes. In-house UGC, motion and studio product - 3 batches/week is the baseline.` },
     { q: `How is performance reported?`, a: `Weekly Loom + live Triple Whale dashboard. Monthly strategy review. Attribution truth, not vanity metrics.` },
   ];
 
@@ -149,7 +149,7 @@ function IndustryPaidAdsPage() {
                 <Megaphone className="size-3.5" /> {ind.name} Paid Ads
               </div>
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
-                <SplitHeading value={`${ind.name} Paid Ads — Meta, Google & TikTok`} />
+                <SplitHeading value={`${ind.name} Paid Ads - Meta, Google & TikTok`} />
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-xl">
                 Performance advertising built for {ind.name.toLowerCase()} brands. Senior UK team, creative velocity, and attribution you can actually trust.
@@ -227,7 +227,7 @@ function IndustryPaidAdsPage() {
       <Section eyebrow="Kickoff" title="From signed to scaling in 30 days" alt>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { d: "Day 1-3", t: "Access + audit", b: "Ad accounts, GA4, Shopify — full baseline audit shipped." },
+            { d: "Day 1-3", t: "Access + audit", b: "Ad accounts, GA4, Shopify - full baseline audit shipped." },
             { d: "Day 4-10", t: "Tracking rebuild", b: "CAPI, Enhanced Conversions, GA4 server-side, Triple Whale." },
             { d: "Day 8-14", t: "First creatives live", b: "3 UGC + motion batches shot, edited, uploaded." },
             { d: "Day 14-30", t: "Media buying scale", b: "Meta + Google restructured, budgets shifted onto winners." },
@@ -367,7 +367,7 @@ function IndustryPaidAdsPage() {
             </div>
             <p className="text-2xl md:text-3xl font-medium text-ink leading-snug">"{C.testimonial.quote}"</p>
             <footer className="mt-6 text-sm text-muted-foreground">
-              <span className="font-semibold text-ink">{C.testimonial.name}</span> — {C.testimonial.role}
+              <span className="font-semibold text-ink">{C.testimonial.name}</span> - {C.testimonial.role}
             </footer>
           </blockquote>
         </Reveal>
@@ -390,7 +390,7 @@ function IndustryPaidAdsPage() {
                 <WaIcon className="size-6" />
               </div>
               <div>
-                <div className="font-bold text-ink text-lg">Free {ind.name.toLowerCase()} ad account audit — on WhatsApp</div>
+                <div className="font-bold text-ink text-lg">Free {ind.name.toLowerCase()} ad account audit - on WhatsApp</div>
                 <div className="text-sm text-muted-foreground">Send us your ad account and a senior buyer replies in <span className="font-bold text-ink"><CountUp end={7} /> minutes</span> on UK hours.</div>
               </div>
             </div>
@@ -407,7 +407,7 @@ function IndustryPaidAdsPage() {
       {/* CTA */}
       <CTA
         heading={`Ready to scale ${ind.name.toLowerCase()} paid ads?`}
-        sub="Free ads audit — we'll review your account and show you exactly where revenue is leaking."
+        sub="Free ads audit - we'll review your account and show you exactly where revenue is leaking."
       />
     </PageLayout>
   );

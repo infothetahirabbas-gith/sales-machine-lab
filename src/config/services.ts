@@ -1,7 +1,7 @@
 // Canonical single source of truth for the 10 top-level services.
 //
 // EVERY navigation menu, footer, homepage service grid, /services index,
-// service-page schema and cross-link block MUST derive from this list —
+// service-page schema and cross-link block MUST derive from this list -
 // never hardcode service labels or URLs anywhere else.
 //
 // Naming: canonical UK English (Optimisation, not Optimization). If a
@@ -30,7 +30,7 @@ export const SERVICES: readonly Service[] = [
     to: "/services/seo",
     label: "Ecommerce SEO",
     shortLabel: "SEO",
-    blurb: "Rank products & collections — free traffic forever.",
+    blurb: "Rank products & collections - free traffic forever.",
     tag: "Acquire",
     children: [
       { to: "/services/seo/on-page", label: "On-Page SEO" },
@@ -114,7 +114,7 @@ export const SERVICES: readonly Service[] = [
     to: "/services/analytics",
     label: "Analytics & Tracking",
     shortLabel: "Analytics",
-    blurb: "GA4, Pixel, CAPI and dashboards — set up correctly.",
+    blurb: "GA4, Pixel, CAPI and dashboards - set up correctly.",
     tag: "Measure",
   },
   {
@@ -135,5 +135,5 @@ export const SERVICE_LABEL_BY_SLUG: Readonly<Record<string, string>> =
 export const BANNED_SERVICE_STRINGS: readonly string[] = [
   "Creative Testing",
   "Conversion Optimization", // US spelling
-  "Conversion Optimisation", // shortened UK — must use full "Conversion Rate Optimisation"
+  "Conversion Optimisation", // shortened UK - must use full "Conversion Rate Optimisation"
 ] as const;

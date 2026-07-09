@@ -10,15 +10,15 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you set up GA4, Meta CAPI and Google Ads conversions?",
-    "a": "Yes — full GA4 + GTM server-side + Meta Conversions API + Google Enhanced Conversions with proper deduplication."
+    "a": "Yes - full GA4 + GTM server-side + Meta Conversions API + Google Enhanced Conversions with proper deduplication."
   },
   {
     "q": "What dashboards do you build?",
-    "a": "Live revenue, blended ROAS, MER, new-customer CAC, contribution margin, channel mix and cohort LTV — usually in Looker Studio or Hyros."
+    "a": "Live revenue, blended ROAS, MER, new-customer CAC, contribution margin, channel mix and cohort LTV - usually in Looker Studio or Hyros."
   },
   {
     "q": "Can you fix iOS 14 tracking loss?",
-    "a": "We restore 25–40% of lost signal via CAPI, server-side GTM and Enhanced Conversions — the rest comes from blended MER decisions, not pixel-only."
+    "a": "We restore 25–40% of lost signal via CAPI, server-side GTM and Enhanced Conversions - the rest comes from blended MER decisions, not pixel-only."
   },
   {
     "q": "Do I need Triple Whale, Northbeam or Hyros?",
@@ -30,9 +30,9 @@ export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
       { title: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
-      { name: "description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores — so your ad spend decisions are based on real data, not guesswork." },
+      { name: "description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores - so your ad spend decisions are based on real data, not guesswork." },
       { property: "og:title", content: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
-      { property: "og:description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores — so your ad spend decisions are based on real data, not guesswork." },
+      { property: "og:description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores - so your ad spend decisions are based on real data, not guesswork." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
     ],

@@ -3,7 +3,7 @@
 @import "tw-animate-css";
 
 /* Poppins loaded manually with font-display: optional so it NEVER blocks
-   FCP/LCP — if it arrives within ~100ms it renders, otherwise the system
+   FCP/LCP - if it arrives within ~100ms it renders, otherwise the system
    fallback stays for this page load. Body text uses system-ui outright. */
 @font-face {
   font-family: "Poppins";
@@ -82,14 +82,14 @@
 
 :root {
   --radius: 0.9rem;
-  /* Being Ecom brand palette — single brand orange #E47B02 + soft charcoal ink */
+  /* Being Ecom brand palette - single brand orange #E47B02 + soft charcoal ink */
   --background: oklch(1 0 0);                       /* #FFFFFF */
   --foreground: oklch(0.36 0.018 264);              /* lighter charcoal, never jet black */
   --card: oklch(0.985 0.004 236);                   /* #F7FAFC */
   --card-foreground: oklch(0.36 0.018 264);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.36 0.018 264);
-  --primary: oklch(0.687183 0.165136 57.381);       /* #E47B02 — locked brand orange */
+  --primary: oklch(0.687183 0.165136 57.381);       /* #E47B02 - locked brand orange */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.953 0.024 67);               /* #FBEDDF */
   --secondary-foreground: oklch(0.36 0.018 264);
@@ -165,7 +165,7 @@
     .split-heading > .split-brand::before { content: "\A"; white-space: pre; }
   }
 
-  /* Buttons — standardized: focus-visible, active, disabled, loading, min tap target */
+  /* Buttons - standardized: focus-visible, active, disabled, loading, min tap target */
   .btn {
     @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform text-sm sm:text-base w-auto max-w-full text-center leading-tight min-h-11;
     outline: none;
@@ -243,7 +243,7 @@
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
 
-  /* Section bands — subtle alternating light background to separate sections.
+  /* Section bands - subtle alternating light background to separate sections.
      Default sections stay on the page background; `alt` sections get a soft
      warm tint. A hairline divider appears only where two bands meet, so we
      avoid stacked borders and keep the rhythm calm. */
@@ -349,7 +349,7 @@
   .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-/* WhatsApp floating button — attention wiggle + entrance pop */
+/* WhatsApp floating button - attention wiggle + entrance pop */
 @keyframes wa-wiggle {
   0%, 88%, 100% { transform: rotate(0deg) scale(1); }
   90% { transform: rotate(-10deg) scale(1.05); }
@@ -370,7 +370,7 @@
   .wa-float, .wa-wiggle { animation: none; }
 }
 
-/* Inline WhatsApp CTA — matches floating widget, works in .btn-pair grid */
+/* Inline WhatsApp CTA - matches floating widget, works in .btn-pair grid */
 .wa-btn {
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: #ffffff !important;
@@ -396,7 +396,7 @@
 }
 .wa-btn:active { transform: translateY(0) scale(0.97); }
 
-/* Continuous vibration — subtle shake + pulse loop */
+/* Continuous vibration - subtle shake + pulse loop */
 @keyframes wa-vibrate {
   0%, 88%, 100% { transform: translate3d(0, 0, 0) scale(1); }
   89% { transform: translate3d(-1px, 0, 0) scale(1.02); }
@@ -466,7 +466,7 @@ p, li, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: normal; }
 h1, h2, h3 { text-wrap: balance; }
 p, li { text-wrap: pretty; }
 
-/* Respect reduced motion — kill entrance/loop animations for users who
+/* Respect reduced motion - kill entrance/loop animations for users who
    requested it. Complements the WhatsApp-specific rules above. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -479,14 +479,14 @@ p, li { text-wrap: pretty; }
   .marquee-track { animation: none !important; }
 }
 
-/* Skip painting/layout for offscreen sections — big TBT/INP win. Apply via
+/* Skip painting/layout for offscreen sections - big TBT/INP win. Apply via
    className on any below-the-fold <section>. */
 @utility cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 800px;
 }
 
-/* Full dynamic viewport height — accounts for mobile browser chrome. */
+/* Full dynamic viewport height - accounts for mobile browser chrome. */
 @utility min-h-dvh { min-height: 100dvh; }
 
 /* Ensure interactive elements clear the WCAG 2.5.5 44×44 target on touch. */

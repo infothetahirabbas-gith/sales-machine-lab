@@ -10,7 +10,7 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "How is media buying different from running ads?",
-    "a": "Running ads is tactical. Media buying is strategic — channel mix, daypart, audience, creative refresh, and scaling math under one P&L view."
+    "a": "Running ads is tactical. Media buying is strategic - channel mix, daypart, audience, creative refresh, and scaling math under one P&L view."
   },
   {
     "q": "How do you decide channel mix?",
@@ -18,21 +18,21 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "What dashboards do I get?",
-    "a": "Daily blended MER, contribution margin, new-customer CAC and creative-level performance — usually in Triple Whale, Hyros or a custom Looker dashboard."
+    "a": "Daily blended MER, contribution margin, new-customer CAC and creative-level performance - usually in Triple Whale, Hyros or a custom Looker dashboard."
   },
   {
     "q": "Is this a fixed retainer or % of spend?",
-    "a": "Hybrid — fixed retainer up to a spend threshold, then a small % of spend above it. Aligns incentives without billing surprises."
+    "a": "Hybrid - fixed retainer up to a spend threshold, then a small % of spend above it. Aligns incentives without billing surprises."
   }
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/media-buying")({
   head: () => ({
     meta: [
-      { title: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
-      { name: "description", content: "Best media buying agency UK for Shopify and DTC ecommerce. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic — one P&L, one operator." },
+      { title: "Media Buying Agency UK - Cross-Channel Ecommerce Media Buyers | BeingEcom" },
+      { name: "description", content: "Best media buying agency UK for Shopify and DTC ecommerce. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic - one P&L, one operator." },
       { name: "keywords", content: "media buying agency UK, ecommerce media buyer, cross-channel media buying, blended ROAS agency, MER media buying, Shopify media buying, paid media agency UK" },
-      { property: "og:title", content: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
+      { property: "og:title", content: "Media Buying Agency UK - Cross-Channel Ecommerce Media Buyers | BeingEcom" },
       { property: "og:description", content: "Cross-channel media buying agency UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/media-buying" },
     ],
@@ -52,15 +52,15 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       eyebrow: "Media Buying",
       heroImage: heroImg,
       heroTitle: "Cross-channel media buying engineered for blended ROAS.",
-      heroSub: "Meta, Google and TikTok run as one P&L — MER targets, full-funnel allocation and weekly capital reallocation.",
+      heroSub: "Meta, Google and TikTok run as one P&L - MER targets, full-funnel allocation and weekly capital reallocation.",
       problemTitle: "Why single-channel buyers cap your scale.",
       problemBullets: [
         "Optimising per-channel ROAS instead of blended MER.",
-        "No cross-channel attribution — double-counting revenue.",
+        "No cross-channel attribution - double-counting revenue.",
         "Budgets stuck where last quarter worked.",
       ],
       whatIsTitle: "Media buying is capital allocation.",
-      whatIsBody: "Every channel earns or loses its budget weekly. We manage Meta, Google and TikTok as one portfolio against MER, incrementality and contribution margin — not vanity per-channel ROAS.",
+      whatIsBody: "Every channel earns or loses its budget weekly. We manage Meta, Google and TikTok as one portfolio against MER, incrementality and contribution margin - not vanity per-channel ROAS.",
       systemTitle: "Our media buying system.",
       systemSteps: [
         { title: "Portfolio audit", body: "Channel mix, MER baseline, attribution sanity." },
@@ -70,7 +70,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       ],
       pillarsTitle: "How we manage the portfolio.",
       pillars: [
-        { title: "Blended MER", body: "Revenue ÷ total spend — the only number that matters." },
+        { title: "Blended MER", body: "Revenue ÷ total spend - the only number that matters." },
         { title: "Contribution margin", body: "After COGS + shipping + fees, not just ROAS." },
         { title: "Incrementality", body: "Geo holdouts and lift studies, not platform ROAS." },
         { title: "Capital reallocation", body: "Weekly budget shifts to highest marginal return." },

@@ -5,25 +5,25 @@ import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What is international SEO?", a: "Ranking your ecommerce store across multiple countries and languages with the right domain/URL structure, hreflang, currency, translation and local authority signals." },
-  { q: "Subdomain, subfolder or ccTLD?", a: "For most UK DTC brands scaling internationally, subfolders (/us/, /de/, /fr/) on the main domain are safest — you keep authority. ccTLDs only make sense with local teams and local link building." },
-  { q: "Do you handle hreflang?", a: "Yes — full hreflang mapping, x-default, sitemap-based implementation and validation. Getting this wrong tanks international rankings." },
-  { q: "What about translation vs localisation?", a: "Machine translation is a starting point, never the finish line. We use native-speaker localisation for money pages, product copy, ads and email — cultural nuance sells." },
-  { q: "How long until international SEO shows results?", a: "3–6 months per new region — faster if you already have brand authority to pass through subfolder structure." },
+  { q: "Subdomain, subfolder or ccTLD?", a: "For most UK DTC brands scaling internationally, subfolders (/us/, /de/, /fr/) on the main domain are safest - you keep authority. ccTLDs only make sense with local teams and local link building." },
+  { q: "Do you handle hreflang?", a: "Yes - full hreflang mapping, x-default, sitemap-based implementation and validation. Getting this wrong tanks international rankings." },
+  { q: "What about translation vs localisation?", a: "Machine translation is a starting point, never the finish line. We use native-speaker localisation for money pages, product copy, ads and email - cultural nuance sells." },
+  { q: "How long until international SEO shows results?", a: "3–6 months per new region - faster if you already have brand authority to pass through subfolder structure." },
 ];
 
 export const Route = createFileRoute("/services/seo/international")({
   head: () => ({
     meta: [
-      { title: "International SEO Agency UK — Multi-Country & Multilingual SEO | BeingEcom" },
+      { title: "International SEO Agency UK - Multi-Country & Multilingual SEO | BeingEcom" },
       { name: "description", content: "International SEO for UK ecommerce brands scaling into the US, EU and beyond. Hreflang, subfolder architecture, localisation and country-level authority." },
-      { property: "og:title", content: "International SEO Agency UK — Multi-Country & Multilingual SEO | BeingEcom" },
+      { property: "og:title", content: "International SEO Agency UK - Multi-Country & Multilingual SEO | BeingEcom" },
       { property: "og:description", content: "International SEO for UK ecommerce brands scaling into the US, EU and beyond. Hreflang, subfolder architecture, localisation and country-level authority." },
       { property: "og:url", content: "https://beingecom.com/services/seo/international" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/international" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/international", name: "International SEO", description: "International SEO — hreflang, subfolder architecture, localisation and country authority." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/international", name: "International SEO", description: "International SEO - hreflang, subfolder architecture, localisation and country authority." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "International SEO", path: "/services/seo/international" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/international")) },
     ],
@@ -33,11 +33,11 @@ export const Route = createFileRoute("/services/seo/international")({
       slug: "seo-international",
       eyebrow: "International SEO",
       heroImage: heroImg,
-      heroTitle: "Scale your UK brand into the US, EU and beyond — profitably.",
+      heroTitle: "Scale your UK brand into the US, EU and beyond - profitably.",
       heroSub: "International SEO that gets the architecture, hreflang and localisation right the first time.",
       problemTitle: "Why UK brands stall when they go international.",
       problemBullets: [
-        "US pages ranking under UK URLs — wrong country, wrong currency.",
+        "US pages ranking under UK URLs - wrong country, wrong currency.",
         "Hreflang missing or misconfigured, cannibalisation everywhere.",
         "Google-translated copy that reads like machine output.",
       ],
@@ -78,7 +78,7 @@ export const Route = createFileRoute("/services/seo/international")({
         result: "US organic sessions +410%, US CR 3.4%, US revenue £220k/mo in 6 months.",
         metrics: [{ label: "US organic", value: "+410%" }, { label: "US CR", value: "3.4%" }, { label: "US MRR", value: "£220k" }],
       },
-      ctaTitle: "Take your UK brand global — the right way.",
+      ctaTitle: "Take your UK brand global - the right way.",
       impactStats: [
         { value: "+410%", label: "US organic" },
         { value: "3.4%", label: "US conversion rate" },

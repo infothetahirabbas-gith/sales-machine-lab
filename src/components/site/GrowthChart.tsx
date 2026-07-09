@@ -56,7 +56,7 @@ const CHART_W = W - PAD_L - PAD_R;
 const CHART_H = H - PAD_T - PAD_B;
 
 /**
- * Format an axis tick so the unit sits in the right place — currency goes
+ * Format an axis tick so the unit sits in the right place - currency goes
  * BEFORE the number ("£100K"), symbols/percent go AFTER ("88%", "4.2×").
  * Previously we concatenated `${t}${yLabel}` which produced "100£K".
  */

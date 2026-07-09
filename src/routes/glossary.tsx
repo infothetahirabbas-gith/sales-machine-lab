@@ -8,17 +8,17 @@ const terms = [
     term: "Keywords",
     definition:
       "Keywords are the exact words and phrases shoppers type into Google when they want to find, compare, or buy a product. They are the bridge between customer intent and your store.",
-    why: "Targeting the right keywords means your products show up in front of buyers who are ready to spend — not just browsers. Wrong keywords = wasted content and zero revenue.",
+    why: "Targeting the right keywords means your products show up in front of buyers who are ready to spend - not just browsers. Wrong keywords = wasted content and zero revenue.",
     example:
       "A skincare brand targeting \"vitamin C serum for oily skin\" attracts high-intent buyers, while \"best skincare\" mostly attracts researchers who don't convert.",
   },
   {
     term: "Backlinks",
     definition:
-      "A backlink is a link from another website pointing to yours. Google treats each one as a vote of confidence — the more trusted the source, the more powerful the vote.",
+      "A backlink is a link from another website pointing to yours. Google treats each one as a vote of confidence - the more trusted the source, the more powerful the vote.",
     why: "Backlinks are still one of Google's top 3 ranking factors in 2026. Quality links from real publications, blogs, and partner brands push your product and collection pages above competitors.",
     example:
-      "A Shopify coffee brand featured in Forbes and a niche barista blog will outrank a competitor with zero mentions — even with weaker on-page SEO.",
+      "A Shopify coffee brand featured in Forbes and a niche barista blog will outrank a competitor with zero mentions - even with weaker on-page SEO.",
   },
   {
     term: "Title Tag",
@@ -26,12 +26,12 @@ const terms = [
       "The title tag is the clickable blue headline that appears in Google's search results. It's the first impression of your page in the SERP and a primary ranking signal.",
     why: "A weak title kills clicks even if you rank #1. A sharp, benefit-led title with the right keyword can lift CTR 20–60% and pull traffic from competitors above you.",
     example:
-      "\"Buy Wireless Earbuds\" is generic. \"Wireless Earbuds — 40H Battery, Free 2-Day Shipping | Brand\" wins the click.",
+      "\"Buy Wireless Earbuds\" is generic. \"Wireless Earbuds - 40H Battery, Free 2-Day Shipping | Brand\" wins the click.",
   },
   {
     term: "Crawling",
     definition:
-      "Crawling is how Google's bots discover the pages on your store by following links and reading your sitemap. If a page isn't crawled, it cannot rank — period.",
+      "Crawling is how Google's bots discover the pages on your store by following links and reading your sitemap. If a page isn't crawled, it cannot rank - period.",
     why: "Most ecommerce stores waste their crawl budget on filters, tags, and duplicate URLs. Cleaning this up lets Google find and rank the pages that actually make money.",
     example:
       "A Shopify store with 800 filter URLs (color, size, price) often has only 60 product pages crawled. Blocking the noise gets the real PDPs indexed in days.",
@@ -40,9 +40,9 @@ const terms = [
     term: "SERP (Search Engine Results Page)",
     definition:
       "The SERP is the page Google shows after someone searches. It includes ads, product listings, organic results, images, videos, AI overviews, and featured snippets.",
-    why: "In 2026, the organic top 3 isn't enough — you need to win across multiple SERP features: shopping results, AI overviews, reviews, and rich snippets to capture real attention.",
+    why: "In 2026, the organic top 3 isn't enough - you need to win across multiple SERP features: shopping results, AI overviews, reviews, and rich snippets to capture real attention.",
     example:
-      "For \"best running shoes\", winning brands appear in Google Shopping, organic results, AI Overviews, AND a video carousel — not just one spot.",
+      "For \"best running shoes\", winning brands appear in Google Shopping, organic results, AI Overviews, AND a video carousel - not just one spot.",
   },
   {
     term: "Meta Description",
@@ -64,17 +64,17 @@ const terms = [
     term: "Indexing",
     definition:
       "Indexing is when Google stores your page in its database so it can show up in search results. Crawled ≠ indexed. Indexed = eligible to rank.",
-    why: "Thousands of ecommerce stores have hundreds of products that are crawled but never indexed — meaning zero traffic. Fixing indexation alone often unlocks instant organic growth.",
+    why: "Thousands of ecommerce stores have hundreds of products that are crawled but never indexed - meaning zero traffic. Fixing indexation alone often unlocks instant organic growth.",
     example:
       "An apparel store with 1,200 SKUs but only 180 indexed pages is leaving 85% of its potential Google revenue on the table.",
   },
   {
     term: "Organic Traffic",
     definition:
-      "Organic traffic is the unpaid visitors who land on your store directly from search engines like Google and Bing. No ad spend — pure earned attention.",
+      "Organic traffic is the unpaid visitors who land on your store directly from search engines like Google and Bing. No ad spend - pure earned attention.",
     why: "It's the most profitable channel in ecommerce. Unlike paid ads, organic traffic compounds month after month and keeps converting long after the work is done.",
     example:
-      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits — the equivalent of £15K–£40K/month in paid ad spend.",
+      "A brand that builds 30 SEO-optimised blog posts can generate 50K+ free monthly visits - the equivalent of £15K–£40K/month in paid ad spend.",
   },
   {
     term: "Alt Text",
@@ -82,12 +82,12 @@ const terms = [
       "Alt text is the written description of an image inside your store's code. It helps visually impaired users, and helps Google understand what the image shows.",
     why: "Ecommerce stores live on images. Strong alt text wins traffic from Google Images, improves accessibility, and adds keyword context to product pages without keyword stuffing.",
     example:
-      "Instead of \"IMG_2245.jpg\", use \"Men's black leather chelsea boots, side view\" — and watch product pages start ranking in Google Images.",
+      "Instead of \"IMG_2245.jpg\", use \"Men's black leather chelsea boots, side view\" - and watch product pages start ranking in Google Images.",
   },
   {
     term: "Bounce Rate",
     definition:
-      "Bounce rate is the percentage of visitors who land on your store and leave without taking any action — no click, no scroll engagement, no add-to-cart.",
+      "Bounce rate is the percentage of visitors who land on your store and leave without taking any action - no click, no scroll engagement, no add-to-cart.",
     why: "A high bounce rate signals to Google that your page didn't match the visitor's intent. Fixing it improves rankings AND conversions at the same time.",
     example:
       "A PDP with 78% bounce usually has slow load, weak hero image, or unclear price. Cutting bounce to 45% often doubles conversion rate within weeks.",
@@ -98,7 +98,7 @@ const terms = [
       "Ranking is the position your page holds on Google for a specific keyword. Position 1 gets ~27% of clicks; position 10 gets under 2%.",
     why: "Moving from page 2 to position 3 can 10× your traffic without spending a dollar on ads. Rankings are the single biggest lever for compounding organic revenue.",
     example:
-      "A skincare PDP moving from #12 to #3 for \"retinol serum\" can go from 0 sales to 40+ orders per day — same product, same price.",
+      "A skincare PDP moving from #12 to #3 for \"retinol serum\" can go from 0 sales to 40+ orders per day - same product, same price.",
   },
   {
     term: "On-Page SEO",
@@ -112,17 +112,17 @@ const terms = [
     term: "Off-Page SEO",
     definition:
       "Off-page SEO is everything that happens outside your store to build authority: backlinks, brand mentions, PR, influencer features, reviews, and social signals.",
-    why: "Google trusts brands the internet talks about. Strong off-page SEO is the moat that makes your rankings durable — and stops cheaper competitors from copying you.",
+    why: "Google trusts brands the internet talks about. Strong off-page SEO is the moat that makes your rankings durable - and stops cheaper competitors from copying you.",
     example:
       "Two Shopify stores selling the same supplement: the one featured on Healthline, Reddit, and 5 niche blogs ranks #1. The other ranks #14.",
   },
   {
     term: "Schema Markup",
     definition:
-      "Schema markup is structured code added to your pages that helps Google understand your content — products, prices, reviews, FAQs, breadcrumbs, and more.",
+      "Schema markup is structured code added to your pages that helps Google understand your content - products, prices, reviews, FAQs, breadcrumbs, and more.",
     why: "It unlocks rich results: star ratings, price, stock status, and FAQs directly in the SERP. These rich snippets can lift CTR by 30–80% with zero ranking change.",
     example:
-      "A product page with Product + Review + FAQ schema shows ⭐ 4.8 (212 reviews), £49, In stock — and steals clicks from the position above it.",
+      "A product page with Product + Review + FAQ schema shows ⭐ 4.8 (212 reviews), £49, In stock - and steals clicks from the position above it.",
   },
 ];
 
@@ -134,17 +134,17 @@ const faqs = terms.map((t) => ({
 export const Route = createFileRoute("/glossary")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
+      { title: "Ecommerce Glossary UK - Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         name: "description",
         content:
-          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms - written for founders and marketers.",
       },
-      { property: "og:title", content: "Ecommerce Glossary UK — Shopify, SEO, CRO & PPC Terms | BeingEcom" },
+      { property: "og:title", content: "Ecommerce Glossary UK - Shopify, SEO, CRO & PPC Terms | BeingEcom" },
       {
         property: "og:description",
         content:
-          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms — written for founders and marketers.",
+          "A plain-English UK ecommerce glossary. Definitions for Shopify, SEO, CRO, PPC, email and analytics terms - written for founders and marketers.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: `${SITE_URL}/glossary` },
@@ -180,7 +180,7 @@ function GlossaryPage() {
             The Ecommerce SEO Glossary
           </h1>
           <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            15 essential SEO terms every Shopify & WooCommerce founder must know — explained
+            15 essential SEO terms every Shopify & WooCommerce founder must know - explained
             simply, with real ecommerce examples that drive traffic, rankings, and revenue.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -268,7 +268,7 @@ function GlossaryPage() {
             Ready to turn SEO into real revenue?
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Get a free 12-point ecommerce SEO audit of your Shopify or WooCommerce store — built by
+            Get a free 12-point ecommerce SEO audit of your Shopify or WooCommerce store - built by
             senior operators, not junior analysts.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">

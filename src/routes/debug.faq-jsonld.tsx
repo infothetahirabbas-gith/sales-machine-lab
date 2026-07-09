@@ -5,7 +5,7 @@ export const Route = createFileRoute("/debug/faq-jsonld")({
   component: FaqJsonLdInspector,
   head: () => ({
     meta: [
-      { title: "FAQ JSON-LD Inspector — Debug" },
+      { title: "FAQ JSON-LD Inspector - Debug" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -190,9 +190,9 @@ function FaqJsonLdInspector() {
         {data && !error && (
           <>
             <div className="grid gap-3 sm:grid-cols-3 mb-4">
-              <Stat label="Requested" value={data.requestedPath ?? "—"} />
-              <Stat label="Canonical" value={data.canonicalPath ?? "—"} />
-              <Stat label="Questions" value={String(data.questionCount ?? "—")} />
+              <Stat label="Requested" value={data.requestedPath ?? "-"} />
+              <Stat label="Canonical" value={data.canonicalPath ?? "-"} />
+              <Stat label="Questions" value={String(data.questionCount ?? "-")} />
             </div>
 
             {data.validation && (
@@ -263,7 +263,7 @@ function FaqJsonLdInspector() {
                 </pre>
               ) : (
                 <div className="p-4 text-xs text-muted-foreground">
-                  No previous fetch to diff against — change the route or refetch after edits to compare.
+                  No previous fetch to diff against - change the route or refetch after edits to compare.
                 </div>
               )}
             </div>

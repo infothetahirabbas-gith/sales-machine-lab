@@ -13,21 +13,21 @@ const COUNTRIES = [
 
 const SERVICES = [
   { slug: "seo", name: "Ecommerce SEO" },
-  { slug: "seo-on-page", name: "— On-Page SEO" },
-  { slug: "seo-off-page", name: "— Off-Page SEO" },
-  { slug: "seo-technical", name: "— Technical SEO" },
-  { slug: "seo-local", name: "— Local SEO" },
-  { slug: "seo-aeo", name: "— AEO / AI Search" },
-  { slug: "seo-international", name: "— International SEO" },
+  { slug: "seo-on-page", name: "- On-Page SEO" },
+  { slug: "seo-off-page", name: "- Off-Page SEO" },
+  { slug: "seo-technical", name: "- Technical SEO" },
+  { slug: "seo-local", name: "- Local SEO" },
+  { slug: "seo-aeo", name: "- AEO / AI Search" },
+  { slug: "seo-international", name: "- International SEO" },
   { slug: "performance-marketing", name: "Performance Marketing" },
-  { slug: "ads-facebook", name: "— Facebook Ads" },
-  { slug: "ads-instagram", name: "— Instagram Ads" },
-  { slug: "ads-tiktok", name: "— TikTok Ads" },
-  { slug: "ads-google", name: "— Google Ads" },
-  { slug: "ads-youtube", name: "— YouTube Ads" },
+  { slug: "ads-facebook", name: "- Facebook Ads" },
+  { slug: "ads-instagram", name: "- Instagram Ads" },
+  { slug: "ads-tiktok", name: "- TikTok Ads" },
+  { slug: "ads-google", name: "- Google Ads" },
+  { slug: "ads-youtube", name: "- YouTube Ads" },
   { slug: "store-development", name: "Store Development" },
-  { slug: "store-shopify", name: "— Shopify Development" },
-  { slug: "store-woocommerce", name: "— WooCommerce Development" },
+  { slug: "store-shopify", name: "- Shopify Development" },
+  { slug: "store-woocommerce", name: "- WooCommerce Development" },
   { slug: "cro", name: "Conversion Rate Optimisation" },
   { slug: "creative", name: "Creative Production" },
   { slug: "email-sms", name: "Email Marketing" },
@@ -213,7 +213,7 @@ export default function WelcomeBanner() {
               value={location}
               onChange={setLocation}
               placeholder="Choose a city…"
-              options={LOCATIONS.map((l) => ({ value: l.slug, label: `${l.city} — ${l.region}` }))}
+              options={LOCATIONS.map((l) => ({ value: l.slug, label: `${l.city} - ${l.region}` }))}
             />
           )}
           {step === 2 && (
@@ -245,7 +245,7 @@ export default function WelcomeBanner() {
           )}
         </div>
 
-        {/* Footer actions — sticky, prominent CTA */}
+        {/* Footer actions - sticky, prominent CTA */}
         <div className="sticky bottom-0 border-t-2 border-primary/20 px-5 py-4 md:py-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-background shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)]">
           <button
             onClick={() => step > 0 && setStep((step - 1) as Step)}

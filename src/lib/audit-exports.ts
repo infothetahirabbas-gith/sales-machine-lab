@@ -54,14 +54,14 @@ function flatRows(r: AuditReport): { section: string; key: string; value: string
   push("Confidence", "Signals detected", `${r.confidenceBreakdown.detectedSignals}/${r.confidenceBreakdown.scannedSignals}`);
   push("Confidence", "Coverage", r.confidenceBreakdown.coverageNote);
   r.confidenceBreakdown.categories.forEach((category) => {
-    push("Confidence", category.category, `${category.confidence}% — ${category.recommendation}`);
+    push("Confidence", category.category, `${category.confidence}% - ${category.recommendation}`);
     category.drivers.forEach((driver, idx) =>
       push(`Signals: ${category.category}`, `${idx + 1}. ${driver.signal}`, `${driver.detected ? "Detected" : "Not detected"} | ${driver.evidence} | ${driver.impact}`));
   });
-  push("SEO", "Technical", `${r.seoIntelligence.technical.score}/100 — ${r.seoIntelligence.technical.verdict}`);
-  push("SEO", "On-Page", `${r.seoIntelligence.onPage.score}/100 — ${r.seoIntelligence.onPage.verdict}`);
-  push("SEO", "Content Authority", `${r.seoIntelligence.contentAuthority.score}/100 — ${r.seoIntelligence.contentAuthority.verdict}`);
-  push("SEO", "Commercial SEO", `${r.seoIntelligence.commercialSeo.score}/100 — ${r.seoIntelligence.commercialSeo.verdict}`);
+  push("SEO", "Technical", `${r.seoIntelligence.technical.score}/100 - ${r.seoIntelligence.technical.verdict}`);
+  push("SEO", "On-Page", `${r.seoIntelligence.onPage.score}/100 - ${r.seoIntelligence.onPage.verdict}`);
+  push("SEO", "Content Authority", `${r.seoIntelligence.contentAuthority.score}/100 - ${r.seoIntelligence.contentAuthority.verdict}`);
+  push("SEO", "Commercial SEO", `${r.seoIntelligence.commercialSeo.score}/100 - ${r.seoIntelligence.commercialSeo.verdict}`);
   push("SEO", "Competitive Gap", r.seoIntelligence.competitiveSeoGap);
   r.seoIntelligence.technicalIssues.forEach((i, idx) => push("SEO Issues", `#${idx + 1}`, i));
   Object.entries(r.adsIntelligence).forEach(([k, v]) => push("Ads", k, String(v)));
@@ -185,7 +185,7 @@ export function downloadPDF(r: AuditReport, url: string) {
   doc.rect(0, 0, W, 90, "F");
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(18); doc.setFont("helvetica", "bold");
-  doc.text("Being Ecom Brain™ — Growth Intelligence Report", M, 38);
+  doc.text("Being Ecom Brain™ - Growth Intelligence Report", M, 38);
   doc.setFontSize(10); doc.setFont("helvetica", "normal");
   doc.text(`${r.storeName} · ${url}`, M, 56);
   doc.text(`${r.platformGuess} · ${r.business.industry} · Generated ${new Date().toLocaleString()}`, M, 70);

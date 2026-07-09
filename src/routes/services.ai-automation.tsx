@@ -6,7 +6,7 @@ import heroImg from "../assets/hero-ai-automation.jpg";
 const FAQ_LIST: FAQ[] = [
   {
     "q": "What does an AI automation agency actually do for ecommerce?",
-    "a": "We build AI agents and workflows that automate support, product tagging, content generation, ad copy, abandoned-cart sequences and ops reporting — so your team ships more without hiring."
+    "a": "We build AI agents and workflows that automate support, product tagging, content generation, ad copy, abandoned-cart sequences and ops reporting - so your team ships more without hiring."
   },
   {
     "q": "Will AI automation replace my team?",
@@ -14,7 +14,7 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Which tools do you build on?",
-    "a": "OpenAI, Anthropic Claude, n8n, Zapier, Make, Klaviyo, Shopify Flow, custom Cloudflare Workers and Supabase — chosen per use case, not per fashion."
+    "a": "OpenAI, Anthropic Claude, n8n, Zapier, Make, Klaviyo, Shopify Flow, custom Cloudflare Workers and Supabase - chosen per use case, not per fashion."
   },
   {
     "q": "How fast can we go live?",
@@ -22,16 +22,16 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Is it safe to give AI access to my store data?",
-    "a": "Yes — we scope keys, use read-only roles where possible, log every action and keep a human-in-the-loop on anything destructive."
+    "a": "Yes - we scope keys, use read-only roles where possible, log every action and keep a human-in-the-loop on anything destructive."
   }
 ];
 
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({
     meta: [
-      { title: "AI Automation Agency UK — AI Agents & Workflows for Ecommerce | BeingEcom" },
+      { title: "AI Automation Agency UK - AI Agents & Workflows for Ecommerce | BeingEcom" },
       { name: "description", content: "UK AI automation agency for ecommerce. AI customer support, product enrichment and workflow automations that cut costs and lift LTV." },
-      { property: "og:title", content: "AI Automation Agency UK — AI Agents & Workflows for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "AI Automation Agency UK - AI Agents & Workflows for Ecommerce | BeingEcom" },
       { property: "og:description", content: "UK AI automation agency for ecommerce. AI customer support, product enrichment and workflow automations that cut costs and lift LTV." },
       { property: "og:url", content: "https://beingecom.com/services/ai-automation" },
     ],
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/ai-automation")({
       eyebrow: "AI Automation",
       heroImage: heroImg,
       heroTitle: "AI automations that compound ecommerce margins.",
-      heroSub: "AI agents, workflows and AI-powered CRO — built to remove cost, lift conversion and free your team.",
+      heroSub: "AI agents, workflows and AI-powered CRO - built to remove cost, lift conversion and free your team.",
       problemTitle: "Why most ecommerce teams drown in busywork.",
       problemBullets: [
         "Manual support tickets eating margin.",
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/ai-automation")({
         "Marketing ops stitched together with screenshots.",
       ],
       whatIsTitle: "AI is leverage, not a feature.",
-      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift — support deflection, catalogue enrichment, personalisation, content velocity — and build them into your stack.",
+      whatIsBody: "We pick the workflows where AI removes a real cost or unlocks a real lift - support deflection, catalogue enrichment, personalisation, content velocity - and build them into your stack.",
       systemTitle: "Our AI automation system.",
       systemSteps: [
         { title: "Workflow audit", body: "Map manual workflows, cost-rank, automation-rank." },
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/services/ai-automation")({
       ],
       deepBlocks: [
         { title: "AI support agents", body: "Trained on docs + tickets, escalation to human, CSAT measured.", tags: ["Gorgias","Zendesk","CSAT"] },
-        { title: "Catalog enrichment", body: "Bulk titles, descriptions, attributes, alt text — SEO-aware.", tags: ["Shopify","SEO","Bulk"] },
+        { title: "Catalog enrichment", body: "Bulk titles, descriptions, attributes, alt text - SEO-aware.", tags: ["Shopify","SEO","Bulk"] },
         { title: "Personalisation", body: "AI-driven product recs, hero variants, offer logic.", tags: ["Recs","A/B","Variants"] },
         { title: "Workflow agents", body: "Brief-to-asset, reporting agents, segmentation triggers.", tags: ["Klaviyo","Reporting","Triggers"] },
       ],
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/services/ai-automation")({
         result: "65% deflection, <5min response, CSAT up 18pts.",
         metrics: [{ label: "Deflection", value: "65%" }, { label: "Response", value: "<5min" }, { label: "Days", value: "60" }],
       },
-      ctaTitle: "Want AI that earns its keep — not just a chatbot?",
+      ctaTitle: "Want AI that earns its keep - not just a chatbot?",
       impactStats: [
         { value: "65%", label: "Support deflection" },
         { value: "10×", label: "Catalog velocity" },

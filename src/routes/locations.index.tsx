@@ -35,7 +35,7 @@ function LocationsIndex() {
             <SplitHeading value="Ecommerce growth, everywhere in the UK" />
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            We work with UK DTC and Shopify brands across every major city — London to Edinburgh — with a fully remote, senior operator team.
+            We work with UK DTC and Shopify brands across every major city - London to Edinburgh - with a fully remote, senior operator team.
           </p>
         </div>
       </section>

@@ -1,6 +1,6 @@
 // Single source of truth for headline stats shown across the site.
 // Every hero, trust bar, footer, "about" number or schema field MUST
-// import from here. Update once — updates everywhere.
+// import from here. Update once - updates everywhere.
 //
 // Numbers must be verifiable and match the wording on /about and /contact.
 // Currency is always GBP (£). The parity guard rejects any `$\d` currency

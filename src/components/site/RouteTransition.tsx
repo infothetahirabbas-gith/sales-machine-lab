@@ -3,7 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 
 /**
  * Top-loading bar + subtle fade wrapper for route transitions.
- * Never blocks paint — the previous page stays visible while the next
+ * Never blocks paint - the previous page stays visible while the next
  * one loads, so the user never sees a blank screen.
  */
 export function RouteProgressBar() {

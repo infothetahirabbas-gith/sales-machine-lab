@@ -4,7 +4,7 @@ import { Section } from "../components/site/Section";
 import { LOCATIONS, INDUSTRIES } from "../lib/locations-industries";
 
 const SERVICE_MAP: Record<string, { name: string; blurb: string; route: string }> = {
-  "seo": { name: "Ecommerce SEO", blurb: "Rank products & collections on Google and AI search — free traffic that compounds.", route: "/services/seo" },
+  "seo": { name: "Ecommerce SEO", blurb: "Rank products & collections on Google and AI search - free traffic that compounds.", route: "/services/seo" },
   "performance-marketing": { name: "Performance Marketing", blurb: "Meta, Google & TikTok ads built to scale profitably.", route: "/services/performance-marketing" },
   "cro": { name: "Conversion Rate Optimisation", blurb: "Turn existing traffic into 2-3× more sales.", route: "/services/cro" },
   "email-sms": { name: "Email & SMS Marketing", blurb: "Recover lost sales. Multiply repeat customers.", route: "/services/email-sms" },

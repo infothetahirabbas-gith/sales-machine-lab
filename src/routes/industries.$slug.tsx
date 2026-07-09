@@ -28,7 +28,7 @@ export const Route = createFileRoute("/industries/$slug")({
     const ind = loaderData?.ind;
     const title = ind
       ? `${ind.name} Ecommerce Agency UK | Being Ecom`
-      : "Industry — Being Ecom";
+      : "Industry - Being Ecom";
     const desc = ind
       ? `${ind.name} ecommerce growth agency in the UK. Creative, paid media, CRO and retention built specifically for ${ind.name.toLowerCase()} DTC brands scaling profitably.`
       : "UK ecommerce agency by industry.";
@@ -178,7 +178,7 @@ function IndustryPage() {
   ];
 
   const FUNNEL = [
-    { stage: "TOF", label: "Discovery", body: "New-audience creative + broad Meta / Shopping — hooks that stop the scroll." },
+    { stage: "TOF", label: "Discovery", body: "New-audience creative + broad Meta / Shopping - hooks that stop the scroll." },
     { stage: "MOF", label: "Consideration", body: "Retargeting, comparison content, review UGC, quiz-based routing." },
     { stage: "BOF", label: "Conversion", body: "Cart abandon flows, urgency offers, PDP CRO, checkout optimisation." },
     { stage: "LTV", label: "Retention", body: "Lifecycle email/SMS, subscription CRO, referral + loyalty." },
@@ -264,7 +264,7 @@ function IndustryPage() {
       </section>
 
       {/* 3. SUB-VERTICALS */}
-      <Section eyebrow="Sub-verticals" title={`${ind.name} categories we scale`} intro="One shared growth engine — tuned per sub-category so nothing is generic.">
+      <Section eyebrow="Sub-verticals" title={`${ind.name} categories we scale`} intro="One shared growth engine - tuned per sub-category so nothing is generic.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {C.categories.map((c, i) => {
             const anchor = c.id ?? c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -308,11 +308,11 @@ function IndustryPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { n: "3", u: "UGC + motion creatives", d: "Named tests with a clear hypothesis." },
-            { n: "5+", u: "Ad tests shipped", d: "Hooks, offers, audiences — one variable at a time." },
+            { n: "5+", u: "Ad tests shipped", d: "Hooks, offers, audiences - one variable at a time." },
             { n: "1", u: "Loom performance walk-through", d: "What worked, what failed, what's next." },
             { n: "1-2", u: "Klaviyo campaigns", d: "Segmented sends tuned to your lifecycle." },
             { n: "1", u: "Flow / PDP CRO update", d: "One meaningful conversion improvement live." },
-            { n: "1", u: "Founder Slack sync", d: "Direct line to your senior operators — no account managers." },
+            { n: "1", u: "Founder Slack sync", d: "Direct line to your senior operators - no account managers." },
           ].map((c, i) => (
             <Reveal key={c.u} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <div className="card-surface p-5 flex gap-4">
@@ -393,7 +393,7 @@ function IndustryPage() {
             <div className="flex items-start gap-3">
               <TrendingDown className="w-6 h-6 text-primary shrink-0 mt-1" />
               <div>
-                <div className="font-bold text-ink">Get the exact leaks in your store — free.</div>
+                <div className="font-bold text-ink">Get the exact leaks in your store - free.</div>
                 <div className="text-sm text-muted-foreground">Our Being Ecom Brain™ audit scores 17 phases in under 60 seconds.</div>
               </div>
             </div>
@@ -414,7 +414,7 @@ function IndustryPage() {
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-ink"><CountUp end={0} />%</span>
-                  <span className="text-sm text-muted-foreground">CAC on organic clicks — forever.</span>
+                  <span className="text-sm text-muted-foreground">CAC on organic clicks - forever.</span>
                 </div>
                 <div className="text-sm text-muted-foreground">Meanwhile Meta CPMs rose 61% YoY. SEO is the only channel where scale <span className="font-semibold text-ink">lowers</span> unit cost.</div>
               </div>
@@ -472,11 +472,11 @@ function IndustryPage() {
         </div>
       </Section>
 
-      {/* 7. OUR PROCESS — industry-flavored, 7 steps unique per vertical */}
+      {/* 7. OUR PROCESS - industry-flavored, 7 steps unique per vertical */}
       <Section eyebrow="How we work" title={`Our process for scaling ${ind.name.toLowerCase()} brands`}>
         <Reveal>
           <p className="max-w-3xl text-muted-foreground -mt-4 mb-8">
-            The same operating system that scaled 120+ UK stores — sequenced for how {ind.name.toLowerCase()} buyers actually shop, from first click to third repeat order.
+            The same operating system that scaled 120+ UK stores - sequenced for how {ind.name.toLowerCase()} buyers actually shop, from first click to third repeat order.
           </p>
         </Reveal>
         <div className="relative">
@@ -639,7 +639,7 @@ function IndustryPage() {
         </Reveal>
       </Section>
 
-      {/* 14b. RELATED CASE STUDIES — filtered from the master case-study
+      {/* 14b. RELATED CASE STUDIES - filtered from the master case-study
           taxonomy by industrySlug. Falls back to an "on request" card when
           the industry has no published studies yet, so the page never
           orphans a taxonomy entry. */}
@@ -650,7 +650,7 @@ function IndustryPage() {
             return (
               <div className="rounded-2xl border border-border bg-card p-8 text-center">
                 <div className="text-sm font-semibold text-primary uppercase tracking-widest">On request</div>
-                <p className="mt-3 text-ink font-medium">We've run this playbook for {ind.name.toLowerCase()} brands under NDA — public write-ups coming soon. Ask us for a walkthrough on your next call.</p>
+                <p className="mt-3 text-ink font-medium">We've run this playbook for {ind.name.toLowerCase()} brands under NDA - public write-ups coming soon. Ask us for a walkthrough on your next call.</p>
                 <Link to="/contact" className="mt-6 btn btn-primary hover-scale inline-flex">Request a walkthrough <ArrowRight className="w-4 h-4" /></Link>
               </div>
             );
@@ -723,7 +723,7 @@ function IndustryPage() {
               "{C.testimonial.quote}"
             </p>
             <footer className="mt-6 text-sm text-muted-foreground">
-              <span className="font-semibold text-ink">{C.testimonial.name}</span> — {C.testimonial.role}
+              <span className="font-semibold text-ink">{C.testimonial.name}</span> - {C.testimonial.role}
             </footer>
           </blockquote>
         </Reveal>
@@ -743,7 +743,7 @@ function IndustryPage() {
         </div>
       </Section>
 
-      {/* 18. SUB-SERVICES — deep-dive service pages built for this industry */}
+      {/* 18. SUB-SERVICES - deep-dive service pages built for this industry */}
       <Section eyebrow="Go deeper" title={`Service pages built for ${ind.name.toLowerCase()} brands`} intro="Every service below is tuned for your vertical. Click through for scope, deliverables and pricing." alt>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {([
@@ -797,7 +797,7 @@ function IndustryPage() {
                   to={s.to}
                   {...(("params" in s && s.params) ? { params: s.params } : {})}
                   className="block relative aspect-[16/9] overflow-hidden"
-                  aria-label={`${s.title} — overview`}
+                  aria-label={`${s.title} - overview`}
                 >
                   <SafeImg
                     src={s.img}
@@ -878,7 +878,7 @@ function IndustryPage() {
         eyebrow={`${ind.name} FAQ`}
         title={`Questions ${ind.name.toLowerCase()} founders`}
         highlight="ask us"
-        intro="If we haven't answered it, message the team on WhatsApp — usually a reply within the hour on UK business days."
+        intro="If we haven't answered it, message the team on WhatsApp - usually a reply within the hour on UK business days."
       />
 
       {/* 21. WHATSAPP QUICK BAR */}
@@ -907,7 +907,7 @@ function IndustryPage() {
       {/* 22. FINAL CTA */}
       <CTA
         heading={`Ready to scale your ${ind.name.toLowerCase()} brand?`}
-        sub="Book a free strategy call — we'll show you the exact plays your competitors are already running."
+        sub="Book a free strategy call - we'll show you the exact plays your competitors are already running."
       />
     </PageLayout>
   );

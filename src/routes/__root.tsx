@@ -13,13 +13,13 @@ import {
 
 import appCss from "../styles.css?url";
 // Preload the hero H1 font weight so it's fetched in parallel with CSS
-// instead of after CSS parse — cuts FCP on mobile ~100-200ms.
+// instead of after CSS parse - cuts FCP on mobile ~100-200ms.
 import poppins700 from "@fontsource/poppins/files/poppins-latin-700-normal.woff2?url";
 import poppins600 from "@fontsource/poppins/files/poppins-latin-600-normal.woff2?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
 
-// Deferred — these are not needed for first paint. Loading them lazily
+// Deferred - these are not needed for first paint. Loading them lazily
 // removes ~significant JS from the initial bundle and keeps LCP fast.
 const WelcomeBanner = lazy(() => import("../components/site/WelcomeBanner"));
 const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
@@ -99,14 +99,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "format-detection", content: "telephone=no" },
       { name: "theme-color", content: "#0F172A" },
       { name: "google-site-verification", content: "w_9CNCsYa-LbUVVIhpJi9baWOsIZaIjsG4jWxAoU2Eg" },
-      { title: "BeingEcom — Shopify & WooCommerce Growth Agency" },
+      { title: "BeingEcom - Shopify & WooCommerce Growth Agency" },
       { name: "description", content: "We turn struggling Shopify & WooCommerce stores into scalable revenue machines with ads, CRO, SEO, and automation." },
-      { property: "og:title", content: "BeingEcom — Shopify & WooCommerce Growth Agency" },
+      { property: "og:title", content: "BeingEcom - Shopify & WooCommerce Growth Agency" },
       { property: "og:description", content: "We turn struggling Shopify & WooCommerce stores into scalable revenue machines with ads, CRO, SEO, and automation." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:site_name", content: "BeingEcom" },
-      { name: "twitter:title", content: "BeingEcom — Shopify & WooCommerce Growth Agency" },
+      { name: "twitter:title", content: "BeingEcom - Shopify & WooCommerce Growth Agency" },
       { name: "twitter:description", content: "We turn struggling Shopify & WooCommerce stores into scalable revenue machines with ads, CRO, SEO, and automation." },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
     ],
@@ -166,7 +166,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   // Mount deferred client-only widgets AFTER first paint so they never
   // block LCP or TTI on the initial load. Google Translate is desktop-only
-  // (≥1024px) — on mobile it adds ~98 KiB of third-party JS with no value
+  // (≥1024px) - on mobile it adds ~98 KiB of third-party JS with no value
   // since the language switcher lives in the desktop header dropdown.
   const [deferredReady, setDeferredReady] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -189,7 +189,7 @@ function RootComponent() {
     }
     // Real-user Core Web Vitals reporter. Fires FCP/LCP/CLS/INP/TTFB to
     // GA4 (if VITE_GA4_MEASUREMENT_ID is set) so we can track real user
-    // perf over time — not just Lighthouse lab scores. Loaded lazily so
+    // perf over time - not just Lighthouse lab scores. Loaded lazily so
     // it never blocks first paint itself.
     import("../lib/web-vitals-reporter").then((m) => m.startWebVitalsReporter()).catch(() => {});
     return () => {

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/case-studies/$id")({
     const s = loaderData?.study;
     if (!s) return {};
     const title = `${s.title} | BeingEcom Case Study`;
-    const desc = `${s.brand} (${s.industry}) — ${s.problem} See the full ${s.category} strategy and results.`;
+    const desc = `${s.brand} (${s.industry}) - ${s.problem} See the full ${s.category} strategy and results.`;
     return {
       meta: [
         { title },
@@ -90,7 +90,7 @@ function buildCaseFaqs(s: Study): FAQ[] {
   return [
     {
       q: `What did BeingEcom do for ${s.brand}?`,
-      a: `BeingEcom built a full-funnel ${s.category} growth system for ${s.brand}, a ${niche.toLowerCase()} brand on ${platform}. The engagement covered strategy, execution, and measurement — delivering a ${s.metric} ${s.metricLabel.toLowerCase()} lift in ${s.duration}.`,
+      a: `BeingEcom built a full-funnel ${s.category} growth system for ${s.brand}, a ${niche.toLowerCase()} brand on ${platform}. The engagement covered strategy, execution, and measurement - delivering a ${s.metric} ${s.metricLabel.toLowerCase()} lift in ${s.duration}.`,
     },
     {
       q: `How long did the ${s.category} engagement take?`,
@@ -102,7 +102,7 @@ function buildCaseFaqs(s: Study): FAQ[] {
     },
     {
       q: `Can BeingEcom deliver similar results for my ${niche.toLowerCase()} store?`,
-      a: `Yes — BeingEcom works specifically with Shopify and WooCommerce brands. Outcomes vary by starting point, but the same growth framework applies. Book a free audit at beingecom.com/audit or contact us at beingecom.com/contact-us.`,
+      a: `Yes - BeingEcom works specifically with Shopify and WooCommerce brands. Outcomes vary by starting point, but the same growth framework applies. Book a free audit at beingecom.com/audit or contact us at beingecom.com/contact-us.`,
     },
   ];
 }
@@ -323,7 +323,7 @@ function CaseStudyDetail() {
             brand had a strong product but had hit a plateau where additional ad spend and content
             output were no longer translating into proportional revenue. Our engagement focused on
             re-architecting the {s.category.toLowerCase()} system so that every pound and every
-            hour pushed pipeline forward — not just impressions or clicks.
+            hour pushed pipeline forward - not just impressions or clicks.
           </p>
         </section>
 
@@ -347,7 +347,7 @@ function CaseStudyDetail() {
         <section>
           <div className="flex items-center gap-2 text-primary">
             <AlertTriangle className="w-5 h-5" />
-            <div className="text-[11px] font-bold uppercase tracking-widest">Before — the situation</div>
+            <div className="text-[11px] font-bold uppercase tracking-widest">Before - the situation</div>
           </div>
           <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Where the brand was stuck</h2>
           <p className="mt-3 text-ink/85 leading-relaxed">
@@ -414,7 +414,7 @@ function CaseStudyDetail() {
         <section>
           <div className="flex items-center gap-2 text-primary">
             <TrendingUp className="w-5 h-5" />
-            <div className="text-[11px] font-bold uppercase tracking-widest">After — the results</div>
+            <div className="text-[11px] font-bold uppercase tracking-widest">After - the results</div>
           </div>
           <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Measured impact across the funnel</h2>
 
@@ -432,7 +432,7 @@ function CaseStudyDetail() {
           <div className="mt-8 card-surface p-5 sm:p-6">
             <div className="flex items-center gap-2 text-ink">
               <BarChart3 className="w-4 h-4 text-primary" />
-              <h3 className="text-base font-bold">Before vs After — at a glance</h3>
+              <h3 className="text-base font-bold">Before vs After - at a glance</h3>
             </div>
             <p className="mt-1 text-xs text-muted-foreground">Indexed view of the highest-impact metrics.</p>
             <div className="mt-5 space-y-4">
@@ -491,7 +491,7 @@ function CaseStudyDetail() {
             {s.brand} now operates with a clear, repeatable growth system. The team knows which
             levers move revenue, can forecast with confidence, and is no longer dependent on a
             single channel or hero creative. The {s.metric} {s.metricLabel.toLowerCase()} lift is the
-            headline — the durable advantage is the operating model behind it.
+            headline - the durable advantage is the operating model behind it.
           </p>
 
           <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5 sm:p-6">

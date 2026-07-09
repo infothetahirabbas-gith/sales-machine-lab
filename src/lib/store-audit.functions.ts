@@ -265,7 +265,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
   const hasReviewApp = tools.some((t) => reviewApps.includes(t));
   const hasStarMarkup = /★|⭐|class=["'][^"']*\b(stars?|rating|review-stars|spr-icon-star)\b/i.test(html);
   const hasReviewText = /\b\d(?:\.\d)?\s*\/\s*5\b|\b\d{2,}\s*reviews?\b|customer reviews|verified reviews|what (?:our )?customers say/i.test(textLower);
-  const hasTestimonialBlock = /testimonial|"[A-Z][^"]{30,200}"\s*[—–-]\s*[A-Z][a-z]+/m.test(html);
+  const hasTestimonialBlock = /testimonial|"[A-Z][^"]{30,200}"\s*[-–-]\s*[A-Z][a-z]+/m.test(html);
   const hasReviews = hasReviewApp || hasStarMarkup || hasReviewText || hasTestimonialBlock;
 
   const socialLinks: string[] = [];
@@ -278,7 +278,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 
   const brandName =
     (ogTitleMatch?.[1] || titleMatch?.[1] || host.split(".")[0])
-      .split(/[|–—\-:·]/)[0]
+      .split(/[|–-\-:·]/)[0]
       .trim()
       .slice(0, 40) || host;
 
@@ -349,7 +349,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 
   // ---- Copyright year ----
   const thisYear = new Date().getUTCFullYear();
-  const yearMatches = [...html.matchAll(/(?:©|&copy;|copyright)\s*(\d{4})(?:\s*[-–—]\s*(\d{4}))?/gi)];
+  const yearMatches = [...html.matchAll(/(?:©|&copy;|copyright)\s*(\d{4})(?:\s*[-–-]\s*(\d{4}))?/gi)];
   let copyrightYear: number | null = null;
   for (const m of yearMatches) {
     const y = parseInt(m[2] || m[1], 10);
@@ -505,7 +505,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
         { signal: "Brand clarity in title", detected: Boolean(s.title) && s.brandName.length >= 3, evidence: s.title ? `Title: "${s.title.slice(0, 60)}"` : "No <title>", impact: s.title ? "+12 positioning points" : "-8 positioning points" },
         { signal: "Above-fold USP language", detected: s.hasUSP, evidence: signalEvidence(s.hasUSP, "USP-style language present (guarantee/free shipping/lifetime/warranty)", "No USP language detected"), impact: s.hasUSP ? "+12 positioning points" : "-8 positioning points" },
         { signal: "Social proof", detected: s.hasReviews, evidence: signalEvidence(s.hasReviews, "Reviews / testimonials present", "No social proof detected"), impact: s.hasReviews ? "+8 positioning points" : "-6 positioning points" },
-        { signal: "OG share image", detected: Boolean(s.ogImage), evidence: signalEvidence(Boolean(s.ogImage), "og:image set", "No og:image — weak brand surface on share"), impact: s.ogImage ? "+6 positioning points" : "-4 positioning points" },
+        { signal: "OG share image", detected: Boolean(s.ogImage), evidence: signalEvidence(Boolean(s.ogImage), "og:image set", "No og:image - weak brand surface on share"), impact: s.ogImage ? "+6 positioning points" : "-4 positioning points" },
         { signal: "Template residue absent", detected: s.templateResidue.length === 0, evidence: s.templateResidue.length === 0 ? "No demo / lorem ipsum content detected" : s.templateResidue[0], impact: s.templateResidue.length === 0 ? "Baseline positioning intact" : "-10 brand authority points" },
       ],
     },
@@ -554,7 +554,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (s.templateResidue.length > 0) friction.push(`Template residue: ${s.templateResidue[0]}`);
 
   const trustGaps: string[] = [];
-  if (!s.isHttps) trustGaps.push("Site is HTTP — browser flags as insecure");
+  if (!s.isHttps) trustGaps.push("Site is HTTP - browser flags as insecure");
   if (!s.hasReviews) trustGaps.push("No social proof / reviews visible");
   if (!s.hasGuarantee) trustGaps.push("No money-back guarantee shown");
   if (!s.hasPrivacy) trustGaps.push("Privacy policy not linked");
@@ -565,9 +565,9 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   const killers: string[] = [];
   if (!s.hasAddToCart) killers.push("No detectable add-to-cart on landing");
   if (!s.hasViewport) killers.push("Not mobile-optimised (~70% of traffic)");
-  if (!s.hasMetaPixel && !s.hasGA) killers.push("No tracking pixel — cannot optimise ads");
-  if (!s.metaDesc) killers.push("Missing meta description — low CTR from search");
-  if (!s.hasShipping) killers.push("Shipping info not surfaced — cart abandons");
+  if (!s.hasMetaPixel && !s.hasGA) killers.push("No tracking pixel - cannot optimise ads");
+  if (!s.metaDesc) killers.push("Missing meta description - low CTR from search");
+  if (!s.hasShipping) killers.push("Shipping info not surfaced - cart abandons");
 
   // ---------- Revenue leakage (severity validated against actual detection) ----------
   const leaks: z.infer<typeof leakSchema>[] = [];
@@ -576,7 +576,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (!s.hasReviews) {
     leaks.push({ area: "Social proof", leak: "No reviews, stars, or testimonials detected anywhere on the page", severity: "High", impact: "Reviews lift CR by 10-30% on average" });
   } else if (!s.hasReviewApp && (s.hasReviewText || s.hasTestimonialBlock)) {
-    leaks.push({ area: "Social proof", leak: "Testimonials exist but no review collection app — reviews are not compounding", severity: "Low", impact: "Manual proof doesn't scale; install a review widget to gather and syndicate" });
+    leaks.push({ area: "Social proof", leak: "Testimonials exist but no review collection app - reviews are not compounding", severity: "Low", impact: "Manual proof doesn't scale; install a review widget to gather and syndicate" });
   }
   if (!s.hasMetaPixel) leaks.push({ area: "Tracking", leak: "Meta Pixel missing", severity: "Critical", impact: "Cannot retarget or optimise Meta ads → 30-50% wasted spend" });
   if (!s.hasGA) leaks.push({ area: "Analytics", leak: "GA4 not detected", severity: "High", impact: "Flying blind on traffic & funnel drop-off" });
@@ -587,7 +587,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   if (s.brokenImageCount > 0) leaks.push({ area: "Merchandising", leak: `${s.brokenImageCount} placeholder image(s) still served`, severity: "High", impact: "Hero/product images that look broken kill PDP conversion instantly" });
   if (s.templateResidue.length > 0) leaks.push({ area: "Brand", leak: `Template residue on page: ${s.templateResidue[0]}`, severity: "High", impact: "Demo content tanks credibility before the first product view" });
   if (s.fakeContact.length > 0) leaks.push({ area: "Trust", leak: `Placeholder contact details: ${s.fakeContact[0]}`, severity: "Critical", impact: "Buyers spot fake phone/email patterns instantly → trust score collapses" });
-  if (s.copyrightStale && s.copyrightYear !== null) leaks.push({ area: "Footer", leak: `Stale copyright year ${s.copyrightYear}`, severity: "Low", impact: "Small but real credibility signal — buyers notice 'is this site abandoned?'" });
+  if (s.copyrightStale && s.copyrightYear !== null) leaks.push({ area: "Footer", leak: `Stale copyright year ${s.copyrightYear}`, severity: "Low", impact: "Small but real credibility signal - buyers notice 'is this site abandoned?'" });
 
   // ---------- Issue classification (severity validated) ----------
   const allIssues: { issue: string; why: string; fix: string; sev: "super" | "hot" | "med" }[] = [];
@@ -675,10 +675,10 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
   // ---------- Final report ----------
   const totalIssues = techIssues.length + friction.length + trustGaps.length + killers.length + leaks.length;
   const headline = overall >= 70
-    ? `${s.brandName}: solid foundation — unlock next 30-50% via CRO + retention`
+    ? `${s.brandName}: solid foundation - unlock next 30-50% via CRO + retention`
     : overall >= 45
-      ? `${s.brandName}: leaking revenue across ${totalIssues}+ areas — fast fixes available`
-      : `${s.brandName}: critical gaps blocking growth — fix fundamentals first`;
+      ? `${s.brandName}: leaking revenue across ${totalIssues}+ areas - fast fixes available`
+      : `${s.brandName}: critical gaps blocking growth - fix fundamentals first`;
 
   const revenuePotential: "Low" | "Medium" | "High" | "Very High" =
     overall >= 70 ? "Very High" : overall >= 55 ? "High" : overall >= 35 ? "Medium" : "Low";
@@ -700,9 +700,9 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
     executiveIntelligence: {
       businessReality: `${s.platform} store · ${s.toolCount} tool${s.toolCount === 1 ? "" : "s"} detected (${s.tools.slice(0, 5).join(", ") || "none"}${s.toolCount > 5 ? ", …" : ""}) · market context: ${effectiveCountry}${s.detectedCurrency ? ` (${s.detectedCurrency})` : ""}. Health ${overall}/100.`,
       biggestOpportunity: opportunities[0]?.title || "CRO sprint on PDP & checkout",
-      biggestThreat: s.fakeContact.length > 0 ? "Placeholder contact info destroys first-time trust" : s.brokenImageCount > 0 ? "Broken / placeholder images on storefront" : s.templateResidue.length > 0 ? "Template residue makes the store look abandoned" : !s.hasMetaPixel ? "Untracked ad spend — cannot optimise" : !s.hasReviews ? "No social proof — buyers bounce" : "Competitor brand authority gap",
+      biggestThreat: s.fakeContact.length > 0 ? "Placeholder contact info destroys first-time trust" : s.brokenImageCount > 0 ? "Broken / placeholder images on storefront" : s.templateResidue.length > 0 ? "Template residue makes the store look abandoned" : !s.hasMetaPixel ? "Untracked ad spend - cannot optimise" : !s.hasReviews ? "No social proof - buyers bounce" : "Competitor brand authority gap",
       revenuePotential,
-      revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers · fundamentals ${fundamentalsReady ? "ready for scale" : "not yet locked — scale steps gated"}`,
+      revenuePotentialReasoning: `Based on ${totalIssues} fixable issues + ${opportunities.length} high-ROI levers · fundamentals ${fundamentalsReady ? "ready for scale" : "not yet locked - scale steps gated"}`,
       headline,
     },
     scorecard: {
@@ -730,20 +730,20 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       competitiveSeoGap: niche.industry + " leaders publish 4-8× more content with rich schema",
     },
     adsIntelligence: {
-      metaActivity: s.hasMetaPixel ? "Pixel installed — likely running Meta ads" : "No Pixel detected — not running tracked Meta ads",
-      googleActivity: s.hasGA ? "GA4 present — Google Ads possible" : "No GA4 — Google Ads not measurable",
-      creativeStrategy: "Inferred basic — no creative testing system visible",
-      offerStrategy: s.hasUSP ? "Has an offer/USP on site" : "No clear offer — weak ad-to-LP match",
+      metaActivity: s.hasMetaPixel ? "Pixel installed - likely running Meta ads" : "No Pixel detected - not running tracked Meta ads",
+      googleActivity: s.hasGA ? "GA4 present - Google Ads possible" : "No GA4 - Google Ads not measurable",
+      creativeStrategy: "Inferred basic - no creative testing system visible",
+      offerStrategy: s.hasUSP ? "Has an offer/USP on site" : "No clear offer - weak ad-to-LP match",
       messaging: s.title ? `Lead message: "${s.title.slice(0, 60)}"` : "No clear lead message",
-      hooks: "Generic — needs hook-first creative system",
+      hooks: "Generic - needs hook-first creative system",
       acquisitionMaturity: paidScore >= 70 ? "Advanced" : paidScore >= 50 ? "Intermediate" : "Beginner",
       maturityReasoning: `Tracking stack covers ${s.tools.filter(t => /Pixel|GA|TikTok/.test(t)).length}/3 major channels`,
     },
     conversionIntelligence: {
-      homepage: s.hasUSP ? "Has USP, can be sharpened" : "Weak hero — no clear value prop",
+      homepage: s.hasUSP ? "Has USP, can be sharpened" : "Weak hero - no clear value prop",
       productPages: s.hasReviews ? "Reviews present" : "PDP missing reviews/social proof",
-      cartCheckout: s.hasShipping ? "Shipping surfaced" : "Shipping unclear — cart abandons",
-      mobile: s.hasViewport ? "Mobile viewport set" : "Not mobile-optimised — critical",
+      cartCheckout: s.hasShipping ? "Shipping surfaced" : "Shipping unclear - cart abandons",
+      mobile: s.hasViewport ? "Mobile viewport set" : "Not mobile-optimised - critical",
       ctaStrength: s.hasAddToCart ? "Add-to-cart present" : "No visible primary CTA",
       friction: friction.slice(0, 5),
       trustGaps: trustGaps.slice(0, 5),
@@ -754,13 +754,13 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       valueProposition: s.hasUSP ? "USP detected on page" : "No clear value proposition",
       storytelling: s.hasAbout ? "About page exists" : "No brand story / about page",
       differentiation: s.hasUSP ? "Has differentiator vs commodity" : "Looks like a commodity store",
-      visualIdentity: s.ogImage ? "OG image set for sharing" : "No social share image — weak brand surface",
+      visualIdentity: s.ogImage ? "OG image set for sharing" : "No social share image - weak brand surface",
       premiumPerception: trust >= 65 ? "Reads as trustworthy" : "Reads as low-trust / new brand",
       whyChooseThisBrand: s.hasGuarantee && s.hasReviews ? "Guarantee + reviews give a reason" : "No strong reason to choose vs competitors",
     },
     psychologyIntelligence: {
-      trust: trust >= 65 ? "High — trust signals stacked" : "Low — trust gaps visible",
-      riskPerception: s.hasGuarantee ? "Lowered by guarantee" : "High — no risk reversal",
+      trust: trust >= 65 ? "High - trust signals stacked" : "Low - trust gaps visible",
+      riskPerception: s.hasGuarantee ? "Lowered by guarantee" : "High - no risk reversal",
       buyingMotivation: niche.motivation,
       emotionalTriggers: s.hasReviews ? "Social proof active" : "No emotional triggers in copy",
       socialProof: s.hasReviews ? "Reviews + ratings present" : "Missing entirely",
@@ -770,24 +770,24 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
     },
     acquisitionIntelligence: {
       organic: seoOverall >= 60 ? "SEO foundation present" : "Organic capped by technical+content gaps",
-      paid: paidScore >= 60 ? "Tracking ready for paid scale" : "Not ready — install pixels first",
+      paid: paidScore >= 60 ? "Tracking ready for paid scale" : "Not ready - install pixels first",
       social: s.socialLinks.length >= 3 ? `Active on ${s.socialLinks.length} platforms` : "Weak social presence",
       influencer: "No influencer/UGC system detected",
-      emailSms: s.hasKlaviyo ? "Email tool installed" : "No email tool — biggest leak",
+      emailSms: s.hasKlaviyo ? "Email tool installed" : "No email tool - biggest leak",
       mostLikelyGrowthChannel: !s.hasKlaviyo ? "Email/SMS" : !s.hasMetaPixel ? "Paid social" : "SEO + content",
       highestRoiChannel: "Email/SMS flows once installed",
       mostUnderutilizedChannel: s.hasBlog ? "Email/SMS retention" : "SEO content",
     },
     retentionIntelligence: {
-      email: s.hasKlaviyo ? "Klaviyo installed — verify flows live" : tools_includes(s, "Mailchimp") ? "Mailchimp installed — upgrade to Klaviyo for ecom flows" : tools_includes(s, "Omnisend") ? "Omnisend installed — flows likely covered" : "No email tool detected",
+      email: s.hasKlaviyo ? "Klaviyo installed - verify flows live" : tools_includes(s, "Mailchimp") ? "Mailchimp installed - upgrade to Klaviyo for ecom flows" : tools_includes(s, "Omnisend") ? "Omnisend installed - flows likely covered" : "No email tool detected",
       sms: isNonWestern
-        ? (tools_includes(s, "WhatsApp") ? "WhatsApp channel detected — primary retention channel for this market" : "WhatsApp not active — biggest retention miss for this geo (SMS deliverability is poor)")
-        : (s.hasSMS ? `SMS tool detected (${s.tools.filter((t) => /Postscript|Attentive|SMSBump/.test(t)).join(", ")})` : "Not in use — recommended: Postscript/Attentive (US/UK/AU only)"),
+        ? (tools_includes(s, "WhatsApp") ? "WhatsApp channel detected - primary retention channel for this market" : "WhatsApp not active - biggest retention miss for this geo (SMS deliverability is poor)")
+        : (s.hasSMS ? `SMS tool detected (${s.tools.filter((t) => /Postscript|Attentive|SMSBump/.test(t)).join(", ")})` : "Not in use - recommended: Postscript/Attentive (US/UK/AU only)"),
       loyalty: "No loyalty program detected",
-      subscription: s.hasSubscription ? `Subscription option present (${s.tools.filter((t) => /Recharge|Bold|Appstle/.test(t)).join(", ") || "platform-native"})` : `Not offered — install ${subTool}`,
-      repeatPurchase: retention >= 60 ? "Decent retention stack" : `Capped — install flows + ${retentionChannel} + loyalty`,
+      subscription: s.hasSubscription ? `Subscription option present (${s.tools.filter((t) => /Recharge|Bold|Appstle/.test(t)).join(", ") || "platform-native"})` : `Not offered - install ${subTool}`,
+      repeatPurchase: retention >= 60 ? "Decent retention stack" : `Capped - install flows + ${retentionChannel} + loyalty`,
       retentionMaturityScore: retention,
-      retentionVerdict: retention >= 60 ? `Retention infrastructure in place (${retentionChannel}-led for this market)` : `Retention is biggest revenue lever — start with email + ${retentionChannel}`,
+      retentionVerdict: retention >= 60 ? `Retention infrastructure in place (${retentionChannel}-led for this market)` : `Retention is biggest revenue lever - start with email + ${retentionChannel}`,
     },
     competitors,
     competitiveGap: {
@@ -838,9 +838,9 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       scale: scale.slice(0, 7),
     },
     founderInsights: {
-      privateEquity: `Health ${overall}/100. ${overall >= 60 ? "Fundable with optimisation plan" : "Pre-investable — fix fundamentals"}.`,
+      privateEquity: `Health ${overall}/100. ${overall >= 60 ? "Fundable with optimisation plan" : "Pre-investable - fix fundamentals"}.`,
       croExpert: `CRO ${croScore}/100. Focus on ${friction[0] || "PDP trust"}.`,
-      brandingExpert: `Brand ${brandAuth}/100. ${s.hasAbout ? "Story exists, sharpen positioning" : "Missing brand story — start there"}.`,
+      brandingExpert: `Brand ${brandAuth}/100. ${s.hasAbout ? "Story exists, sharpen positioning" : "Missing brand story - start there"}.`,
       performanceMarketer: `Paid ${paidScore}/100. ${s.hasMetaPixel ? "Optimise creative" : "Install pixels first"}.`,
       ceo: `Top 90-day move: ${opportunities[0]?.title || "Install full tracking + email flows"}.`,
     },

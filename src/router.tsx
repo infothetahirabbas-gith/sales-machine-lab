@@ -19,7 +19,7 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    // Preload on hover/focus only — "viewport" was pulling every visible
+    // Preload on hover/focus only - "viewport" was pulling every visible
     // route's chunk (e.g. /audit's 350 KiB bundle) into the initial home
     // page load. "intent" keeps clicks feeling instant without the payload.
     defaultPreload: "intent",
@@ -27,7 +27,7 @@ export const getRouter = () => {
     defaultPreloadStaleTime: 0,
     // Fire preload immediately on hover/focus for near-zero click latency.
     defaultPreloadDelay: 0,
-    // Only show the skeleton if the next route takes >150ms to be ready —
+    // Only show the skeleton if the next route takes >150ms to be ready -
     // instant/preloaded navigations never flash it. Once shown, keep it up
     // for at least 300ms so it doesn't blink.
     defaultPendingMs: 150,

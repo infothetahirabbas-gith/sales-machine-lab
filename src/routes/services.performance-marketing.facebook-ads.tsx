@@ -18,21 +18,21 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you set up Conversions API and pixel?",
-    "a": "Yes — full CAPI via Shopify, GTM server-side or custom — with EMQ above 8 and proper deduplication."
+    "a": "Yes - full CAPI via Shopify, GTM server-side or custom - with EMQ above 8 and proper deduplication."
   },
   {
     "q": "What's ASC+ and should I be using it?",
-    "a": "Advantage+ Shopping Campaigns — Meta's broad-targeting AI engine. Yes, for most ecommerce accounts above £8k/mo it outperforms manual."
+    "a": "Advantage+ Shopping Campaigns - Meta's broad-targeting AI engine. Yes, for most ecommerce accounts above £8k/mo it outperforms manual."
   }
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/facebook-ads")({
   head: () => ({
     meta: [
-      { title: "Facebook Ads Agency UK — Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
-      { name: "description", content: "Best Facebook Ads agency UK for Shopify and DTC ecommerce brands. Meta Ads management, Advantage+ Shopping, creator UGC and Conversions API — engineered for profitable ROAS." },
+      { title: "Facebook Ads Agency UK - Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
+      { name: "description", content: "Best Facebook Ads agency UK for Shopify and DTC ecommerce brands. Meta Ads management, Advantage+ Shopping, creator UGC and Conversions API - engineered for profitable ROAS." },
       { name: "keywords", content: "Facebook Ads agency UK, Meta Ads agency, Shopify Facebook Ads, ecommerce Facebook Ads, Advantage+ Shopping, Meta Conversions API, Facebook Ads management UK" },
-      { property: "og:title", content: "Facebook Ads Agency UK — Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
+      { property: "og:title", content: "Facebook Ads Agency UK - Meta Ads Experts for Shopify & Ecommerce | BeingEcom" },
       { property: "og:description", content: "Best Facebook Ads agency UK for Shopify and DTC ecommerce brands. Advantage+ scaling, creator UGC and CAPI-clean tracking built for profitable Meta Ads performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },
     ],
@@ -51,8 +51,8 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       slug: "facebook-ads",
       eyebrow: "Facebook Ads",
       heroImage: heroImg,
-      heroTitle: "Facebook Ads agency UK — Meta ads that print revenue.",
-      heroSub: "Shopify and DTC Facebook Ads management by UK Meta Ads experts. Creative volume, Advantage+ scaling and Conversions API — engineered for profitable ecommerce ROAS.",
+      heroTitle: "Facebook Ads agency UK - Meta ads that print revenue.",
+      heroSub: "Shopify and DTC Facebook Ads management by UK Meta Ads experts. Creative volume, Advantage+ scaling and Conversions API - engineered for profitable ecommerce ROAS.",
       problemTitle: "Why most Meta accounts stop scaling.",
       problemBullets: [
         "2-3 creatives in rotation, fatigue every 14 days.",
@@ -77,7 +77,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       ],
       deepBlocks: [
         { title: "Campaign structure", body: "ASC+ for scale, CBO for control, separated by margin tier.", tags: ["ASC+","CBO","Margin"] },
-        { title: "Creative testing", body: "Hooks, angles, formats — weekly batches with win/kill rules.", tags: ["Hooks","UGC","Iteration"] },
+        { title: "Creative testing", body: "Hooks, angles, formats - weekly batches with win/kill rules.", tags: ["Hooks","UGC","Iteration"] },
         { title: "CAPI & attribution", body: "Conversions API, deduplication, EMQ score >8.", tags: ["CAPI","EMQ","Server-side"] },
         { title: "DPA & retargeting", body: "Dynamic catalogue, layered audiences, exclusion logic.", tags: ["DPA","Exclusion","Cross-sell"] },
       ],

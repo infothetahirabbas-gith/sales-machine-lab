@@ -12,7 +12,7 @@ import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
 import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
 import auditPreviewAsset from "../assets/audit-report-preview.jpg.asset.json";
 
-/** UK-positioned tool — render timestamps in 24h en-GB locale everywhere. */
+/** UK-positioned tool - render timestamps in 24h en-GB locale everywhere. */
 const formatTimestamp = (d: Date = new Date()) =>
   d.toLocaleString("en-GB", { hour12: false, year: "numeric", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit" });
 import { Button } from "../components/ui/button";
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/audit")({
   component: AuditPage,
   head: () => ({
     meta: [
-      { title: "Free Ecommerce Store Audit UK — Shopify & WooCommerce Audit Tool | BeingEcom" },
-      { name: "description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage — no card, no sales call." },
-      { property: "og:title", content: "Free Ecommerce Store Audit UK — Shopify & WooCommerce Audit Tool | BeingEcom" },
-      { property: "og:description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage — no card, no sales call." },
+      { title: "Free Ecommerce Store Audit UK - Shopify & WooCommerce Audit Tool | BeingEcom" },
+      { name: "description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage - no card, no sales call." },
+      { property: "og:title", content: "Free Ecommerce Store Audit UK - Shopify & WooCommerce Audit Tool | BeingEcom" },
+      { property: "og:description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage - no card, no sales call." },
       { property: "og:url", content: "https://beingecom.com/audit" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/audit" }],
@@ -77,7 +77,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   const h = (t: string) => lines.push(`\n## ${t}\n`);
   const h3 = (t: string) => lines.push(`\n### ${t}\n`);
   const kv = (k: string, v: string | number) => lines.push(`- **${k}:** ${v}`);
-  lines.push(`# Being Ecom Brain™ — Growth Intelligence Report`);
+  lines.push(`# Being Ecom Brain™ - Growth Intelligence Report`);
   lines.push(`\n**Store:** ${r.storeName}  `);
   lines.push(`**URL:** ${url}  `);
   lines.push(`**Generated:** ${formatTimestamp()} (24h, en-GB)  `);
@@ -88,7 +88,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   kv("Business Reality", r.executiveIntelligence.businessReality);
   kv("Biggest Opportunity", r.executiveIntelligence.biggestOpportunity);
   kv("Biggest Threat", r.executiveIntelligence.biggestThreat);
-  kv("Revenue Potential", `${r.executiveIntelligence.revenuePotential} — ${r.executiveIntelligence.revenuePotentialReasoning}`);
+  kv("Revenue Potential", `${r.executiveIntelligence.revenuePotential} - ${r.executiveIntelligence.revenuePotentialReasoning}`);
 
   h("Business");
   Object.entries(r.business).forEach(([k, v]) => kv(k, String(v)));
@@ -98,7 +98,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
 
   h("SEO Intelligence");
   (["technical","onPage","contentAuthority","commercialSeo"] as const).forEach(k => {
-    const s = r.seoIntelligence[k]; kv(k, `${s.score}/100 — ${s.verdict}`);
+    const s = r.seoIntelligence[k]; kv(k, `${s.score}/100 - ${s.verdict}`);
   });
   h3("Technical Issues"); r.seoIntelligence.technicalIssues.forEach(i => lines.push(`- ${i}`));
   kv("Competitive SEO Gap", r.seoIntelligence.competitiveSeoGap);
@@ -126,7 +126,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
 
   h("Competitors");
   r.competitors.forEach(c => {
-    lines.push(`\n**${c.name}** (${c.tier}) — ${c.website}`);
+    lines.push(`\n**${c.name}** (${c.tier}) - ${c.website}`);
     kv("Positioning", c.positioning); kv("Strengths", c.strengths);
     kv("Weaknesses", c.weaknesses); kv("USP", c.usp);
   });
@@ -137,16 +137,16 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   });
 
   h("Revenue Leakage");
-  r.revenueLeakage.forEach(l => lines.push(`- **[${l.severity}] ${l.area}** — ${l.leak} → Impact: ${l.impact}`));
+  r.revenueLeakage.forEach(l => lines.push(`- **[${l.severity}] ${l.area}** - ${l.leak} → Impact: ${l.impact}`));
 
   h("Issues");
   (["superHot","hot","medium"] as const).forEach(tier => {
     h3(tier.toUpperCase());
-    r.issueClassification[tier].forEach(i => lines.push(`- **${i.issue}** — Why: ${i.why} → Fix: ${i.fix}`));
+    r.issueClassification[tier].forEach(i => lines.push(`- **${i.issue}** - Why: ${i.why} → Fix: ${i.fix}`));
   });
 
   h("Opportunities");
-  r.opportunities.forEach(o => lines.push(`- **${o.title}** [${o.difficulty} / ROI: ${o.roi}] — ${o.expectedImpact} → ${o.action}`));
+  r.opportunities.forEach(o => lines.push(`- **${o.title}** [${o.difficulty} / ROI: ${o.roi}] - ${o.expectedImpact} → ${o.action}`));
 
   h("90-Day Action Plan");
   h3("0–7 Days (Immediate)"); r.actionPlan.immediate.forEach(i => lines.push(`- ${i}`));
@@ -353,7 +353,7 @@ function AuditPage() {
             The <span className="text-sky-gradient">board-level audit</span> your ecommerce store has been missing
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritized 90-day action plan — powered by local signals from your live store. No signup, AI credits, or paid usage.
+            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritized 90-day action plan - powered by local signals from your live store. No signup, AI credits, or paid usage.
           </p>
 
           <form onSubmit={onSubmit} className="mt-8 card-surface p-5 lg:p-7 text-left">
@@ -515,7 +515,7 @@ function AuditPage() {
         </div>
       </section>
 
-      {/* SAMPLE PREVIEW — show users exactly what they'll get before they submit */}
+      {/* SAMPLE PREVIEW - show users exactly what they'll get before they submit */}
       {!report && !loading && (
         <section className="relative py-12 lg:py-16 border-t border-border/60 bg-secondary/20">
           <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
@@ -524,16 +524,16 @@ function AuditPage() {
                 <FileText className="w-3.5 h-3.5" /> What you'll receive
               </div>
               <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink leading-tight">
-                A board-grade <span className="text-sky-gradient">17-phase report</span> — preview before you submit
+                A board-grade <span className="text-sky-gradient">17-phase report</span> - preview before you submit
               </h2>
               <ul className="mt-5 space-y-2.5 text-sm">
                 {[
                   "15 growth scores (SEO, Ads, CRO, Brand, Trust, Positioning, Acquisition, Retention, CX, Market Position, Moat, Revenue Efficiency, Scalability, Maturity, Overall)",
-                  "Recommendation confidence — every category shows the signals we detected and their impact",
-                  "Issue classification — Super Hot / Hot / Medium with severity validated against actual evidence",
-                  "Revenue leakage map — fake contact info, broken images, template residue, stale copyright all flagged",
-                  "Platform-aware tool stack — Shopify, WooCommerce, BigCommerce, Magento, Wix, Squarespace handled separately",
-                  "Geo-aware retention — WhatsApp-first for PKR/INR/AED/MENA, SMS-first for US/UK/AU",
+                  "Recommendation confidence - every category shows the signals we detected and their impact",
+                  "Issue classification - Super Hot / Hot / Medium with severity validated against actual evidence",
+                  "Revenue leakage map - fake contact info, broken images, template residue, stale copyright all flagged",
+                  "Platform-aware tool stack - Shopify, WooCommerce, BigCommerce, Magento, Wix, Squarespace handled separately",
+                  "Geo-aware retention - WhatsApp-first for PKR/INR/AED/MENA, SMS-first for US/UK/AU",
                   "90-day action plan with prerequisite gates (no 'expand into a new geo' before fundamentals are locked)",
                   "Exports: PDF · Excel · CSV · JSON · Markdown",
                 ].map((t) => (
@@ -546,7 +546,7 @@ function AuditPage() {
               <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl rounded-3xl pointer-events-none" />
               <img
                 src={auditPreviewAsset.url}
-                alt="Preview of the Being Ecom Brain audit report — radar chart, pie chart, and score rings"
+                alt="Preview of the Being Ecom Brain audit report - radar chart, pie chart, and score rings"
                 loading="lazy" width={1280} height={896}
                 className="relative rounded-2xl border border-border shadow-2xl w-full h-auto"
               />
@@ -622,7 +622,7 @@ function AuditPage() {
               </div>
             </div>
 
-            {/* VISUAL CHARTS — Radar + Issue Mix */}
+            {/* VISUAL CHARTS - Radar + Issue Mix */}
             {(() => {
               const s = report.scorecard;
               const radarData = [
@@ -713,7 +713,7 @@ function AuditPage() {
               );
             })()}
 
-            {/* QUICK SUMMARY — bullet points at a glance */}
+            {/* QUICK SUMMARY - bullet points at a glance */}
             <SectionCard icon={Zap} title="At a Glance" kicker="Top findings in 10 seconds">
               {(() => {
                 const s = report.scorecard;
@@ -766,7 +766,7 @@ function AuditPage() {
                         {topOpps.map((o, i) => (
                           <li key={i} className="flex gap-2 text-sm text-ink">
                             <span className="font-bold text-primary shrink-0">#{i + 1}</span>
-                            <span className="flex-1"><span className="font-semibold">{o.title}</span> <span className="text-muted-foreground">— ROI: {o.roi} · {o.difficulty}</span></span>
+                            <span className="flex-1"><span className="font-semibold">{o.title}</span> <span className="text-muted-foreground">- ROI: {o.roi} · {o.difficulty}</span></span>
                           </li>
                         ))}
                       </ul>
@@ -864,21 +864,21 @@ function AuditPage() {
             <SectionCard icon={Flame} title="Issue Classification" kicker="Phase 14 · What's actually killing your revenue">
               <div className="grid lg:grid-cols-3 gap-4">
                 <div>
-                  <h4 className="text-sm font-bold text-destructive mb-3 flex items-center gap-2"><Flame className="w-4 h-4" /> Super Hot — Revenue Blockers</h4>
+                  <h4 className="text-sm font-bold text-destructive mb-3 flex items-center gap-2"><Flame className="w-4 h-4" /> Super Hot - Revenue Blockers</h4>
                   <div className="space-y-3">
                     {report.issueClassification.superHot.map((it, i) => <IssueCard key={i} {...it} tone="super" />)}
                     {report.issueClassification.superHot.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-amber-600 mb-3 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> Hot — Growth Blockers</h4>
+                  <h4 className="text-sm font-bold text-amber-600 mb-3 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> Hot - Growth Blockers</h4>
                   <div className="space-y-3">
                     {report.issueClassification.hot.map((it, i) => <IssueCard key={i} {...it} tone="hot" />)}
                     {report.issueClassification.hot.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> Medium — Optimisation</h4>
+                  <h4 className="text-sm font-bold text-yellow-600 mb-3 flex items-center gap-2"><Zap className="w-4 h-4" /> Medium - Optimisation</h4>
                   <div className="space-y-3">
                     {report.issueClassification.medium.map((it, i) => <IssueCard key={i} {...it} tone="medium" />)}
                     {report.issueClassification.medium.length === 0 && <p className="text-xs text-muted-foreground italic">None detected.</p>}
@@ -1208,7 +1208,7 @@ function AuditPage() {
 
       <FaqSection
         faqs={auditFaqs}
-        title="Audit FAQ —"
+        title="Audit FAQ -"
         highlight="what to expect"
         intro="Everything founders ask before running the free Being Ecom Brain™ report."
       />

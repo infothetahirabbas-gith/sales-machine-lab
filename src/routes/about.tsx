@@ -11,9 +11,9 @@ import { GLOBAL_STATS } from "@/lib/stats";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom — UK Shopify & WooCommerce Agency" },
+      { title: "About BeingEcom - UK Shopify & WooCommerce Agency" },
       { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
-      { property: "og:title", content: "About BeingEcom — UK Shopify & WooCommerce Agency" },
+      { property: "og:title", content: "About BeingEcom - UK Shopify & WooCommerce Agency" },
       { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
@@ -41,7 +41,7 @@ function About() {
             The growth partner Shopify &amp; WooCommerce brands trust.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            We're ecommerce operators, not generalists. Strategy, ads, SEO, CRO and automation — one accountable team turning stores into scalable revenue machines.
+            We're ecommerce operators, not generalists. Strategy, ads, SEO, CRO and automation - one accountable team turning stores into scalable revenue machines.
           </p>
         </div>
       </section>
@@ -59,10 +59,10 @@ function About() {
                 <span className="text-ink font-semibold">Being Ecom</span> exists to help online brands stop guessing and start scaling. We combine deep ecommerce expertise with paid media, search, conversion optimisation, and AI automation to build growth systems that compound month after month.
               </p>
               <p>
-                Every engagement is led by senior operators — not interns. We've scaled stores across fashion, beauty, supplements, home, and DTC niches, with a single obsession: <span className="text-ink font-semibold">profitable, predictable revenue</span>.
+                Every engagement is led by senior operators - not interns. We've scaled stores across fashion, beauty, supplements, home, and DTC niches, with a single obsession: <span className="text-ink font-semibold">profitable, predictable revenue</span>.
               </p>
               <p>
-                When you work with us, you get a real growth team — strategists, media buyers, CRO specialists, SEO leads, and creative producers — operating as one unit behind your store.
+                When you work with us, you get a real growth team - strategists, media buyers, CRO specialists, SEO leads, and creative producers - operating as one unit behind your store.
               </p>
             </div>
           </Reveal>
@@ -92,11 +92,11 @@ function About() {
         alt
         eyebrow="Strategic Planning"
         title="How we plan growth before we spend a dollar."
-        intro="Every brand starts with a custom growth blueprint — not a templated playbook."
+        intro="Every brand starts with a custom growth blueprint - not a templated playbook."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { Icon: Search, t: "Diagnose", b: "Full audit of store, ads, funnel, SEO, email, and analytics — find the leaks." },
+            { Icon: Search, t: "Diagnose", b: "Full audit of store, ads, funnel, SEO, email, and analytics - find the leaks." },
             { Icon: Compass, t: "Research", b: "Market, competitor, audience, and keyword research that informs every decision." },
             { Icon: Target, t: "Prioritise", b: "Rank opportunities by revenue impact × speed × confidence. Build the roadmap." },
             { Icon: Rocket, t: "Execute", b: "Ship weekly. Test relentlessly. Compound wins into a real growth system." },
@@ -121,11 +121,11 @@ function About() {
       <Section
         eyebrow="Our methodology"
         title="The Being Ecom Strategy."
-        intro="A unified growth framework built from six interlocking systems — each one reinforcing the others."
+        intro="A unified growth framework built from six interlocking systems - each one reinforcing the others."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { Icon: Search, t: "SEO Process", b: "Technical, on-page, content, and authority — built to rank product and collection pages for buying intent." },
+            { Icon: Search, t: "SEO Process", b: "Technical, on-page, content, and authority - built to rank product and collection pages for buying intent." },
             { Icon: Megaphone, t: "Advertising Approach", b: "Funnel-based Meta, Google, and TikTok ads engineered for profitable scale, not vanity ROAS." },
             { Icon: MousePointerClick, t: "CRO Strategy", b: "Data-led experimentation across product pages, cart, and checkout to compound conversion lift." },
             { Icon: Bot, t: "Automation Systems", b: "Klaviyo flows, AI assistants, and operational automation that recover revenue 24/7." },
@@ -170,7 +170,7 @@ function About() {
                 Become the world's most trusted ecommerce growth partner.
               </h2>
               <p className="mt-5 text-muted-foreground leading-relaxed">
-                Our vision is to build the global standard for ecommerce growth — a partner that founders trust to scale Shopify and WooCommerce brands across every market, channel, and stage. We're building the operating system that powers the next generation of category-defining online businesses.
+                Our vision is to build the global standard for ecommerce growth - a partner that founders trust to scale Shopify and WooCommerce brands across every market, channel, and stage. We're building the operating system that powers the next generation of category-defining online businesses.
               </p>
             </div>
           </Reveal>
@@ -222,7 +222,7 @@ function About() {
               </div>
 
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner — one team accountable for the entire revenue engine. With years of hands-on experience scaling DTC brands across ads, SEO, CRO, and retention, Tahir leads strategy for every flagship client engagement.
+                Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner - one team accountable for the entire revenue engine. With years of hands-on experience scaling DTC brands across ads, SEO, CRO, and retention, Tahir leads strategy for every flagship client engagement.
               </p>
 
               <div className="mt-6 grid sm:grid-cols-3 gap-3">
@@ -249,14 +249,14 @@ function About() {
 
       <FaqSection
         faqs={aboutFaqs}
-        title="About BeingEcom —"
+        title="About BeingEcom -"
         highlight="quick answers"
         intro="What founders ask before working with us."
       />
 
       <CTA
         heading="Ready to scale your store?"
-        sub="Get a free, no-fluff ecommerce growth audit. We'll show you exactly what's leaking revenue — and how to fix it."
+        sub="Get a free, no-fluff ecommerce growth audit. We'll show you exactly what's leaking revenue - and how to fix it."
       />
     </PageLayout>
   );

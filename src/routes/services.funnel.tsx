@@ -6,7 +6,7 @@ import heroImg from "../assets/hero-funnel.jpg";
 const FAQ_LIST: FAQ[] = [
   {
     "q": "What's a funnel for an ecommerce store?",
-    "a": "A guided path from ad → landing page → offer → checkout → post-purchase upsell — engineered to maximise AOV and conversion, not just clicks."
+    "a": "A guided path from ad → landing page → offer → checkout → post-purchase upsell - engineered to maximise AOV and conversion, not just clicks."
   },
   {
     "q": "Do I need landing pages if I have a Shopify store?",
@@ -18,7 +18,7 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you handle post-purchase upsells?",
-    "a": "Yes — one-click upsells via ReConvert, AfterSell or Zipify OCU, plus thank-you-page cross-sells."
+    "a": "Yes - one-click upsells via ReConvert, AfterSell or Zipify OCU, plus thank-you-page cross-sells."
   },
   {
     "q": "How long does a funnel build take?",
@@ -30,15 +30,15 @@ export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
       { title: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
-      { name: "description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers — designed to turn one-time buyers into repeat customers." },
+      { name: "description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers - designed to turn one-time buyers into repeat customers." },
       { property: "og:title", content: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
-      { property: "og:description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers — designed to turn one-time buyers into repeat customers." },
+      { property: "og:description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers - designed to turn one-time buyers into repeat customers." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/funnel" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "funnel", name: "Funnel & Landing Pages", description: "High-converting ecommerce funnels and landing pages — bridge pages, retargeting and post-purchase journeys." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "funnel", name: "Funnel & Landing Pages", description: "High-converting ecommerce funnels and landing pages - bridge pages, retargeting and post-purchase journeys." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Funnel & Landing Pages", path: "/services/funnel" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/funnel")) },
     ],
@@ -100,11 +100,11 @@ export const Route = createFileRoute("/services/funnel")({
         { value: "-46%", label: "Drop-off at checkout" },
       ],
       metricBars: [
-        { label: "Landing → ATC", before: 6, after: 18, unit: "%", description: "Share of LP visitors who add to cart — measures hook + offer fit." },
+        { label: "Landing → ATC", before: 6, after: 18, unit: "%", description: "Share of LP visitors who add to cart - measures hook + offer fit." },
         { label: "ATC → Checkout", before: 42, after: 71, unit: "%", description: "How well your cart drawer + ATC modal pushes shoppers forward." },
         { label: "Checkout → Buy", before: 38, after: 74, unit: "%", description: "Final friction stage. Express pay + trust + clarity unlock the close." },
-        { label: "Full funnel CR", before: 0.9, after: 2.9, unit: "%", description: "Compound rate from LP visit to purchase — the truest funnel score." },
-        { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "£", description: "RPV across the engineered funnel — the metric scale operators live by." },
+        { label: "Full funnel CR", before: 0.9, after: 2.9, unit: "%", description: "Compound rate from LP visit to purchase - the truest funnel score." },
+        { label: "Revenue / visitor", before: 0.41, after: 1.86, unit: "£", description: "RPV across the engineered funnel - the metric scale operators live by." },
       ],
       faqs: FAQ_LIST,
     }} />

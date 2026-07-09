@@ -6,19 +6,19 @@ import heroImg from "../assets/hero-creative.jpg";
 const FAQ_LIST: FAQ[] = [
   {
     "q": "How many ad creatives do you produce per month?",
-    "a": "Standard pods ship 20–40 creatives/month — a mix of UGC, statics, founder, demo and remixes of winners."
+    "a": "Standard pods ship 20–40 creatives/month - a mix of UGC, statics, founder, demo and remixes of winners."
   },
   {
     "q": "Do you source UGC creators?",
-    "a": "Yes — we cast, brief, ship product, review footage and edit into ad-ready variants. You approve the briefs, we run the pipeline."
+    "a": "Yes - we cast, brief, ship product, review footage and edit into ad-ready variants. You approve the briefs, we run the pipeline."
   },
   {
     "q": "What makes a winning ecommerce ad?",
-    "a": "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA — tested against 8–12 angles, not 1 hero."
+    "a": "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA - tested against 8–12 angles, not 1 hero."
   },
   {
     "q": "Will the creatives match my brand?",
-    "a": "Yes. We work from your brand book, tone and visual guardrails — creator-led but on-brand."
+    "a": "Yes. We work from your brand book, tone and visual guardrails - creator-led but on-brand."
   },
   {
     "q": "Who owns the footage?",
@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/creative")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
-      { name: "description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands — built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
-      { property: "og:title", content: "Ecommerce Creative & UGC Agency UK — Ad Creative for Shopify | BeingEcom" },
-      { property: "og:description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands — built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
+      { title: "Ecommerce Creative & UGC Agency UK - Ad Creative for Shopify | BeingEcom" },
+      { name: "description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands - built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
+      { property: "og:title", content: "Ecommerce Creative & UGC Agency UK - Ad Creative for Shopify | BeingEcom" },
+      { property: "og:description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands - built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
     ],
@@ -100,9 +100,9 @@ export const Route = createFileRoute("/services/creative")({
         { value: "2.6×", label: "ROAS on new creative" },
       ],
       metricBars: [
-        { label: "Hook rate (3s view)", before: 18, after: 46, unit: "%", description: "Share of viewers who watch the first 3 seconds — the #1 creative signal in Meta." },
+        { label: "Hook rate (3s view)", before: 18, after: 46, unit: "%", description: "Share of viewers who watch the first 3 seconds - the #1 creative signal in Meta." },
         { label: "Thumbstop rate", before: 24, after: 52, unit: "%", description: "Hold-rate at the first frame. Strong thumbstops lower CPM by 30–50%." },
-        { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creative — measures concept + offer clarity." },
+        { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creative - measures concept + offer clarity." },
         { label: "Creative ROAS", before: 1.5, after: 3.9, unit: "×", description: "ROAS isolated to new creative concepts (not winning evergreens)." },
         { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "£", description: "How expensive each engaged view is. Lower = healthier funnel top." },
       ],

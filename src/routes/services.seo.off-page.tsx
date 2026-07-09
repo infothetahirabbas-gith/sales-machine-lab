@@ -4,19 +4,19 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "What is off-page SEO for ecommerce?", a: "Everything Google sees about your store from outside it — backlinks, digital PR, brand mentions, reviews, citations and unlinked signals that build authority." },
-  { q: "Do you build backlinks?", a: "Yes — digital PR, niche-edit outreach, HARO/Qwoted, product-review outreach and ecommerce-specific placements. No PBNs, no comment spam, no link schemes." },
+  { q: "What is off-page SEO for ecommerce?", a: "Everything Google sees about your store from outside it - backlinks, digital PR, brand mentions, reviews, citations and unlinked signals that build authority." },
+  { q: "Do you build backlinks?", a: "Yes - digital PR, niche-edit outreach, HARO/Qwoted, product-review outreach and ecommerce-specific placements. No PBNs, no comment spam, no link schemes." },
   { q: "How many links per month?", a: "Quality over volume. 6–15 editorial DR40+ links is a realistic monthly range depending on niche and budget." },
-  { q: "Will off-page SEO help my product pages rank?", a: "Yes — authority passes through internal links from your money-page tier. We build to hub pages and money PDPs deliberately." },
+  { q: "Will off-page SEO help my product pages rank?", a: "Yes - authority passes through internal links from your money-page tier. We build to hub pages and money PDPs deliberately." },
   { q: "Is off-page SEO safe post-2024 spam updates?", a: "Yes when it's editorial and topically relevant. We avoid every pattern Google's spam updates target." },
 ];
 
 export const Route = createFileRoute("/services/seo/off-page")({
   head: () => ({
     meta: [
-      { title: "Off-Page SEO & Link Building Agency UK — Digital PR for Ecommerce | BeingEcom" },
+      { title: "Off-Page SEO & Link Building Agency UK - Digital PR for Ecommerce | BeingEcom" },
       { name: "description", content: "Off-page SEO and ecommerce link building in the UK. Digital PR, niche edits and editorial placements that build real DR and rank money pages." },
-      { property: "og:title", content: "Off-Page SEO & Link Building Agency UK — Digital PR for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "Off-Page SEO & Link Building Agency UK - Digital PR for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Off-page SEO and ecommerce link building in the UK. Digital PR, niche edits and editorial placements that build real DR and rank money pages." },
       { property: "og:url", content: "https://beingecom.com/services/seo/off-page" },
       { property: "og:type", content: "website" },
@@ -38,16 +38,16 @@ export const Route = createFileRoute("/services/seo/off-page")({
       problemTitle: "Why most ecommerce stores plateau in the SERP.",
       problemBullets: [
         "DR under 20 while competitors sit at DR 45+.",
-        "Every backlink is on the homepage — money pages get nothing.",
+        "Every backlink is on the homepage - money pages get nothing.",
         "PBNs, guest-post farms or 'link packages' from Fiverr.",
       ],
       whatIsTitle: "Off-page SEO is trust, at scale.",
-      whatIsBody: "We build backlinks and brand signals that pass real authority to the URLs that actually make you money — collections, hero PDPs and revenue blog hubs.",
+      whatIsBody: "We build backlinks and brand signals that pass real authority to the URLs that actually make you money - collections, hero PDPs and revenue blog hubs.",
       systemTitle: "Our off-page system.",
       systemSteps: [
         { title: "Link gap audit", body: "Competitor link profiles, DR gaps, target URLs mapped." },
         { title: "Digital PR angles", body: "Data studies, expert commentary, product-led hooks." },
-        { title: "Outreach & placements", body: "Journalist and editor outreach — HARO, Qwoted, direct." },
+        { title: "Outreach & placements", body: "Journalist and editor outreach - HARO, Qwoted, direct." },
         { title: "Money-page injection", body: "Anchor and target-URL strategy that flows equity where it counts." },
       ],
       pillarsTitle: "Off-page pillars.",

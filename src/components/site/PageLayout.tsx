@@ -3,7 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 
-// Below-the-fold widgets — never block initial render.
+// Below-the-fold widgets - never block initial render.
 const FloatingWidgets = lazy(() => import("./FloatingWidgets"));
 const CookieConsent = lazy(() => import("./CookieConsent"));
 
@@ -14,7 +14,7 @@ function DeferredWidgets() {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
       cancelIdleCallback?: (id: number) => void;
     };
-    // Wait for first user interaction OR a long idle window — whichever comes
+    // Wait for first user interaction OR a long idle window - whichever comes
     // first. This keeps FloatingWidgets out of the initial render, LCP window
     // and Lighthouse "unused JS" bucket on cold loads.
     let idleId: number | undefined;

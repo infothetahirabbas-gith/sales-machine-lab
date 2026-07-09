@@ -79,20 +79,20 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Marketing Agency in ${loc.city} | Shopify, SEO, Ads & CRO — Being Ecom`
-      : "Location — Being Ecom";
+      ? `Ecommerce Marketing Agency in ${loc.city} | Shopify, SEO, Ads & CRO - Being Ecom`
+      : "Location - Being Ecom";
     const descOverrides: Record<string, string> = {
-      london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — built around real London buyer behaviour.",
+      london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - built around real London buyer behaviour.",
       manchester: "Ecommerce Marketing Agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior UK operators.",
       birmingham: "Ecommerce Marketing Agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
       leeds: "Ecommerce Marketing Agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
       liverpool: "Ecommerce Marketing Agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
       glasgow: "Ecommerce Marketing Agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
-      edinburgh: "Ecommerce Marketing Agency in Edinburgh focused on profitable revenue — CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
+      edinburgh: "Ecommerce Marketing Agency in Edinburgh focused on profitable revenue - CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
       bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Ecommerce Marketing Agency in ${loc.city} helping Shopify and WooCommerce brands grow revenue with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — senior UK operators, transparent reporting.`)
+      ? (descOverrides[loc.slug] ?? `Ecommerce Marketing Agency in ${loc.city} helping Shopify and WooCommerce brands grow revenue with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - senior UK operators, transparent reporting.`)
       : "UK ecommerce marketing agency locations.";
     const kw = loc
       ? `ecommerce marketing agency ${loc.city}, ecommerce agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ads agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, ecommerce ppc agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
@@ -103,16 +103,16 @@ export const Route = createFileRoute("/locations/$slug")({
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
     const faqData = loc ? [
-      { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation — all built to grow profitable revenue, not vanity metrics.` },
-      { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
+      { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
+      { q: `Are you actually based in ${loc.city}?`, a: `Yes - we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
       { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3–6.` },
-      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes — we're a Google Partner and Meta Business Partner running Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands, all managed by senior UK media buyers.` },
+      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes - we're a Google Partner and Meta Business Partner running Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands, all managed by senior UK media buyers.` },
       { q: `Do you handle ecommerce SEO for ${loc.city} Shopify stores?`, a: `Yes. We deliver technical SEO, Shopify SEO, local SEO for ${loc.city}, product and collection page optimisation, schema markup and Core Web Vitals fixes to grow organic revenue month over month.` },
-      { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely — Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
-      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO — no obligation, no sales pitch.` },
-      { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely — tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+      { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
+      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
+      { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
     ] : [];
     return {
       meta: [
@@ -144,7 +144,7 @@ export const Route = createFileRoute("/locations/$slug")({
             "@context": "https://schema.org",
             "@type": ["LocalBusiness", "ProfessionalService"],
             "@id": `${pageUrl}#business`,
-            name: `Being Ecom — Ecommerce Agency in ${loc.city}`,
+            name: `Being Ecom - Ecommerce Agency in ${loc.city}`,
             description: desc,
             url: pageUrl,
             image: heroImage,
@@ -260,11 +260,11 @@ function LocationPage() {
 
   const process = [
     { title: "Discovery & Audit", body: `We deep-dive into your ${city} store, ad accounts, analytics and funnel to find the real growth blockers.` },
-    { title: "Strategy Blueprint", body: `A custom 90-day roadmap: channels, budgets, offers, creative angles and KPIs — no templated decks.` },
+    { title: "Strategy Blueprint", body: `A custom 90-day roadmap: channels, budgets, offers, creative angles and KPIs - no templated decks.` },
     { title: "Rapid Sprint Setup", body: `Tracking, pixels, feeds, flows and creative production spun up in the first two weeks.` },
     { title: "Scale & Test", body: `We launch, measure daily and scale winning creative, audiences and pages compounding week over week.` },
     { title: "Optimise & Retain", body: `CRO, email/SMS and post-purchase automations lift LTV so paid keeps working profitably.` },
-    { title: "Report & Iterate", body: `Weekly Loom updates, monthly strategy calls and a live dashboard — no reporting theatre.` },
+    { title: "Report & Iterate", body: `Weekly Loom updates, monthly strategy calls and a live dashboard - no reporting theatre.` },
   ];
 
   const industries: { name: string; emoji: string; tint: string }[] = [
@@ -289,16 +289,16 @@ function LocationPage() {
   ];
 
   const faqs: FAQ[] = [
-    { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation — all built to grow profitable revenue, not vanity metrics.` },
+    { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
     { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
     { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
-    { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes — technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
+    { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes - technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
     { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. As a Google Partner and Meta Business Partner we run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands, managed by senior UK media buyers.` },
     { q: `Can you manage Klaviyo email marketing for our ${city} brand?`, a: `Absolutely. Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for ${city} DTC brands, with segmentation and post-purchase automations built for LTV.` },
     { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO, CRO and retention gains follow in months 3–6.` },
-    { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO — no obligation, no sales pitch.` },
-    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly — usually a reply within an hour on UK business days.` },
+    { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
+    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly - usually a reply within an hour on UK business days.` },
   ];
 
   const WhatsAppBtn = ({ label = `WhatsApp ${city} team` }: { label?: string }) => (
@@ -378,7 +378,7 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* 2. TRUST BAR — running colored brand logos */}
+      {/* 2. TRUST BAR - running colored brand logos */}
       <section className="border-y border-border bg-secondary/40 py-8">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="text-center mb-5">
@@ -401,7 +401,7 @@ function LocationPage() {
       </section>
 
 
-      {/* 2b. SEO INTRO — primary + secondary keyword rich, EEAT & entity-focused copy */}
+      {/* 2b. SEO INTRO - primary + secondary keyword rich, EEAT & entity-focused copy */}
       <Section eyebrow="Introduction" title={`The ecommerce marketing agency ${city} founders trust to grow revenue`}>
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl">
           <div className="lg:col-span-2 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -409,7 +409,7 @@ function LocationPage() {
               Being Ecom is an <strong className="text-ink">ecommerce marketing agency in {city}</strong> helping Shopify, Shopify Plus and WooCommerce brands turn traffic into profitable, compounding revenue. From founders in {C.neighbourhoods[0]} to scale-ups across {loc.region}, we work as the senior growth team behind {city}&rsquo;s most ambitious online stores.
             </p>
             <p>
-              Our team combines <strong className="text-ink">ecommerce SEO</strong>, <strong className="text-ink">Google Ads</strong>, <strong className="text-ink">Meta Ads</strong>, <strong className="text-ink">TikTok Ads</strong>, <strong className="text-ink">Klaviyo</strong> email &amp; SMS, <strong className="text-ink">conversion rate optimisation</strong> and <strong className="text-ink">GA4 analytics</strong> into one accountable growth engine. Every decision is tied back to blended ROAS, contribution margin and customer LTV — not platform vanity metrics.
+              Our team combines <strong className="text-ink">ecommerce SEO</strong>, <strong className="text-ink">Google Ads</strong>, <strong className="text-ink">Meta Ads</strong>, <strong className="text-ink">TikTok Ads</strong>, <strong className="text-ink">Klaviyo</strong> email &amp; SMS, <strong className="text-ink">conversion rate optimisation</strong> and <strong className="text-ink">GA4 analytics</strong> into one accountable growth engine. Every decision is tied back to blended ROAS, contribution margin and customer LTV - not platform vanity metrics.
             </p>
             <p>
               As a Shopify Partner, Google Partner, Meta Business Partner and Klaviyo Master, we bring proven playbooks to {city} ecommerce brands across fashion, beauty, wellness, homeware, food &amp; drink and premium DTC. Whether you need a <strong className="text-ink">Shopify marketing agency in {city}</strong>, a <strong className="text-ink">WooCommerce partner</strong>, or a full-service <strong className="text-ink">ecommerce ads agency in {city}</strong>, our senior operators build the strategy and ship the work themselves.
@@ -487,7 +487,7 @@ function LocationPage() {
 
 
       {/* 6. SERVICES GRID */}
-      <Section eyebrow="Services" title={`Full-stack ecommerce services in ${city}`} intro={`Every channel you need to scale profitably — under one senior team in ${city}.`} alt>
+      <Section eyebrow="Services" title={`Full-stack ecommerce services in ${city}`} intro={`Every channel you need to scale profitably - under one senior team in ${city}.`} alt>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
@@ -599,7 +599,7 @@ function LocationPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal><SafeImg src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
-            <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients — automations, campaigns and lifecycle flows built to compound LTV.</p>
+            <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients - automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["Welcome flow", "Abandoned cart", "Browse abandonment", "Post-purchase", "Winback", "VIP loyalty", "SMS campaigns", "Segmentation"].map(x => <Pill key={x}>{x}</Pill>)}
             </div>
@@ -615,7 +615,7 @@ function LocationPage() {
       <Section eyebrow="Creative" title={`In-house creative studio serving ${city}`}>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-lg text-muted-foreground">Static, motion, UGC and video ad creative built for the scroll — batches shipped weekly for your {city} Meta and TikTok accounts.</p>
+            <p className="text-lg text-muted-foreground">Static, motion, UGC and video ad creative built for the scroll - batches shipped weekly for your {city} Meta and TikTok accounts.</p>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {[`UGC creator network`, `Motion graphics`, `Product photography`, `Ad script writing`, `Static ad design`, `Video editing`].map(x => (
                 <div key={x} className="flex items-center gap-2 text-sm text-ink"><Sparkles className="w-4 h-4 text-primary" />{x}</div>
@@ -636,7 +636,7 @@ function LocationPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal><SafeImg src={IMG.analytics} {...imageSeoProps(loc.slug, city, "analytics")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
-            <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV — dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
+            <p className="text-lg text-muted-foreground">Blended CAC, contribution margin, cohort LTV - dashboards designed for {city} operators making real budget decisions, not platform-only ROAS.</p>
             <ul className="mt-6 space-y-3">
               {[`GA4 & server-side tracking`, `Triple Whale / Northbeam setup`, `Consent Mode v2`, `Meta CAPI & Google Enhanced`, `Custom Looker dashboards`].map(x => (
                 <li key={x} className="flex items-center gap-3 text-ink"><BarChart3 className="w-5 h-5 text-primary" />{x}</li>
@@ -657,7 +657,7 @@ function LocationPage() {
       </Section>
 
       {/* 16. INDUSTRIES */}
-      <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds — here's where we've shipped the most wins." alt>
+      <Section eyebrow="Industries" title={`${city} brands we work with`} intro="Category depth compounds - here's where we've shipped the most wins." alt>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {industries.map((ind, i) => (
             <Reveal key={ind.name} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
@@ -703,7 +703,7 @@ function LocationPage() {
               <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
               <p className="text-ink flex-1">"{t.quote}"</p>
               <div className="mt-5 flex items-center gap-3">
-                <SafeImg src={IMG.founders[i % 3]} alt={`${t.name} — ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
+                <SafeImg src={IMG.founders[i % 3]} alt={`${t.name} - ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
                 <div className="min-w-0"><div className="font-semibold text-ink text-sm truncate">{t.name}</div><div className="text-xs text-muted-foreground truncate">{t.role}</div></div>
               </div>
             </div>
@@ -756,7 +756,7 @@ function LocationPage() {
                 {p.popular && <div className="inline-flex items-center gap-1 text-xs font-bold text-primary mb-2"><Sparkles className="w-3.5 h-3.5" /> MOST POPULAR</div>}
                 <h3 className="text-xl font-bold text-ink">{p.name}</h3>
                 <div className="mt-3 text-3xl font-bold text-gradient">{p.price}<span className="text-sm text-muted-foreground font-normal">{p.period === "month" ? "/mo" : " fixed"}</span></div>
-                <p className="mt-2 text-sm text-muted-foreground">{p.best} — for {city} brands.</p>
+                <p className="mt-2 text-sm text-muted-foreground">{p.best} - for {city} brands.</p>
                 <ul className="mt-5 space-y-2 flex-1">
                   {p.includes.map(f => <li key={f} className="flex gap-2 text-sm text-ink"><CheckCircle2 className="w-4 h-4 text-primary shrink-0" />{f}</li>)}
                 </ul>
@@ -767,7 +767,7 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 21a. NEARBY LOCATIONS — internal linking / topical authority */}
+      {/* 21a. NEARBY LOCATIONS - internal linking / topical authority */}
       <Section eyebrow="Nearby cities" title={`Ecommerce agency serving cities near ${city}`} intro={`We work with DTC and Shopify brands across ${loc.region} and the wider UK. Explore our nearest ecommerce agency locations to ${city}.`} alt>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {LOCATIONS.filter((l) => l.slug !== loc.slug).slice(0, 8).map((l) => (
@@ -815,7 +815,7 @@ function LocationPage() {
               { icon: Calendar, t: "45-minute strategy call", b: `Live audit of your ${city} store, ads and funnel.` },
               { icon: Clock, t: "No sales pitch", b: "Actionable ideas even if we never work together." },
               { icon: Phone, t: "Direct with senior operators", b: "You'll speak with the people who'd run the account." },
-              { icon: MessageCircle, t: "WhatsApp available", b: `Prefer WhatsApp? Tap below — a senior ${city} operator will reply directly.` },
+              { icon: MessageCircle, t: "WhatsApp available", b: `Prefer WhatsApp? Tap below - a senior ${city} operator will reply directly.` },
             ].map((x, i) => (
               <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
                 <div className="flex gap-4 p-5 card-surface card-hover">
@@ -834,7 +834,7 @@ function LocationPage() {
       </Section>
 
       <CTA
-        heading={`Grow your ${city} ecommerce brand — starting this week`}
+        heading={`Grow your ${city} ecommerce brand - starting this week`}
         sub={`Join 120+ UK DTC brands scaling with Being Ecom. Free ${city} audit, no commitment.`}
       />
     </PageLayout>

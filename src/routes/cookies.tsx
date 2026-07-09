@@ -6,9 +6,9 @@ import { breadcrumbJsonLd } from "../lib/seo";
 export const Route = createFileRoute("/cookies")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy — BeingEcom UK" },
+      { title: "Cookie Policy - BeingEcom UK" },
       { name: "description", content: "Cookies we use on beingecom.com and how to manage them." },
-      { property: "og:title", content: "Cookie Policy — BeingEcom UK" },
+      { property: "og:title", content: "Cookie Policy - BeingEcom UK" },
       { property: "og:description", content: "Cookies we use on beingecom.com and how to manage them." },
       { property: "og:url", content: "https://beingecom.com/cookies" },
     ],
@@ -35,7 +35,7 @@ function Cookies() {
           <h2>What we use</h2>
           <ul>
             <li><strong>Strictly necessary:</strong> session, security, load balancing. Always on.</li>
-            <li><strong>Analytics (optional):</strong> Google Analytics 4 with IP anonymisation — set only after you accept.</li>
+            <li><strong>Analytics (optional):</strong> Google Analytics 4 with IP anonymisation - set only after you accept.</li>
           </ul>
           <p>We do not use advertising or cross-site tracking cookies on this website.</p>
           <h2>Managing your consent</h2>

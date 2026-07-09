@@ -65,21 +65,21 @@ export type ServiceConfig = {
   impactStats?: { value: string; label: string }[];
   metricBars?: Bar[];
   faqs?: FAQ[];
-  /** Section 17 — sub-service pages this service links out to. */
+  /** Section 17 - sub-service pages this service links out to. */
   subServices?: { title: string; body: string; to: string }[];
-  /** Section 20 — deliverables you get. Falls back to a smart default. */
+  /** Section 20 - deliverables you get. Falls back to a smart default. */
   deliverables?: { title: string; body: string }[];
-  /** Section 21 — tech stack pills. Falls back to sensible defaults. */
+  /** Section 21 - tech stack pills. Falls back to sensible defaults. */
   techStack?: string[];
-  /** Section 22 — pricing tiers. Falls back to Starter/Growth/Scale defaults. */
+  /** Section 22 - pricing tiers. Falls back to Starter/Growth/Scale defaults. */
   packages?: { tier: string; price: string; body: string; features: string[]; featured?: boolean }[];
-  /** Section 23 — testimonials. Falls back to a rotating default set. */
+  /** Section 23 - testimonials. Falls back to a rotating default set. */
   testimonials?: { quote: string; name: string; role: string }[];
-  /** Section 25 — related sibling services (title + href). */
+  /** Section 25 - related sibling services (title + href). */
   relatedServices?: { title: string; body: string; to: string }[];
-  /** Common mistakes list — "5 mistakes killing your X". */
+  /** Common mistakes list - "5 mistakes killing your X". */
   mistakes?: { title: string; body: string }[];
-  /** Comparison table — us vs typical agency vs in-house. */
+  /** Comparison table - us vs typical agency vs in-house. */
   comparison?: {
     rows: { criterion: string; us: string; agency: string; inhouse: string }[];
   };
@@ -87,7 +87,7 @@ export type ServiceConfig = {
   midCta?: { title: string; body: string; primary: string; secondary?: string };
   /** Optional configurable timeline (falls back to default 90-day plan). */
   timeline?: { w: string; t: string; b: string }[];
-  /** Optional industry-impact grid — pain × outcome per vertical. */
+  /** Optional industry-impact grid - pain × outcome per vertical. */
   industryImpact?: { industry: string; pain: string; outcome: string }[];
 };
 
@@ -163,7 +163,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-2xl">
                     <SafeImg
                       src={cfg.heroImage}
-                      alt={`${cfg.eyebrow} — ${cfg.heroTitle}`}
+                      alt={`${cfg.eyebrow} - ${cfg.heroTitle}`}
                       width={1200}
                       height={900}
                       className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
@@ -540,13 +540,13 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
-      {/* 14b. WHY IT MATTERS FOR SALES — animated revenue impact */}
+      {/* 14b. WHY IT MATTERS FOR SALES - animated revenue impact */}
       <Section eyebrow="Why this matters for sales" title="Small shifts compound into big revenue." alt>
         <div className="grid lg:grid-cols-5 gap-8 items-stretch">
           <Reveal className="lg:col-span-2">
             <div className="card-surface p-6 md:p-7 h-full">
               <p className="text-ink/80 leading-relaxed">
-                A 1% conversion lift on a store doing <span className="font-bold text-ink">£100K/mo</span> is not 1% more sales — it's
+                A 1% conversion lift on a store doing <span className="font-bold text-ink">£100K/mo</span> is not 1% more sales - it's
                 <span className="text-gradient font-bold"> compounding revenue </span>
                 every month, on the same ad spend. That's why every module in this system is engineered to move the metrics that print money.
               </p>
@@ -572,7 +572,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             <div className="card-surface p-6 md:p-8 h-full">
               <div className="flex items-center justify-between mb-5">
                 <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-                  Revenue impact — Before vs After
+                  Revenue impact - Before vs After
                 </div>
                 <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-wider">
                   <span className="inline-flex items-center gap-1.5 text-destructive/80">
@@ -654,7 +654,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
-      {/* 15.5 FAQ — content mirrors faqJsonLd in the route head */}
+      {/* 15.5 FAQ - content mirrors faqJsonLd in the route head */}
       {cfg.faqs && cfg.faqs.length > 0 && (
         <Section eyebrow="FAQ" title="Questions we get asked all the time.">
           <div className="mx-auto max-w-3xl space-y-4">
@@ -674,7 +674,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
       )}
 
 
-      {/* 17. SUB-SERVICES — linked out to child service pages */}
+      {/* 17. SUB-SERVICES - linked out to child service pages */}
       {cfg.subServices && cfg.subServices.length > 0 && (
         <Section eyebrow="Go deeper" title={`Everything inside ${cfg.eyebrow.toLowerCase()}`} alt>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -696,15 +696,15 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </Section>
       )}
 
-      {/* 18. WHAT YOU GET — deliverables checklist */}
+      {/* 18. WHAT YOU GET - deliverables checklist */}
       <Section eyebrow="What you get" title="Deliverables in every engagement">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {(cfg.deliverables ?? [
-            { title: "Senior operator on your account", body: "Ex-DTC founders and CMOs — no juniors, ever." },
-            { title: "Weekly Loom performance review", body: "What worked, what failed, what's next — plain English." },
-            { title: "Live Triple Whale dashboard", body: "Real revenue, MER and CAC — not platform fiction." },
+            { title: "Senior operator on your account", body: "Ex-DTC founders and CMOs - no juniors, ever." },
+            { title: "Weekly Loom performance review", body: "What worked, what failed, what's next - plain English." },
+            { title: "Live Triple Whale dashboard", body: "Real revenue, MER and CAC - not platform fiction." },
             { title: "3 creative batches per week", body: "UGC + motion tests shipped, with named hypotheses." },
-            { title: "Founder Slack access", body: "Direct line to your pod — replies in hours, not days." },
+            { title: "Founder Slack access", body: "Direct line to your pod - replies in hours, not days." },
             { title: "Full asset ownership", body: "You own every ad, flow, creative and integration on day one." },
           ]).map((d, i) => (
             <Reveal key={d.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -728,7 +728,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           {(cfg.timeline ?? [
             { w: "Week 1", t: "Audit + strategy", b: "Full baseline audit, GA4 review, competitor teardown, 90-day plan agreed." },
             { w: "Week 2-3", t: "Tracking rebuilt", b: "Server-side, CAPI, Enhanced Conversions and Triple Whale wired." },
-            { w: "Week 4-6", t: "First wins shipped", b: "New creative live, PDPs rewired, flows rebuilt — first ROAS lift lands." },
+            { w: "Week 4-6", t: "First wins shipped", b: "New creative live, PDPs rewired, flows rebuilt - first ROAS lift lands." },
             { w: "Week 7-12", t: "Scale + retention", b: "Winners scaled hard, subscription + VIP flows live, forecast on track." },
           ]).map((s, i) => (
             <Reveal key={s.w} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -865,7 +865,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href={whatsappUrl(`Hi BeingEcom — I want to talk about ${cfg.eyebrow.toLowerCase()} for my ecommerce store.`)}
+                href={whatsappUrl(`Hi BeingEcom - I want to talk about ${cfg.eyebrow.toLowerCase()} for my ecommerce store.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md"
@@ -906,8 +906,8 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         );
       })()}
 
-      {/* 25b. RESOURCES & TOOLS — sitewide context-aware links */}
-      <Section eyebrow="Resources & tools" title="Keep exploring — free tools & proof">
+      {/* 25b. RESOURCES & TOOLS - sitewide context-aware links */}
+      <Section eyebrow="Resources & tools" title="Keep exploring - free tools & proof">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {RESOURCE_LINKS.map((r, i) => (
             <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>

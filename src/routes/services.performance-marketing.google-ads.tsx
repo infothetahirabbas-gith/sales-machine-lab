@@ -6,7 +6,7 @@ import heroImg from "../assets/hero-performance-marketing.jpg";
 const FAQ_LIST: FAQ[] = [
   {
     "q": "Is Google Ads worth it for ecommerce?",
-    "a": "Yes — Shopping and brand Search are usually the highest-ROAS channels in the account. PMax fills the gap."
+    "a": "Yes - Shopping and brand Search are usually the highest-ROAS channels in the account. PMax fills the gap."
   },
   {
     "q": "Should I run Performance Max?",
@@ -18,10 +18,10 @@ const FAQ_LIST: FAQ[] = [
   },
   {
     "q": "Do you handle the Merchant Center feed?",
-    "a": "Yes — feed optimisation, GTIN/MPN fixes, custom labels and supplemental feeds for titles."
+    "a": "Yes - feed optimisation, GTIN/MPN fixes, custom labels and supplemental feeds for titles."
   },
   {
-    "q": "Brand search — should I bid on my own name?",
+    "q": "Brand search - should I bid on my own name?",
     "a": "Yes, if competitors do. Cheap, defends share, and the incremental revenue covers the spend many times over."
   }
 ];
@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/google-ads")({
   head: () => ({
     meta: [
-      { title: "Google Ads Agency UK — Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
+      { title: "Google Ads Agency UK - Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
       { name: "description", content: "Best Google Ads agency UK for Shopify and DTC ecommerce. Google Shopping, Performance Max, Search and Merchant Center feed optimisation that turns clicks into profitable orders." },
       { name: "keywords", content: "Google Ads agency UK, Google Ads management UK, ecommerce PPC agency, Google Shopping agency, Performance Max agency, Shopify Google Ads, Merchant Center optimisation" },
-      { property: "og:title", content: "Google Ads Agency UK — Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "Google Ads Agency UK - Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Best Google Ads agency UK for ecommerce. Google Shopping, Performance Max and Search with feed optimisation that turns clicks into profitable orders." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/google-ads" },
     ],
@@ -51,8 +51,8 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       slug: "google-ads",
       eyebrow: "Google Ads",
       heroImage: heroImg,
-      heroTitle: "Google Ads agency UK — capture every buying moment.",
-      heroSub: "Ecommerce PPC across Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
+      heroTitle: "Google Ads agency UK - capture every buying moment.",
+      heroSub: "Ecommerce PPC across Google Shopping, Performance Max, Search and brand defence - Merchant Center feed optimisation engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",
       problemBullets: [
         "PMax dumping spend into brand traffic.",

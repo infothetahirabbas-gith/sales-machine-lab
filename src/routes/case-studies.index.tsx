@@ -77,10 +77,10 @@ export const Route = createFileRoute("/case-studies/")({
   },
   head: () => ({
     meta: [
-      { title: "Ecommerce Case Studies UK — Shopify Growth Playbooks | BeingEcom" },
-      { name: "description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce — the playbooks we run for Ads, SEO, CRO and email. Anonymised patterns, not verified client dashboards." },
-      { property: "og:title", content: "Ecommerce Case Studies UK — Shopify Growth Playbooks | BeingEcom" },
-      { property: "og:description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce — the playbooks we run for Ads, SEO, CRO and email." },
+      { title: "Ecommerce Case Studies UK - Shopify Growth Playbooks | BeingEcom" },
+      { name: "description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce - the playbooks we run for Ads, SEO, CRO and email. Anonymised patterns, not verified client dashboards." },
+      { property: "og:title", content: "Ecommerce Case Studies UK - Shopify Growth Playbooks | BeingEcom" },
+      { property: "og:description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce - the playbooks we run for Ads, SEO, CRO and email." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
@@ -151,7 +151,7 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "a7", title: "Supplements: scaled £25k → £180k/mo", brand: "UK supplements brand", industry: "Shopify · Supplements", industrySlug: "health-wellness", category: "Ads", metric: "7.2×", metricLabel: "Spend growth", duration: "4 months", problem: "Plateaued at £25k/mo, single hero creative.", strategy: ["Tested 120 creatives in 60 days", "Bundle-focused offer structure", "Subscription upsell on checkout"], results: [{ v: "£180k", l: "MRR" }, { v: "3.1×", l: "ROAS" }, { v: "+44%", l: "AOV" }], takeaway: "We spent months on creative before realising the offer was the real bottleneck." },
   { id: "a8", title: "Jewelry brand: 5.6× ROAS on Black Friday", brand: "UK jewellery brand", industry: "Shopify · Jewelry", industrySlug: "jewellery-watches", category: "Ads", metric: "5.6×", metricLabel: "BFCM ROAS", duration: "BFCM week", problem: "Last year's BFCM ROAS 1.9×, no warm audience pool.", strategy: ["90-day pre-warm campaign with content", "Tiered offer (gift, sitewide, VIP)", "SMS + ads synchronized timing"], results: [{ v: "5.6×", l: "ROAS" }, { v: "£420k", l: "BFCM rev" }, { v: "+212%", l: "vs LY" }], takeaway: "By the time Black Friday hits, you've either warmed the audience or you haven't." },
   { id: "a9", title: "Activewear: TikTok shop integration +£71k", brand: "UK activewear brand", industry: "Shopify · Apparel", industrySlug: "sports-fitness", category: "Ads", metric: "+£71k", metricLabel: "From TikTok Shop", duration: "3 months", problem: "Massive organic on TikTok, zero monetization.", strategy: ["TikTok Shop product seeding to creators", "Affiliate program for top performers", "Boosted top-3 affiliate videos as ads"], results: [{ v: "+£71k", l: "Revenue" }, { v: "62", l: "Active affiliates" }, { v: "3.4×", l: "Affiliate ROAS" }], takeaway: "TikTok Shop felt like a chore, then quietly became a top-5 revenue line." },
-  { id: "a10", title: "Coffee brand: subscription ads 3.9× LTV", brand: "UK coffee subscription brand", industry: "Shopify · Beverage", industrySlug: "food-beverage", category: "Ads", metric: "3.9×", metricLabel: "LTV", duration: "6 months", problem: "One-time purchase model, high CAC, low repeat.", strategy: ["Subscription-only ad funnel", "Free first bag offer with 2-month commit", "Cohort-based retention reporting"], results: [{ v: "3.9×", l: "LTV" }, { v: "68%", l: "Sub rate" }, { v: "-22%", l: "CAC" }], takeaway: "Selling the subscription up front changed the maths — CAC finally paid back." },
+  { id: "a10", title: "Coffee brand: subscription ads 3.9× LTV", brand: "UK coffee subscription brand", industry: "Shopify · Beverage", industrySlug: "food-beverage", category: "Ads", metric: "3.9×", metricLabel: "LTV", duration: "6 months", problem: "One-time purchase model, high CAC, low repeat.", strategy: ["Subscription-only ad funnel", "Free first bag offer with 2-month commit", "Cohort-based retention reporting"], results: [{ v: "3.9×", l: "LTV" }, { v: "68%", l: "Sub rate" }, { v: "-22%", l: "CAC" }], takeaway: "Selling the subscription up front changed the maths - CAC finally paid back." },
   { id: "a11", title: "Furniture: high-AOV Meta funnel to £310k/mo", brand: "UK furniture brand", industry: "WooCommerce · Furniture", industrySlug: "furniture-interiors", category: "Ads", metric: "£310k", metricLabel: "MRR", duration: "5 months", problem: "£1,200 AOV, long sales cycle, weak nurture.", strategy: ["Multi-touch funnel with 21-day window", "Showroom-style video ads at TOFU", "Lead magnet for design consultations"], results: [{ v: "£310k", l: "MRR" }, { v: "4.1×", l: "ROAS" }, { v: "£1.2k", l: "AOV" }], takeaway: "A 7-day window was hiding half the picture. 21 days changed how we bid." },
   { id: "a12", title: "Eyewear: prospecting CTR +180%", brand: "UK eyewear brand", industry: "Shopify · Eyewear", industrySlug: "fashion-apparel", category: "Ads", metric: "+180%", metricLabel: "CTR", duration: "2 months", problem: "Click-through tanking, creative fatigue across all sets.", strategy: ["Hook-first storyboards (3-sec rule)", "Pattern interrupts in first frame", "30 hooks tested per concept"], results: [{ v: "+180%", l: "CTR" }, { v: "-34%", l: "CPC" }, { v: "+71%", l: "ROAS" }], takeaway: "Rewrite the first 3 seconds. That's it. That's most of the work." },
   { id: "a13", title: "Outdoor: 6.2× ROAS via Google Shopping", brand: "UK outdoor brand", industry: "Shopify · Outdoor", industrySlug: "sports-fitness", category: "Ads", metric: "6.2×", metricLabel: "Shopping ROAS", duration: "4 months", problem: "Bad product feed, missing GTINs, low impression share.", strategy: ["Full feed audit and re-titling", "Custom labels for margin tiers", "Bid by product profitability"], results: [{ v: "6.2×", l: "ROAS" }, { v: "+85%", l: "Impressions" }, { v: "+44%", l: "Conv rate" }], takeaway: "We stopped tweaking campaigns and just cleaned the feed. Results followed." },
@@ -190,9 +190,9 @@ const RAW: Omit<Study, "color" | "chart">[] = [
   { id: "c11", title: "Furniture: configurator +44% rev", brand: "UK furniture brand", industry: "WooCommerce · Furniture", industrySlug: "furniture-interiors", category: "CRO", metric: "+44%", metricLabel: "Rev", duration: "10 weeks", problem: "Customers couldn't visualise options.", strategy: ["3D product configurator", "Live price update", "Save-and-share design link"], results: [{ v: "+44%", l: "Rev" }, { v: "+62%", l: "AOV" }, { v: "+28%", l: "Time on site" }], takeaway: "For £1k+ products, letting people 'see it' before buying quietly closes deals." },
   { id: "c12", title: "Outdoor: filter UX +24% collection CR", brand: "UK outdoor brand", industry: "Shopify · Outdoor", industrySlug: "sports-fitness", category: "CRO", metric: "+24%", metricLabel: "CR", duration: "4 weeks", problem: "Filters opened modal, lost context, slow.", strategy: ["Inline left-rail filters", "Instant results (no apply button)", "Filter chips above grid"], results: [{ v: "+24%", l: "CR" }, { v: "-18%", l: "Bounce" }, { v: "+19%", l: "Rev" }], takeaway: "Slow filters were quietly costing us collection-page conversions." },
 
-  // WEBSITE (10) — full-site builds / redesigns. Card preview = homepage screenshot.
+  // WEBSITE (10) - full-site builds / redesigns. Card preview = homepage screenshot.
   { id: "w1", title: "Apparel brand: full Shopify rebuild", brand: "UK Shopify apparel brand", industry: "Shopify · Apparel", industrySlug: "fashion-apparel", category: "Website", metric: "+182%", metricLabel: "Site CR", duration: "5 weeks", problem: "Old theme, slow PDP, no mobile-first design.", strategy: ["Custom Shopify 2.0 theme", "Mobile-first PDP with sticky ATC", "Speed: LCP under 1.6s"], results: [{ v: "+182%", l: "CR" }, { v: "+44%", l: "AOV" }, { v: "1.4s", l: "LCP" }], takeaway: "A faster, more focused homepage was the highest-ROI thing we shipped." },
-  { id: "w2", title: "Gadgets store: headless storefront", brand: "UK gadgets store", industry: "Hydrogen · Gadgets", industrySlug: "electronics-technology", category: "Website", metric: "0.9s", metricLabel: "LCP", duration: "7 weeks", problem: "Liquid theme couldn't keep up with traffic spikes.", strategy: ["Hydrogen + Oxygen migration", "Edge-rendered PDPs", "Persistent cart drawer"], results: [{ v: "0.9s", l: "LCP" }, { v: "+71%", l: "Mobile CR" }, { v: "+38%", l: "Rev" }], takeaway: "Headless made sense once traffic and SKUs both got heavy — not before." },
+  { id: "w2", title: "Gadgets store: headless storefront", brand: "UK gadgets store", industry: "Hydrogen · Gadgets", industrySlug: "electronics-technology", category: "Website", metric: "0.9s", metricLabel: "LCP", duration: "7 weeks", problem: "Liquid theme couldn't keep up with traffic spikes.", strategy: ["Hydrogen + Oxygen migration", "Edge-rendered PDPs", "Persistent cart drawer"], results: [{ v: "0.9s", l: "LCP" }, { v: "+71%", l: "Mobile CR" }, { v: "+38%", l: "Rev" }], takeaway: "Headless made sense once traffic and SKUs both got heavy - not before." },
   { id: "w3", title: "Skincare: brand-led redesign", brand: "UK skincare brand", industry: "Shopify · Skincare", industrySlug: "beauty-personal-care", category: "Website", metric: "+96%", metricLabel: "AOV", duration: "6 weeks", problem: "Generic theme, no brand storytelling, weak hierarchy.", strategy: ["Editorial homepage with story sections", "Routine builder on collection page", "Press logo + ingredient deep dives"], results: [{ v: "+96%", l: "AOV" }, { v: "+62%", l: "CR" }, { v: "+44%", l: "Time on site" }], takeaway: "Once the homepage told a story, our paid and email started converting better too." },
   { id: "w4", title: "Footwear: PDP-first redesign", brand: "UK footwear brand", industry: "Shopify · Footwear", industrySlug: "fashion-apparel", category: "Website", metric: "+128%", metricLabel: "PDP CR", duration: "4 weeks", problem: "PDP buried features below the fold.", strategy: ["Above-fold size + reviews + ATC", "AI fit recommendation widget", "Inline video for each colourway"], results: [{ v: "+128%", l: "PDP CR" }, { v: "-22%", l: "Returns" }, { v: "+41%", l: "Rev" }], takeaway: "On mobile footwear PDPs, above the fold is basically the whole page." },
   { id: "w5", title: "Beauty DTC: quiz-driven homepage", brand: "UK beauty DTC brand", industry: "Shopify · Beauty", industrySlug: "beauty-personal-care", category: "Website", metric: "6.4%", metricLabel: "Site-wide CR", duration: "5 weeks", problem: "Too many SKUs, no clear entry path.", strategy: ["Quiz as primary homepage CTA", "Routine results page = personalised PLP", "Email + SMS capture mid-quiz"], results: [{ v: "6.4%", l: "CR" }, { v: "+88%", l: "Email list" }, { v: "+52%", l: "AOV" }], takeaway: "The quiz basically became a 24/7 sales associate for us." },
@@ -249,7 +249,7 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
 
 function AdsPreview({ seed }: { seed: number }) {
   const r = rng(seed + 11);
-  // Illustrative campaign structure — names vary by seed so cards don't repeat.
+  // Illustrative campaign structure - names vary by seed so cards don't repeat.
   const coldNames = ["ASC · Broad cold", "Advantage+ · Broad", "PMax · Prospecting", "Broad · Creator UGC", "Cold · Offer stack"];
   const rtgNames = ["Retargeting · 7D", "Retargeting · 30D", "Cart abandoners · 14D", "Website · 90D pool", "VV75 · Video RTG"];
   const testNames = ["Creative test · UGC", "Hook test · 3-sec", "Concept test · Batch", "Angle test · Founder", "Static test · Value"];
@@ -596,10 +596,10 @@ function CaseStudies() {
             Ecommerce growth <span className="text-gradient">playbooks</span>.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-            {studies.length} illustrative examples across Ads, SEO and CRO — showing the problems, strategies and outcome patterns we run for UK Shopify and WooCommerce brands. Metrics and dashboards are anonymised and representative, not verified client screenshots.
+            {studies.length} illustrative examples across Ads, SEO and CRO - showing the problems, strategies and outcome patterns we run for UK Shopify and WooCommerce brands. Metrics and dashboards are anonymised and representative, not verified client screenshots.
           </p>
 
-          {/* Stat strip — centralised in lib/stats.ts */}
+          {/* Stat strip - centralised in lib/stats.ts */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
             {HERO_STATS.map((s) => (
               <div key={s.l} className="card-surface p-4 text-center">
@@ -609,7 +609,7 @@ function CaseStudies() {
             ))}
           </div>
 
-          {/* Transparency disclosure — EEAT */}
+          {/* Transparency disclosure - EEAT */}
           <div className="mt-6 max-w-2xl mx-auto lg:mx-0 text-xs text-muted-foreground bg-secondary/40 border border-border rounded-xl p-3">
             <strong className="text-ink">Transparency note:</strong> These examples represent the patterns and playbooks we run for real UK ecommerce brands. Brand identities are anonymised for client confidentiality, and the numbers illustrate realistic outcome ranges rather than exact per-client dashboards. For verified client references, <Link to="/contact" className="text-primary underline">contact us</Link>.
           </div>
@@ -709,7 +709,7 @@ function CaseStudies() {
 
       <FaqSection
         faqs={caseStudyFaqs}
-        title="Case study —"
+        title="Case study -"
         highlight="FAQ"
         intro="The questions founders ask after browsing our wins."
       />

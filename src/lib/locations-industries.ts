@@ -18,7 +18,7 @@ export const LOCATIONS: LocationData[] = [
     slug: "manchester",
     city: "Manchester",
     region: "North West England",
-    intro: "Manchester ecommerce brands trust us to scale ROAS, cut CAC, and build a system that compounds every month — without agency fluff.",
+    intro: "Manchester ecommerce brands trust us to scale ROAS, cut CAC, and build a system that compounds every month - without agency fluff.",
     highlights: ["Paid social growth", "SEO for UK ecommerce", "Landing page CRO", "Retention automations"],
   },
   {
@@ -53,7 +53,7 @@ export const LOCATIONS: LocationData[] = [
     slug: "liverpool",
     city: "Liverpool",
     region: "Merseyside",
-    intro: "Liverpool DTC brands scaling with a lean, senior team — no juniors, no reporting theatre, just revenue and margin.",
+    intro: "Liverpool DTC brands scaling with a lean, senior team - no juniors, no reporting theatre, just revenue and margin.",
     highlights: ["Media buying", "Landing page CRO", "Klaviyo flows", "Ad creative production"],
   },
   {
@@ -102,7 +102,7 @@ export const LOCATIONS: LocationData[] = [
     slug: "bradford",
     city: "Bradford",
     region: "West Yorkshire",
-    intro: "Bradford DTC and Shopify brands install the same scaling system used by 120+ UK operators — creative, media, CRO and retention.",
+    intro: "Bradford DTC and Shopify brands install the same scaling system used by 120+ UK operators - creative, media, CRO and retention.",
     highlights: ["Performance marketing", "Landing page CRO", "Email & SMS lifecycle", "UK creative production"],
   },
 ];
@@ -124,7 +124,7 @@ export const INDUSTRIES: IndustryData[] = [
   {
     slug: "beauty-personal-care",
     name: "Beauty & Personal Care",
-    intro: "Beauty and personal care brands need a full-funnel system — we build one that reduces CAC, protects margin and grows repeat purchase rate.",
+    intro: "Beauty and personal care brands need a full-funnel system - we build one that reduces CAC, protects margin and grows repeat purchase rate.",
     highlights: ["Skincare & Haircare", "Makeup & Cosmetics", "Men's Grooming", "Fragrances & Perfumes"],
   },
   {
