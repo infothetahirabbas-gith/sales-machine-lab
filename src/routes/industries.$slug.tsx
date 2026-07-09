@@ -12,6 +12,7 @@ import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
+import { studies } from "./case-studies.index";
 import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
 import { whatsappForIndustry } from "../lib/whatsapp";
