@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3, Sparkles } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
-import GrowthChart from "../components/site/GrowthChart";
+
 
 
 import { faqs as homeFaqs } from "../components/site/faqs-data";
@@ -29,6 +29,7 @@ const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
 const RevenueLossCalculator = lazy(() => import("../components/site/RevenueLossCalculator"));
 const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanner"));
 const ContactFaq = lazy(() => import("../components/site/ContactFaq"));
+const GrowthChart = lazy(() => import("../components/site/GrowthChart"));
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -358,8 +359,10 @@ function Home() {
               wrapperClassName="w-full h-56 md:h-64 rounded-xl"
             />
 
-            <div className="mt-4">
-              <GrowthChart className="w-full h-auto" />
+            <div className="mt-4 min-h-[280px]">
+              <Suspense fallback={<div className="w-full h-[280px] rounded-xl bg-secondary/40 animate-pulse" />}>
+                <GrowthChart className="w-full h-auto" />
+              </Suspense>
             </div>
           </div>
 
