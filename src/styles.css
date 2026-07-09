@@ -50,8 +50,8 @@
   --color-sky: var(--sky);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
-  --font-display: "Poppins", system-ui, sans-serif;
-  --font-body: "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", "Poppins Fallback", system-ui, sans-serif;
+  --font-body: "Poppins", "Poppins Fallback", system-ui, sans-serif;
 
   --animate-fade-in: fadeIn 0.7s ease-out both;
   --animate-rise: rise 0.8s cubic-bezier(0.16,1,0.3,1) both;
