@@ -12,6 +12,10 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+// Preload the hero H1 font weight so it's fetched in parallel with CSS
+// instead of after CSS parse — cuts FCP on mobile ~100-200ms.
+import poppins700 from "@fontsource/poppins/files/poppins-latin-700-normal.woff2?url";
+import poppins600 from "@fontsource/poppins/files/poppins-latin-600-normal.woff2?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
 
@@ -113,8 +117,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
-      // Poppins is self-hosted via @fontsource, bundled through src/styles.css —
-      // no Google Fonts DNS / connect / TLS round-trip on first paint.
+      // Poppins is self-hosted via @fontsource (font-display: swap is baked
+      // into the shipped CSS). Preload the two weights used above-the-fold
+      // (H1 = 700, buttons/subheads = 600) so browsers fetch them in
+      // parallel with the stylesheet instead of after CSS parse.
+      { rel: "preload", as: "font", type: "font/woff2", href: poppins700, crossOrigin: "anonymous" } as never,
+      { rel: "preload", as: "font", type: "font/woff2", href: poppins600, crossOrigin: "anonymous" } as never,
     ],
     scripts: (() => {
       const gaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
