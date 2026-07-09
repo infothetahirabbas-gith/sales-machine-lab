@@ -101,61 +101,88 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/20 blur-[140px] float" />
         <div className="absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-accent/30 blur-[120px] float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              {cfg.eyebrow}
-            </div>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl mx-auto lg:mx-0 leading-[1.02] text-ink">
-              {cfg.heroTitle}
-            </h1>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              {cfg.heroSub}
-            </p>
-          </Reveal>
-          <Reveal delay={3}>
-            <div className="mt-9 btn-pair">
-              <Link to="/contact" className="btn btn-primary btn-shimmer group">
-                Book Strategy Call
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/case-studies"
-                className="btn btn-ghost group border border-border bg-white/60 backdrop-blur hover:bg-white hover:-translate-y-0.5"
-              >
-                See Real Results
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-            </div>
-          </Reveal>
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+          <div className={cfg.heroImage ? "grid lg:grid-cols-2 gap-10 lg:gap-14 items-center text-center lg:text-left" : "text-center lg:text-left"}>
+            <div>
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                  <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
+                  {cfg.eyebrow}
+                </div>
+              </Reveal>
+              <Reveal delay={1}>
+                <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
+                  {cfg.heroTitle}
+                </h1>
+              </Reveal>
+              <Reveal delay={2}>
+                <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                  {cfg.heroSub}
+                </p>
+              </Reveal>
+              <Reveal delay={3}>
+                <div className="mt-9 btn-pair">
+                  <Link to="/contact" className="btn btn-primary btn-shimmer group">
+                    Book Strategy Call
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </Link>
+                  <Link
+                    to="/case-studies"
+                    className="btn btn-ghost group border border-border bg-white/60 backdrop-blur hover:bg-white hover:-translate-y-0.5"
+                  >
+                    See Real Results
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </Reveal>
 
-          {/* Floating proof strip */}
-          <Reveal delay={4}>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
-              {[
-                { v: "120+", l: "Stores scaled" },
-                { v: "£48M+", l: "Tracked revenue" },
-                { v: "4.1×", l: "Avg ROAS lift" },
-                { v: "10+ yrs", l: "Ecom operating" },
-              ].map((s) => (
-                <div
-                  key={s.l}
-                  className="card-surface card-hover p-4 text-center group"
-                >
-                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
-                    {s.l}
+              {/* Floating proof strip */}
+              <Reveal delay={4}>
+                <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
+                  {[
+                    { v: "120+", l: "Stores scaled" },
+                    { v: "£48M+", l: "Tracked revenue" },
+                    { v: "4.1×", l: "Avg ROAS lift" },
+                    { v: "10+ yrs", l: "Ecom operating" },
+                  ].map((s) => (
+                    <div key={s.l} className="card-surface card-hover p-4 text-center group">
+                      <div className="text-2xl font-bold text-gradient">{s.v}</div>
+                      <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">
+                        {s.l}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+
+            {cfg.heroImage && (
+              <Reveal delay={2}>
+                <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+                  <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/20 to-transparent blur-2xl" aria-hidden="true" />
+                  <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-2xl">
+                    <SafeImg
+                      src={cfg.heroImage}
+                      alt={`${cfg.eyebrow} — ${cfg.heroTitle}`}
+                      width={1200}
+                      height={900}
+                      className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="sync"
+                      brandOverlay
+                    />
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent">
+                      <div className="text-[11px] font-bold uppercase tracking-widest text-white/85">{cfg.eyebrow}</div>
+                      <div className="mt-1 text-sm sm:text-base font-semibold text-white leading-snug">Operator-led. Revenue-obsessed.</div>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            )}
+          </div>
         </div>
+
       </section>
 
       {/* 2. PROBLEM AWARENESS */}
