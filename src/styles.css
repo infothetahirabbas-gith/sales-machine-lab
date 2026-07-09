@@ -167,7 +167,7 @@
   .btn-shimmer:hover::before { transform: translateX(100%); }
 
   .btn-pair { @apply grid grid-cols-2 gap-2 sm:gap-3 items-stretch w-full sm:inline-flex sm:flex-row sm:w-auto sm:items-center; }
-  .btn-pair .btn { @apply w-full min-w-0 justify-center px-3 py-2.5 text-[13px] leading-tight whitespace-nowrap overflow-hidden text-ellipsis sm:text-sm sm:w-auto sm:px-6 sm:py-3; }
+  .btn-pair .btn { @apply w-full min-w-0 justify-center px-2 py-2.5 text-[12px] leading-tight whitespace-normal text-center sm:text-sm sm:w-auto sm:px-6 sm:py-3 sm:whitespace-nowrap; }
   .btn-pair .btn svg { @apply w-3.5 h-3.5 shrink-0 sm:w-4 sm:h-4; }
 
 
