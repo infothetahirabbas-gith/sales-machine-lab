@@ -607,13 +607,13 @@ function Home() {
       <CTA
         heading={
           <>
-            <span className="block md:hidden">
+            <span className="block lg:hidden">
               <span className="block">Ready to Grow? Work With the</span>
               <span className="block whitespace-nowrap text-primary mt-1">Best Ecommerce</span>
               <span className="block whitespace-nowrap text-primary">Digital Marketing</span>
               <span className="block whitespace-nowrap text-primary">Agency UK</span>
             </span>
-            <span className="hidden md:inline">Ready to Grow? Work With the <span className="text-primary">Best Ecommerce Digital Marketing Agency UK</span></span>
+            <span className="hidden lg:inline">Ready to Grow? Work With the <span className="text-primary">Best Ecommerce Digital Marketing Agency UK</span></span>
           </>
         }
         sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
