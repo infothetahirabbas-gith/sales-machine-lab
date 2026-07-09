@@ -207,7 +207,7 @@ export const aboutFaqs: FAQ[] = [
   { q: "What makes BeingEcom different from other agencies?", a: "We work only with ecommerce brands on Shopify and WooCommerce, operate like a fractional CMO/CRO team, and tie every decision to revenue - not vanity metrics." },
   { q: "How big is your team?", a: "We're a senior-only team of growth operators - ex-DTC founders, performance leads, CRO directors and SEO experts. No juniors learning on your account." },
   { q: "Do you take equity instead of fees?", a: "Occasionally, for the right brand. Default is a 90-day fixed engagement followed by month-to-month." },
-  { q: "Where are you based?", a: "Remote-first, global. Core operators across North America, Europe and APAC so coverage is effectively 24/5." },
+  { q: "Where are you based?", a: "Headquartered in London (71–75 Shelton Street, Covent Garden, WC2H 9JQ), with a UK-first senior team that operates remotely across UK time zones and coordinates with partners in Europe when a project needs it." },
 ];
 
 export const auditFaqs: FAQ[] = [
@@ -233,8 +233,8 @@ export const servicesFaqs: FAQ[] = [
 ];
 
 export const caseStudyFaqs: FAQ[] = [
-  { q: "Are these case studies real?", a: "Yes. Every result is from a real client engagement. Brand names are sometimes anonymized for NDA reasons." },
-  { q: "Can I talk to one of your clients as a reference?", a: "Yes - after the discovery call we'll connect you with a brand in your category and stage." },
-  { q: "What's your typical time-to-result?", a: "CRO and email lift in 2-4 weeks, paid ads stabilize in 30-60 days, SEO compounds over 3-6 months." },
+  { q: "Are these case studies real?", a: "They're illustrative — representative playbooks, not verified client dashboards. Every card is drawn from patterns we've run for real UK Shopify and WooCommerce brands, but brand names, screenshots and exact dashboard figures are anonymised for NDA reasons and the numbers illustrate realistic outcome ranges rather than a single client's live account." },
+  { q: "Can I see verified numbers for a specific client?", a: "Yes — after a discovery call we can share verified references and, where the client consents, walk you through real dashboards for a brand in your category and stage." },
+  { q: "What's your typical time-to-result?", a: "CRO and email lift in 2–4 weeks, paid ads stabilise in 30–60 days, SEO compounds over 3–6 months." },
   { q: "Do results like these predict my outcome?", a: "No — past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers each week." },
 ];
