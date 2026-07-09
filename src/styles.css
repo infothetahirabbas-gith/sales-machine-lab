@@ -149,24 +149,52 @@
     .split-heading > .split-brand::before { content: "\A"; white-space: pre; }
   }
 
-  /* Buttons */
-  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform text-sm sm:text-base w-auto max-w-full text-center leading-tight; }
+  /* Buttons — standardized: focus-visible, active, disabled, loading, min tap target */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 will-change-transform text-sm sm:text-base w-auto max-w-full text-center leading-tight min-h-11;
+    outline: none;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary) 20%, transparent);
+  }
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+  }
+  .btn[data-loading="true"] { position: relative; color: transparent !important; pointer-events: none; }
+  .btn[data-loading="true"]::after {
+    content: "";
+    position: absolute; inset: 0; margin: auto;
+    width: 1.15em; height: 1.15em;
+    border-radius: 9999px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    color: var(--primary-foreground);
+    animation: btn-spin 0.7s linear infinite;
+  }
+  @keyframes btn-spin { to { transform: rotate(360deg); } }
+
   .btn-primary {
     background: var(--primary);
     color: var(--primary-foreground);
     box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--primary) 55%, transparent);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0 active:scale-[0.98];
   }
   .btn-dark {
     background: var(--ink);
     color: var(--primary-foreground);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0 active:scale-[0.98];
   }
   .btn-ghost {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10;
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 active:translate-y-0 active:scale-[0.98];
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
@@ -181,6 +209,7 @@
   .btn-pair { @apply grid grid-cols-2 gap-2 sm:gap-3 items-stretch w-full sm:inline-flex sm:flex-row sm:w-auto sm:items-center; }
   .btn-pair .btn { @apply w-full min-w-0 justify-center px-2 py-2.5 text-[12px] leading-tight whitespace-normal text-center sm:text-sm sm:w-auto sm:px-6 sm:py-3 sm:whitespace-nowrap; }
   .btn-pair .btn svg { @apply w-3.5 h-3.5 shrink-0 sm:w-4 sm:h-4; }
+
 
 
   /* Cards */
