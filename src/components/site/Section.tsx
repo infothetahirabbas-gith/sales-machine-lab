@@ -127,7 +127,7 @@ export function NumberedList({ items }: { items: { title: string; body: string }
 export function CTA({
   heading = "Let's Turn Your Store Into a Sales Machine",
   sub = "Get a free, no-fluff ecommerce growth audit. We'll show you exactly what's leaking revenue.",
-}: { heading?: string; sub?: string }) {
+}: { heading?: ReactNode; sub?: ReactNode }) {
   return (
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
