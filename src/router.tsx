@@ -19,9 +19,10 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    // Preload on viewport entry AND on intent — links visible on screen are
-    // fetched proactively so clicks feel instant (nano-second perceived).
-    defaultPreload: "viewport",
+    // Preload on hover/focus only — "viewport" was pulling every visible
+    // route's chunk (e.g. /audit's 350 KiB bundle) into the initial home
+    // page load. "intent" keeps clicks feeling instant without the payload.
+    defaultPreload: "intent",
     // Let TanStack Query own freshness; router just triggers the fetch.
     defaultPreloadStaleTime: 0,
     // Fire preload immediately on hover/focus for near-zero click latency.
