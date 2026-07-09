@@ -104,7 +104,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
     const faqData = loc ? [
       { q: `Are you actually based in ${loc.city}?`, a: `Yes — we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
-      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements start with a £2,500 CRO Sprint (6-week fixed), a £4,500/mo Growth System retainer, and an £8,000/mo Full Partnership. Same transparent pricing on our pricing page.` },
+      { q: `How much does an ecommerce agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce migrations and headless Hydrogen builds.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30–60 days as tracking, creative and offers are rebuilt. SEO and retention gains compound in months 3–6.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, analytics and email — no obligation.` },
@@ -257,7 +257,7 @@ function LocationPage() {
 
   const faqs: FAQ[] = [
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Our ${city} engagements: £2,500 CRO Sprint (6-week fixed), £4,500/mo Growth System, £8,000/mo Full Partnership. Same transparent pricing published on our pricing page.` },
+    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
     { q: `Which platforms do you work with?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
     { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO and retention gains follow in months 3–6.` },
     { q: `Do you offer a free audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, analytics and email — no obligation, no sales pitch.` },
