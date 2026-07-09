@@ -187,6 +187,11 @@ function RootComponent() {
     } else {
       timeoutId = window.setTimeout(() => setDeferredReady(true), 400);
     }
+    // Real-user Core Web Vitals reporter. Fires FCP/LCP/CLS/INP/TTFB to
+    // GA4 (if VITE_GA4_MEASUREMENT_ID is set) so we can track real user
+    // perf over time — not just Lighthouse lab scores. Loaded lazily so
+    // it never blocks first paint itself.
+    import("../lib/web-vitals-reporter").then((m) => m.startWebVitalsReporter()).catch(() => {});
     return () => {
       mq.removeEventListener("change", apply);
       if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
