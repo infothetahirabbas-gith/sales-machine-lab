@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from "lucide-react";
 import logo from "@/assets/beingecom-logo.webp";
+import { SITE } from "@/config/site";
 
 export default function Footer() {
   return (
@@ -16,9 +17,9 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex items-center gap-3">
             {[
-              { Icon: Linkedin, href: "https://www.linkedin.com/company/beingecom", label: "LinkedIn" },
-              { Icon: Instagram, href: "https://www.instagram.com/beingecom", label: "Instagram" },
-              { Icon: Twitter, href: "https://x.com/beingecom", label: "X (Twitter)" },
+              { Icon: Linkedin, href: SITE.socials.linkedin, label: "LinkedIn" },
+              { Icon: Instagram, href: SITE.socials.instagram, label: "Instagram" },
+              { Icon: Twitter, href: SITE.socials.twitter, label: "X (Twitter)" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
@@ -57,15 +58,15 @@ export default function Footer() {
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background shrink-0" />
-              <a href="mailto:info@beingecom.com" className="hover:text-accent transition-colors">info@beingecom.com</a>
+              <a href={SITE.emailHref} className="hover:text-accent transition-colors">{SITE.email}</a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-background shrink-0" />
-              <a href="tel:+447882743592" className="hover:text-accent transition-colors">+44 7882 743592</a>
+              <a href={SITE.phoneHref} className="hover:text-accent transition-colors">{SITE.phone}</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-background shrink-0 mt-0.5" />
-              <span>71-75 Shelton Street,<br />Covent Garden, London<br />WC2H 9JQ, United Kingdom</span>
+              <span>{SITE.addressLines.map((line, i) => (<span key={line}>{line}{i < SITE.addressLines.length - 1 ? <br /> : null}</span>))}</span>
             </li>
             <li><Link to="/contact" className="inline-flex items-center gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
             <li><Link to="/case-studies" className="hover:text-accent transition-colors">View Case Studies →</Link></li>
