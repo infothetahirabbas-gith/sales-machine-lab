@@ -16,6 +16,7 @@ import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
+import shopifyWooImage from "../assets/shopify-woocommerce-store.jpg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
