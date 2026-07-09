@@ -9,6 +9,7 @@ import GrowthChart from "../components/site/GrowthChart";
 import { faqs as homeFaqs } from "../components/site/faqs-data";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
+import { HERO_STATS } from "../lib/stats";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
 import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
@@ -133,12 +134,7 @@ function Home() {
               </Link>
             </div>
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
-              {[
-                { v: "120+", l: "stores scaled" },
-                { v: "£48M+", l: "tracked revenue" },
-                { v: "400+", l: "A/B tests run" },
-                { v: "4.1×", l: "avg ROAS lift" },
-              ].map((s) => (
+              {HERO_STATS.map((s) => (
                 <div key={s.l}>
                   <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">{s.v}</div>
                   <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
