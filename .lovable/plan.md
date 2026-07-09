@@ -1,102 +1,101 @@
-# Verification-pass fixes — one source of truth
+# Site-wide consistency + governance pass
 
-Everything below fixes the root cause in a shared component or config; individual pages then inherit. No page-level hardcoded values.
+Five parallel workstreams, in dependency order. Each ships a concrete artifact and a re-run instruction so drift is catchable, not just fixable once.
 
-## What I already verified is fixed (no action needed)
-- Contact page uses `£48M+` (not `$48M+`) — line 115 of `src/routes/contact.tsx`. The audit report is stale on this one; I'll re-verify the DOM after deploy.
-- Footer contact block already reads from `SITE` (address, email, phone, socials).
-- Homepage currency is £ throughout.
+## 1. Single source of truth for SERVICES + SITE_STATS
 
-## Batch 1 — Service taxonomy (one canonical list)
+**New files**
+- `src/config/services.ts` — canonical list of the 10 services. One record per service: `slug`, `to` (route path), `label` (canonical UK-English name), `shortLabel`, `blurb`, `tag`, `icon` key. Nested `children` for SEO / Performance Marketing / Store Dev sub-routes.
+- `src/config/site-stats.ts` (extends existing `src/lib/stats.ts`) — one `SITE_STATS` object: `trackedRevenue: "£48M+"`, `brandsScaled: "120+"`, `caseStudies: "39"`, `adSpend`, `avgRoas`, `retentionLift`, plus a `HERO_STATS` array derived from it. All strings; currency prefix `£`.
 
-Root cause: Header, Footer, homepage, and `services.index` each hold their own array. Fix by creating a single source.
+**Files that switch to importing from those configs (no duplicate literals)**
+- `src/components/site/Header.tsx` — replace hard-coded `services` array (lines 26–66).
+- `src/components/site/Footer.tsx` — replace hard-coded `<Link>` list (lines 42–51).
+- `src/routes/services.index.tsx` — replace `all` array; keep sub-service entries derived from `SERVICES[i].children`.
+- `src/routes/index.tsx` — replace mid-page service grid (lines 66–70+).
+- `src/components/site/WelcomeBanner.tsx`, `src/routes/$lang.$location.$industry.$service.tsx`, `src/lib/seo.ts` `organizationJsonLd` service offers.
+- `src/components/site/ServicePage.tsx`, `src/routes/contact.tsx`, `src/routes/about.tsx` — swap `{v:"£48M+"}` literals for `SITE_STATS.trackedRevenue.v`.
 
-- New `src/config/services.ts` exporting `SERVICES` with `{ slug, path, label, shortLabel, tagline, Icon, group, children? }` for all 9 top-level services + SEO/Perf/Store children.
-- Canonical labels (UK English, one name everywhere):
-  - Ecommerce SEO
-  - Performance Marketing
-  - Store Development
-  - Conversion Rate Optimisation
-  - Creative Production *(renamed from "Creative Testing" in Header)*
-  - Email Marketing Automation
-  - AI Automation
-  - Funnel & Landing Pages
-  - Analytics & Tracking
-  - Scaling & Retention
-- Refactor `Header.tsx`, `Footer.tsx`, `src/routes/index.tsx` services grid, `services.index.tsx`, breadcrumbs, and `RelatedServices` component to import from `SERVICES`. Homepage grid shows all 10 (adds AI Automation card — currently missing).
-- Update sitemap + `organizationJsonLd.serviceCatalog` to iterate `SERVICES`.
+## 2. Automated parity checks (guards against future drift)
 
-## Batch 2 — Testimonials (component, not page)
+**New file**: `src/config/__tests__/parity.test.ts` (Vitest — already in devDeps).
 
-Root cause: homepage `Section` inlines a marquee that duplicates the array with `Array.from({length:2}).flatMap(...)` and exposes both copies to the a11y tree, so screen readers and crawlers see every quote twice.
+Tests:
+- `SERVICES` slug list appears verbatim as `<Link to>` in Header source and Footer source (regex read of the files at test time).
+- Every `SERVICES[i].label` appears in both Header and Footer source.
+- No occurrence of "Creative Testing", "Conversion Optimization" (US), "Email Marketing"(without "Automation") anywhere under `src/routes/` or `src/components/`.
+- No `\$\d` currency literal anywhere under `src/` except an allowlist (`useCountUp.tsx` comment, `store-audit.functions.ts` regex, `services.seo.international.tsx` copy about US market, `blog.$slug.tsx` prose, `api.chat.ts` system prompt).
+- `INDUSTRIES` from `src/lib/locations-industries.ts` is a superset of every `industrySlug` used by case studies.
 
-- Extract to `src/components/site/TestimonialsMarquee.tsx` reading from `src/config/testimonials.ts` (single array of quotes).
-- Render two tracks: first with real content, second with `aria-hidden="true"` + `data-nosnippet` and every focusable stripped, so the visual loop continues but a11y/SEO see the list once.
-- Wrap the whole marquee in a `<ul role="list">`, each quote as `<li>` with a `<blockquote>` + `<figcaption>`.
-- Reuse the same component on any other page that shows testimonials.
+Run with `bunx vitest run src/config/__tests__/parity.test.ts`. Add npm script `parity` in `package.json`.
 
-## Batch 3 — Revenue chart (`GrowthChart.tsx`)
+## 3. Schema audit + standardization
 
-Root cause: axis label built as `{t}{v.yLabel}` so `£K` becomes `100£K`. X labels also render in a single line with no spacing on narrow SVG viewBox.
+**New file**: `src/lib/schema.ts` — thin wrappers around existing helpers in `src/lib/seo.ts` so every route uses the same shape:
+- `orgSchema()` — Organization + LocalBusiness combined (single graph object with `@id` self-references), used only in `__root.tsx`.
+- `pageSchema({ url, breadcrumbs, faqs?, article? })` — always emits BreadcrumbList; optionally stacks Article / FAQPage / Service.
+- `serviceSchema({ slug })` — pulls name/description from `SERVICES` config so schema name always matches the visible page.
 
-- Add `formatTick(value, unit)` that puts currency prefix before the number (`£100K`, `£75K`, `88%`, `4.2×`) and unit suffix after non-currency units.
-- Give the SVG `preserveAspectRatio="xMidYMid meet"` and add `<title>`/`<desc>` for a11y (chart already has `role="img" aria-label` — extend with description of the trend).
-- Bump `PAD_L` to fit `£100K`, right-align tick text at `PAD_L - 6`.
-- Show every 3rd x-tick on `<640px` viewports via a `useMediaQuery`-free approach: emit both label sets and toggle via CSS `.hidden md:inline`.
+**Audit + fix per route**:
+| Route | Current | Fix |
+|---|---|---|
+| `__root.tsx` | Organization only | Combined Organization + LocalBusiness graph, `@id` self-references, `areaServed` from `SITE.positioning` |
+| `services.*.tsx` (10) | `serviceJsonLd()` name literal | Call `serviceSchema({ slug })` — name is auto-pulled from SERVICES |
+| `case-studies.$id.tsx` | Article + Breadcrumb + FAQ (good) | Add `image` absolute URL check |
+| `industries.$slug.tsx` | Breadcrumb only | Add CollectionPage + BreadcrumbList |
+| `locations.$slug.tsx` | LocalBusiness (duplicate of root) | Drop — root owns LocalBusiness; keep BreadcrumbList only |
+| `blog.$slug.tsx` | Article | Verify `datePublished` + `author.@type` |
+| `contact.tsx`, `about.tsx`, `pricing.tsx`, `audit.tsx` | Breadcrumb only | Add `WebPage` + `mainEntity` |
 
-## Batch 4 — Global stats config
+## 4. Industry taxonomy — `industrySlug` on case studies + filterable /industries/$slug
 
-Root cause: numbers duplicated across `src/lib/stats.ts`, `ServicePage.tsx`, `contact.tsx`, other pages.
+**Data change** in `src/routes/case-studies.index.tsx`:
+Extend `Study` type with required `industrySlug: string` field. Map each of the 39 existing studies to a slug from the canonical `INDUSTRIES` list in `src/lib/locations-industries.ts` (`fashion-apparel`, `beauty-personal-care`, `electronics-technology`, `home-garden`, `food-beverage`, `health-wellness`, `sports-fitness`, `furniture-interiors`, `baby-kids`, `jewellery-watches`, `pets-supplies`, `arts-prints-stationery`).
 
-- Extend `src/lib/stats.ts` (already exports `HERO_STATS` + `trackedRevenue`) into a full `SITE_STATS` object: tracked revenue, brands scaled, case studies, ad spend, average ROAS, retention.
-- Refactor `ServicePage`, `contact.tsx`, `about.tsx`, homepage bento to import from `SITE_STATS`. No page keeps its own literal.
+Existing free-text `industry` field ("Shopify · Apparel") stays as display label — no visual regression.
 
-## Batch 5 — Industry taxonomy alignment
+**`src/routes/industries.$slug.tsx` rebuild** (only the case-study section — hero + copy blocks stay):
+Replace hard-coded illustrative case-study cards with a filter over `studies.filter(s => s.industrySlug === params.slug)`. Empty-state card when an industry has no studies yet ("Playbook available on request"). Cards link to `/case-studies/$id`.
 
-Root cause: `INDUSTRIES` in `locations-industries.ts` has 12 entries; `case-studies.index.tsx` only maps 8; nav dropdown hardcodes its own list.
+**`/case-studies` filter chip row**: add industry chip filter (search param) alongside category, driven from `INDUSTRIES`.
 
-- Make `INDUSTRIES` the single source. Header industry dropdown iterates it (currently hardcoded 12 entries — replace with `INDUSTRIES.map`).
-- Add one illustrative case-study card per missing industry (Electronics & Technology, Sports & Fitness, Baby & Kids, Health & Wellness, Arts/Prints/Stationery) using the "representative anonymised UK engagement" wording.
-- Add `industrySlug` on each case-study entry and filter case-studies by slug on `/industries/$slug` for real cross-linking.
+## 5. Accessibility + Lighthouse sweep
 
-## Batch 6 — Footer positioning + org narrative
+Playwright script `scripts/a11y-sweep.mjs` (new) that:
+1. Iterates 8 key routes: `/`, `/services`, `/services/seo`, `/services/cro`, `/case-studies`, `/case-studies/a1`, `/industries/fashion-apparel`, `/contact`.
+2. Runs `axe-core` (via CDN, no install) against each at 375×812 and 1280×800.
+3. Screenshots each viewport.
+4. Prints violation summary; exits non-zero on any critical/serious.
 
-Root cause: Footer shows "Remote • Global" tag above the London address, contradicting itself.
+**Fix in same pass** (from prior audits, not yet re-verified):
+- Icon-only buttons in `Header.tsx` mobile menu toggle, `CaseStudyExtras.tsx` prev/next testimonial buttons — verify `aria-label` present.
+- `GrowthChart.tsx` — already has `role="img"` + `aria-label`; add `<title>` + `<desc>` inside `<svg>` for AT.
+- CTA buttons that use `<a>` styled as buttons: ensure `role="button"` isn't misapplied; native `<a>` is correct.
+- Focus-visible ring audit on `src/styles.css` — confirm `:focus-visible` selector present on all interactive tokens.
 
-- Replace "Remote • Global" chip with a single line: "Headquartered in London — remote team serving UK & global DTC brands." Same line reused on About hero and Contact hero via `SITE.positioning`.
-- Update `organizationJsonLd` in `src/lib/seo.ts` to include `areaServed: ["GB","EU","US","AE"]` and keep the London `PostalAddress`.
+Lighthouse: run `bunx lighthouse http://localhost:8080 --preset=desktop --only-categories=accessibility,performance,seo,best-practices --output=json --output-path=/tmp/lh.json --chrome-flags="--headless"` for `/` and one leaf. Report scores; don't chase to 100 if the remaining diff is dev-server unminified-bundle noise.
 
-## Batch 7 — QA sweep
+---
 
-- Playwright script hits homepage, contact, pricing, about, /services, /services/seo, /industries, /industries/fashion-apparel, /case-studies, /audit at 375×812 + 1280×800. Screenshots + `grep` DOM for `$`, `Creative Testing`, `Conversion Optimization`, duplicate quote text, `100£K`. Any hit → open ticket.
-- Re-run typecheck (auto).
-- Trigger fresh SEO scan at the end.
+## What ships in a single pass
 
-## Files touched
+- 3 new config files, 1 new schema helper, 1 new parity test, 1 new a11y script.
+- ~15 files touched to switch to the shared imports.
+- All case studies get `industrySlug`; `industries.$slug.tsx` filter section rebuilt.
+- Playwright + Lighthouse run logs attached to the reply.
 
-```text
-src/config/services.ts               (new)
-src/config/testimonials.ts           (new)
-src/components/site/TestimonialsMarquee.tsx (new)
-src/lib/stats.ts                     (expand)
-src/lib/seo.ts                       (org schema + services from config)
-src/lib/locations-industries.ts      (add industrySlug hooks)
-src/components/site/GrowthChart.tsx  (label + a11y)
-src/components/site/Header.tsx       (import SERVICES + INDUSTRIES)
-src/components/site/Footer.tsx       (SERVICES + SITE.positioning)
-src/components/site/ServicePage.tsx  (SITE_STATS)
-src/components/site/RelatedServices.tsx (SERVICES)
-src/routes/index.tsx                 (SERVICES + TestimonialsMarquee + SITE_STATS)
-src/routes/services.index.tsx        (SERVICES)
-src/routes/contact.tsx               (SITE_STATS + SITE.positioning)
-src/routes/about.tsx                 (SITE_STATS + SITE.positioning)
-src/routes/case-studies.index.tsx    (add 5 industry cards + industrySlug)
-src/routes/industries.$slug.tsx      (filter case studies by industrySlug)
-public/sitemap.xml                   (regen from SERVICES + INDUSTRIES)
-```
+## Explicit non-goals (say the word to include)
 
-## Batch order + gating
+- Rewriting `industry-content.ts` sub-industry blocks (10K+ lines of curated copy).
+- Migrating the marquee to a non-cloned implementation (visual regression risk; clone is already `aria-hidden` for AT/crawlers).
+- Adding a CI pipeline for the parity test (Lovable projects don't run one; the script is available via `bun run parity`).
+- Rewriting `case-studies` fabricated-data disclaimer copy (was flagged in an earlier round but not in this ask).
 
-Batches are independent enough to ship in one pass, but I'll commit in order 1 → 2 → 3 → 4 → 5 → 6 → 7 so each intermediate build is green. Total: ~17 files touched, all root-cause fixes, no per-page patches.
+## Technical notes
 
-**Confirm** and I'll execute all 7 batches, then run the Playwright sweep and post a before/after report.
+- Vitest is already installed. Parity test uses `fs.readFileSync` on source files — no rendering needed, so runs in <1s.
+- Schema `@id` self-reference pattern: `{ "@id": "https://beingecom.com/#organization" }` so search engines merge Organization + LocalBusiness into one entity.
+- Case-study `industrySlug` migration is additive (new required field); TypeScript will surface any missed studies at build time — that's the guard.
+- `industries.$slug.tsx` filter is client-cheap: 39 studies × filter = trivial.
+
+Awaiting approval — this touches ~25 files and adds guardrails, so I want confirmation before ripping the config shims across the codebase.
