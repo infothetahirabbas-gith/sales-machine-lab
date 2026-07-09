@@ -289,11 +289,15 @@ function LocationPage() {
   ];
 
   const faqs: FAQ[] = [
+    { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation — all built to grow profitable revenue, not vanity metrics.` },
     { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
-    { q: `Which platforms do you work with?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
-    { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO and retention gains follow in months 3–6.` },
-    { q: `Do you offer a free audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, analytics and email — no obligation, no sales pitch.` },
+    { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
+    { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
+    { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes — technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
+    { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. As a Google Partner and Meta Business Partner we run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands, managed by senior UK media buyers.` },
+    { q: `Can you manage Klaviyo email marketing for our ${city} brand?`, a: `Absolutely. Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30–45% of monthly revenue for ${city} DTC brands, with segmentation and post-purchase automations built for LTV.` },
+    { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30–60 days as we rebuild tracking, creative and offers. Compounding SEO, CRO and retention gains follow in months 3–6.` },
+    { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO — no obligation, no sales pitch.` },
     { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly — usually a reply within an hour on UK business days.` },
   ];
 
