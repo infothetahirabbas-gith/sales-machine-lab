@@ -207,7 +207,7 @@ export const aboutFaqs: FAQ[] = [
   { q: "What makes BeingEcom different from other agencies?", a: "We work only with ecommerce brands on Shopify and WooCommerce, operate like a fractional CMO/CRO team, and tie every decision to revenue - not vanity metrics." },
   { q: "How big is your team?", a: "We're a senior-only team of growth operators - ex-DTC founders, performance leads, CRO directors and SEO experts. No juniors learning on your account." },
   { q: "Do you take equity instead of fees?", a: "Occasionally, for the right brand. Default is a 90-day fixed engagement followed by month-to-month." },
-  { q: "Where are you based?", a: "Remote-first, global. Core operators across North America, Europe and APAC so coverage is effectively 24/5." },
+  { q: "Where are you based?", a: "Headquartered in London (71–75 Shelton Street, Covent Garden, WC2H 9JQ), with a UK-first senior team that operates remotely across UK time zones and coordinates with partners in Europe when a project needs it." },
 ];
 
 export const auditFaqs: FAQ[] = [
