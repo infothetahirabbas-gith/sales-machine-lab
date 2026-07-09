@@ -18,7 +18,7 @@ import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=we
 import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=72&w=1200";
 import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=72&w=1200";
 import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=72&w=1200";
-import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=70&w=640";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=62&w=560";
 
 
 
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 640w, ${heroShopifyCommerce} 1200w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 1200w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
     ],
 
     scripts: [
@@ -173,8 +173,8 @@ function Home() {
               <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <img
                   src={dash.img}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 640w, ${dash.img} 1200w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw"
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 1200w` : undefined}
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
