@@ -4,7 +4,7 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 
 const FAQ_LIST: FAQ[] = [
   { q: "What conversion rate should a Shopify store be hitting?", a: "Healthy UK DTC stores run 2.5–4% on cold traffic and 6–9% on warm. Below 1.8% almost always means PDP, offer or trust issues — not a traffic problem. We diagnose which of the three is killing you in the first two weeks." },
-  { q: "How long until I see CRO results?", o: "", a: "Quick wins (PDP, checkout, trust signals) land in 2–4 weeks. Compounded gains from A/B testing show in 60–90 days. Full system uplift compounds over 6 months." },
+  { q: "How long until I see CRO results?", a: "Quick wins (PDP, checkout, trust signals) land in 2–4 weeks. Compounded gains from A/B testing show in 60–90 days. Full system uplift compounds over 6 months." },
   { q: "Do you actually run A/B tests, or just make 'best-practice' changes?", a: "Both. On Shopify we use Intelligems or Convert; on WooCommerce we use VWO or Optimizely. Every test carries a written hypothesis, sample-size target and pre-agreed stop rule. Best-practice changes only ship on validated foundations." },
   { q: "What's the difference between CRO and UX design?", a: "UX makes the experience nicer. CRO makes it convert. We do both — but every decision is graded on revenue per visitor, not opinion or aesthetics." },
   { q: "Do you need access to my analytics?", a: "Yes — GA4, Shopify analytics, Hotjar or Microsoft Clarity, and ideally session replays. If any of those are missing or misconfigured, we install and configure them properly (server-side included) in week one." },
