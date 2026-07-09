@@ -19,7 +19,8 @@ import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=we
 import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=68&w=960";
 import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=68&w=960";
 import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=68&w=960";
-import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=58&w=560";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=58&w=480";
+import heroShopifyCommerceMd from "../assets/hero-shopify-commerce.jpg?format=webp&quality=62&w=720";
 
 
 
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 560w, ${heroShopifyCommerce} 960w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceMd, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 720w, ${heroShopifyCommerce} 960w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw" } as never,
     ],
 
     scripts: [
@@ -80,11 +81,11 @@ const rotatingPhrases = [
 // Vite hashes bundled asset filenames, so no query-string cache-buster is
 // needed — appending `?v=` actually defeats immutable long-term caching.
 const dashboards = [
-  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroShopifyCommerce, imgSm: heroShopifyCommerceSm, alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", focal: "center 35%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
-  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroWoocommerceStore, imgSm: heroWoocommerceStore, alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", focal: "center 40%", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
-  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: heroSeoGrowth, imgSm: heroSeoGrowth, alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", focal: "center 45%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
-  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: heroPaidAds, imgSm: heroPaidAds, alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", focal: "center 40%", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
-  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: heroCroTesting, imgSm: heroCroTesting, alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", focal: "center 40%", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
+  { key: "shopify", title: "Shopify · Store Growth", badge: "+312%", img: heroShopifyCommerce, imgMd: heroShopifyCommerceMd, imgSm: heroShopifyCommerceSm, alt: "Shopify ecommerce store operations with products, orders, and revenue growth dashboard", focal: "center 35%", metrics: [{l:"Sessions",v:"284K"},{l:"CR",v:"4.8%"},{l:"AOV",v:"£72"}] },
+  { key: "woocommerce", title: "WooCommerce · Orders", badge: "+264%", img: heroWoocommerceStore, imgMd: heroWoocommerceStore, imgSm: heroWoocommerceStore, alt: "WooCommerce online store management with product catalog, orders, and revenue dashboard", focal: "center 40%", metrics: [{l:"Orders",v:"12.4K"},{l:"CR",v:"4.2%"},{l:"AOV",v:"£68"}] },
+  { key: "seo", title: "SEO · Organic Traffic", badge: "+218%", img: heroSeoGrowth, imgMd: heroSeoGrowth, imgSm: heroSeoGrowth, alt: "SEO growth strategy workspace with organic traffic, keyword, and ranking analytics", focal: "center 45%", metrics: [{l:"Keywords",v:"1,840"},{l:"Top 3",v:"126"},{l:"Clicks",v:"96K"}] },
+  { key: "ads", title: "Paid Ads · Meta + Google", badge: "3.8× ROAS", img: heroPaidAds, imgMd: heroPaidAds, imgSm: heroPaidAds, alt: "Paid advertising campaign dashboard with audience targeting, creative testing, and ROAS analytics", focal: "center 40%", metrics: [{l:"Spend",v:"£48K"},{l:"Revenue",v:"£182K"},{l:"CPA",v:"£21"}] },
+  { key: "cro", title: "CRO · Checkout Uplift", badge: "+186% CR", img: heroCroTesting, imgMd: heroCroTesting, imgSm: heroCroTesting, alt: "Conversion rate optimisation A/B test with ecommerce heatmaps and checkout funnel analytics", focal: "center 40%", metrics: [{l:"CR",v:"4.8%"},{l:"AOV",v:"£84"},{l:"Bounce",v:"-32%"}] },
 ] as const;
 
 function Home() {
@@ -170,8 +171,8 @@ function Home() {
               <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40">
 
                 <img
-                  src={dash.img}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 960w` : undefined}
+                  src={dash.imgMd}
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 720w, ${dash.img} 960w` : undefined}
                   sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw"
                   alt={dash.alt}
                   width={900}
