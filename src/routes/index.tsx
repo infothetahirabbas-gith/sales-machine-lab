@@ -333,11 +333,11 @@ function Home() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 justify-items-center mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-none mx-auto" : ""}`}>
-              <Card>
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto md:mx-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
-                <h3 className="mt-3 font-semibold text-lg text-center md:text-left">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 text-center md:text-left">{s.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary text-center md:text-left">Explore →</div>
+              <Card className="p-4 md:p-6 h-full">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto md:mx-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.2} /></div>
+                <h3 className="mt-3 font-semibold text-sm md:text-lg leading-tight text-center md:text-left [word-break:normal] [overflow-wrap:normal] hyphens-none">{s.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mt-1 text-center md:text-left [word-break:normal] [overflow-wrap:break-word] hyphens-none">{s.body}</p>
+                <div className="mt-4 text-xs md:text-sm font-semibold text-primary text-center md:text-left">Explore →</div>
 
               </Card>
             </Link>
