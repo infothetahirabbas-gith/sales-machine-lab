@@ -14,12 +14,31 @@ function DeferredWidgets() {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
       cancelIdleCallback?: (id: number) => void;
     };
+    // Wait for first user interaction OR a long idle window — whichever comes
+    // first. This keeps FloatingWidgets out of the initial render, LCP window
+    // and Lighthouse "unused JS" bucket on cold loads.
+    let idleId: number | undefined;
+    let timerId: number | undefined;
+    const trigger = () => {
+      setReady(true);
+      cleanup();
+    };
+    const cleanup = () => {
+      if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
+      if (timerId !== undefined) window.clearTimeout(timerId);
+      window.removeEventListener("pointerdown", trigger);
+      window.removeEventListener("keydown", trigger);
+      window.removeEventListener("scroll", trigger);
+    };
+    window.addEventListener("pointerdown", trigger, { once: true, passive: true });
+    window.addEventListener("keydown", trigger, { once: true });
+    window.addEventListener("scroll", trigger, { once: true, passive: true });
     if (typeof w.requestIdleCallback === "function") {
-      const id = w.requestIdleCallback(() => setReady(true), { timeout: 2500 });
-      return () => w.cancelIdleCallback?.(id);
+      idleId = w.requestIdleCallback(trigger, { timeout: 5000 });
+    } else {
+      timerId = window.setTimeout(trigger, 3000);
     }
-    const t = window.setTimeout(() => setReady(true), 600);
-    return () => window.clearTimeout(t);
+    return cleanup;
   }, []);
   if (!ready) return null;
   return (
