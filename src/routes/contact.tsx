@@ -4,6 +4,7 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
+import { SITE } from "@/config/site";
 
 
 export const Route = createFileRoute("/contact")({
@@ -103,10 +104,10 @@ function Contact() {
             <Card>
               <h3 className="font-semibold">Reach us directly</h3>
               <ul className="mt-3 grid gap-2 text-sm text-muted-foreground">
-                <li>Email: <a href="mailto:info@beingecom.com" className="text-primary hover:underline">info@beingecom.com</a></li>
-                <li>Phone: <a href="tel:+447882743592" className="text-primary hover:underline">+44 7882 743592</a></li>
-                <li>Office: 71–75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom</li>
-                <li>Hours: Mon–Fri, 09:00–18:00 GMT/BST</li>
+                <li>Email: <a href={SITE.emailHref} className="text-primary hover:underline">{SITE.email}</a></li>
+                <li>Phone: <a href={SITE.phoneHref} className="text-primary hover:underline">{SITE.phone}</a></li>
+                <li>Office: {SITE.addressOneLine}</li>
+                <li>Hours: {SITE.hours}</li>
               </ul>
             </Card>
             <Card>

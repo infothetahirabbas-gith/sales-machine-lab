@@ -13,7 +13,7 @@ const pricingFaqs = [
   },
   {
     q: "What ad budget do I need?",
-    a: `We work best with stores spending ${PRICING_MIN_AD_SPEND} on ads. If you're earlier stage, a CRO Sprint or SEO engagement is the better starting point.`,
+    a: `Growth and Scale engagements work best with stores spending ${PRICING_MIN_AD_SPEND} on ads. Earlier-stage brands should start on the Starter tier to fix foundations first.`,
   },
 ];
 
