@@ -118,3 +118,44 @@ function LinkColumn({
     </div>
   );
 }
+
+function DynamicLinkColumn({
+  title,
+  to,
+  items,
+  footer,
+}: {
+  title: string;
+  to: "/locations/$slug" | "/industries/$slug";
+  items: { slug: string; label: string }[];
+  footer?: { to: string; label: string };
+}) {
+  return (
+    <div>
+      <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-4">{title}</h3>
+      <ul className="space-y-2.5">
+        {items.map((i) => (
+          <li key={i.slug}>
+            <Link
+              to={to}
+              params={{ slug: i.slug }}
+              className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
+            >
+              <span>{i.label}</span>
+            </Link>
+          </li>
+        ))}
+        {footer && (
+          <li className="pt-2">
+            <Link
+              to={footer.to}
+              className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
+            >
+              {footer.label} <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}
