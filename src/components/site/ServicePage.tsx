@@ -126,7 +126,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 { v: "120+", l: "Stores scaled" },
                 { v: "£48M+", l: "Tracked revenue" },
                 { v: "4.1×", l: "Avg ROAS lift" },
-                { v: "5.0/5", l: "Client rating" },
+                { v: "10+ yrs", l: "Ecom operating" },
               ].map((s) => (
                 <div
                   key={s.l}
