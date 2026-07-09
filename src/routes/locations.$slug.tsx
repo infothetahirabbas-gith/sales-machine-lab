@@ -191,6 +191,35 @@ export const Route = createFileRoute("/locations/$slug")({
             })),
           }),
         },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: title,
+            description: desc,
+            inLanguage: "en-GB",
+            isPartOf: { "@type": "WebSite", url: SITE_URL, name: "Being Ecom" },
+            about: { "@id": `${pageUrl}#business` },
+            primaryImageOfPage: heroImage ? { "@type": "ImageObject", url: heroImage } : undefined,
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              { "@type": "Service", "@id": `${pageUrl}#service-seo`, name: `Ecommerce SEO Agency ${loc.city}`, serviceType: "Ecommerce SEO", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Technical, on-page and local ecommerce SEO for Shopify and WooCommerce brands in ${loc.city}. Includes Core Web Vitals, schema markup, product and collection page optimisation and digital PR link building.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-ppc`, name: `Ecommerce Ads Agency ${loc.city}`, serviceType: "Ecommerce PPC", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Google Ads, Google Shopping, Performance Max, Meta Ads, TikTok Ads and YouTube Ads managed for ${loc.city} ecommerce brands by senior UK media buyers.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-shopify`, name: `Shopify Marketing Agency ${loc.city}`, serviceType: "Shopify Marketing & Development", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Shopify Plus builds, migrations, headless Hydrogen storefronts, theme customisation, app development and speed optimisation for ${loc.city} DTC brands.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-woocommerce`, name: `WooCommerce Marketing Agency ${loc.city}`, serviceType: "WooCommerce Marketing & Development", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `WooCommerce store builds, migrations, performance and SEO optimisation for ${loc.city} ecommerce brands running on WordPress.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-email`, name: `Klaviyo Email Agency ${loc.city}`, serviceType: "Email & SMS Marketing", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Klaviyo flows, campaigns, SMS and lifecycle marketing that typically drives 30–45% of monthly revenue for ${loc.city} DTC brands.` },
+              { "@type": "Service", "@id": `${pageUrl}#service-cro`, name: `CRO Agency ${loc.city}`, serviceType: "Conversion Rate Optimisation", areaServed: { "@type": "City", name: loc.city }, provider: { "@id": `${pageUrl}#business` }, description: `Structured A/B testing across PDPs, landing pages and checkout to lift AOV and conversion rate for ${loc.city} Shopify and WooCommerce stores.` },
+            ],
+          }),
+        },
       ] : [],
     };
   },
