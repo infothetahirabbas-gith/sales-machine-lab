@@ -754,17 +754,6 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     ],
   };
 
-  const foundersPool = [
-    "photo-1508214751196-bcfd4ca60f91", "photo-1494790108377-be9c29b29330",
-    "photo-1554151228-14d9def656e4", "photo-1500648767791-00dcc994a43e",
-    "photo-1494790108377-be9c29b29330", "photo-1519085360753-af0119f7cbe7",
-    "photo-1573497019940-1c28c88b4f3e", "photo-1580489944761-15a19d654956",
-    "photo-1472099645785-5658abf4ff4e", "photo-1544005313-94ddf0286df2",
-    "photo-1487412720507-e7ab37603c6f", "photo-1607746882042-944635dfe10e",
-    "photo-1531123897727-8f129e1688ce", "photo-1500048993953-d23a436266cf",
-    "photo-1521119989659-a83eee488004", "photo-1502823403499-6ccfcf4fb453",
-  ];
-
   const pickUnique = (pool: string[], seed: string, used: Set<string>) => {
     const start = hashNum(seed) % pool.length;
     for (let i = 0; i < pool.length; i++) {
@@ -778,21 +767,120 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     return pool[start];
   };
 
+  const cityNames: Record<string, string> = {
+    london: "London",
+    manchester: "Manchester",
+    birmingham: "Birmingham",
+    glasgow: "Glasgow",
+    bristol: "Bristol",
+    leeds: "Leeds",
+    liverpool: "Liverpool",
+    leicester: "Leicester",
+    nottingham: "Nottingham",
+    edinburgh: "Edinburgh",
+    sheffield: "Sheffield",
+    poole: "Poole",
+    "newcastle-upon-tyne": "Newcastle upon Tyne",
+    bradford: "Bradford",
+  };
+
+  const visualSlots = ["ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
+  type VisualSlot = (typeof visualSlots)[number];
+  const visualMeta: Record<VisualSlot, { title: string; subtitle: string; labels: [string, string, string] }> = {
+    ads: { title: "Meta · Google · TikTok Ads", subtitle: "Spend, ROAS and CAC control", labels: ["ROAS", "CAC", "CTR"] },
+    seo: { title: "SEO Growth Console", subtitle: "Keywords, rankings and organic revenue", labels: ["SERP", "GSC", "Content"] },
+    shopify: { title: "Shopify + WooCommerce Store", subtitle: "PDP, checkout and speed optimisation", labels: ["PDP", "Cart", "Checkout"] },
+    cro: { title: "CRO A/B Testing Lab", subtitle: "Variant tests, funnels and uplift", labels: ["A", "B", "CVR"] },
+    email: { title: "Klaviyo Email + SMS Flows", subtitle: "Lifecycle automations and campaigns", labels: ["Welcome", "Cart", "Winback"] },
+    creative: { title: "UGC Creative Studio", subtitle: "Product shoots, hooks and reels", labels: ["Hook", "Shoot", "Edit"] },
+    analytics: { title: "Ecommerce Analytics", subtitle: "CAC, ROAS, LTV and AOV dashboard", labels: ["CAC", "LTV", "AOV"] },
+    caseStudy: { title: "Revenue Growth Case Study", subtitle: "Before-to-after ecommerce scaling", labels: ["Before", "After", "Scale"] },
+    meeting: { title: "Global Strategy Call", subtitle: "International ecommerce planning", labels: ["UK", "EU", "US"] },
+  };
+
+  const esc = (value: string) => value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&apos;" })[char] ?? char);
+  const svgUrl = (svg: string) => `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+
+  const sectionVisual = (slug: string, city: string, slot: VisualSlot) => {
+    const seed = hashNum(`${slug}-${slot}-unique-section-image`);
+    const hue = seed % 360;
+    const accent = `hsl(${hue},82%,46%)`;
+    const warm = `hsl(${(hue + 34) % 360},88%,58%)`;
+    const cool = `hsl(${(hue + 184) % 360},72%,42%)`;
+    const meta = visualMeta[slot];
+    const barA = 210 + (seed % 160);
+    const barB = 260 + ((seed >> 4) % 190);
+    const barC = 180 + ((seed >> 8) % 210);
+    return svgUrl(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="${esc(city)} ${esc(meta.title)}">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="0.48" stop-color="#f8fafc"/><stop offset="1" stop-color="#ecfeff"/></linearGradient>
+          <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${accent}"/><stop offset="1" stop-color="${cool}"/></linearGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0f172a" flood-opacity="0.18"/></filter>
+        </defs>
+        <rect width="1600" height="900" fill="url(#bg)"/>
+        <path d="M0 705 C210 610 390 735 590 650 C815 555 960 625 1160 540 C1345 462 1470 500 1600 430 L1600 900 L0 900 Z" fill="${warm}" opacity="0.14"/>
+        <circle cx="1340" cy="158" r="150" fill="${accent}" opacity="0.13"/>
+        <circle cx="205" cy="710" r="190" fill="${cool}" opacity="0.1"/>
+        <rect x="130" y="95" width="1340" height="710" rx="34" fill="#ffffff" filter="url(#shadow)"/>
+        <rect x="130" y="95" width="1340" height="94" rx="34" fill="#0f172a"/>
+        <circle cx="184" cy="142" r="12" fill="#fb7185"/><circle cx="224" cy="142" r="12" fill="#fbbf24"/><circle cx="264" cy="142" r="12" fill="#34d399"/>
+        <text x="330" y="153" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">${esc(city)} · Being Ecom Global Store Agency</text>
+        <rect x="190" y="240" width="470" height="430" rx="26" fill="url(#panel)" opacity="0.96"/>
+        <text x="235" y="318" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800">${esc(meta.title)}</text>
+        <text x="235" y="372" fill="#ffffff" opacity="0.86" font-family="Arial, Helvetica, sans-serif" font-size="26">${esc(meta.subtitle)}</text>
+        <rect x="235" y="448" width="128" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="299" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[0])}</text>
+        <rect x="382" y="448" width="128" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="446" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[1])}</text>
+        <rect x="529" y="448" width="96" height="54" rx="27" fill="#ffffff" opacity="0.2"/><text x="577" y="484" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">${esc(meta.labels[2])}</text>
+        <polyline points="235,604 320,548 405,573 490,500 585,524 625,468" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.86"/>
+        <circle cx="625" cy="468" r="18" fill="#ffffff"/>
+        <rect x="740" y="250" width="650" height="132" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="788" y="300" width="${barA}" height="24" rx="12" fill="${accent}"/><rect x="788" y="338" width="440" height="18" rx="9" fill="#cbd5e1"/>
+        <rect x="740" y="424" width="300" height="250" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="1085" y="424" width="305" height="250" rx="24" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="790" y="610" width="56" height="-${barA / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${warm}"/>
+        <rect x="870" y="610" width="56" height="-${barB / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${accent}"/>
+        <rect x="950" y="610" width="56" height="-${barC / 3}" transform="scale(1 -1) translate(0 -1220)" rx="13" fill="${cool}"/>
+        <circle cx="1238" cy="548" r="82" fill="none" stroke="#e2e8f0" stroke-width="30"/>
+        <path d="M1238 466 A82 82 0 1 1 1172 597" fill="none" stroke="${accent}" stroke-width="30" stroke-linecap="round"/>
+        <text x="1238" y="560" text-anchor="middle" fill="#0f172a" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800">${(seed % 41) + 39}%</text>
+        <text x="190" y="760" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Unique image ID: ${esc(slug)}-${esc(slot)}</text>
+      </svg>
+    `);
+  };
+
+  const founderAvatar = (slug: string, city: string, index: number) => {
+    const seed = hashNum(`${slug}-founder-avatar-${index}`);
+    const hue = seed % 360;
+    const initials = city.split(/\s+/).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
+    return svgUrl(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="${esc(city)} ecommerce founder testimonial">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${hue},82%,48%)"/><stop offset="1" stop-color="hsl(${(hue + 55) % 360},88%,58%)"/></linearGradient></defs>
+        <rect width="500" height="500" fill="url(#g)"/>
+        <circle cx="250" cy="190" r="92" fill="#fff7ed" opacity="0.92"/>
+        <path d="M90 430c26-105 96-158 160-158s134 53 160 158" fill="#fff7ed" opacity="0.92"/>
+        <text x="250" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" fill="#0f172a">${esc(initials)}${index + 1}</text>
+      </svg>
+    `);
+  };
+
   const slots = Object.keys(slotPools) as Array<keyof typeof slotPools>;
   // Per-slot "used" set so each city gets a different base image for that topic.
   const usedPerSlot: Record<string, Set<string>> = {};
   for (const s of slots) usedPerSlot[s] = new Set();
-  const usedFounders = new Set<string>();
+  const usedVisiblePhotos = new Set<string>();
 
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
     for (const key of slots) {
-      const id = pickUnique(slotPools[key], `${slug}-${key}`, usedPerSlot[key]);
+      const id = pickUnique(slotPools[key], `${slug}-${key}`, key === "hero" || key === "skyline" ? usedVisiblePhotos : usedPerSlot[key]);
       c.images[key] = `${u(id)}&sig=${hashNum(`beingecom-${slug}-${key}`)}`;
     }
+    const city = cityNames[slug] ?? slug.replace(/-/g, " ");
+    for (const key of visualSlots) c.images[key] = sectionVisual(slug, city, key);
     c.images.founders = [
-      `${u(pickUnique(foundersPool, `${slug}-f1`, usedFounders), 500)}&sig=${hashNum(`${slug}-founder-1`)}`,
-      `${u(pickUnique(foundersPool, `${slug}-f2`, usedFounders), 500)}&sig=${hashNum(`${slug}-founder-2`)}`,
-      `${u(pickUnique(foundersPool, `${slug}-f3`, usedFounders), 500)}&sig=${hashNum(`${slug}-founder-3`)}`,
+      founderAvatar(slug, city, 0),
+      founderAvatar(slug, city, 1),
+      founderAvatar(slug, city, 2),
     ];
   }
 }
