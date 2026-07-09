@@ -45,6 +45,9 @@ export default function Footer() {
             <li><Link to="/services/creative" className="hover:text-accent transition-colors">Creative Testing</Link></li>
             <li><Link to="/services/email-sms" className="hover:text-accent transition-colors">Email Marketing</Link></li>
             <li><Link to="/services/ai-automation" className="hover:text-accent transition-colors">AI Automation</Link></li>
+            <li><Link to="/services/funnel" className="hover:text-accent transition-colors">Funnel & Landing Pages</Link></li>
+            <li><Link to="/services/analytics" className="hover:text-accent transition-colors">Analytics & Tracking</Link></li>
+            <li><Link to="/services/scaling" className="hover:text-accent transition-colors">Scaling & Retention</Link></li>
           </ul>
         </div>
 

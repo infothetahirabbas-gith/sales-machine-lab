@@ -60,6 +60,9 @@ const services: ServiceItem[] = [
   { to: "/services/creative", label: "Creative Testing" },
   { to: "/services/email-sms", label: "Email Marketing" },
   { to: "/services/ai-automation", label: "AI Automation" },
+  { to: "/services/funnel", label: "Funnel & Landing Pages" },
+  { to: "/services/analytics", label: "Analytics & Tracking" },
+  { to: "/services/scaling", label: "Scaling & Retention" },
 ];
 
 export const locations = [
@@ -494,7 +497,7 @@ export default function Header() {
                 ))}
               </div>
               <div className="mt-5 pt-4 border-t border-border flex items-center justify-between text-xs">
-                <span className="text-muted-foreground">7 core services · 14 specialisations</span>
+                <span className="text-muted-foreground">10 core services · 14 specialisations</span>
                 <Link to="/services" onClick={() => setDesktopMenu(null)} className="font-semibold text-primary hover:underline">View all services →</Link>
               </div>
             </div>
