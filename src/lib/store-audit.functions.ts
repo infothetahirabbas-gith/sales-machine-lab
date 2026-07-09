@@ -278,7 +278,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 
   const brandName =
     (ogTitleMatch?.[1] || titleMatch?.[1] || host.split(".")[0])
-      .split(/[|–-\-:·]/)[0]
+      .split(/[|\-:·–]/)[0]
       .trim()
       .slice(0, 40) || host;
 
