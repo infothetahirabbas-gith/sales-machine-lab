@@ -424,12 +424,11 @@ function Home() {
         </div>
       </Section>
 
-      {/* 10. TESTIMONIALS - running marquee */}
+      {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
+          screen readers and crawlers only see each quote once). */}
       <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
-        <div
-          className="relative overflow-hidden"
-        >
-          <div className="marquee-track" style={{ animationDuration: "44s" }}>
+        <div className="relative overflow-hidden">
+          <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
               [
                 { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Velo Apparel" },
@@ -443,15 +442,22 @@ function Home() {
                 { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, GearLoop Electronics" },
               ].map((t, i) => {
                 const photo = FOUNDER_PHOTOS[(k * 10 + i) % FOUNDER_PHOTOS.length];
+                const isClone = k > 0;
                 return (
-                  <div key={`${k}-${i}`} className="w-[320px] md:w-[360px] shrink-0">
-                    <div className="card-surface card-hover p-6 h-full mx-2">
-                      <div className="text-primary text-3xl font-display leading-none">“</div>
-                      <p className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</p>
-                      <div className="mt-5 flex items-center gap-3">
+                  <li
+                    key={`${k}-${i}`}
+                    className="w-[320px] md:w-[360px] shrink-0 list-none"
+                    aria-hidden={isClone ? "true" : undefined}
+                    {...(isClone ? { "data-nosnippet": "true" } : {})}
+                    inert={isClone ? "" : undefined}
+                  >
+                    <figure className="card-surface card-hover p-6 h-full mx-2">
+                      <div className="text-primary text-3xl font-display leading-none" aria-hidden="true">“</div>
+                      <blockquote className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</blockquote>
+                      <figcaption className="mt-5 flex items-center gap-3">
                         <SafeImg
                           src={photo}
-                          alt={`${t.n} — ${t.r}`}
+                          alt=""
                           loading="lazy"
                           decoding="async"
                           width={88}
@@ -462,14 +468,13 @@ function Home() {
                           <div className="text-sm font-semibold text-ink truncate">{t.n}</div>
                           <div className="text-[11px] text-muted-foreground truncate">{t.r}</div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-
+                      </figcaption>
+                    </figure>
+                  </li>
                 );
               })
             )}
-          </div>
+          </ul>
         </div>
       </Section>
 
