@@ -51,7 +51,7 @@ export default function ContactFaq() {
       <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] bg-accent/30 blur-[140px] rounded-full" />
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-left md:text-center max-w-2xl md:mx-auto mb-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
             Let's Talk
           </div>
