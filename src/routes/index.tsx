@@ -330,15 +330,14 @@ function Home() {
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 justify-items-center mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
-            <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-none mx-auto" : ""}`}>
-              <Card className="p-4 md:p-6 h-full">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto md:mx-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.2} /></div>
-                <h3 className="mt-3 font-semibold text-sm md:text-lg leading-tight text-center md:text-left [word-break:normal] [overflow-wrap:normal] hyphens-none">{s.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1 text-center md:text-left [word-break:normal] [overflow-wrap:break-word] hyphens-none">{s.body}</p>
-                <div className="mt-4 text-xs md:text-sm font-semibold text-primary text-center md:text-left">Explore →</div>
-
+            <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-full lg:max-w-none" : ""}`}>
+              <Card className="p-3 md:p-6 h-full flex flex-col">
+                <div className="w-9 h-9 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto md:mx-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110 shrink-0"><s.Icon className="w-4 h-4 md:w-6 md:h-6" strokeWidth={2.2} /></div>
+                <h3 className="mt-2 md:mt-3 font-semibold text-[13px] leading-snug md:text-lg md:leading-tight text-center md:text-left break-words hyphens-none">{s.title}</h3>
+                <p className="text-[11px] leading-snug md:text-sm md:leading-normal text-muted-foreground mt-1 text-center md:text-left break-words hyphens-none">{s.body}</p>
+                <div className="mt-3 md:mt-4 text-[11px] md:text-sm font-semibold text-primary text-center md:text-left">Explore →</div>
               </Card>
             </Link>
           ))}
