@@ -51,8 +51,11 @@ const all = [
   // 4-7
   { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", tag: "Optimise" },
   { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping creatives that actually sell.", tag: "Create" },
-  { to: "/services/email-sms", title: "Email Marketing", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
+  { to: "/services/email-sms", title: "Email Marketing Automation", body: "Recover lost sales. Multiply repeat customers.", tag: "Retain" },
   { to: "/services/ai-automation", title: "AI Automation", body: "AI agents & workflows that compound margin.", tag: "Automate" },
+  { to: "/services/funnel", title: "Funnel & Landing Pages", body: "High-converting funnels for launches and offers.", tag: "Convert" },
+  { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, Pixel, CAPI and dashboards - set up correctly.", tag: "Measure" },
+  { to: "/services/scaling", title: "Scaling & Retention", body: "Systems to scale from 6 to 7 figures and keep customers.", tag: "Scale" },
 ];
 
 function ServicesIndex() {
