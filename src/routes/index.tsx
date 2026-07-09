@@ -150,8 +150,8 @@ function Home() {
                 alt="Shopify product page shown on a phone during a UK ecommerce growth sprint"
                 width={520}
                 height={640}
-                loading="eager"
-                fetchPriority="high"
+                loading="lazy"
+                fetchPriority="low"
                 skeleton
                 brandOverlay
                 className="w-full h-full object-cover"
