@@ -134,7 +134,7 @@ export const Route = createFileRoute("/locations/$slug")({
       ],
       links: loc ? [
         { rel: "canonical", href: pageUrl },
-        ...(heroImage ? [{ rel: "preload" as const, as: "image" as const, href: heroImage, fetchpriority: "high" as const }] : []),
+        ...(heroImage ? [{ rel: "preload" as const, as: "image" as const, href: heroImage, fetchPriority: "high" as const }] : []),
       ] : [],
       scripts: loc && C ? [
         { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: loc.city, path: `/locations/${loc.slug}` }])) },
