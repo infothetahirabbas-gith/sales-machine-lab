@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3 } from "lucide-react";
+import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3, Sparkles } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 import GrowthChart from "../components/site/GrowthChart";
