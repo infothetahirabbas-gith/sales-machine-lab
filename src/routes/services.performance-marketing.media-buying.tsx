@@ -30,12 +30,16 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
   head: () => ({
     meta: [
       { title: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
-      { name: "description", content: "Cross-channel media buying agency in the UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
+      { name: "description", content: "Best media buying agency UK for Shopify and DTC ecommerce. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic — one P&L, one operator." },
+      { name: "keywords", content: "media buying agency UK, ecommerce media buyer, cross-channel media buying, blended ROAS agency, MER media buying, Shopify media buying, paid media agency UK" },
       { property: "og:title", content: "Media Buying Agency UK — Cross-Channel Ecommerce Media Buyers | BeingEcom" },
-      { property: "og:description", content: "Cross-channel media buying agency in the UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
+      { property: "og:description", content: "Cross-channel media buying agency UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/media-buying" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/media-buying" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/media-buying" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/media-buying", name: "Media Buying", description: "Cross-channel media buying across Meta, Google and TikTok for ecommerce." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Media Buying", path: "/services/performance-marketing/media-buying" }])) },

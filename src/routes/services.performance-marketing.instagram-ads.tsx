@@ -14,14 +14,18 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/instagram-ads")({
   head: () => ({
     meta: [
-      { title: "Instagram Ads Agency UK — Reels & Stories Ads for Ecommerce | BeingEcom" },
-      { name: "description", content: "Instagram Ads agency in the UK for Shopify and DTC brands. Reels-first creative, Stories placement and ASC+ scaling engineered for profitable IG performance." },
-      { property: "og:title", content: "Instagram Ads Agency UK — Reels & Stories Ads for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Instagram Ads agency in the UK for Shopify and DTC brands. Reels-first creative, Stories placement and ASC+ scaling engineered for profitable IG performance." },
+      { title: "Instagram Ads Agency UK — Reels, Stories & ASC+ Ads for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best Instagram Ads agency UK for Shopify and DTC ecommerce brands. Reels-first creative, Stories ads, creator UGC and Advantage+ scaling engineered for profitable Instagram ROAS." },
+      { name: "keywords", content: "Instagram Ads agency UK, Instagram Reels Ads, Stories Ads agency, Shopify Instagram Ads, ecommerce Instagram marketing, creator UGC agency, ASC+ Shopping" },
+      { property: "og:title", content: "Instagram Ads Agency UK — Reels, Stories & ASC+ Ads for Ecommerce | BeingEcom" },
+      { property: "og:description", content: "Instagram Ads agency UK for Shopify and DTC brands. Reels-first creative, Stories placement and ASC+ scaling engineered for profitable IG performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/instagram-ads" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/instagram-ads" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/instagram-ads" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/instagram-ads", name: "Instagram Ads", description: "Instagram Ads for ecommerce — Reels, Stories, creator UGC and ASC+ scaling." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "Instagram Ads", path: "/services/performance-marketing/instagram-ads" }])) },
@@ -33,8 +37,8 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
       slug: "instagram-ads",
       eyebrow: "Instagram Ads",
       heroImage: heroImg,
-      heroTitle: "Instagram ads that stop the scroll — and convert.",
-      heroSub: "Reels-first creative, Stories placements and ASC+ scaling engineered for profitable Instagram performance.",
+      heroTitle: "Instagram Ads agency UK — scroll-stopping Reels that convert.",
+      heroSub: "Reels-first creative, Stories placements and Advantage+ Shopping scaling for Shopify and DTC brands — engineered for profitable Instagram ROAS.",
       problemTitle: "Why most Instagram accounts stall.",
       problemBullets: [
         "Static feed ads in a Reels-native world.",

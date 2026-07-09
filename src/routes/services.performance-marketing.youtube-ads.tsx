@@ -14,14 +14,18 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
   head: () => ({
     meta: [
-      { title: "YouTube Ads Agency UK — Video Action & Demand Gen for Ecommerce | BeingEcom" },
-      { name: "description", content: "YouTube Ads agency in the UK for Shopify and DTC brands. Video Action Campaigns, Demand Gen and Shorts creative built for profitable performance." },
-      { property: "og:title", content: "YouTube Ads Agency UK — Video Action & Demand Gen for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "YouTube Ads agency in the UK for Shopify and DTC brands. Video Action Campaigns, Demand Gen and Shorts creative built for profitable performance." },
+      { title: "YouTube Ads Agency UK — Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
+      { name: "description", content: "Best YouTube Ads agency UK for Shopify and DTC ecommerce brands. Video Action Campaigns, Demand Gen, YouTube Shorts and skippable in-stream — built for profitable ROAS." },
+      { name: "keywords", content: "YouTube Ads agency UK, YouTube Ads management UK, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads, ecommerce video advertising" },
+      { property: "og:title", content: "YouTube Ads Agency UK — Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
+      { property: "og:description", content: "YouTube Ads agency UK for Shopify and DTC brands. Video Action Campaigns, Demand Gen and Shorts creative built for profitable performance." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/youtube-ads" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" }],
+    links: [
+      { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" },
+      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads", description: "YouTube Ads for ecommerce — VAC, Demand Gen, Shorts and skippable in-stream." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "YouTube Ads", path: "/services/performance-marketing/youtube-ads" }])) },
@@ -33,8 +37,8 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
-      heroTitle: "YouTube ads engineered for revenue — not just views.",
-      heroSub: "Video Action Campaigns, Demand Gen and Shorts ads for Shopify and DTC brands that want profitable YouTube growth.",
+      heroTitle: "YouTube Ads agency UK — engineered for revenue, not just views.",
+      heroSub: "Video Action Campaigns, Demand Gen and YouTube Shorts ads for Shopify and DTC brands that want profitable, measurable YouTube growth.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
         "Boosted brand videos with no direct-response structure.",
