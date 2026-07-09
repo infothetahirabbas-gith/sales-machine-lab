@@ -6,7 +6,7 @@ import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 
 
 
-import { faqs as homeFaqs } from "../components/site/faqs-data";
+import { homeFaqs } from "../lib/home-faqs";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import CountUp from "../components/site/CountUp";
 import { HERO_STATS } from "../lib/stats";
@@ -37,17 +37,17 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
-      { name: "description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
-      { property: "og:title", content: "UK Ecommerce Agency — Shopify & WooCommerce | BeingEcom" },
-      { property: "og:description", content: "UK ecommerce growth agency for Shopify and WooCommerce brands. SEO, Google AI Overview optimisation, paid ads, CRO and Klaviyo email that drive revenue." },
+      { title: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK — Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics — one team, one revenue P&L." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
-      { property: "og:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
+      { property: "og:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
-      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Growth Agency for Shopify and WooCommerce" },
+      { name: "twitter:image:alt", content: "BeingEcom — Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
@@ -116,14 +116,14 @@ function Home() {
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">We Help UK Brands</span>
+              <span className="block">The Ecommerce Marketing</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block">Grow Revenue & Dominate AI Search</span>
+              <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
-              UK's top Shopify agency & WooCommerce agency for paid ads, CRO, ecommerce SEO services & email automation. Built for store owners who want sales, not theory.
+              BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email — one senior team, one revenue P&L, measurable growth from month one.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
 
@@ -522,6 +522,65 @@ function Home() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      {/* 9.5 WHY UK BRANDS CHOOSE BEINGECOM */}
+      <Section
+        center
+        eyebrow="Why UK brands choose BeingEcom"
+        title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
+        intro="Senior operators, transparent reporting and one integrated growth system — not siloed retainers. Here's what UK Shopify and WooCommerce brands hire us for."
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget." },
+            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead — so channels compound instead of competing." },
+            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand." },
+            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo — plus a weekly Loom and monthly strategy call. No black boxes." },
+            { t: "Senior team on every account", b: "You work directly with the people running your account — no junior handovers, no rotating account managers." },
+            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it." },
+          ].map((p, i) => (
+            <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Card className="h-full">
+                <h3 className="font-semibold text-lg text-ink">{p.t}</h3>
+                <p className="text-sm text-muted-foreground mt-2">{p.b}</p>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* 9.6 INDUSTRIES WE SERVE */}
+      <Section
+        center
+        eyebrow="Industries we serve"
+        title="Ecommerce marketing built around your category."
+        intro="We've scaled Shopify and WooCommerce brands across the categories UK consumers spend on most. Each vertical has its own creative playbook, SEO map and retention model."
+      >
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+          {[
+            { slug: "fashion-apparel", label: "Fashion & Apparel" },
+            { slug: "beauty-cosmetics", label: "Beauty & Cosmetics" },
+            { slug: "health-wellness", label: "Health & Wellness" },
+            { slug: "home-garden", label: "Home & Garden" },
+            { slug: "food-beverage", label: "Food & Beverage" },
+            { slug: "electronics", label: "Electronics" },
+            { slug: "jewelry-accessories", label: "Jewellery & Accessories" },
+            { slug: "supplements", label: "Supplements" },
+          ].map((v) => (
+            <Link
+              key={v.slug}
+              to="/industries/$slug"
+              params={{ slug: v.slug }}
+              className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+            >
+              {v.label} →
+            </Link>
+          ))}
+        </div>
+        <p className="text-center text-sm text-muted-foreground mt-6">
+          Don't see your niche? <Link to="/contact" className="text-primary font-semibold hover:underline">Talk to our ecommerce experts UK</Link>.
+        </p>
       </Section>
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
