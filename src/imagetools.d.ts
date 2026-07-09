@@ -8,4 +8,6 @@ declare module "*?format=webp&quality=62&w=560" { const src: string; export defa
 declare module "*?w=520&format=webp&quality=72" { const src: string; export default src; }
 declare module "*?format=webp&quality=68&w=960" { const src: string; export default src; }
 declare module "*?format=webp&quality=58&w=560" { const src: string; export default src; }
+declare module "*?format=webp&quality=58&w=480" { const src: string; export default src; }
+declare module "*?format=webp&quality=62&w=720" { const src: string; export default src; }
 declare module "*&as=srcset" { const src: string; export default src; }
