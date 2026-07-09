@@ -22,10 +22,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Performance Marketing Agency UK - Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { title: "Performance Marketing Agency UK | Ecommerce Paid Media" },
       { name: "description", content: "Best performance marketing agency UK for Shopify and DTC ecommerce brands. Blended-ROAS media buying across Facebook, Google, TikTok, Instagram and YouTube Ads - engineered for MER, LTV and profitable growth." },
       { name: "keywords", content: "performance marketing agency UK, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Meta Google TikTok agency, Shopify paid media" },
-      { property: "og:title", content: "Performance Marketing Agency UK - Full-Funnel Paid Media for Ecommerce | BeingEcom" },
+      { property: "og:title", content: "Performance Marketing Agency UK | Ecommerce Paid Media" },
       { property: "og:description", content: "Facebook, Google, TikTok, Instagram and YouTube Ads managed as one P&L. Blended-ROAS, LTV-driven ecommerce growth by a UK performance marketing agency." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
