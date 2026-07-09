@@ -37,9 +37,9 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Marketing Agency UK - Shopify & WooCommerce Growth | BeingEcom" },
+      { title: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
       { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
-      { property: "og:title", content: "Ecommerce Marketing Agency UK - Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
       { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics - one team, one revenue P&L." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
@@ -116,7 +116,7 @@ function Home() {
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">We Help to Scales</span>
+              <span className="block">We Help Scale</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
