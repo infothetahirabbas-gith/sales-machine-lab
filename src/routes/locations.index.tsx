@@ -3,6 +3,7 @@ import { MapPin, ArrowRight } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading } from "../components/site/Section";
 import { LOCATIONS } from "../lib/locations-industries";
+import { breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/locations/")({
   head: () => ({
@@ -11,6 +12,11 @@ export const Route = createFileRoute("/locations/")({
       { name: "description", content: "Being Ecom serves UK ecommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Liverpool, Glasgow and Edinburgh." },
       { property: "og:title", content: "UK Ecommerce Agency Locations | Being Ecom" },
       { property: "og:description", content: "Ecommerce growth agency serving UK cities. Performance marketing, CRO, SEO and retention for DTC brands." },
+      { property: "og:url", content: "https://beingecom.com/locations" },
+    ],
+    links: [{ rel: "canonical", href: "https://beingecom.com/locations" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }])) },
     ],
   }),
   component: LocationsIndex,

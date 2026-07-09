@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
+import { breadcrumbJsonLd } from "../lib/seo";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -12,6 +13,9 @@ export const Route = createFileRoute("/terms")({
       { property: "og:url", content: "https://beingecom.com/terms" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/terms" }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }])) },
+    ],
   }),
   component: Terms,
 });
