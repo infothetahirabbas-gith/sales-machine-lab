@@ -938,23 +938,38 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
   };
 
   const slots = Object.keys(slotPools) as Array<keyof typeof slotPools>;
-  // Per-slot "used" set so each city gets a different base image for that topic.
+  // Per-slot "used" set → each city gets a different photo for that topic across
+  // cities. Per-city "used" set → within one location page every section shows
+  // a distinct image (no duplicates on a single page).
   const usedPerSlot: Record<string, Set<string>> = {};
   for (const s of slots) usedPerSlot[s] = new Set();
-  const usedVisiblePhotos = new Set<string>();
 
   for (const [slug, c] of Object.entries(LOCATION_CONTENT)) {
+    const usedThisCity = new Set<string>();
     for (const key of slots) {
-      const id = pickUnique(slotPools[key], `${slug}-${key}`, key === "hero" || key === "skyline" ? usedVisiblePhotos : usedPerSlot[key]);
-      c.images[key] = `${u(id)}&sig=${hashNum(`beingecom-${slug}-${key}`)}`;
+      // Prefer an ID that's unused both for this slot (across cities) AND on
+      // this page (across sections). Fall back to slot-only uniqueness.
+      const pool = slotPools[key];
+      const start = hashNum(`${slug}-${key}`) % pool.length;
+      let picked = pool[start];
+      for (let i = 0; i < pool.length; i++) {
+        const id = pool[(start + i) % pool.length];
+        if (!usedPerSlot[key].has(id) && !usedThisCity.has(id)) { picked = id; break; }
+      }
+      if (usedThisCity.has(picked)) {
+        // Second pass: any pool ID not on this page.
+        for (let i = 0; i < pool.length; i++) {
+          const id = pool[(start + i) % pool.length];
+          if (!usedThisCity.has(id)) { picked = id; break; }
+        }
+      }
+      usedPerSlot[key].add(picked);
+      usedThisCity.add(picked);
+      c.images[key] = `${u(picked)}&sig=${hashNum(`beingecom-${slug}-${key}`)}`;
     }
     const city = cityNames[slug] ?? slug.replace(/-/g, " ");
-    // NOTE: visual sections (ads/seo/shopify/cro/email/creative/analytics/caseStudy/meeting)
-    // now use the real, topically-curated Unsplash photos from slotPools above
-    // instead of generated SVG mockups — every section shows a photo relevant to
-    // its topic (paid ads dashboard, SEO analytics, Shopify storefront, etc.).
     void sectionVisual;
-    void city;
+    void pickUnique;
     c.images.founders = [
       founderAvatar(slug, city, 0),
       founderAvatar(slug, city, 1),
