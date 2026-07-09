@@ -33,6 +33,7 @@ import { SafeImg } from "../SafeImg";
 import { whatsappUrl } from "../../lib/whatsapp";
 import { INDUSTRIES } from "../../lib/locations-industries";
 import { PRICING_TIERS } from "../../lib/pricing";
+import { getRelatedServices, RESOURCE_LINKS } from "../../lib/service-catalog";
 
 export type ServiceConfig = {
   slug: string;
