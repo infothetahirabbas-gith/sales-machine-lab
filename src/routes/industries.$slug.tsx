@@ -639,6 +639,56 @@ function IndustryPage() {
         </Reveal>
       </Section>
 
+      {/* 14b. RELATED CASE STUDIES — filtered from the master case-study
+          taxonomy by industrySlug. Falls back to an "on request" card when
+          the industry has no published studies yet, so the page never
+          orphans a taxonomy entry. */}
+      <Section eyebrow={`More ${ind.name} case studies`} title="Playbooks by category" intro={`Every ${ind.name.toLowerCase()} case study we've published, filtered from the master case-study taxonomy.`}>
+        {(() => {
+          const related = studies.filter((s) => s.industrySlug === ind.slug);
+          if (related.length === 0) {
+            return (
+              <div className="rounded-2xl border border-border bg-card p-8 text-center">
+                <div className="text-sm font-semibold text-primary uppercase tracking-widest">On request</div>
+                <p className="mt-3 text-ink font-medium">We've run this playbook for {ind.name.toLowerCase()} brands under NDA — public write-ups coming soon. Ask us for a walkthrough on your next call.</p>
+                <Link to="/contact" className="mt-6 btn btn-primary hover-scale inline-flex">Request a walkthrough <ArrowRight className="w-4 h-4" /></Link>
+              </div>
+            );
+          }
+          return (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {related.slice(0, 9).map((s) => (
+                <Link key={s.id} to="/case-studies/$id" params={{ id: s.id }} className="card-surface card-hover p-5 group">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary">{s.category}</span>
+                    <span className="text-[11px] text-muted-foreground">{s.duration}</span>
+                  </div>
+                  <h3 className="mt-3 text-base font-semibold text-ink leading-snug group-hover:text-primary transition">{s.title}</h3>
+                  <div className="mt-4 flex items-center gap-2 text-2xl font-bold text-ink">
+                    {s.metric}
+                    <span className="text-xs font-normal text-muted-foreground">{s.metricLabel}</span>
+                  </div>
+                  <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                    Read case study <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          );
+        })()}
+        {(() => {
+          const related = studies.filter((s) => s.industrySlug === ind.slug);
+          if (related.length <= 9) return null;
+          return (
+            <div className="mt-6 text-center">
+              <Link to="/case-studies" className="btn btn-outline hover-scale inline-flex">See all {related.length} {ind.name.toLowerCase()} case studies <ArrowRight className="w-4 h-4" /></Link>
+            </div>
+          );
+        })()}
+      </Section>
+
+
+
       {/* 15. RESULTS GRID */}
       <Section eyebrow="At a glance" title="What clients typically see with us">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
