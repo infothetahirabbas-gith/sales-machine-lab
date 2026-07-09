@@ -76,6 +76,18 @@ export type ServiceConfig = {
   testimonials?: { quote: string; name: string; role: string }[];
   /** Section 25 — related sibling services (title + href). */
   relatedServices?: { title: string; body: string; to: string }[];
+  /** Common mistakes list — "5 mistakes killing your X". */
+  mistakes?: { title: string; body: string }[];
+  /** Comparison table — us vs typical agency vs in-house. */
+  comparison?: {
+    rows: { criterion: string; us: string; agency: string; inhouse: string }[];
+  };
+  /** Optional mid-page CTA block (rendered after deep blocks). */
+  midCta?: { title: string; body: string; primary: string; secondary?: string };
+  /** Optional configurable timeline (falls back to default 90-day plan). */
+  timeline?: { w: string; t: string; b: string }[];
+  /** Optional industry-impact grid — pain × outcome per vertical. */
+  industryImpact?: { industry: string; pain: string; outcome: string }[];
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
