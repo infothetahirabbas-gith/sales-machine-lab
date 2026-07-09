@@ -82,7 +82,7 @@ const FAQ_BASE = (name: string) => [
   { q: `What size of ${name.toLowerCase()} brand do you work with?`, a: `We're a fit from £30k/month revenue up to £3M/month. Below that we recommend our free growth audit and DIY playbooks first.` },
   { q: `Which platforms do you run?`, a: `Shopify & Shopify Plus by default, WooCommerce migrations when needed, plus Meta, Google, TikTok, Klaviyo, GA4 and Triple Whale.` },
   { q: `Do you provide creative production?`, a: `Yes — in-house UGC, studio product photography and motion graphics. No waiting on external agencies to ship new ad variants.` },
-  { q: `What does pricing look like?`, a: `Transparent retainers from £2,500/month for single-channel work up to £10k+/month for full growth-engine engagements. See the /pricing page for detail.` },
+  { q: `What does pricing look like?`, a: `Three transparent tiers: £2,500 CRO Sprint (6-week fixed), £4,500/mo Growth System, £8,000/mo Full Partnership. See /pricing for details.` },
 ];
 
 // ── per-industry content ──

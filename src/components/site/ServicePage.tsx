@@ -30,6 +30,7 @@ import type { FAQ } from "../../lib/seo";
 import { SafeImg } from "../SafeImg";
 import { whatsappUrl } from "../../lib/whatsapp";
 import { INDUSTRIES } from "../../lib/locations-industries";
+import { PRICING_TIERS } from "../../lib/pricing";
 
 export type ServiceConfig = {
   slug: string;
@@ -679,11 +680,13 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
       {/* 23. PACKAGES / PRICING TIERS */}
       <Section eyebrow="Investment" title="Simple, transparent packages" alt>
         <div className="grid md:grid-cols-3 gap-5">
-          {(cfg.packages ?? [
-            { tier: "Starter", price: "£2,500/mo", body: "Single-channel focus to prove economics.", features: ["1 paid channel or CRO", "Weekly Loom review", "Monthly strategy call", "3-month minimum"] },
-            { tier: "Growth", price: "£5,500/mo", body: "The full growth engine for scaling brands.", features: ["Meta + Google + creative", "Weekly Loom + Slack access", "Bi-weekly strategy", "Triple Whale live dashboard"], featured: true },
-            { tier: "Scale", price: "£10k+/mo", body: "Full team, all channels, senior pod on demand.", features: ["Full-channel stack", "Weekly strategy days", "In-house creative studio", "Founder-level direct line"] },
-          ]).map((p, i) => (
+          {(cfg.packages ?? PRICING_TIERS.map((t) => ({
+            tier: t.name,
+            price: `${t.price}${t.period === "month" ? "/mo" : " fixed"}`,
+            body: t.best,
+            features: t.includes,
+            featured: t.popular,
+          }))).map((p, i) => (
             <Reveal key={p.tier} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <div className={`card-surface p-6 h-full relative overflow-hidden group ${p.featured ? "ring-2 ring-primary shadow-xl" : ""}`}>
                 {p.featured && (
