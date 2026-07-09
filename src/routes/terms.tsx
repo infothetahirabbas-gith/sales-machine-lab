@@ -23,7 +23,9 @@ export const Route = createFileRoute("/terms")({
 function Terms() {
   return (
     <PageLayout>
+      <h1 className="sr-only">Terms of Service</h1>
       <Section eyebrow="Legal" title="Terms of Service">
+
         <div className="prose prose-slate max-w-3xl">
           <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}</p>
           <h2>Use of the site</h2>
