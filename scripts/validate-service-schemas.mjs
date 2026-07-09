@@ -74,7 +74,7 @@ for (const f of leaves) {
   const src = readFileSync(join(ROUTES, f), "utf8");
   const m = src.match(/FAQ_LIST[^=]*=\s*\[([\s\S]*?)\];/);
   if (m) {
-    const count = (m[1].match(/\{\s*q:/g) || []).length;
+    const count = (m[1].match(/["']?q["']?\s*:/g) || []).length;
     if (count < 3) warns.push(`${f}: FAQ_LIST has only ${count} entries (recommend 3+)`);
   }
 }
