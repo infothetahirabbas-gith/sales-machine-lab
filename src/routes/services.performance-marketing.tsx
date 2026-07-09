@@ -75,75 +75,77 @@ function PerformanceMarketingPage() {
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-primary/20 blur-[140px] float" />
         <div className="absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-accent/30 blur-[120px] float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Performance Marketing
-            </div>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold max-w-5xl mx-auto lg:mx-0 leading-[1.02] text-ink">
-              <span className="text-gradient">Full-funnel paid media,</span> managed as one P&L.
-            </h1>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Meta, Google, TikTok and YouTube — one team, one operating system, one blended-ROAS target. Engineered for MER, LTV and profitable growth, not vanity ROAS.
-            </p>
-          </Reveal>
-          <Reveal delay={3}>
-            <div className="mt-9 btn-pair">
-              <Link to="/contact" className="btn btn-primary btn-shimmer group">
-                Book strategy call
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link to="/audit" className="btn btn-ghost border border-border bg-white/60 backdrop-blur">
-                Get free ad-account audit
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={4}>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
-              {[
-                { v: "£120M+", l: "Ad spend managed" },
-                { v: "4.1×", l: "Avg ROAS lift" },
-                { v: "120+", l: "Brands scaled" },
-                { v: "10+ yrs", l: "Ecom operating" },
-              ].map((s) => (
-                <div key={s.l} className="card-surface card-hover p-4 text-center">
-                  <div className="text-2xl font-bold text-gradient">{s.v}</div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">{s.l}</div>
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center text-center lg:text-left">
+            <div>
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                  <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
+                  Performance Marketing
                 </div>
-              ))}
+              </Reveal>
+              <Reveal delay={1}>
+                <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
+                  <span className="text-gradient">Full-funnel paid media,</span> managed as one P&L.
+                </h1>
+              </Reveal>
+              <Reveal delay={2}>
+                <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                  Meta, Google, TikTok and YouTube — one team, one operating system, one blended-ROAS target. Engineered for MER, LTV and profitable growth, not vanity ROAS.
+                </p>
+              </Reveal>
+              <Reveal delay={3}>
+                <div className="mt-9 btn-pair">
+                  <Link to="/contact" className="btn btn-primary btn-shimmer group">
+                    Book strategy call
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </Link>
+                  <Link to="/audit" className="btn btn-ghost border border-border bg-white/60 backdrop-blur">
+                    Get free ad-account audit
+                  </Link>
+                </div>
+              </Reveal>
+              <Reveal delay={4}>
+                <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
+                  {[
+                    { v: "£120M+", l: "Ad spend managed" },
+                    { v: "4.1×", l: "Avg ROAS lift" },
+                    { v: "120+", l: "Brands scaled" },
+                    { v: "10+ yrs", l: "Ecom operating" },
+                  ].map((s) => (
+                    <div key={s.l} className="card-surface card-hover p-4 text-center">
+                      <div className="text-2xl font-bold text-gradient">{s.v}</div>
+                      <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1 font-semibold">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+
+            <Reveal delay={2}>
+              <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-accent/20 to-transparent blur-2xl" aria-hidden="true" />
+                <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-2xl">
+                  <img
+                    src={heroPM}
+                    alt="Performance marketing dashboard — blended-ROAS analytics across Meta, Google, TikTok and YouTube"
+                    width={1200}
+                    height={900}
+                    loading="eager"
+                    fetchPriority="high"
+                    className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent">
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-white/85">Live dashboard</div>
+                    <div className="mt-1 text-sm sm:text-base font-semibold text-white leading-snug">Every channel in one P&L — reported weekly, defended monthly.</div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* 1b. HERO SHOWCASE IMAGE */}
-      <Section>
-        <Reveal>
-          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-xl group">
-            <img
-              src={heroPM}
-              alt="Performance marketing dashboard — blended-ROAS analytics across Meta, Google, TikTok and YouTube"
-              width={1920}
-              height={900}
-              loading="eager"
-              fetchPriority="high"
-              className="w-full h-[220px] sm:h-[320px] md:h-[440px] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-10 text-white">
-              <div className="max-w-2xl">
-                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white/80">Live dashboard</div>
-                <div className="mt-2 text-lg sm:text-2xl md:text-3xl font-bold leading-tight">Every channel in one P&L — reported weekly, defended monthly.</div>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </Section>
 
       {/* 2. PROBLEM */}
       <Section eyebrow="The Problem" title="Most paid-media agencies burn budget on the wrong metric." alt>
