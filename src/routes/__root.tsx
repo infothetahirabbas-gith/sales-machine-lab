@@ -113,17 +113,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // Non-render-blocking Google Fonts load via print-media swap trick
-      { rel: "preload", as: "style", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap", media: "print", "data-fonts": "swap" } as never,
+      // Poppins is self-hosted via @fontsource, bundled through src/styles.css —
+      // no Google Fonts DNS / connect / TLS round-trip on first paint.
     ],
     scripts: (() => {
       const gaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
       const base: Array<Record<string, unknown>> = [
         { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
         { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
-        { children: `(function(){var l=document.querySelector('link[data-fonts="swap"]');if(l){l.media='all';}})();` },
       ];
       if (gaId && /^G-[A-Z0-9]+$/i.test(gaId)) {
         base.push(
