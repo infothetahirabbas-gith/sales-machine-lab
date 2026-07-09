@@ -208,21 +208,54 @@ function Home() {
         </div>
       </section>
 
-      {/* 2. TRUST BAR - running marquee */}
+      {/* 2. TRUST BAR - running marquee with brand logos in original colors */}
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-4">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-5">
           <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
             Trusted by UK ecommerce operators on
           </div>
-          <div
-            className="relative w-full overflow-hidden"
-          >
-            <div className="marquee-track marquee-fast text-muted-foreground font-semibold whitespace-nowrap">
+          <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="marquee-track marquee-fast whitespace-nowrap">
               {Array.from({ length: 2 }).flatMap((_, k) =>
-                ["Shopify","WooCommerce","Meta Ads","Google Ads","Klaviyo","GA4","TikTok Ads","Triple Whale","Recharge","Yotpo","Hotjar","Shogun"].map((t, i) => (
-                  <span key={`${k}-${i}`} className="inline-flex items-center gap-8">
-                    <span className="hover:text-primary transition-colors">{t}</span>
-                    <span className="text-primary/40">•</span>
+                ([
+                  { name: "Shopify",       slug: "shopify",           color: "#95BF47" },
+                  { name: "WooCommerce",   slug: "woocommerce",       color: "#7F54B3" },
+                  { name: "Meta Ads",      slug: "meta",              color: "#0866FF" },
+                  { name: "Google Ads",    slug: "googleads",         color: "#4285F4" },
+                  { name: "Klaviyo",       slug: "klaviyo",           color: "#232323" },
+                  { name: "GA4",           slug: "googleanalytics",   color: "#E37400" },
+                  { name: "TikTok Ads",    slug: "tiktok",            color: "#000000" },
+                  { name: "Triple Whale",  slug: null,                color: "#7C3AED" },
+                  { name: "Recharge",      slug: null,                color: "#0F62FE" },
+                  { name: "Yotpo",         slug: null,                color: "#3B47D1" },
+                  { name: "Hotjar",        slug: "hotjar",            color: "#FD3A5C" },
+                  { name: "Shogun",        slug: null,                color: "#722ED1" },
+                ]).map((b, i) => (
+                  <span key={`${k}-${i}`} className="inline-flex items-center gap-3 mx-6 align-middle group">
+                    {b.slug ? (
+                      <img
+                        src={`https://cdn.simpleicons.org/${b.slug}/${b.color.replace("#","")}`}
+                        alt={`${b.name} logo`}
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                        decoding="async"
+                        className="h-6 w-6 object-contain transition-transform duration-300 group-hover:scale-110"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="inline-block h-2.5 w-2.5 rounded-full transition-transform duration-300 group-hover:scale-125"
+                        style={{ backgroundColor: b.color }}
+                      />
+                    )}
+                    <span
+                      className="text-base font-bold tracking-tight transition-colors"
+                      style={{ color: b.color }}
+                    >
+                      {b.name}
+                    </span>
+                    <span className="text-primary/30 ml-3">•</span>
                   </span>
                 ))
               )}
@@ -230,6 +263,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
 
       {/* 3. PROBLEM */}
