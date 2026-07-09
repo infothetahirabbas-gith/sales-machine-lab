@@ -18,6 +18,13 @@ import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import shopifyWooImage from "../assets/shopify-woocommerce-store.jpg";
 import croImage from "../assets/cro-ab-testing.jpg";
+import adsImage from "../assets/paid-ads-dashboard.jpg";
+import seoImage from "../assets/seo-strategy.jpg";
+import emailImage from "../assets/email-marketing.jpg";
+import creativeImage from "../assets/creative-production.jpg";
+import analyticsImage from "../assets/analytics-dashboard.jpg";
+import caseStudyImage from "../assets/case-study-growth.jpg";
+import meetingImage from "../assets/strategy-call.jpg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
