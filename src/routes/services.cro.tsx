@@ -59,7 +59,7 @@ export const Route = createFileRoute("/services/cro")({
       systemTitle: "Our CRO system.",
       systemSteps: [
         { title: "Conversion audit", body: "Funnel teardown, analytics review, leak mapping." },
-        { title: "Behavior research", body: "Heatmaps, session replays, surveys, on-page polls." },
+        { title: "Behaviour research", body: "Heatmaps, session replays, surveys, on-page polls." },
         { title: "Hypothesize & ship", body: "Prioritise by revenue impact, ship weekly experiments." },
         { title: "Validate & scale", body: "A/B test winners, lock learnings into the store." },
       ],
