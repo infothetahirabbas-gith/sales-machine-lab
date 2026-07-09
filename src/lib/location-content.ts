@@ -814,8 +814,8 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     const soft = "#f8fafc";
     const meta = visualMeta[slot];
     const metricA = (seed % 41) + 39;
-    const metricB = ((seed >> 4) % 36) + 24;
-    const metricC = ((seed >> 8) % 28) + 18;
+    const metricB = ((seed >>> 4) % 36) + 24;
+    const metricC = ((seed >>> 8) % 28) + 18;
     const font = "Arial, Helvetica, sans-serif";
     const t = (x: number, y: number, value: string, size = 24, color = ink, weight = 700, extra = "") =>
       `<text x="${x}" y="${y}" fill="${color}" font-family="${font}" font-size="${size}" font-weight="${weight}" ${extra}>${esc(value)}</text>`;
@@ -836,8 +836,8 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
         ${t(182, 274, "Media mix", 34, "#ffffff", 900)}
         ${chip(182, 314, meta.labels[0], "#1877f2", "#ffffff", 126)}${chip(322, 314, meta.labels[1], "#ffffff", ink, 136)}${chip(182, 380, meta.labels[2], "#111111", "#ffffff", 130)}
         <rect x="182" y="480" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="480" width="${170 + (seed % 92)}" height="24" rx="12" fill="${warm}"/>
-        <rect x="182" y="548" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="548" width="${150 + ((seed >> 2) % 105)}" height="24" rx="12" fill="${accent}"/>
-        <rect x="182" y="616" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="616" width="${130 + ((seed >> 5) % 115)}" height="24" rx="12" fill="${cool}"/>
+        <rect x="182" y="548" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="548" width="${150 + ((seed >>> 2) % 105)}" height="24" rx="12" fill="${accent}"/>
+        <rect x="182" y="616" width="270" height="24" rx="12" fill="#ffffff" opacity="0.22"/><rect x="182" y="616" width="${130 + ((seed >>> 5) % 115)}" height="24" rx="12" fill="${cool}"/>
         <rect x="548" y="210" width="412" height="260" rx="26" fill="${soft}" stroke="${line}"/>${t(594, 270, `${(metricA / 10).toFixed(1)}x ROAS`, 52, ink, 900)}${t(596, 318, "blended campaign return", 22, muted, 700)}
         <polyline points="600,410 690,358 780,382 870,312 920,330" fill="none" stroke="${accent}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="920" cy="330" r="18" fill="${accent}"/>
         <rect x="1002" y="210" width="360" height="260" rx="26" fill="#fff7ed" stroke="#fed7aa"/>${t(1048, 270, `£${metricA + 118}K`, 50, ink, 900)}${t(1050, 318, "tracked revenue", 22, muted, 700)}
@@ -869,7 +869,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
         <rect x="552" y="220" width="360" height="472" rx="28" fill="#ecfdf5" stroke="#86efac"/>${t(592, 280, "Variant B", 32, ink, 900)}<rect x="592" y="326" width="282" height="150" rx="20" fill="#bbf7d0"/><rect x="620" y="520" width="220" height="22" rx="11" fill="#86efac"/><rect x="620" y="570" width="210" height="48" rx="24" fill="#16a34a"/>${t(682, 602, "Buy now", 20, "#ffffff", 900)}
         <rect x="954" y="220" width="402" height="472" rx="28" fill="${dark}"/>${t(1002, 284, `+${metricB}% CVR`, 50, "#ffffff", 900)}${t(1004, 330, "statistically valid uplift", 23, "#cbd5e1", 700)}
         <path d="M1030 404h250l-42 72h-166zM1068 510h170l-34 62h-102zM1098 604h110l-24 42h-62z" fill="${warm}" opacity="0.9"/>
-        ${[0, 1, 2, 3, 4, 5].map((i) => `<circle cx="${1064 + (i % 3) * 72}" cy="${404 + Math.floor(i / 3) * 74}" r="${18 + ((seed >> i) % 12)}" fill="${i % 2 ? accent : '#ffffff'}" opacity="0.8"/>`).join("")}
+        ${[0, 1, 2, 3, 4, 5].map((i) => `<circle cx="${1064 + (i % 3) * 72}" cy="${404 + Math.floor(i / 3) * 74}" r="${18 + ((seed >>> i) % 12)}" fill="${i % 2 ? accent : '#ffffff'}" opacity="0.8"/>`).join("")}
       `),
       email: browser(`
         <rect x="150" y="236" width="328" height="410" rx="32" fill="#ffffff" stroke="${line}"/>${t(196, 298, "Klaviyo campaign", 30, ink, 900)}<path d="M196 350h236v142H196z" fill="#fef3c7" stroke="#f59e0b"/><path d="M196 350l118 78 118-78" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linejoin="round"/>${chip(196, 544, "Email", "#ffffff", ink, 104)}${chip(312, 544, "SMS", "#ffffff", ink, 92)}
