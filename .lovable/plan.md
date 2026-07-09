@@ -1,56 +1,102 @@
-# Make BeingEcom feel instant
+# Verification-pass fixes — one source of truth
 
-Goal: page refresh (F5) under ~1s on a warm cache, in-app navigation feels instant (SPA transitions, no full reloads), and Lighthouse Performance ≥95 on mobile + desktop.
+Everything below fixes the root cause in a shared component or config; individual pages then inherit. No page-level hardcoded values.
 
-Note: "nano-second" refresh is not physically possible — a full reload always pays network + parse cost. What we CAN do:
-- Keep in-app navigation as pure SPA transitions (0 network for HTML, feels instant).
-- Cut the actual F5 cost dramatically (smaller JS, preloaded LCP, cached assets, no blocking scripts).
-- Preload routes on hover/intent so the next click is already downloaded.
+## What I already verified is fixed (no action needed)
+- Contact page uses `£48M+` (not `$48M+`) — line 115 of `src/routes/contact.tsx`. The audit report is stale on this one; I'll re-verify the DOM after deploy.
+- Footer contact block already reads from `SITE` (address, email, phone, socials).
+- Homepage currency is £ throughout.
 
-Your stack (TanStack Start on Cloudflare Workers) is already the same class as Next.js — the slowness is not the framework, it's the payload and blocking work. Switching to Next.js would not help and would be a full rewrite.
+## Batch 1 — Service taxonomy (one canonical list)
 
----
+Root cause: Header, Footer, homepage, and `services.index` each hold their own array. Fix by creating a single source.
 
-## 1. Fix what's blocking first paint today (biggest wins)
+- New `src/config/services.ts` exporting `SERVICES` with `{ slug, path, label, shortLabel, tagline, Icon, group, children? }` for all 9 top-level services + SEO/Perf/Store children.
+- Canonical labels (UK English, one name everywhere):
+  - Ecommerce SEO
+  - Performance Marketing
+  - Store Development
+  - Conversion Rate Optimisation
+  - Creative Production *(renamed from "Creative Testing" in Header)*
+  - Email Marketing Automation
+  - AI Automation
+  - Funnel & Landing Pages
+  - Analytics & Tracking
+  - Scaling & Retention
+- Refactor `Header.tsx`, `Footer.tsx`, `src/routes/index.tsx` services grid, `services.index.tsx`, breadcrumbs, and `RelatedServices` component to import from `SERVICES`. Homepage grid shows all 10 (adds AI Automation card — currently missing).
+- Update sitemap + `organizationJsonLd.serviceCatalog` to iterate `SERVICES`.
 
-- **Google Translate widget**: currently loads translate.google.com script on every page — one of the heaviest third-party blockers. Load only when the user opens the language switcher (lazy, on click).
-- **LCP image preload**: add `<link rel="preload" as="image" fetchpriority="high">` in each route's `head().links` for its hero image. Convert hero images to AVIF + WebP via `vite-imagetools` (plugin is already installed).
-- **Fonts**: add `font-display: swap`, preconnect to font origin, drop unused weights.
-- **Welcome banner**: currently blocks interaction with a full-screen modal on first visit — defer its JS until after first paint (dynamic import), so it doesn't delay LCP.
-- **Floating widgets (WhatsApp / chat)**: lazy-load below the fold, not on initial render.
-- **Cookie consent**: same — lazy after first paint.
+## Batch 2 — Testimonials (component, not page)
 
-## 2. Routing = instant SPA navigation
+Root cause: homepage `Section` inlines a marquee that duplicates the array with `Array.from({length:2}).flatMap(...)` and exposes both copies to the a11y tree, so screen readers and crawlers see every quote twice.
 
-- Confirm every internal navigation uses `<Link to>` (not `<a href>`) so it's client-side. Audit and fix any `<a href="/...">` in the codebase.
-- Raise `defaultPreloadStaleTime` and keep `defaultPreload: "intent"` (already set) — this preloads route code + data on hover, so the click has zero wait.
-- Lower `defaultPreloadDelay` from 40ms to 0 for near-zero hover-to-preload latency.
-- Add `<Link preload="viewport">` on primary nav / footer links so they preload as soon as they enter the viewport on mobile (where there's no hover).
+- Extract to `src/components/site/TestimonialsMarquee.tsx` reading from `src/config/testimonials.ts` (single array of quotes).
+- Render two tracks: first with real content, second with `aria-hidden="true"` + `data-nosnippet` and every focusable stripped, so the visual loop continues but a11y/SEO see the list once.
+- Wrap the whole marquee in a `<ul role="list">`, each quote as `<li>` with a `<blockquote>` + `<figcaption>`.
+- Reuse the same component on any other page that shows testimonials.
 
-## 3. Bundle diet
+## Batch 3 — Revenue chart (`GrowthChart.tsx`)
 
-- Audit `lucide-react` and any icon/util imports — ensure per-icon imports (should already be, verify).
-- Convert oversized route components (Header, WelcomeBanner, GrowthChart, RevenueLossCalculator, GoogleTranslate) to lazy chunks so the home route ships less JS.
-- Remove any unused shadcn components from the bundle (tree-shaking check).
+Root cause: axis label built as `{t}{v.yLabel}` so `£K` becomes `100£K`. X labels also render in a single line with no spacing on narrow SVG viewBox.
 
-## 4. Caching & delivery
+- Add `formatTick(value, unit)` that puts currency prefix before the number (`£100K`, `£75K`, `88%`, `4.2×`) and unit suffix after non-currency units.
+- Give the SVG `preserveAspectRatio="xMidYMid meet"` and add `<title>`/`<desc>` for a11y (chart already has `role="img" aria-label` — extend with description of the trend).
+- Bump `PAD_L` to fit `£100K`, right-align tick text at `PAD_L - 6`.
+- Show every 3rd x-tick on `<640px` viewports via a `useMediaQuery`-free approach: emit both label sets and toggle via CSS `.hidden md:inline`.
 
-- Add long-lived `Cache-Control: public, max-age=31536000, immutable` on hashed assets (Cloudflare default, verify).
-- Add `Cache-Control: public, max-age=0, must-revalidate` on HTML so a refresh uses conditional GET (near-zero bytes when unchanged).
-- Confirm Brotli/gzip is on (Cloudflare default).
+## Batch 4 — Global stats config
 
-## 5. Verify
+Root cause: numbers duplicated across `src/lib/stats.ts`, `ServicePage.tsx`, `contact.tsx`, other pages.
 
-- Run Lighthouse (mobile + desktop) on `/`, `/services`, `/case-studies`, `/about`, `/contact` before/after.
-- Playwright script that clicks through main nav and records navigation timing per click — target <100ms for preloaded routes.
-- Confirm F5 on `/` finishes `load` event in <1s on a warm cache.
+- Extend `src/lib/stats.ts` (already exports `HERO_STATS` + `trackedRevenue`) into a full `SITE_STATS` object: tracked revenue, brands scaled, case studies, ad spend, average ROAS, retention.
+- Refactor `ServicePage`, `contact.tsx`, `about.tsx`, homepage bento to import from `SITE_STATS`. No page keeps its own literal.
 
----
+## Batch 5 — Industry taxonomy alignment
 
-## What I need from you
+Root cause: `INDUSTRIES` in `locations-industries.ts` has 12 entries; `case-studies.index.tsx` only maps 8; nav dropdown hardcodes its own list.
 
-1. **Google Translate**: OK to lazy-load only when the user opens the language switcher? (Big win, tiny UX change.)
-2. **WelcomeBanner**: OK to defer it until after first paint (so it appears ~200ms later but doesn't delay LCP)?
-3. **Third-party scripts**: any analytics/pixel/chat widget you must keep loading eagerly? If not, I'll defer them all.
+- Make `INDUSTRIES` the single source. Header industry dropdown iterates it (currently hardcoded 12 entries — replace with `INDUSTRIES.map`).
+- Add one illustrative case-study card per missing industry (Electronics & Technology, Sports & Fitness, Baby & Kids, Health & Wellness, Arts/Prints/Stationery) using the "representative anonymised UK engagement" wording.
+- Add `industrySlug` on each case-study entry and filter case-studies by slug on `/industries/$slug` for real cross-linking.
 
-Once you confirm, I'll ship the changes in 3 batches (blocking scripts → routing/preload → bundle split) so each is reviewable.
+## Batch 6 — Footer positioning + org narrative
+
+Root cause: Footer shows "Remote • Global" tag above the London address, contradicting itself.
+
+- Replace "Remote • Global" chip with a single line: "Headquartered in London — remote team serving UK & global DTC brands." Same line reused on About hero and Contact hero via `SITE.positioning`.
+- Update `organizationJsonLd` in `src/lib/seo.ts` to include `areaServed: ["GB","EU","US","AE"]` and keep the London `PostalAddress`.
+
+## Batch 7 — QA sweep
+
+- Playwright script hits homepage, contact, pricing, about, /services, /services/seo, /industries, /industries/fashion-apparel, /case-studies, /audit at 375×812 + 1280×800. Screenshots + `grep` DOM for `$`, `Creative Testing`, `Conversion Optimization`, duplicate quote text, `100£K`. Any hit → open ticket.
+- Re-run typecheck (auto).
+- Trigger fresh SEO scan at the end.
+
+## Files touched
+
+```text
+src/config/services.ts               (new)
+src/config/testimonials.ts           (new)
+src/components/site/TestimonialsMarquee.tsx (new)
+src/lib/stats.ts                     (expand)
+src/lib/seo.ts                       (org schema + services from config)
+src/lib/locations-industries.ts      (add industrySlug hooks)
+src/components/site/GrowthChart.tsx  (label + a11y)
+src/components/site/Header.tsx       (import SERVICES + INDUSTRIES)
+src/components/site/Footer.tsx       (SERVICES + SITE.positioning)
+src/components/site/ServicePage.tsx  (SITE_STATS)
+src/components/site/RelatedServices.tsx (SERVICES)
+src/routes/index.tsx                 (SERVICES + TestimonialsMarquee + SITE_STATS)
+src/routes/services.index.tsx        (SERVICES)
+src/routes/contact.tsx               (SITE_STATS + SITE.positioning)
+src/routes/about.tsx                 (SITE_STATS + SITE.positioning)
+src/routes/case-studies.index.tsx    (add 5 industry cards + industrySlug)
+src/routes/industries.$slug.tsx      (filter case studies by industrySlug)
+public/sitemap.xml                   (regen from SERVICES + INDUSTRIES)
+```
+
+## Batch order + gating
+
+Batches are independent enough to ship in one pass, but I'll commit in order 1 → 2 → 3 → 4 → 5 → 6 → 7 so each intermediate build is green. Total: ~17 files touched, all root-cause fixes, no per-page patches.
+
+**Confirm** and I'll execute all 7 batches, then run the Playwright sweep and post a before/after report.

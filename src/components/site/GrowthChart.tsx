@@ -48,12 +48,27 @@ const variants: Record<string, Variant> = {
 
 const W = 600;
 const H = 280;
-const PAD_L = 36;
+const PAD_L = 52;
 const PAD_R = 16;
 const PAD_T = 20;
 const PAD_B = 30;
 const CHART_W = W - PAD_L - PAD_R;
 const CHART_H = H - PAD_T - PAD_B;
+
+/**
+ * Format an axis tick so the unit sits in the right place — currency goes
+ * BEFORE the number ("£100K"), symbols/percent go AFTER ("88%", "4.2×").
+ * Previously we concatenated `${t}${yLabel}` which produced "100£K".
+ */
+function formatTick(value: number, unit: string): string {
+  const isCurrency = unit.startsWith("£") || unit.startsWith("$") || unit.startsWith("€");
+  if (isCurrency) {
+    const currency = unit.charAt(0);
+    const suffix = unit.slice(1);
+    return `${currency}${value}${suffix}`;
+  }
+  return `${value}${unit}`;
+}
 
 function buildLine(values: number[]) {
   const step = CHART_W / (values.length - 1);
@@ -120,7 +135,7 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
           <g key={t}>
             <line x1={PAD_L} x2={W - PAD_R} y1={y} y2={y} stroke="oklch(0.16 0.02 250)" strokeOpacity="0.07" strokeDasharray={t === 0 ? "0" : "3 4"} />
             <text x={PAD_L - 8} y={y + 3} fontSize="9" fill="oklch(0.5 0.02 250)" textAnchor="end" fontFamily="ui-sans-serif, system-ui">
-              {t}{v.yLabel}
+              {formatTick(t, v.yLabel)}
             </text>
           </g>
         );
@@ -178,9 +193,9 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
 
       {/* Last value badge */}
       <g>
-        <rect x={last.x - 38} y={last.y - 30} width="36" height="18" rx="4" fill="var(--ink)" />
-        <text x={last.x - 20} y={last.y - 18} fontSize="10" fontWeight="700" fill="white" textAnchor="middle" fontFamily="ui-sans-serif, system-ui">
-          {v.line[v.line.length - 1]}{v.yLabel}
+        <rect x={last.x - 44} y={last.y - 30} width="42" height="18" rx="4" fill="var(--ink)" />
+        <text x={last.x - 23} y={last.y - 18} fontSize="10" fontWeight="700" fill="white" textAnchor="middle" fontFamily="ui-sans-serif, system-ui">
+          {formatTick(v.line[v.line.length - 1], v.yLabel)}
         </text>
       </g>
 
