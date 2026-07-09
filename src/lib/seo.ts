@@ -233,8 +233,8 @@ export const servicesFaqs: FAQ[] = [
 ];
 
 export const caseStudyFaqs: FAQ[] = [
-  { q: "Are these case studies real?", a: "Yes. Every result is from a real client engagement. Brand names are sometimes anonymized for NDA reasons." },
-  { q: "Can I talk to one of your clients as a reference?", a: "Yes - after the discovery call we'll connect you with a brand in your category and stage." },
-  { q: "What's your typical time-to-result?", a: "CRO and email lift in 2-4 weeks, paid ads stabilize in 30-60 days, SEO compounds over 3-6 months." },
+  { q: "Are these case studies real?", a: "They're illustrative — representative playbooks, not verified client dashboards. Every card is drawn from patterns we've run for real UK Shopify and WooCommerce brands, but brand names, screenshots and exact dashboard figures are anonymised for NDA reasons and the numbers illustrate realistic outcome ranges rather than a single client's live account." },
+  { q: "Can I see verified numbers for a specific client?", a: "Yes — after a discovery call we can share verified references and, where the client consents, walk you through real dashboards for a brand in your category and stage." },
+  { q: "What's your typical time-to-result?", a: "CRO and email lift in 2–4 weeks, paid ads stabilise in 30–60 days, SEO compounds over 3–6 months." },
   { q: "Do results like these predict my outcome?", a: "No — past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers each week." },
 ];
