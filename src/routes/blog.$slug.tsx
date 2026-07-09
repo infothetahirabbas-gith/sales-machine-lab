@@ -211,6 +211,7 @@ function BlogPostPage() {
   return (
     <PageLayout>
       <article>
+        <h1 className="sr-only">{post.title}</h1>
         <Section
           eyebrow={`${post.category} · ${post.readMins} min read`}
           title={post.title}
