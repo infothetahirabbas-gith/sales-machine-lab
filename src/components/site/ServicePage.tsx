@@ -19,6 +19,8 @@ import {
   Wrench,
   Award,
   Quote,
+  Ban,
+  Minus,
 } from "lucide-react";
 import PageLayout from "./PageLayout";
 import { Section, Pill, CTA } from "./Section";
