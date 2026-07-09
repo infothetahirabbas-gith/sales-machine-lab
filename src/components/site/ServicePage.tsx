@@ -877,24 +877,54 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </Reveal>
       </Section>
 
-      {/* 25. RELATED SERVICES */}
-      {cfg.relatedServices && cfg.relatedServices.length > 0 && (
-        <Section eyebrow="Also explore" title="Related services we ship together" alt>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cfg.relatedServices.map((r, i) => (
-              <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-                <Link to={r.to} className="card-surface card-hover p-5 group block h-full">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <ArrowUpRight className="size-5" />
-                  </div>
+      {/* 25. RELATED SERVICES (context-aware internal links) */}
+      {(() => {
+        const related = cfg.relatedServices && cfg.relatedServices.length > 0
+          ? cfg.relatedServices
+          : getRelatedServices(cfg.slug, 6).map((r) => ({ title: r.title, body: r.body, to: r.to }));
+        return (
+          <Section eyebrow="Also explore" title="Related services we ship together" alt>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {related.map((r, i) => (
+                <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                  <Link
+                    to={r.to}
+                    className="card-surface card-hover p-5 group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-2xl"
+                    aria-label={`Explore ${r.title}`}
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                      <ArrowUpRight className="size-5" aria-hidden="true" />
+                    </div>
+                    <h4 className="font-bold text-ink">{r.title}</h4>
+                    <p className="text-sm text-muted-foreground mt-2">{r.body}</p>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </Section>
+        );
+      })()}
+
+      {/* 25b. RESOURCES & TOOLS — sitewide context-aware links */}
+      <Section eyebrow="Resources & tools" title="Keep exploring — free tools & proof">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {RESOURCE_LINKS.map((r, i) => (
+            <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+              <Link
+                to={r.to}
+                className="card-surface card-hover p-5 group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-2xl"
+                aria-label={r.title}
+              >
+                <div className="flex items-center justify-between">
                   <h4 className="font-bold text-ink">{r.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-2">{r.body}</p>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-      )}
+                  <ArrowUpRight className="size-4 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">{r.body}</p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       {/* 26. FINAL CTA */}
       <CTA heading={cfg.ctaTitle ?? "Ready to fix this for your store?"} />
