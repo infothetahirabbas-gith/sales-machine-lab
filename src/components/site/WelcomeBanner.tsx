@@ -29,7 +29,7 @@ const SERVICES = [
   { slug: "store-shopify", name: "— Shopify Development" },
   { slug: "store-woocommerce", name: "— WooCommerce Development" },
   { slug: "cro", name: "Conversion Rate Optimisation" },
-  { slug: "creative", name: "Creative Testing" },
+  { slug: "creative", name: "Creative Production" },
   { slug: "email-sms", name: "Email Marketing" },
   { slug: "ai-automation", name: "AI Automation" },
 ];
