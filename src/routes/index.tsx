@@ -75,10 +75,10 @@ const services = [
 ];
 
 const rotatingPhrases = [
-  "Ecommerce Digital Marketing Agency UK",
-  "Shopify Agency UK",
-  "WooCommerce Agency UK",
-  "Ecommerce Growth Agency",
+  "UK Ecommerce Brands",
+  "Ecommerce store in UK",
+  "WooCommerce stores UK",
+  "Shopify Stores in UK",
 ];
 
 // Vite hashes bundled asset filenames, so no query-string cache-buster is
