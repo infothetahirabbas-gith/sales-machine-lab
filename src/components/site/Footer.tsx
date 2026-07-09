@@ -8,9 +8,11 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-14 pb-12 lg:pt-20 lg:pb-16 grid lg:grid-cols-12 gap-10 lg:gap-12 text-sm">
         {/* Brand */}
         <div className="lg:col-span-4">
-          <Link to="/" className="inline-flex items-center rounded-xl bg-background px-3 py-2" aria-label="BeingEcom home">
-            <img src={logo} alt="BeingEcom logo" width="150" height="47" className="h-9 w-auto" />
+          <Link to="/" className="inline-flex items-center gap-3" aria-label="BeingEcom home">
+            <img src="/favicon.png" alt="BeingEcom logo" width="44" height="44" className="h-11 w-11 rounded-xl bg-background p-1.5" />
+            <span className="text-xl font-bold tracking-tight text-background">BeingEcom</span>
           </Link>
+
           <p className="mt-6 text-background/80 leading-relaxed max-w-xs">
             The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
           </p>
