@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import { faqJsonLd, contactFaqs, breadcrumbJsonLd } from "../lib/seo";
+import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
 
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/contact")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],
     scripts: [
+      { type: "application/ld+json", children: JSON.stringify(contactPageJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs, "/contact")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])) },
     ],
