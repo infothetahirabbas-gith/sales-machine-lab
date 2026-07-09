@@ -45,6 +45,7 @@ import showcaseBaby from "@/assets/showcase-baby.jpg?w=520&format=webp&quality=7
 import showcaseSurf from "@/assets/showcase-surf.jpg?w=520&format=webp&quality=72";
 import { faqJsonLd, caseStudyFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
+import { HERO_STATS } from "../lib/stats";
 
 
 
@@ -74,10 +75,10 @@ export const Route = createFileRoute("/case-studies/")({
   },
   head: () => ({
     meta: [
-      { title: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
-      { name: "description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
-      { property: "og:title", content: "Ecommerce Case Studies UK — Shopify Growth Results | BeingEcom" },
-      { property: "og:description", content: "UK ecommerce case studies. Real Shopify and WooCommerce growth results across SEO, CRO, paid ads and email — with the numbers to prove it." },
+      { title: "Ecommerce Case Studies UK — Shopify Growth Playbooks | BeingEcom" },
+      { name: "description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce — the playbooks we run for Ads, SEO, CRO and email. Anonymised patterns, not verified client dashboards." },
+      { property: "og:title", content: "Ecommerce Case Studies UK — Shopify Growth Playbooks | BeingEcom" },
+      { property: "og:description", content: "Illustrative UK ecommerce growth examples across Shopify and WooCommerce — the playbooks we run for Ads, SEO, CRO and email." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
@@ -245,11 +246,15 @@ function Sparkline({ data, gradient }: { data: number[]; gradient: string }) {
 
 function AdsPreview({ seed }: { seed: number }) {
   const r = rng(seed + 11);
-  // Realistic Facebook Ads Manager-style row data
+  // Illustrative campaign structure — names vary by seed so cards don't repeat.
+  const coldNames = ["ASC · Broad cold", "Advantage+ · Broad", "PMax · Prospecting", "Broad · Creator UGC", "Cold · Offer stack"];
+  const rtgNames = ["Retargeting · 7D", "Retargeting · 30D", "Cart abandoners · 14D", "Website · 90D pool", "VV75 · Video RTG"];
+  const testNames = ["Creative test · UGC", "Hook test · 3-sec", "Concept test · Batch", "Angle test · Founder", "Static test · Value"];
+  const pick = <T,>(arr: T[]) => arr[Math.floor(r() * arr.length)];
   const campaigns = [
-    { name: "ASC — Broad", status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
-    { name: "Retargeting 7D", status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
-    { name: "Creative test — UGC", status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
+    { name: pick(coldNames), status: "Active", spend: 1200 + Math.floor(r() * 1800), results: 80 + Math.floor(r() * 140), roas: 2.6 + r() * 2.2 },
+    { name: pick(rtgNames), status: "Active", spend: 400 + Math.floor(r() * 600), results: 40 + Math.floor(r() * 90), roas: 5.1 + r() * 3.4 },
+    { name: pick(testNames), status: "Active", spend: 250 + Math.floor(r() * 350), results: 15 + Math.floor(r() * 40), roas: 1.8 + r() * 1.6 },
   ];
   return (
     <div className="h-full w-full bg-white flex flex-col text-ink">
@@ -269,7 +274,7 @@ function AdsPreview({ seed }: { seed: number }) {
       <div className="grid grid-cols-3 gap-2 px-3 py-1.5 border-b border-border/70 shrink-0 bg-[#f7f8fa]">
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Spend</div>
-          <div className="text-[11px] font-bold tabular-nums">${(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
+          <div className="text-[11px] font-bold tabular-nums">£{(campaigns.reduce((a, c) => a + c.spend, 0) / 1000).toFixed(1)}K</div>
         </div>
         <div>
           <div className="text-[8px] uppercase tracking-wider text-muted-foreground font-semibold">Purchases</div>
@@ -302,7 +307,7 @@ function AdsPreview({ seed }: { seed: number }) {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
               <span className="text-[9px] font-semibold text-ink truncate">{c.name}</span>
             </div>
-            <span className="text-[9px] tabular-nums text-right text-ink/80">${c.spend.toLocaleString()}</span>
+            <span className="text-[9px] tabular-nums text-right text-ink/80">£{c.spend.toLocaleString()}</span>
             <span className="text-[9px] tabular-nums text-right text-ink/80">{c.results}</span>
             <span className="text-[9px] tabular-nums text-right font-bold text-emerald-600">{c.roas.toFixed(2)}×</span>
           </div>
@@ -585,25 +590,25 @@ function CaseStudies() {
             Case Studies
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04] text-ink">
-            Real <span className="text-gradient">ecommerce growth</span> results.
+            Ecommerce growth <span className="text-gradient">playbooks</span>.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-            {studies.length}+ wins across Ads, SEO and CRO. Click any card to see the problem, strategy and full results.
+            {studies.length} illustrative examples across Ads, SEO and CRO — showing the problems, strategies and outcome patterns we run for UK Shopify and WooCommerce brands. Metrics and dashboards are anonymised and representative, not verified client screenshots.
           </p>
 
-          {/* Stat strip */}
+          {/* Stat strip — centralised in lib/stats.ts */}
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto lg:mx-0">
-            {[
-              { v: "120+", l: "Stores scaled" },
-              { v: "£48M+", l: "Tracked revenue" },
-              { v: "400+", l: "A/B tests run" },
-              { v: "4.1×", l: "Avg ROAS lift" },
-            ].map((s) => (
+            {HERO_STATS.map((s) => (
               <div key={s.l} className="card-surface p-4 text-center">
                 <div className="text-xl md:text-2xl font-bold text-gradient">{s.v}</div>
                 <div className="text-[11px] uppercase tracking-wide text-muted-foreground mt-1">{s.l}</div>
               </div>
             ))}
+          </div>
+
+          {/* Transparency disclosure — EEAT */}
+          <div className="mt-6 max-w-2xl mx-auto lg:mx-0 text-xs text-muted-foreground bg-secondary/40 border border-border rounded-xl p-3">
+            <strong className="text-ink">Transparency note:</strong> These examples represent the patterns and playbooks we run for real UK ecommerce brands. Brand identities are anonymised for client confidentiality, and the numbers illustrate realistic outcome ranges rather than exact per-client dashboards. For verified client references, <Link to="/contact" className="text-primary underline">contact us</Link>.
           </div>
         </div>
       </section>
