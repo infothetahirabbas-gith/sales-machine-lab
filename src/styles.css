@@ -284,6 +284,26 @@
   }
 }
 
+/* Honour prefers-reduced-motion: disable decorative loops (pulseGlow, drawLine,
+   marquee, float, tilt, wa-wiggle) and collapse reveal/rise/scale/slide
+   transitions to instant final state. Layout-affecting animations were already
+   swapped to composited transform/opacity, so this keeps CLS at 0 for everyone. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-dot::after { animation: none !important; opacity: 0 !important; }
+  .draw-line { animation: none !important; opacity: 1 !important; }
+  .marquee-track { animation: none !important; }
+  .float, .float-slow { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
 /* WhatsApp floating button — attention wiggle + entrance pop */
 @keyframes wa-wiggle {
   0%, 88%, 100% { transform: rotate(0deg) scale(1); }
