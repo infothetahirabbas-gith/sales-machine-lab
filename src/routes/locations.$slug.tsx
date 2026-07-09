@@ -16,6 +16,7 @@ import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
+import shopifyWooImage from "../assets/shopify-woocommerce-store.jpg";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -499,7 +500,7 @@ function LocationPage() {
       {/* 10. SHOPIFY */}
       <Section eyebrow="Store development" title={`Shopify & WooCommerce experts in ${city}`} alt>
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Reveal><SafeImg src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
+          <Reveal><SafeImg src={shopifyWooImage} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
             <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
