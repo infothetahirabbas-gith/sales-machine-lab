@@ -23,7 +23,7 @@ export default function FaqSection({
       <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] bg-accent/30 blur-[140px] rounded-full" />
 
       <div className="relative mx-auto max-w-3xl px-5 lg:px-8">
-        <div className="text-center mb-10">
+        <div className="text-left md:text-center mb-10">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
             {eyebrow}
           </div>

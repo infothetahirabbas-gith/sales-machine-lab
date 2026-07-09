@@ -132,7 +132,7 @@ export function CTA({
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-left md:text-center">
             <div className="absolute inset-0 grid-bg opacity-60" />
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
