@@ -157,19 +157,33 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   // Mount deferred client-only widgets AFTER first paint so they never
-  // block LCP or TTI on the initial load.
+  // block LCP or TTI on the initial load. Google Translate is desktop-only
+  // (≥1024px) — on mobile it adds ~98 KiB of third-party JS with no value
+  // since the language switcher lives in the desktop header dropdown.
   const [deferredReady, setDeferredReady] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const apply = () => setIsDesktop(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
     const w = window as unknown as {
       requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
       cancelIdleCallback?: (id: number) => void;
     };
+    let idleId: number | undefined;
+    let timeoutId: number | undefined;
     if (typeof w.requestIdleCallback === "function") {
-      const id = w.requestIdleCallback(() => setDeferredReady(true), { timeout: 2000 });
-      return () => w.cancelIdleCallback?.(id);
+      idleId = w.requestIdleCallback(() => setDeferredReady(true), { timeout: 2000 });
+    } else {
+      timeoutId = window.setTimeout(() => setDeferredReady(true), 400);
     }
-    const t = window.setTimeout(() => setDeferredReady(true), 400);
-    return () => window.clearTimeout(t);
+    return () => {
+      mq.removeEventListener("change", apply);
+      if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
   }, []);
 
   const pathname = useRouterState({ select: (s) => s.location.pathname });
