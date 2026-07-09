@@ -173,8 +173,8 @@ function Home() {
               <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
                 <img
                   src={dash.img}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 640w, ${dash.img} 1200w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 640px, 100vw"
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 560w, ${dash.img} 1200w` : undefined}
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
