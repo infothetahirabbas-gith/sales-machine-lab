@@ -12,6 +12,10 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+// Preload the hero H1 font weight so it's fetched in parallel with CSS
+// instead of after CSS parse — cuts FCP on mobile ~100-200ms.
+import poppins700 from "@fontsource/poppins/files/poppins-latin-700-normal.woff2?url";
+import poppins600 from "@fontsource/poppins/files/poppins-latin-600-normal.woff2?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
 
