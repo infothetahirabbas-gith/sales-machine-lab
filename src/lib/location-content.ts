@@ -949,7 +949,12 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
       c.images[key] = `${u(id)}&sig=${hashNum(`beingecom-${slug}-${key}`)}`;
     }
     const city = cityNames[slug] ?? slug.replace(/-/g, " ");
-    for (const key of visualSlots) c.images[key] = sectionVisual(slug, city, key);
+    // NOTE: visual sections (ads/seo/shopify/cro/email/creative/analytics/caseStudy/meeting)
+    // now use the real, topically-curated Unsplash photos from slotPools above
+    // instead of generated SVG mockups — every section shows a photo relevant to
+    // its topic (paid ads dashboard, SEO analytics, Shopify storefront, etc.).
+    void sectionVisual;
+    void city;
     c.images.founders = [
       founderAvatar(slug, city, 0),
       founderAvatar(slug, city, 1),
