@@ -146,7 +146,7 @@ function Home() {
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5 relative" style={{ animation: "scaleIn 0.9s 0.2s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-5 relative">
             {/* Real ecommerce photo behind the animated dashboard for warmth + realism */}
             <div className="absolute -top-6 -right-4 lg:-right-8 w-40 h-52 md:w-52 md:h-64 rotate-6 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/40 hidden md:block">
               <SafeImg
