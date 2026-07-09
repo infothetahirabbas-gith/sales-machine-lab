@@ -333,7 +333,126 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </section>
 
-      {/* 13. TRIGGERS */}
+      {/* 12b. MID-PAGE CTA (optional) */}
+      {cfg.midCta && (
+        <Section>
+          <Reveal>
+            <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-r from-primary/10 via-white to-accent/15 p-8 md:p-12 text-center">
+              <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/20 blur-3xl float" />
+              <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-accent/25 blur-3xl float-slow" />
+              <div className="relative max-w-3xl mx-auto">
+                <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight">{cfg.midCta.title}</h3>
+                <p className="mt-4 text-lg text-muted-foreground">{cfg.midCta.body}</p>
+                <div className="mt-8 btn-pair justify-center">
+                  <Link to="/contact" className="btn btn-primary btn-shimmer group">
+                    {cfg.midCta.primary}
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                  {cfg.midCta.secondary && (
+                    <Link to="/audit" className="btn btn-ghost border border-border bg-white/60 backdrop-blur">
+                      {cfg.midCta.secondary}
+                    </Link>
+                  )}
+                </div>
+                <p className="mt-4 text-xs text-muted-foreground">No lock-ins · UK-based senior operators · Reply within 1 business day</p>
+              </div>
+            </div>
+          </Reveal>
+        </Section>
+      )}
+
+      {/* 12c. MISTAKES (optional) */}
+      {cfg.mistakes && cfg.mistakes.length > 0 && (
+        <Section eyebrow="Avoid these" title={`Mistakes that quietly kill ${cfg.eyebrow.toLowerCase()} performance.`} alt>
+          <div className="grid md:grid-cols-2 gap-4">
+            {cfg.mistakes.map((m, i) => (
+              <Reveal key={m.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="group relative flex gap-4 rounded-2xl border border-destructive/25 bg-destructive/5 p-5 transition hover:-translate-y-1 hover:shadow-md">
+                  <div className="shrink-0 w-11 h-11 rounded-xl bg-destructive/15 text-destructive flex items-center justify-center font-bold">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-destructive">
+                      <Ban className="w-3 h-3" /> Mistake
+                    </div>
+                    <h4 className="mt-1 font-bold text-ink">{m.title}</h4>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{m.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 12d. COMPARISON TABLE (optional) */}
+      {cfg.comparison && cfg.comparison.rows.length > 0 && (
+        <Section eyebrow="How we compare" title="BeingEcom vs typical agency vs in-house.">
+          <Reveal>
+            <div className="overflow-x-auto rounded-3xl border border-border bg-white">
+              <table className="min-w-full text-sm">
+                <thead>
+                  <tr className="bg-gradient-to-r from-primary/8 to-accent/12 border-b border-border">
+                    <th className="text-left p-4 font-bold text-ink w-1/3">What matters</th>
+                    <th className="text-left p-4 font-bold text-primary">BeingEcom</th>
+                    <th className="text-left p-4 font-bold text-muted-foreground">Typical agency</th>
+                    <th className="text-left p-4 font-bold text-muted-foreground">In-house hire</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cfg.comparison.rows.map((r, i) => (
+                    <tr key={r.criterion} className={i % 2 === 0 ? "bg-white" : "bg-secondary/30"}>
+                      <td className="p-4 font-semibold text-ink border-t border-border">{r.criterion}</td>
+                      <td className="p-4 border-t border-border">
+                        <span className="inline-flex items-start gap-2 text-ink">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" /> {r.us}
+                        </span>
+                      </td>
+                      <td className="p-4 border-t border-border text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          <Minus className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-0.5" /> {r.agency}
+                        </span>
+                      </td>
+                      <td className="p-4 border-t border-border text-muted-foreground">
+                        <span className="inline-flex items-start gap-2">
+                          <Minus className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-0.5" /> {r.inhouse}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+        </Section>
+      )}
+
+      {/* 12e. INDUSTRY IMPACT (optional) */}
+      {cfg.industryImpact && cfg.industryImpact.length > 0 && (
+        <Section eyebrow="Vertical impact" title={`How ${cfg.eyebrow.toLowerCase()} moves the needle in your industry.`} alt>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cfg.industryImpact.map((it, i) => (
+              <Reveal key={it.industry} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface card-hover p-6 h-full">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{it.industry}</div>
+                  <div className="mt-3">
+                    <div className="flex items-start gap-2 text-sm">
+                      <XCircle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
+                      <p className="text-muted-foreground leading-relaxed"><span className="font-semibold text-ink">Pain:</span> {it.pain}</p>
+                    </div>
+                    <div className="mt-3 flex items-start gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <p className="text-ink leading-relaxed"><span className="font-semibold">Outcome:</span> {it.outcome}</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+
       {cfg.triggers && cfg.triggersTitle && (
         <Section eyebrow="Conversion levers" title={cfg.triggersTitle} alt>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
