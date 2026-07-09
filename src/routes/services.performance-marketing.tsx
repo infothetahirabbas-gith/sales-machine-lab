@@ -5,6 +5,7 @@ import { Reveal } from "../hooks/useReveal";
 import RevenueBars from "../components/site/RevenueBars";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
 import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quote, Calendar, Package, Wrench, Layers, Target, TrendingUp, Zap, Shield, AlertTriangle } from "lucide-react";
+import heroPM from "../assets/hero-performance-marketing.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio — never optimising one channel in isolation." },
