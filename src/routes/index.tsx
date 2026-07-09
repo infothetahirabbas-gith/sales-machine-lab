@@ -18,7 +18,7 @@ import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=we
 import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=72&w=1200";
 import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=72&w=1200";
 import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=72&w=1200";
-import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=70&w=640";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=62&w=560";
 
 
 
