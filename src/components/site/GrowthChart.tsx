@@ -135,7 +135,7 @@ export default function GrowthChart({ className = "", variant = "revenue" }: { c
           <g key={t}>
             <line x1={PAD_L} x2={W - PAD_R} y1={y} y2={y} stroke="oklch(0.16 0.02 250)" strokeOpacity="0.07" strokeDasharray={t === 0 ? "0" : "3 4"} />
             <text x={PAD_L - 8} y={y + 3} fontSize="9" fill="oklch(0.5 0.02 250)" textAnchor="end" fontFamily="ui-sans-serif, system-ui">
-              {t}{v.yLabel}
+              {formatTick(t, v.yLabel)}
             </text>
           </g>
         );
