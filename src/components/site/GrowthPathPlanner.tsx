@@ -61,7 +61,7 @@ export default function GrowthPathPlanner() {
 
       <div className="mx-auto max-w-6xl px-5 lg:px-8 relative">
         {/* Header */}
-        <div className="text-left md:text-center mb-14">
+        <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 backdrop-blur px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
             <Target className="w-3.5 h-3.5" /> Growth Path Planner
           </div>

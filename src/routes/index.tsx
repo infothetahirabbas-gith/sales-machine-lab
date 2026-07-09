@@ -108,7 +108,7 @@ function Home() {
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-7 text-center lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
@@ -120,10 +120,11 @@ function Home() {
               </span>
               <span className="block">Grow Revenue & Dominate AI Search</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
               UK's top Shopify agency & WooCommerce agency for paid ads, CRO, ecommerce SEO services & email automation. Built for store owners who want sales, not theory.
             </p>
-            <div className="mt-8 btn-pair" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-8 btn-pair justify-center lg:justify-start" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
               </Link>
@@ -331,10 +332,11 @@ function Home() {
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-[50%] lg:max-w-none mx-auto" : ""}`}>
               <Card>
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
-                <h3 className="mt-3 font-semibold text-lg text-left">{s.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 text-left">{s.body}</p>
-                <div className="mt-4 text-sm font-semibold text-primary text-left">Explore →</div>
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto md:mx-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"><s.Icon className="w-6 h-6" strokeWidth={2.2} /></div>
+                <h3 className="mt-3 font-semibold text-lg text-center md:text-left">{s.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1 text-center md:text-left">{s.body}</p>
+                <div className="mt-4 text-sm font-semibold text-primary text-center md:text-left">Explore →</div>
+
               </Card>
             </Link>
           ))}

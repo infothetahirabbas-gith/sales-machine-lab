@@ -61,7 +61,7 @@ export function Section({
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {(eyebrow || title || intro) && (
-          <div className={`max-w-3xl text-left md:mx-auto md:text-center mb-12 ${center ? "" : ""}`}>
+          <div className={`max-w-3xl mx-auto text-center mb-12 ${center ? "" : ""}`}>
             {eyebrow && (
               <Reveal>
                 <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
@@ -132,7 +132,7 @@ export function CTA({
     <section className="py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-left md:text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 lg:p-16 text-center">
             <div className="absolute inset-0 grid-bg opacity-60" />
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl float" />
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-accent/30 blur-3xl float-slow" />
