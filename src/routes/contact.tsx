@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
-import { faqJsonLd, contactFaqs, breadcrumbJsonLd } from "../lib/seo";
+import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
 
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/contact")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],
     scripts: [
+      { type: "application/ld+json", children: JSON.stringify(contactPageJsonLd()) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(contactFaqs, "/contact")) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])) },
     ],
@@ -48,8 +49,8 @@ function Contact() {
           <div className="min-w-0 rounded-3xl border border-border bg-card/60 p-5 sm:p-6 lg:p-8">
 
             {sent ? (
-              <div className="py-16 text-center">
-                <div className="text-5xl mb-4">✓</div>
+              <div className="py-16 text-center" role="status" aria-live="polite">
+                <div className="text-5xl mb-4" aria-hidden="true">✓</div>
                 <h3 className="text-2xl font-bold">Got it.</h3>
                 <p className="mt-2 text-muted-foreground">We'll be in touch within 24 hours with next steps.</p>
               </div>
@@ -57,27 +58,49 @@ function Contact() {
               <form
                 onSubmit={(e) => { e.preventDefault(); setSent(true); }}
                 className="grid gap-4"
+                aria-label="Book a strategy call"
+                noValidate
               >
                 <h3 className="text-2xl font-bold">Book Strategy Call</h3>
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <input required placeholder="Full name" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
-                  <input required type="email" placeholder="Work email" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
+                  <div className="grid gap-1.5">
+                    <label htmlFor="c-name" className="text-xs font-semibold text-ink">Full name <span className="text-destructive" aria-hidden="true">*</span></label>
+                    <input id="c-name" name="name" required autoComplete="name" placeholder="Jane Doe" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                  </div>
+                  <div className="grid gap-1.5">
+                    <label htmlFor="c-email" className="text-xs font-semibold text-ink">Work email <span className="text-destructive" aria-hidden="true">*</span></label>
+                    <input id="c-email" name="email" required type="email" autoComplete="email" placeholder="you@brand.com" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                  </div>
                 </div>
-                <input required placeholder="Store URL (Shopify / WooCommerce)" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
+                <div className="grid gap-1.5">
+                  <label htmlFor="c-store" className="text-xs font-semibold text-ink">Store URL <span className="text-destructive" aria-hidden="true">*</span></label>
+                  <input id="c-store" name="store" required type="url" inputMode="url" autoComplete="url" placeholder="https://your-store.com" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                </div>
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <select aria-label="Monthly revenue" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly revenue</option><option>£0 - £5K</option><option>£5K - £25K</option><option>£25K - £100K</option><option>£100K+</option>
-                  </select>
-                  <select aria-label="Monthly ad spend" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary">
-                    <option>Monthly ad spend</option><option>£0 - £1K</option><option>£1K - £5K</option><option>£5K - £25K</option><option>£25K+</option>
-                  </select>
+                  <div className="grid gap-1.5">
+                    <label htmlFor="c-revenue" className="text-xs font-semibold text-ink">Monthly revenue</label>
+                    <select id="c-revenue" name="revenue" defaultValue="" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40">
+                      <option value="" disabled>Select range</option>
+                      <option>£0 – £5K</option><option>£5K – £25K</option><option>£25K – £100K</option><option>£100K+</option>
+                    </select>
+                  </div>
+                  <div className="grid gap-1.5">
+                    <label htmlFor="c-spend" className="text-xs font-semibold text-ink">Monthly ad spend</label>
+                    <select id="c-spend" name="spend" defaultValue="" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40">
+                      <option value="" disabled>Select range</option>
+                      <option>£0 – £1K</option><option>£1K – £5K</option><option>£5K – £25K</option><option>£25K+</option>
+                    </select>
+                  </div>
                 </div>
-                <textarea rows={4} placeholder="Where do you feel revenue is leaking?" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus:border-primary" />
+                <div className="grid gap-1.5">
+                  <label htmlFor="c-message" className="text-xs font-semibold text-ink">Where do you feel revenue is leaking?</label>
+                  <textarea id="c-message" name="message" rows={4} placeholder="e.g. checkout drop-off, ad fatigue, low repeat rate…" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                </div>
                 <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
-                  <input required type="checkbox" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
+                  <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
                   <span>I agree to be contacted by BeingEcom about my enquiry and accept the <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>. We never share or sell your data.</span>
                 </label>
-                <button className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">Send Audit Request →</button>
+                <button type="submit" className="btn btn-primary btn-shimmer justify-center">Send Audit Request →</button>
               </form>
             )}
           </div>

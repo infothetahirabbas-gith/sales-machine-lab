@@ -66,6 +66,34 @@ export function websiteJsonLd() {
   };
 }
 
+export function contactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    url: `${SITE_URL}/contact`,
+    name: `Contact ${ORG_INFO.name}`,
+    description: `Contact ${ORG_INFO.name} for a free ecommerce growth audit — reply within 48 hours.`,
+    mainEntity: {
+      "@type": "Organization",
+      name: ORG_INFO.name,
+      url: SITE_URL,
+      email: ORG_INFO.email,
+      telephone: ORG_INFO.telephone,
+      address: { "@type": "PostalAddress", ...ORG_INFO.address },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: ORG_INFO.email,
+          telephone: ORG_INFO.telephone,
+          areaServed: { "@type": "Country", name: "United Kingdom" },
+          availableLanguage: ["English"],
+        },
+      ],
+    },
+  };
+}
+
 export function professionalServiceJsonLd() {
   return {
     "@context": "https://schema.org",
