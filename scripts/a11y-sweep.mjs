@@ -31,7 +31,13 @@ const VIEWPORTS = [
 
 const results = [];
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({
+  headless: true,
+  // Prefer the system Chromium when the Playwright-managed browser download
+  // is missing (Lovable sandbox ships /bin/chromium via nix). Override with
+  // PLAYWRIGHT_CHROMIUM_EXECUTABLE when running elsewhere.
+  executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE || "/bin/chromium",
+});
 try {
   for (const vp of VIEWPORTS) {
     const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
