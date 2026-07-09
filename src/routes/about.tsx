@@ -226,8 +226,8 @@ function About() {
 
               <div className="mt-6 grid sm:grid-cols-3 gap-3">
                 {[
-                  { v: "120+", l: "Brands scaled" },
-                  { v: "£48M+", l: "Tracked revenue" },
+                  { v: GLOBAL_STATS.storesScaled.v, l: "Brands scaled" },
+                  { v: GLOBAL_STATS.trackedRevenue.v, l: "Tracked revenue" },
                   { v: "10+ yrs", l: "Ecom operating" },
                 ].map((s) => (
                   <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
