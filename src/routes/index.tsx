@@ -31,6 +31,7 @@ const BeforeAfter = lazy(() => import("../components/site/BeforeAfter"));
 const RevenueLossCalculator = lazy(() => import("../components/site/RevenueLossCalculator"));
 const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanner"));
 const ContactFaq = lazy(() => import("../components/site/ContactFaq"));
+const FaqSection = lazy(() => import("../components/site/FaqSection"));
 const GrowthChart = lazy(() => import("../components/site/GrowthChart"));
 
 export const Route = createFileRoute("/")({
@@ -677,6 +678,17 @@ function Home() {
         }
         sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
       />
+
+      {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <FaqSection
+          faqs={homeFaqs}
+          eyebrow="Frequently asked"
+          title="Ecommerce marketing questions,"
+          highlight="answered"
+          intro="Everything UK Shopify & WooCommerce founders ask before hiring an ecommerce marketing agency - SEO, paid ads, CRO, Klaviyo email and analytics."
+        />
+      </Suspense>
     </PageLayout>
   );
 }
