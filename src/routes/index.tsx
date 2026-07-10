@@ -341,8 +341,10 @@ function Home() {
             </Link>
           ))}
         </div>
-        <div className="mt-6 text-center">
-          <Link to="/services" className="text-sm font-semibold text-primary hover:underline">See all 9 services →</Link>
+        <div className="mt-6 text-center text-sm">
+          <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
+          <span className="mx-2 text-muted-foreground">·</span>
+          <Link to="/services/paid-ads" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
       </Section>
 
