@@ -34,6 +34,31 @@ const PILLARS = [
     title: "AI Automation Hub",
     summary: "How senior ecommerce teams use AI for reporting, creative testing, keyword research and customer support at scale.",
   },
+  {
+    slug: "email-marketing",
+    title: "Email & SMS Hub",
+    summary: "Klaviyo flow architecture, segmentation, deliverability and the LTV-first campaign model that turns email into the retention engine.",
+  },
+  {
+    slug: "analytics-tracking",
+    title: "Analytics & Tracking Hub",
+    summary: "GA4, server-side tagging, Meta CAPI, MMM and one contribution-margin dashboard — the truth layer behind every scaling decision.",
+  },
+  {
+    slug: "ecommerce-strategy",
+    title: "Ecommerce Strategy Hub",
+    summary: "Positioning, merchandising, pricing, category and market entry — the five strategic decisions that make every channel cheaper.",
+  },
+  {
+    slug: "ecommerce-operations",
+    title: "Ecommerce Operations Hub",
+    summary: "3PL selection, inventory turn, CX SLAs and returns strategy — the operational spine that protects margin at scale.",
+  },
+  {
+    slug: "customer-retention",
+    title: "Customer Retention Hub",
+    summary: "LTV modelling, subscriptions, loyalty, winback and VIP — the retention stack that funds acquisition profitably.",
+  },
 ];
 
 export const Route = createFileRoute("/hub/")({
@@ -94,9 +119,9 @@ function HubIndex() {
             The Ecommerce Growth Hub
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
-            Six pillar hubs covering the disciplines that actually move ecommerce revenue for Shopify and WooCommerce
-            brands — SEO, paid media, CRO, email, AI automation, and platform-specific scaling. Written by senior operators
-            who ship this work every week.
+            Eleven pillar hubs covering the disciplines that actually move ecommerce revenue for Shopify and WooCommerce
+            brands — SEO, paid media, CRO, email & SMS, analytics, strategy, operations, retention, AI automation, and
+            platform-specific scaling. Written by senior operators who ship this work every week.
           </p>
         </div>
       </section>
