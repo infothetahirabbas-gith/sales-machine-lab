@@ -126,7 +126,7 @@ const TOC = [
   { id: "methodology", label: "Founder Methodology" },
   { id: "trust", label: "Why trust this profile" },
   { id: "entity", label: "At a glance" },
-  { id: "ai-overview", label: "The short version" },
+  { id: "ai-overview", label: "The version" },
   { id: "media", label: "Speaking & Media" },
   { id: "personal", label: "Personal Insights" },
   { id: "articles", label: "Featured Articles" },
@@ -564,7 +564,7 @@ export default function FounderAuthorityPage() {
 
             {/* Short summary */}
             <SectionBlock id="ai-overview">
-              <SectionHead num={sectionNum("ai-overview")} eyebrow="In one paragraph" title="The short version" intro="If you only read one section — this is who Tahir is and what he does." />
+              <SectionHead num={sectionNum("ai-overview")} eyebrow="In one paragraph" title="The version" intro="If you only read one section — this is who Tahir is and what he does." />
               <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
                 <p className="text-lg leading-relaxed text-ink sm:text-xl">
                   <span className="font-semibold text-primary">Tahir Abbas</span> is the founder and CEO of BeingEcom, a UK ecommerce growth agency for Shopify and WooCommerce brands. He combines <span className="font-medium text-ink">SEO, paid advertising, CRO, analytics, email marketing and AI automation</span> into revenue-first growth systems — measured by <span className="font-medium text-ink">MER, contribution margin and long-term customer value</span>, not vanity metrics.
