@@ -619,7 +619,7 @@ export default function FounderAuthorityPage() {
 
             {/* Articles */}
             <SectionBlock id="articles" tint>
-              <SectionHead eyebrow="Featured Articles" title="Written by Tahir Abbas" intro="Selected long-form pieces — the same thinking that shapes every client engagement." />
+              <SectionHead num={sectionNum("articles")} eyebrow="Featured Articles" title="Written by Tahir Abbas" intro="Selected long-form pieces — the same thinking that shapes every client engagement." />
               <div className="grid sm:grid-cols-2 gap-4">
                 {articles.map((a) => (
                   <Link key={a.title} to={a.to} className="rounded-2xl border border-border bg-card p-5 hover:border-primary/50 transition-colors block">
@@ -633,7 +633,7 @@ export default function FounderAuthorityPage() {
 
             {/* Testimonials */}
             <SectionBlock id="testimonials">
-              <SectionHead eyebrow="Testimonials" title="What clients say about working with Tahir" />
+              <SectionHead num={sectionNum("testimonials")} eyebrow="Testimonials" title="What clients say about working with Tahir" />
               <div className="grid sm:grid-cols-2 gap-4">
                 {testimonials.map((t) => (
                   <div key={t.author + t.role} className="rounded-2xl border border-border bg-card p-6 relative">
@@ -650,7 +650,7 @@ export default function FounderAuthorityPage() {
 
             {/* Connect */}
             <SectionBlock id="connect" tint>
-              <SectionHead eyebrow="Connect" title="Reach out to Tahir directly" intro="For strategy calls, press enquiries, podcasts or speaking invitations." />
+              <SectionHead num={sectionNum("connect")} eyebrow="Connect" title="Reach out to Tahir directly" intro="For strategy calls, press enquiries, podcasts or speaking invitations." />
               <div className="grid sm:grid-cols-3 gap-3">
                 {socials.map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
