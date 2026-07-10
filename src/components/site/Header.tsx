@@ -343,11 +343,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <div className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground lg:flex lg:flex-wrap lg:justify-start lg:gap-2 lg:px-8">
-          <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Country">
+        <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground min-[1024px]:flex min-[1024px]:flex-wrap min-[1024px]:justify-start min-[1024px]:gap-2 min-[1024px]:px-8">
+          <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change city">
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change city">
             <MapPin className="size-3 shrink-0" />
             <span className="min-w-0 truncate">{cityLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -360,7 +360,7 @@ export default function Header() {
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
             </select>
           </label>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change language">
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change language">
             <Languages className="size-3 shrink-0" />
             <span className="min-w-0 truncate">{langLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -373,9 +373,9 @@ export default function Header() {
               {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
             </select>
           </label>
-          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change industry">
+          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change industry">
             <Briefcase className="size-3 shrink-0" />
-            <span className="min-w-0 truncate lg:max-w-[140px]">{industryLabel}</span>
+            <span className="min-w-0 truncate min-[1024px]:max-w-[140px]">{industryLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value={currentPrefs.industry}
@@ -386,9 +386,9 @@ export default function Header() {
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
             </select>
           </label>
-          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Jump to service">
+          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Jump to service">
             <Sparkles className="size-3 shrink-0" />
-            <span className="min-w-0 truncate lg:max-w-[120px]">Services</span>
+            <span className="min-w-0 truncate min-[1024px]:max-w-[120px]">Services</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value=""
@@ -407,7 +407,7 @@ export default function Header() {
               ))}
             </select>
           </label>
-          <a href="mailto:info@beingecom.com" className="order-7 hidden lg:inline-flex lg:ml-auto items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
+          <a href="mailto:info@beingecom.com" className="order-7 hidden min-[1024px]:ml-auto min-[1024px]:inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
             info@beingecom.com
           </a>
         </div>
