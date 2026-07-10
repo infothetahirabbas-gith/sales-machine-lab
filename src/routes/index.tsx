@@ -53,7 +53,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", media: "(min-width: 768px)", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w, ${heroShopifyCommerce} 800w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 480px" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", media: "(min-width: 768px)", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w`, imagesizes: "(min-width: 1024px) 400px, (min-width: 768px) 480px, 400px" } as never,
     ],
 
     scripts: [
@@ -188,8 +188,8 @@ function Home() {
 
                 <img
                   src={dash.imgSm}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w, ${dash.img} 800w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 480px"
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w` : undefined}
+                  sizes="(min-width: 1024px) 400px, (min-width: 768px) 480px, 400px"
                   alt={dash.alt}
                   width={900}
                   height={560}
