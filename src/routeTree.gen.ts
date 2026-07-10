@@ -24,7 +24,6 @@ import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CompanyRouteImport } from './routes/company'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
@@ -33,6 +32,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
@@ -163,11 +163,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CompanyRoute = CompanyRouteImport.update({
-  id: '/company',
-  path: '/company',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -206,6 +201,11 @@ const LocationsIndexRoute = LocationsIndexRouteImport.update({
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   id: '/industries/',
   path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyIndexRoute = CompanyIndexRouteImport.update({
+  id: '/company/',
+  path: '/company/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
@@ -291,74 +291,74 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyWhyUsRoute = CompanyWhyUsRouteImport.update({
-  id: '/why-us',
-  path: '/why-us',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/why-us',
+  path: '/company/why-us',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyTechnologyRoute = CompanyTechnologyRouteImport.update({
-  id: '/technology',
-  path: '/technology',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/technology',
+  path: '/company/technology',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyTeamRoute = CompanyTeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/team',
+  path: '/company/team',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanySuccessStoriesRoute = CompanySuccessStoriesRouteImport.update({
-  id: '/success-stories',
-  path: '/success-stories',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/success-stories',
+  path: '/company/success-stories',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyReviewsRoute = CompanyReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/reviews',
+  path: '/company/reviews',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyResourcesRoute = CompanyResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/resources',
+  path: '/company/resources',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyPressRoute = CompanyPressRouteImport.update({
-  id: '/press',
-  path: '/press',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/press',
+  path: '/company/press',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyMethodologyRoute = CompanyMethodologyRouteImport.update({
-  id: '/methodology',
-  path: '/methodology',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/methodology',
+  path: '/company/methodology',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyLegalRoute = CompanyLegalRouteImport.update({
-  id: '/legal',
-  path: '/legal',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/legal',
+  path: '/company/legal',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyIndustriesRoute = CompanyIndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/industries',
+  path: '/company/industries',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyFounderRoute = CompanyFounderRouteImport.update({
-  id: '/founder',
-  path: '/founder',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/founder',
+  path: '/company/founder',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyCommunityRoute = CompanyCommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/community',
+  path: '/company/community',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyCertificationsRoute = CompanyCertificationsRouteImport.update({
-  id: '/certifications',
-  path: '/certifications',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/certifications',
+  path: '/company/certifications',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyCareersRoute = CompanyCareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
-  getParentRoute: () => CompanyRoute,
+  id: '/company/careers',
+  path: '/company/careers',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
   id: '/case-studies/$id',
@@ -493,7 +493,6 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
-  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -544,6 +543,7 @@ export interface FileRoutesByFullPath {
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/company/': typeof CompanyIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -571,7 +571,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
-  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -622,6 +621,7 @@ export interface FileRoutesByTo {
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/company': typeof CompanyIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -651,7 +651,6 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
-  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -702,6 +701,7 @@ export interface FileRoutesById {
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/company/': typeof CompanyIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -732,7 +732,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/audit'
     | '/blog'
-    | '/company'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -783,6 +782,7 @@ export interface FileRouteTypes {
     | '/services/store-development'
     | '/blog/'
     | '/case-studies/'
+    | '/company/'
     | '/industries/'
     | '/locations/'
     | '/services/'
@@ -810,7 +810,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/audit'
-    | '/company'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -861,6 +860,7 @@ export interface FileRouteTypes {
     | '/services/store-development'
     | '/blog'
     | '/case-studies'
+    | '/company'
     | '/industries'
     | '/locations'
     | '/services'
@@ -889,7 +889,6 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/audit'
     | '/blog'
-    | '/company'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -940,6 +939,7 @@ export interface FileRouteTypes {
     | '/services/store-development'
     | '/blog/'
     | '/case-studies/'
+    | '/company/'
     | '/industries/'
     | '/locations/'
     | '/services/'
@@ -969,7 +969,6 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
-  CompanyRoute: typeof CompanyRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
@@ -989,6 +988,20 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
   CaseStudiesIdRoute: typeof CaseStudiesIdRoute
+  CompanyCareersRoute: typeof CompanyCareersRoute
+  CompanyCertificationsRoute: typeof CompanyCertificationsRoute
+  CompanyCommunityRoute: typeof CompanyCommunityRoute
+  CompanyFounderRoute: typeof CompanyFounderRoute
+  CompanyIndustriesRoute: typeof CompanyIndustriesRoute
+  CompanyLegalRoute: typeof CompanyLegalRoute
+  CompanyMethodologyRoute: typeof CompanyMethodologyRoute
+  CompanyPressRoute: typeof CompanyPressRoute
+  CompanyResourcesRoute: typeof CompanyResourcesRoute
+  CompanyReviewsRoute: typeof CompanyReviewsRoute
+  CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
+  CompanyTeamRoute: typeof CompanyTeamRoute
+  CompanyTechnologyRoute: typeof CompanyTechnologyRoute
+  CompanyWhyUsRoute: typeof CompanyWhyUsRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
   IndustriesSlugRoute: typeof IndustriesSlugRouteWithChildren
   LocationsSlugRoute: typeof LocationsSlugRoute
@@ -1004,6 +1017,7 @@ export interface RootRouteChildren {
   ServicesSeoRoute: typeof ServicesSeoRouteWithChildren
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  CompanyIndexRoute: typeof CompanyIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -1119,13 +1133,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/company': {
-      id: '/company'
-      path: '/company'
-      fullPath: '/company'
-      preLoaderRoute: typeof CompanyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -1180,6 +1187,13 @@ declare module '@tanstack/react-router' {
       path: '/industries'
       fullPath: '/industries/'
       preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/': {
+      id: '/company/'
+      path: '/company'
+      fullPath: '/company/'
+      preLoaderRoute: typeof CompanyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies/': {
@@ -1296,101 +1310,101 @@ declare module '@tanstack/react-router' {
     }
     '/company/why-us': {
       id: '/company/why-us'
-      path: '/why-us'
+      path: '/company/why-us'
       fullPath: '/company/why-us'
       preLoaderRoute: typeof CompanyWhyUsRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/technology': {
       id: '/company/technology'
-      path: '/technology'
+      path: '/company/technology'
       fullPath: '/company/technology'
       preLoaderRoute: typeof CompanyTechnologyRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/team': {
       id: '/company/team'
-      path: '/team'
+      path: '/company/team'
       fullPath: '/company/team'
       preLoaderRoute: typeof CompanyTeamRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/success-stories': {
       id: '/company/success-stories'
-      path: '/success-stories'
+      path: '/company/success-stories'
       fullPath: '/company/success-stories'
       preLoaderRoute: typeof CompanySuccessStoriesRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/reviews': {
       id: '/company/reviews'
-      path: '/reviews'
+      path: '/company/reviews'
       fullPath: '/company/reviews'
       preLoaderRoute: typeof CompanyReviewsRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/resources': {
       id: '/company/resources'
-      path: '/resources'
+      path: '/company/resources'
       fullPath: '/company/resources'
       preLoaderRoute: typeof CompanyResourcesRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/press': {
       id: '/company/press'
-      path: '/press'
+      path: '/company/press'
       fullPath: '/company/press'
       preLoaderRoute: typeof CompanyPressRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/methodology': {
       id: '/company/methodology'
-      path: '/methodology'
+      path: '/company/methodology'
       fullPath: '/company/methodology'
       preLoaderRoute: typeof CompanyMethodologyRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/legal': {
       id: '/company/legal'
-      path: '/legal'
+      path: '/company/legal'
       fullPath: '/company/legal'
       preLoaderRoute: typeof CompanyLegalRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/industries': {
       id: '/company/industries'
-      path: '/industries'
+      path: '/company/industries'
       fullPath: '/company/industries'
       preLoaderRoute: typeof CompanyIndustriesRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/founder': {
       id: '/company/founder'
-      path: '/founder'
+      path: '/company/founder'
       fullPath: '/company/founder'
       preLoaderRoute: typeof CompanyFounderRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/community': {
       id: '/company/community'
-      path: '/community'
+      path: '/company/community'
       fullPath: '/company/community'
       preLoaderRoute: typeof CompanyCommunityRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/certifications': {
       id: '/company/certifications'
-      path: '/certifications'
+      path: '/company/certifications'
       fullPath: '/company/certifications'
       preLoaderRoute: typeof CompanyCertificationsRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/company/careers': {
       id: '/company/careers'
-      path: '/careers'
+      path: '/company/careers'
       fullPath: '/company/careers'
       preLoaderRoute: typeof CompanyCareersRouteImport
-      parentRoute: typeof CompanyRoute
+      parentRoute: typeof rootRouteImport
     }
     '/case-studies/$id': {
       id: '/case-studies/$id'
@@ -1568,43 +1582,6 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
-interface CompanyRouteChildren {
-  CompanyCareersRoute: typeof CompanyCareersRoute
-  CompanyCertificationsRoute: typeof CompanyCertificationsRoute
-  CompanyCommunityRoute: typeof CompanyCommunityRoute
-  CompanyFounderRoute: typeof CompanyFounderRoute
-  CompanyIndustriesRoute: typeof CompanyIndustriesRoute
-  CompanyLegalRoute: typeof CompanyLegalRoute
-  CompanyMethodologyRoute: typeof CompanyMethodologyRoute
-  CompanyPressRoute: typeof CompanyPressRoute
-  CompanyResourcesRoute: typeof CompanyResourcesRoute
-  CompanyReviewsRoute: typeof CompanyReviewsRoute
-  CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
-  CompanyTeamRoute: typeof CompanyTeamRoute
-  CompanyTechnologyRoute: typeof CompanyTechnologyRoute
-  CompanyWhyUsRoute: typeof CompanyWhyUsRoute
-}
-
-const CompanyRouteChildren: CompanyRouteChildren = {
-  CompanyCareersRoute: CompanyCareersRoute,
-  CompanyCertificationsRoute: CompanyCertificationsRoute,
-  CompanyCommunityRoute: CompanyCommunityRoute,
-  CompanyFounderRoute: CompanyFounderRoute,
-  CompanyIndustriesRoute: CompanyIndustriesRoute,
-  CompanyLegalRoute: CompanyLegalRoute,
-  CompanyMethodologyRoute: CompanyMethodologyRoute,
-  CompanyPressRoute: CompanyPressRoute,
-  CompanyResourcesRoute: CompanyResourcesRoute,
-  CompanyReviewsRoute: CompanyReviewsRoute,
-  CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
-  CompanyTeamRoute: CompanyTeamRoute,
-  CompanyTechnologyRoute: CompanyTechnologyRoute,
-  CompanyWhyUsRoute: CompanyWhyUsRoute,
-}
-
-const CompanyRouteWithChildren =
-  CompanyRoute._addFileChildren(CompanyRouteChildren)
-
 interface IndustriesSlugRouteChildren {
   IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
 }
@@ -1692,7 +1669,6 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
-  CompanyRoute: CompanyRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DisclaimerRoute: DisclaimerRoute,
@@ -1712,6 +1688,20 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
   CaseStudiesIdRoute: CaseStudiesIdRoute,
+  CompanyCareersRoute: CompanyCareersRoute,
+  CompanyCertificationsRoute: CompanyCertificationsRoute,
+  CompanyCommunityRoute: CompanyCommunityRoute,
+  CompanyFounderRoute: CompanyFounderRoute,
+  CompanyIndustriesRoute: CompanyIndustriesRoute,
+  CompanyLegalRoute: CompanyLegalRoute,
+  CompanyMethodologyRoute: CompanyMethodologyRoute,
+  CompanyPressRoute: CompanyPressRoute,
+  CompanyResourcesRoute: CompanyResourcesRoute,
+  CompanyReviewsRoute: CompanyReviewsRoute,
+  CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
+  CompanyTeamRoute: CompanyTeamRoute,
+  CompanyTechnologyRoute: CompanyTechnologyRoute,
+  CompanyWhyUsRoute: CompanyWhyUsRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
   IndustriesSlugRoute: IndustriesSlugRouteWithChildren,
   LocationsSlugRoute: LocationsSlugRoute,
@@ -1728,6 +1718,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesSeoRoute: ServicesSeoRouteWithChildren,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  CompanyIndexRoute: CompanyIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,

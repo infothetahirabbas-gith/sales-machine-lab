@@ -9,7 +9,7 @@ const TITLE = "Company — BeingEcom | UK Ecommerce Growth Agency";
 const DESC = "Meet the team, the founder, and the methodology behind BeingEcom — the UK ecommerce growth agency for Shopify and WooCommerce brands.";
 const URL = `${SITE_URL}/company`;
 
-export const Route = createFileRoute("/company")({
+export const Route = createFileRoute("/company/")({
   head: () => ({
     meta: [
       { title: TITLE },
