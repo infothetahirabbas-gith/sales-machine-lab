@@ -57,7 +57,7 @@ export function Section({
     <section
       id={id}
       data-alt={alt ? "true" : undefined}
-      className={`section-band relative py-20 lg:py-28 ${alt ? "section-band--alt" : ""} ${className}`}
+        className={`section-band cv-auto relative py-20 lg:py-28 ${alt ? "section-band--alt" : ""} ${className}`}
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {(eyebrow || title || intro) && (

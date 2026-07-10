@@ -5,11 +5,11 @@ export default function BeforeAfter() {
   const [pos, setPos] = useState(42);
   const wrapRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  const dragRect = useRef<{ left: number; width: number } | null>(null);
 
   const setFromClientX = useCallback((clientX: number) => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
+    const rect = dragRect.current;
+    if (!rect) return;
     const p = ((clientX - rect.left) / rect.width) * 100;
     setPos(Math.max(4, Math.min(96, p)));
   }, []);
@@ -19,7 +19,7 @@ export default function BeforeAfter() {
       if (!dragging.current) return;
       setFromClientX(e.clientX);
     };
-    const up = () => { dragging.current = false; document.body.style.userSelect = ""; };
+    const up = () => { dragging.current = false; dragRect.current = null; document.body.style.userSelect = ""; };
     window.addEventListener("pointermove", move);
     window.addEventListener("pointerup", up);
     return () => {
@@ -32,7 +32,14 @@ export default function BeforeAfter() {
     <div
       ref={wrapRef}
       className="relative w-full rounded-3xl overflow-hidden border border-border bg-secondary/40 shadow-[0_30px_80px_-30px_oklch(0.65_0.18_245/0.35)] select-none cursor-ew-resize"
-      onPointerDown={(e) => { dragging.current = true; document.body.style.userSelect = "none"; setFromClientX(e.clientX); }}
+      onPointerDown={(e) => {
+        const rect = wrapRef.current?.getBoundingClientRect();
+        if (!rect) return;
+        dragRect.current = { left: rect.left, width: rect.width };
+        dragging.current = true;
+        document.body.style.userSelect = "none";
+        setFromClientX(e.clientX);
+      }}
     >
       {/* AFTER (sets height) */}
       <Panel kind="after" absolute={false} />

@@ -284,7 +284,10 @@ export default function Header() {
       const raw = sessionStorage.getItem(PREFS_KEY);
       const stored = raw ? JSON.parse(raw) : {};
       const next = { ...DEFAULT_PREFS, ...stored, ...prefsFromPath(pathname) };
-      setPrefs(next);
+      setPrefs((prev) => {
+        const current = prev ?? DEFAULT_PREFS;
+        return JSON.stringify(current) === JSON.stringify(next) ? prev : next;
+      });
       sessionStorage.setItem(PREFS_KEY, JSON.stringify(next));
     } catch {}
   }, [pathname]);
