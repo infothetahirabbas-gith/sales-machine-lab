@@ -86,8 +86,7 @@ const jsonLd = [
   },
 ];
 
-export const Route = createFileRoute("/founder")({
-  head: () => ({
+export const founderAuthorityHead = () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
@@ -107,7 +106,10 @@ export const Route = createFileRoute("/founder")({
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: jsonLd.map((obj) => ({ type: "application/ld+json", children: JSON.stringify(obj) })),
-  }),
+  });
+
+export const Route = createFileRoute("/founder")({
+  head: founderAuthorityHead,
   component: FounderPage,
 });
 
@@ -158,8 +160,8 @@ function SectionBlock({ id, tint, children }: { id: string; tint?: boolean; chil
       id={id}
       className={
         tint
-          ? "relative rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-card to-card p-6 md:p-8 shadow-sm"
-          : "relative py-2"
+          ? "relative scroll-mt-28 rounded-2xl border border-border bg-gradient-to-br from-secondary/45 via-card to-card p-6 md:p-8 shadow-sm"
+          : "relative scroll-mt-28 rounded-2xl border border-border/70 bg-background p-6 md:p-8 shadow-sm"
       }
     >
       {children}
@@ -167,7 +169,7 @@ function SectionBlock({ id, tint, children }: { id: string; tint?: boolean; chil
   );
 }
 
-function FounderPage() {
+export default function FounderAuthorityPage() {
   const expertise = [
     { icon: TrendingUp, title: "Ecommerce SEO", body: "Programmatic SEO, entity SEO, AEO and GEO for Shopify and WooCommerce brands." },
     { icon: Zap, title: "Shopify SEO", body: "Collection architecture, metafield-driven templates, Liquid-level Core Web Vitals fixes." },
