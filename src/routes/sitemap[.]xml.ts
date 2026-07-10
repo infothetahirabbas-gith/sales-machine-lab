@@ -9,6 +9,7 @@ const children = [
   { loc: `${BASE_URL}/sitemap-locations.xml` },
   { loc: `${BASE_URL}/sitemap-industries.xml` },
   { loc: `${BASE_URL}/sitemap-case-studies.xml` },
+  { loc: `${BASE_URL}/sitemap-company.xml` },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
