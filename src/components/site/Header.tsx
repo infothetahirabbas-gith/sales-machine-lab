@@ -265,11 +265,12 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [openServiceChildren, setOpenServiceChildren] = useState<Record<string, boolean>>({});
   const [caseStudiesOpen, setCaseStudiesOpen] = useState(false);
   // Desktop hover-menu state with close delay so moving the cursor into the
   // panel does not accidentally dismiss it.
-  const [desktopMenu, setDesktopMenu] = useState<null | "locations" | "industries" | "services">(null);
+  const [desktopMenu, setDesktopMenu] = useState<null | "locations" | "industries" | "services" | "company">(null);
   const [activeIndustry, setActiveIndustry] = useState<string>(industries[0].to);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const navigate = useNavigate();
@@ -278,7 +279,7 @@ export default function Header() {
 
   // Delay closing so cursor can travel from trigger button to panel items.
   const closeTimer = useRef<number | null>(null);
-  const openMenu = (name: "locations" | "industries" | "services") => {
+  const openMenu = (name: "locations" | "industries" | "services" | "company") => {
     if (closeTimer.current) {
       window.clearTimeout(closeTimer.current);
       closeTimer.current = null;
@@ -462,7 +463,41 @@ export default function Header() {
           <Link to="/case-studies" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Case Studies</Link>
           <Link to="/audit" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Store Audit</Link>
           <Link to="/pricing" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Pricing</Link>
-          <Link to="/about" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">About</Link>
+          <div
+            className="relative py-2"
+            onMouseEnter={() => openMenu("company")}
+            onMouseLeave={scheduleClose}
+          >
+            <button
+              onClick={() => setDesktopMenu(desktopMenu === "company" ? null : "company")}
+              className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+            >
+              Company <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "company" ? "rotate-180" : ""}`} />
+            </button>
+            <div className={`absolute top-full right-0 pt-3 transition ${desktopMenu === "company" ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+              <div className="w-72 rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_35%,transparent)]">
+                {COMPANY_LINKS.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={c.to}
+                    onClick={() => setDesktopMenu(null)}
+                    className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:bg-accent/10 hover:text-foreground transition-colors"
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+                <div className="border-t border-border mt-1 pt-1">
+                  <Link
+                    to="/company"
+                    onClick={() => setDesktopMenu(null)}
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary/5 transition-colors"
+                  >
+                    View Company hub →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
           <Link to="/contact" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Contact</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0 ml-auto">
