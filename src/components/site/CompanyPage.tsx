@@ -232,36 +232,19 @@ export default function CompanyPage(props: CompanyPageProps) {
 
       {/* Body */}
       <section className="pb-8">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8 grid lg:grid-cols-[220px_1fr] gap-10">
-          {/* Sticky TOC */}
-          <aside className="max-lg:hidden">
-            <div className="sticky top-24">
-              <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3">On this page</div>
-              <ul className="space-y-2 text-sm">
-                {allSections.filter((s) => s.heading).map((s, i) => {
-                  const id = s.id ?? `s-${i}`;
-                  return (
-                    <li key={id}>
-                      <a href={`#${id}`} className="text-muted-foreground hover:text-foreground transition-colors">{s.heading}</a>
-                    </li>
-                  );
-                })}
-                <li><a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">FAQs</a></li>
-              </ul>
-            </div>
-          </aside>
-
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <article className="min-w-0 max-w-none space-y-16 md:space-y-20">
+
             {allSections.map((s, i) => {
               const id = s.id ?? `s-${i}`;
-              const num = String(i + 1).padStart(2, "0");
               const tint = i % 2 === 1;
+
               const SectionHead = s.heading ? (
                 <header className="mb-6 md:mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
-                    <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>
                     <span className="text-[11px] font-bold uppercase tracking-widest text-primary">Section</span>
                   </div>
+
                   <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">
                     {s.heading}
                   </h2>
