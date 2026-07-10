@@ -119,9 +119,9 @@ function HubIndex() {
             The Ecommerce Growth Hub
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
-            Six pillar hubs covering the disciplines that actually move ecommerce revenue for Shopify and WooCommerce
-            brands — SEO, paid media, CRO, email, AI automation, and platform-specific scaling. Written by senior operators
-            who ship this work every week.
+            Eleven pillar hubs covering the disciplines that actually move ecommerce revenue for Shopify and WooCommerce
+            brands — SEO, paid media, CRO, email & SMS, analytics, strategy, operations, retention, AI automation, and
+            platform-specific scaling. Written by senior operators who ship this work every week.
           </p>
         </div>
       </section>
