@@ -336,7 +336,16 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={1}>
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
-                <SplitHeading value={`Ecommerce Marketing Agency in ${city}`} />
+                <SplitHeading value={(() => {
+                  const variants = [
+                    `Best Ecommerce Marketing Agency in ${city}`,
+                    `Top Rated Ecommerce Marketing Agency ${city}`,
+                    `#1 Ecommerce Marketing Agency in ${city}`,
+                    `${city} Ecommerce Marketing Agency`,
+                  ];
+                  const idx = LOCATIONS.findIndex((l) => l.slug === loc.slug);
+                  return variants[(idx >= 0 ? idx : 0) % variants.length];
+                })()} />
               </h1>
             </Reveal>
             <Reveal delay={2}>
