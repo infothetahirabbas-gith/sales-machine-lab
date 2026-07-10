@@ -409,6 +409,9 @@ export default function Header() {
               ))}
             </select>
           </label>
+          <a href="mailto:info@beingecom.com" className="order-7 hidden lg:inline-flex lg:ml-auto items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
+            info@beingecom.com
+          </a>
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
