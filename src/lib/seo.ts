@@ -20,6 +20,8 @@ export const ORG_INFO = {
     "https://www.linkedin.com/company/beingecom",
     "https://www.instagram.com/beingecom",
     "https://x.com/beingecom",
+    "https://www.facebook.com/beingecom",
+    "https://www.youtube.com/@beingecom",
   ],
 };
 
