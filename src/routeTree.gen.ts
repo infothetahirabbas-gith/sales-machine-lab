@@ -21,6 +21,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompanyRouteImport } from './routes/company'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AboutRouteImport } from './routes/about'
@@ -44,6 +45,10 @@ import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-a
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as CompanyTeamRouteImport } from './routes/company.team'
+import { Route as CompanyMethodologyRouteImport } from './routes/company.methodology'
+import { Route as CompanyFounderRouteImport } from './routes/company.founder'
+import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
@@ -127,6 +132,11 @@ const CookiesRoute = CookiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyRoute = CompanyRouteImport.update({
+  id: '/company',
+  path: '/company',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -245,6 +255,26 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   id: '/debug/faq-jsonld',
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyTeamRoute = CompanyTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyMethodologyRoute = CompanyMethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyFounderRoute = CompanyFounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyCareersRoute = CompanyCareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => CompanyRoute,
 } as any)
 const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
   id: '/case-studies/$id',
@@ -378,6 +408,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/glossary': typeof GlossaryRoute
@@ -395,6 +426,10 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/team': typeof CompanyTeamRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -437,6 +472,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/glossary': typeof GlossaryRoute
@@ -454,6 +490,10 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/team': typeof CompanyTeamRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -498,6 +538,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/glossary': typeof GlossaryRoute
@@ -515,6 +556,10 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/team': typeof CompanyTeamRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -560,6 +605,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/audit'
     | '/blog'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/glossary'
@@ -577,6 +623,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/founder'
+    | '/company/methodology'
+    | '/company/team'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -619,6 +669,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/audit'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/glossary'
@@ -636,6 +687,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/founder'
+    | '/company/methodology'
+    | '/company/team'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -679,6 +734,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/audit'
     | '/blog'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/glossary'
@@ -696,6 +752,10 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/founder'
+    | '/company/methodology'
+    | '/company/team'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -740,6 +800,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CompanyRoute: typeof CompanyRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   GlossaryRoute: typeof GlossaryRoute
@@ -863,6 +924,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company': {
+      id: '/company'
+      path: '/company'
+      fullPath: '/company'
+      preLoaderRoute: typeof CompanyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -1025,6 +1093,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/debug/faq-jsonld'
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/company/team': {
+      id: '/company/team'
+      path: '/team'
+      fullPath: '/company/team'
+      preLoaderRoute: typeof CompanyTeamRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/methodology': {
+      id: '/company/methodology'
+      path: '/methodology'
+      fullPath: '/company/methodology'
+      preLoaderRoute: typeof CompanyMethodologyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/founder': {
+      id: '/company/founder'
+      path: '/founder'
+      fullPath: '/company/founder'
+      preLoaderRoute: typeof CompanyFounderRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/careers': {
+      id: '/company/careers'
+      path: '/careers'
+      fullPath: '/company/careers'
+      preLoaderRoute: typeof CompanyCareersRouteImport
+      parentRoute: typeof CompanyRoute
     }
     '/case-studies/$id': {
       id: '/case-studies/$id'
@@ -1202,6 +1298,23 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface CompanyRouteChildren {
+  CompanyCareersRoute: typeof CompanyCareersRoute
+  CompanyFounderRoute: typeof CompanyFounderRoute
+  CompanyMethodologyRoute: typeof CompanyMethodologyRoute
+  CompanyTeamRoute: typeof CompanyTeamRoute
+}
+
+const CompanyRouteChildren: CompanyRouteChildren = {
+  CompanyCareersRoute: CompanyCareersRoute,
+  CompanyFounderRoute: CompanyFounderRoute,
+  CompanyMethodologyRoute: CompanyMethodologyRoute,
+  CompanyTeamRoute: CompanyTeamRoute,
+}
+
+const CompanyRouteWithChildren =
+  CompanyRoute._addFileChildren(CompanyRouteChildren)
+
 interface IndustriesSlugRouteChildren {
   IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
 }
@@ -1288,6 +1401,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
+  CompanyRoute: CompanyRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   GlossaryRoute: GlossaryRoute,
