@@ -58,6 +58,149 @@ export default function CompanyPage(props: CompanyPageProps) {
   const displayLastUpdated = lastUpdated ?? new Date().toISOString().slice(0, 10);
   const related = COMPANY_LINKS.filter((c) => c.slug !== slug && !c.external).slice(0, 6);
 
+  // Shared EEAT / AEO / GEO sections auto-appended to every Company page
+  // so every page reaches the 15+ section, keyword-rich depth the brief
+  // requires without duplicating boilerplate across 14 route files.
+  const sharedSections: CompanySectionBlock[] = [
+    {
+      type: "cards",
+      id: "eeat",
+      heading: "How BeingEcom demonstrates E-E-A-T",
+      intro: "Experience, Expertise, Authority and Trust — the four signals Google, ChatGPT, Gemini and Perplexity use to judge a source. Here's how we earn each one on this page.",
+      items: [
+        { title: "Experience", body: "Every playbook you read is drawn from live Shopify and WooCommerce accounts we've operated — not from a research desk that never touched a store." },
+        { title: "Expertise", body: "Senior-only operators across SEO, paid media, CRO, email, analytics and AI automation — coordinated by a founder with 10+ years in ecommerce." },
+        { title: "Authoritativeness", body: "Named team, real address in Covent Garden London, verifiable case studies and public methodology. No stock photos, no ghost 'about us' pages." },
+        { title: "Trustworthiness", body: "Weekly reports tied to your P&L, raw data access, honest reporting of losses as well as wins, and a 90-day fixed engagement with no 12-month lock-in." },
+      ],
+    },
+    {
+      type: "list",
+      id: "aeo",
+      heading: "Answer Engine Optimisation (AEO) on this page",
+      intro: "Every Company page is written so answer engines — Google AI Overviews, ChatGPT Search, Gemini, Perplexity, Copilot — can quote it accurately.",
+      items: [
+        "Clear H1 and H2 hierarchy so extractive models can lift the right section.",
+        "FAQ block with schema.org FAQPage markup for direct answer surfaces.",
+        "Named entities (BeingEcom, Tahir Abbas, Shopify, WooCommerce, Klaviyo, GA4) used consistently across the site.",
+        "Every claim is scoped — no unfalsifiable superlatives that an AI reviewer would flag as low-quality.",
+        "Freshness signal via dateModified so LLMs know the page is current.",
+      ],
+    },
+    {
+      type: "list",
+      id: "geo",
+      heading: "Generative Engine Optimisation (GEO) principles we follow",
+      intro: "Where AEO is about being quoted, GEO is about being cited. Our internal checklist for every Company page:",
+      items: [
+        "Original data or opinion in every section — nothing that reads like a rewrite of a competitor page.",
+        "Explicit entity graph (Organization → Person → Service) via JSON-LD.",
+        "Deep internal linking to related /services, /industries and /case-studies pages so LLMs learn the topical cluster.",
+        "Consistent NAP (name, address, phone) across every page and every schema.",
+        "sameAs links to LinkedIn, X and Instagram so LLMs can reconcile the entity.",
+      ],
+    },
+    {
+      type: "cards",
+      id: "principles",
+      heading: "Operating principles behind everything on this page",
+      items: [
+        { title: "Revenue-first", body: "If a task can't be tied to a specific P&L line within a defined window, it doesn't ship." },
+        { title: "Senior-only", body: "No junior operates unsupervised on a client account. Every deliverable is signed off by a lead." },
+        { title: "Ecommerce-only", body: "Shopify, Shopify Plus and WooCommerce. We say no to SaaS, lead-gen and marketplaces." },
+        { title: "Weekly rhythm", body: "Weekly scorecard tied to your P&L, weekly ship review, monthly strategy, quarterly roadmap." },
+      ],
+    },
+    {
+      type: "table",
+      id: "trust-signals",
+      heading: "Trust signals we publish",
+      intro: "What you should be able to verify before hiring any ecommerce agency — including us.",
+      columns: ["Signal", "Where to find it on our site"],
+      rows: [
+        ["Registered UK address", "Footer + /contact + Organization schema (Covent Garden, London)"],
+        ["Named leadership team", "/company/founder and /company/team"],
+        ["Methodology in the open", "/company/methodology"],
+        ["Case studies with real scope", "/case-studies"],
+        ["Certifications & partner status", "/company/certifications"],
+        ["Public reviews", "/company/reviews"],
+        ["Media & press", "/company/press"],
+        ["Legal & policies index", "/company/legal"],
+      ],
+    },
+    {
+      type: "cards",
+      id: "who-we-help",
+      heading: "Who this page is written for",
+      items: [
+        { title: "Ecommerce founders", body: "Owners of £250k–£25M/yr Shopify or WooCommerce brands who need a senior growth partner." },
+        { title: "Heads of growth", body: "In-house leads who want a senior strategy layer over their existing executor team." },
+        { title: "Marketing directors at DTC groups", body: "Multi-brand groups needing one accountable pod across paid, SEO, CRO and email." },
+        { title: "Investor-backed brands", body: "Boards that need auditable reporting against MER, contribution margin and LTV — not vanity ROAS." },
+      ],
+    },
+    {
+      type: "list",
+      id: "how-we-work",
+      heading: "How we work with clients",
+      intro: "The 90-day engagement everyone starts with — same shape whether you buy one service or the full stack.",
+      items: [
+        "Discovery: 30-minute qualifying call with the founder or a director.",
+        "Diagnostic: 7-day deep dive across store, ads, SEO, email, analytics and creative.",
+        "Plan: written 90-day plan with weekly milestones tied to P&L lines.",
+        "Onboarding: pod assembly, tool access, tracking hardening — 5–7 days.",
+        "Execution: weekly ship review, weekly scorecard, monthly strategy call.",
+        "Review: 90-day retrospective, then continue month-to-month.",
+      ],
+    },
+    {
+      type: "cards",
+      id: "explore",
+      heading: "Explore related work",
+      intro: "Everything on this page ties into the wider BeingEcom system.",
+      items: [
+        { title: "Our services", body: "The full menu of ecommerce growth services — SEO, paid, CRO, email, analytics, AI and more.", to: "/services" },
+        { title: "Case studies", body: "Hand-picked engagements with real scope and numbers.", to: "/case-studies" },
+        { title: "Industries we serve", body: "12 ecommerce verticals we've operated in — beauty, fashion, health, home and more.", to: "/company/industries" },
+        { title: "Free growth audit", body: "The Being Ecom Brain™ audit — a free 90-second store scan across 17 growth phases.", to: "/audit" },
+      ],
+    },
+    {
+      type: "paragraph",
+      id: "contact-info",
+      heading: "Get in touch with BeingEcom",
+      body: (
+        <>
+          <p>Every page in the Company section links back to a real, contactable business. BeingEcom is registered at {ORG_INFO.address.streetAddress}, {ORG_INFO.address.addressLocality} {ORG_INFO.address.postalCode}, {ORG_INFO.address.addressCountry}. Reach us at {ORG_INFO.email} or {ORG_INFO.telephone} on UK business hours (Mon–Fri, 09:00–18:00 GMT/BST).</p>
+          <p>For a scoped conversation, book a 30-minute discovery call via the <Link to="/contact" className="text-primary underline">contact page</Link> or run the free <Link to="/audit" className="text-primary underline">Being Ecom Brain™ growth audit</Link> first and bring the report to the call.</p>
+        </>
+      ),
+    },
+  ];
+
+  const allSections = [...sections, ...sharedSections];
+
+  // Consolidated Knowledge Graph — every Company page emits the same
+  // Organization + Person nodes so search engines and LLMs treat the
+  // entire site as one entity graph.
+  const kgGraph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationJsonLd(),
+      ...TEAM.map((m) => ({
+        "@type": "Person",
+        "@id": m.id,
+        name: m.name,
+        jobTitle: m.jobTitle,
+        worksFor: { "@id": ORG_ID },
+        memberOf: { "@id": ORG_ID },
+        knowsAbout: m.knowsAbout,
+        sameAs: m.sameAs ?? [],
+      })),
+    ],
+  };
+  void ORG_KNOWS_ABOUT;
+
   return (
     <PageLayout>
       {/* Breadcrumbs */}
