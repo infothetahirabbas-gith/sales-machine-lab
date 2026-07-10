@@ -23,32 +23,182 @@ export const ORG_INFO = {
   ],
 };
 
+// Canonical Knowledge Graph entities. Reference these by @id from other
+// schemas (Person → worksFor, Service → provider) so search engines and
+// LLMs consolidate BeingEcom as a single entity.
+export const ORG_ID = `${SITE_URL}#organization`;
+export const PERSON_ID_FOUNDER = `${SITE_URL}/company/founder#tahir-abbas`;
+export const PERSON_ID_CTO = `${SITE_URL}/company/team#ali-abbas`;
+export const PERSON_ID_MD = `${SITE_URL}/company/team#hasnain-abbas`;
+
+export const ORG_KNOWS_ABOUT = [
+  "Ecommerce",
+  "Shopify",
+  "Shopify Plus",
+  "WooCommerce",
+  "Ecommerce SEO",
+  "Technical SEO",
+  "Programmatic SEO",
+  "Answer Engine Optimization",
+  "Generative Engine Optimization",
+  "Conversion Rate Optimisation",
+  "Performance Marketing",
+  "Google Ads",
+  "Meta Ads",
+  "TikTok Ads",
+  "YouTube Ads",
+  "Email Marketing",
+  "Klaviyo",
+  "Retention Marketing",
+  "Analytics",
+  "GA4",
+  "Server-side tracking",
+  "AI automation",
+  "Headless commerce",
+  "Direct-to-consumer",
+];
+
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": ORG_ID,
     name: ORG_INFO.name,
+    alternateName: ["Being Ecom", "BeingEcom Agency"],
     legalName: ORG_INFO.legalName,
     url: ORG_INFO.url,
-    logo: ORG_INFO.logo,
+    logo: {
+      "@type": "ImageObject",
+      url: ORG_INFO.logo,
+      width: 512,
+      height: 512,
+    },
+    image: ORG_INFO.logo,
     description: ORG_INFO.description,
+    slogan: "The AI-first ecommerce growth agency.",
+    foundingDate: "2019-01-01",
     email: ORG_INFO.email,
     telephone: ORG_INFO.telephone,
+    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 25 },
     address: {
       "@type": "PostalAddress",
       ...ORG_INFO.address,
     },
+    areaServed: [
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Ireland" },
+      { "@type": "Country", name: "Australia" },
+      { "@type": "Place", name: "Europe" },
+    ],
+    knowsAbout: ORG_KNOWS_ABOUT,
+    knowsLanguage: ["en", "en-GB"],
+    brand: { "@type": "Brand", name: ORG_INFO.name, logo: ORG_INFO.logo },
+    founder: { "@id": PERSON_ID_FOUNDER },
+    employee: [
+      { "@id": PERSON_ID_FOUNDER },
+      { "@id": PERSON_ID_CTO },
+      { "@id": PERSON_ID_MD },
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer support",
         email: ORG_INFO.email,
         telephone: ORG_INFO.telephone,
-        areaServed: { "@type": "Country", name: "United Kingdom" },
+        areaServed: ["GB", "US", "IE", "AU"],
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: ORG_INFO.email,
+        telephone: ORG_INFO.telephone,
+        areaServed: ["GB", "US", "IE", "AU"],
         availableLanguage: ["English"],
       },
     ],
     sameAs: ORG_INFO.sameAs,
+  };
+}
+
+// Canonical Person schemas — imported by Founder + Team pages and referenced
+// by @id everywhere else (Organization.founder, Article.author, etc.).
+export type TeamMember = {
+  id: string;
+  slug: string;         // hash used inside team page
+  name: string;
+  jobTitle: string;
+  bio: string;
+  knowsAbout: string[];
+  sameAs?: string[];
+  image?: string;
+  initials: string;
+};
+
+export const TEAM: TeamMember[] = [
+  {
+    id: PERSON_ID_FOUNDER,
+    slug: "tahir-abbas",
+    name: "Tahir Abbas",
+    jobTitle: "Founder & Chief Executive Officer",
+    bio: "Tahir Abbas founded BeingEcom to give Shopify and WooCommerce brands the senior growth team every founder wishes they could hire in-house. A decade of ecommerce operating experience across paid media, SEO, CRO and AI automation.",
+    knowsAbout: [
+      "Ecommerce strategy", "Shopify Plus", "WooCommerce", "Performance marketing",
+      "Ecommerce SEO", "Conversion rate optimisation", "AI automation", "Klaviyo",
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/tahirabbas",
+      "https://x.com/beingecom",
+    ],
+    initials: "TA",
+  },
+  {
+    id: PERSON_ID_CTO,
+    slug: "ali-abbas",
+    name: "Ali Abbas",
+    jobTitle: "Chief Technology Officer",
+    bio: "Ali Abbas leads engineering at BeingEcom — headless Shopify (Hydrogen), WooCommerce customisation, server-side tracking, AI automation pipelines and the internal tooling that lets a small senior team operate at scale.",
+    knowsAbout: [
+      "Headless commerce", "Shopify Hydrogen", "WooCommerce development",
+      "Next.js", "Server-side tracking", "GA4", "AI automation", "Cloudflare Workers",
+    ],
+    sameAs: ["https://www.linkedin.com/company/beingecom"],
+    initials: "AA",
+  },
+  {
+    id: PERSON_ID_MD,
+    slug: "hasnain-abbas",
+    name: "Hasnain Abbas",
+    jobTitle: "Managing Director",
+    bio: "Hasnain Abbas runs operations, delivery and client success across every BeingEcom engagement — from onboarding and pod assembly through to weekly reporting rituals and quarterly strategic reviews.",
+    knowsAbout: [
+      "Ecommerce operations", "Client success", "Growth delivery",
+      "Reporting rituals", "Team leadership", "Project management",
+    ],
+    sameAs: ["https://www.linkedin.com/company/beingecom"],
+    initials: "HA",
+  },
+];
+
+export function personJsonLd(member: TeamMember) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": member.id,
+    name: member.name,
+    jobTitle: member.jobTitle,
+    description: member.bio,
+    image: member.image,
+    url: member.slug === "tahir-abbas"
+      ? `${SITE_URL}/company/founder`
+      : `${SITE_URL}/company/team#${member.slug}`,
+    worksFor: { "@id": ORG_ID },
+    memberOf: { "@id": ORG_ID },
+    knowsAbout: member.knowsAbout,
+    knowsLanguage: ["en", "en-GB"],
+    nationality: { "@type": "Country", name: "United Kingdom" },
+    sameAs: member.sameAs ?? [],
   };
 }
 
