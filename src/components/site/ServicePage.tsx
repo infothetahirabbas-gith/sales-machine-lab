@@ -164,12 +164,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                     <SafeImg
                       src={cfg.heroImage}
                       alt={`${cfg.eyebrow} - ${cfg.heroTitle}`}
-                      width={1200}
-                      height={900}
+                      width={640}
+                      height={480}
                       className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
                       loading="eager"
                       fetchPriority="high"
-                      decoding="sync"
+                      decoding="async"
                       brandOverlay
                     />
                     <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent">

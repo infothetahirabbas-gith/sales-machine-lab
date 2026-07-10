@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
-import heroImg from "../assets/hero-performance-marketing.jpg";
+import heroImg from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do YouTube ads work for ecommerce?", a: "Yes - Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking." },
@@ -24,7 +24,6 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" },
-      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads", description: "YouTube Ads for ecommerce - VAC, Demand Gen, Shorts and skippable in-stream." })) },

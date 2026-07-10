@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
-import heroImg from "../assets/hero-performance-marketing.jpg";
+import heroImg from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -38,7 +38,6 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/media-buying" },
-      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/media-buying", name: "Media Buying", description: "Cross-channel media buying across Meta, Google and TikTok for ecommerce." })) },

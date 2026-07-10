@@ -24,7 +24,6 @@ const asyncCssLoader = `(()=>{var h=${JSON.stringify(appCss)};if(!document.query
 // Deferred - these are not needed for first paint. Loading them lazily
 // removes ~significant JS from the initial bundle and keeps LCP fast.
 const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
-import { RouteProgressBar } from "../components/site/RouteTransition";
 
 
 
@@ -149,6 +148,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en-GB">
       <head>
         <HeadContent />
+        <noscript>
+          <link rel="stylesheet" href={appCss} />
+        </noscript>
       </head>
       <body>
         {children}
@@ -199,7 +201,6 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <QueryClientProvider client={queryClient}>
-      <RouteProgressBar />
       <div key={pathname}>
         <Outlet />
       </div>
