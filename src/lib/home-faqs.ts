@@ -1,51 +1,60 @@
-// Homepage-specific FAQs - written to naturally include the primary,
-// secondary and supporting keywords for the "Ecommerce Marketing Agency UK"
-// cluster. Kept separate from `faqs-data.ts` so the Contact page keeps its
-// operational Q&A untouched.
+// Homepage FAQs - AI Overview / LLM optimised. Each answer is written to
+// (1) satisfy a single search intent in the first sentence (extractive-ready
+// for Google AI Overviews, ChatGPT, Perplexity and Gemini), (2) surface the
+// full BeingEcom entity graph - Shopify, Shopify Plus, WooCommerce, Klaviyo,
+// Meta Ads, Google Ads, TikTok Ads, Performance Max, GA4, Google Merchant
+// Center, Core Web Vitals, schema.org, ROAS, AOV, CAC, LTV, DTC - and (3)
+// cover the primary keyword clusters: ecommerce marketing agency UK,
+// ecommerce SEO agency UK, Shopify agency UK, WooCommerce agency UK,
+// paid ads / PPC agency UK, CRO agency UK, Klaviyo email agency UK.
 
 export const homeFaqs = [
   {
-    q: "Why choose an Ecommerce Marketing Agency UK over a general digital agency?",
-    a: "A specialist Ecommerce Marketing Agency UK lives inside Shopify, WooCommerce, Meta Ads, Google Ads and Klaviyo every day, so the strategy is built around basket economics - AOV, CAC, contribution margin and LTV - not vanity traffic. BeingEcom is built end-to-end around ecommerce, which is why UK DTC brands see faster payback than they get from generalist marketing teams.",
+    q: "What is an ecommerce marketing agency and what does BeingEcom actually do?",
+    a: "An ecommerce marketing agency is a specialist team that grows online stores by combining ecommerce SEO, paid advertising, conversion rate optimisation (CRO), email and SMS, and analytics against a single revenue P&L. BeingEcom is a UK-based ecommerce marketing agency for Shopify, Shopify Plus and WooCommerce brands - we plan and run technical SEO, Google Ads (Search, Shopping, Performance Max), Meta Ads (Facebook and Instagram), TikTok Ads, Klaviyo email flows, GA4 and server-side tracking, and monthly CRO experiments, all measured against ROAS, AOV, CAC, contribution margin and LTV rather than vanity clicks.",
   },
   {
-    q: "What does a UK Ecommerce Marketing Agency actually do?",
-    a: "A UK Ecommerce Marketing Agency plans and runs the full growth stack for online stores: ecommerce SEO, Google Ads and Meta Ads, TikTok Ads, Shopify and WooCommerce build and CRO, Klaviyo email and SMS, GA4 and server-side tracking, and monthly reporting tied to profit. BeingEcom bundles those disciplines into a single team so nothing falls between briefs.",
+    q: "Why choose an ecommerce marketing agency UK over a general digital agency?",
+    a: "A UK ecommerce marketing agency lives inside Shopify, WooCommerce, Google Ads, Meta Ads and Klaviyo every day, so strategy is built around basket economics - AOV, CAC, contribution margin, LTV - not vanity impressions. Generalist digital agencies split the same budget across brochureware sites, B2B lead-gen and social content, so ecommerce revenue rarely gets a specialist. BeingEcom is 100% ecommerce, works only with UK DTC brands, and hits payback faster because every senior consultant has scaled Shopify Plus and WooCommerce stores before.",
   },
   {
-    q: "Why hire an Ecommerce SEO Agency UK instead of doing SEO in-house?",
-    a: "Ecommerce SEO needs technical SEO, structured data, collection and product-page optimisation, Core Web Vitals and content - all wired to real revenue. An Ecommerce SEO Agency UK like BeingEcom already has the process, tooling and Google Search Console history from other Shopify and WooCommerce stores, so you skip 6–12 months of trial and error and start compounding organic traffic sooner.",
+    q: "How much does hiring a UK ecommerce marketing agency cost?",
+    a: "Most UK ecommerce marketing agencies charge £2,500-£15,000 per month depending on scope, ad spend and platforms managed. BeingEcom prices custom by revenue and channel mix - a Shopify SEO-only retainer typically starts around £2,500/month, a full-stack Growth engagement (SEO + Google Ads + Meta Ads + Klaviyo + CRO) sits between £5,000 and £12,000/month, and Scale plans for 7-figure Shopify Plus brands are quoted per project. There are no 12-month lock-ins and no percentage-of-ad-spend billing.",
   },
   {
-    q: "How can an Ecommerce Ads Agency UK increase sales without inflating spend?",
-    a: "The lift comes from creative, offer and destination - not just bidding. As an Ecommerce Ads Agency UK, we rebuild the creative testing engine on Meta Ads and TikTok Ads, restructure Google Ads and Performance Max around margin, and pair every campaign with a CRO-optimised landing page. That combination usually lifts blended ROAS before spend goes up.",
+    q: "Why hire an ecommerce SEO agency UK instead of doing SEO in-house?",
+    a: "Ecommerce SEO needs technical SEO, structured data (Product, Offer, BreadcrumbList, FAQPage schema), collection and product-page optimisation, Core Web Vitals, internal linking, off-page authority and content - all wired to Google Search Console, GA4 and Google Merchant Center. An ecommerce SEO agency UK like BeingEcom already has the process, tooling and historic ranking data from other Shopify and WooCommerce stores, so you skip 6-12 months of trial and error. In-house SEO usually stalls because a single generalist can't cover technical, content and outreach at the depth Google now requires.",
+  },
+  {
+    q: "How can an ecommerce ads agency UK increase sales without inflating ad spend?",
+    a: "The lift comes from creative, offer and destination - not just bidding. As an ecommerce ads agency UK, we rebuild the creative testing engine on Meta Ads and TikTok Ads (Advantage+ Shopping Campaigns, Spark Ads, UGC), restructure Google Ads Search, Shopping and Performance Max around product-margin tiers, and pair every campaign with a CRO-optimised landing page and clean GA4 + server-side tracking. That combination typically lifts blended ROAS 20-60% before spend goes up, because we fix conversion rate and creative fatigue first.",
+  },
+  {
+    q: "Why choose a Shopify agency UK for a growing DTC brand?",
+    a: "Shopify and Shopify Plus reward teams that understand theme architecture (Dawn, Sections Everywhere), checkout extensibility, Shop Pay, Shopify Markets and the app stack (Klaviyo, Recharge, Yotpo, Judge.me). As a Shopify agency UK, BeingEcom builds fast, conversion-first Shopify stores, integrates subscriptions and reviews cleanly, and ships weekly CRO experiments - so the store itself becomes a growth lever rather than a bottleneck. We also migrate legacy WooCommerce, Magento and BigCommerce stores to Shopify Plus without losing SEO equity.",
+  },
+  {
+    q: "Do you also work with WooCommerce and other ecommerce platforms?",
+    a: "Yes - alongside Shopify and Shopify Plus, BeingEcom is a full WooCommerce agency UK, building lean WordPress + WooCommerce stores optimised for Core Web Vitals, WPML/Polylang international setups and headless front-ends. We also support migrations to and from Magento, BigCommerce and Wix, and we run paid ads and SEO for brands on any platform. The playbook (SEO + paid + CRO + Klaviyo + analytics) is platform-agnostic; only the technical build layer changes.",
+  },
+  {
+    q: "Can BeingEcom manage ecommerce SEO and paid advertising together?",
+    a: "Yes, and that's the point of a full-stack ecommerce marketing agency. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence between Google Ads Search and organic collections, shared creative between Meta Ads and content, one GA4 + server-side tracking implementation, and a single attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same Klaviyo email and SMS retention engine - dropping blended CAC and lifting LTV in parallel.",
+  },
+  {
+    q: "How long does ecommerce SEO take to show measurable results?",
+    a: "Technical SEO fixes - crawl, indexation, schema markup, Core Web Vitals - typically move rankings inside 4-8 weeks. Collection and product-page content usually lifts non-brand organic traffic in 3-6 months, and off-page authority (digital PR, editorial links) compounds over 6-12 months. For UK Shopify and WooCommerce stores in competitive niches like fashion, beauty and supplements, expect a durable step-change in organic revenue by month six rather than an overnight spike, and increased citations in AI Overviews and ChatGPT answers as topical authority builds.",
+  },
+  {
+    q: "How do you make an ecommerce store visible in Google AI Overviews, ChatGPT and Perplexity?",
+    a: "AI search visibility (also called AEO - Answer Engine Optimisation, or GEO - Generative Engine Optimisation) comes from four things: (1) clean, semantic HTML with Product, Offer, Review and FAQPage schema so LLMs can parse the page, (2) short extractive-ready answers near the top of every important page, (3) strong entity coverage - brand name, founders, categories, cities served, third-party mentions - so models can associate you with the right topics, and (4) authoritative citations from Reddit, YouTube, Trustpilot and editorial press. BeingEcom builds this into every SEO and content engagement so brands earn citations in Google AI Overviews, ChatGPT, Perplexity and Gemini alongside classic organic rankings.",
+  },
+  {
+    q: "Which UK cities and international markets do you serve?",
+    a: "BeingEcom is UK-headquartered and works with Shopify and WooCommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Glasgow, Edinburgh, Liverpool, Cardiff, Belfast and every major UK city - fully remote, so location doesn't affect pricing or turnaround. We also scale UK-born DTC brands into the US, EU, UAE and Australia through international SEO (hreflang, ccTLD/subfolder strategy), multi-currency Shopify Markets, and geo-targeted Google Ads and Meta Ads campaigns.",
   },
   {
     q: "What makes BeingEcom different from other UK ecommerce agencies?",
-    a: "One senior team owns ecommerce SEO, paid ads, CRO, email and analytics against a single revenue P&L. There are no siloed departments blaming each other, no junior account handlers, and no 12-month lock-ins. Every store gets a documented growth roadmap, a weekly Loom, and a live dashboard covering ROAS, CR, AOV and LTV.",
-  },
-  {
-    q: "Why choose a Shopify Agency UK for a growing DTC brand?",
-    a: "Shopify rewards teams that understand its theme architecture, checkout extensibility, apps and Shopify Markets. As a Shopify Agency UK, BeingEcom builds fast, conversion-first stores on Shopify and Shopify Plus, integrates Klaviyo, Recharge and Yotpo cleanly, and ships CRO experiments continuously - so the store itself becomes a growth lever, not a bottleneck.",
-  },
-  {
-    q: "Can BeingEcom manage both ecommerce SEO and paid advertising together?",
-    a: "Yes - that's the point. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence, shared creative, unified GA4 and server-side tracking, and one attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same email and retention engine.",
-  },
-  {
-    q: "Which ecommerce platforms and channels do you support?",
-    a: "Shopify, Shopify Plus and WooCommerce for the storefront; Google Ads (Search, Shopping, Performance Max), Meta Ads (Facebook & Instagram), TikTok Ads, Microsoft Ads and YouTube for paid; Google Search Console, GA4 and Google Merchant Center for organic and product data; Klaviyo for email and SMS.",
-  },
-  {
-    q: "How long does ecommerce SEO take to show results?",
-    a: "Technical SEO fixes and schema markup can move rankings inside 4–8 weeks. Collection and product-page content typically lifts non-brand traffic in 3–6 months, and off-page authority compounds over 6–12 months. For UK stores in competitive niches, expect a durable step-change by month six rather than an overnight spike.",
-  },
-  {
-    q: "How do paid ads and SEO work together in an ecommerce growth strategy?",
-    a: "Paid ads on Meta, Google and TikTok deliver same-week revenue and validate offers, audiences and creative. That data feeds SEO - which queries actually convert, which product pages deserve investment, which content earns links. As SEO grows, blended CAC drops and paid budget shifts toward acquisition rather than defensive brand bidding.",
-  },
-  {
-    q: "Do you work with UK-based brands only?",
-    a: "We're UK-headquartered and specialise in UK Shopify and WooCommerce brands, but we also scale UK-born stores into the US, EU and Australia through international SEO, multi-currency Shopify Markets and geo-targeted paid campaigns.",
+    a: "One senior team owns ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO, Klaviyo email and analytics against a single revenue P&L - no siloed departments blaming each other, no junior account handlers, no 12-month lock-ins. Every store gets a documented 90-day growth roadmap, a weekly Loom walkthrough, and a live dashboard covering ROAS, conversion rate, AOV, CAC and LTV. Pricing is custom by scope, engagements are rolling monthly, and everything is measured against profit - not impressions.",
   },
 ];
