@@ -63,47 +63,35 @@ export default function CompanyPage(props: CompanyPageProps) {
   // requires without duplicating boilerplate across 14 route files.
   const sharedSections: CompanySectionBlock[] = [
     {
-      type: "cards",
-      id: "eeat",
-      heading: "How BeingEcom demonstrates E-E-A-T",
-      intro: "Experience, Expertise, Authority and Trust — the four signals Google, ChatGPT, Gemini and Perplexity use to judge a source. Here's how we earn each one on this page.",
-      items: [
-        { title: "Experience", body: "Every playbook you read is drawn from live Shopify and WooCommerce accounts we've operated — not from a research desk that never touched a store." },
-        { title: "Expertise", body: "Senior-only operators across SEO, paid media, CRO, email, analytics and AI automation — coordinated by a founder with 10+ years in ecommerce." },
-        { title: "Authoritativeness", body: "Named team, real address in Covent Garden London, verifiable case studies and public methodology. No stock photos, no ghost 'about us' pages." },
-        { title: "Trustworthiness", body: "Weekly reports tied to your P&L, raw data access, honest reporting of losses as well as wins, and a 90-day fixed engagement with no 12-month lock-in." },
-      ],
-    },
-    {
       type: "list",
       id: "aeo",
-      heading: "How this page is structured",
-      intro: "Every Company page is written to be scannable in 30 seconds and useful in 5 minutes — whether you're a founder skimming or a team lead going deep.",
+      heading: "How this section is organised",
+      intro: "Every Company section is written to be scannable in 30 seconds and useful in 5 minutes — whether you're a founder skimming or a team lead going deep.",
       items: [
         "Clear headings and sub-headings so you can jump straight to what matters.",
         "A short FAQ at the bottom answering the questions founders actually ask us.",
         "Consistent naming across services, industries and locations — no jargon soup.",
         "Every claim is scoped and specific — no vague superlatives or unfalsifiable promises.",
-        "Updated dates on the page so you know when we last reviewed it.",
+        "Updated dates so you know when we last reviewed the content.",
       ],
     },
     {
       type: "list",
       id: "geo",
-      heading: "What makes this page different",
-      intro: "A quick note on the editorial standard we hold every Company page to before it ships:",
+      heading: "What makes our approach different",
+      intro: "A quick note on the editorial standard we hold every Company section to before it ships:",
       items: [
         "Original perspective in every section — written by operators, not rewritten from competitors.",
         "Clear relationships between our team, services and case studies — so you can trace any claim.",
         "Deep links to related services, industries and case studies so you can go one level deeper.",
-        "Same company details (name, address, contact) on every page — no mixed messages.",
+        "Same company details (name, address, contact) across the site — no mixed messages.",
         "Direct links to our LinkedIn, X and Instagram so you can verify the humans behind it.",
       ],
     },
     {
       type: "cards",
       id: "principles",
-      heading: "Operating principles behind everything on this page",
+      heading: "Operating principles behind everything we do",
       items: [
         { title: "Revenue-first", body: "If a task can't be tied to a specific P&L line within a defined window, it doesn't ship." },
         { title: "Senior-only", body: "No junior operates unsupervised on a client account. Every deliverable is signed off by a lead." },
