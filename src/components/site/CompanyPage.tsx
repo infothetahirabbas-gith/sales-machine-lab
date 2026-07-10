@@ -237,8 +237,8 @@ export default function CompanyPage(props: CompanyPageProps) {
 
             {allSections.map((s, i) => {
               const id = s.id ?? `s-${i}`;
-              const num = String(i + 1).padStart(2, "0");
               const tint = i % 2 === 1;
+
               const SectionHead = s.heading ? (
                 <header className="mb-6 md:mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
