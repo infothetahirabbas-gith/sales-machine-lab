@@ -242,9 +242,9 @@ export default function CompanyPage(props: CompanyPageProps) {
               const SectionHead = s.heading ? (
                 <header className="mb-6 md:mb-8">
                   <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
-                    <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>
                     <span className="text-[11px] font-bold uppercase tracking-widest text-primary">Section</span>
                   </div>
+
                   <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">
                     {s.heading}
                   </h2>
