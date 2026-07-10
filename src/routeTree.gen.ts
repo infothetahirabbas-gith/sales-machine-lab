@@ -19,6 +19,7 @@ import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-compa
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as HubRouteImport } from './routes/hub'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as FounderRouteImport } from './routes/founder'
@@ -34,6 +35,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as HubIndexRouteImport } from './routes/hub.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -50,6 +52,7 @@ import { Route as ServicesAnalyticsRouteImport } from './routes/services.analyti
 import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as HubPillarRouteImport } from './routes/hub.$pillar'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as CompanyWhyUsRouteImport } from './routes/company.why-us'
 import { Route as CompanyTechnologyRouteImport } from './routes/company.technology'
@@ -140,6 +143,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HubRoute = HubRouteImport.update({
+  id: '/hub',
+  path: '/hub',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GlossaryRoute = GlossaryRouteImport.update({
   id: '/glossary',
   path: '/glossary',
@@ -214,6 +222,11 @@ const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
   id: '/industries/',
   path: '/industries/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const HubIndexRoute = HubIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HubRoute,
 } as any)
 const CompanyIndexRoute = CompanyIndexRouteImport.update({
   id: '/',
@@ -296,6 +309,11 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   id: '/industries/$slug',
   path: '/industries/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const HubPillarRoute = HubPillarRouteImport.update({
+  id: '/$pillar',
+  path: '/$pillar',
+  getParentRoute: () => HubRoute,
 } as any)
 const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   id: '/debug/faq-jsonld',
@@ -512,6 +530,7 @@ export interface FileRoutesByFullPath {
   '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/hub': typeof HubRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -542,6 +561,7 @@ export interface FileRoutesByFullPath {
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
@@ -558,6 +578,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/hub/': typeof HubIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -621,6 +642,7 @@ export interface FileRoutesByTo {
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
@@ -637,6 +659,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/company': typeof CompanyIndexRoute
+  '/hub': typeof HubIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
@@ -673,6 +696,7 @@ export interface FileRoutesById {
   '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/hub': typeof HubRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -703,6 +727,7 @@ export interface FileRoutesById {
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
+  '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
@@ -719,6 +744,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/hub/': typeof HubIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
@@ -756,6 +782,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/gdpr'
     | '/glossary'
+    | '/hub'
     | '/pricing'
     | '/privacy'
     | '/sitemap-case-studies.xml'
@@ -786,6 +813,7 @@ export interface FileRouteTypes {
     | '/company/technology'
     | '/company/why-us'
     | '/debug/faq-jsonld'
+    | '/hub/$pillar'
     | '/industries/$slug'
     | '/locations/$slug'
     | '/services/ai-automation'
@@ -802,6 +830,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/case-studies/'
     | '/company/'
+    | '/hub/'
     | '/industries/'
     | '/locations/'
     | '/services/'
@@ -865,6 +894,7 @@ export interface FileRouteTypes {
     | '/company/technology'
     | '/company/why-us'
     | '/debug/faq-jsonld'
+    | '/hub/$pillar'
     | '/industries/$slug'
     | '/locations/$slug'
     | '/services/ai-automation'
@@ -881,6 +911,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/case-studies'
     | '/company'
+    | '/hub'
     | '/industries'
     | '/locations'
     | '/services'
@@ -916,6 +947,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/gdpr'
     | '/glossary'
+    | '/hub'
     | '/pricing'
     | '/privacy'
     | '/sitemap-case-studies.xml'
@@ -946,6 +978,7 @@ export interface FileRouteTypes {
     | '/company/technology'
     | '/company/why-us'
     | '/debug/faq-jsonld'
+    | '/hub/$pillar'
     | '/industries/$slug'
     | '/locations/$slug'
     | '/services/ai-automation'
@@ -962,6 +995,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/case-studies/'
     | '/company/'
+    | '/hub/'
     | '/industries/'
     | '/locations/'
     | '/services/'
@@ -998,6 +1032,7 @@ export interface RootRouteChildren {
   FounderRoute: typeof FounderRoute
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
+  HubRoute: typeof HubRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
@@ -1107,6 +1142,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hub': {
+      id: '/hub'
+      path: '/hub'
+      fullPath: '/hub'
+      preLoaderRoute: typeof HubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/glossary': {
       id: '/glossary'
       path: '/glossary'
@@ -1211,6 +1253,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/industries/'
       preLoaderRoute: typeof IndustriesIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/hub/': {
+      id: '/hub/'
+      path: '/'
+      fullPath: '/hub/'
+      preLoaderRoute: typeof HubIndexRouteImport
+      parentRoute: typeof HubRoute
     }
     '/company/': {
       id: '/company/'
@@ -1323,6 +1372,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/industries/$slug'
       preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/hub/$pillar': {
+      id: '/hub/$pillar'
+      path: '/$pillar'
+      fullPath: '/hub/$pillar'
+      preLoaderRoute: typeof HubPillarRouteImport
+      parentRoute: typeof HubRoute
     }
     '/debug/faq-jsonld': {
       id: '/debug/faq-jsonld'
@@ -1644,6 +1700,18 @@ const CompanyRouteChildren: CompanyRouteChildren = {
 const CompanyRouteWithChildren =
   CompanyRoute._addFileChildren(CompanyRouteChildren)
 
+interface HubRouteChildren {
+  HubPillarRoute: typeof HubPillarRoute
+  HubIndexRoute: typeof HubIndexRoute
+}
+
+const HubRouteChildren: HubRouteChildren = {
+  HubPillarRoute: HubPillarRoute,
+  HubIndexRoute: HubIndexRoute,
+}
+
+const HubRouteWithChildren = HubRoute._addFileChildren(HubRouteChildren)
+
 interface IndustriesSlugRouteChildren {
   IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
 }
@@ -1738,6 +1806,7 @@ const rootRouteChildren: RootRouteChildren = {
   FounderRoute: FounderRoute,
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
+  HubRoute: HubRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
