@@ -141,13 +141,12 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 function SectionHead({ num, eyebrow, title, intro }: { num?: string; eyebrow: string; title: string; intro?: string }) {
   return (
-    <header className="mb-8">
-      <div className="flex items-center gap-3">
-        {num && <span className="text-[11px] font-black tracking-[0.2em] text-primary">{num}</span>}
-        <span className="h-px flex-1 max-w-16 bg-gradient-to-r from-primary/60 to-transparent" />
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{eyebrow}</span>
+    <header className="mb-6 md:mb-8">
+      <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+        {num && <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>}
+        <span className="text-[11px] font-bold uppercase tracking-widest text-primary">{eyebrow}</span>
       </div>
-      <h2 className="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">{title}</h2>
+      <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">{title}</h2>
       {intro && <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">{intro}</p>}
     </header>
   );
