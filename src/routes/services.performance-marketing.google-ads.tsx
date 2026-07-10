@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
-import heroImg from "../assets/hero-performance-marketing.jpg";
+import heroImg from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
   {
@@ -38,7 +38,6 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/google-ads" },
-      { rel: "preload", as: "image", href: heroImg, fetchpriority: "high" },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/google-ads", name: "Google Ads", description: "Search, Shopping and Performance Max for ecommerce brands." })) },

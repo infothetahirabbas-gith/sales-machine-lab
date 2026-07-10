@@ -5,7 +5,7 @@ import { Reveal } from "../hooks/useReveal";
 import RevenueBars from "../components/site/RevenueBars";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
 import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quote, Calendar, Package, Wrench, Layers, Target, TrendingUp, Zap, Shield, AlertTriangle } from "lucide-react";
-import heroPM from "../assets/hero-performance-marketing.jpg";
+import heroPM from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
   { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio - never optimising one channel in isolation." },
@@ -31,7 +31,6 @@ export const Route = createFileRoute("/services/performance-marketing")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing" },
-      { rel: "preload", as: "image", href: heroPM, fetchpriority: "high" },
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing", name: "Performance Marketing", description: "Facebook, Google, TikTok ads and media buying for ecommerce brands." })) },
@@ -133,10 +132,11 @@ function PerformanceMarketingPage() {
                   <img
                     src={heroPM}
                     alt="Performance marketing dashboard - blended-ROAS analytics across Meta, Google, TikTok and YouTube"
-                    width={1200}
-                    height={900}
-                    loading="eager"
-                    fetchPriority="high"
+                    width={640}
+                    height={480}
+                    loading="lazy"
+                    fetchPriority="low"
+                    decoding="async"
                     className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
                   />
                   <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent">

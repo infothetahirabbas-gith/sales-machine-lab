@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Briefcase, Languages, Sparkles } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
-import { setSiteLanguage } from "@/components/site/GoogleTranslate";
 
 
 const logo = logoAsset.url;
@@ -20,6 +19,21 @@ const LANG_OPTIONS = [
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
 const DEFAULT_PREFS: Prefs = { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" };
+
+function setSiteLanguage(code: string) {
+  if (typeof document === "undefined") return;
+  const host = window.location.hostname;
+  const domains = ["", host, `.${host}`];
+  const value = code && code !== "en" ? `/en/${code}` : "";
+  for (const d of domains) {
+    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
+    if (value) {
+      document.cookie = `googtrans=${value}; path=/${d ? `; domain=${d}` : ""}`;
+    }
+  }
+  try { localStorage.setItem("site_lang", code); } catch {}
+  window.location.reload();
+}
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
@@ -397,7 +411,7 @@ export default function Header() {
       </div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
         <Link to="/" className="flex items-center shrink min-w-0 max-w-[60vw] sm:max-w-none leading-none" aria-label="BeingEcom home">
-          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="high" className="h-10 sm:h-12 md:h-11 lg:h-14 w-auto max-w-full block object-contain" />
+          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-10 sm:h-12 md:h-11 lg:h-14 w-auto max-w-full block object-contain" />
         </Link>
         <nav className="hidden lg:flex items-center gap-6 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
