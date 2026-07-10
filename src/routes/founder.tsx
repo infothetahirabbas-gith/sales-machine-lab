@@ -150,12 +150,12 @@ function SectionHead({ num, eyebrow, title, intro }: { num?: string; eyebrow: st
     <header className="mb-6 md:mb-8 border-b border-border/70 pb-5">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:flex-wrap sm:justify-between">
         <div className="min-w-0">
-          <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+          <div className="grid w-full max-w-full grid-cols-[auto_minmax(0,1fr)] items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 sm:inline-grid sm:w-auto">
             <span className="shrink-0 text-[11px] font-black tracking-widest text-primary">{num ?? "SECTION"}</span>
             <span className="min-w-0 truncate text-[11px] font-bold uppercase tracking-widest text-primary">{eyebrow}</span>
           </div>
         </div>
-        <span className="h-px w-12 shrink-0 bg-primary/35" />
+        <span className="hidden h-px w-12 shrink-0 bg-primary/35 sm:block" />
       </div>
       <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">{title}</h2>
       {intro && <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">{intro}</p>}
@@ -376,7 +376,7 @@ export default function FounderAuthorityPage() {
       {/* BODY with sticky TOC */}
       <section className="pb-16">
         <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[220px_1fr] gap-10">
-          <aside className="hidden lg:block">
+          <aside className="max-lg:hidden">
             <div className="sticky top-24">
               <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3">On this page</div>
               <ul className="space-y-2 text-sm">
