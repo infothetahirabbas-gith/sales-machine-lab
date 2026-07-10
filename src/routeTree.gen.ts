@@ -15,14 +15,19 @@ import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-serv
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-locations[.]xml'
 import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
+import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-company[.]xml'
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as GdprRouteImport } from './routes/gdpr'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompanyRouteImport } from './routes/company'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -44,6 +49,20 @@ import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-a
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as CompanyWhyUsRouteImport } from './routes/company.why-us'
+import { Route as CompanyTechnologyRouteImport } from './routes/company.technology'
+import { Route as CompanyTeamRouteImport } from './routes/company.team'
+import { Route as CompanySuccessStoriesRouteImport } from './routes/company.success-stories'
+import { Route as CompanyReviewsRouteImport } from './routes/company.reviews'
+import { Route as CompanyResourcesRouteImport } from './routes/company.resources'
+import { Route as CompanyPressRouteImport } from './routes/company.press'
+import { Route as CompanyMethodologyRouteImport } from './routes/company.methodology'
+import { Route as CompanyLegalRouteImport } from './routes/company.legal'
+import { Route as CompanyIndustriesRouteImport } from './routes/company.industries'
+import { Route as CompanyFounderRouteImport } from './routes/company.founder'
+import { Route as CompanyCommunityRouteImport } from './routes/company.community'
+import { Route as CompanyCertificationsRouteImport } from './routes/company.certifications'
+import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
@@ -98,6 +117,11 @@ const SitemapIndustriesDotxmlRoute = SitemapIndustriesDotxmlRouteImport.update({
   path: '/sitemap-industries.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapCompanyDotxmlRoute = SitemapCompanyDotxmlRouteImport.update({
+  id: '/sitemap-company.xml',
+  path: '/sitemap-company.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapCaseStudiesDotxmlRoute =
   SitemapCaseStudiesDotxmlRouteImport.update({
     id: '/sitemap-case-studies.xml',
@@ -119,6 +143,16 @@ const GlossaryRoute = GlossaryRouteImport.update({
   path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GdprRoute = GdprRouteImport.update({
+  id: '/gdpr',
+  path: '/gdpr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
@@ -129,6 +163,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompanyRoute = CompanyRouteImport.update({
+  id: '/company',
+  path: '/company',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -137,6 +176,11 @@ const BlogRoute = BlogRouteImport.update({
 const AuditRoute = AuditRouteImport.update({
   id: '/audit',
   path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -245,6 +289,76 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   id: '/debug/faq-jsonld',
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyWhyUsRoute = CompanyWhyUsRouteImport.update({
+  id: '/why-us',
+  path: '/why-us',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyTechnologyRoute = CompanyTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyTeamRoute = CompanyTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanySuccessStoriesRoute = CompanySuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyReviewsRoute = CompanyReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyResourcesRoute = CompanyResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyPressRoute = CompanyPressRouteImport.update({
+  id: '/press',
+  path: '/press',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyMethodologyRoute = CompanyMethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyLegalRoute = CompanyLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyIndustriesRoute = CompanyIndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyFounderRoute = CompanyFounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyCommunityRoute = CompanyCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyCertificationsRoute = CompanyCertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyCareersRoute = CompanyCareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => CompanyRoute,
 } as any)
 const CaseStudiesIdRoute = CaseStudiesIdRouteImport.update({
   id: '/case-studies/$id',
@@ -376,14 +490,19 @@ const LangLocationIndustryServiceRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
+  '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -395,6 +514,20 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
+  '/company/community': typeof CompanyCommunityRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
+  '/company/legal': typeof CompanyLegalRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/press': typeof CompanyPressRoute
+  '/company/resources': typeof CompanyResourcesRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
+  '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -436,13 +569,18 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
+  '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -454,6 +592,20 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
+  '/company/community': typeof CompanyCommunityRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
+  '/company/legal': typeof CompanyLegalRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/press': typeof CompanyPressRoute
+  '/company/resources': typeof CompanyResourcesRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
+  '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -496,14 +648,19 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/disclaimer': typeof DisclaimerRoute
+  '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
+  '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
   '/sitemap-locations.xml': typeof SitemapLocationsDotxmlRoute
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
@@ -515,6 +672,20 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
+  '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
+  '/company/community': typeof CompanyCommunityRoute
+  '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
+  '/company/legal': typeof CompanyLegalRoute
+  '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/press': typeof CompanyPressRoute
+  '/company/resources': typeof CompanyResourcesRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
+  '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -558,14 +729,19 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/audit'
     | '/blog'
+    | '/company'
     | '/contact'
     | '/cookies'
+    | '/disclaimer'
+    | '/gdpr'
     | '/glossary'
     | '/pricing'
     | '/privacy'
     | '/sitemap-case-studies.xml'
+    | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -577,6 +753,20 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/certifications'
+    | '/company/community'
+    | '/company/founder'
+    | '/company/industries'
+    | '/company/legal'
+    | '/company/methodology'
+    | '/company/press'
+    | '/company/resources'
+    | '/company/reviews'
+    | '/company/success-stories'
+    | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -618,13 +808,18 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/audit'
+    | '/company'
     | '/contact'
     | '/cookies'
+    | '/disclaimer'
+    | '/gdpr'
     | '/glossary'
     | '/pricing'
     | '/privacy'
     | '/sitemap-case-studies.xml'
+    | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -636,6 +831,20 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/certifications'
+    | '/company/community'
+    | '/company/founder'
+    | '/company/industries'
+    | '/company/legal'
+    | '/company/methodology'
+    | '/company/press'
+    | '/company/resources'
+    | '/company/reviews'
+    | '/company/success-stories'
+    | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -677,14 +886,19 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/accessibility'
     | '/audit'
     | '/blog'
+    | '/company'
     | '/contact'
     | '/cookies'
+    | '/disclaimer'
+    | '/gdpr'
     | '/glossary'
     | '/pricing'
     | '/privacy'
     | '/sitemap-case-studies.xml'
+    | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
     | '/sitemap-locations.xml'
     | '/sitemap-pages.xml'
@@ -696,6 +910,20 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/blog/$slug'
     | '/case-studies/$id'
+    | '/company/careers'
+    | '/company/certifications'
+    | '/company/community'
+    | '/company/founder'
+    | '/company/industries'
+    | '/company/legal'
+    | '/company/methodology'
+    | '/company/press'
+    | '/company/resources'
+    | '/company/reviews'
+    | '/company/success-stories'
+    | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -738,14 +966,19 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CompanyRoute: typeof CompanyRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  DisclaimerRoute: typeof DisclaimerRoute
+  GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
+  SitemapCompanyDotxmlRoute: typeof SitemapCompanyDotxmlRoute
   SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
   SitemapLocationsDotxmlRoute: typeof SitemapLocationsDotxmlRoute
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
@@ -823,6 +1056,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapIndustriesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap-company.xml': {
+      id: '/sitemap-company.xml'
+      path: '/sitemap-company.xml'
+      fullPath: '/sitemap-company.xml'
+      preLoaderRoute: typeof SitemapCompanyDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap-case-studies.xml': {
       id: '/sitemap-case-studies.xml'
       path: '/sitemap-case-studies.xml'
@@ -851,6 +1091,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gdpr': {
+      id: '/gdpr'
+      path: '/gdpr'
+      fullPath: '/gdpr'
+      preLoaderRoute: typeof GdprRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookies': {
       id: '/cookies'
       path: '/cookies'
@@ -865,6 +1119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/company': {
+      id: '/company'
+      path: '/company'
+      fullPath: '/company'
+      preLoaderRoute: typeof CompanyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -877,6 +1138,13 @@ declare module '@tanstack/react-router' {
       path: '/audit'
       fullPath: '/audit'
       preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -1025,6 +1293,104 @@ declare module '@tanstack/react-router' {
       fullPath: '/debug/faq-jsonld'
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/company/why-us': {
+      id: '/company/why-us'
+      path: '/why-us'
+      fullPath: '/company/why-us'
+      preLoaderRoute: typeof CompanyWhyUsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/technology': {
+      id: '/company/technology'
+      path: '/technology'
+      fullPath: '/company/technology'
+      preLoaderRoute: typeof CompanyTechnologyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/team': {
+      id: '/company/team'
+      path: '/team'
+      fullPath: '/company/team'
+      preLoaderRoute: typeof CompanyTeamRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/success-stories': {
+      id: '/company/success-stories'
+      path: '/success-stories'
+      fullPath: '/company/success-stories'
+      preLoaderRoute: typeof CompanySuccessStoriesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/reviews': {
+      id: '/company/reviews'
+      path: '/reviews'
+      fullPath: '/company/reviews'
+      preLoaderRoute: typeof CompanyReviewsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/resources': {
+      id: '/company/resources'
+      path: '/resources'
+      fullPath: '/company/resources'
+      preLoaderRoute: typeof CompanyResourcesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/press': {
+      id: '/company/press'
+      path: '/press'
+      fullPath: '/company/press'
+      preLoaderRoute: typeof CompanyPressRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/methodology': {
+      id: '/company/methodology'
+      path: '/methodology'
+      fullPath: '/company/methodology'
+      preLoaderRoute: typeof CompanyMethodologyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/legal': {
+      id: '/company/legal'
+      path: '/legal'
+      fullPath: '/company/legal'
+      preLoaderRoute: typeof CompanyLegalRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/industries': {
+      id: '/company/industries'
+      path: '/industries'
+      fullPath: '/company/industries'
+      preLoaderRoute: typeof CompanyIndustriesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/founder': {
+      id: '/company/founder'
+      path: '/founder'
+      fullPath: '/company/founder'
+      preLoaderRoute: typeof CompanyFounderRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/community': {
+      id: '/company/community'
+      path: '/community'
+      fullPath: '/company/community'
+      preLoaderRoute: typeof CompanyCommunityRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/certifications': {
+      id: '/company/certifications'
+      path: '/certifications'
+      fullPath: '/company/certifications'
+      preLoaderRoute: typeof CompanyCertificationsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/careers': {
+      id: '/company/careers'
+      path: '/careers'
+      fullPath: '/company/careers'
+      preLoaderRoute: typeof CompanyCareersRouteImport
+      parentRoute: typeof CompanyRoute
     }
     '/case-studies/$id': {
       id: '/case-studies/$id'
@@ -1202,6 +1568,43 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface CompanyRouteChildren {
+  CompanyCareersRoute: typeof CompanyCareersRoute
+  CompanyCertificationsRoute: typeof CompanyCertificationsRoute
+  CompanyCommunityRoute: typeof CompanyCommunityRoute
+  CompanyFounderRoute: typeof CompanyFounderRoute
+  CompanyIndustriesRoute: typeof CompanyIndustriesRoute
+  CompanyLegalRoute: typeof CompanyLegalRoute
+  CompanyMethodologyRoute: typeof CompanyMethodologyRoute
+  CompanyPressRoute: typeof CompanyPressRoute
+  CompanyResourcesRoute: typeof CompanyResourcesRoute
+  CompanyReviewsRoute: typeof CompanyReviewsRoute
+  CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
+  CompanyTeamRoute: typeof CompanyTeamRoute
+  CompanyTechnologyRoute: typeof CompanyTechnologyRoute
+  CompanyWhyUsRoute: typeof CompanyWhyUsRoute
+}
+
+const CompanyRouteChildren: CompanyRouteChildren = {
+  CompanyCareersRoute: CompanyCareersRoute,
+  CompanyCertificationsRoute: CompanyCertificationsRoute,
+  CompanyCommunityRoute: CompanyCommunityRoute,
+  CompanyFounderRoute: CompanyFounderRoute,
+  CompanyIndustriesRoute: CompanyIndustriesRoute,
+  CompanyLegalRoute: CompanyLegalRoute,
+  CompanyMethodologyRoute: CompanyMethodologyRoute,
+  CompanyPressRoute: CompanyPressRoute,
+  CompanyResourcesRoute: CompanyResourcesRoute,
+  CompanyReviewsRoute: CompanyReviewsRoute,
+  CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
+  CompanyTeamRoute: CompanyTeamRoute,
+  CompanyTechnologyRoute: CompanyTechnologyRoute,
+  CompanyWhyUsRoute: CompanyWhyUsRoute,
+}
+
+const CompanyRouteWithChildren =
+  CompanyRoute._addFileChildren(CompanyRouteChildren)
+
 interface IndustriesSlugRouteChildren {
   IndustriesSlugPaidAdsRoute: typeof IndustriesSlugPaidAdsRoute
 }
@@ -1286,14 +1689,19 @@ const ServicesStoreDevelopmentRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
+  CompanyRoute: CompanyRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  DisclaimerRoute: DisclaimerRoute,
+  GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
+  SitemapCompanyDotxmlRoute: SitemapCompanyDotxmlRoute,
   SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
   SitemapLocationsDotxmlRoute: SitemapLocationsDotxmlRoute,
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
