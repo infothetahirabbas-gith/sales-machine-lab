@@ -1,27 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.01) {
   const ref = useRef<T | null>(null);
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || shown) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setShown(true);
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold, rootMargin: "300px 0px 300px 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold, shown]);
-  return { ref, shown };
+  void threshold;
+  return { ref, shown: true };
 }
 
 export function Reveal({

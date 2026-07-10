@@ -8,7 +8,6 @@ import { Section, Card, CTA, NumberedList } from "../components/site/Section";
 
 import { homeFaqs } from "../lib/home-faqs";
 import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
-import CountUp from "../components/site/CountUp";
 import { HERO_STATS } from "../lib/stats";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
@@ -54,7 +53,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w, ${heroShopifyCommerce} 800w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 400px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", media: "(min-width: 768px)", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w, ${heroShopifyCommerce} 800w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, 480px" } as never,
     ],
 
     scripts: [
@@ -135,8 +134,8 @@ function Home() {
               </span>
               <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email - one senior team, one revenue P&L, measurable growth from month one.
+            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+              UK ecommerce marketing for Shopify and WooCommerce brands. SEO, paid ads, CRO and Klaviyo email - one senior team, one revenue P&amp;L.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -190,12 +189,12 @@ function Home() {
                 <img
                   src={dash.imgSm}
                   srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w, ${dash.img} 800w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 400px, 100vw"
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 480px"
                   alt={dash.alt}
                   width={900}
                   height={560}
-                  loading={dashIdx === 0 ? "eager" : "lazy"}
-                  fetchPriority={dashIdx === 0 ? "high" : "low"}
+                  loading="lazy"
+                  fetchPriority="low"
                   decoding="async"
                   style={{ objectPosition: dash.focal }}
                   className="block w-full h-56 md:h-64 object-cover"

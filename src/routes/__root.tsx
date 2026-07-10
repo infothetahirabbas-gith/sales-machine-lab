@@ -13,11 +13,10 @@ import {
 
 import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
-import faviconAsset from "../assets/favicon-b.png.asset.json";
+import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
 
 // Deferred - these are not needed for first paint. Loading them lazily
 // removes ~significant JS from the initial bundle and keeps LCP fast.
-const WelcomeBanner = lazy(() => import("../components/site/WelcomeBanner"));
 const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
 import { RouteProgressBar } from "../components/site/RouteTransition";
 
@@ -108,8 +107,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: faviconAsset.url },
-      { rel: "apple-touch-icon", href: faviconAsset.url },
+      { rel: "icon", type: "image/webp", sizes: "256x256", href: logoAsset.url },
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
