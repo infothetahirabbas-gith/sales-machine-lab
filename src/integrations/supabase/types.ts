@@ -89,6 +89,33 @@ export type Database = {
         }
         Relationships: []
       }
+      gsc_monitor_log: {
+        Row: {
+          created_at: string
+          errors: Json
+          has_error: boolean
+          id: string
+          pages: Json
+          sitemaps: Json
+        }
+        Insert: {
+          created_at?: string
+          errors?: Json
+          has_error?: boolean
+          id?: string
+          pages?: Json
+          sitemaps?: Json
+        }
+        Update: {
+          created_at?: string
+          errors?: Json
+          has_error?: boolean
+          id?: string
+          pages?: Json
+          sitemaps?: Json
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
