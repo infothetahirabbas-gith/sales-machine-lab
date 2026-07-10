@@ -64,6 +64,7 @@ import { Route as ServicesPerformanceMarketingInstagramAdsRouteImport } from './
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
 import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
 import { Route as IndustriesSlugPaidAdsRouteImport } from './routes/industries.$slug.paid-ads'
+import { Route as ApiPublicHooksGscMonitorRouteImport } from './routes/api/public/hooks/gsc-monitor'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
@@ -354,6 +355,12 @@ const IndustriesSlugPaidAdsRoute = IndustriesSlugPaidAdsRouteImport.update({
   path: '/paid-ads',
   getParentRoute: () => IndustriesSlugRoute,
 } as any)
+const ApiPublicHooksGscMonitorRoute =
+  ApiPublicHooksGscMonitorRouteImport.update({
+    id: '/api/public/hooks/gsc-monitor',
+    path: '/api/public/hooks/gsc-monitor',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicDebugFaqJsonldRoute = ApiPublicDebugFaqJsonldRouteImport.update({
   id: '/api/public/debug/faq-jsonld',
   path: '/api/public/debug/faq-jsonld',
@@ -424,6 +431,7 @@ export interface FileRoutesByFullPath {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
+  '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -482,6 +490,7 @@ export interface FileRoutesByTo {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
+  '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -542,6 +551,7 @@ export interface FileRoutesById {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
+  '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -603,6 +613,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
+    | '/api/public/hooks/gsc-monitor'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -661,6 +672,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
+    | '/api/public/hooks/gsc-monitor'
   id:
     | '__root__'
     | '/'
@@ -720,6 +732,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
+    | '/api/public/hooks/gsc-monitor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -763,6 +776,7 @@ export interface RootRouteChildren {
   ServicesIndexRoute: typeof ServicesIndexRoute
   LangLocationIndustryServiceRoute: typeof LangLocationIndustryServiceRoute
   ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
+  ApiPublicHooksGscMonitorRoute: typeof ApiPublicHooksGscMonitorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1152,6 +1166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesSlugPaidAdsRouteImport
       parentRoute: typeof IndustriesSlugRoute
     }
+    '/api/public/hooks/gsc-monitor': {
+      id: '/api/public/hooks/gsc-monitor'
+      path: '/api/public/hooks/gsc-monitor'
+      fullPath: '/api/public/hooks/gsc-monitor'
+      preLoaderRoute: typeof ApiPublicHooksGscMonitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/debug/faq-jsonld': {
       id: '/api/public/debug/faq-jsonld'
       path: '/api/public/debug/faq-jsonld'
@@ -1304,6 +1325,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesIndexRoute: ServicesIndexRoute,
   LangLocationIndustryServiceRoute: LangLocationIndustryServiceRoute,
   ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
+  ApiPublicHooksGscMonitorRoute: ApiPublicHooksGscMonitorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
