@@ -16,13 +16,15 @@ import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/h
 import caseStudyGrowth from "../assets/case-study-growth-v2.jpg.asset.json";
 
 // WebP variants generated at build time by vite-imagetools - ~60-70% smaller than the JPGs.
-import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=68&w=960";
-import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=68&w=960";
-import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=68&w=960";
-import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=68&w=960";
-import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=68&w=960";
-import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=58&w=480";
-import heroShopifyCommerceMd from "../assets/hero-shopify-commerce.jpg?format=webp&quality=62&w=720";
+// Displayed at max ~578 CSS px on mobile, ~480 CSS px on desktop.
+// Capped at 800w (retina-safe for 400px CSS) with tighter quality to cut hero payload ~30%.
+import heroShopifyCommerce from "../assets/hero-shopify-commerce.jpg?format=webp&quality=60&w=800";
+import heroWoocommerceStore from "../assets/hero-woocommerce-store.jpg?format=webp&quality=60&w=800";
+import heroSeoGrowth from "../assets/hero-seo-growth.jpg?format=webp&quality=60&w=800";
+import heroPaidAds from "../assets/hero-paid-ads.jpg?format=webp&quality=60&w=800";
+import heroCroTesting from "../assets/hero-cro-testing.jpg?format=webp&quality=60&w=800";
+import heroShopifyCommerceSm from "../assets/hero-shopify-commerce.jpg?format=webp&quality=55&w=480";
+import heroShopifyCommerceMd from "../assets/hero-shopify-commerce.jpg?format=webp&quality=58&w=640";
 
 
 
@@ -52,7 +54,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 720w, ${heroShopifyCommerce} 960w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 480px, 100vw" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w, ${heroShopifyCommerce} 800w`, imagesizes: "(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 400px, 100vw" } as never,
     ],
 
     scripts: [
@@ -187,8 +189,8 @@ function Home() {
 
                 <img
                   src={dash.imgSm}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 720w, ${dash.img} 960w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 480px, 100vw"
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w, ${dash.img} 800w` : undefined}
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 400px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
