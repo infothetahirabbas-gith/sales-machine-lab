@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import PageLayout from "@/components/site/PageLayout";
 import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/lib/seo";
-import { getComparison } from "@/lib/compare-content";
+import { getComparison, type ComparisonEntry } from "@/lib/compare-content";
 import { ArrowRight, CheckCircle2, XCircle, Trophy } from "lucide-react";
 
 export const Route = createFileRoute("/compare/$slug")({
@@ -80,7 +80,7 @@ function NotFound() {
 }
 
 function ComparePage() {
-  const { entry } = Route.useLoaderData();
+  const { entry } = Route.useLoaderData() as { entry: ComparisonEntry };
   return (
     <PageLayout>
       <section className="bg-background text-foreground">
