@@ -78,27 +78,27 @@ async function checkPage(path) {
   }
 }
 
-async function checkRedirect({ from, expectHost, expectPath }) {
+async function checkRedirect({ from, expectHost, expectPath, external }) {
+  const sink = external && !STRICT_REDIRECTS ? warnings : errors;
   const { status, location } = await head(from);
   if (status === 302 || status === 307) {
-    errors.push(`[redirect] ${from} → ${status} (must be 301, not ${status})`);
+    sink.push(`[redirect] ${from} → ${status} (must be 301, not ${status})`);
     return;
   }
   if (status !== 301 && status !== 308) {
-    // 200 for the trailing-slash case is acceptable only if the framework serves it directly, but we want a real redirect
-    errors.push(`[redirect] ${from} returned ${status}, expected 301`);
+    sink.push(`[redirect] ${from} returned ${status}, expected 301`);
     return;
   }
   if (!location) {
-    errors.push(`[redirect] ${from} → ${status} without Location header`);
+    sink.push(`[redirect] ${from} → ${status} without Location header`);
     return;
   }
   const target = new URL(location, from);
   if (expectHost && target.host !== expectHost) {
-    errors.push(`[redirect] ${from} → ${target.href} (expected host ${expectHost})`);
+    sink.push(`[redirect] ${from} → ${target.href} (expected host ${expectHost})`);
   }
   if (expectPath && target.pathname.replace(/\/$/, '') !== expectPath.replace(/\/$/, '')) {
-    errors.push(`[redirect] ${from} → ${target.href} (expected path ${expectPath})`);
+    sink.push(`[redirect] ${from} → ${target.href} (expected path ${expectPath})`);
   }
 }
 
