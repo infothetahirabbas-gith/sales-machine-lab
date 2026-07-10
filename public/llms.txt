@@ -25,6 +25,11 @@ BeingEcom is not a generalist agency. Every engagement is ecommerce-only and rev
 - [Paid Media Hub](/hub/paid-media): Meta, Google, TikTok, YouTube — profitable buying against contribution margin and MER.
 - [CRO Hub](/hub/cro): Research → hypothesis → sample-sized experimentation on PDP, cart, checkout and PLP.
 - [AI Automation Hub](/hub/ai-automation): Reporting, creative testing, keyword research and support automation for senior ecommerce teams.
+- [Email & SMS Hub](/hub/email-marketing): Klaviyo flows, segmentation, deliverability, SMS compliance and LTV-first campaign planning.
+- [Analytics & Tracking Hub](/hub/analytics-tracking): GA4, server-side tagging, Meta CAPI, MMM and contribution-margin dashboarding.
+- [Ecommerce Strategy Hub](/hub/ecommerce-strategy): Positioning, merchandising, pricing, category expansion, market entry and operating model.
+- [Ecommerce Operations Hub](/hub/ecommerce-operations): 3PL selection, inventory turn, CX SLAs, returns strategy and peak-season readiness.
+- [Customer Retention Hub](/hub/customer-retention): LTV modelling, subscriptions, loyalty, winback and VIP retention programmes.
 
 ## Reference
 
