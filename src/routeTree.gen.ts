@@ -21,6 +21,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -146,6 +147,11 @@ const GlossaryRoute = GlossaryRouteImport.update({
 const GdprRoute = GdprRouteImport.update({
   id: '/gdpr',
   path: '/gdpr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DisclaimerRoute = DisclaimerRouteImport.update({
@@ -496,6 +502,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -574,6 +581,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -654,6 +662,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
@@ -735,6 +744,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/founder'
     | '/gdpr'
     | '/glossary'
     | '/pricing'
@@ -813,6 +823,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/founder'
     | '/gdpr'
     | '/glossary'
     | '/pricing'
@@ -892,6 +903,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/founder'
     | '/gdpr'
     | '/glossary'
     | '/pricing'
@@ -972,6 +984,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
+  FounderRoute: typeof FounderRoute
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
   PricingRoute: typeof PricingRoute
@@ -1110,6 +1123,13 @@ declare module '@tanstack/react-router' {
       path: '/gdpr'
       fullPath: '/gdpr'
       preLoaderRoute: typeof GdprRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/disclaimer': {
@@ -1672,6 +1692,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DisclaimerRoute: DisclaimerRoute,
+  FounderRoute: FounderRoute,
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
   PricingRoute: PricingRoute,
