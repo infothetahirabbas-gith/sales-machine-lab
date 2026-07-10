@@ -336,9 +336,9 @@ export default function FounderAuthorityPage() {
               <span className="inline-flex items-center gap-1.5"><Clock className="size-3.5" /> 14 min read</span>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/contact" className="btn btn-primary btn-shimmer">Book a Strategy Call <ArrowRight className="size-4" /></Link>
-              <Link to="/audit" className="btn btn-ghost">Get a Free Store Audit</Link>
+            <div className="mt-7 flex flex-row flex-nowrap gap-2 sm:gap-3">
+              <Link to="/contact" className="btn btn-primary btn-shimmer text-xs sm:text-sm whitespace-nowrap px-3 sm:px-4">Book a Strategy Call <ArrowRight className="size-4" /></Link>
+              <Link to="/audit" className="btn btn-ghost text-xs sm:text-sm whitespace-nowrap px-3 sm:px-4">Get a Free Store Audit</Link>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -652,9 +652,9 @@ export default function FounderAuthorityPage() {
                   </a>
                 ))}
               </div>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <Link to="/contact" className="btn btn-primary btn-shimmer">Book a Strategy Call <ArrowRight className="size-4" /></Link>
-                <Link to="/audit" className="btn btn-ghost">Request a Free Store Audit</Link>
+              <div className="mt-4 flex flex-row flex-nowrap gap-2 sm:gap-3">
+                <Link to="/contact" className="btn btn-primary btn-shimmer text-xs sm:text-sm whitespace-nowrap px-3 sm:px-4">Book a Strategy Call <ArrowRight className="size-4" /></Link>
+                <Link to="/audit" className="btn btn-ghost text-xs sm:text-sm whitespace-nowrap px-3 sm:px-4">Request a Free Store Audit</Link>
               </div>
             </SectionBlock>
           </article>
