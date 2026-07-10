@@ -130,20 +130,40 @@ const TOC = [
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 text-center">
+    <div className="group relative rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/30 p-5 text-center overflow-hidden hover:border-primary/50 transition-colors">
+      <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
       <div className="text-3xl md:text-4xl font-bold text-ink">{value}</div>
-      <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{label}</div>
+      <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
     </div>
   );
 }
 
-function SectionHead({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
+function SectionHead({ num, eyebrow, title, intro }: { num?: string; eyebrow: string; title: string; intro?: string }) {
   return (
-    <div className="mb-8">
-      <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{eyebrow}</div>
-      <h2 className="mt-2 text-3xl md:text-4xl font-bold text-ink leading-tight">{title}</h2>
-      {intro && <p className="mt-3 text-muted-foreground max-w-3xl">{intro}</p>}
-    </div>
+    <header className="mb-8">
+      <div className="flex items-center gap-3">
+        {num && <span className="text-[11px] font-black tracking-[0.2em] text-primary">{num}</span>}
+        <span className="h-px flex-1 max-w-16 bg-gradient-to-r from-primary/60 to-transparent" />
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{eyebrow}</span>
+      </div>
+      <h2 className="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">{title}</h2>
+      {intro && <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">{intro}</p>}
+    </header>
+  );
+}
+
+function SectionBlock({ id, tint, children }: { id: string; tint?: boolean; children: React.ReactNode }) {
+  return (
+    <section
+      id={id}
+      className={
+        tint
+          ? "relative rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-card to-card p-6 md:p-8 shadow-sm"
+          : "relative py-2"
+      }
+    >
+      {children}
+    </section>
   );
 }
 
