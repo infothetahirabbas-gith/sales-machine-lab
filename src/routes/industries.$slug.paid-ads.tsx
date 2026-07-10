@@ -156,9 +156,6 @@ function IndustryPaidAdsPage() {
               </p>
               <div className="mt-8 btn-pair">
                 <Link to="/contact" className="btn btn-primary hover-scale">Book Strategy Call <ArrowRight className="w-4 h-4" /></Link>
-                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md" aria-label={`Chat about ${ind.name} paid ads on WhatsApp`}>
-                  <WaIcon className="w-4 h-4" /> WhatsApp us
-                </a>
                 <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free Ads Audit</Link>
               </div>
               <div className="mt-6 flex items-center gap-4 text-xs text-muted-foreground">
