@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "authenticated can read gsc monitor log" ON public.gsc_monitor_log;
