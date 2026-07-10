@@ -335,6 +335,76 @@ export function articleJsonLd(opts: {
   };
 }
 
+export function courseJsonLd(opts: {
+  url: string;
+  name: string;
+  description: string;
+  about?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": `${opts.url}#course`,
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    about: opts.about,
+    provider: { "@id": ORG_ID, "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
+    inLanguage: "en-GB",
+    isAccessibleForFree: true,
+    educationalLevel: "Intermediate",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      courseWorkload: "PT2H",
+    },
+  };
+}
+
+export function howToJsonLd(opts: {
+  url: string;
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${opts.url}#howto`,
+    name: opts.name,
+    description: opts.description,
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+export function definedTermSetJsonLd(opts: {
+  url: string;
+  name: string;
+  description: string;
+  terms: { term: string; definition: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${opts.url}#termset`,
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    hasDefinedTerm: opts.terms.map((t) => ({
+      "@type": "DefinedTerm",
+      "@id": `${opts.url}#${t.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`,
+      name: t.term,
+      description: t.definition,
+      inDefinedTermSet: `${opts.url}#termset`,
+    })),
+  };
+}
+
 
 
 
