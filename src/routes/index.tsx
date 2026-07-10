@@ -176,9 +176,9 @@ function Home() {
               <div key={dash.key} className="relative rounded-xl overflow-hidden ring-1 ring-border bg-black/40">
 
                 <img
-                  src={dash.imgMd}
+                  src={dash.imgSm}
                   srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 720w, ${dash.img} 960w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 100vw"
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, (min-width: 480px) 480px, 100vw"
                   alt={dash.alt}
                   width={900}
                   height={560}
