@@ -55,9 +55,20 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Company */}
+        <div className="lg:col-span-3">
+          <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">COMPANY</div>
+          <ul className="grid gap-2.5 text-background/60">
+            {COMPANY_LINKS.map((c) => (
+              <li key={c.slug}>
+                <Link to={c.to} className="hover:text-accent transition-colors">{c.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Get in touch */}
-        <div className="lg:col-span-3 text-center lg:text-left">
-          <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">GET IN TOUCH</div>
+        <div className="lg:col-span-12 border-t border-background/15 pt-8 mt-2 grid lg:grid-cols-3 gap-6 text-center lg:text-left">
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background shrink-0" />
@@ -71,8 +82,16 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-background shrink-0 mt-0.5" />
               <span>{SITE.addressLines.map((line, i) => (<span key={line}>{line}{i < SITE.addressLines.length - 1 ? <br /> : null}</span>))}</span>
             </li>
+          </ul>
+          <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li><Link to="/contact" className="inline-flex items-center gap-1 hover:text-accent transition-colors">Book a Strategy Call <ArrowUpRight className="size-3.5" /></Link></li>
             <li><Link to="/case-studies" className="hover:text-accent transition-colors">View Case Studies →</Link></li>
+            <li><Link to="/audit" className="hover:text-accent transition-colors">Free Store Audit →</Link></li>
+          </ul>
+          <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
+            <li><Link to="/company" className="hover:text-accent transition-colors">Company hub →</Link></li>
+            <li><Link to="/company/founder" className="hover:text-accent transition-colors">Meet the founder →</Link></li>
+            <li><Link to="/company/methodology" className="hover:text-accent transition-colors">Our methodology →</Link></li>
           </ul>
         </div>
       </div>
