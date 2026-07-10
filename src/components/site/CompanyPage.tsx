@@ -258,12 +258,11 @@ export default function CompanyPage(props: CompanyPageProps) {
               const tint = i % 2 === 1;
               const SectionHead = s.heading ? (
                 <header className="mb-6 md:mb-8">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[11px] font-black tracking-[0.2em] text-primary">{num}</span>
-                    <span className="h-px flex-1 max-w-16 bg-gradient-to-r from-primary/60 to-transparent" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Section</span>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+                    <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary">Section</span>
                   </div>
-                  <h2 className="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">
+                  <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">
                     {s.heading}
                   </h2>
                   {"intro" in s && s.intro && (
