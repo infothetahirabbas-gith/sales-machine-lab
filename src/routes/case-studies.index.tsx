@@ -611,7 +611,7 @@ function CaseStudies() {
 
           {/* Transparency disclosure - EEAT */}
           <div className="mt-6 max-w-2xl mx-auto lg:mx-0 text-xs text-muted-foreground bg-secondary/40 border border-border rounded-xl p-3">
-            <strong className="text-ink">Transparency note:</strong> These examples represent the patterns and playbooks we run for real UK ecommerce brands. Brand identities are anonymised for client confidentiality, and the numbers illustrate realistic outcome ranges rather than exact per-client dashboards. For verified client references, <Link to="/contact" className="text-primary underline">contact us</Link>.
+            <strong className="text-ink">Transparency note:</strong> These examples represent the patterns and playbooks we run for real UK ecommerce brands. Brand identities are anonymised for client confidentiality, and the numbers illustrate realistic outcome ranges rather than exact per-client dashboards. Explore the full <Link to="/services" className="text-primary underline">ecommerce services</Link> we used - including <Link to="/services/paid-ads" className="text-primary underline">paid ads</Link> - or <Link to="/contact" className="text-primary underline">contact us</Link> for verified client references.
           </div>
         </div>
       </section>
@@ -704,6 +704,12 @@ function CaseStudies() {
 
 
       <CaseStudyExtras />
+
+      <section className="py-8">
+        <div className="mx-auto max-w-4xl px-5 lg:px-8 text-center text-sm text-muted-foreground">
+          Ready to build your own result? See every <Link to="/services" className="text-primary font-semibold underline">ecommerce growth service</Link> we offer, or dive into <Link to="/services/paid-ads" className="text-primary font-semibold underline">ecommerce paid ads</Link> - the engine behind most of the wins above.
+        </div>
+      </section>
 
       <CTA heading="Want your store to be the next case study?" />
 
