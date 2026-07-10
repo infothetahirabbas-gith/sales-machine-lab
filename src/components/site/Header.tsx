@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X, MapPin, Briefcase, Languages, Sparkles } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
+import { COMPANY_LINKS } from "@/config/company";
 
 
 const logo = logoAsset.url;
