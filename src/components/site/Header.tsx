@@ -343,14 +343,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <div className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 min-h-8 py-1 flex items-center justify-start gap-2 flex-wrap text-[11px] text-muted-foreground">
-          <span className="order-1 lg:order-none inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold" title="Country">
+        <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground lg:flex lg:flex-wrap lg:justify-start lg:gap-2 lg:px-8">
+          <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          <label className="order-2 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition" title="Change city">
-            <MapPin className="size-3" />
-            <span>{cityLabel}</span>
-            <ChevronDown className="size-3 opacity-60" />
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change city">
+            <MapPin className="size-3 shrink-0" />
+            <span className="min-w-0 truncate">{cityLabel}</span>
+            <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value={currentPrefs.location}
               onChange={(e) => updatePref("location", e.target.value)}
@@ -360,10 +360,10 @@ export default function Header() {
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
             </select>
           </label>
-          <label className="order-3 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition" title="Change language">
-            <Languages className="size-3" />
-            <span>{langLabel}</span>
-            <ChevronDown className="size-3 opacity-60" />
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change language">
+            <Languages className="size-3 shrink-0" />
+            <span className="min-w-0 truncate">{langLabel}</span>
+            <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value={currentPrefs.language}
               onChange={(e) => updatePref("language", e.target.value)}
@@ -373,12 +373,10 @@ export default function Header() {
               {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
             </select>
           </label>
-          {/* Mobile-only line break after Language */}
-          <div className="order-4 basis-full h-0 lg:hidden" aria-hidden="true" />
-          <label className="order-5 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition" title="Change industry">
-            <Briefcase className="size-3" />
-            <span className="truncate max-w-[140px]">{industryLabel}</span>
-            <ChevronDown className="size-3 opacity-60" />
+          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Change industry">
+            <Briefcase className="size-3 shrink-0" />
+            <span className="min-w-0 truncate lg:max-w-[140px]">{industryLabel}</span>
+            <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value={currentPrefs.industry}
               onChange={(e) => updatePref("industry", e.target.value)}
@@ -388,10 +386,10 @@ export default function Header() {
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
             </select>
           </label>
-          <label className="order-6 lg:order-none relative inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition" title="Jump to service">
-            <Sparkles className="size-3" />
-            <span className="truncate max-w-[120px]">Services</span>
-            <ChevronDown className="size-3 opacity-60" />
+          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition lg:col-auto lg:justify-start lg:gap-1.5 lg:px-3" title="Jump to service">
+            <Sparkles className="size-3 shrink-0" />
+            <span className="min-w-0 truncate lg:max-w-[120px]">Services</span>
+            <ChevronDown className="size-3 shrink-0 opacity-60" />
             <select
               value=""
               onChange={(e) => { if (e.target.value) navigate({ to: e.target.value }); }}
