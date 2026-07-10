@@ -188,8 +188,8 @@ function Home() {
 
                 <img
                   src={dash.imgSm}
-                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w, ${dash.img} 800w` : undefined}
-                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 560px, 480px"
+                  srcSet={dash.imgSm !== dash.img ? `${dash.imgSm} 480w, ${dash.imgMd} 640w` : undefined}
+                  sizes="(min-width: 1024px) 400px, (min-width: 768px) 480px, 400px"
                   alt={dash.alt}
                   width={900}
                   height={560}
