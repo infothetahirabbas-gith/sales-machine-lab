@@ -5,7 +5,7 @@ import { Section, Card, CTA } from "../components/site/Section";
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { Reveal } from "../hooks/useReveal";
-import founder from "@/assets/founder-ceo.jpg.asset.json";
+
 import { GLOBAL_STATS } from "@/lib/stats";
 
 export const Route = createFileRoute("/about")({
