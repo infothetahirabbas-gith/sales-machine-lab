@@ -110,7 +110,7 @@ export const founderAuthorityHead = () => ({
 
 export const Route = createFileRoute("/founder")({
   head: founderAuthorityHead,
-  component: FounderPage,
+  component: FounderAuthorityPage,
 });
 
 const TOC = [
