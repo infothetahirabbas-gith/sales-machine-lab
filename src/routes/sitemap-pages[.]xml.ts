@@ -20,6 +20,9 @@ const entries: SitemapEntry[] = [
   { path: "/blog", changefreq: "weekly", priority: "0.9" },
   { path: "/blog/shopify-vs-woocommerce-uk", changefreq: "monthly", priority: "0.8" },
   { path: "/blog/shopify-plus-migration-uk", changefreq: "monthly", priority: "0.8" },
+  { path: "/privacy", changefreq: "yearly", priority: "0.3" },
+  { path: "/terms", changefreq: "yearly", priority: "0.3" },
+  { path: "/cookies", changefreq: "yearly", priority: "0.3" },
 ];
 
 export const Route = createFileRoute("/sitemap-pages.xml")({
