@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Calendar, User, ArrowRight } from "lucide-react";
 import PageLayout from "./PageLayout";
-import { Section, Card, CTA } from "./Section";
+import { Section, CTA } from "./Section";
 import FaqSection from "./FaqSection";
 import { breadcrumbJsonLd, faqJsonLd, organizationJsonLd, SITE_URL, ORG_ID, ORG_INFO, ORG_KNOWS_ABOUT, TEAM, type FAQ } from "@/lib/seo";
 import { COMPANY_LINKS } from "@/config/company";
@@ -348,8 +348,6 @@ export default function CompanyPage(props: CompanyPageProps) {
                 </section>
               );
             })}
-            {/* Suppress unused import warning for Card */}
-            <span className="hidden"><Card>x</Card></span>
           </article>
         </div>
       </section>
