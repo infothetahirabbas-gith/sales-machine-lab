@@ -37,7 +37,10 @@ const org = seo.organizationJsonLd();
 for (const k of ["@context", "@type", "name", "url", "logo", "sameAs", "address", "contactPoint"]) {
   if (!(k in org)) errors.push(`Organization JSON-LD missing "${k}"`);
 }
-if (org["@type"] !== "Organization") errors.push(`Organization @type is ${org["@type"]}`);
+const orgType = org["@type"];
+const orgTypes = Array.isArray(orgType) ? orgType : [orgType];
+if (!orgTypes.includes("Organization")) errors.push(`Organization @type is ${orgType}`);
+
 
 const web = seo.websiteJsonLd();
 for (const k of ["@context", "@type", "name", "url"]) {
