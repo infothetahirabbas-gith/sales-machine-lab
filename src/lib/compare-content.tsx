@@ -514,6 +514,302 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { label: "AI Automation", to: "/services/ai-automation" },
     ],
   },
+  "shopify-plus-vs-bigcommerce": {
+    slug: "shopify-plus-vs-bigcommerce",
+    a: "Shopify Plus",
+    b: "BigCommerce Enterprise",
+    eyebrow: "Enterprise platform",
+    h1: "Shopify Plus vs BigCommerce Enterprise (2026)",
+    verdict:
+      "Shopify Plus wins for consumer DTC brands prioritising checkout conversion, app ecosystem and speed to launch. BigCommerce Enterprise wins for B2B and hybrid B2B/B2C catalogs needing native quote management, price lists and multi-storefront without heavy custom dev.",
+    bestFor: {
+      a: "Consumer DTC £2M+ scaling globally with best-in-class checkout.",
+      b: "B2B, wholesale and hybrid catalogs with complex pricing rules.",
+    },
+    rows: [
+      { criterion: "Checkout conversion", a: "Best-in-class (Shop Pay)", b: "Strong, no accelerator", winner: "a" },
+      { criterion: "Native B2B", a: "Available (Plus tier)", b: "Deeper native B2B", winner: "b" },
+      { criterion: "App ecosystem", a: "8,000+", b: "~1,200", winner: "a" },
+      { criterion: "Multi-storefront", a: "Markets (limited)", b: "Native multi-storefront", winner: "b" },
+      { criterion: "Transaction fees", a: "Yes off Shopify Payments", b: "None", winner: "b" },
+      { criterion: "Total cost of ownership", a: "Higher SaaS cost", b: "Lower for large catalogs", winner: "b" },
+      { criterion: "Speed to launch", a: "4–8 weeks", b: "6–12 weeks", winner: "a" },
+      { criterion: "Ecosystem talent pool", a: "Very deep", b: "Smaller but capable", winner: "a" },
+    ],
+    pros: {
+      a: ["Shop Pay accelerator + Shop Pay Instalments", "Deep app ecosystem for every use case", "Checkout extensibility via blocks", "Huge talent pool of Plus agencies and devs"],
+      b: ["Native B2B, quote management, price lists", "Multi-storefront without extra tenancy fees", "No transaction fees regardless of processor", "Open API for headless without proprietary lock-in"],
+    },
+    cons: {
+      a: ["Transaction fees off Shopify Payments", "Multi-storefront still limited via Markets", "Enterprise pricing not public"],
+      b: ["Smaller app and agency ecosystem", "Weaker checkout conversion out of the box", "Fewer native retention/subscription options"],
+    },
+    when: {
+      a: "Consumer DTC brand scaling internationally, prioritising checkout conversion and creative-led marketing.",
+      b: "Wholesale or hybrid catalog business needing B2B pricing rules, quotes and multi-brand storefronts.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          For every consumer DTC brand we've reviewed above £2M, Shopify Plus wins on checkout,
+          ecosystem and time-to-value. The gap only closes for genuine B2B or hybrid businesses
+          where BigCommerce's native quote and pricing engine saves 6-figures of custom development.
+        </p>
+        <p>
+          Choose Plus for margin-per-order + creative velocity; choose BigCommerce for pricing
+          complexity + multi-storefront needs.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Which is cheaper?", a: "BigCommerce Enterprise typically has a lower blended TCO for large catalogs — no transaction fees, no per-storefront tenancy fees. Shopify Plus wins on ROI when checkout conversion and app velocity matter more than platform fee." },
+      { q: "Can Shopify Plus handle B2B?", a: "Yes, natively since 2023, and improving fast — but BigCommerce still leads on complex pricing rules, quotes and hybrid B2B/B2C at scale." },
+      { q: "Which is better for international?", a: "Shopify Markets is easier to set up; BigCommerce Multi-Storefront is more flexible but requires more configuration. Sub-5 markets: Plus. 10+ markets with different catalogs: BigCommerce." },
+    ],
+    meta: {
+      title: "Shopify Plus vs BigCommerce Enterprise (2026) — Full Comparison | BeingEcom",
+      description: "Shopify Plus vs BigCommerce Enterprise for scaling ecommerce brands — checkout, B2B, multi-storefront, cost and ecosystem compared by senior operators.",
+    },
+    relatedServices: [
+      { label: "Shopify development", to: "/services/store-development/shopify" },
+      { label: "Consulting", to: "/services/consulting" },
+    ],
+  },
+  "in-house-vs-agency": {
+    slug: "in-house-vs-agency",
+    a: "In-house team",
+    b: "Ecommerce agency",
+    eyebrow: "Team structure",
+    h1: "In-house team vs ecommerce agency (2026)",
+    verdict:
+      "In-house wins for the strategic leadership layer (Head of Growth, Head of Retention) and brand-critical work. A senior agency wins for specialist execution — SEO, paid, CRO, dev — where hiring one senior per discipline costs 6× more than partnering with a team that already runs them.",
+    bestFor: {
+      a: "Strategic ownership, brand voice, product decisions, roadmap.",
+      b: "Specialist execution across SEO, paid, CRO, email and development.",
+    },
+    rows: [
+      { criterion: "Cost per senior specialist", a: "£70–£120k + benefits", b: "£3–£10k/month fractional", winner: "b" },
+      { criterion: "Depth of expertise", a: "One area, deep", b: "Multiple areas, deep", winner: "b" },
+      { criterion: "Brand ownership", a: "Full", b: "Partnered", winner: "a" },
+      { criterion: "Ramp time", a: "3–6 months", b: "2–4 weeks", winner: "b" },
+      { criterion: "Loss when someone leaves", a: "Total (3–6 months)", b: "Minimal (team pod)", winner: "b" },
+      { criterion: "Alignment with business goals", a: "Highest", b: "Requires strong brief", winner: "a" },
+      { criterion: "Access to tooling", a: "You pay for it all", b: "Included", winner: "b" },
+    ],
+    pros: {
+      a: ["Full brand and IP ownership", "Deep product context over time", "Strategic decisions stay in-house", "Culture and voice control"],
+      b: ["Multiple senior specialists for less than one hire", "Zero recruitment risk", "Access to cross-brand pattern recognition", "Faster to scale up or down"],
+    },
+    cons: {
+      a: ["High fixed cost with no flexibility", "Recruitment risk and 3–6 month ramp", "Single point of failure per discipline", "Hard to keep pace with 4 platforms + 5 disciplines"],
+      b: ["Requires strong internal owner to brief and QA", "Less deep on brand nuance without time", "Contracts and dependency risk if partner is weak"],
+    },
+    when: {
+      a: "You have (or want) a Head of Growth or Head of Retention driving strategy and brief quality is high internally.",
+      b: "You need best-in-class execution across 3+ disciplines without hiring 3+ seniors, or your in-house team is stretched.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          The right structure is almost never one or the other — it's a small senior in-house team
+          owning strategy and brand, partnered with a senior agency handling specialist execution.
+          That combination beats a large in-house team on cost, and beats agency-only on brand fidelity.
+        </p>
+        <p>
+          Below £5M/year, agency-heavy usually wins on unit economics. Above £15M/year, the calculus
+          shifts back to in-house for the disciplines closest to the product.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Should I hire a Head of Growth in-house or use an agency?", a: "Hire the Head of Growth in-house — that's the strategy and brief layer. Use an agency for the specialist execution the Head of Growth then orchestrates." },
+      { q: "When does in-house become cheaper?", a: "When you can fill 40+ hours a week of specialist work in a single discipline. Below that, fractional senior agency time is nearly always cheaper on outcomes." },
+      { q: "How do I avoid getting a bad agency?", a: "Interview the senior operators, not the sales team. Ask to see three anonymised MER graphs from real clients, and reference-check with a founder who left them." },
+    ],
+    meta: {
+      title: "In-house Ecommerce Team vs Agency (2026) — Cost, Speed & Depth | BeingEcom",
+      description: "In-house ecommerce team vs agency — real cost comparison, ramp time, brand risk and the hybrid model most scaling brands actually use.",
+    },
+    relatedServices: [
+      { label: "Consulting", to: "/services/consulting" },
+      { label: "Why BeingEcom", to: "/company/why-us" },
+    ],
+  },
+  "ga4-vs-shopify-analytics": {
+    slug: "ga4-vs-shopify-analytics",
+    a: "GA4",
+    b: "Shopify Analytics",
+    eyebrow: "Analytics stack",
+    h1: "GA4 vs Shopify Analytics (2026)",
+    verdict:
+      "Shopify Analytics is the source of truth for orders and revenue; GA4 is the source of truth for behaviour, source and funnel. Every scaling Shopify brand needs both — reconciling to within 5% — plus server-side tagging on top.",
+    bestFor: {
+      a: "Behavioural, source and funnel analysis; audience building for paid.",
+      b: "Order-level revenue reporting, cohort and merchandising analysis.",
+    },
+    rows: [
+      { criterion: "Order accuracy", a: "±5–15% vs Shopify", b: "Source of truth", winner: "b" },
+      { criterion: "Traffic source detail", a: "Full UTM + channel", b: "Basic", winner: "a" },
+      { criterion: "Funnel analysis", a: "Full Enhanced Ecommerce", b: "Limited", winner: "a" },
+      { criterion: "Cohort and LTV", a: "Requires BigQuery", b: "Native", winner: "b" },
+      { criterion: "Audience export to ad platforms", a: "Yes", b: "Limited", winner: "a" },
+      { criterion: "Setup complexity", a: "High (GTM, events)", b: "Zero", winner: "b" },
+      { criterion: "Cost", a: "Free (BigQuery paid)", b: "Included", winner: "b" },
+    ],
+    pros: {
+      a: ["Deepest behavioural analysis on the market", "First-class audience export to Google/Meta", "BigQuery export for custom reporting", "Free at the standard tier"],
+      b: ["Zero setup — accurate from day one", "Native cohort and repeat-rate reporting", "Perfect order-level accuracy", "Merchandising insights out of the box"],
+    },
+    cons: {
+      a: ["Order counts drift 5–15% from Shopify", "Requires proper GTM and event setup", "Steep learning curve for non-analysts"],
+      b: ["No true funnel analysis", "Limited traffic source breakdown", "Weaker audience export", "Reports harder to customise"],
+    },
+    when: {
+      a: "Any brand running paid media or serious SEO — GA4 is non-negotiable for source and funnel visibility.",
+      b: "Any Shopify brand for order-level revenue, cohort and merchandising reporting — it's free and accurate.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          This isn't a choice. Every scaling Shopify brand runs both, plus GTM Server for signal
+          restoration to Meta and Google. Shopify Analytics tells you what sold. GA4 tells you why
+          and where from. The two together tell you what to do next.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Which should I trust for revenue?", a: "Shopify — always. GA4 is directionally correct on revenue but will always show 5–15% variance vs Shopify because of consent, ad-blockers and cross-device gaps." },
+      { q: "Do I need GA4 if I have Shopify?", a: "Yes, if you run any paid media or care about SEO. GA4 is the only place you see funnel drop-off, source attribution and cross-device journeys." },
+      { q: "What about GA4 vs Northbeam/Triple Whale?", a: "GA4 covers behavioural + free forever. Northbeam/Triple Whale add MTA, MMM and paid-media-centric dashboards — worth the cost above ~£30k/mo ad spend, but don't replace GA4 for funnel analysis." },
+    ],
+    meta: {
+      title: "GA4 vs Shopify Analytics (2026) — Which to Trust for What | BeingEcom",
+      description: "GA4 vs Shopify Analytics compared for scaling ecommerce brands — order accuracy, funnel analysis, cohort reporting and the stack every serious brand runs.",
+    },
+    relatedServices: [
+      { label: "Analytics", to: "/services/analytics" },
+      { label: "Performance marketing", to: "/services/performance-marketing" },
+    ],
+  },
+  "tiktok-ads-vs-meta-ads": {
+    slug: "tiktok-ads-vs-meta-ads",
+    a: "TikTok Ads",
+    b: "Meta Ads",
+    eyebrow: "Paid channel",
+    h1: "TikTok Ads vs Meta Ads (2026)",
+    verdict:
+      "Meta remains the profitable scaling channel for most DTC brands — mature auction, best attribution, deepest audience targeting. TikTok wins for creator-led demand generation and Gen Z brands, and now competes on ROAS when the creative pipeline is built for it.",
+    bestFor: {
+      a: "Creator-driven demand generation, Gen Z reach, viral hook testing.",
+      b: "Profitable scaling, retargeting, precise audience-led acquisition.",
+    },
+    rows: [
+      { criterion: "Attribution maturity", a: "Improving", b: "Best-in-class (CAPI + AAM)", winner: "b" },
+      { criterion: "Audience targeting depth", a: "Basic", b: "Deepest", winner: "b" },
+      { criterion: "Creator content leverage", a: "Native, unmatched", b: "Growing (Reels)", winner: "a" },
+      { criterion: "Gen Z / younger reach", a: "Highest", b: "Fair", winner: "a" },
+      { criterion: "Retargeting", a: "Limited", b: "Strong", winner: "b" },
+      { criterion: "CPMs (UK, 2026)", a: "£3–£8", b: "£8–£18", winner: "a" },
+      { criterion: "Creative volume required", a: "Very high (20+ /week)", b: "High (15+ /week)", winner: "b" },
+      { criterion: "Shop integration", a: "TikTok Shop", b: "Shop + catalog sales", winner: "b" },
+    ],
+    pros: {
+      a: ["Lowest CPMs of any major channel", "Creator content compounds organically + paid", "Fastest hook-testing environment", "TikTok Shop closes the loop for Gen Z"],
+      b: ["Advantage+ Shopping is the strongest DTC scaling product", "Deepest first-party + third-party targeting", "CAPI and Aggregated Attribution restore signal", "Retargeting still profitable at scale"],
+    },
+    cons: {
+      a: ["Weak retargeting compared to Meta", "Attribution still catching up", "Creative burnout in 5–7 days"],
+      b: ["Rising CPMs (+7% YoY)", "iOS signal loss even with CAPI", "Advantage+ can be a black box"],
+    },
+    when: {
+      a: "Product with visual demonstration value, creator-led brand, or a Gen Z audience where Meta CPMs are inefficient.",
+      b: "Any DTC brand focused on profitable scaling with existing brand equity and retargeting demand.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          The right answer for most DTC brands £250k+/year is both. Meta as the profitable scaling
+          engine, TikTok as the creative and demand-generation lab — with the best-performing TikTok
+          creators re-cut and served on Meta Reels for double coverage.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Should we start with Meta or TikTok?", a: "Meta first, in almost every case. Attribution is more mature, audiences are richer, and scaling ROAS is more predictable. Layer TikTok once Meta is profitable at your target CAC." },
+      { q: "Is TikTok Shop worth it?", a: "For Gen Z-focused, visual-demonstration-friendly categories (beauty, fashion, gadgets), yes. For considered purchases and premium brands, TikTok Shop still cannibalises DTC store margin." },
+      { q: "How much creative do we need for TikTok?", a: "20–40 new variants per week to feed the algorithm and dodge creative fatigue. Below that, TikTok performance plateaus fast." },
+    ],
+    meta: {
+      title: "TikTok Ads vs Meta Ads (2026) — ROAS, Reach & Creative Compared | BeingEcom",
+      description: "TikTok Ads vs Meta Ads for scaling DTC brands — attribution, targeting, CPMs, creator content and the portfolio structure that beats both channels alone.",
+    },
+    relatedServices: [
+      { label: "Performance marketing", to: "/services/performance-marketing" },
+      { label: "TikTok Ads", to: "/services/performance-marketing/tiktok-ads" },
+      { label: "Meta Ads", to: "/services/performance-marketing/facebook-ads" },
+    ],
+  },
+  "headless-vs-shopify-theme": {
+    slug: "headless-vs-shopify-theme",
+    a: "Headless (Hydrogen)",
+    b: "Shopify Theme (Liquid)",
+    eyebrow: "Storefront architecture",
+    h1: "Headless (Hydrogen) vs Shopify Theme (2026)",
+    verdict:
+      "Standard Shopify themes are the right answer for 95% of brands under £5M/year — faster to ship, cheaper to maintain, and modern themes now beat headless on TTFB with proper optimisation. Headless only wins for brands with real merchandising ceilings and in-house dev.",
+    bestFor: {
+      a: "£5M+ brands with in-house dev, custom merchandising, or content-heavy storefronts.",
+      b: "Every brand under £5M/year, and most above who don't need custom composition.",
+    },
+    rows: [
+      { criterion: "Time to launch", a: "12–24 weeks", b: "2–8 weeks", winner: "b" },
+      { criterion: "Build cost (UK)", a: "£60k–£250k", b: "£8k–£40k", winner: "b" },
+      { criterion: "Ongoing dev cost", a: "1–3 devs FTE", b: "Occasional agency", winner: "b" },
+      { criterion: "Performance ceiling", a: "Highest", b: "High with discipline", winner: "a" },
+      { criterion: "Design freedom", a: "Total", b: "Section + block based", winner: "a" },
+      { criterion: "Access to Shopify apps", a: "Limited/custom integration", b: "Full app ecosystem", winner: "b" },
+      { criterion: "Checkout access", a: "Shopify-hosted", b: "Shopify-hosted", winner: "tie" },
+      { criterion: "SEO risk on migration", a: "High", b: "Low", winner: "b" },
+    ],
+    pros: {
+      a: ["Best-in-class Core Web Vitals when done right", "Full design and composition freedom", "Superior content + commerce integration", "Bespoke merchandising unlocked"],
+      b: ["Fast to ship, cheap to iterate", "Full Shopify app ecosystem works out of the box", "Modern themes hit sub-2s LCP with good ops", "Zero dev headcount required to operate"],
+    },
+    cons: {
+      a: ["Requires 1–3 permanent devs", "Most Shopify apps need custom integration", "Migration risk (SEO, tracking, checkout)", "Total cost 5–10× a theme build"],
+      b: ["Design ceiling on complex merchandising", "Section builder limits some composition needs", "Performance requires disciplined ops"],
+    },
+    when: {
+      a: "£5M+/year brand with in-house dev, custom composition needs, or an SEO/content strategy that outgrows Liquid.",
+      b: "Almost every other Shopify brand — including most Plus brands under £10M/year.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          Most \"we should go headless\" conversations come from agencies who bill by the sprint, not
+          from brands with a real ceiling. The honest test: name three things a headless build would
+          let you ship next quarter that your current theme cannot. If you can't, stay on theme.
+        </p>
+        <p>
+          When you do move, migrate one high-value template at a time (PDP first, then PLP), never
+          the whole store in one release — and expect a 60–90 day SEO recovery curve.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Does headless make my site faster?", a: "Only if executed well. A modern Shopify theme with disciplined ops hits sub-2s LCP; a poorly built Hydrogen store can be slower. Speed is an ops discipline, not a platform choice." },
+      { q: "Does headless hurt SEO?", a: "Not inherently, but migrations do. Every headless project we've reviewed loses 20–40% of organic traffic in the first 60 days without a disciplined redirect map and template-by-template rollout." },
+      { q: "When is headless worth it?", a: "£5M+/year with in-house dev, custom composition needs and an SEO/content plan that outgrows Liquid. Below that, the numbers rarely justify it." },
+    ],
+    meta: {
+      title: "Headless (Hydrogen) vs Shopify Theme (2026) — Cost, Speed, SEO | BeingEcom",
+      description: "Headless Hydrogen vs Shopify Theme compared for scaling brands — real cost, ongoing dev, SEO risk, performance and the criteria that make headless worth it.",
+    },
+    relatedServices: [
+      { label: "Shopify development", to: "/services/store-development/shopify" },
+      { label: "Consulting", to: "/services/consulting" },
+    ],
+  },
 };
 
 export const COMPARE_INDEX = Object.values(COMPARE).map((c) => ({
