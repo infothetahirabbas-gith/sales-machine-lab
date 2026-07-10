@@ -32,7 +32,7 @@ export const Route = createFileRoute("/glossary")({
       {
         name: "description",
         content:
-          "The plain-English ecommerce glossary for UK Shopify & WooCommerce founders — 50+ SEO, CRO, paid media, email, analytics, platform and AI terms with real examples.",
+          "The plain-English ecommerce glossary for UK Shopify & WooCommerce founders — 100+ SEO, CRO, paid media, email, analytics, platform and AI terms with real examples.",
       },
       {
         property: "og:title",
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/glossary")({
       {
         property: "og:description",
         content:
-          "50+ plain-English definitions for SEO, CRO, paid media, email, analytics, platform and AI ecommerce terms.",
+          "100+ plain-English definitions for SEO, CRO, paid media, email, analytics, platform and AI ecommerce terms.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: GLOSSARY_URL },
