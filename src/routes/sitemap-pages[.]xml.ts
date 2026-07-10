@@ -35,6 +35,8 @@ const entries: SitemapEntry[] = [
   { path: "/compare/klaviyo-vs-mailchimp", changefreq: "monthly", priority: "0.8" },
   { path: "/compare/ai-automation-vs-manual-marketing", changefreq: "monthly", priority: "0.8" },
   { path: "/research", changefreq: "monthly", priority: "0.7" },
+  { path: "/author/tahir-abbas", changefreq: "monthly", priority: "0.8" },
+  { path: "/clients", changefreq: "monthly", priority: "0.7" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms", changefreq: "yearly", priority: "0.3" },
   { path: "/cookies", changefreq: "yearly", priority: "0.3" },
