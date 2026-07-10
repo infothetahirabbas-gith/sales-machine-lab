@@ -328,7 +328,7 @@ function LocationPage() {
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl float" />
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-accent/30 blur-3xl float-slow" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div className="text-center lg:text-left">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
                 <MapPin className="size-3.5" /> {city}, {loc.region}
@@ -349,10 +349,10 @@ function LocationPage() {
               </h1>
             </Reveal>
             <Reveal delay={2}>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl">{C.heroTagline} {loc.intro}</p>
+              <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">{C.heroTagline} {loc.intro}</p>
             </Reveal>
             <Reveal delay={2}>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link to="/contact" className="btn btn-primary btn-shimmer hover-scale">
                   Book Free {city} Strategy Call <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -363,12 +363,13 @@ function LocationPage() {
               </div>
             </Reveal>
             <Reveal delay={3}>
-              <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground flex-wrap">
+              <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground flex-wrap justify-center lg:justify-start">
                 <div className="flex items-center gap-2"><Star className="w-4 h-4 fill-primary text-primary" /> 4.9/5 rating</div>
                 <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary" /> Shopify Partner</div>
                 <div className="flex items-center gap-2"><Award className="w-4 h-4 text-primary" /> Meta Business Partner</div>
               </div>
             </Reveal>
+
           </div>
           <Reveal delay={2}>
             <div className="relative">
