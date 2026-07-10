@@ -128,15 +128,23 @@ for (const [path, required] of Object.entries(PAGES)) {
   const r = await fetch(url, { headers: { "User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" } });
   if (!r.ok) { console.error(`✗ ${path} HTTP ${r.status}`); failed++; continue; }
   const nodes = extractLd(await r.text());
-  const types = new Set(nodes.map((n) => n["@type"]));
+  const types = new Set();
+  for (const n of nodes) {
+    const t = n["@type"];
+    if (Array.isArray(t)) t.forEach((x) => types.add(x));
+    else if (t) types.add(t);
+  }
 
   const errs = [];
   for (const t of required) if (!types.has(t)) errs.push(`@type=${t} not found`);
   for (const node of nodes) {
     if (node.__parseError) { errs.push(`malformed JSON-LD: ${node.__parseError}`); continue; }
-    const fn = RR[node["@type"]];
-    if (!fn) continue;
-    for (const e of fn(node)) errs.push(`${node["@type"]}: ${e}`);
+    const nodeTypes = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+    for (const nt of nodeTypes) {
+      const fn = RR[nt];
+      if (!fn) continue;
+      for (const e of fn(node)) errs.push(`${nt}: ${e}`);
+    }
   }
 
   if (errs.length) {
