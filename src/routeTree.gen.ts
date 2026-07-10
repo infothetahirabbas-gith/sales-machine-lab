@@ -17,6 +17,7 @@ import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-loc
 import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
 import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-company[.]xml'
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
+import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as HubRouteImport } from './routes/hub'
@@ -26,6 +27,7 @@ import { Route as FounderRouteImport } from './routes/founder'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CompanyRouteImport } from './routes/company'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
@@ -36,6 +38,7 @@ import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as HubIndexRouteImport } from './routes/hub.index'
+import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -54,6 +57,7 @@ import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as HubPillarRouteImport } from './routes/hub.$pillar'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as CompareSlugRouteImport } from './routes/compare.$slug'
 import { Route as CompanyWhyUsRouteImport } from './routes/company.why-us'
 import { Route as CompanyTechnologyRouteImport } from './routes/company.technology'
 import { Route as CompanyTeamRouteImport } from './routes/company.team'
@@ -133,6 +137,11 @@ const SitemapCaseStudiesDotxmlRoute =
     path: '/sitemap-case-studies.xml',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -176,6 +185,11 @@ const CookiesRoute = CookiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyRoute = CompanyRouteImport.update({
@@ -227,6 +241,11 @@ const HubIndexRoute = HubIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => HubRoute,
+} as any)
+const CompareIndexRoute = CompareIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompareRoute,
 } as any)
 const CompanyIndexRoute = CompanyIndexRouteImport.update({
   id: '/',
@@ -319,6 +338,11 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   id: '/debug/faq-jsonld',
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CompareSlugRoute = CompareSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CompareRoute,
 } as any)
 const CompanyWhyUsRoute = CompanyWhyUsRouteImport.update({
   id: '/why-us',
@@ -524,6 +548,7 @@ export interface FileRoutesByFullPath {
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
   '/company': typeof CompanyRouteWithChildren
+  '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -533,6 +558,7 @@ export interface FileRoutesByFullPath {
   '/hub': typeof HubRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -560,6 +586,7 @@ export interface FileRoutesByFullPath {
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
+  '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -578,6 +605,7 @@ export interface FileRoutesByFullPath {
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/compare/': typeof CompareIndexRoute
   '/hub/': typeof HubIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -614,6 +642,7 @@ export interface FileRoutesByTo {
   '/glossary': typeof GlossaryRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -641,6 +670,7 @@ export interface FileRoutesByTo {
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
+  '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -659,6 +689,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/company': typeof CompanyIndexRoute
+  '/compare': typeof CompareIndexRoute
   '/hub': typeof HubIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
@@ -690,6 +721,7 @@ export interface FileRoutesById {
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
   '/company': typeof CompanyRouteWithChildren
+  '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -699,6 +731,7 @@ export interface FileRoutesById {
   '/hub': typeof HubRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/research': typeof ResearchRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -726,6 +759,7 @@ export interface FileRoutesById {
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
   '/company/why-us': typeof CompanyWhyUsRoute
+  '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/hub/$pillar': typeof HubPillarRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
@@ -744,6 +778,7 @@ export interface FileRoutesById {
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
+  '/compare/': typeof CompareIndexRoute
   '/hub/': typeof HubIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
@@ -776,6 +811,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/blog'
     | '/company'
+    | '/compare'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -785,6 +821,7 @@ export interface FileRouteTypes {
     | '/hub'
     | '/pricing'
     | '/privacy'
+    | '/research'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -812,6 +849,7 @@ export interface FileRouteTypes {
     | '/company/team'
     | '/company/technology'
     | '/company/why-us'
+    | '/compare/$slug'
     | '/debug/faq-jsonld'
     | '/hub/$pillar'
     | '/industries/$slug'
@@ -830,6 +868,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/case-studies/'
     | '/company/'
+    | '/compare/'
     | '/hub/'
     | '/industries/'
     | '/locations/'
@@ -866,6 +905,7 @@ export interface FileRouteTypes {
     | '/glossary'
     | '/pricing'
     | '/privacy'
+    | '/research'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -893,6 +933,7 @@ export interface FileRouteTypes {
     | '/company/team'
     | '/company/technology'
     | '/company/why-us'
+    | '/compare/$slug'
     | '/debug/faq-jsonld'
     | '/hub/$pillar'
     | '/industries/$slug'
@@ -911,6 +952,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/case-studies'
     | '/company'
+    | '/compare'
     | '/hub'
     | '/industries'
     | '/locations'
@@ -941,6 +983,7 @@ export interface FileRouteTypes {
     | '/audit'
     | '/blog'
     | '/company'
+    | '/compare'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -950,6 +993,7 @@ export interface FileRouteTypes {
     | '/hub'
     | '/pricing'
     | '/privacy'
+    | '/research'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -977,6 +1021,7 @@ export interface FileRouteTypes {
     | '/company/team'
     | '/company/technology'
     | '/company/why-us'
+    | '/compare/$slug'
     | '/debug/faq-jsonld'
     | '/hub/$pillar'
     | '/industries/$slug'
@@ -995,6 +1040,7 @@ export interface FileRouteTypes {
     | '/blog/'
     | '/case-studies/'
     | '/company/'
+    | '/compare/'
     | '/hub/'
     | '/industries/'
     | '/locations/'
@@ -1026,6 +1072,7 @@ export interface RootRouteChildren {
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
   CompanyRoute: typeof CompanyRouteWithChildren
+  CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
@@ -1035,6 +1082,7 @@ export interface RootRouteChildren {
   HubRoute: typeof HubRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  ResearchRoute: typeof ResearchRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
   SitemapCompanyDotxmlRoute: typeof SitemapCompanyDotxmlRoute
   SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
@@ -1128,6 +1176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapCaseStudiesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -1189,6 +1244,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/company': {
@@ -1260,6 +1322,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/hub/'
       preLoaderRoute: typeof HubIndexRouteImport
       parentRoute: typeof HubRoute
+    }
+    '/compare/': {
+      id: '/compare/'
+      path: '/'
+      fullPath: '/compare/'
+      preLoaderRoute: typeof CompareIndexRouteImport
+      parentRoute: typeof CompareRoute
     }
     '/company/': {
       id: '/company/'
@@ -1386,6 +1455,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/debug/faq-jsonld'
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/compare/$slug': {
+      id: '/compare/$slug'
+      path: '/$slug'
+      fullPath: '/compare/$slug'
+      preLoaderRoute: typeof CompareSlugRouteImport
+      parentRoute: typeof CompareRoute
     }
     '/company/why-us': {
       id: '/company/why-us'
@@ -1700,6 +1776,19 @@ const CompanyRouteChildren: CompanyRouteChildren = {
 const CompanyRouteWithChildren =
   CompanyRoute._addFileChildren(CompanyRouteChildren)
 
+interface CompareRouteChildren {
+  CompareSlugRoute: typeof CompareSlugRoute
+  CompareIndexRoute: typeof CompareIndexRoute
+}
+
+const CompareRouteChildren: CompareRouteChildren = {
+  CompareSlugRoute: CompareSlugRoute,
+  CompareIndexRoute: CompareIndexRoute,
+}
+
+const CompareRouteWithChildren =
+  CompareRoute._addFileChildren(CompareRouteChildren)
+
 interface HubRouteChildren {
   HubPillarRoute: typeof HubPillarRoute
   HubIndexRoute: typeof HubIndexRoute
@@ -1800,6 +1889,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
   CompanyRoute: CompanyRouteWithChildren,
+  CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DisclaimerRoute: DisclaimerRoute,
@@ -1809,6 +1899,7 @@ const rootRouteChildren: RootRouteChildren = {
   HubRoute: HubRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  ResearchRoute: ResearchRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
   SitemapCompanyDotxmlRoute: SitemapCompanyDotxmlRoute,
   SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
@@ -1847,13 +1938,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
