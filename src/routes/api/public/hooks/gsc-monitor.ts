@@ -49,8 +49,8 @@ export const Route = createFileRoute('/api/public/hooks/gsc-monitor')({
         }
 
         const errors: string[] = []
-        const sitemapReport: Record<string, unknown>[] = []
-        const pageReport: Record<string, unknown>[] = []
+        const sitemapReport: any[] = []
+        const pageReport: any[] = []
 
         // Sitemaps
         for (const sm of SITEMAPS) {
