@@ -124,9 +124,9 @@ const TOC = [
   { id: "vision", label: "The BeingEcom Vision" },
   { id: "achievements", label: "Featured Achievements" },
   { id: "methodology", label: "Founder Methodology" },
-  { id: "trust", label: "Trust & E-E-A-T" },
-  { id: "entity", label: "Entity SEO Signals" },
-  { id: "ai-overview", label: "AI Overview Summary" },
+  { id: "trust", label: "Why trust this profile" },
+  { id: "entity", label: "At a glance" },
+  { id: "ai-overview", label: "The short version" },
   { id: "media", label: "Speaking & Media" },
   { id: "personal", label: "Personal Insights" },
   { id: "articles", label: "Featured Articles" },
@@ -523,47 +523,51 @@ export default function FounderAuthorityPage() {
 
             {/* Trust */}
             <SectionBlock id="trust">
-              <SectionHead num={sectionNum("trust")} eyebrow="Trust & E-E-A-T" title="Why this founder profile is verifiable" intro="The page is built to support human trust and machine-readable authority signals without exaggeration." />
-              <div className="grid gap-3">
+              <SectionHead num={sectionNum("trust")} eyebrow="Why you can trust this profile" title="Experience, expertise, authority and trust" intro="Four commitments that shape how this page is written — and how BeingEcom operates day to day." />
+              <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  "Experience: written from direct ecommerce operating work across Shopify, WooCommerce, paid media, CRO, SEO and retention.",
-                  "Expertise: clear discipline coverage, named methods, transparent metrics and concrete commercial decision rules.",
-                  "Authoritativeness: Tahir Abbas is connected to BeingEcom, the leadership team, services, methodology and public company pages.",
-                  "Trustworthiness: contact details, founder identity, client-fit boundaries, FAQ answers and structured data are consistent across the site.",
-                ].map((item) => (
-                  <div key={item} className="grid grid-cols-[auto_minmax(0,1fr)] gap-3 rounded-xl border border-border bg-card p-4">
-                    <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />
-                    <p className="min-w-0 text-sm leading-relaxed text-foreground/90">{item}</p>
+                  { k: "Experience", body: "Every claim on this page is written from hands-on ecommerce operating work — building Shopify and WooCommerce stores, running paid media, shipping CRO tests and owning retention programmes for real brands." },
+                  { k: "Expertise", body: "Clear coverage across SEO, paid, CRO, email, analytics and AI automation — with named methods, transparent metrics and the same commercial decision rules we use internally." },
+                  { k: "Authority", body: "Tahir Abbas leads BeingEcom and is publicly connected to the leadership team, services, methodology and case studies you can browse across the site." },
+                  { k: "Trust", body: "Real contact details, an identifiable founder, honest client-fit boundaries and consistent answers in the FAQ — no anonymous claims, no inflated numbers." },
+                ].map(({ k, body }) => (
+                  <div key={k} className="rounded-2xl border border-border bg-card p-5">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="size-5 text-primary" />
+                      <h3 className="font-semibold text-ink">{k}</h3>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 ))}
               </div>
             </SectionBlock>
 
-            {/* Entity SEO */}
+            {/* Entity / At a glance */}
             <SectionBlock id="entity" tint>
-              <SectionHead num={sectionNum("entity")} eyebrow="Entity SEO Signals" title="How search engines should understand Tahir Abbas" intro="This section states the entity relationships clearly for Google, AI search engines and knowledge graph systems." />
-              <div className="overflow-hidden rounded-2xl border border-border bg-card">
+              <SectionHead num={sectionNum("entity")} eyebrow="At a glance" title="Who Tahir Abbas is, in one view" intro="A quick reference of role, company, focus areas and how everything connects — so you can size up fit in under a minute." />
+              <div className="grid gap-4 md:grid-cols-2">
                 {[
-                  ["Person", "Tahir Abbas — Founder & CEO, ecommerce growth operator based in London, United Kingdom."],
-                  ["Organization", "BeingEcom — UK ecommerce growth agency for Shopify and WooCommerce brands."],
-                  ["worksFor", "Tahir Abbas works for and leads BeingEcom as Founder & CEO."],
-                  ["knowsAbout", "Ecommerce SEO, paid advertising, CRO, AI automation, analytics, Shopify, WooCommerce, email marketing and digital marketing."],
-                  ["sameAs", "Professional and brand social profiles are connected through the Person and Organization structured data."],
-                ].map(([label, value]) => (
-                  <div key={label} className="grid gap-1 border-b border-border p-4 last:border-b-0 sm:grid-cols-[150px_1fr]">
-                    <div className="text-xs font-bold uppercase tracking-widest text-primary">{label}</div>
-                    <div className="text-sm leading-relaxed text-foreground/90">{value}</div>
+                  { label: "Role", value: "Founder & CEO of BeingEcom — hands-on across strategy, growth and client outcomes." },
+                  { label: "Based in", value: "London, United Kingdom. Working with brands across the UK, EU, US and Australia." },
+                  { label: "Company", value: "BeingEcom — a senior ecommerce growth team for Shopify and WooCommerce brands." },
+                  { label: "Focus areas", value: "Ecommerce SEO, paid advertising, CRO, analytics, email & SMS, AI automation." },
+                  { label: "Works with", value: "DTC founders and operators scaling from £30k to £1m+ in monthly revenue." },
+                  { label: "Measured by", value: "MER, contribution margin and long-term customer value — not vanity metrics." },
+                ].map(({ label, value }) => (
+                  <div key={label} className="rounded-2xl border border-border bg-card p-5">
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{label}</div>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/90">{value}</p>
                   </div>
                 ))}
               </div>
             </SectionBlock>
 
-            {/* AI Overview */}
+            {/* Short summary */}
             <SectionBlock id="ai-overview">
-              <SectionHead num={sectionNum("ai-overview")} eyebrow="AI Overview Summary" title="Short answer for AI search and answer engines" intro="A concise, quotable summary for Google AI Overview, ChatGPT, Gemini, Claude, Perplexity and Copilot." />
-              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
-                <p className="text-lg leading-relaxed text-ink">
-                  Tahir Abbas is the founder and CEO of BeingEcom, a UK ecommerce growth agency focused on Shopify and WooCommerce brands. His work combines ecommerce SEO, paid advertising, CRO, analytics, email marketing and AI automation into revenue-first growth systems measured by MER, contribution margin and long-term customer value.
+              <SectionHead num={sectionNum("ai-overview")} eyebrow="In one paragraph" title="The short version" intro="If you only read one section — this is who Tahir is and what he does." />
+              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+                <p className="text-lg leading-relaxed text-ink sm:text-xl">
+                  <span className="font-semibold text-primary">Tahir Abbas</span> is the founder and CEO of BeingEcom, a UK ecommerce growth agency for Shopify and WooCommerce brands. He combines <span className="font-medium text-ink">SEO, paid advertising, CRO, analytics, email marketing and AI automation</span> into revenue-first growth systems — measured by <span className="font-medium text-ink">MER, contribution margin and long-term customer value</span>, not vanity metrics.
                 </p>
               </div>
             </SectionBlock>
