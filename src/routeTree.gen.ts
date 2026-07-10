@@ -45,9 +45,15 @@ import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-a
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
+import { Route as CompanyWhyUsRouteImport } from './routes/company.why-us'
+import { Route as CompanyTechnologyRouteImport } from './routes/company.technology'
 import { Route as CompanyTeamRouteImport } from './routes/company.team'
+import { Route as CompanySuccessStoriesRouteImport } from './routes/company.success-stories'
+import { Route as CompanyReviewsRouteImport } from './routes/company.reviews'
 import { Route as CompanyMethodologyRouteImport } from './routes/company.methodology'
+import { Route as CompanyIndustriesRouteImport } from './routes/company.industries'
 import { Route as CompanyFounderRouteImport } from './routes/company.founder'
+import { Route as CompanyCertificationsRouteImport } from './routes/company.certifications'
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -256,9 +262,29 @@ const DebugFaqJsonldRoute = DebugFaqJsonldRouteImport.update({
   path: '/debug/faq-jsonld',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompanyWhyUsRoute = CompanyWhyUsRouteImport.update({
+  id: '/why-us',
+  path: '/why-us',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyTechnologyRoute = CompanyTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyTeamRoute = CompanyTeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanySuccessStoriesRoute = CompanySuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyReviewsRoute = CompanyReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
   getParentRoute: () => CompanyRoute,
 } as any)
 const CompanyMethodologyRoute = CompanyMethodologyRouteImport.update({
@@ -266,9 +292,19 @@ const CompanyMethodologyRoute = CompanyMethodologyRouteImport.update({
   path: '/methodology',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyIndustriesRoute = CompanyIndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyFounderRoute = CompanyFounderRouteImport.update({
   id: '/founder',
   path: '/founder',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyCertificationsRoute = CompanyCertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
   getParentRoute: () => CompanyRoute,
 } as any)
 const CompanyCareersRoute = CompanyCareersRouteImport.update({
@@ -427,9 +463,15 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
   '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
   '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -491,9 +533,15 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
   '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
   '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -557,9 +605,15 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
+  '/company/certifications': typeof CompanyCertificationsRoute
   '/company/founder': typeof CompanyFounderRoute
+  '/company/industries': typeof CompanyIndustriesRoute
   '/company/methodology': typeof CompanyMethodologyRoute
+  '/company/reviews': typeof CompanyReviewsRoute
+  '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
+  '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-us': typeof CompanyWhyUsRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
   '/industries/$slug': typeof IndustriesSlugRouteWithChildren
   '/locations/$slug': typeof LocationsSlugRoute
@@ -624,9 +678,15 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
+    | '/company/certifications'
     | '/company/founder'
+    | '/company/industries'
     | '/company/methodology'
+    | '/company/reviews'
+    | '/company/success-stories'
     | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -688,9 +748,15 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
+    | '/company/certifications'
     | '/company/founder'
+    | '/company/industries'
     | '/company/methodology'
+    | '/company/reviews'
+    | '/company/success-stories'
     | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -753,9 +819,15 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
+    | '/company/certifications'
     | '/company/founder'
+    | '/company/industries'
     | '/company/methodology'
+    | '/company/reviews'
+    | '/company/success-stories'
     | '/company/team'
+    | '/company/technology'
+    | '/company/why-us'
     | '/debug/faq-jsonld'
     | '/industries/$slug'
     | '/locations/$slug'
@@ -1094,11 +1166,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DebugFaqJsonldRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/company/why-us': {
+      id: '/company/why-us'
+      path: '/why-us'
+      fullPath: '/company/why-us'
+      preLoaderRoute: typeof CompanyWhyUsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/technology': {
+      id: '/company/technology'
+      path: '/technology'
+      fullPath: '/company/technology'
+      preLoaderRoute: typeof CompanyTechnologyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/team': {
       id: '/company/team'
       path: '/team'
       fullPath: '/company/team'
       preLoaderRoute: typeof CompanyTeamRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/success-stories': {
+      id: '/company/success-stories'
+      path: '/success-stories'
+      fullPath: '/company/success-stories'
+      preLoaderRoute: typeof CompanySuccessStoriesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/reviews': {
+      id: '/company/reviews'
+      path: '/reviews'
+      fullPath: '/company/reviews'
+      preLoaderRoute: typeof CompanyReviewsRouteImport
       parentRoute: typeof CompanyRoute
     }
     '/company/methodology': {
@@ -1108,11 +1208,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyMethodologyRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/industries': {
+      id: '/company/industries'
+      path: '/industries'
+      fullPath: '/company/industries'
+      preLoaderRoute: typeof CompanyIndustriesRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/founder': {
       id: '/company/founder'
       path: '/founder'
       fullPath: '/company/founder'
       preLoaderRoute: typeof CompanyFounderRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/certifications': {
+      id: '/company/certifications'
+      path: '/certifications'
+      fullPath: '/company/certifications'
+      preLoaderRoute: typeof CompanyCertificationsRouteImport
       parentRoute: typeof CompanyRoute
     }
     '/company/careers': {
@@ -1300,16 +1414,28 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface CompanyRouteChildren {
   CompanyCareersRoute: typeof CompanyCareersRoute
+  CompanyCertificationsRoute: typeof CompanyCertificationsRoute
   CompanyFounderRoute: typeof CompanyFounderRoute
+  CompanyIndustriesRoute: typeof CompanyIndustriesRoute
   CompanyMethodologyRoute: typeof CompanyMethodologyRoute
+  CompanyReviewsRoute: typeof CompanyReviewsRoute
+  CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
   CompanyTeamRoute: typeof CompanyTeamRoute
+  CompanyTechnologyRoute: typeof CompanyTechnologyRoute
+  CompanyWhyUsRoute: typeof CompanyWhyUsRoute
 }
 
 const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyCareersRoute: CompanyCareersRoute,
+  CompanyCertificationsRoute: CompanyCertificationsRoute,
   CompanyFounderRoute: CompanyFounderRoute,
+  CompanyIndustriesRoute: CompanyIndustriesRoute,
   CompanyMethodologyRoute: CompanyMethodologyRoute,
+  CompanyReviewsRoute: CompanyReviewsRoute,
+  CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
   CompanyTeamRoute: CompanyTeamRoute,
+  CompanyTechnologyRoute: CompanyTechnologyRoute,
+  CompanyWhyUsRoute: CompanyWhyUsRoute,
 }
 
 const CompanyRouteWithChildren =
