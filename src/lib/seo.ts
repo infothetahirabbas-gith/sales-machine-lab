@@ -152,6 +152,7 @@ export const TEAM: TeamMember[] = [
     sameAs: [
       "https://www.linkedin.com/in/muhammad-tahir-abbas-05443a221/",
       "https://www.facebook.com/profile.php?id=61574710097043",
+      "https://www.instagram.com/tahir_abbas_shah/",
       "https://x.com/beingecom",
     ],
     initials: "TA",
