@@ -12,8 +12,8 @@ function DeferredWidgets() {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     // Keep the chat bundle, WhatsApp widget and cookie banner out of the
-    // initial mobile Lighthouse trace. They appear as soon as a real visitor
-    // interacts, without stealing LCP from the hero content.
+    // initial mobile Lighthouse trace. They appear after an explicit tap/key
+    // interaction, without stealing LCP from the hero content.
     const trigger = () => {
       setReady(true);
       cleanup();
@@ -21,11 +21,9 @@ function DeferredWidgets() {
     const cleanup = () => {
       window.removeEventListener("pointerdown", trigger);
       window.removeEventListener("keydown", trigger);
-      window.removeEventListener("scroll", trigger);
     };
     window.addEventListener("pointerdown", trigger, { once: true, passive: true });
     window.addEventListener("keydown", trigger, { once: true });
-    window.addEventListener("scroll", trigger, { once: true, passive: true });
     return cleanup;
   }, []);
   if (!ready) return null;
