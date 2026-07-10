@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Calendar, User, ArrowRight } from "lucide-react";
 import PageLayout from "./PageLayout";
-import { Section, Card, CTA } from "./Section";
+import { Section, CTA } from "./Section";
 import FaqSection from "./FaqSection";
 import { breadcrumbJsonLd, faqJsonLd, organizationJsonLd, SITE_URL, ORG_ID, ORG_INFO, ORG_KNOWS_ABOUT, TEAM, type FAQ } from "@/lib/seo";
 import { COMPANY_LINKS } from "@/config/company";
@@ -251,95 +251,100 @@ export default function CompanyPage(props: CompanyPageProps) {
             </div>
           </aside>
 
-          <article className="min-w-0 max-w-none space-y-14">
+          <article className="min-w-0 max-w-none space-y-16 md:space-y-20">
             {allSections.map((s, i) => {
               const id = s.id ?? `s-${i}`;
-              if (s.type === "paragraph") {
-                return (
-                  <div key={id} id={id}>
-                    {s.heading && <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">{s.heading}</h2>}
-                    <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">{s.body}</div>
+              const num = String(i + 1).padStart(2, "0");
+              const tint = i % 2 === 1;
+              const SectionHead = s.heading ? (
+                <header className="mb-6 md:mb-8">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+                    <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary">Section</span>
                   </div>
-                );
-              }
-              if (s.type === "list") {
-                return (
-                  <div key={id} id={id}>
-                    {s.heading && <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">{s.heading}</h2>}
-                    {s.intro && <p className="text-muted-foreground mb-5">{s.intro}</p>}
-                    <ul className="grid gap-3">
+                  <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">
+                    {s.heading}
+                  </h2>
+                  {"intro" in s && s.intro && (
+                    <p className="mt-3 text-base text-muted-foreground max-w-3xl leading-relaxed">{s.intro}</p>
+                  )}
+                </header>
+              ) : null;
+
+              const wrapClass = tint
+                ? "relative rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-card to-card p-6 md:p-8 shadow-sm"
+                : "relative py-2";
+
+              return (
+                <section key={id} id={id} className={wrapClass}>
+                  {SectionHead}
+                  {s.type === "paragraph" && (
+                    <div className="prose-body text-foreground/85 leading-relaxed space-y-4 text-base md:text-[17px]">
+                      {s.body}
+                    </div>
+                  )}
+                  {s.type === "list" && (
+                    <ul className="grid sm:grid-cols-2 gap-3">
                       {s.items.map((it, k) => (
-                        <li key={k} className="flex gap-3 items-start">
-                          <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
-                          <span className="text-foreground/90">{it}</span>
+                        <li key={k} className="flex gap-3 items-start rounded-xl border border-border/70 bg-card/60 p-4 hover:border-primary/40 transition-colors">
+                          <span className="mt-1 flex size-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-[10px] font-bold text-primary">
+                            {String(k + 1).padStart(2, "0")}
+                          </span>
+                          <span className="text-sm text-foreground/90 leading-relaxed">{it}</span>
                         </li>
                       ))}
                     </ul>
-                  </div>
-                );
-              }
-              if (s.type === "cards") {
-                return (
-                  <div key={id} id={id}>
-                    {s.heading && <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">{s.heading}</h2>}
-                    {s.intro && <p className="text-muted-foreground mb-6">{s.intro}</p>}
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  )}
+                  {s.type === "cards" && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {s.items.map((it, k) => {
                         const inner = (
-                          <>
-                            <h3 className="font-semibold text-ink">{it.title}</h3>
-                            <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{it.body}</p>
+                          <div className="group h-full rounded-2xl border border-border bg-card p-5 hover:border-primary/60 hover:shadow-lg transition-all relative overflow-hidden">
+                            <span className="absolute top-0 left-0 h-1 w-12 bg-gradient-to-r from-primary to-primary/40 rounded-br-lg" />
+                            <div className="flex items-baseline gap-2">
+                              <span className="text-[10px] font-bold text-primary/70 tracking-widest">{String(k + 1).padStart(2, "0")}</span>
+                              <h3 className="font-semibold text-ink text-[15px] leading-snug">{it.title}</h3>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{it.body}</p>
                             {it.to && (
-                              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all">
                                 Explore <ArrowRight className="size-3" />
                               </span>
                             )}
-                          </>
+                          </div>
                         );
                         return it.to ? (
-                          <Link key={k} to={it.to} className="card-surface p-5 rounded-2xl block hover:border-primary/50 transition-colors">{inner}</Link>
+                          <Link key={k} to={it.to} className="block h-full">{inner}</Link>
                         ) : (
-                          <Card key={k} className="rounded-2xl">{inner}</Card>
+                          <div key={k} className="h-full">{inner}</div>
                         );
                       })}
                     </div>
-                  </div>
-                );
-              }
-              if (s.type === "table") {
-                return (
-                  <div key={id} id={id}>
-                    {s.heading && <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">{s.heading}</h2>}
-                    {s.intro && <p className="text-muted-foreground mb-5">{s.intro}</p>}
-                    <div className="overflow-x-auto rounded-2xl border border-border">
+                  )}
+                  {s.type === "table" && (
+                    <div className="overflow-x-auto rounded-2xl border border-border bg-card">
                       <table className="w-full text-sm">
-                        <thead className="bg-secondary/50 text-left">
+                        <thead className="bg-gradient-to-r from-primary/10 via-secondary/40 to-transparent text-left">
                           <tr>
                             {s.columns.map((c) => (
-                              <th key={c} className="px-4 py-3 font-semibold text-ink whitespace-nowrap">{c}</th>
+                              <th key={c} className="px-4 py-3 font-semibold text-ink whitespace-nowrap text-[13px] uppercase tracking-wider">{c}</th>
                             ))}
                           </tr>
                         </thead>
                         <tbody>
                           {s.rows.map((r, ri) => (
-                            <tr key={ri} className="border-t border-border">
+                            <tr key={ri} className="border-t border-border hover:bg-secondary/30 transition-colors">
                               {r.map((cell, ci) => (
-                                <td key={ci} className="px-4 py-3 text-muted-foreground align-top">{cell}</td>
+                                <td key={ci} className="px-4 py-3 text-foreground/85 align-top">{cell}</td>
                               ))}
                             </tr>
                           ))}
                         </tbody>
                       </table>
                     </div>
-                  </div>
-                );
-              }
-              // custom
-              return (
-                <div key={id} id={id}>
-                  {s.heading && <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">{s.heading}</h2>}
-                  {s.render()}
-                </div>
+                  )}
+                  {s.type === "custom" && s.render()}
+                </section>
               );
             })}
           </article>

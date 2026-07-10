@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Calendar, User, ArrowRight, Award, Briefcase, Rocket, Target, Sparkles, GraduationCap, TrendingUp, Users, Globe, Zap, BookOpen, Quote, Mail, Linkedin, Twitter, Facebook, Instagram, Youtube, CheckCircle2 } from "lucide-react";
 import PageLayout from "@/components/site/PageLayout";
@@ -130,20 +131,39 @@ const TOC = [
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 text-center">
+    <div className="group relative rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/30 p-5 text-center overflow-hidden hover:border-primary/50 transition-colors">
+      <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
       <div className="text-3xl md:text-4xl font-bold text-ink">{value}</div>
-      <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{label}</div>
+      <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-2">{label}</div>
     </div>
   );
 }
 
-function SectionHead({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
+function SectionHead({ num, eyebrow, title, intro }: { num?: string; eyebrow: string; title: string; intro?: string }) {
   return (
-    <div className="mb-8">
-      <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{eyebrow}</div>
-      <h2 className="mt-2 text-3xl md:text-4xl font-bold text-ink leading-tight">{title}</h2>
-      {intro && <p className="mt-3 text-muted-foreground max-w-3xl">{intro}</p>}
-    </div>
+    <header className="mb-6 md:mb-8">
+      <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1">
+        {num && <span className="text-[11px] font-black tracking-widest text-primary">{num}</span>}
+        <span className="text-[11px] font-bold uppercase tracking-widest text-primary">{eyebrow}</span>
+      </div>
+      <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-ink leading-[1.15] tracking-tight">{title}</h2>
+      {intro && <p className="mt-3 text-muted-foreground max-w-3xl leading-relaxed">{intro}</p>}
+    </header>
+  );
+}
+
+function SectionBlock({ id, tint, children }: { id: string; tint?: boolean; children: ReactNode }) {
+  return (
+    <section
+      id={id}
+      className={
+        tint
+          ? "relative rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-card to-card p-6 md:p-8 shadow-sm"
+          : "relative py-2"
+      }
+    >
+      {children}
+    </section>
   );
 }
 
@@ -354,17 +374,17 @@ function FounderPage() {
 
           <article className="min-w-0 space-y-20">
             {/* Introduction */}
-            <div id="intro">
+            <SectionBlock id="intro">
               <SectionHead eyebrow="Introduction" title="An ecommerce operator, not a marketer with a deck" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
                 <p>I&apos;m <span className="text-ink font-semibold">Tahir Abbas</span> — founder and CEO of <Link to="/" className="text-primary underline">BeingEcom</Link>, a UK ecommerce growth agency built for Shopify and WooCommerce brands that want senior operators, not account managers reading from a slide deck.</p>
                 <p>For more than a decade I&apos;ve lived inside ecommerce: as a DTC store owner learning unit economics the hard way, as a growth lead scaling brands past their first £1M, as head of performance for a group running an 8-figure paid media P&amp;L, and today as the operator who signs off every 90-day growth plan BeingEcom ships.</p>
                 <p>My mission is simple — help ambitious ecommerce brands compound revenue through <span className="text-ink font-semibold">SEO, paid advertising, conversion rate optimisation, email &amp; SMS, and AI automation</span>, all measured against contribution margin instead of vanity metrics. That&apos;s the reason BeingEcom exists, and it&apos;s the reason clients stay.</p>
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Story */}
-            <div id="story">
+            <SectionBlock id="story" tint>
               <SectionHead eyebrow="My Story" title="From a first Shopify store to a senior-only agency" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
                 <p>The story started in 2013 with a single Shopify store, £300 in Facebook ad spend, and no idea what CAC payback meant. Within a year I&apos;d learned two things the hard way: <span className="text-ink font-semibold">every metric that matters lives on the P&amp;L</span>, and every metric that doesn&apos;t is a distraction sold by someone with a course to push.</p>
@@ -372,10 +392,10 @@ function FounderPage() {
                 <p>Along the way I ran migrations between Shopify and WooCommerce, rebuilt technical SEO from the schema up, wrote Klaviyo flows that outperformed the acquisition channel that fed them, and — from 2023 — started building AI automations that compressed a week of reporting into a morning.</p>
                 <p>In 2024 I founded BeingEcom with a single rule: <span className="text-ink font-semibold">no junior operates unsupervised on a client account, ever</span>. That constraint shaped the pod model, the pricing, the 90-day engagement and everything you see on this site today.</p>
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Timeline */}
-            <div id="timeline">
+            <SectionBlock id="timeline">
               <SectionHead eyebrow="Professional Journey" title="A decade of ecommerce operating experience" intro="The milestones that shaped BeingEcom&apos;s revenue-first, senior-only playbook." />
               <ol className="relative border-l border-border ml-4 space-y-8">
                 {timeline.map((t) => (
@@ -387,10 +407,10 @@ function FounderPage() {
                   </li>
                 ))}
               </ol>
-            </div>
+            </SectionBlock>
 
             {/* Expertise */}
-            <div id="expertise">
+            <SectionBlock id="expertise" tint>
               <SectionHead eyebrow="Areas of Expertise" title="The disciplines I personally lead" intro="Every engagement I sign off on touches at least four of these — because ecommerce is a system, not a channel." />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {expertise.map((e) => (
@@ -403,18 +423,18 @@ function FounderPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Experience stats */}
-            <div id="experience">
+            <SectionBlock id="experience">
               <SectionHead eyebrow="Experience by the Numbers" title="A decade, condensed" intro="Cumulative across independent operating, agency-side leadership and BeingEcom client work." />
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {stats.map((s) => <Stat key={s.label} value={s.value} label={s.label} />)}
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Certifications */}
-            <div id="certifications">
+            <SectionBlock id="certifications" tint>
               <SectionHead eyebrow="Certifications & Continuous Learning" title="Trained, certified, and always studying" intro="A partial list — the philosophy behind it matters more than the badges." />
               <div className="grid sm:grid-cols-2 gap-3">
                 {certifications.map((c) => (
@@ -432,10 +452,10 @@ function FounderPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Philosophy */}
-            <div id="philosophy">
+            <SectionBlock id="philosophy">
               <SectionHead eyebrow="Founder Philosophy" title="What I believe about ecommerce" />
               <div className="grid sm:grid-cols-2 gap-4">
                 {philosophy.map((p) => (
@@ -454,20 +474,20 @@ function FounderPage() {
                 </p>
                 <div className="mt-4 pl-8 text-sm text-muted-foreground">— Tahir Abbas, Founder &amp; CEO</div>
               </blockquote>
-            </div>
+            </SectionBlock>
 
             {/* Vision */}
-            <div id="vision">
+            <SectionBlock id="vision" tint>
               <SectionHead eyebrow="The BeingEcom Vision" title="Where BeingEcom is going" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
                 <p><span className="text-ink font-semibold">BeingEcom exists</span> to give ecommerce brands the senior operating team every founder wishes they could hire in-house — without the 12-month lock-ins, the junior account managers or the reporting theatre that most agencies charge for.</p>
                 <p>Over the next three years we&apos;re expanding the operator-pod model across the UK, US, Ireland, Australia and Europe, deepening our AI automation stack, and publishing more of the internal methodology openly so ecommerce founders can raise their own standards — whether they hire us or not.</p>
                 <p>The long-term vision is simple: become the <span className="text-ink font-semibold">most trusted, most transparent, most technically capable ecommerce growth partner</span> for founder-led DTC brands scaling from £1M to £25M.</p>
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Achievements */}
-            <div id="achievements">
+            <SectionBlock id="achievements">
               <SectionHead eyebrow="Featured Achievements" title="Milestones worth naming" />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {achievements.map((a) => (
@@ -480,10 +500,10 @@ function FounderPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Media */}
-            <div id="media">
+            <SectionBlock id="media" tint>
               <SectionHead eyebrow="Speaking, Interviews & Media" title="Talks, podcasts and guest features" intro="A rolling record — updated as new appearances are confirmed." />
               <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
                 <div>
@@ -499,10 +519,10 @@ function FounderPage() {
                   Press or podcast enquiry? Email <a href="mailto:info@beingecom.com" className="text-primary underline">info@beingecom.com</a> with your outlet, audience and format.
                 </div>
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Personal insights */}
-            <div id="personal">
+            <SectionBlock id="personal">
               <SectionHead eyebrow="Personal Insights" title="The habits, books and principles behind the work" />
               <ul className="grid gap-3">
                 {insights.map((i) => (
@@ -512,10 +532,10 @@ function FounderPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </SectionBlock>
 
             {/* Articles */}
-            <div id="articles">
+            <SectionBlock id="articles" tint>
               <SectionHead eyebrow="Featured Articles" title="Written by Tahir Abbas" intro="Selected long-form pieces — the same thinking that shapes every client engagement." />
               <div className="grid sm:grid-cols-2 gap-4">
                 {articles.map((a) => (
@@ -526,10 +546,10 @@ function FounderPage() {
                   </Link>
                 ))}
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Testimonials */}
-            <div id="testimonials">
+            <SectionBlock id="testimonials">
               <SectionHead eyebrow="Testimonials" title="What clients say about working with Tahir" />
               <div className="grid sm:grid-cols-2 gap-4">
                 {testimonials.map((t) => (
@@ -543,10 +563,10 @@ function FounderPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </SectionBlock>
 
             {/* Connect */}
-            <div id="connect">
+            <SectionBlock id="connect" tint>
               <SectionHead eyebrow="Connect" title="Reach out to Tahir directly" intro="For strategy calls, press enquiries, podcasts or speaking invitations." />
               <div className="grid sm:grid-cols-3 gap-3">
                 {socials.map((s) => (
@@ -566,7 +586,7 @@ function FounderPage() {
                 <Link to="/contact" className="btn btn-primary btn-shimmer">Book a Strategy Call <ArrowRight className="size-4" /></Link>
                 <Link to="/audit" className="btn btn-ghost">Request a Free Store Audit</Link>
               </div>
-            </div>
+            </SectionBlock>
           </article>
         </div>
       </section>
