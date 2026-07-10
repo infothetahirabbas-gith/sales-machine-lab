@@ -106,7 +106,7 @@ const faqs: FAQ[] = [
   },
   {
     q: "How can I contact the author?",
-    a: "Directly via info@beingecom.com or on LinkedIn at linkedin.com/in/tahirabbas. For a strategy discussion about your own brand, book a call through the BeingEcom contact page.",
+    a: "Directly via info@beingecom.com or on LinkedIn at linkedin.com/in/muhammad-tahir-abbas-05443a221. For a strategy discussion about your own brand, book a call through the BeingEcom contact page.",
   },
 ];
 
@@ -214,7 +214,7 @@ function AuthorPage() {
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
-                  href="https://www.linkedin.com/in/tahirabbas"
+                  href="https://www.linkedin.com/in/muhammad-tahir-abbas-05443a221/"
                   className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
                 >
                   <Linkedin className="w-4 h-4" /> LinkedIn

@@ -150,7 +150,7 @@ export const TEAM: TeamMember[] = [
       "Ecommerce SEO", "Conversion rate optimisation", "AI automation", "Klaviyo",
     ],
     sameAs: [
-      "https://www.linkedin.com/in/tahirabbas",
+      "https://www.linkedin.com/in/muhammad-tahir-abbas-05443a221/",
       "https://x.com/beingecom",
     ],
     initials: "TA",
