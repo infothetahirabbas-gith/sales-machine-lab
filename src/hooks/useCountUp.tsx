@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 /**
  * Parses values like "+192%", "1.9× → 3.6×", "$48M+", "4.8/5", "120+", "$48,200"
