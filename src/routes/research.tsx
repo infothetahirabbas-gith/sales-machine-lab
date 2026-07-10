@@ -25,6 +25,41 @@ const REPORTS = [
     summary:
       "Blended MER, CAC and contribution margin by category across 200 UK DTC brands running both Meta and Google.",
   },
+  {
+    slug: "shopify-cro-benchmark-2026",
+    status: "Data collection",
+    title: "Shopify CRO Benchmark Report 2026",
+    summary:
+      "PDP conversion rate, cart-to-checkout and checkout completion benchmarks across 300 UK Shopify stores — by category, price point and device.",
+  },
+  {
+    slug: "ecommerce-ai-adoption-2026",
+    status: "Planning",
+    title: "Ecommerce AI Adoption Report 2026",
+    summary:
+      "How UK DTC brands are actually using AI — reporting, creative, support, SEO — with time-saved, revenue-lift and governance patterns from 150 operators.",
+  },
+  {
+    slug: "klaviyo-email-benchmark-2026",
+    status: "Planning",
+    title: "Klaviyo Email & SMS Benchmark 2026",
+    summary:
+      "Flow revenue share, deliverability, unsubscribe rate and revenue per recipient across 400 UK Shopify + Klaviyo senders.",
+  },
+  {
+    slug: "uk-ecommerce-seo-state-2026",
+    status: "Data collection",
+    title: "State of UK Ecommerce SEO 2026",
+    summary:
+      "AI Overview coverage, featured snippet share, indexation health and organic revenue mix across the top 1,000 UK ecommerce domains.",
+  },
+  {
+    slug: "shopify-vs-woo-tco-2026",
+    status: "Planning",
+    title: "Shopify vs WooCommerce TCO Study (UK, 2026)",
+    summary:
+      "True total cost of ownership — platform, apps, hosting, dev, agency — across 250 UK brands running each platform at £30k–£3M/month.",
+  },
 ];
 
 export const Route = createFileRoute("/research")({
