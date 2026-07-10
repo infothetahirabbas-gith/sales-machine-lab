@@ -282,15 +282,15 @@ export default function FounderAuthorityPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden pt-6 pb-16 lg:pt-10 lg:pb-24">
+      <section className="relative overflow-hidden pt-6 pb-12 lg:pt-10 lg:pb-20">
         <div className="absolute inset-0 -z-10 grid-bg opacity-40" />
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/15 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-accent/30 blur-3xl" />
 
-        <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[360px_1fr] gap-10 lg:gap-16 items-center">
-          <div className="relative mx-auto lg:mx-0">
-            <div className="absolute -inset-6 bg-gradient-to-tr from-primary/25 to-accent/40 blur-3xl rounded-full" />
-            <div className="relative rounded-[2.5rem] overflow-hidden border border-border shadow-2xl bg-card w-72 h-80 md:w-80 md:h-96">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8 grid md:grid-cols-[260px_1fr] lg:grid-cols-[340px_1fr] gap-8 lg:gap-16 items-center">
+          <div className="relative order-2 md:order-1 mx-auto md:mx-0">
+            <div className="absolute -inset-5 bg-gradient-to-tr from-primary/25 to-accent/40 blur-3xl rounded-full" />
+            <div className="relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-border shadow-2xl bg-card w-56 h-64 sm:w-64 sm:h-72 md:w-60 md:h-72 lg:w-80 lg:h-96">
               <img
                 src={founderImg.url}
                 alt="Tahir Abbas — Founder & CEO of BeingEcom, UK ecommerce growth expert"
@@ -301,14 +301,14 @@ export default function FounderAuthorityPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-5 -right-3 card-surface px-4 py-3 shadow-xl rounded-2xl">
+            <div className="absolute -bottom-4 -right-3 card-surface px-4 py-3 shadow-xl rounded-2xl">
               <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Founder &amp; CEO</div>
               <div className="font-bold text-ink">Tahir Abbas</div>
               <div className="text-[11px] text-muted-foreground mt-0.5">London, United Kingdom</div>
             </div>
           </div>
 
-          <div>
+          <div className="order-1 md:order-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-primary">
               <span className="w-1.5 h-1.5 rounded-full bg-primary pulse-dot" /> Meet the Founder
             </div>
@@ -316,7 +316,7 @@ export default function FounderAuthorityPage() {
               Tahir Abbas
             </h1>
             <p className="mt-3 text-xl md:text-2xl text-primary font-semibold">Founder &amp; CEO of BeingEcom</p>
-            <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-5 text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Helping Shopify and WooCommerce brands scale through <span className="text-ink font-semibold">SEO, Paid Advertising, CRO, AI Automation</span> and data-driven ecommerce growth — with a decade of senior operating experience across the UK, US, Ireland and Australia.
             </p>
 
@@ -340,7 +340,7 @@ export default function FounderAuthorityPage() {
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
+            <div className="mt-7 grid grid-cols-3 gap-3 max-w-lg">
               <div className="text-center rounded-xl border border-border bg-card/50 py-3">
                 <div className="text-2xl font-bold text-ink">10+</div>
                 <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Years</div>
