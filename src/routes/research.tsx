@@ -1,0 +1,128 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import PageLayout from "@/components/site/PageLayout";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+import { ArrowRight, FileBarChart2 } from "lucide-react";
+
+const REPORTS = [
+  {
+    slug: "uk-shopify-speed-2026",
+    status: "In production",
+    title: "State of UK Shopify Store Speed 2026",
+    summary:
+      "Core Web Vitals, LCP, INP and mobile checkout speed across 500 UK Shopify stores — segmented by revenue tier and category. Publishing Q1 2026.",
+  },
+  {
+    slug: "uk-ecommerce-benchmark-2026",
+    status: "Data collection",
+    title: "UK Ecommerce Growth Benchmark 2026",
+    summary:
+      "Conversion rate, AOV, MER, RPR and email revenue share benchmarks across UK Shopify and WooCommerce brands £30k–£5M/month.",
+  },
+  {
+    slug: "meta-vs-google-uk-2026",
+    status: "Planning",
+    title: "Meta vs Google Ads Efficiency Report (UK, 2026)",
+    summary:
+      "Blended MER, CAC and contribution margin by category across 200 UK DTC brands running both Meta and Google.",
+  },
+];
+
+export const Route = createFileRoute("/research")({
+  head: () => ({
+    meta: [
+      { title: "Ecommerce Research Reports — Original UK Data | BeingEcom" },
+      {
+        name: "description",
+        content:
+          "Original ecommerce research from BeingEcom — UK Shopify speed benchmarks, growth benchmarks and paid-media efficiency reports. Data-driven, operator-authored, updated yearly.",
+      },
+      { property: "og:title", content: "Ecommerce Research Reports | BeingEcom" },
+      { property: "og:description", content: "Original UK ecommerce research and benchmark data." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/research` },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/research` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Research", path: "/research" },
+          ])
+        ),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": `${SITE_URL}/research#collection`,
+          name: "BeingEcom Ecommerce Research",
+          url: `${SITE_URL}/research`,
+          about: "Original ecommerce research and benchmark data",
+          publisher: { "@type": "Organization", name: "BeingEcom", url: SITE_URL },
+        }),
+      },
+    ],
+  }),
+  component: ResearchIndex,
+});
+
+function ResearchIndex() {
+  return (
+    <PageLayout>
+      <section className="bg-background text-foreground">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8 pt-24 pb-14 lg:pt-32 lg:pb-20">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground">
+            <FileBarChart2 className="w-3.5 h-3.5 text-primary" /> Research
+          </div>
+          <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+            Original UK ecommerce research
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
+            The industry benchmarks we needed and couldn't find, so we're building them. Every report is
+            authored by senior operators, based on real UK Shopify and WooCommerce data, and published
+            with methodology and dataset attribution.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              Contribute your store's data <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 lg:px-8 pb-24">
+        <div className="space-y-5">
+          {REPORTS.map((r) => (
+            <div key={r.slug} className="rounded-2xl border bg-card p-7">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="inline-flex items-center rounded-full bg-primary/10 text-primary text-xs font-semibold px-3 py-1">
+                  {r.status}
+                </span>
+              </div>
+              <div className="font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                {r.title}
+              </div>
+              <p className="mt-3 text-foreground/80 leading-relaxed">{r.summary}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 rounded-3xl border bg-card p-8 lg:p-10">
+          <h2 className="font-display text-2xl lg:text-3xl font-bold tracking-tight">Methodology & data ethics</h2>
+          <p className="mt-4 text-foreground/85 leading-relaxed max-w-3xl">
+            Every report publishes its sample size, collection window, category segmentation and definitions.
+            All contributing store data is anonymised at the source, aggregated, and never republished at
+            store level. Reports are released under a permissive citation licence so journalists, agencies
+            and platforms can reference the benchmarks with attribution to BeingEcom.
+          </p>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}
