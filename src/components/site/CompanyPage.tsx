@@ -238,7 +238,7 @@ export default function CompanyPage(props: CompanyPageProps) {
             <div className="sticky top-24">
               <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3">On this page</div>
               <ul className="space-y-2 text-sm">
-                {sections.filter((s) => s.heading).map((s, i) => {
+                {allSections.filter((s) => s.heading).map((s, i) => {
                   const id = s.id ?? `s-${i}`;
                   return (
                     <li key={id}>
@@ -252,7 +252,7 @@ export default function CompanyPage(props: CompanyPageProps) {
           </aside>
 
           <article className="min-w-0 max-w-none space-y-14">
-            {sections.map((s, i) => {
+            {allSections.map((s, i) => {
               const id = s.id ?? `s-${i}`;
               if (s.type === "paragraph") {
                 return (
@@ -390,6 +390,11 @@ export default function CompanyPage(props: CompanyPageProps) {
             mainEntity: faqJsonLd(faqs, canonicalPath),
           }),
         }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(kgGraph) }}
       />
       {extraJsonLd.map((obj, i) => (
         <script
