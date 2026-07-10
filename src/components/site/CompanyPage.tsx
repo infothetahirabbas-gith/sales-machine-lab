@@ -131,7 +131,7 @@ export default function CompanyPage(props: CompanyPageProps) {
     {
       type: "cards",
       id: "who-we-help",
-      heading: "Who this page is written for",
+      heading: "Brands and teams we partner with",
       items: [
         { title: "Ecommerce founders", body: "Owners of £250k–£25M/yr Shopify or WooCommerce brands who need a senior growth partner." },
         { title: "Heads of growth", body: "In-house leads who want a senior strategy layer over their existing executor team." },
