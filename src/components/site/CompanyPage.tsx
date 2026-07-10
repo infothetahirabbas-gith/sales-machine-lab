@@ -272,8 +272,8 @@ export default function CompanyPage(props: CompanyPageProps) {
               ) : null;
 
               const wrapClass = tint
-                ? "relative rounded-3xl border border-border bg-gradient-to-br from-secondary/40 via-card to-card p-6 md:p-8 shadow-sm"
-                : "relative py-2";
+                ? "relative scroll-mt-28 rounded-2xl border border-border bg-gradient-to-br from-secondary/45 via-card to-card p-6 md:p-8 shadow-sm"
+                : "relative scroll-mt-28 rounded-2xl border border-border/70 bg-background p-6 md:p-8 shadow-sm";
 
               return (
                 <section key={id} id={id} className={wrapClass}>
