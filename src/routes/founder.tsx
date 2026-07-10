@@ -368,23 +368,11 @@ export default function FounderAuthorityPage() {
         </div>
       </section>
 
-      {/* BODY with sticky TOC */}
+      {/* BODY */}
       <section className="pb-16">
-        <div className="mx-auto max-w-6xl px-5 lg:px-8 grid lg:grid-cols-[220px_1fr] gap-10">
-          <aside className="max-lg:hidden">
-            <div className="sticky top-24">
-              <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3">On this page</div>
-              <ul className="space-y-2 text-sm">
-                {TOC.map((t) => (
-                  <li key={t.id}>
-                    <a href={`#${t.id}`} className="text-muted-foreground hover:text-foreground transition-colors">{t.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <article className="min-w-0 space-y-20">
+
             {/* Introduction */}
             <SectionBlock id="intro">
               <SectionHead num={sectionNum("intro")} eyebrow="Introduction" title="An ecommerce operator, not a marketer with a deck" />
