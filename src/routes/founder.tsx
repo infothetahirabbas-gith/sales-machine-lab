@@ -272,7 +272,7 @@ export default function FounderAuthorityPage() {
   ];
 
   const socials = [
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/tahirabbas" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/muhammad-tahir-abbas-05443a221/" },
     { icon: Twitter, label: "X (Twitter)", href: "https://x.com/beingecom" },
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/beingecom" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/beingecom" },
