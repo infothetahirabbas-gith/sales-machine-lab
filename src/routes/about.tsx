@@ -5,7 +5,7 @@ import { Section, Card, CTA } from "../components/site/Section";
 import { faqJsonLd, aboutFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { Reveal } from "../hooks/useReveal";
-import founder from "@/assets/founder-ceo.jpg.asset.json";
+
 import { GLOBAL_STATS } from "@/lib/stats";
 
 export const Route = createFileRoute("/about")({
@@ -188,60 +188,38 @@ function About() {
             <h2 className="mt-5 text-3xl md:text-5xl font-bold leading-tight">Meet the Founder &amp; CEO.</h2>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative">
-                <div className="absolute -inset-6 bg-primary/15 blur-3xl rounded-full" />
-                <div className="relative rounded-[2rem] overflow-hidden border border-border shadow-2xl bg-card">
-                  <img
-                    src={founder.url}
-                    alt="Tahir Abbas, Founder & CEO of BeingEcom"
-                    width={560}
-                    height={680}
-                    loading="eager"
-                    className="w-72 h-80 md:w-[22rem] md:h-[26rem] object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-5 -right-5 card-surface px-5 py-3 shadow-xl">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">Founder &amp; CEO</div>
-                  <div className="font-bold text-ink">Tahir Abbas</div>
-                </div>
+          <div className="mx-auto max-w-3xl">
+            <div className="relative card-surface p-8 lg:p-10 rounded-3xl">
+              <Quote className="absolute -top-4 -left-4 w-12 h-12 text-primary/40" strokeWidth={1.5} />
+              <p className="text-xl md:text-2xl font-display font-semibold text-ink leading-snug">
+                "Ecommerce isn't about hacks or hype. It's about building a system where every click, every dollar of ad spend, and every customer compounds into real, profitable growth."
+              </p>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="h-0.5 w-10 bg-primary rounded-full" />
+                <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas — Founder &amp; CEO</span>
               </div>
             </div>
 
-            <div className="lg:col-span-7">
-              <div className="relative card-surface p-8 lg:p-10 rounded-3xl">
-                <Quote className="absolute -top-4 -left-4 w-12 h-12 text-primary/40" strokeWidth={1.5} />
-                <p className="text-xl md:text-2xl font-display font-semibold text-ink leading-snug">
-                  "Ecommerce isn't about hacks or hype. It's about building a system where every click, every dollar of ad spend, and every customer compounds into real, profitable growth."
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="h-0.5 w-10 bg-primary rounded-full" />
-                  <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas</span>
+            <p className="mt-6 text-muted-foreground leading-relaxed text-center">
+              Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner — one team accountable for the entire revenue engine. With a decade of hands-on experience scaling DTC brands across ads, SEO, CRO and retention, Tahir leads strategy for every flagship client engagement.
+            </p>
+
+            <div className="mt-6 grid sm:grid-cols-3 gap-3">
+              {[
+                { v: GLOBAL_STATS.storesScaled.v, l: "Brands scaled" },
+                { v: GLOBAL_STATS.trackedRevenue.v, l: "Tracked revenue" },
+                { v: "10+ yrs", l: "Ecom operating" },
+              ].map((s) => (
+                <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
+                  <div className="text-2xl font-bold text-primary">{s.v}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              <p className="mt-6 text-muted-foreground leading-relaxed">
-                Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner - one team accountable for the entire revenue engine. With years of hands-on experience scaling DTC brands across ads, SEO, CRO, and retention, Tahir leads strategy for every flagship client engagement.
-              </p>
-
-              <div className="mt-6 grid sm:grid-cols-3 gap-3">
-                {[
-                  { v: GLOBAL_STATS.storesScaled.v, l: "Brands scaled" },
-                  { v: GLOBAL_STATS.trackedRevenue.v, l: "Tracked revenue" },
-                  { v: "10+ yrs", l: "Ecom operating" },
-                ].map((s) => (
-                  <div key={s.l} className="rounded-2xl border border-border bg-card/60 p-4 text-center">
-                    <div className="text-2xl font-bold text-primary">{s.v}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/contact" className="btn btn-primary btn-shimmer">Book Strategy Call <span>→</span></Link>
-                <Link to="/case-studies" className="btn btn-ghost">See Case Studies</Link>
-              </div>
+            <div className="mt-7 flex flex-wrap gap-3 justify-center">
+              <Link to="/company/founder" className="btn btn-primary btn-shimmer">Meet the Founder <span>→</span></Link>
+              <Link to="/company/team" className="btn btn-ghost">See the Team</Link>
             </div>
           </div>
         </div>
