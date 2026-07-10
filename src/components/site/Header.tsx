@@ -794,7 +794,24 @@ export default function Header() {
             </div>
             <Link to="/audit" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Store Audit</Link>
             <Link to="/pricing" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Pricing</Link>
-            <Link to="/about" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>About</Link>
+            <div>
+              <button
+                onClick={() => setCompanyOpen(!companyOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded hover:bg-secondary"
+                aria-expanded={companyOpen}
+              >
+                <span>Company</span>
+                <span className={`transition-transform ${companyOpen ? "rotate-180" : ""}`}>▾</span>
+              </button>
+              {companyOpen && (
+                <div className="mt-1 ml-3 pl-3 border-l border-border grid gap-1">
+                  <Link to="/company" className="px-3 py-1.5 rounded text-sm font-semibold text-primary hover:bg-secondary block" onClick={() => { setOpen(false); setCompanyOpen(false); }}>Company hub</Link>
+                  {COMPANY_LINKS.map((c) => (
+                    <Link key={c.slug} to={c.to} className="px-3 py-1.5 rounded text-sm text-muted-foreground hover:bg-secondary hover:text-foreground block" onClick={() => { setOpen(false); setCompanyOpen(false); }}>{c.label}</Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link to="/contact" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Contact</Link>
           </div>
         </div>
