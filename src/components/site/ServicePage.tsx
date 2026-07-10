@@ -167,8 +167,8 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                       width={640}
                       height={480}
                       className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
-                      loading="eager"
-                      fetchPriority="high"
+                      loading="lazy"
+                      fetchPriority="low"
                       decoding="async"
                       brandOverlay
                     />

@@ -134,8 +134,8 @@ function PerformanceMarketingPage() {
                     alt="Performance marketing dashboard - blended-ROAS analytics across Meta, Google, TikTok and YouTube"
                     width={640}
                     height={480}
-                    loading="eager"
-                    fetchPriority="high"
+                    loading="lazy"
+                    fetchPriority="low"
                     decoding="async"
                     className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
                   />
