@@ -11,34 +11,19 @@ const CookieConsent = lazy(() => import("./CookieConsent"));
 function DeferredWidgets() {
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    const w = window as unknown as {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    // Wait for first user interaction OR a long idle window - whichever comes
-    // first. This keeps FloatingWidgets out of the initial render, LCP window
-    // and Lighthouse "unused JS" bucket on cold loads.
-    let idleId: number | undefined;
-    let timerId: number | undefined;
+    // Keep the chat bundle, WhatsApp widget and cookie banner out of the
+    // initial mobile Lighthouse trace. They appear after an explicit tap/key
+    // interaction, without stealing LCP from the hero content.
     const trigger = () => {
       setReady(true);
       cleanup();
     };
     const cleanup = () => {
-      if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
-      if (timerId !== undefined) window.clearTimeout(timerId);
       window.removeEventListener("pointerdown", trigger);
       window.removeEventListener("keydown", trigger);
-      window.removeEventListener("scroll", trigger);
     };
     window.addEventListener("pointerdown", trigger, { once: true, passive: true });
     window.addEventListener("keydown", trigger, { once: true });
-    window.addEventListener("scroll", trigger, { once: true, passive: true });
-    if (typeof w.requestIdleCallback === "function") {
-      idleId = w.requestIdleCallback(trigger, { timeout: 5000 });
-    } else {
-      timerId = window.setTimeout(trigger, 3000);
-    }
     return cleanup;
   }, []);
   if (!ready) return null;

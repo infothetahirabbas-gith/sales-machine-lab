@@ -96,9 +96,19 @@ function Home() {
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [dashIdx, setDashIdx] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setPhraseIdx((i) => (i + 1) % rotatingPhrases.length), 3000);
-    const id2 = setInterval(() => setDashIdx((i) => (i + 1) % dashboards.length), 3500);
-    return () => { clearInterval(id); clearInterval(id2); };
+    const mq = window.matchMedia("(min-width: 768px)");
+    if (!mq.matches) return;
+    let phraseTimer: number | undefined;
+    let dashTimer: number | undefined;
+    const startTimer = window.setTimeout(() => {
+      phraseTimer = window.setInterval(() => setPhraseIdx((i) => (i + 1) % rotatingPhrases.length), 4000);
+      dashTimer = window.setInterval(() => setDashIdx((i) => (i + 1) % dashboards.length), 4500);
+    }, 5000);
+    return () => {
+      window.clearTimeout(startTimer);
+      if (phraseTimer !== undefined) window.clearInterval(phraseTimer);
+      if (dashTimer !== undefined) window.clearInterval(dashTimer);
+    };
   }, []);
   const dash = dashboards[dashIdx];
 
@@ -111,22 +121,22 @@ function Home() {
         <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] bg-accent/25 blur-[140px] rounded-full float" />
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 text-center lg:text-left" style={{ animation: "rise 0.9s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <div className="lg:col-span-7 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Growth System
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
               <span className="block">We Help to Scale</span>
-              <span key={phraseIdx} className="block text-brand my-1 md:my-2" style={{ animation: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both", fontSize: "0.85em" }}>
+              <span key={phraseIdx} className="block text-brand my-1 md:my-2 min-h-[1.7em] md:min-h-0" style={{ fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
               <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
               BeingEcom is a UK ecommerce marketing agency for ambitious Shopify and WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO and Klaviyo email - one senior team, one revenue P&L, measurable growth from month one.
             </p>
-            <div className="mt-8 btn-pair justify-center lg:justify-start" style={{ animation: "rise 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-8 btn-pair justify-center lg:justify-start">
 
               <Link to="/contact" className="btn btn-primary btn-shimmer">
                 Book Strategy Call <span>→</span>
@@ -140,7 +150,7 @@ function Home() {
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0" style={{ animation: "rise 0.9s 0.45s cubic-bezier(0.16,1,0.3,1) both" }}>
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0">
               {HERO_STATS.map((s) => (
                 <div key={s.l}>
                   <div className="text-2xl md:text-3xl font-bold text-sky-gradient tabular-nums">{s.v}</div>
@@ -199,7 +209,7 @@ function Home() {
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {dash.metrics.map((m)=>(
-                  <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-accent/10 hover:-translate-y-0.5" style={{ animation: "rise 0.5s cubic-bezier(0.16,1,0.3,1) both" }}>
+                  <div key={`${dash.key}-${m.l}`} className="rounded-xl bg-secondary p-3 transition hover:bg-accent/10 hover:-translate-y-0.5">
                     <div className="text-xs text-muted-foreground">{m.l}</div>
                     <div className="font-bold text-ink">{m.v}</div>
                   </div>
@@ -236,23 +246,11 @@ function Home() {
                   { name: "Shogun",        slug: null,                color: "#722ED1" },
                 ]).map((b, i) => (
                   <span key={`${k}-${i}`} className="inline-flex items-center gap-3 mx-6 align-middle group">
-                    {b.slug ? (
-                      <img
-                        src={`https://cdn.simpleicons.org/${b.slug}/${b.color.replace("#","")}`}
-                        alt={`${b.name} logo`}
-                        width="24"
-                        height="24"
-                        loading="lazy"
-                        decoding="async"
-                        className="h-6 w-6 object-contain transition-transform duration-300 group-hover:scale-110"
-                      />
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="inline-block h-2.5 w-2.5 rounded-full transition-transform duration-300 group-hover:scale-125"
-                        style={{ backgroundColor: b.color }}
-                      />
-                    )}
+                    <span
+                      aria-hidden="true"
+                      className="inline-block h-2.5 w-2.5 rounded-full transition-transform duration-300 group-hover:scale-125"
+                      style={{ backgroundColor: b.color }}
+                    />
                     <span
                       className="text-base font-bold tracking-tight transition-colors"
                       style={{ color: b.color }}
