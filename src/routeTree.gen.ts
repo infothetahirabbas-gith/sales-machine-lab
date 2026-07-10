@@ -29,6 +29,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CompanyRouteImport } from './routes/company'
+import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
@@ -59,6 +60,7 @@ import { Route as HubPillarRouteImport } from './routes/hub.$pillar'
 import { Route as DebugFaqJsonldRouteImport } from './routes/debug.faq-jsonld'
 import { Route as CompareSlugRouteImport } from './routes/compare.$slug'
 import { Route as CompanyWhyUsRouteImport } from './routes/company.why-us'
+import { Route as CompanyWhyBeingecomRouteImport } from './routes/company.why-beingecom'
 import { Route as CompanyTechnologyRouteImport } from './routes/company.technology'
 import { Route as CompanyTeamRouteImport } from './routes/company.team'
 import { Route as CompanySuccessStoriesRouteImport } from './routes/company.success-stories'
@@ -74,6 +76,7 @@ import { Route as CompanyCertificationsRouteImport } from './routes/company.cert
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthorTahirAbbasRouteImport } from './routes/author.tahir-abbas'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
@@ -195,6 +198,11 @@ const CompareRoute = CompareRouteImport.update({
 const CompanyRoute = CompanyRouteImport.update({
   id: '/company',
   path: '/company',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientsRoute = ClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -349,6 +357,11 @@ const CompanyWhyUsRoute = CompanyWhyUsRouteImport.update({
   path: '/why-us',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyWhyBeingecomRoute = CompanyWhyBeingecomRouteImport.update({
+  id: '/why-beingecom',
+  path: '/why-beingecom',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyTechnologyRoute = CompanyTechnologyRouteImport.update({
   id: '/technology',
   path: '/technology',
@@ -423,6 +436,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
+} as any)
+const AuthorTahirAbbasRoute = AuthorTahirAbbasRouteImport.update({
+  id: '/author/tahir-abbas',
+  path: '/author/tahir-abbas',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
@@ -547,6 +565,7 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/clients': typeof ClientsRoute
   '/company': typeof CompanyRouteWithChildren
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
@@ -570,6 +589,7 @@ export interface FileRoutesByFullPath {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -585,6 +605,7 @@ export interface FileRoutesByFullPath {
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-beingecom': typeof CompanyWhyBeingecomRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
@@ -634,6 +655,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
+  '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -654,6 +676,7 @@ export interface FileRoutesByTo {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -669,6 +692,7 @@ export interface FileRoutesByTo {
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-beingecom': typeof CompanyWhyBeingecomRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
@@ -720,6 +744,7 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
+  '/clients': typeof ClientsRoute
   '/company': typeof CompanyRouteWithChildren
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
@@ -743,6 +768,7 @@ export interface FileRoutesById {
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -758,6 +784,7 @@ export interface FileRoutesById {
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
   '/company/technology': typeof CompanyTechnologyRoute
+  '/company/why-beingecom': typeof CompanyWhyBeingecomRoute
   '/company/why-us': typeof CompanyWhyUsRoute
   '/compare/$slug': typeof CompareSlugRoute
   '/debug/faq-jsonld': typeof DebugFaqJsonldRoute
@@ -810,6 +837,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/audit'
     | '/blog'
+    | '/clients'
     | '/company'
     | '/compare'
     | '/contact'
@@ -833,6 +861,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/author/tahir-abbas'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -848,6 +877,7 @@ export interface FileRouteTypes {
     | '/company/success-stories'
     | '/company/team'
     | '/company/technology'
+    | '/company/why-beingecom'
     | '/company/why-us'
     | '/compare/$slug'
     | '/debug/faq-jsonld'
@@ -897,6 +927,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/accessibility'
     | '/audit'
+    | '/clients'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
@@ -917,6 +948,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/author/tahir-abbas'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -932,6 +964,7 @@ export interface FileRouteTypes {
     | '/company/success-stories'
     | '/company/team'
     | '/company/technology'
+    | '/company/why-beingecom'
     | '/company/why-us'
     | '/compare/$slug'
     | '/debug/faq-jsonld'
@@ -982,6 +1015,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/audit'
     | '/blog'
+    | '/clients'
     | '/company'
     | '/compare'
     | '/contact'
@@ -1005,6 +1039,7 @@ export interface FileRouteTypes {
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
+    | '/author/tahir-abbas'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -1020,6 +1055,7 @@ export interface FileRouteTypes {
     | '/company/success-stories'
     | '/company/team'
     | '/company/technology'
+    | '/company/why-beingecom'
     | '/company/why-us'
     | '/compare/$slug'
     | '/debug/faq-jsonld'
@@ -1071,6 +1107,7 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
+  ClientsRoute: typeof ClientsRoute
   CompanyRoute: typeof CompanyRouteWithChildren
   CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -1094,6 +1131,7 @@ export interface RootRouteChildren {
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
+  AuthorTahirAbbasRoute: typeof AuthorTahirAbbasRoute
   CaseStudiesIdRoute: typeof CaseStudiesIdRoute
   DebugFaqJsonldRoute: typeof DebugFaqJsonldRoute
   IndustriesSlugRoute: typeof IndustriesSlugRouteWithChildren
@@ -1258,6 +1296,13 @@ declare module '@tanstack/react-router' {
       path: '/company'
       fullPath: '/company'
       preLoaderRoute: typeof CompanyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clients': {
+      id: '/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof ClientsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -1470,6 +1515,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyWhyUsRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/why-beingecom': {
+      id: '/company/why-beingecom'
+      path: '/why-beingecom'
+      fullPath: '/company/why-beingecom'
+      preLoaderRoute: typeof CompanyWhyBeingecomRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/technology': {
       id: '/company/technology'
       path: '/technology'
@@ -1574,6 +1626,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/author/tahir-abbas': {
+      id: '/author/tahir-abbas'
+      path: '/author/tahir-abbas'
+      fullPath: '/author/tahir-abbas'
+      preLoaderRoute: typeof AuthorTahirAbbasRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
       id: '/api/chat'
@@ -1751,6 +1810,7 @@ interface CompanyRouteChildren {
   CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
   CompanyTeamRoute: typeof CompanyTeamRoute
   CompanyTechnologyRoute: typeof CompanyTechnologyRoute
+  CompanyWhyBeingecomRoute: typeof CompanyWhyBeingecomRoute
   CompanyWhyUsRoute: typeof CompanyWhyUsRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
 }
@@ -1769,6 +1829,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
   CompanyTeamRoute: CompanyTeamRoute,
   CompanyTechnologyRoute: CompanyTechnologyRoute,
+  CompanyWhyBeingecomRoute: CompanyWhyBeingecomRoute,
   CompanyWhyUsRoute: CompanyWhyUsRoute,
   CompanyIndexRoute: CompanyIndexRoute,
 }
@@ -1888,6 +1949,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
+  ClientsRoute: ClientsRoute,
   CompanyRoute: CompanyRouteWithChildren,
   CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
@@ -1911,6 +1973,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
+  AuthorTahirAbbasRoute: AuthorTahirAbbasRoute,
   CaseStudiesIdRoute: CaseStudiesIdRoute,
   DebugFaqJsonldRoute: DebugFaqJsonldRoute,
   IndustriesSlugRoute: IndustriesSlugRouteWithChildren,

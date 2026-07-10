@@ -9,9 +9,12 @@ BeingEcom is not a generalist agency. Every engagement is ecommerce-only and rev
 - [Home](/): Overview of the BeingEcom ecommerce growth system, headline outcomes, the 4-stage operating model and primary CTAs.
 - [About](/about): Team, mission, vision, operating principles and why BeingEcom is operator-led instead of agency-led.
 - [Founder — Tahir Abbas](/company/founder): Founder & CEO — background, timeline, publications and industry positioning.
+- [Author — Tahir Abbas](/author/tahir-abbas): Author hub for pillar guides, comparisons and methodology articles authored by the founder.
 - [Team](/company/team): Leadership (Tahir Abbas — CEO, Ali Abbas — CTO, Hasnain Abbas — MD) and how pods are structured.
 - [Methodology](/company/methodology): The BeingEcom operating system — diagnosis, stabilisation, 90-day plan, weekly rhythm, quarterly step-change.
 - [Why Us](/company/why-us): The senior-only, ecommerce-only positioning and how it differs from generalist agencies.
+- [Clients & industries](/clients): 12 ecommerce categories served across the UK, US, IE and AU.
+- [Reviews & testimonials](/company/reviews): Real client testimonials with role and industry attribution.
 
 ## Knowledge Hub (pillar guides)
 
