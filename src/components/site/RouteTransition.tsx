@@ -42,12 +42,14 @@ export function RouteProgressBar() {
       style={{ opacity: visible ? 1 : 0, transition: "opacity 200ms ease" }}
     >
       <div
-        className="h-full bg-gradient-to-r from-primary via-accent to-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]"
+        className="h-full w-full origin-left bg-gradient-to-r from-primary via-accent to-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]"
         style={{
-          width: `${progress}%`,
-          transition: "width 200ms ease-out",
+          transform: `scaleX(${progress / 100})`,
+          transition: "transform 200ms ease-out",
+          willChange: "transform",
         }}
       />
+
     </div>
   );
 }
