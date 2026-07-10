@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Calendar, User, ArrowRight, Award, Briefcase, Rocket, Target, Sparkles, GraduationCap, TrendingUp, Users, Globe, Zap, BookOpen, Quote, Mail, Linkedin, Twitter, Facebook, Instagram, Youtube, CheckCircle2 } from "lucide-react";
 import PageLayout from "@/components/site/PageLayout";
