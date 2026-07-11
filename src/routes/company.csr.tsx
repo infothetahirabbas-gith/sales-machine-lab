@@ -297,6 +297,40 @@ export const Route = createFileRoute("/company/csr")({
             </>
           ),
         },
+        {
+          type: "custom",
+          id: "partner-form",
+          heading: "Request a CSR partnership or pro-bono collaboration",
+          render: () => (
+            <div className="grid md:grid-cols-[1fr_1.3fr] gap-5 items-start">
+              <div className="rounded-2xl border border-border bg-card p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+                <p className="text-ink">
+                  Send us the basics and we'll take a proper look. We review CSR requests every quarter and reply personally to every one — even the ones we can't take on directly.
+                </p>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Best fit for</h4>
+                  <ul className="mt-2 space-y-1">
+                    <li>· Registered UK charities with an ecommerce store</li>
+                    <li>· Social enterprises and B-Corps</li>
+                    <li>· Universities and community organisations</li>
+                    <li>· Mission-led DTC brands running joint campaigns</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-primary">What happens next</h4>
+                  <ol className="mt-2 space-y-1">
+                    <li>1. We confirm receipt within one working day.</li>
+                    <li>2. Shortlisted requests get a 30-minute discovery call.</li>
+                    <li>3. We match capacity every quarter and confirm scope.</li>
+                  </ol>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <CsrPartnerForm />
+              </div>
+            </div>
+          ),
+        },
       ]}
       faqs={[
         { q: "Is BeingEcom a B-Corp?", a: "Not currently. We hold ourselves to a public CSR scorecard published on this page, and we're actively evaluating certification. We'd rather earn the standard operationally first than pay for a badge." },
