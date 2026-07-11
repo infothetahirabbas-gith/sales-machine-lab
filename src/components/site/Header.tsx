@@ -463,7 +463,7 @@ export default function Header() {
 
           <Link to="/case-studies" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Case Studies</Link>
           <Link to="/audit" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Store Audit</Link>
-          <Link to="/pricing" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Pricing</Link>
+          
           <div
             className="relative py-2"
             onMouseEnter={() => openMenu("company")}
