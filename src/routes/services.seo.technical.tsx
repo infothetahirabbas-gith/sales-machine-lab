@@ -14,10 +14,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/technical")({
   head: () => ({
     meta: [
-      { title: "Technical SEO Agency UK - Ecommerce Technical SEO Services | BeingEcom" },
-      { name: "description", content: "Technical SEO for Shopify and WooCommerce in the UK. Core Web Vitals, crawl budget, faceted nav, schema and migration SEO - fixed properly." },
-      { property: "og:title", content: "Technical SEO Agency UK - Ecommerce Technical SEO Services | BeingEcom" },
-      { property: "og:description", content: "Technical SEO for Shopify and WooCommerce in the UK. Core Web Vitals, crawl budget, faceted nav, schema and migration SEO - fixed properly." },
+      { title: "Technical SEO Agency UK | Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
+      { name: "description", content: "Technical SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
+      { property: "og:title", content: "Technical SEO Agency UK | Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
+      { property: "og:description", content: "Technical SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/technical" },
       { property: "og:type", content: "website" },
     ],

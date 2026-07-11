@@ -14,10 +14,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/aeo")({
   head: () => ({
     meta: [
-      { title: "AEO / GEO Agency UK - Answer Engine Optimisation for AI Search | BeingEcom" },
-      { name: "description", content: "AEO and GEO services in the UK. Get cited in Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude with entity SEO, schema and answer-first content." },
-      { property: "og:title", content: "AEO / GEO Agency UK - Answer Engine Optimisation for AI Search | BeingEcom" },
-      { property: "og:description", content: "AEO and GEO services in the UK. Get cited in Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude with entity SEO, schema and answer-first content." },
+      { title: "AEO Agency UK | AI Search & ChatGPT Visibility | BeingEcom" },
+      { name: "description", content: "AEO Agency UK. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
+      { property: "og:title", content: "AEO Agency UK | AI Search & ChatGPT Visibility | BeingEcom" },
+      { property: "og:description", content: "AEO Agency UK. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
       { property: "og:url", content: "https://beingecom.com/services/seo/aeo" },
       { property: "og:type", content: "website" },
     ],

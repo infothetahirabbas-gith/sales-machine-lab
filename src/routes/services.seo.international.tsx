@@ -14,10 +14,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/international")({
   head: () => ({
     meta: [
-      { title: "International SEO Agency UK - Multi-Country & Multilingual SEO | BeingEcom" },
-      { name: "description", content: "International SEO for UK ecommerce brands scaling into the US, EU and beyond. Hreflang, subfolder architecture, localisation and country-level authority." },
-      { property: "og:title", content: "International SEO Agency UK - Multi-Country & Multilingual SEO | BeingEcom" },
-      { property: "og:description", content: "International SEO for UK ecommerce brands scaling into the US, EU and beyond. Hreflang, subfolder architecture, localisation and country-level authority." },
+      { title: "International SEO Agency UK | US, EU & Global Ecommerce | BeingEcom" },
+      { name: "description", content: "International SEO Agency UK scaling Shopify and WooCommerce brands into the US, EU and global markets — hreflang, technical & content SEO done properly." },
+      { property: "og:title", content: "International SEO Agency UK | US, EU & Global Ecommerce | BeingEcom" },
+      { property: "og:description", content: "International SEO Agency UK scaling Shopify and WooCommerce brands into the US, EU and global markets — hreflang, technical & content SEO done properly." },
       { property: "og:url", content: "https://beingecom.com/services/seo/international" },
       { property: "og:type", content: "website" },
     ],
