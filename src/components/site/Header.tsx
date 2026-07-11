@@ -386,7 +386,7 @@ export default function Header() {
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
             </select>
           </label>
-          <details className="group relative col-span-3 min-w-0 min-[1024px]:col-auto [&_.svc-pop]:open:block">
+          <details className="group relative col-span-3 min-w-0 min-[1024px]:col-auto">
             <summary className="list-none inline-flex w-full min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3 [&::-webkit-details-marker]:hidden">
               <Sparkles className="size-3 shrink-0" />
               <span className="min-w-0 truncate min-[1024px]:max-w-[120px]">Services</span>
