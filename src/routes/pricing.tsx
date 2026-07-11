@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Sparkles, ShieldCheck, BadgeCheck, LineChart, Clock3, Users, Globe2, Award, Lock, FileText, Headphones } from "lucide-react";
+import { Check, Minus, Sparkles, ShieldCheck, BadgeCheck, LineChart, Clock3, Users, Globe2, Award, Lock, FileText, Headphones, Quote } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
 import { faqJsonLd, breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SITE_STATS } from "../lib/stats";
+import { trackEvent, AnalyticsEvents } from "../lib/analytics";
 
 const pricingFaqs = [
   { q: "How does the onboarding process work?", a: "Once you pick a plan, you'll book a 30-minute discovery call. We audit your store, ads and analytics, then deliver a written 90-day plan tied to specific P&L lines. Access is set up in the first 5–7 days and execution starts immediately after." },
@@ -113,6 +114,59 @@ const stagesOfEngagement = [
   { n: "04", t: "Weekly execution", body: "Weekly ship reviews, weekly scorecards, monthly strategy calls. Full transparency, always." },
 ];
 
+const caseStudyHighlights = [
+  {
+    brand: "Luxe Skin Co.",
+    sector: "Beauty & Skincare · DTC",
+    plan: "Growth",
+    quote: "Inside 6 months BeingEcom rebuilt our funnel end-to-end. We finally have a growth engine instead of guesswork.",
+    author: "Priya S., Co-founder",
+    before: { label: "Monthly revenue", value: "£80K" },
+    after: { label: "Monthly revenue", value: "£330K" },
+    delta: "+312%",
+  },
+  {
+    brand: "Northline Apparel",
+    sector: "Fashion · Shopify Plus",
+    plan: "Enterprise",
+    quote: "Blended ROAS went from 1.6× to 7.7×. The creative + landing page rebuild paid for a full year of retainer in the first quarter.",
+    author: "James T., Head of Ecommerce",
+    before: { label: "Blended ROAS", value: "1.6×" },
+    after: { label: "Blended ROAS", value: "7.7×" },
+    delta: "4.8× ROAS lift",
+  },
+  {
+    brand: "Hearth & Grove",
+    sector: "Home & Living · WooCommerce",
+    plan: "Business",
+    quote: "Non-brand organic doubled in 6 months and CRO lifted PDPs to a level our in-house team couldn't hit for two years.",
+    author: "Amelia R., Founder & CEO",
+    before: { label: "Organic sessions / mo", value: "42K" },
+    after: { label: "Organic sessions / mo", value: "119K" },
+    delta: "+184% traffic",
+  },
+];
+
+type CompareRow = { feature: string; values: [string | boolean, string | boolean, string | boolean, string | boolean] };
+
+const compareRows: CompareRow[] = [
+  { feature: "Monthly investment", values: ["£500", "£1,000", "£1,500", "£2,000+"] },
+  { feature: "Initial engagement", values: ["90 days", "90 days", "90 days", "90 days"] },
+  { feature: "Dedicated account manager", values: [true, true, true, true] },
+  { feature: "Ecommerce audit & 90-day plan", values: [true, true, true, true] },
+  { feature: "Technical & on-page SEO", values: ["Setup", "Advanced", "Advanced+", "Full technical"] },
+  { feature: "Product & collection page CRO", values: ["Basic", "Ongoing", "Advanced funnel", "Unlimited CRO"] },
+  { feature: "Paid ads management", values: [false, "Meta + Google", "Meta + Google + TikTok", "Full multi-channel"] },
+  { feature: "Email & SMS (Klaviyo)", values: [false, "Email flows", "Email + SMS", "Retention system"] },
+  { feature: "Digital PR & authority", values: [false, false, true, "Campaign-led"] },
+  { feature: "Creative production", values: [false, false, "Strategy + review", "Full production mgmt"] },
+  { feature: "AI marketing automation", values: [false, false, true, "AI workflows"] },
+  { feature: "Fractional Ecommerce CMO", values: [false, false, false, true] },
+  { feature: "Strategy cadence", values: ["Monthly", "Weekly report", "Bi-weekly call", "Weekly call"] },
+  { feature: "Reporting", values: ["Monthly", "Weekly", "Executive dashboard", "Custom exec reporting"] },
+  { feature: "Support", values: ["Business hours", "Priority", "Priority", "VIP priority"] },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
@@ -186,6 +240,7 @@ function PricingPage() {
               <Link
                 to="/contact"
                 search={{ plan: t.name }}
+                onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, popular: !!t.popular })}
                 className={`mt-7 btn justify-center ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
                 aria-label={`Get started with the ${t.name} plan`}
                 data-plan={t.name}
@@ -207,6 +262,70 @@ function PricingPage() {
               <span className="text-xs font-medium text-ink/85 leading-tight">{label}</span>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* COMPARISON TABLE */}
+      <Section
+        alt
+        eyebrow="Compare plans"
+        title="See exactly what changes between tiers"
+        intro="Every row below matches the deliverables inside your monthly retainer — no asterisks, no fine print."
+      >
+        <div className="overflow-x-auto rounded-3xl border border-border bg-card/70">
+          <table className="w-full min-w-[720px] text-sm">
+            <caption className="sr-only">Comparison of BeingEcom pricing plans: Starter, Growth, Enterprise and Business.</caption>
+            <thead>
+              <tr className="border-b border-border">
+                <th scope="col" className="text-left px-4 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Feature</th>
+                {tiers.map((t) => (
+                  <th key={t.name} scope="col" className={`px-4 py-4 text-left ${t.popular ? "bg-primary/5" : ""}`}>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-ink">{t.name}</span>
+                      {t.popular && (
+                        <span className="rounded-full bg-primary px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-primary-foreground">Popular</span>
+                      )}
+                    </div>
+                    <div className="mt-1 text-xs text-muted-foreground font-normal">{t.price}<span className="opacity-70">/mo</span></div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {compareRows.map((row, ri) => (
+                <tr key={row.feature} className={ri % 2 === 0 ? "bg-transparent" : "bg-secondary/20"}>
+                  <th scope="row" className="text-left px-4 py-3 font-medium text-ink/85 align-top">{row.feature}</th>
+                  {row.values.map((v, i) => (
+                    <td key={i} className={`px-4 py-3 align-top text-ink/85 ${tiers[i].popular ? "bg-primary/5" : ""}`}>
+                      {v === true ? (
+                        <span className="inline-flex items-center gap-1.5 text-primary"><Check className="w-4 h-4" aria-label="Included" /><span className="sr-only">Included</span></span>
+                      ) : v === false ? (
+                        <span className="inline-flex items-center gap-1.5 text-muted-foreground/70"><Minus className="w-4 h-4" aria-label="Not included" /><span className="sr-only">Not included</span></span>
+                      ) : (
+                        <span>{v}</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+              <tr>
+                <td className="px-4 py-4"></td>
+                {tiers.map((t) => (
+                  <td key={t.name} className={`px-4 py-4 ${t.popular ? "bg-primary/5" : ""}`}>
+                    <Link
+                      to="/contact"
+                      search={{ plan: t.name }}
+                      onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, source: "comparison_table" })}
+                      className={`btn ${t.popular ? "btn-primary" : "btn-dark"} justify-center w-full text-xs px-3 py-2`}
+                      aria-label={`Get started with the ${t.name} plan from the comparison table`}
+                    >
+                      Choose {t.name}
+                    </Link>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
         </div>
       </Section>
 
@@ -284,6 +403,58 @@ function PricingPage() {
           </div>
         </div>
       </section>
+
+      {/* CASE STUDY HIGHLIGHTS */}
+      <Section
+        alt
+        eyebrow="Case study highlights"
+        title="Founders who picked a plan — and the numbers they shipped"
+        intro="Three recent engagements, with before/after metrics pulled straight from GA4, Shopify and ad platforms."
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {caseStudyHighlights.map((c) => (
+            <article key={c.brand} className="card-surface p-6 rounded-3xl flex flex-col">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="font-bold text-ink text-lg leading-tight">{c.brand}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">{c.sector}</p>
+                </div>
+                <span className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shrink-0">
+                  {c.plan} plan
+                </span>
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-border bg-secondary/30 px-3 py-3">
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Before</div>
+                  <div className="mt-1 text-lg font-bold text-ink/80 line-through decoration-muted-foreground/50">{c.before.value}</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{c.before.label}</div>
+                </div>
+                <div className="rounded-xl border border-primary/30 bg-primary/5 px-3 py-3">
+                  <div className="text-[10px] uppercase tracking-widest text-primary font-bold">After</div>
+                  <div className="mt-1 text-lg font-bold text-gradient">{c.after.value}</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{c.after.label}</div>
+                </div>
+              </div>
+
+              <div className="mt-3 inline-flex items-center gap-2 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                {c.delta}
+              </div>
+
+              <blockquote className="mt-5 flex-1 text-sm text-ink/85 leading-relaxed relative pl-6">
+                <Quote className="w-4 h-4 text-primary absolute left-0 top-1" aria-hidden="true" />
+                {c.quote}
+              </blockquote>
+              <footer className="mt-3 text-xs text-muted-foreground">— {c.author}</footer>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link to="/case-studies" className="btn btn-dark">See all case studies →</Link>
+          <Link to="/company/reviews" className="btn btn-ghost">Read verified reviews</Link>
+        </div>
+      </Section>
 
       <FaqSection
         faqs={pricingFaqs}

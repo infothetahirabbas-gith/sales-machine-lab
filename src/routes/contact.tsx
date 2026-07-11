@@ -5,6 +5,7 @@ import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
+import { trackEvent, AnalyticsEvents } from "../lib/analytics";
 
 
 export const Route = createFileRoute("/contact")({
@@ -65,7 +66,20 @@ function Contact() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget;
+                  const data = new FormData(form);
+                  trackEvent(AnalyticsEvents.ContactFormSubmit, { plan: plan ?? "none", has_plan: !!plan });
+                  try {
+                    trackEvent(AnalyticsEvents.ContactFormSubmitSuccess, {
+                      plan: plan ?? "none",
+                      revenue: String(data.get("revenue") ?? ""),
+                      spend: String(data.get("spend") ?? ""),
+                    });
+                  } catch { /* no-op */ }
+                  setSent(true);
+                }}
                 className="grid gap-4"
                 aria-label="Book a strategy call"
                 noValidate
