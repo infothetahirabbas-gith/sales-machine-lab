@@ -654,8 +654,9 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics - and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
+                The UK's best Ecommerce Digital Marketing Agency reviews your store, ads and analytics — and sends back a 12-point loss-recovery plan covering Ecommerce CRO Agency UK fixes, Ecommerce SEO Agency UK gaps, Ecommerce PPC Agency UK waste and Ecommerce Automation Agency UK opportunities. No pitch deck.
               </p>
+
             </div>
             <Link to="/audit" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
