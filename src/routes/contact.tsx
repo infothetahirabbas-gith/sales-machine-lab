@@ -9,6 +9,9 @@ import { SITE } from "@/config/site";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
+  validateSearch: (search: Record<string, unknown>) => ({
+    plan: typeof search.plan === "string" ? search.plan : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Contact BeingEcom UK - Free Shopify & WooCommerce Growth Audit" },
@@ -29,11 +32,17 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const { plan } = Route.useSearch();
   return (
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
+          {plan && (
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary mb-3">
+              Selected plan: {plan}
+            </div>
+          )}
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Contact</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04]">
             Get your <span className="text-gradient">free ecommerce growth audit</span>.
@@ -62,6 +71,14 @@ function Contact() {
                 noValidate
               >
                 <h3 className="text-2xl font-bold">Book Strategy Call</h3>
+                {plan && (
+                  <>
+                    <input type="hidden" name="plan" value={plan} />
+                    <div className="rounded-xl border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-ink/85">
+                      You've selected the <strong>{plan}</strong> plan. We'll pre-fill this in your enquiry — you can change it at any time on the call.
+                    </div>
+                  </>
+                )}
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div className="grid gap-1.5">
                     <label htmlFor="c-name" className="text-xs font-semibold text-ink">Full name <span className="text-destructive" aria-hidden="true">*</span></label>
@@ -94,7 +111,7 @@ function Contact() {
                 </div>
                 <div className="grid gap-1.5">
                   <label htmlFor="c-message" className="text-xs font-semibold text-ink">Where do you feel revenue is leaking?</label>
-                  <textarea id="c-message" name="message" rows={4} placeholder="e.g. checkout drop-off, ad fatigue, low repeat rate…" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                  <textarea id="c-message" name="message" rows={4} defaultValue={plan ? `I'm interested in the ${plan} plan. My current focus is: ` : ""} placeholder="e.g. checkout drop-off, ad fatigue, low repeat rate…" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
                 </div>
                 <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
                   <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
