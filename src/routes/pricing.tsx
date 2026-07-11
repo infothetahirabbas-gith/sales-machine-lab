@@ -61,7 +61,7 @@ function PricingPage() {
         title="Pricing plans built for ecommerce growth"
         intro="Pick the engagement that matches your stage - sprint, retainer, or performance partnership."
       >
-        <div className="grid md:grid-cols-3 gap-5 items-stretch">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
           {tiers.map((t) => (
             <div
               key={t.name}
