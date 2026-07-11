@@ -142,6 +142,9 @@ function Home() {
             <p className="mt-3 text-sm text-muted-foreground/90 max-w-2xl mx-auto lg:mx-0">
               Trusted Ecommerce Growth Agency UK partner · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
             </p>
+            <p className="mt-2 text-xs text-muted-foreground/80 max-w-2xl mx-auto lg:mx-0">
+              Also your Ecommerce PPC Agency UK (Meta &amp; Google Ads), Ecommerce CRO Agency UK, Shopify Ecommerce Agency UK and Ecommerce Automation Agency UK for AI workflows.
+            </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
               <Link to="/contact" className="btn btn-primary btn-shimmer">
