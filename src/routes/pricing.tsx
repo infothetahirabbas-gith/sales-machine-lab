@@ -388,6 +388,37 @@ function PricingPage() {
         </div>
       </Section>
 
+      {/* OBJECTIONS MINI-FAQ */}
+      <Section
+        eyebrow="Before you book"
+        title="Straight answers to the four questions founders always ask"
+        intro="Timeline, deliverables, onboarding and guarantees — the objections that usually sit between you and the discovery call."
+      >
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+          {objectionFaqs.map((f) => (
+            <details key={f.q} className="group rounded-2xl border border-border bg-card/70 p-5 open:border-primary/40 open:bg-primary/[0.03] transition-colors">
+              <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold" aria-hidden="true">{f.tag}</span>
+                  <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
+                </div>
+                <span className="mt-1 text-primary text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p className="mt-3 pl-9 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            to="/contact"
+            onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: "unspecified", source: "objections_faq" })}
+            className="btn btn-primary btn-shimmer"
+          >
+            Book Discovery Call →
+          </Link>
+        </div>
+      </Section>
+
       {/* CTA BAND */}
       <section className="relative py-14">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
