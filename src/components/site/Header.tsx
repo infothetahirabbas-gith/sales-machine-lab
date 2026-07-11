@@ -427,11 +427,11 @@ export default function Header() {
           </a>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 lg:h-20 flex items-center justify-between gap-2 lg:gap-6">
-        <Link to="/" className="flex items-center shrink min-w-0 max-w-[60vw] sm:max-w-none leading-none" aria-label="BeingEcom home">
-          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-10 sm:h-12 md:h-11 lg:h-14 w-auto max-w-full block object-contain" />
+      <div className="mx-auto max-w-7xl px-4 min-[900px]:px-5 lg:px-8 h-16 min-[900px]:h-20 flex items-center justify-between gap-2 min-[900px]:gap-3 xl:gap-6">
+        <Link to="/" className="flex items-center shrink min-w-0 max-w-[60vw] min-[900px]:max-w-[160px] lg:max-w-[190px] xl:max-w-none leading-none" aria-label="BeingEcom home">
+          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-10 sm:h-12 md:h-11 min-[900px]:h-12 lg:h-14 w-auto max-w-full block object-contain" />
         </Link>
-        <nav className="hidden lg:flex items-center gap-6 text-sm">
+        <nav className="hidden min-[900px]:flex items-center gap-3 xl:gap-6 text-xs xl:text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
           <div
             className="relative"
@@ -517,10 +517,10 @@ export default function Header() {
           <Link to="/contact" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Contact</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0 ml-auto">
-          <Link to="/contact" className="hidden lg:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-sm px-5 py-2.5">
+          <Link to="/contact" className="hidden xl:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-sm px-5 py-2.5">
             Book Strategy Call →
           </Link>
-           <button onClick={() => setOpen(!open)} className="lg:hidden shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
+           <button onClick={() => setOpen(!open)} className="min-[900px]:hidden shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-6" strokeWidth={2.5} /> : <Menu className="size-6" strokeWidth={2.5} />}
           </button>
         </div>
@@ -531,7 +531,7 @@ export default function Header() {
           spans the whole viewport; the trigger and this panel share hover
           intent via desktopMenu state + 220ms close delay. */}
       <div
-        className={`hidden lg:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        className={`hidden min-[900px]:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onMouseEnter={() => openMenu("services")}
         onMouseLeave={scheduleClose}
       >
@@ -581,7 +581,7 @@ export default function Header() {
         const active = industries.find((i) => i.to === activeIndustry) ?? industries[0];
         return (
       <div
-        className={`hidden lg:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        className={`hidden min-[900px]:block absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onMouseEnter={() => openMenu("industries")}
         onMouseLeave={scheduleClose}
       >
