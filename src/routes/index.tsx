@@ -274,7 +274,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
+      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK — they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -301,7 +301,7 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated ecommerce growth agency. No more disconnected teams blaming each other."
+        intro="One integrated Ecommerce Growth Agency UK — the Shopify Marketing Agency UK and WooCommerce Marketing Agency UK pods working from one plan. No more disconnected teams blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
@@ -357,7 +357,7 @@ function Home() {
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
-        intro="Drag the slider. Same store, same product, same audience - different system."
+        intro="Drag the slider. Same store, same product, same audience — different system. This is what happens when a real Ecommerce CRO Agency UK plugs into your Shopify Ecommerce Agency UK build."
       >
         <Reveal>
           <Suspense fallback={<div className="min-h-[300px]" />}>
@@ -432,6 +432,8 @@ function Home() {
         center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
+        intro="The same 3-step system our Ecommerce Marketing Agency UK runs for every Shopify and WooCommerce brand we onboard."
+
       >
         <div className="relative grid md:grid-cols-3 gap-4">
           {/* connector line */}
@@ -460,7 +462,7 @@ function Home() {
         center
         eyebrow="Stack"
         title="The tools we run on every store."
-        intro="One integrated stack - platform, paid media, analytics, and retention - wired together so revenue, spend, and LTV live in the same view."
+        intro="One integrated stack — platform, paid media, analytics, retention and Ecommerce Automation Agency UK workflows — wired together so revenue, spend and LTV live in the same view."
       >
         <div className="grid gap-5 md:grid-cols-2">
           {[
@@ -560,7 +562,8 @@ function Home() {
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
-        intro="We've scaled Shopify and WooCommerce brands across the categories UK consumers spend on most. Each vertical has its own creative playbook, SEO map and retention model."
+        intro="As a category-fluent Ecommerce Digital Marketing Agency, we've scaled Shopify and WooCommerce brands across the verticals UK consumers spend on most. Each niche gets its own Ecommerce SEO Agency UK map, creative playbook and retention model."
+
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {[
@@ -590,7 +593,7 @@ function Home() {
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
-      <Section center eyebrow="What store owners say" title="Operators. Not influencers.">
+      <Section center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK — Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
         <div className="relative overflow-hidden">
           <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
@@ -651,8 +654,9 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                UK's best ecommerce digital marketing agency reviews your store, ads, and analytics - and sends back a 12-point loss-recovery plan with CRO, SEO & paid ads recommendations. No pitch deck.
+                The UK's best Ecommerce Digital Marketing Agency reviews your store, ads and analytics — and sends back a 12-point loss-recovery plan covering Ecommerce CRO Agency UK fixes, Ecommerce SEO Agency UK gaps, Ecommerce PPC Agency UK waste and Ecommerce Automation Agency UK opportunities. No pitch deck.
               </p>
+
             </div>
             <Link to="/audit" className="relative flex shrink-0 btn btn-primary btn-shimmer">
               <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25" />
@@ -680,7 +684,7 @@ function Home() {
             <span className="hidden lg:inline">Ready to Grow? Work With the <span className="text-primary">Best Ecommerce Digital Marketing Agency UK</span></span>
           </>
         }
-        sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
+        sub="Book a free strategy call with our Shopify Ecommerce Agency UK & WooCommerce Marketing Agency UK team — plus Ecommerce PPC Agency UK, Ecommerce CRO Agency UK and Ecommerce Automation Agency UK operators. We'll show you exactly how to scale revenue and dominate AI search."
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
