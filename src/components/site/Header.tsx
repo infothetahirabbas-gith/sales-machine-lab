@@ -386,13 +386,15 @@ export default function Header() {
               {INDUSTRIES.map((i) => (<option key={i.slug} value={i.slug}>{i.name}</option>))}
             </select>
           </label>
-          <details className="relative col-span-3 min-w-0 min-[1024px]:col-auto [&[open]>div.svc-pop]:block">
+          <details className="relative col-span-3 min-w-0 min-[1024px]:col-auto services-pill">
             <summary className="list-none inline-flex w-full min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3 [&::-webkit-details-marker]:hidden">
               <Sparkles className="size-3 shrink-0" />
               <span className="min-w-0 truncate min-[1024px]:max-w-[120px]">Services</span>
-              <ChevronDown className="size-3 shrink-0 opacity-60 transition-transform group-open:rotate-180" />
+              <ChevronDown className="size-3 shrink-0 opacity-60" />
             </summary>
-            <div className="svc-pop hidden absolute z-50 left-0 mt-2 w-[min(92vw,20rem)] max-h-[70vh] overflow-auto rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_45%,transparent)]">
+            <style>{`.services-pill > .svc-pop{display:none}.services-pill[open] > .svc-pop{display:block}`}</style>
+            <div className="svc-pop absolute z-50 left-0 mt-2 w-[min(92vw,20rem)] max-h-[70vh] overflow-auto rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_45%,transparent)]">
+
               {services.map((s) => (
                 <div key={s.to} className="mb-1">
                   <Link
