@@ -522,8 +522,8 @@ export default function Header() {
           <Link to="/contact" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Contact</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0 ml-auto">
-          <Link to="/contact" className="hidden xl:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-sm px-5 py-2.5">
-            Book Strategy Call →
+          <Link to="/contact" className="hidden min-[900px]:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-xl hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-xs xl:text-sm px-4 py-2 xl:px-5 xl:py-2.5">
+            Book Meeting →
           </Link>
            <button onClick={() => setOpen(!open)} className="mobile-menu-toggle shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-6" strokeWidth={2.5} /> : <Menu className="size-6" strokeWidth={2.5} />}
