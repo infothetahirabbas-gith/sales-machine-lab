@@ -111,7 +111,7 @@ function Contact() {
                 </div>
                 <div className="grid gap-1.5">
                   <label htmlFor="c-message" className="text-xs font-semibold text-ink">Where do you feel revenue is leaking?</label>
-                  <textarea id="c-message" name="message" rows={4} placeholder="e.g. checkout drop-off, ad fatigue, low repeat rate…" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
+                  <textarea id="c-message" name="message" rows={4} defaultValue={plan ? `I'm interested in the ${plan} plan. My current focus is: ` : ""} placeholder="e.g. checkout drop-off, ad fatigue, low repeat rate…" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40" />
                 </div>
                 <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
                   <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
