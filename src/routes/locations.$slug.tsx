@@ -79,7 +79,7 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Marketing Agency in ${loc.city} | Shopify, SEO, Ads & CRO - Being Ecom`
+      ? `Ecommerce Agency ${loc.city} | Best Shopify, SEO & Ads Agency | BeingEcom`
       : "Location - Being Ecom";
     const descOverrides: Record<string, string> = {
       london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - built around real London buyer behaviour.",
@@ -92,10 +92,10 @@ export const Route = createFileRoute("/locations/$slug")({
       bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Ecommerce Marketing Agency in ${loc.city} helping Shopify and WooCommerce brands grow revenue with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - senior UK operators, transparent reporting.`)
+      ? (descOverrides[loc.slug] ?? `Best Ecommerce Agency ${loc.city} for Shopify and WooCommerce brands — Ecommerce SEO Agency ${loc.city}, Ecommerce PPC Agency ${loc.city}, Klaviyo email and CRO by senior UK operators.`)
       : "UK ecommerce marketing agency locations.";
     const kw = loc
-      ? `ecommerce marketing agency ${loc.city}, ecommerce agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ads agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, ecommerce ppc agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
+      ? `ecommerce agency ${loc.city}, best ecommerce agency ${loc.city}, ecommerce marketing agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ppc agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
       : "ecommerce marketing agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;

@@ -27,10 +27,10 @@ export const Route = createFileRoute("/industries/$slug")({
   head: ({ loaderData }) => {
     const ind = loaderData?.ind;
     const title = ind
-      ? `${ind.name} Ecommerce Agency UK | Being Ecom`
+      ? `${ind.name} Ecommerce Agency UK | Best ${ind.name} Shopify Agency | BeingEcom`
       : "Industry - Being Ecom";
     const desc = ind
-      ? `${ind.name} ecommerce growth agency in the UK. Creative, paid media, CRO and retention built specifically for ${ind.name.toLowerCase()} DTC brands scaling profitably.`
+      ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce — SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
       : "UK ecommerce agency by industry.";
     const C = ind ? industryContentFor(ind.slug, ind.name) : undefined;
     const heroImage = C?.images.hero;

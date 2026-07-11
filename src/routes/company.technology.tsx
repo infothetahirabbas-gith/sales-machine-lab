@@ -3,8 +3,8 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 import { SITE_URL } from "@/lib/seo";
 
 const SLUG = "technology";
-const TITLE = "Our Technology Stack — Tools We Use | BeingEcom";
-const DESC = "The exact stack BeingEcom runs on every ecommerce engagement — Shopify, WooCommerce, GA4, Klaviyo, Ahrefs, Semrush, Meta, Google, OpenAI, n8n and more.";
+const TITLE = "Technology Stack | Ecommerce Agency UK | BeingEcom";
+const DESC = "The technology stack behind BeingEcom, an Ecommerce Marketing Agency UK — Shopify, WooCommerce, Klaviyo, GA4, Triple Whale and the tools that scale profitably.";
 
 const STACK = [
   { group: "Ecommerce platforms",  items: [

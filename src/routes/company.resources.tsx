@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "resources";
-const TITLE = "Resources & Downloads — Ecommerce Growth Playbooks | BeingEcom";
-const DESC = "Free ecommerce growth resources — guides, checklists, SOPs, templates and playbooks published by BeingEcom for Shopify and WooCommerce operators.";
+const TITLE = "Resources | Ecommerce Growth Guides UK | BeingEcom";
+const DESC = "Free ecommerce growth resources UK — Shopify, WooCommerce, SEO, paid ads, CRO and Klaviyo email playbooks from senior operators at BeingEcom.";
 
 export const Route = createFileRoute("/company/resources")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),

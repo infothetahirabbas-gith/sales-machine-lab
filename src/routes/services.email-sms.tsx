@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
     meta: [
-      { title: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
-      { name: "description", content: "Klaviyo email & SMS flows that recover lost sales and multiply repeat customers for UK Shopify & WooCommerce brands - retention-first, not just campaigns." },
-      { property: "og:title", content: "Klaviyo Email & SMS Marketing Agency UK | BeingEcom" },
-      { property: "og:description", content: "Klaviyo email & SMS flows that recover lost sales and multiply repeat customers for UK Shopify & WooCommerce brands - retention-first, not just campaigns." },
+      { title: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
+      { name: "description", content: "Ecommerce Email Marketing Agency UK. Klaviyo flows, campaigns and SMS that drive 30–45% of monthly revenue for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
+      { property: "og:description", content: "Ecommerce Email Marketing Agency UK. Klaviyo flows, campaigns and SMS that drive 30–45% of monthly revenue for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },
       { property: "og:type", content: "website" },
     ],

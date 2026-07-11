@@ -4,8 +4,8 @@ import { SITE_URL } from "@/lib/seo";
 import { INDUSTRIES } from "@/lib/locations-industries";
 
 const SLUG = "industries";
-const TITLE = "Industries We Serve — 12 Ecommerce Verticals | BeingEcom";
-const DESC = "BeingEcom operates in 12 ecommerce verticals — fashion, beauty, health, jewellery, home, furniture, electronics, food, pets, luxury, automotive and B2B.";
+const TITLE = "Industries We Serve | Ecommerce Agency UK | BeingEcom";
+const DESC = "Ecommerce Agency UK serving fashion, beauty, wellness, supplements, jewellery, furniture, pets, food and more — niche-specific Shopify and WooCommerce growth playbooks.";
 
 const itemListLd = {
   "@context": "https://schema.org",

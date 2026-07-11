@@ -27,8 +27,8 @@ const pricingFaqs = [
   { q: "How do I get started?", a: "Pick the plan that matches your stage and click Get Started. You'll land on a booking form with your package pre-selected. We reply within one business day to schedule your discovery call." },
 ];
 
-const TITLE = "Ecommerce Agency Pricing UK — Shopify & WooCommerce Retainers | BeingEcom";
-const DESC = "Transparent ecommerce agency pricing. Four monthly retainers from £500 to £2,000+, no setup fees, no lock-ins, dedicated account manager on every plan.";
+const TITLE = "Ecommerce Marketing Agency Pricing UK | Growth Packages | BeingEcom";
+const DESC = "Transparent Ecommerce Marketing Agency pricing UK. Starter, Growth and Scale packages for Shopify and WooCommerce brands — SEO, paid ads, CRO and Klaviyo email included.";
 const URL = `${SITE_URL}/pricing`;
 
 const offersJsonLd = {

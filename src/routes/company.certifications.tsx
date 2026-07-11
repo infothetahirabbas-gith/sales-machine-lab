@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "certifications";
-const TITLE = "Certifications & Partnerships | BeingEcom";
-const DESC = "Certifications, training and platform partnerships held by the BeingEcom team — Google, Meta, Shopify, WooCommerce, HubSpot and professional memberships.";
+const TITLE = "Certifications | Certified Ecommerce Agency UK | BeingEcom";
+const DESC = "Certified Ecommerce Agency UK — Meta Business Partner, Google Partner, Klaviyo Master, TikTok Partner and GA4-certified operators working on your account.";
 
 export const Route = createFileRoute("/company/certifications")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),

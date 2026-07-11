@@ -4,8 +4,8 @@ import { SITE_URL, TEAM, personJsonLd } from "@/lib/seo";
 import founderImg from "@/assets/founder-ceo.jpg.asset.json";
 
 const SLUG = "team";
-const TITLE = "Our Team — Tahir, Ali & Hasnain Abbas | BeingEcom";
-const DESC = "Meet the BeingEcom leadership — Tahir Abbas (Founder & CEO), Ali Abbas (CTO) and Hasnain Abbas (Managing Director) — plus the senior operators, engineers and specialists behind every engagement.";
+const TITLE = "Ecommerce Experts UK | Senior Team | BeingEcom";
+const DESC = "Meet the Ecommerce Experts UK behind BeingEcom — senior Shopify, WooCommerce, SEO, paid ads, CRO and Klaviyo specialists working from one integrated pod.";
 
 const membersWithImages = TEAM.map((m) => ({
   ...m,

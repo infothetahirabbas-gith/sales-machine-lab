@@ -29,11 +29,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/media-buying")({
   head: () => ({
     meta: [
-      { title: "Media Buying Agency UK - Cross-Channel Ecommerce Media Buyers | BeingEcom" },
-      { name: "description", content: "Best media buying agency UK for Shopify and DTC ecommerce. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic - one P&L, one operator." },
+      { title: "Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
+      { name: "description", content: "Ecommerce Media Buying Agency UK. Meta, Google, TikTok and YouTube managed as one revenue P&L for Shopify and WooCommerce brands." },
       { name: "keywords", content: "media buying agency UK, ecommerce media buyer, cross-channel media buying, blended ROAS agency, MER media buying, Shopify media buying, paid media agency UK" },
-      { property: "og:title", content: "Media Buying Agency UK - Cross-Channel Ecommerce Media Buyers | BeingEcom" },
-      { property: "og:description", content: "Cross-channel media buying agency UK. Blended ROAS, MER targets and full-funnel planning across Meta, Google, TikTok and programmatic for ecommerce." },
+      { property: "og:title", content: "Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
+      { property: "og:description", content: "Ecommerce Media Buying Agency UK. Meta, Google, TikTok and YouTube managed as one revenue P&L for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/media-buying" },
     ],
     links: [

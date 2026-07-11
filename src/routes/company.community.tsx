@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "community";
-const TITLE = "Community & Events — Workshops, Webinars, Meetups | BeingEcom";
-const DESC = "Where the BeingEcom team meets the ecommerce community — workshops, live webinars, meetups, roundtables and educational sessions for Shopify and WooCommerce operators.";
+const TITLE = "Community | Ecommerce Founders UK | BeingEcom";
+const DESC = "Join the BeingEcom Ecommerce Founders Community UK — a private space for Shopify and WooCommerce operators scaling profitably.";
 
 export const Route = createFileRoute("/company/community")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),

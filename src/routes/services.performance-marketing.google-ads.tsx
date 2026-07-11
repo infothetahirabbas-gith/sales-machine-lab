@@ -29,11 +29,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/google-ads")({
   head: () => ({
     meta: [
-      { title: "Google Ads Agency UK - Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
-      { name: "description", content: "Best Google Ads agency UK for Shopify and DTC ecommerce. Google Shopping, Performance Max, Search and Merchant Center feed optimisation that turns clicks into profitable orders." },
+      { title: "Google Ads Agency for Ecommerce UK | Search, Shopping & PMax | BeingEcom" },
+      { name: "description", content: "Google Ads Agency for Ecommerce UK. Search, Shopping and Performance Max with true incrementality for Shopify and WooCommerce brands." },
       { name: "keywords", content: "Google Ads agency UK, Google Ads management UK, ecommerce PPC agency, Google Shopping agency, Performance Max agency, Shopify Google Ads, Merchant Center optimisation" },
-      { property: "og:title", content: "Google Ads Agency UK - Google Shopping, PMax & PPC for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Best Google Ads agency UK for ecommerce. Google Shopping, Performance Max and Search with feed optimisation that turns clicks into profitable orders." },
+      { property: "og:title", content: "Google Ads Agency for Ecommerce UK | Search, Shopping & PMax | BeingEcom" },
+      { property: "og:description", content: "Google Ads Agency for Ecommerce UK. Search, Shopping and Performance Max with true incrementality for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/google-ads" },
     ],
     links: [

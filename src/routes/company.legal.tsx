@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "legal";
-const TITLE = "Legal & Policies — Privacy, Terms, Cookies | BeingEcom";
-const DESC = "Every BeingEcom legal document in one place — privacy policy, terms of service, cookie policy, GDPR compliance, accessibility statement and disclaimer.";
+const TITLE = "Legal | BeingEcom Ecommerce Agency UK";
+const DESC = "BeingEcom legal information — terms of service, master services agreement and policies for an Ecommerce Marketing Agency UK.";
 
 const POLICIES = [
   { title: "Privacy Policy",         to: "/privacy",       body: "How we collect, use, store and share personal data across the site and client engagements." },

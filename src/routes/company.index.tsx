@@ -5,8 +5,8 @@ import { CTA } from "@/components/site/Section";
 import { COMPANY_LINKS } from "@/config/company";
 import { breadcrumbJsonLd, faqJsonLd, SITE_URL, type FAQ } from "@/lib/seo";
 
-const TITLE = "Company — BeingEcom | UK Ecommerce Growth Agency";
-const DESC = "Meet the team, founder, methodology, technology stack, results and policies behind BeingEcom — the UK ecommerce growth agency for Shopify and WooCommerce brands.";
+const TITLE = "Company | Ecommerce Agency UK for Shopify & Woo | BeingEcom";
+const DESC = "Inside BeingEcom — the Ecommerce Agency UK helping Shopify and WooCommerce brands scale. Meet the team, methodology, industries served and success stories.";
 const URL = `${SITE_URL}/company`;
 
 const FAQS: FAQ[] = [

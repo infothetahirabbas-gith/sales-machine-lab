@@ -15,10 +15,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/store-development/woocommerce")({
   head: () => ({
     meta: [
-      { title: "WooCommerce Development Agency UK | WordPress Ecommerce Experts | BeingEcom" },
-      { name: "description", content: "UK WooCommerce development agency. Custom WordPress stores, headless Woo, migrations and performance tuning engineered for speed, SEO and conversion." },
-      { property: "og:title", content: "WooCommerce Development Agency UK | WordPress Ecommerce Experts | BeingEcom" },
-      { property: "og:description", content: "UK WooCommerce development agency. Custom WordPress stores, headless Woo, migrations and performance tuning engineered for speed, SEO and conversion." },
+      { title: "WooCommerce Marketing Agency UK | WordPress Ecommerce | BeingEcom" },
+      { name: "description", content: "WooCommerce Marketing Agency UK building and scaling WordPress ecommerce stores with SEO, paid ads, CRO and Klaviyo email that grows profitable revenue." },
+      { property: "og:title", content: "WooCommerce Marketing Agency UK | WordPress Ecommerce | BeingEcom" },
+      { property: "og:description", content: "WooCommerce Marketing Agency UK building and scaling WordPress ecommerce stores with SEO, paid ads, CRO and Klaviyo email that grows profitable revenue." },
       { property: "og:url", content: "https://beingecom.com/services/store-development/woocommerce" },
       { property: "og:type", content: "website" },
     ],

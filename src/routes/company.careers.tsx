@@ -3,8 +3,8 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 import { ORG_INFO, SITE_URL } from "@/lib/seo";
 
 const SLUG = "careers";
-const TITLE = "Careers at BeingEcom — Senior Ecommerce Roles";
-const DESC = "Join a senior-only ecommerce growth agency. See open roles, our hiring bar, benefits, and what it's like to work on Shopify and WooCommerce brands at BeingEcom.";
+const TITLE = "Careers | Ecommerce Marketing Jobs UK | BeingEcom";
+const DESC = "Join BeingEcom — Ecommerce Marketing careers UK for senior SEOs, media buyers, CRO strategists, Klaviyo specialists and Shopify developers.";
 
 // No fabricated live openings; we surface an empty state + talent pool CTA when there are no active roles.
 const OPEN_ROLES: { title: string; type: string; location: string; summary: string }[] = [];

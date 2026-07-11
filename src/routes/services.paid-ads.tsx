@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "Paid Ads Agency UK - Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
-      { name: "description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably - not just drive traffic. Managed by a team that ties spend directly to revenue." },
-      { property: "og:title", content: "Paid Ads Agency UK - Meta, Google & TikTok Ecommerce PPC | BeingEcom" },
-      { property: "og:description", content: "Meta, Google & TikTok ads built to scale UK ecommerce stores profitably - not just drive traffic. Managed by a team that ties spend directly to revenue." },
+      { title: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
+      { name: "description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok — creative + media buying that scales profitably." },
+      { property: "og:title", content: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
+      { property: "og:description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok — creative + media buying that scales profitably." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],

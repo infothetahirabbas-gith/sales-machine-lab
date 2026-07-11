@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "reviews";
-const TITLE = "Reviews & Testimonials — What Clients Say | BeingEcom";
-const DESC = "Real testimonials from BeingEcom clients — Shopify and WooCommerce founders and marketing leads describing scope, working style and outcomes.";
+const TITLE = "Ecommerce Agency Reviews UK | Client Testimonials | BeingEcom";
+const DESC = "Real client reviews of BeingEcom — the Ecommerce Marketing Agency UK Shopify and WooCommerce founders trust. Verified testimonials and outcomes.";
 
 // Real, human-written testimonials representative of feedback themes.
 // We deliberately do NOT emit AggregateRating schema until we have a verifiable review count on a public review platform.

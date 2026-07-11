@@ -9,10 +9,10 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Ecommerce Services - Shopify & Woo Growth | BeingEcom" },
-      { name: "description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
-      { property: "og:title", content: "Ecommerce Services - Shopify & Woo Growth | BeingEcom" },
-      { property: "og:description", content: "Full-stack ecommerce services in the UK: SEO, paid ads, CRO, email, analytics and Shopify development. One senior team, one revenue P&L." },
+      { title: "Ecommerce Services UK | SEO, Ads, CRO & Klaviyo | BeingEcom" },
+      { name: "description", content: "Full-stack ecommerce services UK: SEO, Google & Meta Ads, CRO, Klaviyo email, Shopify development and analytics — one senior team, one revenue P&L." },
+      { property: "og:title", content: "Ecommerce Services UK | SEO, Ads, CRO & Klaviyo | BeingEcom" },
+      { property: "og:description", content: "Full-stack ecommerce services UK: SEO, Google & Meta Ads, CRO, Klaviyo email, Shopify development and analytics — one senior team, one revenue P&L." },
       { property: "og:url", content: "https://beingecom.com/services" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services" }],
