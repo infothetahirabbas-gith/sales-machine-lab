@@ -98,14 +98,12 @@ function Home() {
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [dashIdx, setDashIdx] = useState(0);
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    if (!mq.matches) return;
     let phraseTimer: number | undefined;
     let dashTimer: number | undefined;
     const startTimer = window.setTimeout(() => {
       phraseTimer = window.setInterval(() => setPhraseIdx((i) => (i + 1) % rotatingPhrases.length), 4000);
       dashTimer = window.setInterval(() => setDashIdx((i) => (i + 1) % dashboards.length), 4500);
-    }, 5000);
+    }, 3000);
     return () => {
       window.clearTimeout(startTimer);
       if (phraseTimer !== undefined) window.clearInterval(phraseTimer);
