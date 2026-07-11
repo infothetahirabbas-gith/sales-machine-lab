@@ -32,7 +32,7 @@ export const Route = createFileRoute("/company/legal")({
         {
           type: "paragraph",
           id: "notes",
-          heading: "About these documents",
+          heading: "Plain-English notes on what these policies actually mean",
           body: (
             <p>
               These policies are maintained by BeingEcom and reflect our current operating practices. They are not a substitute for
