@@ -684,7 +684,7 @@ function Home() {
             <span className="hidden lg:inline">Ready to Grow? Work With the <span className="text-primary">Best Ecommerce Digital Marketing Agency UK</span></span>
           </>
         }
-        sub="Book a free strategy call with our Shopify agency UK & WooCommerce agency UK team. We'll show you exactly how to scale revenue and dominate AI search."
+        sub="Book a free strategy call with our Shopify Ecommerce Agency UK & WooCommerce Marketing Agency UK team — plus Ecommerce PPC Agency UK, Ecommerce CRO Agency UK and Ecommerce Automation Agency UK operators. We'll show you exactly how to scale revenue and dominate AI search."
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
