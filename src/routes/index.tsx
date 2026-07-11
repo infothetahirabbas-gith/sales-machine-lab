@@ -432,6 +432,8 @@ function Home() {
         center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
+        intro="The same 3-step system our Ecommerce Marketing Agency UK runs for every Shopify and WooCommerce brand we onboard."
+
       >
         <div className="relative grid md:grid-cols-3 gap-4">
           {/* connector line */}
