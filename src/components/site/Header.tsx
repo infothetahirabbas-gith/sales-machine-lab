@@ -392,7 +392,7 @@ export default function Header() {
               <span className="min-w-0 truncate min-[1024px]:max-w-[120px]">Services</span>
               <ChevronDown className="size-3 shrink-0 opacity-60 transition-transform group-open:rotate-180" />
             </summary>
-            <div className="svc-pop hidden absolute z-50 left-0 mt-2 w-[min(92vw,20rem)] max-h-[70vh] overflow-auto rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_45%,transparent)]">
+            <div className="hidden group-open:block absolute z-50 left-0 mt-2 w-[min(92vw,20rem)] max-h-[70vh] overflow-auto rounded-2xl border border-border bg-background p-2 shadow-[0_24px_70px_-30px_color-mix(in_oklab,var(--ink)_45%,transparent)]">
               {services.map((s) => (
                 <div key={s.to} className="mb-1">
                   <Link
