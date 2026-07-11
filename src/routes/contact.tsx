@@ -9,6 +9,9 @@ import { SITE } from "@/config/site";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
+  validateSearch: (search: Record<string, unknown>) => ({
+    plan: typeof search.plan === "string" ? search.plan : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Contact BeingEcom UK - Free Shopify & WooCommerce Growth Audit" },
