@@ -342,7 +342,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
-      <style>{`@media (min-width:900px){.desktop-main-nav{display:flex!important}.desktop-mega-panel{display:block!important}.mobile-menu-toggle{display:none!important}}@media (max-width:899.98px){.desktop-main-nav,.desktop-mega-panel{display:none!important}.mobile-menu-toggle{display:inline-flex!important}}`}</style>
+      <style>{`@media (min-width:900px){.desktop-main-nav{display:flex!important}.desktop-mega-panel{display:block!important}.mobile-menu-toggle{display:none!important}header:has(.desktop-services-trigger:hover) .services-mega,header:has(.desktop-services-trigger:focus-visible) .services-mega,.services-mega:hover,.services-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}header:has(.desktop-industries-trigger:hover) .industries-mega,header:has(.desktop-industries-trigger:focus-visible) .industries-mega,.industries-mega:hover,.industries-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}}@media (max-width:899.98px){.desktop-main-nav,.desktop-mega-panel{display:none!important}.mobile-menu-toggle{display:inline-flex!important}}`}</style>
       <div className="border-b border-border/60 bg-secondary/40">
         <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground min-[1024px]:flex min-[1024px]:flex-wrap min-[1024px]:justify-start min-[1024px]:gap-2 min-[1024px]:px-8">
           <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Country">
@@ -457,7 +457,9 @@ export default function Header() {
           >
             <button
               onClick={() => setDesktopMenu(desktopMenu === "industries" ? null : "industries")}
-              className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+              onMouseEnter={() => openMenu("industries")}
+              onFocus={() => openMenu("industries")}
+              className="desktop-industries-trigger inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
             >
               Industries <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "industries" ? "rotate-180" : ""}`} />
             </button>
@@ -469,7 +471,9 @@ export default function Header() {
           >
             <button
               onClick={() => setDesktopMenu(desktopMenu === "services" ? null : "services")}
-              className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
+              onMouseEnter={() => openMenu("services")}
+              onFocus={() => openMenu("services")}
+              className="desktop-services-trigger inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition"
             >
               Services <ChevronDown className={`size-3.5 transition-transform ${desktopMenu === "services" ? "rotate-180" : ""}`} />
             </button>
@@ -532,7 +536,7 @@ export default function Header() {
           spans the whole viewport; the trigger and this panel share hover
           intent via desktopMenu state + 220ms close delay. */}
       <div
-        className={`desktop-mega-panel hidden absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        className={`desktop-mega-panel services-mega hidden absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "services" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onMouseEnter={() => openMenu("services")}
         onMouseLeave={scheduleClose}
       >
@@ -582,7 +586,7 @@ export default function Header() {
         const active = industries.find((i) => i.to === activeIndustry) ?? industries[0];
         return (
       <div
-        className={`desktop-mega-panel hidden absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        className={`desktop-mega-panel industries-mega hidden absolute left-0 right-0 top-full z-40 transition ${desktopMenu === "industries" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onMouseEnter={() => openMenu("industries")}
         onMouseLeave={scheduleClose}
       >
