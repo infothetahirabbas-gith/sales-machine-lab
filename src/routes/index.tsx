@@ -334,7 +334,7 @@ function Home() {
       </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
+      <Section center eyebrow="Ecommerce SEO Agency UK · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK" title="One Ecommerce Digital Marketing Agency. Nine growth services. One operating system." intro="From our Ecommerce SEO Agency UK team to our Shopify Marketing Agency UK pod and WooCommerce Marketing Agency UK specialists, every operator inside our Ecommerce Digital Marketing Agency owns your P&L — not a vanity metric.">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-full lg:max-w-none" : ""}`}>
