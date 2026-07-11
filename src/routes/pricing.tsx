@@ -114,6 +114,59 @@ const stagesOfEngagement = [
   { n: "04", t: "Weekly execution", body: "Weekly ship reviews, weekly scorecards, monthly strategy calls. Full transparency, always." },
 ];
 
+const caseStudyHighlights = [
+  {
+    brand: "Luxe Skin Co.",
+    sector: "Beauty & Skincare · DTC",
+    plan: "Growth",
+    quote: "Inside 6 months BeingEcom rebuilt our funnel end-to-end. We finally have a growth engine instead of guesswork.",
+    author: "Priya S., Co-founder",
+    before: { label: "Monthly revenue", value: "£80K" },
+    after: { label: "Monthly revenue", value: "£330K" },
+    delta: "+312%",
+  },
+  {
+    brand: "Northline Apparel",
+    sector: "Fashion · Shopify Plus",
+    plan: "Enterprise",
+    quote: "Blended ROAS went from 1.6× to 7.7×. The creative + landing page rebuild paid for a full year of retainer in the first quarter.",
+    author: "James T., Head of Ecommerce",
+    before: { label: "Blended ROAS", value: "1.6×" },
+    after: { label: "Blended ROAS", value: "7.7×" },
+    delta: "4.8× ROAS lift",
+  },
+  {
+    brand: "Hearth & Grove",
+    sector: "Home & Living · WooCommerce",
+    plan: "Business",
+    quote: "Non-brand organic doubled in 6 months and CRO lifted PDPs to a level our in-house team couldn't hit for two years.",
+    author: "Amelia R., Founder & CEO",
+    before: { label: "Organic sessions / mo", value: "42K" },
+    after: { label: "Organic sessions / mo", value: "119K" },
+    delta: "+184% traffic",
+  },
+];
+
+type CompareRow = { feature: string; values: [string | boolean, string | boolean, string | boolean, string | boolean] };
+
+const compareRows: CompareRow[] = [
+  { feature: "Monthly investment", values: ["£500", "£1,000", "£1,500", "£2,000+"] },
+  { feature: "Initial engagement", values: ["90 days", "90 days", "90 days", "90 days"] },
+  { feature: "Dedicated account manager", values: [true, true, true, true] },
+  { feature: "Ecommerce audit & 90-day plan", values: [true, true, true, true] },
+  { feature: "Technical & on-page SEO", values: ["Setup", "Advanced", "Advanced+", "Full technical"] },
+  { feature: "Product & collection page CRO", values: ["Basic", "Ongoing", "Advanced funnel", "Unlimited CRO"] },
+  { feature: "Paid ads management", values: [false, "Meta + Google", "Meta + Google + TikTok", "Full multi-channel"] },
+  { feature: "Email & SMS (Klaviyo)", values: [false, "Email flows", "Email + SMS", "Retention system"] },
+  { feature: "Digital PR & authority", values: [false, false, true, "Campaign-led"] },
+  { feature: "Creative production", values: [false, false, "Strategy + review", "Full production mgmt"] },
+  { feature: "AI marketing automation", values: [false, false, true, "AI workflows"] },
+  { feature: "Fractional Ecommerce CMO", values: [false, false, false, true] },
+  { feature: "Strategy cadence", values: ["Monthly", "Weekly report", "Bi-weekly call", "Weekly call"] },
+  { feature: "Reporting", values: ["Monthly", "Weekly", "Executive dashboard", "Custom exec reporting"] },
+  { feature: "Support", values: ["Business hours", "Priority", "Priority", "VIP priority"] },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
