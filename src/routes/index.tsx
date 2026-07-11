@@ -39,10 +39,10 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
-      { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
-      { property: "og:title", content: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
-      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics - one team, one revenue P&L." },
+      { title: "Ecommerce Marketing Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "BeingEcom is an Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "BeingEcom is an Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
@@ -138,7 +138,7 @@ function Home() {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
+              BeingEcom is a results-driven Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow revenue through ecommerce SEO, paid advertising, CRO, email marketing, and AI-powered growth systems — one senior team, one revenue P&amp;L.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -349,6 +349,24 @@ function Home() {
           <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
           <span className="mx-2 text-muted-foreground">·</span>
           <Link to="/services/paid-ads" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
+        </div>
+
+        {/* Money-page internal linking block with exact-match anchors */}
+        <div className="mt-10 rounded-2xl border border-border bg-card/40 p-5 md:p-6">
+          <div className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 text-center">
+            Explore our specialist pages
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
+            <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/store-development/woocommerce" className="font-semibold text-ink hover:text-primary hover:underline">WooCommerce Marketing Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/cro" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce CRO Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/pricing" className="font-semibold text-ink hover:text-primary hover:underline">View Growth Plans</Link>
+          </div>
         </div>
       </Section>
 
