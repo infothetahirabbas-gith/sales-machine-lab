@@ -17,7 +17,7 @@ export const Route = createFileRoute("/company/certifications")({
         {
           type: "paragraph",
           id: "trust",
-          heading: "How to read this page",
+          heading: "Credentials you can actually verify",
           body: (
             <p>
               Certifications shift constantly (Google rebrands, Meta rescopes, Shopify tiers change). Rather than plaster a wall of badges, we list current
