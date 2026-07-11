@@ -20,8 +20,8 @@ export const Route = createFileRoute("/services/cro")({
     meta: [
       { title: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom" },
       { name: "description", content: "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands." },
-      { property: "og:title", content: "CRO Agency UK - Shopify Conversion Optimisation | BeingEcom" },
-      { property: "og:description", content: "Turn the traffic you already have into 2-3× more sales. UK-focused CRO for Shopify & WooCommerce stores." },
+      { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom" },
+      { property: "og:description", content: "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
     ],

@@ -31,8 +31,8 @@ export const Route = createFileRoute("/services/creative")({
     meta: [
       { title: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
       { name: "description", content: "Ecommerce Creative Agency UK producing scroll-stopping UGC, static and video ad creative for Shopify and WooCommerce brands scaling on Meta, Google and TikTok." },
-      { property: "og:title", content: "Ecommerce Creative & UGC Agency UK - Ad Creative for Shopify | BeingEcom" },
-      { property: "og:description", content: "Scroll-stopping ad creative for UK Shopify & WooCommerce brands - built to convert on Meta, TikTok and Google, not just look good in a portfolio." },
+      { property: "og:title", content: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
+      { property: "og:description", content: "Ecommerce Creative Agency UK producing scroll-stopping UGC, static and video ad creative for Shopify and WooCommerce brands scaling on Meta, Google and TikTok." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
     ],
