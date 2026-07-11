@@ -77,10 +77,12 @@ const services = [
 ];
 
 const rotatingPhrases = [
-  "UK Ecommerce Brands",
-  "Ecommerce store in UK",
-  "WooCommerce stores UK",
-  "Shopify Stores in UK",
+  "Ecommerce Growth Agency UK",
+  "Ecommerce SEO Agency UK",
+  "Shopify Marketing Agency UK",
+  "WooCommerce Marketing Agency UK",
+  "Ecommerce Digital Marketing Agency",
+  "Ecommerce Marketing Agency UK",
 ];
 
 // Vite hashes bundled asset filenames, so no query-string cache-buster is
@@ -125,17 +127,20 @@ function Home() {
           <div className="lg:col-span-7 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Ecommerce Growth System
+              Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">We Help to Scale</span>
+              <span className="block">The Ecommerce Marketing Agency UK</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2 min-h-[1.7em] md:min-h-0" style={{ fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
+              <span className="block">built to grow Shopify &amp; WooCommerce brands</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              UK ecommerce marketing for Shopify and WooCommerce brands. SEO, paid ads, CRO and Klaviyo email - one senior team, one revenue P&amp;L.
+              BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
+            </p>
+            <p className="mt-3 text-sm text-muted-foreground/90 max-w-2xl mx-auto lg:mx-0">
+              Trusted Ecommerce Growth Agency UK partner · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -329,7 +334,7 @@ function Home() {
       </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section center eyebrow="What we do" title="Nine growth services, one operating system.">
+      <Section center eyebrow="Ecommerce SEO Agency UK · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK" title="One Ecommerce Digital Marketing Agency. Nine growth services. One operating system." intro="From our Ecommerce SEO Agency UK team to our Shopify Marketing Agency UK pod and WooCommerce Marketing Agency UK specialists, every operator inside our Ecommerce Digital Marketing Agency owns your P&L — not a vanity metric.">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-full lg:max-w-none" : ""}`}>
