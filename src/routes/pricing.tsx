@@ -265,6 +265,70 @@ function PricingPage() {
         </div>
       </Section>
 
+      {/* COMPARISON TABLE */}
+      <Section
+        alt
+        eyebrow="Compare plans"
+        title="See exactly what changes between tiers"
+        intro="Every row below matches the deliverables inside your monthly retainer — no asterisks, no fine print."
+      >
+        <div className="overflow-x-auto rounded-3xl border border-border bg-card/70">
+          <table className="w-full min-w-[720px] text-sm">
+            <caption className="sr-only">Comparison of BeingEcom pricing plans: Starter, Growth, Enterprise and Business.</caption>
+            <thead>
+              <tr className="border-b border-border">
+                <th scope="col" className="text-left px-4 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Feature</th>
+                {tiers.map((t) => (
+                  <th key={t.name} scope="col" className={`px-4 py-4 text-left ${t.popular ? "bg-primary/5" : ""}`}>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-ink">{t.name}</span>
+                      {t.popular && (
+                        <span className="rounded-full bg-primary px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-primary-foreground">Popular</span>
+                      )}
+                    </div>
+                    <div className="mt-1 text-xs text-muted-foreground font-normal">{t.price}<span className="opacity-70">/mo</span></div>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {compareRows.map((row, ri) => (
+                <tr key={row.feature} className={ri % 2 === 0 ? "bg-transparent" : "bg-secondary/20"}>
+                  <th scope="row" className="text-left px-4 py-3 font-medium text-ink/85 align-top">{row.feature}</th>
+                  {row.values.map((v, i) => (
+                    <td key={i} className={`px-4 py-3 align-top text-ink/85 ${tiers[i].popular ? "bg-primary/5" : ""}`}>
+                      {v === true ? (
+                        <span className="inline-flex items-center gap-1.5 text-primary"><Check className="w-4 h-4" aria-label="Included" /><span className="sr-only">Included</span></span>
+                      ) : v === false ? (
+                        <span className="inline-flex items-center gap-1.5 text-muted-foreground/70"><Minus className="w-4 h-4" aria-label="Not included" /><span className="sr-only">Not included</span></span>
+                      ) : (
+                        <span>{v}</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+              <tr>
+                <td className="px-4 py-4"></td>
+                {tiers.map((t) => (
+                  <td key={t.name} className={`px-4 py-4 ${t.popular ? "bg-primary/5" : ""}`}>
+                    <Link
+                      to="/contact"
+                      search={{ plan: t.name }}
+                      onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, source: "comparison_table" })}
+                      className={`btn btn-sm ${t.popular ? "btn-primary" : "btn-dark"} justify-center w-full`}
+                      aria-label={`Get started with the ${t.name} plan from the comparison table`}
+                    >
+                      Choose {t.name}
+                    </Link>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
       {/* PROOF / TRUST */}
       <Section
         alt
