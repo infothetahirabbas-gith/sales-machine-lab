@@ -127,17 +127,20 @@ function Home() {
           <div className="lg:col-span-7 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Ecommerce Growth System
+              Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">We Help to Scale</span>
+              <span className="block">The Ecommerce Marketing Agency UK</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2 min-h-[1.7em] md:min-h-0" style={{ fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block">Built to Grow UK Shopify & WooCommerce Brands</span>
+              <span className="block">built to grow Shopify &amp; WooCommerce brands</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              UK ecommerce marketing for Shopify and WooCommerce brands. SEO, paid ads, CRO and Klaviyo email - one senior team, one revenue P&amp;L.
+              BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
+            </p>
+            <p className="mt-3 text-sm text-muted-foreground/90 max-w-2xl mx-auto lg:mx-0">
+              Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
