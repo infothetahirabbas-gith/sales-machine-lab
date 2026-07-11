@@ -462,7 +462,7 @@ function Home() {
         center
         eyebrow="Stack"
         title="The tools we run on every store."
-        intro="One integrated stack - platform, paid media, analytics, and retention - wired together so revenue, spend, and LTV live in the same view."
+        intro="One integrated stack — platform, paid media, analytics, retention and Ecommerce Automation Agency UK workflows — wired together so revenue, spend and LTV live in the same view."
       >
         <div className="grid gap-5 md:grid-cols-2">
           {[
