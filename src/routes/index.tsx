@@ -357,7 +357,7 @@ function Home() {
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
-        intro="Drag the slider. Same store, same product, same audience - different system."
+        intro="Drag the slider. Same store, same product, same audience — different system. This is what happens when a real Ecommerce CRO Agency UK plugs into your Shopify Ecommerce Agency UK build."
       >
         <Reveal>
           <Suspense fallback={<div className="min-h-[300px]" />}>
