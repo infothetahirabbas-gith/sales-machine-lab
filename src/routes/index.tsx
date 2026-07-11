@@ -138,7 +138,7 @@ function Home() {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
+              BeingEcom is a results-driven Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow revenue through ecommerce SEO, paid advertising, CRO, email marketing, and AI-powered growth systems — one senior team, one revenue P&amp;L.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
