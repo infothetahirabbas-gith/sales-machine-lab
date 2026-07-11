@@ -28,6 +28,7 @@ export const COMPANY_LINKS: readonly CompanyEntry[] = [
   { slug: "reviews",           to: "/company/reviews",          label: "Reviews & Testimonials",    short: "Reviews",       blurb: "What founders and marketing leads say after working with us.",                        tag: "Proof" },
   { slug: "press",             to: "/company/press",            label: "Media & Press",             short: "Press",         blurb: "Publications, podcasts and interviews featuring the BeingEcom team.",                 tag: "Proof" },
   { slug: "community",         to: "/company/community",        label: "Community & Events",        short: "Community",     blurb: "Workshops, live webinars, meetups and how to be part of them.",                       tag: "Community" },
+  { slug: "csr",               to: "/company/csr",              label: "Corporate Social Responsibility", short: "CSR",     blurb: "How BeingEcom gives back — pro-bono work, education, sustainability and community impact.", tag: "Community" },
   { slug: "resources",         to: "/company/resources",        label: "Resources & Downloads",     short: "Resources",     blurb: "Guides, checklists, templates and playbooks - all free.",                             tag: "Community" },
   { slug: "legal",             to: "/company/legal",            label: "Legal & Policies",          short: "Legal",         blurb: "Privacy, terms, cookies, accessibility, GDPR and disclaimer - one place.",           tag: "Legal" },
 ];
