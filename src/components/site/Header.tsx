@@ -423,7 +423,7 @@ export default function Header() {
               ))}
             </div>
           </details>
-          <a href="mailto:info@beingecom.com" className="order-7 hidden min-[1024px]:ml-auto min-[1024px]:inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
+          <a href="mailto:info@beingecom.com" className="topbar-pill order-7 hidden min-[1024px]:ml-auto min-[1024px]:inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
             info@beingecom.com
           </a>
         </div>
