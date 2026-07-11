@@ -29,8 +29,8 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
-      { name: "description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers - designed to turn one-time buyers into repeat customers." },
+      { title: "Ecommerce Funnel Agency UK | Landing Pages That Convert | BeingEcom" },
+      { name: "description", content: "Ecommerce Funnel Agency UK. High-converting funnels and landing pages for launches, offers and paid traffic on Shopify and WooCommerce brands." },
       { property: "og:title", content: "Ecommerce Funnel & Landing Page Agency UK | BeingEcom" },
       { property: "og:description", content: "High-converting funnels for UK Shopify & WooCommerce launches and offers - designed to turn one-time buyers into repeat customers." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },

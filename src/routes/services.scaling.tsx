@@ -29,8 +29,8 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Scaling & Retention Agency UK - 7-Figure Shopify Growth | BeingEcom" },
-      { name: "description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way - retention and growth built to work together, not against each other." },
+      { title: "Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
+      { name: "description", content: "Ecommerce Scaling Agency UK. Systems to scale from 6 to 7 figures and multiply LTV for Shopify and WooCommerce brands — senior operators, weekly reporting." },
       { property: "og:title", content: "Ecommerce Scaling & Retention Agency UK - 7-Figure Shopify Growth | BeingEcom" },
       { property: "og:description", content: "Systems to take UK ecommerce stores from 6 to 7 figures without losing customers along the way - retention and growth built to work together, not against each other." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },

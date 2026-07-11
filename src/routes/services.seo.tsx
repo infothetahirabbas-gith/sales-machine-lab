@@ -18,8 +18,8 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "Ecommerce SEO Agency UK - Shopify & Woo SEO | BeingEcom" },
-      { name: "description", content: "Ecommerce SEO agency for UK Shopify & WooCommerce brands. Product, collection and content SEO that compounds free revenue month over month - engineered for Google, AI Overviews and voice search." },
+      { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { name: "description", content: "Ecommerce SEO Agency UK for Shopify and WooCommerce brands. Technical SEO, product & collection SEO, digital PR and AI-search visibility that compounds free revenue." },
       { property: "og:title", content: "Ecommerce SEO Agency UK - Shopify & Woo SEO | BeingEcom" },
       { property: "og:description", content: "Ecommerce SEO agency for UK Shopify & WooCommerce brands. Compounding organic revenue, built for long-term growth." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },

@@ -18,8 +18,8 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
-      { title: "CRO Agency UK - Shopify Conversion Optimisation | BeingEcom" },
-      { name: "description", content: "UK Conversion Rate Optimisation agency for Shopify and WooCommerce. Turn existing traffic into 2-3× more sales with weekly A/B testing, PDP rewrites and checkout optimisation - no extra ad spend required." },
+      { title: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom" },
+      { name: "description", content: "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands." },
       { property: "og:title", content: "CRO Agency UK - Shopify Conversion Optimisation | BeingEcom" },
       { property: "og:description", content: "Turn the traffic you already have into 2-3× more sales. UK-focused CRO for Shopify & WooCommerce stores." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },

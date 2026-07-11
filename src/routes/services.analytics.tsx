@@ -29,8 +29,8 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
-      { name: "description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores - so your ad spend decisions are based on real data, not guesswork." },
+      { title: "Ecommerce Analytics Agency UK | GA4, Pixel & CAPI Setup | BeingEcom" },
+      { name: "description", content: "Ecommerce Analytics Agency UK. GA4, Meta Pixel, CAPI, server-side tracking and dashboards — set up properly for Shopify and WooCommerce brands." },
       { property: "og:title", content: "Ecommerce Analytics & GA4 Tracking Agency UK | BeingEcom" },
       { property: "og:description", content: "GA4, Meta Pixel, and server-side CAPI tracking set up correctly for UK ecommerce stores - so your ad spend decisions are based on real data, not guesswork." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
