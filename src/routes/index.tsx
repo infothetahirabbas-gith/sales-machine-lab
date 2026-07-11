@@ -350,6 +350,24 @@ function Home() {
           <span className="mx-2 text-muted-foreground">·</span>
           <Link to="/services/paid-ads" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
+
+        {/* Money-page internal linking block with exact-match anchors */}
+        <div className="mt-10 rounded-2xl border border-border bg-card/40 p-5 md:p-6">
+          <div className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 text-center">
+            Explore our specialist pages
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
+            <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/store-development/woocommerce" className="font-semibold text-ink hover:text-primary hover:underline">WooCommerce Marketing Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/cro" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce CRO Agency UK</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/pricing" className="font-semibold text-ink hover:text-primary hover:underline">View Growth Plans</Link>
+          </div>
+        </div>
       </Section>
 
       {/* 6. BEFORE / AFTER - interactive slider */}
