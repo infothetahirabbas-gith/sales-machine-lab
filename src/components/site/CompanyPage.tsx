@@ -65,7 +65,7 @@ export default function CompanyPage(props: CompanyPageProps) {
     {
       type: "list",
       id: "aeo",
-      heading: "How this section is organised",
+      heading: "Built to be read in 30 seconds, useful in 5 minutes",
       intro: "Every Company section is written to be scannable in 30 seconds and useful in 5 minutes — whether you're a founder skimming or a team lead going deep.",
       items: [
         "Clear headings and sub-headings so you can jump straight to what matters.",
@@ -78,7 +78,7 @@ export default function CompanyPage(props: CompanyPageProps) {
     {
       type: "list",
       id: "geo",
-      heading: "What makes our approach different",
+      heading: "The editorial standard behind every word on this site",
       intro: "A quick note on the editorial standard we hold every Company section to before it ships:",
       items: [
         "Original perspective in every section — written by operators, not rewritten from competitors.",
@@ -102,7 +102,7 @@ export default function CompanyPage(props: CompanyPageProps) {
     {
       type: "table",
       id: "trust-signals",
-      heading: "Trust signals we publish",
+      heading: "Everything you can verify before you hire us",
       intro: "What you should be able to verify before hiring any ecommerce agency — including us.",
       columns: ["Signal", "Where to find it on our site"],
       rows: [
