@@ -5,6 +5,7 @@ import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
+import { trackEvent, AnalyticsEvents } from "../lib/analytics";
 
 
 export const Route = createFileRoute("/contact")({
