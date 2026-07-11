@@ -167,6 +167,13 @@ const compareRows: CompareRow[] = [
   { feature: "Support", values: ["Business hours", "Priority", "Priority", "VIP priority"] },
 ];
 
+const objectionFaqs: { tag: string; q: string; a: string }[] = [
+  { tag: "⏱", q: "How fast will I see results after signing?", a: "Onboarding wraps in 5–7 business days. Quick wins (tracking fixes, PDP tweaks, ad account cleanup) usually land inside the first two weeks. Meaningful revenue movement typically shows in weeks 4–8, with the full 90-day plan compounding from there." },
+  { tag: "📦", q: "What exactly will you ship each month?", a: "A written weekly scorecard tied to your P&L, ad + email + SEO + CRO execution per your plan, a monthly strategy deck, and a live dashboard that updates daily. Every deliverable in your tier is scoped in writing before we start — nothing hides behind vague retainers." },
+  { tag: "🚀", q: "How does onboarding actually work?", a: "Day 0: kickoff call and access checklist. Days 1–3: audit + tracking hardening across GA4, Meta, Google and your store. Days 4–7: written 90-day plan mapped to revenue, ROAS and retention targets. Week 2: execution begins with a named senior operator, not a rotating junior." },
+  { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes — three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
@@ -385,6 +392,37 @@ function PricingPage() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.body}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      {/* OBJECTIONS MINI-FAQ */}
+      <Section
+        eyebrow="Before you book"
+        title="Straight answers to the four questions founders always ask"
+        intro="Timeline, deliverables, onboarding and guarantees — the objections that usually sit between you and the discovery call."
+      >
+        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+          {objectionFaqs.map((f) => (
+            <details key={f.q} className="group rounded-2xl border border-border bg-card/70 p-5 open:border-primary/40 open:bg-primary/[0.03] transition-colors">
+              <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold" aria-hidden="true">{f.tag}</span>
+                  <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
+                </div>
+                <span className="mt-1 text-primary text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p className="mt-3 pl-9 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            to="/contact"
+            onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: "unspecified", source: "objections_faq" })}
+            className="btn btn-primary btn-shimmer"
+          >
+            Book Discovery Call →
+          </Link>
         </div>
       </Section>
 
