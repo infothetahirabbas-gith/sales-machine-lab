@@ -247,8 +247,8 @@ function PricingPage() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link to="/case-studies" className="btn btn-dark">View case studies →</Link>
-          <Link to="/company/reviews" className="btn btn-outline">Read client reviews</Link>
-          <Link to="/audit" className="btn btn-outline">Run a free growth audit</Link>
+          <Link to="/company/reviews" className="btn btn-ghost">Read client reviews</Link>
+          <Link to="/audit" className="btn btn-ghost">Run a free growth audit</Link>
         </div>
       </Section>
 
@@ -279,7 +279,7 @@ function PricingPage() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link to="/contact" className="btn btn-primary btn-shimmer">Book Discovery Call →</Link>
-              <Link to="/audit" className="btn btn-outline">Or run the free audit first</Link>
+              <Link to="/audit" className="btn btn-ghost">Or run the free audit first</Link>
             </div>
           </div>
         </div>
