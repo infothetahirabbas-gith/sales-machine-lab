@@ -1,12 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
+import CsrPartnerForm from "@/components/site/CsrPartnerForm";
+import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const SLUG = "csr";
-const TITLE = "Corporate Social Responsibility — Our CSR Commitments | BeingEcom";
-const DESC = "How BeingEcom gives back to the ecommerce community — pro-bono work, education, diversity & inclusion, sustainability, ethical marketing, mentorship and charitable partnerships.";
+const TITLE = "Corporate Social Responsibility (CSR) — BeingEcom's Commitments & Annual Scorecard";
+const DESC = "How BeingEcom gives back: pro-bono work, education, diversity & inclusion, sustainability, ethical marketing, mentorship, charitable giving — plus a downloadable CSR scorecard and a partnership request form.";
+const SCORECARD_URL = `${SITE_URL}/downloads/beingecom-csr-scorecard.pdf`;
+
+const scorecardJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DigitalDocument",
+  name: "BeingEcom Annual CSR Scorecard",
+  description: "BeingEcom's plain-English annual CSR scorecard — commitments, metrics and delivery across pro-bono work, giving, diversity, sustainability and ethical marketing.",
+  url: `${SITE_URL}/company/csr#scorecard`,
+  encodingFormat: "application/pdf",
+  contentUrl: SCORECARD_URL,
+  inLanguage: "en-GB",
+  isAccessibleForFree: true,
+  author: { "@type": "Organization", name: ORG_INFO.name, url: SITE_URL },
+  publisher: { "@type": "Organization", name: ORG_INFO.name, url: SITE_URL },
+};
 
 export const Route = createFileRoute("/company/csr")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, jsonLd: [scorecardJsonLd] }),
   component: () => (
     <CompanyPage
       slug={SLUG}
@@ -14,6 +31,53 @@ export const Route = createFileRoute("/company/csr")({
       eyebrow="CSR"
       intro="BeingEcom is a small, profitable agency — and we believe that comes with a responsibility. This page is the honest record of how we give time, expertise and money back to the ecommerce community, our team, our planet and the causes we care about."
       sections={[
+        {
+          type: "custom",
+          id: "download-scorecard",
+          heading: "Download our annual CSR scorecard",
+          render: () => (
+            <div className="grid md:grid-cols-[1.4fr_1fr] gap-5 items-stretch">
+              <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-card to-card p-6 md:p-8">
+                <div className="text-[11px] font-bold uppercase tracking-widest text-primary">PDF · Free · No email required</div>
+                <h3 className="mt-2 text-xl md:text-2xl font-semibold text-ink">BeingEcom Annual CSR Scorecard</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  A 3-page plain-English report: our four CSR pillars, the annual scorecard (commitment vs. delivered), the categories we decline to work with, the causes we support, and where we fell short this year. Updated once a year. This edition replaces the previous one — no hidden archive.
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <a
+                    href="/downloads/beingecom-csr-scorecard.pdf"
+                    download
+                    className="btn btn-primary btn-shimmer"
+                    aria-label="Download the BeingEcom CSR scorecard as a PDF"
+                  >
+                    ↓ Download PDF (A4, ~50 KB)
+                  </a>
+                  <a
+                    href="/downloads/beingecom-csr-scorecard.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    className="btn btn-ghost"
+                  >
+                    Open in a new tab
+                  </a>
+                </div>
+                <p className="mt-3 text-[11px] text-muted-foreground">Latest edition — reviewed annually by BeingEcom leadership.</p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-primary">What's inside</h4>
+                <ul className="mt-3 space-y-2 text-sm text-ink/85">
+                  <li>· Four CSR pillars, in plain English</li>
+                  <li>· Annual scorecard — commitment vs. delivered</li>
+                  <li>· What we hit, what we missed, what's changing</li>
+                  <li>· Categories we decline to work with</li>
+                  <li>· Causes we support and where money goes</li>
+                  <li>· How to partner with us on a CSR initiative</li>
+                </ul>
+              </div>
+            </div>
+          ),
+        },
+
         {
           type: "paragraph",
           id: "our-stance",
@@ -231,6 +295,40 @@ export const Route = createFileRoute("/company/csr")({
                 We evaluate incoming requests every quarter and match them to available capacity. If we can't take you on directly, we'll usually be able to introduce you to someone in our network who can.
               </p>
             </>
+          ),
+        },
+        {
+          type: "custom",
+          id: "partner-form",
+          heading: "Request a CSR partnership or pro-bono collaboration",
+          render: () => (
+            <div className="grid md:grid-cols-[1fr_1.3fr] gap-5 items-start">
+              <div className="rounded-2xl border border-border bg-card p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+                <p className="text-ink">
+                  Send us the basics and we'll take a proper look. We review CSR requests every quarter and reply personally to every one — even the ones we can't take on directly.
+                </p>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Best fit for</h4>
+                  <ul className="mt-2 space-y-1">
+                    <li>· Registered UK charities with an ecommerce store</li>
+                    <li>· Social enterprises and B-Corps</li>
+                    <li>· Universities and community organisations</li>
+                    <li>· Mission-led DTC brands running joint campaigns</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-primary">What happens next</h4>
+                  <ol className="mt-2 space-y-1">
+                    <li>1. We confirm receipt within one working day.</li>
+                    <li>2. Shortlisted requests get a 30-minute discovery call.</li>
+                    <li>3. We match capacity every quarter and confirm scope.</li>
+                  </ol>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <CsrPartnerForm />
+              </div>
+            </div>
           ),
         },
       ]}
