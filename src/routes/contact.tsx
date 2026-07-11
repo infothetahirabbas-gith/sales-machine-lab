@@ -71,6 +71,14 @@ function Contact() {
                 noValidate
               >
                 <h3 className="text-2xl font-bold">Book Strategy Call</h3>
+                {plan && (
+                  <>
+                    <input type="hidden" name="plan" value={plan} />
+                    <div className="rounded-xl border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-ink/85">
+                      You've selected the <strong>{plan}</strong> plan. We'll pre-fill this in your enquiry — you can change it at any time on the call.
+                    </div>
+                  </>
+                )}
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div className="grid gap-1.5">
                     <label htmlFor="c-name" className="text-xs font-semibold text-ink">Full name <span className="text-destructive" aria-hidden="true">*</span></label>
