@@ -77,13 +77,12 @@ const services = [
 ];
 
 const rotatingPhrases = [
-  "Ecommerce Growth Agency UK",
-  "Ecommerce SEO Agency UK",
-  "Shopify Marketing Agency UK",
-  "WooCommerce Marketing Agency UK",
-  "Ecommerce Digital Marketing Agency",
-  "Ecommerce Marketing Agency UK",
+  "UK Ecommerce Brands",
+  "Shopify Stores in the UK",
+  "WooCommerce Stores in the UK",
+  "Ecommerce Stores in the UK",
 ];
+
 
 // Vite hashes bundled asset filenames, so no query-string cache-buster is
 // needed - appending `?v=` actually defeats immutable long-term caching.
@@ -130,12 +129,13 @@ function Home() {
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-ink">
-              <span className="block">The Ecommerce Marketing Agency UK</span>
+              <span className="block">Ecommerce Marketing Agency UK Help to Scale</span>
               <span key={phraseIdx} className="block text-brand my-1 md:my-2 min-h-[1.7em] md:min-h-0" style={{ fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block">built to grow Shopify &amp; WooCommerce brands</span>
+              <span className="block">Built to Grow UK Shopify &amp; WooCommerce Brands</span>
             </h1>
+
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
               BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
             </p>
