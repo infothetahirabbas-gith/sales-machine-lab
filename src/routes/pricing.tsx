@@ -167,6 +167,13 @@ const compareRows: CompareRow[] = [
   { feature: "Support", values: ["Business hours", "Priority", "Priority", "VIP priority"] },
 ];
 
+const objectionFaqs: { tag: string; q: string; a: string }[] = [
+  { tag: "⏱", q: "How fast will I see results after signing?", a: "Onboarding wraps in 5–7 business days. Quick wins (tracking fixes, PDP tweaks, ad account cleanup) usually land inside the first two weeks. Meaningful revenue movement typically shows in weeks 4–8, with the full 90-day plan compounding from there." },
+  { tag: "📦", q: "What exactly will you ship each month?", a: "A written weekly scorecard tied to your P&L, ad + email + SEO + CRO execution per your plan, a monthly strategy deck, and a live dashboard that updates daily. Every deliverable in your tier is scoped in writing before we start — nothing hides behind vague retainers." },
+  { tag: "🚀", q: "How does onboarding actually work?", a: "Day 0: kickoff call and access checklist. Days 1–3: audit + tracking hardening across GA4, Meta, Google and your store. Days 4–7: written 90-day plan mapped to revenue, ROAS and retention targets. Week 2: execution begins with a named senior operator, not a rotating junior." },
+  { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes — three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
