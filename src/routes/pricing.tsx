@@ -249,7 +249,19 @@ function PricingPage() {
                 search={{ plan: t.name }}
                 onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, popular: !!t.popular })}
                 className="mt-7 btn btn-primary btn-shimmer justify-center w-full"
-                aria-label={`Get started with the ${t.name} plan`}
+                style={{
+                  backgroundColor: "var(--primary, #2563eb)",
+                  color: "var(--primary-foreground, #ffffff)",
+                  minHeight: 48,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "12px 20px",
+                  borderRadius: 9999,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                }}
+                aria-label={`Get started with the ${t.name} plan — opens the booking form`}
                 data-plan={t.name}
               >
                 Get Started →
@@ -323,10 +335,23 @@ function PricingPage() {
                       to="/contact"
                       search={{ plan: t.name }}
                       onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, source: "comparison_table" })}
-                      className="btn btn-primary justify-center w-full text-xs px-3 py-2"
-                      aria-label={`Get started with the ${t.name} plan from the comparison table`}
+                      className="btn btn-primary justify-center w-full text-xs"
+                      style={{
+                        backgroundColor: "var(--primary, #2563eb)",
+                        color: "var(--primary-foreground, #ffffff)",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "10px 14px",
+                        borderRadius: 9999,
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        minHeight: 40,
+                        width: "100%",
+                      }}
+                      aria-label={`Get started with the ${t.name} plan — opens the booking form`}
                     >
-                      Choose {t.name}
+                      Get Started — {t.name}
                     </Link>
                   </td>
                 ))}

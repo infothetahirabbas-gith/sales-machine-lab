@@ -19,6 +19,11 @@ export function trackEvent(event: string, params: EventParams = {}): void {
     if (typeof window.gtag === "function") {
       window.gtag("event", event, params);
     }
+    // Dev-friendly console trace so QA + Playwright can confirm events fire.
+    if (import.meta.env.DEV) {
+      // eslint-disable-next-line no-console
+      console.log("[analytics]", event, params);
+    }
   } catch {
     /* swallow — analytics must never break UX */
   }
