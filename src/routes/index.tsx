@@ -301,7 +301,7 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated ecommerce growth agency. No more disconnected teams blaming each other."
+        intro="One integrated Ecommerce Growth Agency UK — the Shopify Marketing Agency UK and WooCommerce Marketing Agency UK pods working from one plan. No more disconnected teams blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
