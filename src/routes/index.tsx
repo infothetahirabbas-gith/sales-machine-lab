@@ -39,10 +39,10 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
-      { name: "description", content: "BeingEcom is a UK ecommerce marketing agency for Shopify & WooCommerce brands. Ecommerce SEO, Google Ads, Meta Ads, CRO & Klaviyo email that grow revenue." },
-      { property: "og:title", content: "Ecommerce Marketing Agency UK | Shopify & Woo | BeingEcom" },
-      { property: "og:description", content: "Leading UK ecommerce marketing agency for Shopify & WooCommerce. Ecommerce SEO, Google & Meta Ads, CRO, Klaviyo email and analytics - one team, one revenue P&L." },
+      { title: "Ecommerce Marketing Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
+      { name: "description", content: "BeingEcom is an Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
+      { property: "og:description", content: "BeingEcom is an Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
