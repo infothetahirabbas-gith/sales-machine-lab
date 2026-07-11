@@ -241,7 +241,7 @@ function PricingPage() {
                 to="/contact"
                 search={{ plan: t.name }}
                 onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, popular: !!t.popular })}
-                className={`mt-7 btn justify-center ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
+                className="mt-7 btn btn-primary btn-shimmer justify-center w-full"
                 aria-label={`Get started with the ${t.name} plan`}
                 data-plan={t.name}
               >
@@ -316,7 +316,7 @@ function PricingPage() {
                       to="/contact"
                       search={{ plan: t.name }}
                       onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, source: "comparison_table" })}
-                      className={`btn ${t.popular ? "btn-primary" : "btn-dark"} justify-center w-full text-xs px-3 py-2`}
+                      className="btn btn-primary justify-center w-full text-xs px-3 py-2"
                       aria-label={`Get started with the ${t.name} plan from the comparison table`}
                     >
                       Choose {t.name}
