@@ -71,6 +71,7 @@ import { Route as CompanyMethodologyRouteImport } from './routes/company.methodo
 import { Route as CompanyLegalRouteImport } from './routes/company.legal'
 import { Route as CompanyIndustriesRouteImport } from './routes/company.industries'
 import { Route as CompanyFounderRouteImport } from './routes/company.founder'
+import { Route as CompanyCsrRouteImport } from './routes/company.csr'
 import { Route as CompanyCommunityRouteImport } from './routes/company.community'
 import { Route as CompanyCertificationsRouteImport } from './routes/company.certifications'
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
@@ -412,6 +413,11 @@ const CompanyFounderRoute = CompanyFounderRouteImport.update({
   path: '/founder',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyCsrRoute = CompanyCsrRouteImport.update({
+  id: '/csr',
+  path: '/csr',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyCommunityRoute = CompanyCommunityRouteImport.update({
   id: '/community',
   path: '/community',
@@ -595,6 +601,7 @@ export interface FileRoutesByFullPath {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/csr': typeof CompanyCsrRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -682,6 +689,7 @@ export interface FileRoutesByTo {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/csr': typeof CompanyCsrRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -774,6 +782,7 @@ export interface FileRoutesById {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/csr': typeof CompanyCsrRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -867,6 +876,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/csr'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -954,6 +964,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/csr'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -1045,6 +1056,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/csr'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -1592,6 +1604,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyFounderRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/csr': {
+      id: '/company/csr'
+      path: '/csr'
+      fullPath: '/company/csr'
+      preLoaderRoute: typeof CompanyCsrRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/community': {
       id: '/company/community'
       path: '/community'
@@ -1800,6 +1819,7 @@ interface CompanyRouteChildren {
   CompanyCareersRoute: typeof CompanyCareersRoute
   CompanyCertificationsRoute: typeof CompanyCertificationsRoute
   CompanyCommunityRoute: typeof CompanyCommunityRoute
+  CompanyCsrRoute: typeof CompanyCsrRoute
   CompanyFounderRoute: typeof CompanyFounderRoute
   CompanyIndustriesRoute: typeof CompanyIndustriesRoute
   CompanyLegalRoute: typeof CompanyLegalRoute
@@ -1819,6 +1839,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyCareersRoute: CompanyCareersRoute,
   CompanyCertificationsRoute: CompanyCertificationsRoute,
   CompanyCommunityRoute: CompanyCommunityRoute,
+  CompanyCsrRoute: CompanyCsrRoute,
   CompanyFounderRoute: CompanyFounderRoute,
   CompanyIndustriesRoute: CompanyIndustriesRoute,
   CompanyLegalRoute: CompanyLegalRoute,
