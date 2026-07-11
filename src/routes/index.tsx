@@ -142,6 +142,9 @@ function Home() {
             <p className="mt-3 text-sm text-muted-foreground/90 max-w-2xl mx-auto lg:mx-0">
               Trusted Ecommerce Growth Agency UK partner · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
             </p>
+            <p className="mt-2 text-xs text-muted-foreground/80 max-w-2xl mx-auto lg:mx-0">
+              Also your Ecommerce PPC Agency UK (Meta &amp; Google Ads), Ecommerce CRO Agency UK, Shopify Ecommerce Agency UK and Ecommerce Automation Agency UK for AI workflows.
+            </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
               <Link to="/contact" className="btn btn-primary btn-shimmer">
@@ -334,7 +337,7 @@ function Home() {
       </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section center eyebrow="Ecommerce SEO Agency UK · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK" title="One Ecommerce Digital Marketing Agency. Nine growth services. One operating system." intro="From our Ecommerce SEO Agency UK team to our Shopify Marketing Agency UK pod and WooCommerce Marketing Agency UK specialists, every operator inside our Ecommerce Digital Marketing Agency owns your P&L — not a vanity metric.">
+      <Section center eyebrow="Ecommerce SEO Agency UK · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK" title="One Ecommerce Digital Marketing Agency. Nine growth services. One operating system." intro="From our Ecommerce SEO Agency UK team to our Shopify Marketing Agency UK pod and WooCommerce Marketing Agency UK specialists, every operator inside our Ecommerce Digital Marketing Agency owns your P&L — not a vanity metric. We also operate as your Ecommerce PPC Agency UK for Meta &amp; Google Ads, your Ecommerce CRO Agency UK for site-wide conversion lifts, a full-stack Shopify Ecommerce Agency UK for platform builds and migrations, and an Ecommerce Automation Agency UK for AI workflows that cut manual work.">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-full lg:max-w-none" : ""}`}>
