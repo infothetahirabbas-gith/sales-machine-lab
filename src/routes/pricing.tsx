@@ -249,7 +249,19 @@ function PricingPage() {
                 search={{ plan: t.name }}
                 onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: t.name, price: t.priceNumeric, currency: t.currency, popular: !!t.popular })}
                 className="mt-7 btn btn-primary btn-shimmer justify-center w-full"
-                aria-label={`Get started with the ${t.name} plan`}
+                style={{
+                  backgroundColor: "var(--primary, #2563eb)",
+                  color: "var(--primary-foreground, #ffffff)",
+                  minHeight: 48,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "12px 20px",
+                  borderRadius: 9999,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                }}
+                aria-label={`Get started with the ${t.name} plan — opens the booking form`}
                 data-plan={t.name}
               >
                 Get Started →
