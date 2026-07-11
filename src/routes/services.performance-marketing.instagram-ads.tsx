@@ -14,11 +14,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/instagram-ads")({
   head: () => ({
     meta: [
-      { title: "Instagram Ads Agency UK - Reels, Stories & ASC+ Ads for Ecommerce | BeingEcom" },
-      { name: "description", content: "Best Instagram Ads agency UK for Shopify and DTC ecommerce brands. Reels-first creative, Stories ads, creator UGC and Advantage+ scaling engineered for profitable Instagram ROAS." },
+      { title: "Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
+      { name: "description", content: "Instagram Ads Agency UK. Reels-first, Stories and creator UGC ads that scale Shopify and WooCommerce brands profitably across Meta." },
       { name: "keywords", content: "Instagram Ads agency UK, Instagram Reels Ads, Stories Ads agency, Shopify Instagram Ads, ecommerce Instagram marketing, creator UGC agency, ASC+ Shopping" },
-      { property: "og:title", content: "Instagram Ads Agency UK - Reels, Stories & ASC+ Ads for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Instagram Ads agency UK for Shopify and DTC brands. Reels-first creative, Stories placement and ASC+ scaling engineered for profitable IG performance." },
+      { property: "og:title", content: "Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
+      { property: "og:description", content: "Instagram Ads Agency UK. Reels-first, Stories and creator UGC ads that scale Shopify and WooCommerce brands profitably across Meta." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/instagram-ads" },
       { property: "og:type", content: "website" },
     ],

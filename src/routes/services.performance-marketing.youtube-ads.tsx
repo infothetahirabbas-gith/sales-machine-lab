@@ -14,11 +14,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
   head: () => ({
     meta: [
-      { title: "YouTube Ads Agency UK - Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
-      { name: "description", content: "Best YouTube Ads agency UK for Shopify and DTC ecommerce brands. Video Action Campaigns, Demand Gen, YouTube Shorts and skippable in-stream - built for profitable ROAS." },
+      { title: "YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
+      { name: "description", content: "YouTube Ads Agency UK. Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
       { name: "keywords", content: "YouTube Ads agency UK, YouTube Ads management UK, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads, ecommerce video advertising" },
-      { property: "og:title", content: "YouTube Ads Agency UK - Video Action, Demand Gen & Shorts for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "YouTube Ads agency UK for Shopify and DTC brands. Video Action Campaigns, Demand Gen and Shorts creative built for profitable performance." },
+      { property: "og:title", content: "YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
+      { property: "og:description", content: "YouTube Ads Agency UK. Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/youtube-ads" },
       { property: "og:type", content: "website" },
     ],
