@@ -140,7 +140,7 @@ function Home() {
               BeingEcom is the Ecommerce Marketing Agency UK founders call when guesswork stops working. As a full-service Ecommerce Growth Agency UK and Ecommerce SEO Agency UK, we run SEO, Google &amp; Meta Ads, CRO and Klaviyo email for Shopify and WooCommerce brands — one senior team, one revenue P&amp;L.
             </p>
             <p className="mt-3 text-sm text-muted-foreground/90 max-w-2xl mx-auto lg:mx-0">
-              Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
+              Trusted Ecommerce Growth Agency UK partner · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK · Ecommerce Digital Marketing Agency — all under one roof, one growth plan.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
