@@ -794,7 +794,7 @@ export default function Header() {
               )}
             </div>
             <Link to="/audit" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Store Audit</Link>
-            <Link to="/pricing" className="px-3 py-2 rounded hover:bg-secondary" onClick={() => setOpen(false)}>Pricing</Link>
+            
             <div>
               <button
                 onClick={() => setCompanyOpen(!companyOpen)}
