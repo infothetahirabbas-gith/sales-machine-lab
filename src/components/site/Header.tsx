@@ -342,13 +342,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
-      <style>{`@media (min-width:900px){.desktop-main-nav{display:flex!important}.desktop-mega-panel{display:block!important}.mobile-menu-toggle{display:none!important}header:has(.desktop-services-trigger:hover) .services-mega,header:has(.desktop-services-trigger:focus-visible) .services-mega,.services-mega:hover,.services-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}header:has(.desktop-industries-trigger:hover) .industries-mega,header:has(.desktop-industries-trigger:focus-visible) .industries-mega,.industries-mega:hover,.industries-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}}@media (max-width:899.98px){.desktop-main-nav,.desktop-mega-panel{display:none!important}.mobile-menu-toggle{display:inline-flex!important}}`}</style>
+      <style>{`@media (min-width:900px){.desktop-main-nav{display:flex!important}.desktop-mega-panel{display:block!important}.mobile-menu-toggle{display:none!important}header:has(.desktop-services-trigger:hover) .services-mega,header:has(.desktop-services-trigger:focus-visible) .services-mega,.services-mega:hover,.services-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}header:has(.desktop-industries-trigger:hover) .industries-mega,header:has(.desktop-industries-trigger:focus-visible) .industries-mega,.industries-mega:hover,.industries-mega:focus-within{opacity:1!important;visibility:visible!important;pointer-events:auto!important}}@media (max-width:899.98px){.desktop-main-nav,.desktop-mega-panel{display:none!important}.mobile-menu-toggle{display:inline-flex!important}}@media (min-width:1024px){.topbar-pill{min-height:0!important;padding:2px 10px!important;font-size:11px!important;line-height:1.1!important}.topbar-pill svg{width:11px!important;height:11px!important}}`}</style>
       <div className="border-b border-border/60 bg-secondary/40">
-        <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground min-[1024px]:flex min-[1024px]:flex-wrap min-[1024px]:justify-start min-[1024px]:gap-2 min-[1024px]:px-8">
-          <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Country">
+        <div className="mx-auto grid min-h-8 max-w-7xl grid-cols-6 items-center gap-1.5 px-4 py-1 text-[11px] text-muted-foreground min-[1024px]:flex min-[1024px]:flex-wrap min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-8 min-[1024px]:py-0.5 min-[1024px]:text-[10px] min-[1024px]:min-h-0">
+          <span className="col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Country">
             <span aria-hidden="true">🇬🇧</span> UK
           </span>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change city">
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change city">
             <MapPin className="size-3 shrink-0" />
             <span className="min-w-0 truncate">{cityLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -361,7 +361,7 @@ export default function Header() {
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
             </select>
           </label>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change language">
+          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change language">
             <Languages className="size-3 shrink-0" />
             <span className="min-w-0 truncate">{langLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -374,7 +374,7 @@ export default function Header() {
               {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
             </select>
           </label>
-          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change industry">
+          <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change industry">
             <Briefcase className="size-3 shrink-0" />
             <span className="min-w-0 truncate min-[1024px]:max-w-[140px]">{industryLabel}</span>
             <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -388,7 +388,7 @@ export default function Header() {
             </select>
           </label>
           <details className="relative col-span-3 min-w-0 min-[1024px]:col-auto services-pill">
-            <summary className="list-none inline-flex w-full min-w-0 items-center justify-center gap-1 rounded-full border border-border bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3 [&::-webkit-details-marker]:hidden">
+            <summary className="list-none inline-flex w-full min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3 [&::-webkit-details-marker]:hidden">
               <Sparkles className="size-3 shrink-0" />
               <span className="min-w-0 truncate min-[1024px]:max-w-[120px]">Services</span>
               <ChevronDown className="size-3 shrink-0 opacity-60" />
@@ -423,7 +423,7 @@ export default function Header() {
               ))}
             </div>
           </details>
-          <a href="mailto:info@beingecom.com" className="order-7 hidden min-[1024px]:ml-auto min-[1024px]:inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
+          <a href="mailto:info@beingecom.com" className="topbar-pill order-7 hidden min-[1024px]:ml-auto min-[1024px]:inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 min-h-8 font-semibold hover:border-primary transition" title="Email us">
             info@beingecom.com
           </a>
         </div>
@@ -522,8 +522,8 @@ export default function Header() {
           <Link to="/contact" className="whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors story-link">Contact</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0 ml-auto">
-          <Link to="/contact" className="hidden xl:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-sm px-5 py-2.5">
-            Book Strategy Call →
+          <Link to="/contact" className="hidden min-[900px]:inline-flex items-center rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap shadow-md hover:shadow-xl hover:bg-primary/90 hover:scale-105 transition-all duration-200 text-xs xl:text-sm px-4 py-2 xl:px-5 xl:py-2.5">
+            Book Meeting →
           </Link>
            <button onClick={() => setOpen(!open)} className="mobile-menu-toggle shrink-0 size-11 rounded-xl border-2 border-foreground bg-background inline-flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
              {open ? <X className="size-6" strokeWidth={2.5} /> : <Menu className="size-6" strokeWidth={2.5} />}
