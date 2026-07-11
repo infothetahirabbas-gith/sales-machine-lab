@@ -404,6 +404,58 @@ function PricingPage() {
         </div>
       </section>
 
+      {/* CASE STUDY HIGHLIGHTS */}
+      <Section
+        alt
+        eyebrow="Case study highlights"
+        title="Founders who picked a plan — and the numbers they shipped"
+        intro="Three recent engagements, with before/after metrics pulled straight from GA4, Shopify and ad platforms."
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {caseStudyHighlights.map((c) => (
+            <article key={c.brand} className="card-surface p-6 rounded-3xl flex flex-col">
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="font-bold text-ink text-lg leading-tight">{c.brand}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">{c.sector}</p>
+                </div>
+                <span className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shrink-0">
+                  {c.plan} plan
+                </span>
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-border bg-secondary/30 px-3 py-3">
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Before</div>
+                  <div className="mt-1 text-lg font-bold text-ink/80 line-through decoration-muted-foreground/50">{c.before.value}</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{c.before.label}</div>
+                </div>
+                <div className="rounded-xl border border-primary/30 bg-primary/5 px-3 py-3">
+                  <div className="text-[10px] uppercase tracking-widest text-primary font-bold">After</div>
+                  <div className="mt-1 text-lg font-bold text-gradient">{c.after.value}</div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{c.after.label}</div>
+                </div>
+              </div>
+
+              <div className="mt-3 inline-flex items-center gap-2 self-start rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                {c.delta}
+              </div>
+
+              <blockquote className="mt-5 flex-1 text-sm text-ink/85 leading-relaxed relative pl-6">
+                <Quote className="w-4 h-4 text-primary absolute left-0 top-1" aria-hidden="true" />
+                {c.quote}
+              </blockquote>
+              <footer className="mt-3 text-xs text-muted-foreground">— {c.author}</footer>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link to="/case-studies" className="btn btn-dark">See all case studies →</Link>
+          <Link to="/company/reviews" className="btn btn-ghost">Read verified reviews</Link>
+        </div>
+      </Section>
+
       <FaqSection
         faqs={pricingFaqs}
         title="Pricing —"
