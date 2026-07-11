@@ -9,8 +9,8 @@ import founderImg from "@/assets/founder-ceo.jpg.asset.json";
 
 const PATH = "/founder";
 const CANONICAL = `${SITE_URL}${PATH}`;
-const TITLE = "Meet Tahir Abbas — Founder & CEO of BeingEcom | Ecommerce Growth Expert";
-const DESC = "Tahir Abbas is the founder and CEO of BeingEcom — a UK ecommerce growth authority with 10+ years scaling Shopify and WooCommerce brands through SEO, Paid Ads, CRO and AI Automation.";
+const TITLE = "Meet Tahir Abbas Founder & CEO of BeingEcom | Ecommerce Growth Expert";
+const DESC = "Tahir Abbas is the founder and CEO of BeingEcom a UK ecommerce growth authority with 10+ years scaling Shopify and WooCommerce brands through SEO, Paid Ads, CRO and AI Automation.";
 const founder = TEAM.find((m) => m.slug === "tahir-abbas")!;
 
 const founderPerson = {
@@ -19,7 +19,7 @@ const founderPerson = {
   mainEntityOfPage: CANONICAL,
   hasOccupation: {
     "@type": "Occupation",
-    name: "Founder & CEO — Ecommerce Growth Operator",
+    name: "Founder & CEO Ecommerce Growth Operator",
     occupationLocation: { "@type": "Country", name: "United Kingdom" },
     skills: founder.knowsAbout.join(", "),
     estimatedSalary: undefined,
@@ -27,7 +27,7 @@ const founderPerson = {
       "Sets growth strategy for Shopify and WooCommerce clients, leads senior operator pods across SEO, Paid Ads, CRO, Email and AI Automation, and signs off every 90-day plan before onboarding closes.",
   },
   alumniOf: [
-    { "@type": "EducationalOrganization", name: "Independent ecommerce operator training — UK" },
+    { "@type": "EducationalOrganization", name: "Independent ecommerce operator training UK" },
   ],
   award: [
     "Scaled multiple Shopify brands past £1M ARR",
@@ -39,15 +39,15 @@ const founderPerson = {
 
 const faqs: FAQ[] = [
   { q: "Who is Tahir Abbas?", a: "Tahir Abbas is the founder and CEO of BeingEcom, a UK-based ecommerce growth agency for Shopify and WooCommerce brands. He has more than a decade of operating experience across performance marketing, SEO, CRO, email and AI automation." },
-  { q: "What industries does Tahir Abbas specialise in?", a: "Direct-to-consumer ecommerce — beauty, fashion, health & wellness, home, food & beverage, jewellery, pet, sports and lifestyle brands on Shopify, Shopify Plus and WooCommerce." },
-  { q: "How many years of experience does Tahir Abbas have?", a: "Over 10 years operating ecommerce brands and paid media P&Ls — starting as a DTC store operator, then growth lead, then head of performance for a DTC group, and now founder & CEO of BeingEcom." },
+  { q: "What industries does Tahir Abbas specialise in?", a: "Direct-to-consumer ecommerce beauty, fashion, health & wellness, home, food & beverage, jewellery, pet, sports and lifestyle brands on Shopify, Shopify Plus and WooCommerce." },
+  { q: "How many years of experience does Tahir Abbas have?", a: "Over 10 years operating ecommerce brands and paid media P&Ls starting as a DTC store operator, then growth lead, then head of performance for a DTC group, and now founder & CEO of BeingEcom." },
   { q: "What services does Tahir Abbas provide through BeingEcom?", a: "Ecommerce SEO (technical, on-page, off-page, international, AEO/GEO), Paid Advertising (Google, Meta, TikTok, YouTube), Conversion Rate Optimisation, Email & SMS Marketing, Analytics & Tracking, Store Development (Shopify + WooCommerce), and AI Automation." },
-  { q: "Why was BeingEcom founded?", a: "To give ambitious Shopify and WooCommerce brands the senior growth team every founder wishes they could hire in-house — revenue-first, senior-only, ecommerce-only, and month-to-month by choice." },
+  { q: "Why was BeingEcom founded?", a: "To give ambitious Shopify and WooCommerce brands the senior growth team every founder wishes they could hire in-house revenue-first, senior-only, ecommerce-only, and month-to-month by choice." },
   { q: "Does Tahir Abbas work with international brands?", a: "Yes. BeingEcom serves brands across the United Kingdom, United States, Ireland, Australia and the wider European market." },
   { q: "Can I book a consultation with Tahir Abbas?", a: "Yes. Qualified brands can book a 30-minute discovery call through the contact page. Tahir personally leads the strategy phase for every engagement and joins onboarding calls in the first 90 days." },
-  { q: "What makes Tahir Abbas's approach different?", a: "Every plan is tied to a P&L line, measured against MER and contribution margin rather than vanity ROAS, executed by senior-only operators, and shipped on a weekly cadence with transparent reporting — wins and losses." },
+  { q: "What makes Tahir Abbas's approach different?", a: "Every plan is tied to a P&L line, measured against MER and contribution margin rather than vanity ROAS, executed by senior-only operators, and shipped on a weekly cadence with transparent reporting wins and losses." },
   { q: "Where is Tahir Abbas based?", a: "London, United Kingdom. BeingEcom is registered at 71–75 Shelton Street, Covent Garden, London WC2H 9JQ." },
-  { q: "How can I contact Tahir Abbas directly?", a: "Through info@beingecom.com, via the contact page, or on LinkedIn — links are provided in the 'Connect with the founder' section of this page." },
+  { q: "How can I contact Tahir Abbas directly?", a: "Through info@beingecom.com, via the contact page, or on LinkedIn links are provided in the 'Connect with the founder' section of this page." },
 ];
 
 const jsonLd = [
@@ -78,7 +78,7 @@ const jsonLd = [
     contentUrl: `${SITE_URL}${founderImg.url}`,
     width: 560,
     height: 680,
-    caption: "Tahir Abbas — Founder & CEO of BeingEcom",
+    caption: "Tahir Abbas Founder & CEO of BeingEcom",
     creditText: "BeingEcom",
     creator: { "@id": ORG_ID },
     copyrightNotice: "© BeingEcom",
@@ -184,12 +184,12 @@ export default function FounderAuthorityPage() {
     { icon: TrendingUp, title: "Ecommerce SEO", body: "Programmatic SEO, entity SEO, AEO and GEO for Shopify and WooCommerce brands." },
     { icon: Zap, title: "Shopify SEO", body: "Collection architecture, metafield-driven templates, Liquid-level Core Web Vitals fixes." },
     { icon: Zap, title: "WooCommerce SEO", body: "Schema hardening, taxonomy design, WPML for international, hosting & speed audits." },
-    { icon: Target, title: "Google Ads", body: "Search, Shopping, Performance Max — margin-tiered structure, MER-based bidding." },
+    { icon: Target, title: "Google Ads", body: "Search, Shopping, Performance Max margin-tiered structure, MER-based bidding." },
     { icon: Target, title: "Meta Ads", body: "Creative-led testing at scale, incrementality windows, catalogue optimisation." },
     { icon: Target, title: "TikTok Ads", body: "Spark ads, creator-led funnels, VVC + CTR-based creative iteration." },
-    { icon: Sparkles, title: "Conversion Rate Optimisation", body: "PDP, PLP and checkout redesigns tied to contribution margin — not micro-CRO." },
+    { icon: Sparkles, title: "Conversion Rate Optimisation", body: "PDP, PLP and checkout redesigns tied to contribution margin not micro-CRO." },
     { icon: Mail, title: "Email & SMS Marketing", body: "Klaviyo flows, retention P&L, LTV expansion via segmented lifecycle programs." },
-    { icon: Rocket, title: "AI Automation", body: "Reporting, forecasting, creative production and keyword ops — auditable, never black-box." },
+    { icon: Rocket, title: "AI Automation", body: "Reporting, forecasting, creative production and keyword ops auditable, never black-box." },
     { icon: Briefcase, title: "Technical SEO", body: "JS rendering, edge SEO, log-file analysis, index bloat, crawl budget and Core Web Vitals." },
     { icon: Globe, title: "Local & International SEO", body: "hreflang, market-specific PDPs, geo-targeted content clusters and link building." },
     { icon: TrendingUp, title: "Analytics & Tracking", body: "GA4, server-side tagging, MMM and Northbeam-style attribution setups." },
@@ -197,11 +197,11 @@ export default function FounderAuthorityPage() {
 
   const timeline = [
     { year: "2013", title: "First DTC Store", body: "Launched a Shopify store while learning paid social. Found product-market fit and unit economics the hard way." },
-    { year: "2015", title: "Growth Lead — UK Shopify Brand", body: "Scaled monthly revenue 6× through a stack of ads, email and landing page systemisation." },
-    { year: "2017", title: "Head of Performance — DTC Group", body: "Ran an 8-figure paid media P&L across four brands. Learned that MER, not ROAS, is the truth." },
+    { year: "2015", title: "Growth Lead UK Shopify Brand", body: "Scaled monthly revenue 6× through a stack of ads, email and landing page systemisation." },
+    { year: "2017", title: "Head of Performance DTC Group", body: "Ran an 8-figure paid media P&L across four brands. Learned that MER, not ROAS, is the truth." },
     { year: "2019", title: "Independent Growth Partner", body: "Advised Shopify Plus brands on CRO, technical SEO and Klaviyo retention systems." },
     { year: "2021", title: "Replatforming Specialist", body: "Led Shopify ↔ WooCommerce migrations and early headless architecture for scaling brands." },
-    { year: "2023", title: "AI-First Ecommerce Operator", body: "Built proprietary automations for reporting, forecasting and creative testing — before it was fashionable." },
+    { year: "2023", title: "AI-First Ecommerce Operator", body: "Built proprietary automations for reporting, forecasting and creative testing before it was fashionable." },
     { year: "2024", title: "Founded BeingEcom", body: "Senior-only agency built around a single revenue-first playbook and a 13-phase growth methodology." },
     { year: "2026 →", title: "Global Expansion", body: "Growing the operator pod model across the UK, US, Ireland, Australia and Europe." },
   ];
@@ -216,59 +216,59 @@ export default function FounderAuthorityPage() {
   ];
 
   const certifications = [
-    "Google Ads — Search, Display, Shopping, Video, Measurement",
+    "Google Ads Search, Display, Shopping, Video, Measurement",
     "Google Analytics 4 (GA4) Certified",
-    "Meta Blueprint — Media Buying & Media Planning Professional",
-    "Shopify Partner — Store Development & Ecosystem",
+    "Meta Blueprint Media Buying & Media Planning Professional",
+    "Shopify Partner Store Development & Ecosystem",
     "WooCommerce & WordPress Advanced Development",
-    "HubSpot — Inbound, Content Marketing, SEO",
-    "TikTok Marketing Science — Creative Strategy",
-    "Klaviyo Product Certification — Flows, Segmentation, Deliverability",
-    "Ahrefs & Semrush — Advanced Technical SEO",
-    "OpenAI + LangChain — Applied AI for Ecommerce Automation",
+    "HubSpot Inbound, Content Marketing, SEO",
+    "TikTok Marketing Science Creative Strategy",
+    "Klaviyo Product Certification Flows, Segmentation, Deliverability",
+    "Ahrefs & Semrush Advanced Technical SEO",
+    "OpenAI + LangChain Applied AI for Ecommerce Automation",
   ];
 
   const philosophy = [
     { title: "Revenue over vanity", body: "Every experiment is tied to a P&L line. If it can't move contribution margin, it doesn't ship." },
     { title: "Senior-only execution", body: "No junior operates unsupervised on a client account. Ever." },
-    { title: "AI is leverage on judgement", body: "Automation amplifies senior decisions — it never replaces them." },
+    { title: "AI is leverage on judgement", body: "Automation amplifies senior decisions it never replaces them." },
     { title: "Ecommerce is a system", body: "SEO, paid, CRO and email are one machine. Optimising one in isolation is malpractice." },
     { title: "Radical transparency", body: "Losses are named as clearly as wins. Clients see raw data, not dressed-up dashboards." },
-    { title: "Long-term compounding", body: "Month-to-month by choice — because good work retains itself." },
+    { title: "Long-term compounding", body: "Month-to-month by choice because good work retains itself." },
   ];
 
   const achievements = [
     { icon: Award, title: "8-figure DTC P&L operated", body: "Managed paid media across four brands as head of performance for a UK DTC group." },
     { icon: Rocket, title: "Multiple 7-figure Shopify launches", body: "Led go-to-market for Shopify brands crossing £1M ARR in year one." },
-    { icon: Sparkles, title: "13-Phase Growth Methodology", body: "Authored BeingEcom's proprietary framework — used across every client engagement." },
+    { icon: Sparkles, title: "13-Phase Growth Methodology", body: "Authored BeingEcom's proprietary framework used across every client engagement." },
     { icon: Users, title: "Senior-only operator pod model", body: "Pioneered a fractional-CMO team structure serving brands in 4 countries." },
     { icon: Zap, title: "Being Ecom Brain™ Audit", body: "Built an AI-native store audit engine scanning 17 growth phases in under 90 seconds." },
     { icon: Globe, title: "International expansion playbook", body: "Shipped hreflang + market-specific PDP systems for brands in UK, US, IE and AU." },
   ];
 
   const insights = [
-    "Reads 40+ books a year — currently on 'The Great CEO Within' and 'Play Bigger'.",
+    "Reads 40+ books a year currently on 'The Great CEO Within' and 'Play Bigger'.",
     "Runs a strict 05:30 – 07:00 deep-work block before email, calls or Slack.",
-    "Keeps a written 'lessons ledger' — every project logs one thing that worked and one that didn't.",
+    "Keeps a written 'lessons ledger' every project logs one thing that worked and one that didn't.",
     "Believes in 90-day sprints tied to written outcomes, not annual plans.",
-    "Advice to founders: hire senior earlier than you think you can afford — juniors compound cost, seniors compound revenue.",
+    "Advice to founders: hire senior earlier than you think you can afford juniors compound cost, seniors compound revenue.",
     "Advice to marketers: learn the P&L first, learn the platform second. Everything downstream gets easier.",
   ];
 
   const testimonials = [
-    { quote: "Tahir doesn't sell hours — he sells decisions. Our first 60 days moved MER from 2.1 to 3.4 without touching ad spend.", author: "Founder", role: "UK Beauty DTC brand, £3M ARR" },
-    { quote: "The most senior operator we've worked with. Every call is decisions in, decisions out — no fluff, no reporting theatre.", author: "Head of Growth", role: "US Apparel brand, Shopify Plus" },
+    { quote: "Tahir doesn't sell hours he sells decisions. Our first 60 days moved MER from 2.1 to 3.4 without touching ad spend.", author: "Founder", role: "UK Beauty DTC brand, £3M ARR" },
+    { quote: "The most senior operator we've worked with. Every call is decisions in, decisions out no fluff, no reporting theatre.", author: "Head of Growth", role: "US Apparel brand, Shopify Plus" },
     { quote: "He rebuilt our SEO from the schema up. Organic revenue tripled in six months and it's still compounding.", author: "Managing Director", role: "IE Home & Living brand, WooCommerce" },
     { quote: "Rare combination: technical enough to fix Liquid, commercial enough to sit in a board meeting.", author: "CEO", role: "AU Wellness brand, DTC group" },
   ];
 
   const articles = [
     { title: "MER Over ROAS: The Only Paid Media Scorecard That Matters", body: "Why platform ROAS is a subset and how to structure reporting around Marketing Efficiency Ratio and contribution margin.", to: "/blog" },
-    { title: "Programmatic SEO for Shopify — A Practical Playbook", body: "Metafield-driven templates, collection architecture and the technical guardrails to avoid index bloat.", to: "/blog" },
-    { title: "The 13-Phase Ecommerce Growth Framework", body: "The internal methodology BeingEcom uses on every engagement — from diagnostic to retention P&L.", to: "/company/methodology" },
-    { title: "AI Automation for Ecommerce Operators (Without the Hype)", body: "Where AI genuinely compresses time — reporting, creative ops, keyword clustering — and where it still fails." , to: "/services/ai-automation" },
+    { title: "Programmatic SEO for Shopify A Practical Playbook", body: "Metafield-driven templates, collection architecture and the technical guardrails to avoid index bloat.", to: "/blog" },
+    { title: "The 13-Phase Ecommerce Growth Framework", body: "The internal methodology BeingEcom uses on every engagement from diagnostic to retention P&L.", to: "/company/methodology" },
+    { title: "AI Automation for Ecommerce Operators (Without the Hype)", body: "Where AI genuinely compresses time reporting, creative ops, keyword clustering and where it still fails." , to: "/services/ai-automation" },
     { title: "How to Read a Shopify P&L Like a CFO", body: "A ground-up guide to reading contribution margin, CAC payback and LTV without a finance background.", to: "/blog" },
-    { title: "The CRO Mistakes That Cost You 6 Figures a Year", body: "PDP, PLP and checkout patterns that quietly leak revenue — and the tests that plug them.", to: "/services/cro" },
+    { title: "The CRO Mistakes That Cost You 6 Figures a Year", body: "PDP, PLP and checkout patterns that quietly leak revenue and the tests that plug them.", to: "/services/cro" },
   ];
 
   const socials = [
@@ -303,7 +303,7 @@ export default function FounderAuthorityPage() {
             <div className="relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-border shadow-2xl bg-card w-56 h-64 sm:w-64 sm:h-72 md:w-60 md:h-72 lg:w-80 lg:h-96">
               <img
                 src={founderImg.url}
-                alt="Tahir Abbas — Founder & CEO of BeingEcom, UK ecommerce growth expert"
+                alt="Tahir Abbas Founder & CEO of BeingEcom, UK ecommerce growth expert"
                 width={560}
                 height={680}
                 loading="eager"
@@ -327,7 +327,7 @@ export default function FounderAuthorityPage() {
             </h1>
             <p className="mt-3 text-xl md:text-2xl text-primary font-semibold">Founder &amp; CEO of BeingEcom</p>
             <p className="mt-5 text-base lg:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Helping Shopify and WooCommerce brands scale through <span className="text-ink font-semibold">SEO, Paid Advertising, CRO, AI Automation</span> and data-driven ecommerce growth — with a decade of senior operating experience across the UK, US, Ireland and Australia.
+              Helping Shopify and WooCommerce brands scale through <span className="text-ink font-semibold">SEO, Paid Advertising, CRO, AI Automation</span> and data-driven ecommerce growth with a decade of senior operating experience across the UK, US, Ireland and Australia.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
@@ -377,9 +377,9 @@ export default function FounderAuthorityPage() {
             <SectionBlock id="intro">
               <SectionHead num={sectionNum("intro")} eyebrow="Introduction" title="An ecommerce operator, not a marketer with a deck" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
-                <p>I&apos;m <span className="text-ink font-semibold">Tahir Abbas</span> — founder and CEO of <Link to="/" className="text-primary underline">BeingEcom</Link>, a UK ecommerce growth agency built for Shopify and WooCommerce brands that want senior operators, not account managers reading from a slide deck.</p>
+                <p>I&apos;m <span className="text-ink font-semibold">Tahir Abbas</span> founder and CEO of <Link to="/" className="text-primary underline">BeingEcom</Link>, a UK ecommerce growth agency built for Shopify and WooCommerce brands that want senior operators, not account managers reading from a slide deck.</p>
                 <p>For more than a decade I&apos;ve lived inside ecommerce: as a DTC store owner learning unit economics the hard way, as a growth lead scaling brands past their first £1M, as head of performance for a group running an 8-figure paid media P&amp;L, and today as the operator who signs off every 90-day growth plan BeingEcom ships.</p>
-                <p>My mission is simple — help ambitious ecommerce brands compound revenue through <span className="text-ink font-semibold">SEO, paid advertising, conversion rate optimisation, email &amp; SMS, and AI automation</span>, all measured against contribution margin instead of vanity metrics. That&apos;s the reason BeingEcom exists, and it&apos;s the reason clients stay.</p>
+                <p>My mission is simple help ambitious ecommerce brands compound revenue through <span className="text-ink font-semibold">SEO, paid advertising, conversion rate optimisation, email &amp; SMS, and AI automation</span>, all measured against contribution margin instead of vanity metrics. That&apos;s the reason BeingEcom exists, and it&apos;s the reason clients stay.</p>
               </div>
             </SectionBlock>
 
@@ -388,8 +388,8 @@ export default function FounderAuthorityPage() {
               <SectionHead num={sectionNum("story")} eyebrow="My Story" title="From a first Shopify store to a senior-only agency" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
                 <p>The story started in 2013 with a single Shopify store, £300 in Facebook ad spend, and no idea what CAC payback meant. Within a year I&apos;d learned two things the hard way: <span className="text-ink font-semibold">every metric that matters lives on the P&amp;L</span>, and every metric that doesn&apos;t is a distraction sold by someone with a course to push.</p>
-                <p>The turning point came in 2017 running paid media for a UK DTC group. The reports looked great on ROAS. The bank account said otherwise. That gap — between platform metrics and real profit — became the obsession that eventually became BeingEcom.</p>
-                <p>Along the way I ran migrations between Shopify and WooCommerce, rebuilt technical SEO from the schema up, wrote Klaviyo flows that outperformed the acquisition channel that fed them, and — from 2023 — started building AI automations that compressed a week of reporting into a morning.</p>
+                <p>The turning point came in 2017 running paid media for a UK DTC group. The reports looked great on ROAS. The bank account said otherwise. That gap between platform metrics and real profit became the obsession that eventually became BeingEcom.</p>
+                <p>Along the way I ran migrations between Shopify and WooCommerce, rebuilt technical SEO from the schema up, wrote Klaviyo flows that outperformed the acquisition channel that fed them, and from 2023 started building AI automations that compressed a week of reporting into a morning.</p>
                 <p>In 2024 I founded BeingEcom with a single rule: <span className="text-ink font-semibold">no junior operates unsupervised on a client account, ever</span>. That constraint shaped the pod model, the pricing, the 90-day engagement and everything you see on this site today.</p>
               </div>
             </SectionBlock>
@@ -411,7 +411,7 @@ export default function FounderAuthorityPage() {
 
             {/* Expertise */}
             <SectionBlock id="expertise" tint>
-              <SectionHead num={sectionNum("expertise")} eyebrow="Areas of Expertise" title="The disciplines I personally lead" intro="Every engagement I sign off on touches at least four of these — because ecommerce is a system, not a channel." />
+              <SectionHead num={sectionNum("expertise")} eyebrow="Areas of Expertise" title="The disciplines I personally lead" intro="Every engagement I sign off on touches at least four of these because ecommerce is a system, not a channel." />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {expertise.map((e) => (
                   <div key={e.title} className="rounded-2xl border border-border bg-card p-5 hover:border-primary/50 transition-colors">
@@ -435,7 +435,7 @@ export default function FounderAuthorityPage() {
 
             {/* Certifications */}
             <SectionBlock id="certifications" tint>
-              <SectionHead num={sectionNum("certifications")} eyebrow="Certifications & Continuous Learning" title="Trained, certified, and always studying" intro="A partial list — the philosophy behind it matters more than the badges." />
+              <SectionHead num={sectionNum("certifications")} eyebrow="Certifications & Continuous Learning" title="Trained, certified, and always studying" intro="A partial list the philosophy behind it matters more than the badges." />
               <div className="grid sm:grid-cols-2 gap-3">
                 {certifications.map((c) => (
                   <div key={c} className="flex gap-3 items-start rounded-xl border border-border bg-card p-4">
@@ -448,7 +448,7 @@ export default function FounderAuthorityPage() {
                 <div className="flex gap-3 items-start">
                   <BookOpen className="size-5 text-primary shrink-0 mt-1" />
                   <p className="text-sm text-foreground/90 leading-relaxed">
-                    <span className="font-semibold text-ink">Learning philosophy:</span> every quarter I re-audit one entire discipline — SEO one quarter, paid the next, CRO after that — because ecommerce platforms change faster than most teams can keep up with. Certifications are a floor, not a ceiling.
+                    <span className="font-semibold text-ink">Learning philosophy:</span> every quarter I re-audit one entire discipline SEO one quarter, paid the next, CRO after that because ecommerce platforms change faster than most teams can keep up with. Certifications are a floor, not a ceiling.
                   </p>
                 </div>
               </div>
@@ -470,9 +470,9 @@ export default function FounderAuthorityPage() {
               <blockquote className="mt-8 rounded-3xl border border-border bg-gradient-to-br from-primary/5 to-transparent p-8 relative">
                 <Quote className="absolute top-4 left-4 size-8 text-primary/30" />
                 <p className="text-lg md:text-xl text-ink font-medium leading-relaxed pl-8">
-                  &ldquo;Ecommerce isn&apos;t hacks or hype. It&apos;s a system where every click, every pound of ad spend and every customer compounds into profitable growth — or quietly leaks out of it.&rdquo;
+                  &ldquo;Ecommerce isn&apos;t hacks or hype. It&apos;s a system where every click, every pound of ad spend and every customer compounds into profitable growth or quietly leaks out of it.&rdquo;
                 </p>
-                <div className="mt-4 pl-8 text-sm text-muted-foreground">— Tahir Abbas, Founder &amp; CEO</div>
+                <div className="mt-4 pl-8 text-sm text-muted-foreground">Tahir Abbas, Founder &amp; CEO</div>
               </blockquote>
             </SectionBlock>
 
@@ -480,8 +480,8 @@ export default function FounderAuthorityPage() {
             <SectionBlock id="vision" tint>
               <SectionHead num={sectionNum("vision")} eyebrow="The BeingEcom Vision" title="Where BeingEcom is going" />
               <div className="prose-body text-muted-foreground leading-relaxed space-y-4 text-base">
-                <p><span className="text-ink font-semibold">BeingEcom exists</span> to give ecommerce brands the senior operating team every founder wishes they could hire in-house — without the 12-month lock-ins, the junior account managers or the reporting theatre that most agencies charge for.</p>
-                <p>Over the next three years we&apos;re expanding the operator-pod model across the UK, US, Ireland, Australia and Europe, deepening our AI automation stack, and publishing more of the internal methodology openly so ecommerce founders can raise their own standards — whether they hire us or not.</p>
+                <p><span className="text-ink font-semibold">BeingEcom exists</span> to give ecommerce brands the senior operating team every founder wishes they could hire in-house without the 12-month lock-ins, the junior account managers or the reporting theatre that most agencies charge for.</p>
+                <p>Over the next three years we&apos;re expanding the operator-pod model across the UK, US, Ireland, Australia and Europe, deepening our AI automation stack, and publishing more of the internal methodology openly so ecommerce founders can raise their own standards whether they hire us or not.</p>
                 <p>The long-term vision is simple: become the <span className="text-ink font-semibold">most trusted, most transparent, most technically capable ecommerce growth partner</span> for founder-led DTC brands scaling from £1M to £25M.</p>
               </div>
             </SectionBlock>
@@ -510,7 +510,7 @@ export default function FounderAuthorityPage() {
                   ["Diagnose", "Audit the store, P&L, tracking, channel mix, creative, retention and customer journey before recommending any work."],
                   ["Prioritise", "Rank opportunities by revenue impact, effort, risk and confidence so the team ships the highest-leverage moves first."],
                   ["Execute", "Run SEO, paid, CRO, email and AI automation as one commercial system instead of separate channel silos."],
-                  ["Review", "Read the weekly scorecard against MER, contribution margin, CAC payback and LTV — then adjust the next sprint."],
+                  ["Review", "Read the weekly scorecard against MER, contribution margin, CAC payback and LTV then adjust the next sprint."],
                 ].map(([title, body], index) => (
                   <div key={title} className="rounded-2xl border border-border bg-card p-5">
                     <div className="text-[11px] font-black tracking-widest text-primary">{String(index + 1).padStart(2, "0")}</div>
@@ -523,13 +523,13 @@ export default function FounderAuthorityPage() {
 
             {/* Trust */}
             <SectionBlock id="trust">
-              <SectionHead num={sectionNum("trust")} eyebrow="Why you can trust this profile" title="Experience, expertise, authority and trust" intro="Four commitments that shape how this page is written — and how BeingEcom operates day to day." />
+              <SectionHead num={sectionNum("trust")} eyebrow="Why you can trust this profile" title="Experience, expertise, authority and trust" intro="Four commitments that shape how this page is written and how BeingEcom operates day to day." />
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  { k: "Experience", body: "Every claim on this page is written from hands-on ecommerce operating work — building Shopify and WooCommerce stores, running paid media, shipping CRO tests and owning retention programmes for real brands." },
-                  { k: "Expertise", body: "Clear coverage across SEO, paid, CRO, email, analytics and AI automation — with named methods, transparent metrics and the same commercial decision rules we use internally." },
+                  { k: "Experience", body: "Every claim on this page is written from hands-on ecommerce operating work building Shopify and WooCommerce stores, running paid media, shipping CRO tests and owning retention programmes for real brands." },
+                  { k: "Expertise", body: "Clear coverage across SEO, paid, CRO, email, analytics and AI automation with named methods, transparent metrics and the same commercial decision rules we use internally." },
                   { k: "Authority", body: "Tahir Abbas leads BeingEcom and is publicly connected to the leadership team, services, methodology and case studies you can browse across the site." },
-                  { k: "Trust", body: "Real contact details, an identifiable founder, honest client-fit boundaries and consistent answers in the FAQ — no anonymous claims, no inflated numbers." },
+                  { k: "Trust", body: "Real contact details, an identifiable founder, honest client-fit boundaries and consistent answers in the FAQ no anonymous claims, no inflated numbers." },
                 ].map(({ k, body }) => (
                   <div key={k} className="rounded-2xl border border-border bg-card p-5">
                     <div className="flex items-center gap-2">
@@ -544,15 +544,15 @@ export default function FounderAuthorityPage() {
 
             {/* Entity / At a glance */}
             <SectionBlock id="entity" tint>
-              <SectionHead num={sectionNum("entity")} eyebrow="At a glance" title="Who Tahir Abbas is, in one view" intro="A quick reference of role, company, focus areas and how everything connects — so you can size up fit in under a minute." />
+              <SectionHead num={sectionNum("entity")} eyebrow="At a glance" title="Who Tahir Abbas is, in one view" intro="A quick reference of role, company, focus areas and how everything connects so you can size up fit in under a minute." />
               <div className="grid gap-4 md:grid-cols-2">
                 {[
-                  { label: "Role", value: "Founder & CEO of BeingEcom — hands-on across strategy, growth and client outcomes." },
+                  { label: "Role", value: "Founder & CEO of BeingEcom hands-on across strategy, growth and client outcomes." },
                   { label: "Based in", value: "London, United Kingdom. Working with brands across the UK, EU, US and Australia." },
-                  { label: "Company", value: "BeingEcom — a senior ecommerce growth team for Shopify and WooCommerce brands." },
+                  { label: "Company", value: "BeingEcom a senior ecommerce growth team for Shopify and WooCommerce brands." },
                   { label: "Focus areas", value: "Ecommerce SEO, paid advertising, CRO, analytics, email & SMS, AI automation." },
                   { label: "Works with", value: "DTC founders and operators scaling from £30k to £1m+ in monthly revenue." },
-                  { label: "Measured by", value: "MER, contribution margin and long-term customer value — not vanity metrics." },
+                  { label: "Measured by", value: "MER, contribution margin and long-term customer value not vanity metrics." },
                 ].map(({ label, value }) => (
                   <div key={label} className="rounded-2xl border border-border bg-card p-5">
                     <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{label}</div>
@@ -564,22 +564,22 @@ export default function FounderAuthorityPage() {
 
             {/* Short summary */}
             <SectionBlock id="ai-overview">
-              <SectionHead num={sectionNum("ai-overview")} eyebrow="In one paragraph" title="The version" intro="If you only read one section — this is who Tahir is and what he does." />
+              <SectionHead num={sectionNum("ai-overview")} eyebrow="In one paragraph" title="The version" intro="If you only read one section this is who Tahir is and what he does." />
               <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
                 <p className="text-lg leading-relaxed text-ink sm:text-xl">
-                  <span className="font-semibold text-primary">Tahir Abbas</span> is the founder and CEO of BeingEcom, a UK ecommerce growth agency for Shopify and WooCommerce brands. He combines <span className="font-medium text-ink">SEO, paid advertising, CRO, analytics, email marketing and AI automation</span> into revenue-first growth systems — measured by <span className="font-medium text-ink">MER, contribution margin and long-term customer value</span>, not vanity metrics.
+                  <span className="font-semibold text-primary">Tahir Abbas</span> is the founder and CEO of BeingEcom, a UK ecommerce growth agency for Shopify and WooCommerce brands. He combines <span className="font-medium text-ink">SEO, paid advertising, CRO, analytics, email marketing and AI automation</span> into revenue-first growth systems measured by <span className="font-medium text-ink">MER, contribution margin and long-term customer value</span>, not vanity metrics.
                 </p>
               </div>
             </SectionBlock>
 
             {/* Media */}
             <SectionBlock id="media" tint>
-              <SectionHead num={sectionNum("media")} eyebrow="Speaking, Interviews & Media" title="Talks, podcasts and guest features" intro="A rolling record — updated as new appearances are confirmed." />
+              <SectionHead num={sectionNum("media")} eyebrow="Speaking, Interviews & Media" title="Talks, podcasts and guest features" intro="A rolling record updated as new appearances are confirmed." />
               <div className="rounded-2xl border border-border bg-card p-6 space-y-4">
                 <div>
                   <h3 className="font-semibold text-ink">Recent &amp; upcoming</h3>
                   <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <li>• Regular editorial contributor at <Link to="/blog" className="text-primary underline">beingecom.com/blog</Link> — long-form playbooks on SEO, CRO and paid.</li>
+                    <li>• Regular editorial contributor at <Link to="/blog" className="text-primary underline">beingecom.com/blog</Link> long-form playbooks on SEO, CRO and paid.</li>
                     <li>• Guest interviews on independent DTC podcasts covering the shift from ROAS-first to margin-first thinking.</li>
                     <li>• Speaker at UK ecommerce founder meetups on AI-assisted growth workflows.</li>
                     <li>• Workshops for closed founder communities on the 13-phase growth framework.</li>
@@ -606,7 +606,7 @@ export default function FounderAuthorityPage() {
 
             {/* Articles */}
             <SectionBlock id="articles" tint>
-              <SectionHead num={sectionNum("articles")} eyebrow="Featured Articles" title="Written by Tahir Abbas" intro="Selected long-form pieces — the same thinking that shapes every client engagement." />
+              <SectionHead num={sectionNum("articles")} eyebrow="Featured Articles" title="Written by Tahir Abbas" intro="Selected long-form pieces the same thinking that shapes every client engagement." />
               <div className="grid sm:grid-cols-2 gap-4">
                 {articles.map((a) => (
                   <Link key={a.title} to={a.to} className="rounded-2xl border border-border bg-card p-5 hover:border-primary/50 transition-colors block">
@@ -669,7 +669,7 @@ export default function FounderAuthorityPage() {
       {/* Final CTA */}
       <CTA
         heading="Work directly with the founder"
-        sub="Book a 30-minute strategy call with Tahir Abbas. Bring your store URL, current MER and biggest bottleneck — leave with a clear next 90 days."
+        sub="Book a 30-minute strategy call with Tahir Abbas. Bring your store URL, current MER and biggest bottleneck leave with a clear next 90 days."
       />
     </PageLayout>
   );

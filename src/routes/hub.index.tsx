@@ -7,27 +7,27 @@ const PILLARS = [
   {
     slug: "shopify-growth",
     title: "Shopify Growth Hub",
-    summary: "Everything a Shopify or Shopify Plus brand needs to compound revenue — SEO, speed, CRO, paid, email and headless.",
+    summary: "Everything a Shopify or Shopify Plus brand needs to compound revenue SEO, speed, CRO, paid, email and headless.",
   },
   {
     slug: "woocommerce-growth",
     title: "WooCommerce Growth Hub",
-    summary: "Scaling WooCommerce and WordPress stores past the plugin-bloat ceiling — performance, checkout, hosting and marketing.",
+    summary: "Scaling WooCommerce and WordPress stores past the plugin-bloat ceiling performance, checkout, hosting and marketing.",
   },
   {
     slug: "ecommerce-seo",
     title: "Ecommerce SEO Hub",
-    summary: "Technical, on-page, off-page, local, international and AEO — the full SEO stack for product-led sites.",
+    summary: "Technical, on-page, off-page, local, international and AEO the full SEO stack for product-led sites.",
   },
   {
     slug: "paid-media",
     title: "Paid Media Hub",
-    summary: "Meta, Google, TikTok and YouTube — profitable buying against contribution margin and MER, not platform ROAS.",
+    summary: "Meta, Google, TikTok and YouTube profitable buying against contribution margin and MER, not platform ROAS.",
   },
   {
     slug: "cro",
     title: "CRO Hub",
-    summary: "Structured experimentation — research, hypothesis, sample size, guardrails — for PDP, cart, checkout and PLP.",
+    summary: "Structured experimentation research, hypothesis, sample size, guardrails for PDP, cart, checkout and PLP.",
   },
   {
     slug: "ai-automation",
@@ -42,35 +42,35 @@ const PILLARS = [
   {
     slug: "analytics-tracking",
     title: "Analytics & Tracking Hub",
-    summary: "GA4, server-side tagging, Meta CAPI, MMM and one contribution-margin dashboard — the truth layer behind every scaling decision.",
+    summary: "GA4, server-side tagging, Meta CAPI, MMM and one contribution-margin dashboard the truth layer behind every scaling decision.",
   },
   {
     slug: "ecommerce-strategy",
     title: "Ecommerce Strategy Hub",
-    summary: "Positioning, merchandising, pricing, category and market entry — the five strategic decisions that make every channel cheaper.",
+    summary: "Positioning, merchandising, pricing, category and market entry the five strategic decisions that make every channel cheaper.",
   },
   {
     slug: "ecommerce-operations",
     title: "Ecommerce Operations Hub",
-    summary: "3PL selection, inventory turn, CX SLAs and returns strategy — the operational spine that protects margin at scale.",
+    summary: "3PL selection, inventory turn, CX SLAs and returns strategy the operational spine that protects margin at scale.",
   },
   {
     slug: "customer-retention",
     title: "Customer Retention Hub",
-    summary: "LTV modelling, subscriptions, loyalty, winback and VIP — the retention stack that funds acquisition profitably.",
+    summary: "LTV modelling, subscriptions, loyalty, winback and VIP the retention stack that funds acquisition profitably.",
   },
 ];
 
 export const Route = createFileRoute("/hub/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Knowledge Hub — Shopify, WooCommerce, SEO, Paid, CRO | BeingEcom" },
+      { title: "Ecommerce Knowledge Hub Shopify, WooCommerce, SEO, Paid, CRO | BeingEcom" },
       {
         name: "description",
-        content: "Free ecommerce growth hub for Shopify and WooCommerce brands — pillar guides, playbooks and benchmarks across SEO, paid media, CRO, email and AI automation.",
+        content: "Free ecommerce growth hub for Shopify and WooCommerce brands pillar guides, playbooks and benchmarks across SEO, paid media, CRO, email and AI automation.",
       },
       { property: "og:title", content: "Ecommerce Knowledge Hub | BeingEcom" },
-      { property: "og:description", content: "Pillar guides for Shopify and WooCommerce brands — SEO, paid, CRO, email, AI automation." },
+      { property: "og:description", content: "Pillar guides for Shopify and WooCommerce brands SEO, paid, CRO, email, AI automation." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/hub` },
     ],
@@ -120,7 +120,7 @@ function HubIndex() {
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
             Eleven pillar hubs covering the disciplines that actually move ecommerce revenue for Shopify and WooCommerce
-            brands — SEO, paid media, CRO, email & SMS, analytics, strategy, operations, retention, AI automation, and
+            brands SEO, paid media, CRO, email & SMS, analytics, strategy, operations, retention, AI automation, and
             platform-specific scaling. Written by senior operators who ship this work every week.
           </p>
         </div>

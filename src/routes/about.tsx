@@ -12,9 +12,9 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
-      { name: "description", content: "Meet the team behind BeingEcom — a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
+      { name: "description", content: "Meet the team behind BeingEcom a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
       { property: "og:title", content: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
-      { property: "og:description", content: "Meet the team behind BeingEcom — a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
+      { property: "og:description", content: "Meet the team behind BeingEcom a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
     ],
@@ -196,12 +196,12 @@ function About() {
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <div className="h-0.5 w-10 bg-primary rounded-full" />
-                <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas — Founder &amp; CEO</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-primary">Tahir Abbas Founder &amp; CEO</span>
               </div>
             </div>
 
             <p className="mt-6 text-muted-foreground leading-relaxed text-center">
-              Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner — one team accountable for the entire revenue engine. With a decade of hands-on experience scaling DTC brands across ads, SEO, CRO and retention, Tahir leads strategy for every flagship client engagement.
+              Tahir Abbas founded Being Ecom to give Shopify and WooCommerce brands a real growth partner one team accountable for the entire revenue engine. With a decade of hands-on experience scaling DTC brands across ads, SEO, CRO and retention, Tahir leads strategy for every flagship client engagement.
             </p>
 
             <div className="mt-6 grid sm:grid-cols-3 gap-3">

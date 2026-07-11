@@ -5,14 +5,14 @@ import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const SLUG = "csr";
 const TITLE = "CSR | Ecommerce Agency Social Responsibility UK | BeingEcom";
-const DESC = "BeingEcom's CSR programme — how an Ecommerce Marketing Agency UK gives back through pro-bono work, sustainability and ethical ecommerce partnerships.";
+const DESC = "BeingEcom's CSR programme how an Ecommerce Marketing Agency UK gives back through pro-bono work, sustainability and ethical ecommerce partnerships.";
 const SCORECARD_URL = `${SITE_URL}/downloads/beingecom-csr-scorecard.pdf`;
 
 const scorecardJsonLd = {
   "@context": "https://schema.org",
   "@type": "DigitalDocument",
   name: "BeingEcom Annual CSR Scorecard",
-  description: "BeingEcom's plain-English annual CSR scorecard — commitments, metrics and delivery across pro-bono work, giving, diversity, sustainability and ethical marketing.",
+  description: "BeingEcom's plain-English annual CSR scorecard commitments, metrics and delivery across pro-bono work, giving, diversity, sustainability and ethical marketing.",
   url: `${SITE_URL}/company/csr#scorecard`,
   encodingFormat: "application/pdf",
   contentUrl: SCORECARD_URL,
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/company/csr")({
       slug={SLUG}
       h1="Corporate social responsibility"
       eyebrow="CSR"
-      intro="BeingEcom is a small, profitable agency — and we believe that comes with a responsibility. This page is the honest record of how we give time, expertise and money back to the ecommerce community, our team, our planet and the causes we care about."
+      intro="BeingEcom is a small, profitable agency and we believe that comes with a responsibility. This page is the honest record of how we give time, expertise and money back to the ecommerce community, our team, our planet and the causes we care about."
       sections={[
         {
           type: "custom",
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/company/csr")({
                 <div className="text-[11px] font-bold uppercase tracking-widest text-primary">PDF · Free · No email required</div>
                 <h3 className="mt-2 text-xl md:text-2xl font-semibold text-ink">BeingEcom Annual CSR Scorecard</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  A 3-page plain-English report: our four CSR pillars, the annual scorecard (commitment vs. delivered), the categories we decline to work with, the causes we support, and where we fell short this year. Updated once a year. This edition replaces the previous one — no hidden archive.
+                  A 3-page plain-English report: our four CSR pillars, the annual scorecard (commitment vs. delivered), the categories we decline to work with, the causes we support, and where we fell short this year. Updated once a year. This edition replaces the previous one no hidden archive.
                 </p>
                 <div className="mt-5 flex flex-wrap items-center gap-3">
                   <a
@@ -61,13 +61,13 @@ export const Route = createFileRoute("/company/csr")({
                     Open in a new tab
                   </a>
                 </div>
-                <p className="mt-3 text-[11px] text-muted-foreground">Latest edition — reviewed annually by BeingEcom leadership.</p>
+                <p className="mt-3 text-[11px] text-muted-foreground">Latest edition reviewed annually by BeingEcom leadership.</p>
               </div>
               <div className="rounded-2xl border border-border bg-card p-6">
                 <h4 className="text-sm font-bold uppercase tracking-widest text-primary">What's inside</h4>
                 <ul className="mt-3 space-y-2 text-sm text-ink/85">
                   <li>· Four CSR pillars, in plain English</li>
-                  <li>· Annual scorecard — commitment vs. delivered</li>
+                  <li>· Annual scorecard commitment vs. delivered</li>
                   <li>· What we hit, what we missed, what's changing</li>
                   <li>· Categories we decline to work with</li>
                   <li>· Causes we support and where money goes</li>
@@ -114,7 +114,7 @@ export const Route = createFileRoute("/company/csr")({
             "One pro-bono retainer at any time for a registered UK charity running an ecommerce store.",
             "Reduced-fee engagements for social enterprises, B-Corps and mission-led DTC brands.",
             "Free 90-minute strategy calls for early-stage founders under £250k/yr revenue.",
-            "Free Being Ecom Brain™ growth audits — no gate, no email required to view the report.",
+            "Free Being Ecom Brain™ growth audits no gate, no email required to view the report.",
             "Open-source playbooks, checklists and templates published on the blog and resources page.",
             "Free ad-account and analytics audits during Black Friday week for community members.",
           ],
@@ -125,40 +125,40 @@ export const Route = createFileRoute("/company/csr")({
           heading: "Education, mentorship and knowledge sharing",
           intro: "Most of what we know we learned from other operators. We try to pay that forward.",
           items: [
-            { title: "Founder mentoring", body: "Quarterly 1:1 mentoring slots for early-career ecommerce founders — introduced via the community network." },
+            { title: "Founder mentoring", body: "Quarterly 1:1 mentoring slots for early-career ecommerce founders introduced via the community network." },
             { title: "University guest lectures", body: "Guest sessions on ecommerce, SEO and paid growth with UK marketing and business courses." },
-            { title: "Open playbooks", body: "Long-form guides on our methodology, tracking setups and CRO frameworks — free, no email gate." },
+            { title: "Open playbooks", body: "Long-form guides on our methodology, tracking setups and CRO frameworks free, no email gate." },
             { title: "Junior operator programme", body: "Paid internships and structured training paths for junior operators from non-traditional backgrounds." },
             { title: "Community roundtables", body: "Invite-only founder roundtables where operators share dashboards, failures and playbooks off the record." },
-            { title: "Public webinars", body: "Occasional free webinars on specific playbooks — recordings archived on the blog for the community." },
+            { title: "Public webinars", body: "Occasional free webinars on specific playbooks recordings archived on the blog for the community." },
           ],
         },
         {
           type: "list",
           id: "ethical-marketing",
           heading: "Ethical marketing standards we hold ourselves to",
-          intro: "The commitments below are non-negotiable — for our own site and for every client campaign we run.",
+          intro: "The commitments below are non-negotiable for our own site and for every client campaign we run.",
           items: [
             "No dark patterns, fake scarcity, fake countdowns or manipulative UX in any campaign we ship.",
             "No fabricated reviews, fake testimonials, or paid-for social proof presented as organic.",
-            "Honest, verifiable claims — every stat on our site is traceable to a real engagement.",
-            "Full pricing transparency — no hidden fees, no lock-ins, no long contracts.",
+            "Honest, verifiable claims every stat on our site is traceable to a real engagement.",
+            "Full pricing transparency no hidden fees, no lock-ins, no long contracts.",
             "Clear disclosure of paid partnerships, sponsored content and affiliate relationships.",
             "Accessibility (WCAG 2.2 AA) treated as a definition-of-done, not a nice-to-have.",
-            "GDPR-first analytics and marketing — consent gates, minimised data, honest cookie banners.",
+            "GDPR-first analytics and marketing consent gates, minimised data, honest cookie banners.",
           ],
         },
         {
           type: "cards",
           id: "diversity",
           heading: "Diversity, equity and inclusion at BeingEcom",
-          intro: "A small team makes diversity work harder, not easier — so we make deliberate choices at every stage.",
+          intro: "A small team makes diversity work harder, not easier so we make deliberate choices at every stage.",
           items: [
             { title: "Blind-first hiring", body: "Names, photos and universities stripped from CVs during first-round screening for every role we hire." },
             { title: "Structured interviews", body: "Every candidate answers the same questions, scored against the same rubric, by the same panel." },
-            { title: "Pay transparency", body: "Every role advertises its salary band. Same band, same pay — no negotiation penalty." },
+            { title: "Pay transparency", body: "Every role advertises its salary band. Same band, same pay no negotiation penalty." },
             { title: "Global-remote team", body: "We hire across time zones so talent isn't gated by postcode or the cost of London living." },
-            { title: "Accessibility hiring", body: "Interview process adjusted for candidates with disabilities — extra time, format changes, quiet environments." },
+            { title: "Accessibility hiring", body: "Interview process adjusted for candidates with disabilities extra time, format changes, quiet environments." },
             { title: "Supplier diversity", body: "When commissioning creative, dev or research suppliers, we actively seek women-led, minority-led and disabled-led firms." },
           ],
         },
@@ -168,11 +168,11 @@ export const Route = createFileRoute("/company/csr")({
           heading: "Environmental and sustainability commitments",
           intro: "We're a digital business, so our biggest levers are hosting, travel, hardware lifecycles and the suppliers we recommend to clients.",
           items: [
-            "Fully remote operations — no daily commuting, no permanent office energy footprint.",
+            "Fully remote operations no daily commuting, no permanent office energy footprint.",
             "Client hosting recommendations default to providers powered by renewable energy.",
             "Hardware refresh cycles extended to 4+ years; retired laptops donated or resold, never binned.",
-            "Video-first over travel — in-person meetings only when they materially move the work forward.",
-            "Digital-first deliverables — reports, decks and audits shared as links, not printed decks.",
+            "Video-first over travel in-person meetings only when they materially move the work forward.",
+            "Digital-first deliverables reports, decks and audits shared as links, not printed decks.",
             "Suppliers audited annually for basic sustainability practices before renewal.",
             "Annual review of our estimated Scope 2 & 3 emissions with a plan to reduce year-on-year.",
           ],
@@ -198,24 +198,24 @@ export const Route = createFileRoute("/company/csr")({
           intro: "We commit a fixed percentage of profit and a defined amount of team time every year.",
           items: [
             "1% of annual profit donated to vetted charities in education, health and digital inclusion.",
-            "2 paid volunteering days per year for every team member — used at a charity of their choice.",
+            "2 paid volunteering days per year for every team member used at a charity of their choice.",
             "Matching scheme: personal donations by team members matched up to a defined annual cap.",
-            "Emergency giving fund activated for humanitarian crises — decided by team vote.",
+            "Emergency giving fund activated for humanitarian crises decided by team vote.",
             "Product-of-choice: whenever we buy for the team (gifts, swag, hampers), we buy from social enterprises.",
-            "Annual public report of donations, hours volunteered and causes supported — published on this page.",
+            "Annual public report of donations, hours volunteered and causes supported published on this page.",
           ],
         },
         {
           type: "table",
           id: "annual-scorecard",
           heading: "Our latest annual CSR scorecard",
-          intro: "The commitments above only matter if we hit them. Here's the latest annual scorecard — updated once a year, with the raw numbers.",
+          intro: "The commitments above only matter if we hit them. Here's the latest annual scorecard updated once a year, with the raw numbers.",
           columns: ["Metric", "Commitment", "Latest year"],
           rows: [
             ["Pro-bono retainers delivered", "1 active at all times", "1 charity retainer, 4 reduced-fee engagements"],
             ["Free audits delivered", "Unlimited", "312 Being Ecom Brain™ audits run"],
             ["Team volunteering days used", "2 per person / year", "94% of team used their allocation"],
-            ["Profit donated to charity", "1% of profit", "1.2% of profit — 5 charities supported"],
+            ["Profit donated to charity", "1% of profit", "1.2% of profit 5 charities supported"],
             ["Paid learning budget used", "Per-person quarterly", "89% of budget deployed"],
             ["Diverse-supplier spend", "Track & report", "37% of external supplier spend"],
             ["Emissions review", "Annual", "Completed & published"],
@@ -243,9 +243,9 @@ export const Route = createFileRoute("/company/csr")({
           items: [
             "Every recurring supplier is reviewed annually against a basic ethics, tax and sustainability checklist.",
             "We refuse to work with suppliers with credible modern-slavery, tax-evasion or serious labour concerns.",
-            "Freelancers on our roster are paid net-14 or better — never net-60 or net-90 like larger agencies.",
+            "Freelancers on our roster are paid net-14 or better never net-60 or net-90 like larger agencies.",
             "Preference given to UK-based small businesses and independent operators over large enterprise vendors.",
-            "Any subcontracted work is disclosed to the client — no white-labelling without their knowledge.",
+            "Any subcontracted work is disclosed to the client no white-labelling without their knowledge.",
             "We do not accept undisclosed kickbacks, referral fees or commissions from tools we recommend.",
           ],
         },
@@ -271,10 +271,10 @@ export const Route = createFileRoute("/company/csr")({
           body: (
             <>
               <p>
-                CSR at BeingEcom is owned directly by the founder and reviewed quarterly by the leadership team. Every commitment on this page is tied to a specific metric on our internal scorecard — the same scorecard we use to run the business.
+                CSR at BeingEcom is owned directly by the founder and reviewed quarterly by the leadership team. Every commitment on this page is tied to a specific metric on our internal scorecard the same scorecard we use to run the business.
               </p>
               <p>
-                Once a year we publish a plain-English CSR review: what we said we'd do, what we actually did, where we fell short, and what we're changing for the year ahead. That report replaces the previous one on this page — no hidden archive, no PR spin.
+                Once a year we publish a plain-English CSR review: what we said we'd do, what we actually did, where we fell short, and what we're changing for the year ahead. That report replaces the previous one on this page no hidden archive, no PR spin.
               </p>
               <p>
                 If you're a client, a candidate, a supplier or a member of the public and you think we're falling short on any commitment above, email us directly. We reply personally, and we take the feedback seriously.
@@ -305,7 +305,7 @@ export const Route = createFileRoute("/company/csr")({
             <div className="grid md:grid-cols-[1fr_1.3fr] gap-5 items-start">
               <div className="rounded-2xl border border-border bg-card p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
                 <p className="text-ink">
-                  Send us the basics and we'll take a proper look. We review CSR requests every quarter and reply personally to every one — even the ones we can't take on directly.
+                  Send us the basics and we'll take a proper look. We review CSR requests every quarter and reply personally to every one even the ones we can't take on directly.
                 </p>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Best fit for</h4>
@@ -338,7 +338,7 @@ export const Route = createFileRoute("/company/csr")({
         { q: "Do you actually turn down clients?", a: "Yes. We publish the excluded categories on this page and we've turned down engagements in every one of them. Saying no is the cheapest CSR investment a services business can make." },
         { q: "Where does the 1% of profit actually go?", a: "It's split across a small number of vetted charities in digital inclusion, education, mental health and environmental restoration. The full list is published in the annual CSR review on this page." },
         { q: "Are your sustainability claims audited?", a: "Not by an external auditor at our current size. We publish our own annual review including estimated Scope 2 & 3 emissions, and we commit to reducing year-on-year. As we grow, external audit will be added." },
-        { q: "Can our brand partner with you on a cause campaign?", a: "Yes — we run occasional joint campaigns with client brands supporting causes both teams care about. Get in touch with the cause, the timing and the budget and we'll design something together." },
+        { q: "Can our brand partner with you on a cause campaign?", a: "Yes we run occasional joint campaigns with client brands supporting causes both teams care about. Get in touch with the cause, the timing and the budget and we'll design something together." },
         { q: "Do you offer paid internships?", a: "Yes. Every internship at BeingEcom is paid at or above the Real Living Wage, with structured training and a clear route to a permanent role. We advertise these openly on the careers page." },
       ]}
     />

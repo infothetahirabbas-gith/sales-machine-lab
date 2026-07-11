@@ -4,7 +4,7 @@ import { ORG_INFO, SITE_URL } from "@/lib/seo";
 
 const SLUG = "careers";
 const TITLE = "Careers | Ecommerce Marketing Jobs UK | BeingEcom";
-const DESC = "Join BeingEcom — Ecommerce Marketing careers UK for senior SEOs, media buyers, CRO strategists, Klaviyo specialists and Shopify developers.";
+const DESC = "Join BeingEcom Ecommerce Marketing careers UK for senior SEOs, media buyers, CRO strategists, Klaviyo specialists and Shopify developers.";
 
 // No fabricated live openings; we surface an empty state + talent pool CTA when there are no active roles.
 const OPEN_ROLES: { title: string; type: string; location: string; summary: string }[] = [];
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/company/careers")({
           heading: "Why work at BeingEcom",
           body: (
             <>
-              <p>We're the agency you'd want to hire if you were the client. Small, senior, ecommerce-only, and structured so that operators do operator work — not account management theatre.</p>
+              <p>We're the agency you'd want to hire if you were the client. Small, senior, ecommerce-only, and structured so that operators do operator work not account management theatre.</p>
               <p>If you're bored of shipping decks that never get executed, of being the most senior person on your team by a decade, or of watching juniors run accounts they shouldn't be running, this is a place to reset.</p>
             </>
           ),
@@ -49,9 +49,9 @@ export const Route = createFileRoute("/company/careers")({
             { title: "Above-market pay", body: "Compensation benchmarked against senior in-house DTC roles, not agency averages." },
             { title: "Remote-first, UK-based team", body: "Work from wherever. Quarterly team gatherings for planning, roadmaps and roast dinners." },
             { title: "Learning budget", body: "£1,500/year for courses, conferences and tooling of your choice." },
-            { title: "Ownership of your discipline", body: "You own the playbook for your function — SEO, paid, CRO, or AI — and shape how the agency executes it." },
+            { title: "Ownership of your discipline", body: "You own the playbook for your function SEO, paid, CRO, or AI and shape how the agency executes it." },
             { title: "Real time off", body: "28 days plus bank holidays, plus a full week between Christmas and New Year that isn't counted." },
-            { title: "Tooling paid for", body: "Ahrefs, Semrush, Klaviyo, GA4 360, Figma, ChatGPT/Claude Team — everything you need." },
+            { title: "Tooling paid for", body: "Ahrefs, Semrush, Klaviyo, GA4 360, Figma, ChatGPT/Claude Team everything you need." },
           ],
         },
         {
@@ -59,10 +59,10 @@ export const Route = createFileRoute("/company/careers")({
           id: "learning",
           heading: "Learning opportunities",
           items: [
-            "Weekly internal deep-dives — one operator presents a live case study to the team.",
+            "Weekly internal deep-dives one operator presents a live case study to the team.",
             "Access to Tahir's private ecommerce operator network.",
             "Sponsored external speaking: we cover travel + prep time for approved conferences.",
-            "Written playbook contributions — become the recognised author of the agency's stance on your specialism.",
+            "Written playbook contributions become the recognised author of the agency's stance on your specialism.",
           ],
         },
         {
@@ -122,7 +122,7 @@ export const Route = createFileRoute("/company/careers")({
         },
       ]}
       faqs={[
-        { q: "Are you hiring right now?", a: "We only run open roles when a real client engagement is ready to place a new hire into. If the openings section above is empty, we're not actively hiring — but we always keep a shortlist and will reach out when a role opens." },
+        { q: "Are you hiring right now?", a: "We only run open roles when a real client engagement is ready to place a new hire into. If the openings section above is empty, we're not actively hiring but we always keep a shortlist and will reach out when a role opens." },
         { q: "Do you take on juniors?", a: "Yes, through a structured paid internship. We don't hire juniors into standalone specialist roles; that's part of the senior-only promise we make to clients." },
         { q: "Is BeingEcom remote or office-based?", a: "Remote-first with a UK-based team. We meet in person quarterly for planning offsites and pod dinners." },
         { q: "How long does the process take?", a: "Around 3 to 5 weeks end to end. The paid work sample is the longest stage because we want it to reflect real client work, not a whiteboard trivia round." },

@@ -92,7 +92,7 @@ export const Route = createFileRoute("/locations/$slug")({
       bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Best Ecommerce Agency ${loc.city} for Shopify and WooCommerce brands — Ecommerce SEO Agency ${loc.city}, Ecommerce PPC Agency ${loc.city}, Klaviyo email and CRO by senior UK operators.`)
+      ? (descOverrides[loc.slug] ?? `Best Ecommerce Agency ${loc.city} for Shopify and WooCommerce brands Ecommerce SEO Agency ${loc.city}, Ecommerce PPC Agency ${loc.city}, Klaviyo email and CRO by senior UK operators.`)
       : "UK ecommerce marketing agency locations.";
     const kw = loc
       ? `ecommerce agency ${loc.city}, best ecommerce agency ${loc.city}, ecommerce marketing agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ppc agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`

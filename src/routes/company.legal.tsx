@@ -3,7 +3,7 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "legal";
 const TITLE = "Legal | BeingEcom Ecommerce Agency UK";
-const DESC = "BeingEcom legal information — terms of service, master services agreement and policies for an Ecommerce Marketing Agency UK.";
+const DESC = "BeingEcom legal information terms of service, master services agreement and policies for an Ecommerce Marketing Agency UK.";
 
 const POLICIES = [
   { title: "Privacy Policy",         to: "/privacy",       body: "How we collect, use, store and share personal data across the site and client engagements." },
@@ -37,16 +37,16 @@ export const Route = createFileRoute("/company/legal")({
             <p>
               These policies are maintained by BeingEcom and reflect our current operating practices. They are not a substitute for
               tailored legal advice. If you are engaging BeingEcom as a supplier and require a mutual NDA, DPA or bespoke terms, we're
-              happy to sign them — email us via the contact page.
+              happy to sign them email us via the contact page.
             </p>
           ),
         },
       ]}
       faqs={[
         { q: "Where's the privacy policy?", a: "Linked on this page, in the footer, and on every form on the site." },
-        { q: "Do you sign NDAs?", a: "Yes — happy to sign a mutual NDA before sharing sensitive numbers. Send yours or ask us to send our template." },
-        { q: "Do you have a Data Processing Agreement?", a: "Yes — we sign a DPA for every engagement where we access client personal data. Requested during onboarding." },
-        { q: "How do I make a data subject request?", a: "Email info@beingecom.com with the subject 'Data subject request' — see the GDPR page for the full procedure and response timeline." },
+        { q: "Do you sign NDAs?", a: "Yes happy to sign a mutual NDA before sharing sensitive numbers. Send yours or ask us to send our template." },
+        { q: "Do you have a Data Processing Agreement?", a: "Yes we sign a DPA for every engagement where we access client personal data. Requested during onboarding." },
+        { q: "How do I make a data subject request?", a: "Email info@beingecom.com with the subject 'Data subject request' see the GDPR page for the full procedure and response timeline." },
       ]}
     />
   ),

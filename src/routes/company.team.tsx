@@ -5,7 +5,7 @@ import founderImg from "@/assets/founder-ceo.jpg.asset.json";
 
 const SLUG = "team";
 const TITLE = "Ecommerce Experts UK | Senior Team | BeingEcom";
-const DESC = "Meet the Ecommerce Experts UK behind BeingEcom — senior Shopify, WooCommerce, SEO, paid ads, CRO and Klaviyo specialists working from one integrated pod.";
+const DESC = "Meet the Ecommerce Experts UK behind BeingEcom senior Shopify, WooCommerce, SEO, paid ads, CRO and Klaviyo specialists working from one integrated pod.";
 
 const membersWithImages = TEAM.map((m) => ({
   ...m,
@@ -41,7 +41,7 @@ function Avatar({ member }: { member: typeof membersWithImages[number] }) {
   }
   return (
     <div
-      aria-label={`${member.name} — image coming soon`}
+      aria-label={`${member.name} image coming soon`}
       className="w-32 h-32 rounded-2xl border border-border bg-primary/10 flex items-center justify-center text-4xl font-bold text-primary shadow-md"
     >
       {member.initials}
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/company/team")({
       slug={SLUG}
       h1="The team behind your growth"
       eyebrow="Our Team"
-      intro="BeingEcom is deliberately small and deliberately senior. Every function on your account is led by someone who has actually operated a store — not by a junior learning on your budget."
+      intro="BeingEcom is deliberately small and deliberately senior. Every function on your account is led by someone who has actually operated a store not by a junior learning on your budget."
       extraJsonLd={[itemListLd, ...personLds]}
       sections={[
         {
@@ -98,7 +98,7 @@ export const Route = createFileRoute("/company/team")({
           heading: "How the team is structured",
           body: (
             <>
-              <p>We run pods, not departments. Each client is served by a small cross-functional pod — strategy lead, execution specialists, and a customer success owner — that stays with your account from day one. This gives you a single accountable team, not a rotating cast of freelancers.</p>
+              <p>We run pods, not departments. Each client is served by a small cross-functional pod strategy lead, execution specialists, and a customer success owner that stays with your account from day one. This gives you a single accountable team, not a rotating cast of freelancers.</p>
               <p>Above every pod sits a leadership review cadence: weekly on numbers, monthly on strategy, and quarterly on roadmap. That's how a senior-only team can serve dozens of Shopify and WooCommerce brands at real depth.</p>
             </>
           ),
@@ -109,12 +109,12 @@ export const Route = createFileRoute("/company/team")({
           heading: "Functions inside a pod",
           items: [
             { title: "Leadership (Tahir, Ali, Hasnain)", body: "Sets strategy, signs off on the 90-day plan, joins escalation calls, and owns the P&L view for every client." },
-            { title: "SEO specialists", body: "Technical, on-page, off-page, local, international and AEO — one lead per stream, coordinated by an SEO director.", to: "/services/seo" },
+            { title: "SEO specialists", body: "Technical, on-page, off-page, local, international and AEO one lead per stream, coordinated by an SEO director.", to: "/services/seo" },
             { title: "Paid media team", body: "Meta, Google, TikTok and YouTube buyers who report against MER and contribution margin, not just platform ROAS.", to: "/services/performance-marketing" },
             { title: "Shopify + WooCommerce engineers", body: "Store architects who ship on Shopify, Shopify Plus, WooCommerce and headless stacks (Hydrogen, Next.js + Storefront API).", to: "/services/store-development" },
-            { title: "CRO specialists", body: "Run structured experimentation — hypothesis, sample size, guardrails — not vibes-based A/B tests.", to: "/services/cro" },
+            { title: "CRO specialists", body: "Run structured experimentation hypothesis, sample size, guardrails not vibes-based A/B tests.", to: "/services/cro" },
             { title: "Developers & designers", body: "Front-end engineers, motion designers and creative producers focused entirely on ecommerce UX and ad creative." },
-            { title: "AI automation engineers", body: "Build the internal automations that let a small team operate at scale — reporting, creative testing, keyword research.", to: "/services/ai-automation" },
+            { title: "AI automation engineers", body: "Build the internal automations that let a small team operate at scale reporting, creative testing, keyword research.", to: "/services/ai-automation" },
             { title: "Customer success", body: "Owns the weekly ritual: reporting, next-action list, blockers surfaced, and the client onboarding runway." },
           ],
         },
@@ -136,7 +136,7 @@ export const Route = createFileRoute("/company/team")({
           id: "culture",
           heading: "Culture pillars",
           items: [
-            "Revenue-first. Every task should ladder up to a P&L line — otherwise it doesn't go on the plan.",
+            "Revenue-first. Every task should ladder up to a P&L line otherwise it doesn't go on the plan.",
             "Honest reporting. Losses are named. Wins are attributed to their real cause, not to whoever shouts loudest.",
             "Small, senior, ecommerce-only. We say no to work outside our scope.",
             "AI as leverage. We automate our own workflows so our people can spend time on judgement, not repetition.",
@@ -151,7 +151,7 @@ export const Route = createFileRoute("/company/team")({
             <p>
               We only run open roles when we already have the client capacity to place a new person into a real account within 30 days.
               Every candidate goes through a paid work sample using anonymised real data, a strategy conversation with a director, and
-              a reference call with two former colleagues. It's slow — deliberately. See <Link to="/company/careers" className="text-primary underline">Careers</Link> for current openings.
+              a reference call with two former colleagues. It's slow deliberately. See <Link to="/company/careers" className="text-primary underline">Careers</Link> for current openings.
             </p>
           ),
         },
@@ -159,11 +159,11 @@ export const Route = createFileRoute("/company/team")({
       faqs={[
         { q: "Who leads BeingEcom?", a: "The leadership team is Tahir Abbas (Founder & CEO), Ali Abbas (Chief Technology Officer) and Hasnain Abbas (Managing Director). All three are involved in client strategy at the leadership level." },
         { q: "Who is the CEO of BeingEcom?", a: "Tahir Abbas is the founder and CEO. See the /company/founder page for his full background." },
-        { q: "Who is the CTO of BeingEcom?", a: "Ali Abbas is the CTO, leading engineering — headless Shopify (Hydrogen), WooCommerce development, server-side tracking, GA4 and the AI automation pipelines used across every engagement." },
-        { q: "Who is the Managing Director of BeingEcom?", a: "Hasnain Abbas is the Managing Director, running operations, delivery and client success across every account — onboarding, pod assembly, weekly reporting rituals and quarterly strategic reviews." },
+        { q: "Who is the CTO of BeingEcom?", a: "Ali Abbas is the CTO, leading engineering headless Shopify (Hydrogen), WooCommerce development, server-side tracking, GA4 and the AI automation pipelines used across every engagement." },
+        { q: "Who is the Managing Director of BeingEcom?", a: "Hasnain Abbas is the Managing Director, running operations, delivery and client success across every account onboarding, pod assembly, weekly reporting rituals and quarterly strategic reviews." },
         { q: "Do juniors work on my account?", a: "No junior operates unsupervised on a client account. Specialists with less than four years of experience are always paired with a senior or lead operator who signs off on every deliverable." },
         { q: "How do you decide which pod is on my account?", a: "During onboarding we match your platform (Shopify vs WooCommerce), your primary channels and your growth stage to the pod best set up to serve you. You meet the whole pod on kickoff." },
-        { q: "Can I speak to a specialist directly, without an account manager?", a: "Yes. That's the model — the operator doing the work is the person you speak to. We don't have a layer of account handlers between you and execution." },
+        { q: "Can I speak to a specialist directly, without an account manager?", a: "Yes. That's the model the operator doing the work is the person you speak to. We don't have a layer of account handlers between you and execution." },
       ]}
     />
   ),

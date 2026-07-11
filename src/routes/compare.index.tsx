@@ -7,11 +7,11 @@ import { ArrowRight, GitCompare } from "lucide-react";
 export const Route = createFileRoute("/compare/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Comparisons — Platforms, Channels & Tools | BeingEcom" },
+      { title: "Ecommerce Comparisons Platforms, Channels & Tools | BeingEcom" },
       {
         name: "description",
         content:
-          "Honest, operator-written comparisons for UK ecommerce brands — Shopify vs WooCommerce, Meta vs Google, Klaviyo vs Mailchimp, agency vs freelancer and more.",
+          "Honest, operator-written comparisons for UK ecommerce brands Shopify vs WooCommerce, Meta vs Google, Klaviyo vs Mailchimp, agency vs freelancer and more.",
       },
       { property: "og:title", content: "Ecommerce Comparisons | BeingEcom" },
       { property: "og:description", content: "Operator-written comparisons for UK Shopify and WooCommerce brands." },
@@ -63,7 +63,7 @@ function CompareIndex() {
             Honest ecommerce comparisons
           </h1>
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
-            Written by operators who actually ship on both sides — platforms, channels, tools, hiring models.
+            Written by operators who actually ship on both sides platforms, channels, tools, hiring models.
             Each comparison ends with a clear verdict and the exact conditions where each option wins.
           </p>
         </div>

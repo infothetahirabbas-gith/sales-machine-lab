@@ -52,7 +52,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ],
     pros: {
       a: [
-        "Zero DevOps — Shopify handles hosting, security, PCI, uptime",
+        "Zero DevOps Shopify handles hosting, security, PCI, uptime",
         "Best-in-class checkout with Shop Pay accelerator",
         "Enterprise checkout extensibility on Shopify Plus",
         "Native Shop Pay Instalments (BNPL) for UK shoppers",
@@ -99,11 +99,11 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { q: "Is Shopify or WooCommerce better for SEO in the UK?", a: "Both can rank equally well. WooCommerce has a higher technical ceiling because you own the stack, but Shopify's built-in structure (predictable URLs, fast global CDN, clean JSON-LD support via apps) means most brands rank faster on Shopify without needing a developer." },
       { q: "What's the real total cost of ownership?", a: "Shopify: platform + apps + payment fees typically £300–£1,500/month for a growing DTC brand. WooCommerce: hosting + plugins + maintenance dev retainer typically £250–£800/month, but a checkout or Core Web Vitals project can add £5k–£30k one-off." },
       { q: "Which converts better in the UK?", a: "Shopify's Shop Pay accelerator and PSD2/SCA-optimised checkout typically converts 5–15% higher on mobile than a default WooCommerce checkout. A custom Woo checkout can close the gap but rarely beats Shop Pay." },
-      { q: "Can I migrate WooCommerce to Shopify later?", a: "Yes — products, customers, orders, historical data and blog content all migrate cleanly with tools like Matrixify or LitExtension. Redirects and SEO transfer are the make-or-break; plan 3–6 weeks with a specialist." },
+      { q: "Can I migrate WooCommerce to Shopify later?", a: "Yes products, customers, orders, historical data and blog content all migrate cleanly with tools like Matrixify or LitExtension. Redirects and SEO transfer are the make-or-break; plan 3–6 weeks with a specialist." },
     ],
     meta: {
-      title: "Shopify vs WooCommerce (UK, 2026) — Honest Comparison | BeingEcom",
-      description: "Shopify or WooCommerce for a UK DTC brand? Full comparison of cost, checkout conversion, SEO, scaling and total ownership — from an operator team that ships on both.",
+      title: "Shopify vs WooCommerce (UK, 2026) Honest Comparison | BeingEcom",
+      description: "Shopify or WooCommerce for a UK DTC brand? Full comparison of cost, checkout conversion, SEO, scaling and total ownership from an operator team that ships on both.",
     },
     relatedServices: [
       { label: "Shopify Development", to: "/services/store-development/shopify" },
@@ -118,13 +118,13 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Hiring comparison",
     h1: "Shopify Agency vs Freelancer (UK, 2026)",
     verdict:
-      "A specialist agency wins when you need multi-discipline execution — dev, CRO, paid, SEO, email — held to weekly rhythm and revenue accountability. A freelancer wins for a single scoped project (theme build, one migration, a checkout tweak) where dependency risk and continuity aren't critical.",
+      "A specialist agency wins when you need multi-discipline execution dev, CRO, paid, SEO, email held to weekly rhythm and revenue accountability. A freelancer wins for a single scoped project (theme build, one migration, a checkout tweak) where dependency risk and continuity aren't critical.",
     bestFor: {
       a: "Brands £30k–£1M/month wanting a senior fractional growth team.",
       b: "Founders with a specific, scoped, one-off deliverable.",
     },
     rows: [
-      { criterion: "Multi-discipline coverage", a: "Yes — dev, CRO, paid, SEO, email", b: "No — one specialism", winner: "a" },
+      { criterion: "Multi-discipline coverage", a: "Yes dev, CRO, paid, SEO, email", b: "No one specialism", winner: "a" },
       { criterion: "Speed on a single task", a: "Coordinated but slower", b: "Fast", winner: "b" },
       { criterion: "Cost", a: "£4k–£25k/month", b: "£300–£1,200/day", winner: "b" },
       { criterion: "Bus factor / continuity", a: "Team-backed", b: "Single point of failure", winner: "a" },
@@ -136,7 +136,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       a: [
         "One accountable partner for the whole growth stack",
         "Weekly execution rhythm, monthly business review",
-        "Bench of senior operators — no key-person risk",
+        "Bench of senior operators no key-person risk",
         "Pattern library from 100+ similar brands",
       ],
       b: [
@@ -161,7 +161,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     when: {
       a: "You're doing £30k–£1M/month, don't want to hire a full in-house team, and need paid + CRO + SEO + email pulling in the same direction against one weekly plan.",
-      b: "You have a scoped, one-off need — a theme build, a migration, a Klaviyo audit — and you already have a senior person to integrate their work into your overall strategy.",
+      b: "You have a scoped, one-off need a theme build, a migration, a Klaviyo audit and you already have a senior person to integrate their work into your overall strategy.",
     },
     bottomLine: (
       <>
@@ -172,7 +172,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
         </p>
         <p>
           The failure mode most brands make is hiring three freelancers (dev, paid, email) and
-          treating that as a growth team — nobody owns the outcome and the integration cost lands on
+          treating that as a growth team nobody owns the outcome and the integration cost lands on
           the founder.
         </p>
       </>
@@ -180,10 +180,10 @@ const COMPARE: Record<string, ComparisonEntry> = {
     faqs: [
       { q: "How do I know if an agency is senior-only vs junior-heavy?", a: "Ask who will do the work day-to-day and see their LinkedIn. If the pitch team is senior but delivery is a 22-year-old account exec, it's junior-heavy. Senior-only agencies name their operators upfront and put them on discovery calls." },
       { q: "What retainer size is reasonable?", a: "In the UK, a serious senior growth retainer covering multiple disciplines runs £4k–£15k/month for £30k–£500k/month brands. Below £3k/month you're either buying junior time or a single specialism." },
-      { q: "Can I combine agency + freelancer?", a: "Yes — many brands use an agency for strategy and continuous execution across disciplines, and a freelancer for a specialist one-off (headless dev, a particular integration). Make sure the agency owns the overall growth plan." },
+      { q: "Can I combine agency + freelancer?", a: "Yes many brands use an agency for strategy and continuous execution across disciplines, and a freelancer for a specialist one-off (headless dev, a particular integration). Make sure the agency owns the overall growth plan." },
     ],
     meta: {
-      title: "Shopify Agency vs Freelancer (2026) — Which Is Right for Your Brand? | BeingEcom",
+      title: "Shopify Agency vs Freelancer (2026) Which Is Right for Your Brand? | BeingEcom",
       description: "Agency or freelancer for your Shopify store? Cost, speed, coverage, continuity and revenue accountability compared for UK DTC brands £30k–£1M/month.",
     },
     relatedServices: [
@@ -199,7 +199,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Channel comparison",
     h1: "SEO vs Paid Ads for Ecommerce (2026)",
     verdict:
-      "Paid ads buy revenue this week; SEO compounds free revenue for years. Serious ecommerce brands run both — paid to fund acquisition inside CAC targets while SEO builds a durable moat. Choosing one over the other is a false trade-off outside the first 90 days.",
+      "Paid ads buy revenue this week; SEO compounds free revenue for years. Serious ecommerce brands run both paid to fund acquisition inside CAC targets while SEO builds a durable moat. Choosing one over the other is a false trade-off outside the first 90 days.",
     bestFor: {
       a: "Brands wanting compounding, no-CPM revenue that survives ad platform outages.",
       b: "Brands needing predictable weekly revenue and fast validation of offers.",
@@ -207,7 +207,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     rows: [
       { criterion: "Time to first revenue", a: "3–6 months", b: "Days", winner: "b" },
       { criterion: "Cost per incremental customer", a: "Falls over time", b: "Rises over time", winner: "a" },
-      { criterion: "Compounding", a: "Yes", b: "No — spend stops = revenue stops", winner: "a" },
+      { criterion: "Compounding", a: "Yes", b: "No spend stops = revenue stops", winner: "a" },
       { criterion: "Predictability week-to-week", a: "Low early, high after 12mo", b: "High", winner: "b" },
       { criterion: "Iteration speed on offers", a: "Slow (weeks)", b: "Fast (hours)", winner: "b" },
       { criterion: "Survives platform outages", a: "Yes", b: "No", winner: "a" },
@@ -215,7 +215,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ],
     pros: {
       a: [
-        "Compounds — every ranking is durable free traffic",
+        "Compounds every ranking is durable free traffic",
         "No CPM inflation, no platform account risk",
         "Highest-quality organic buyers, best 12-month LTV",
         "Powers AI Overview and LLM citations",
@@ -229,7 +229,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     cons: {
       a: [
-        "Slow — meaningful traffic usually takes 4–9 months",
+        "Slow meaningful traffic usually takes 4–9 months",
         "Requires content + engineering + link investment",
         "Google algorithm risk (though far lower than platform ad risk)",
       ],
@@ -247,7 +247,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     bottomLine: (
       <>
         <p>
-          The right question isn't SEO or paid — it's what percentage of the mix each channel should
+          The right question isn't SEO or paid it's what percentage of the mix each channel should
           own at your current stage. A £30k/month brand should skew ~70% paid / 20% SEO / 10% email.
           A £500k/month brand should skew closer to 45% paid / 30% SEO / 25% email.
         </p>
@@ -260,11 +260,11 @@ const COMPARE: Record<string, ComparisonEntry> = {
     faqs: [
       { q: "How long until SEO pays back?", a: "For a UK Shopify or WooCommerce brand starting from scratch: 4–6 months to first meaningful traffic, 9–12 months to real revenue, 18 months to be a top-3 channel. Existing sites with authority can compress that by 40–60%." },
       { q: "What's the right paid : organic ratio?", a: "For growth-stage DTC (£30k–£300k/month): roughly 60–70% paid. For established brands (£500k+/month): closer to 40–50% paid, with SEO and email eating a bigger share. Zero paid is under-scaling; zero SEO is unsustainable." },
-      { q: "Should I stop paid ads and 'just do SEO'?", a: "Only if your business can survive 6+ months of revenue drought. For most brands the answer is no — instead, tighten paid to profitable spend and reinvest saved margin into SEO content and links." },
+      { q: "Should I stop paid ads and 'just do SEO'?", a: "Only if your business can survive 6+ months of revenue drought. For most brands the answer is no instead, tighten paid to profitable spend and reinvest saved margin into SEO content and links." },
     ],
     meta: {
-      title: "SEO vs Paid Ads for Ecommerce (2026) — Which One First? | BeingEcom",
-      description: "SEO or paid ads for your Shopify/WooCommerce brand? Speed, CAC, compounding, risk and 12-month economics compared — with mix recommendations by revenue stage.",
+      title: "SEO vs Paid Ads for Ecommerce (2026) Which One First? | BeingEcom",
+      description: "SEO or paid ads for your Shopify/WooCommerce brand? Speed, CAC, compounding, risk and 12-month economics compared with mix recommendations by revenue stage.",
     },
     relatedServices: [
       { label: "Ecommerce SEO", to: "/services/seo" },
@@ -279,7 +279,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Paid media comparison",
     h1: "Meta Ads vs Google Ads for Ecommerce (2026)",
     verdict:
-      "Meta creates demand from cold audiences using creative and interruption; Google captures existing demand from users already searching. Profitable ecommerce brands run both — Meta to fill the top-of-funnel and Google (Search, Shopping, PMax) to convert the intent that Meta and organic create.",
+      "Meta creates demand from cold audiences using creative and interruption; Google captures existing demand from users already searching. Profitable ecommerce brands run both Meta to fill the top-of-funnel and Google (Search, Shopping, PMax) to convert the intent that Meta and organic create.",
     bestFor: {
       a: "Visually-driven, category-creator or impulse-purchase products.",
       b: "Products with existing search demand, high-consideration purchases.",
@@ -334,18 +334,18 @@ const COMPARE: Record<string, ComparisonEntry> = {
         </p>
         <p>
           The most common failure mode is optimising each channel in isolation. Measure with blended
-          MER against contribution margin — not platform ROAS — and let the two channels play their
+          MER against contribution margin not platform ROAS and let the two channels play their
           different roles.
         </p>
       </>
     ),
     faqs: [
-      { q: "Which platform should I start with?", a: "If people already search for your product (\"electric bike UK\", \"vitamin C serum\"), start Google Shopping + Search. If they don't (a new category, a novel product, a lifestyle brand), start Meta — you need to create demand before you can capture it." },
+      { q: "Which platform should I start with?", a: "If people already search for your product (\"electric bike UK\", \"vitamin C serum\"), start Google Shopping + Search. If they don't (a new category, a novel product, a lifestyle brand), start Meta you need to create demand before you can capture it." },
       { q: "What's a healthy Meta : Google split?", a: "For lifestyle DTC (fashion, beauty, home): 55–70% Meta, 25–40% Google, remainder on TikTok/YouTube. For high-intent search-first categories: flip to 30% Meta, 60% Google Shopping + Search, 10% remarketing." },
       { q: "Should I use Performance Max?", a: "Yes, but only after your Shopping and Search structure is dialled and after excluding brand terms. Fed poorly, PMax cannibalises brand + retargeting and reports inflated ROAS. Fed properly, it's one of the best incremental channels of the last 3 years." },
     ],
     meta: {
-      title: "Meta Ads vs Google Ads for Ecommerce (2026) — Which First? | BeingEcom",
+      title: "Meta Ads vs Google Ads for Ecommerce (2026) Which First? | BeingEcom",
       description: "Meta or Google Ads for your Shopify/WooCommerce store? Prospecting vs demand-capture, creative burden, tracking, CPMs and profitable mix compared.",
     },
     relatedServices: [
@@ -361,7 +361,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Email platform comparison",
     h1: "Klaviyo vs Mailchimp for Ecommerce (2026)",
     verdict:
-      "Klaviyo wins for any serious Shopify or WooCommerce brand — deeper ecommerce data model, faster flows, better segmentation, native SMS. Mailchimp is fine for newsletters and small businesses without ecommerce as the core, but it hits a ceiling fast on retention revenue.",
+      "Klaviyo wins for any serious Shopify or WooCommerce brand deeper ecommerce data model, faster flows, better segmentation, native SMS. Mailchimp is fine for newsletters and small businesses without ecommerce as the core, but it hits a ceiling fast on retention revenue.",
     bestFor: {
       a: "Shopify / WooCommerce brands where email + SMS retention is a serious revenue channel.",
       b: "Small businesses, content sites, mailing lists without ecommerce depth.",
@@ -392,41 +392,41 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     cons: {
       a: [
-        "Learning curve is real — flows can get complex",
+        "Learning curve is real flows can get complex",
         "More expensive at scale",
         "SMS pricing adds up on top of email",
       ],
       b: [
-        "Weak ecommerce data model — hard to segment by real behaviour",
+        "Weak ecommerce data model hard to segment by real behaviour",
         "Deliverability suffers on promotional heavy sends",
         "Flows are less powerful and slower to trigger",
         "You'll outgrow it above ~£30k/month DTC",
       ],
     },
     when: {
-      a: "You're a Shopify or WooCommerce brand doing £15k+/month where email should be 20–35% of revenue. Migrate immediately if you're on Mailchimp — payback is usually under 60 days.",
+      a: "You're a Shopify or WooCommerce brand doing £15k+/month where email should be 20–35% of revenue. Migrate immediately if you're on Mailchimp payback is usually under 60 days.",
       b: "You run a content site, newsletter or non-ecommerce business where segmentation depth doesn't matter and price does. Fine to stay.",
     },
     bottomLine: (
       <>
         <p>
-          For ecommerce, the debate is largely over — Klaviyo is the default for a reason. The only
+          For ecommerce, the debate is largely over Klaviyo is the default for a reason. The only
           real argument for staying on Mailchimp is a small list where the extra Klaviyo cost isn't
           justified.
         </p>
         <p>
           Moving from Mailchimp to Klaviyo typically lifts email revenue 40–120% within 90 days on
-          the same list — from a better flow engine, deeper segmentation and predictive send-time.
+          the same list from a better flow engine, deeper segmentation and predictive send-time.
         </p>
       </>
     ),
     faqs: [
-      { q: "Is Klaviyo worth the extra cost?", a: "For a DTC brand doing £15k+/month, yes — the flow engine and segmentation typically add 15–35% to email revenue vs Mailchimp. Below £5k/month the extra cost isn't always justified until the list grows." },
+      { q: "Is Klaviyo worth the extra cost?", a: "For a DTC brand doing £15k+/month, yes the flow engine and segmentation typically add 15–35% to email revenue vs Mailchimp. Below £5k/month the extra cost isn't always justified until the list grows." },
       { q: "How hard is the migration?", a: "For a 10k–50k contact list with a Shopify or WooCommerce brand: 2–3 weeks. Historical data, segments, popup and flow rebuilds are all straightforward. The hard part is rewriting flows to actually use Klaviyo's features, not just copying Mailchimp." },
-      { q: "Does Klaviyo work with WooCommerce?", a: "Yes — the WooCommerce integration is mature. Product catalogue sync, event tracking (checkout started, order placed, refunded), and dynamic product blocks all work. Set up the WooCommerce integration and Klaviyo webhooks together so events fire reliably." },
+      { q: "Does Klaviyo work with WooCommerce?", a: "Yes the WooCommerce integration is mature. Product catalogue sync, event tracking (checkout started, order placed, refunded), and dynamic product blocks all work. Set up the WooCommerce integration and Klaviyo webhooks together so events fire reliably." },
     ],
     meta: {
-      title: "Klaviyo vs Mailchimp (2026) — Which for Shopify or WooCommerce? | BeingEcom",
+      title: "Klaviyo vs Mailchimp (2026) Which for Shopify or WooCommerce? | BeingEcom",
       description: "Klaviyo or Mailchimp for your ecommerce brand? Flows, segmentation, predictive analytics, SMS, deliverability, pricing and migration compared for UK DTC.",
     },
     relatedServices: [
@@ -441,7 +441,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Ops comparison",
     h1: "AI Automation vs Manual Marketing (2026)",
     verdict:
-      "AI automation wins for repeatable, judgement-light work — reporting, ad-copy variants, product descriptions, first-draft creative, support routing. Manual work wins for strategy, brand voice, creative direction and anything a wrong answer would embarrass the brand. Best-run ecommerce teams use both — AI does the boring 60%, senior humans direct the important 40%.",
+      "AI automation wins for repeatable, judgement-light work reporting, ad-copy variants, product descriptions, first-draft creative, support routing. Manual work wins for strategy, brand voice, creative direction and anything a wrong answer would embarrass the brand. Best-run ecommerce teams use both AI does the boring 60%, senior humans direct the important 40%.",
     bestFor: {
       a: "Repeatable production work, first drafts, reporting, routing, personalisation at scale.",
       b: "Strategy, brand voice, senior creative direction, high-stakes decisions.",
@@ -473,24 +473,24 @@ const COMPARE: Record<string, ComparisonEntry> = {
       a: [
         "Confidently wrong on niche facts",
         "Bland output without careful prompting and brand context",
-        "Zero accountability — a human must approve",
+        "Zero accountability a human must approve",
         "Content-farm penalties if used without human editorial",
       ],
       b: [
-        "Doesn't scale — every extra piece needs headcount",
+        "Doesn't scale every extra piece needs headcount",
         "Slow first drafts eat senior time that should go to strategy",
         "Inconsistent formatting and structure",
         "Reporting and monitoring get skipped when things get busy",
       ],
     },
     when: {
-      a: "Anywhere you have a template, repeatable pattern or first-draft need — product descriptions, ad copy variants, reporting summaries, tier-2 support triage, meta tags at scale.",
-      b: "Anywhere the answer matters, the brand voice matters, or a mistake costs money — strategy, senior creative direction, offer design, PR, crisis response, exec-level decisions.",
+      a: "Anywhere you have a template, repeatable pattern or first-draft need product descriptions, ad copy variants, reporting summaries, tier-2 support triage, meta tags at scale.",
+      b: "Anywhere the answer matters, the brand voice matters, or a mistake costs money strategy, senior creative direction, offer design, PR, crisis response, exec-level decisions.",
     },
     bottomLine: (
       <>
         <p>
-          The right pattern in 2026 is not \"AI replaces marketing\" — it's \"AI removes the boring
+          The right pattern in 2026 is not \"AI replaces marketing\" it's \"AI removes the boring
           60% so senior operators do 100% strategic work.\" Every marketing hire without an AI
           workflow is doing 3–5 hours a day a machine could do in minutes.
         </p>
@@ -504,11 +504,11 @@ const COMPARE: Record<string, ComparisonEntry> = {
     faqs: [
       { q: "Will AI-generated content get penalised by Google?", a: "Only if it's unsupervised, generic and unhelpful. Google's stated policy penalises low-quality, low-effort content regardless of author (human or AI). AI content edited by a senior human, with unique data, examples and structure, ranks fine." },
       { q: "What should I automate first?", a: "Weekly reporting summaries, product description first drafts, ad copy variants, alt text at scale, meta title/description generation, tier-1 support routing. These have clear inputs, clear outputs and low risk on error." },
-      { q: "Do I still need a human copywriter?", a: "Yes — for brand voice, campaign concepts, PR, high-stakes launches and editorial direction on AI output. But you probably need one senior copywriter, not three juniors — the AI takes the load the juniors used to." },
+      { q: "Do I still need a human copywriter?", a: "Yes for brand voice, campaign concepts, PR, high-stakes launches and editorial direction on AI output. But you probably need one senior copywriter, not three juniors the AI takes the load the juniors used to." },
     ],
     meta: {
-      title: "AI Automation vs Manual Marketing (2026) — Where to Use Each | BeingEcom",
-      description: "Where AI automation beats manual marketing in ecommerce — and where senior humans still win. Cost, speed, quality, risk and the operating model that combines both.",
+      title: "AI Automation vs Manual Marketing (2026) Where to Use Each | BeingEcom",
+      description: "Where AI automation beats manual marketing in ecommerce and where senior humans still win. Cost, speed, quality, risk and the operating model that combines both.",
     },
     relatedServices: [
       { label: "AI Automation", to: "/services/ai-automation" },
@@ -562,13 +562,13 @@ const COMPARE: Record<string, ComparisonEntry> = {
       </>
     ),
     faqs: [
-      { q: "Which is cheaper?", a: "BigCommerce Enterprise typically has a lower blended TCO for large catalogs — no transaction fees, no per-storefront tenancy fees. Shopify Plus wins on ROI when checkout conversion and app velocity matter more than platform fee." },
-      { q: "Can Shopify Plus handle B2B?", a: "Yes, natively since 2023, and improving fast — but BigCommerce still leads on complex pricing rules, quotes and hybrid B2B/B2C at scale." },
+      { q: "Which is cheaper?", a: "BigCommerce Enterprise typically has a lower blended TCO for large catalogs no transaction fees, no per-storefront tenancy fees. Shopify Plus wins on ROI when checkout conversion and app velocity matter more than platform fee." },
+      { q: "Can Shopify Plus handle B2B?", a: "Yes, natively since 2023, and improving fast but BigCommerce still leads on complex pricing rules, quotes and hybrid B2B/B2C at scale." },
       { q: "Which is better for international?", a: "Shopify Markets is easier to set up; BigCommerce Multi-Storefront is more flexible but requires more configuration. Sub-5 markets: Plus. 10+ markets with different catalogs: BigCommerce." },
     ],
     meta: {
-      title: "Shopify Plus vs BigCommerce Enterprise (2026) — Full Comparison | BeingEcom",
-      description: "Shopify Plus vs BigCommerce Enterprise for scaling ecommerce brands — checkout, B2B, multi-storefront, cost and ecosystem compared by senior operators.",
+      title: "Shopify Plus vs BigCommerce Enterprise (2026) Full Comparison | BeingEcom",
+      description: "Shopify Plus vs BigCommerce Enterprise for scaling ecommerce brands checkout, B2B, multi-storefront, cost and ecosystem compared by senior operators.",
     },
     relatedServices: [
       { label: "Shopify development", to: "/services/store-development/shopify" },
@@ -582,7 +582,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Team structure",
     h1: "In-house team vs ecommerce agency (2026)",
     verdict:
-      "In-house wins for the strategic leadership layer (Head of Growth, Head of Retention) and brand-critical work. A senior agency wins for specialist execution — SEO, paid, CRO, dev — where hiring one senior per discipline costs 6× more than partnering with a team that already runs them.",
+      "In-house wins for the strategic leadership layer (Head of Growth, Head of Retention) and brand-critical work. A senior agency wins for specialist execution SEO, paid, CRO, dev where hiring one senior per discipline costs 6× more than partnering with a team that already runs them.",
     bestFor: {
       a: "Strategic ownership, brand voice, product decisions, roadmap.",
       b: "Specialist execution across SEO, paid, CRO, email and development.",
@@ -611,7 +611,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     bottomLine: (
       <>
         <p>
-          The right structure is almost never one or the other — it's a small senior in-house team
+          The right structure is almost never one or the other it's a small senior in-house team
           owning strategy and brand, partnered with a senior agency handling specialist execution.
           That combination beats a large in-house team on cost, and beats agency-only on brand fidelity.
         </p>
@@ -622,13 +622,13 @@ const COMPARE: Record<string, ComparisonEntry> = {
       </>
     ),
     faqs: [
-      { q: "Should I hire a Head of Growth in-house or use an agency?", a: "Hire the Head of Growth in-house — that's the strategy and brief layer. Use an agency for the specialist execution the Head of Growth then orchestrates." },
+      { q: "Should I hire a Head of Growth in-house or use an agency?", a: "Hire the Head of Growth in-house that's the strategy and brief layer. Use an agency for the specialist execution the Head of Growth then orchestrates." },
       { q: "When does in-house become cheaper?", a: "When you can fill 40+ hours a week of specialist work in a single discipline. Below that, fractional senior agency time is nearly always cheaper on outcomes." },
       { q: "How do I avoid getting a bad agency?", a: "Interview the senior operators, not the sales team. Ask to see three anonymised MER graphs from real clients, and reference-check with a founder who left them." },
     ],
     meta: {
-      title: "In-house Ecommerce Team vs Agency (2026) — Cost, Speed & Depth | BeingEcom",
-      description: "In-house ecommerce team vs agency — real cost comparison, ramp time, brand risk and the hybrid model most scaling brands actually use.",
+      title: "In-house Ecommerce Team vs Agency (2026) Cost, Speed & Depth | BeingEcom",
+      description: "In-house ecommerce team vs agency real cost comparison, ramp time, brand risk and the hybrid model most scaling brands actually use.",
     },
     relatedServices: [
       { label: "Consulting", to: "/services/consulting" },
@@ -642,7 +642,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Analytics stack",
     h1: "GA4 vs Shopify Analytics (2026)",
     verdict:
-      "Shopify Analytics is the source of truth for orders and revenue; GA4 is the source of truth for behaviour, source and funnel. Every scaling Shopify brand needs both — reconciling to within 5% — plus server-side tagging on top.",
+      "Shopify Analytics is the source of truth for orders and revenue; GA4 is the source of truth for behaviour, source and funnel. Every scaling Shopify brand needs both reconciling to within 5% plus server-side tagging on top.",
     bestFor: {
       a: "Behavioural, source and funnel analysis; audience building for paid.",
       b: "Order-level revenue reporting, cohort and merchandising analysis.",
@@ -658,15 +658,15 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ],
     pros: {
       a: ["Deepest behavioural analysis on the market", "First-class audience export to Google/Meta", "BigQuery export for custom reporting", "Free at the standard tier"],
-      b: ["Zero setup — accurate from day one", "Native cohort and repeat-rate reporting", "Perfect order-level accuracy", "Merchandising insights out of the box"],
+      b: ["Zero setup accurate from day one", "Native cohort and repeat-rate reporting", "Perfect order-level accuracy", "Merchandising insights out of the box"],
     },
     cons: {
       a: ["Order counts drift 5–15% from Shopify", "Requires proper GTM and event setup", "Steep learning curve for non-analysts"],
       b: ["No true funnel analysis", "Limited traffic source breakdown", "Weaker audience export", "Reports harder to customise"],
     },
     when: {
-      a: "Any brand running paid media or serious SEO — GA4 is non-negotiable for source and funnel visibility.",
-      b: "Any Shopify brand for order-level revenue, cohort and merchandising reporting — it's free and accurate.",
+      a: "Any brand running paid media or serious SEO GA4 is non-negotiable for source and funnel visibility.",
+      b: "Any Shopify brand for order-level revenue, cohort and merchandising reporting it's free and accurate.",
     },
     bottomLine: (
       <>
@@ -678,13 +678,13 @@ const COMPARE: Record<string, ComparisonEntry> = {
       </>
     ),
     faqs: [
-      { q: "Which should I trust for revenue?", a: "Shopify — always. GA4 is directionally correct on revenue but will always show 5–15% variance vs Shopify because of consent, ad-blockers and cross-device gaps." },
+      { q: "Which should I trust for revenue?", a: "Shopify always. GA4 is directionally correct on revenue but will always show 5–15% variance vs Shopify because of consent, ad-blockers and cross-device gaps." },
       { q: "Do I need GA4 if I have Shopify?", a: "Yes, if you run any paid media or care about SEO. GA4 is the only place you see funnel drop-off, source attribution and cross-device journeys." },
-      { q: "What about GA4 vs Northbeam/Triple Whale?", a: "GA4 covers behavioural + free forever. Northbeam/Triple Whale add MTA, MMM and paid-media-centric dashboards — worth the cost above ~£30k/mo ad spend, but don't replace GA4 for funnel analysis." },
+      { q: "What about GA4 vs Northbeam/Triple Whale?", a: "GA4 covers behavioural + free forever. Northbeam/Triple Whale add MTA, MMM and paid-media-centric dashboards worth the cost above ~£30k/mo ad spend, but don't replace GA4 for funnel analysis." },
     ],
     meta: {
-      title: "GA4 vs Shopify Analytics (2026) — Which to Trust for What | BeingEcom",
-      description: "GA4 vs Shopify Analytics compared for scaling ecommerce brands — order accuracy, funnel analysis, cohort reporting and the stack every serious brand runs.",
+      title: "GA4 vs Shopify Analytics (2026) Which to Trust for What | BeingEcom",
+      description: "GA4 vs Shopify Analytics compared for scaling ecommerce brands order accuracy, funnel analysis, cohort reporting and the stack every serious brand runs.",
     },
     relatedServices: [
       { label: "Analytics", to: "/services/analytics" },
@@ -698,7 +698,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Paid channel",
     h1: "TikTok Ads vs Meta Ads (2026)",
     verdict:
-      "Meta remains the profitable scaling channel for most DTC brands — mature auction, best attribution, deepest audience targeting. TikTok wins for creator-led demand generation and Gen Z brands, and now competes on ROAS when the creative pipeline is built for it.",
+      "Meta remains the profitable scaling channel for most DTC brands mature auction, best attribution, deepest audience targeting. TikTok wins for creator-led demand generation and Gen Z brands, and now competes on ROAS when the creative pipeline is built for it.",
     bestFor: {
       a: "Creator-driven demand generation, Gen Z reach, viral hook testing.",
       b: "Profitable scaling, retargeting, precise audience-led acquisition.",
@@ -729,7 +729,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       <>
         <p>
           The right answer for most DTC brands £250k+/year is both. Meta as the profitable scaling
-          engine, TikTok as the creative and demand-generation lab — with the best-performing TikTok
+          engine, TikTok as the creative and demand-generation lab with the best-performing TikTok
           creators re-cut and served on Meta Reels for double coverage.
         </p>
       </>
@@ -740,8 +740,8 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { q: "How much creative do we need for TikTok?", a: "20–40 new variants per week to feed the algorithm and dodge creative fatigue. Below that, TikTok performance plateaus fast." },
     ],
     meta: {
-      title: "TikTok Ads vs Meta Ads (2026) — ROAS, Reach & Creative Compared | BeingEcom",
-      description: "TikTok Ads vs Meta Ads for scaling DTC brands — attribution, targeting, CPMs, creator content and the portfolio structure that beats both channels alone.",
+      title: "TikTok Ads vs Meta Ads (2026) ROAS, Reach & Creative Compared | BeingEcom",
+      description: "TikTok Ads vs Meta Ads for scaling DTC brands attribution, targeting, CPMs, creator content and the portfolio structure that beats both channels alone.",
     },
     relatedServices: [
       { label: "Performance marketing", to: "/services/performance-marketing" },
@@ -756,7 +756,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Storefront architecture",
     h1: "Headless (Hydrogen) vs Shopify Theme (2026)",
     verdict:
-      "Standard Shopify themes are the right answer for 95% of brands under £5M/year — faster to ship, cheaper to maintain, and modern themes now beat headless on TTFB with proper optimisation. Headless only wins for brands with real merchandising ceilings and in-house dev.",
+      "Standard Shopify themes are the right answer for 95% of brands under £5M/year faster to ship, cheaper to maintain, and modern themes now beat headless on TTFB with proper optimisation. Headless only wins for brands with real merchandising ceilings and in-house dev.",
     bestFor: {
       a: "£5M+ brands with in-house dev, custom merchandising, or content-heavy storefronts.",
       b: "Every brand under £5M/year, and most above who don't need custom composition.",
@@ -781,7 +781,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     when: {
       a: "£5M+/year brand with in-house dev, custom composition needs, or an SEO/content strategy that outgrows Liquid.",
-      b: "Almost every other Shopify brand — including most Plus brands under £10M/year.",
+      b: "Almost every other Shopify brand including most Plus brands under £10M/year.",
     },
     bottomLine: (
       <>
@@ -792,7 +792,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
         </p>
         <p>
           When you do move, migrate one high-value template at a time (PDP first, then PLP), never
-          the whole store in one release — and expect a 60–90 day SEO recovery curve.
+          the whole store in one release and expect a 60–90 day SEO recovery curve.
         </p>
       </>
     ),
@@ -802,8 +802,8 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { q: "When is headless worth it?", a: "£5M+/year with in-house dev, custom composition needs and an SEO/content plan that outgrows Liquid. Below that, the numbers rarely justify it." },
     ],
     meta: {
-      title: "Headless (Hydrogen) vs Shopify Theme (2026) — Cost, Speed, SEO | BeingEcom",
-      description: "Headless Hydrogen vs Shopify Theme compared for scaling brands — real cost, ongoing dev, SEO risk, performance and the criteria that make headless worth it.",
+      title: "Headless (Hydrogen) vs Shopify Theme (2026) Cost, Speed, SEO | BeingEcom",
+      description: "Headless Hydrogen vs Shopify Theme compared for scaling brands real cost, ongoing dev, SEO risk, performance and the criteria that make headless worth it.",
     },
     relatedServices: [
       { label: "Shopify development", to: "/services/store-development/shopify" },

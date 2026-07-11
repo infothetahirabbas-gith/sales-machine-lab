@@ -89,7 +89,7 @@ function Contact() {
                   <>
                     <input type="hidden" name="plan" value={plan} />
                     <div className="rounded-xl border border-primary/30 bg-primary/5 px-4 py-3 text-sm text-ink/85">
-                      You've selected the <strong>{plan}</strong> plan. We'll pre-fill this in your enquiry — you can change it at any time on the call.
+                      You've selected the <strong>{plan}</strong> plan. We'll pre-fill this in your enquiry you can change it at any time on the call.
                     </div>
                   </>
                 )}

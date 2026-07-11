@@ -30,9 +30,9 @@ export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
       { title: "Ecommerce Analytics Agency UK | GA4, Pixel & CAPI Setup | BeingEcom" },
-      { name: "description", content: "Ecommerce Analytics Agency UK. GA4, Meta Pixel, CAPI, server-side tracking and dashboards — set up properly for Shopify and WooCommerce brands." },
+      { name: "description", content: "Ecommerce Analytics Agency UK. GA4, Meta Pixel, CAPI, server-side tracking and dashboards set up properly for Shopify and WooCommerce brands." },
       { property: "og:title", content: "Ecommerce Analytics Agency UK | GA4, Pixel & CAPI Setup | BeingEcom" },
-      { property: "og:description", content: "Ecommerce Analytics Agency UK. GA4, Meta Pixel, CAPI, server-side tracking and dashboards — set up properly for Shopify and WooCommerce brands." },
+      { property: "og:description", content: "Ecommerce Analytics Agency UK. GA4, Meta Pixel, CAPI, server-side tracking and dashboards set up properly for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
     ],

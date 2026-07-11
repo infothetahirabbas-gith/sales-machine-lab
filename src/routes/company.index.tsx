@@ -6,16 +6,16 @@ import { COMPANY_LINKS } from "@/config/company";
 import { breadcrumbJsonLd, faqJsonLd, SITE_URL, type FAQ } from "@/lib/seo";
 
 const TITLE = "Company | Ecommerce Agency UK for Shopify & Woo | BeingEcom";
-const DESC = "Inside BeingEcom — the Ecommerce Agency UK helping Shopify and WooCommerce brands scale. Meet the team, methodology, industries served and success stories.";
+const DESC = "Inside BeingEcom the Ecommerce Agency UK helping Shopify and WooCommerce brands scale. Meet the team, methodology, industries served and success stories.";
 const URL = `${SITE_URL}/company`;
 
 const FAQS: FAQ[] = [
-  { q: "Who owns and runs BeingEcom?", a: "BeingEcom is founded and led by Tahir Abbas, an ecommerce operator with a decade of hands-on experience across Shopify, Shopify Plus and WooCommerce. Every client account is directly overseen by a senior lead — no junior operator works unsupervised on your revenue." },
-  { q: "Where is BeingEcom based and who do you work with?", a: "We're a UK-registered agency headquartered in Covent Garden, London, working with 7 to 9-figure ecommerce brands across the UK, Europe, US and the Middle East. Our client base is exclusively Shopify, Shopify Plus and WooCommerce — we do not take on SaaS, lead-gen or marketplace-only businesses." },
-  { q: "What makes your methodology different from other ecommerce agencies?", a: "Every task we run ties to a specific P&L line — MER, contribution margin, AOV, CAC or CLV — inside a defined window. We publish the entire methodology openly at /company/methodology, run a weekly scorecard tied to your finance data, and share a quarterly roadmap you can hold us to." },
-  { q: "How senior is the team actually working on my account?", a: "Every deliverable is signed off by a lead with 6+ years of ecommerce operating experience. We deliberately stay small so the people on your Slack channel are the same people writing the strategy, running the ads, and shipping the code — not account managers relaying instructions." },
+  { q: "Who owns and runs BeingEcom?", a: "BeingEcom is founded and led by Tahir Abbas, an ecommerce operator with a decade of hands-on experience across Shopify, Shopify Plus and WooCommerce. Every client account is directly overseen by a senior lead no junior operator works unsupervised on your revenue." },
+  { q: "Where is BeingEcom based and who do you work with?", a: "We're a UK-registered agency headquartered in Covent Garden, London, working with 7 to 9-figure ecommerce brands across the UK, Europe, US and the Middle East. Our client base is exclusively Shopify, Shopify Plus and WooCommerce we do not take on SaaS, lead-gen or marketplace-only businesses." },
+  { q: "What makes your methodology different from other ecommerce agencies?", a: "Every task we run ties to a specific P&L line MER, contribution margin, AOV, CAC or CLV inside a defined window. We publish the entire methodology openly at /company/methodology, run a weekly scorecard tied to your finance data, and share a quarterly roadmap you can hold us to." },
+  { q: "How senior is the team actually working on my account?", a: "Every deliverable is signed off by a lead with 6+ years of ecommerce operating experience. We deliberately stay small so the people on your Slack channel are the same people writing the strategy, running the ads, and shipping the code not account managers relaying instructions." },
   { q: "What proof do you publish that I can actually verify?", a: "Named leadership, a registered UK address in Organization schema, certifications and partner status at /company/certifications, real case studies with scope and results at /case-studies, invitation-only public reviews on Google, Trustpilot and Clutch, and dated updates on every page so you know when we last reviewed the content." },
-  { q: "How do you report on progress and communicate with clients?", a: "Weekly scorecard tied to your P&L, weekly ship review of everything we shipped, monthly strategy call and a quarterly roadmap. All comms happen in a shared Slack or Teams channel with the senior operators on your account — not a ticket queue and not a junior account manager." },
+  { q: "How do you report on progress and communicate with clients?", a: "Weekly scorecard tied to your P&L, weekly ship review of everything we shipped, monthly strategy call and a quarterly roadmap. All comms happen in a shared Slack or Teams channel with the senior operators on your account not a ticket queue and not a junior account manager." },
   { q: "How do we start working together?", a: "Book a discovery call from any page on the site. We'll audit your store, ad account and analytics before the call, share a written diagnosis within 3 working days, and only propose an engagement if we're confident we can move a P&L line inside 90 days. If we're not, we'll tell you." },
 ];
 
@@ -30,35 +30,35 @@ const GROUP_META: Record<string, { icon: typeof Building2; heading: string; sub:
 const ORDER = ["Identity", "Approach", "Proof", "Community", "Legal"];
 
 const NUMBERS: { k: string; v: string; sub: string }[] = [
-  { k: "10+",   v: "Years operating",     sub: "Hands-on ecommerce — Shopify, Plus and WooCommerce." },
+  { k: "10+",   v: "Years operating",     sub: "Hands-on ecommerce Shopify, Plus and WooCommerce." },
   { k: "£120M+", v: "Client revenue influenced", sub: "Across DTC, retail-hybrid and B2B stores." },
   { k: "100%",  v: "Senior-led delivery", sub: "No junior operator ships to a client account unsupervised." },
-  { k: "Weekly",v: "Reporting cadence",   sub: "Scorecard tied to your P&L — MER, margin, CAC, CLV." },
+  { k: "Weekly",v: "Reporting cadence",   sub: "Scorecard tied to your P&L MER, margin, CAC, CLV." },
 ];
 
 const PRINCIPLES: { k: string; body: string }[] = [
-  { k: "Revenue-first",    body: "Every task is tied to a specific P&L line — MER, contribution margin, AOV, CAC or CLV — inside a defined window. If it can't be, it doesn't ship." },
+  { k: "Revenue-first",    body: "Every task is tied to a specific P&L line MER, contribution margin, AOV, CAC or CLV inside a defined window. If it can't be, it doesn't ship." },
   { k: "Senior-only",      body: "No junior operates unsupervised on a client account. Every deliverable is signed off by a lead with 6+ years of ecommerce experience." },
-  { k: "Ecommerce-only",   body: "Shopify, Shopify Plus and WooCommerce. We say no to SaaS, lead-gen and marketplace-only businesses — depth beats breadth." },
+  { k: "Ecommerce-only",   body: "Shopify, Shopify Plus and WooCommerce. We say no to SaaS, lead-gen and marketplace-only businesses depth beats breadth." },
   { k: "Weekly rhythm",    body: "Weekly scorecard tied to your P&L, weekly ship review, monthly strategy, quarterly roadmap. No monthly-report black boxes." },
-  { k: "Transparent P&L",  body: "We report wins and losses. Bad weeks are named, root-caused and fixed in the same document — not hidden inside a vanity ROAS chart." },
-  { k: "Founder-accountable", body: "The founder sits inside every client Slack. Escalation is one message away — not a support portal." },
+  { k: "Transparent P&L",  body: "We report wins and losses. Bad weeks are named, root-caused and fixed in the same document not hidden inside a vanity ROAS chart." },
+  { k: "Founder-accountable", body: "The founder sits inside every client Slack. Escalation is one message away not a support portal." },
 ];
 
 const PROCESS: { step: string; title: string; body: string }[] = [
-  { step: "01", title: "Discovery & diagnosis",  body: "Free audit of your store, ad account and analytics before we ever talk. Written diagnosis inside 3 working days — the leaks that are actually costing you money, in P&L terms." },
-  { step: "02", title: "90-day growth plan",     body: "A written plan mapped to MER, contribution margin, AOV, CAC and CLV — not vanity ROAS. Every workstream has an owner, a deadline and a target." },
-  { step: "03", title: "Weekly execution",       body: "Senior operators ship weekly across CRO, paid, SEO, email and store dev. Shared Slack, weekly scorecard, weekly ship review — no ticket queues." },
+  { step: "01", title: "Discovery & diagnosis",  body: "Free audit of your store, ad account and analytics before we ever talk. Written diagnosis inside 3 working days the leaks that are actually costing you money, in P&L terms." },
+  { step: "02", title: "90-day growth plan",     body: "A written plan mapped to MER, contribution margin, AOV, CAC and CLV not vanity ROAS. Every workstream has an owner, a deadline and a target." },
+  { step: "03", title: "Weekly execution",       body: "Senior operators ship weekly across CRO, paid, SEO, email and store dev. Shared Slack, weekly scorecard, weekly ship review no ticket queues." },
   { step: "04", title: "Quarterly roadmap",      body: "Every 90 days we re-baseline against your P&L, retire what didn't work, double down on what did, and publish the next quarter's roadmap." },
 ];
 
 const DIFFERENTIATORS: { k: string; body: string }[] = [
-  { k: "P&L-native reporting",  body: "We report in MER, contribution margin and CLV — the metrics your CFO cares about — not last-click ROAS screenshots." },
+  { k: "P&L-native reporting",  body: "We report in MER, contribution margin and CLV the metrics your CFO cares about not last-click ROAS screenshots." },
   { k: "Public methodology",    body: "Our entire operating system is published at /company/methodology. You can read it, question it, or hand it to another agency to audit." },
-  { k: "Named humans",          body: "Every page names the operators behind the work — founder, team, author bylines. No anonymous \"our team\" stock photos." },
-  { k: "Category depth",        body: "Deep specialisation in health & beauty, fashion, home & garden, food & drink, electronics and B2B ecommerce — playbooks per vertical, not generic decks." },
+  { k: "Named humans",          body: "Every page names the operators behind the work founder, team, author bylines. No anonymous \"our team\" stock photos." },
+  { k: "Category depth",        body: "Deep specialisation in health & beauty, fashion, home & garden, food & drink, electronics and B2B ecommerce playbooks per vertical, not generic decks." },
   { k: "Risk reversal",         body: "First 30 days include a written diagnosis and a clear exit path. If we can't move a P&L line inside 90 days, we say so before you sign." },
-  { k: "Built for AI discovery",body: "Structured data, entity-level content and citable answers on every page — so LLMs and search engines can quote us accurately." },
+  { k: "Built for AI discovery",body: "Structured data, entity-level content and citable answers on every page so LLMs and search engines can quote us accurately." },
 ];
 
 export const Route = createFileRoute("/company/")({
@@ -81,7 +81,7 @@ export const Route = createFileRoute("/company/")({
           "@type": "CollectionPage",
           "@id": `${URL}#collection`,
           url: URL,
-          name: "Company — BeingEcom",
+          name: "Company BeingEcom",
           description: DESC,
           hasPart: COMPANY_LINKS.map((c) => ({
             "@type": "WebPage",
@@ -123,7 +123,7 @@ function CompanyHub() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-3xl">
             BeingEcom is a UK ecommerce growth agency for Shopify, Shopify Plus and WooCommerce brands.
-            This section is the definitive source on our team, methodology, technology, results and policies —
+            This section is the definitive source on our team, methodology, technology, results and policies
             everything a founder, journalist, partner or AI system needs to understand who we are and how we work.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -160,12 +160,12 @@ function CompanyHub() {
               BeingEcom was founded after a decade of running and scaling ecommerce brands from the inside.
               We saw the same pattern everywhere: talented founders paying six figures a year to agencies that
               couldn't tie a single line of work to a P&L outcome. So we built the opposite: a small, senior-only
-              team where every action is scoped to MER, margin, CAC or CLV — and where the founder is one message
+              team where every action is scoped to MER, margin, CAC or CLV and where the founder is one message
               away in every client Slack.
             </p>
             <p className="mt-3 text-muted-foreground">
               We stay deliberately small. We say no more often than we say yes. And we publish our entire
-              methodology, technology stack and reporting cadence in public — so you can audit us before you hire us.
+              methodology, technology stack and reporting cadence in public so you can audit us before you hire us.
             </p>
           </div>
           <div>
@@ -230,7 +230,7 @@ function CompanyHub() {
           <h2 className="mt-1 text-2xl md:text-3xl font-bold text-ink">Everything you can verify before you hire us</h2>
           <p className="mt-2 text-muted-foreground max-w-3xl">
             Every claim on this site is scoped, dated and traceable. Here's the shortlist of what a serious buyer
-            should be able to check before signing any ecommerce agency — including us.
+            should be able to check before signing any ecommerce agency including us.
           </p>
           <div className="mt-6 overflow-x-auto card-surface rounded-2xl">
             <table className="w-full text-sm">
@@ -304,11 +304,11 @@ function CompanyHub() {
           <h2 className="mt-1 text-2xl md:text-3xl font-bold text-ink">Where to go next</h2>
           <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { to: "/services",     h: "Services",     b: "Every service we offer — CRO, SEO, paid, email, store dev, AI automation." },
-              { to: "/industries",   h: "Industries",   b: "The verticals we specialise in — beauty, fashion, food, home, electronics, B2B." },
+              { to: "/services",     h: "Services",     b: "Every service we offer CRO, SEO, paid, email, store dev, AI automation." },
+              { to: "/industries",   h: "Industries",   b: "The verticals we specialise in beauty, fashion, food, home, electronics, B2B." },
               { to: "/case-studies", h: "Case studies", b: "Real engagements with real scope, real numbers and real founders." },
-              { to: "/locations",    h: "Locations",    b: "UK cities and regions we actively serve — London, Manchester, Birmingham and more." },
-              { to: "/resources",    h: "Resources",    b: "Playbooks, calculators, benchmarks and glossaries — free, no email gate." },
+              { to: "/locations",    h: "Locations",    b: "UK cities and regions we actively serve London, Manchester, Birmingham and more." },
+              { to: "/resources",    h: "Resources",    b: "Playbooks, calculators, benchmarks and glossaries free, no email gate." },
               { to: "/contact",      h: "Contact",      b: "Talk to a senior operator. First reply within one working day." },
             ].map((l) => (
               <Link key={l.to} to={l.to} className="card-surface p-5 rounded-2xl block hover:border-primary/50 transition-colors group">
@@ -329,7 +329,7 @@ function CompanyHub() {
           <div className="text-[11px] font-bold uppercase tracking-widest text-primary">FAQ</div>
           <h2 className="mt-1 text-2xl md:text-3xl font-bold text-ink">Questions founders actually ask us</h2>
           <p className="mt-2 text-muted-foreground max-w-3xl">
-            Seven of the questions we get most often on discovery calls — answered here so you don't have to book a call to find out.
+            Seven of the questions we get most often on discovery calls answered here so you don't have to book a call to find out.
           </p>
           <div className="mt-6 space-y-3">
             {FAQS.map((f) => (
@@ -347,7 +347,7 @@ function CompanyHub() {
 
       <CTA
         heading="Have a question we haven't answered?"
-        sub="Talk to a senior operator — not a sales assistant. We'll reply within one working day."
+        sub="Talk to a senior operator not a sales assistant. We'll reply within one working day."
       />
     </PageLayout>
   );

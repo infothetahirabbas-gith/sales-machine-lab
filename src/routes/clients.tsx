@@ -4,27 +4,27 @@ import { breadcrumbJsonLd, SITE_URL, ORG_ID } from "@/lib/seo";
 import { ArrowRight, Users, ShieldCheck } from "lucide-react";
 
 // Industry categories BeingEcom serves. Named client logos are intentionally
-// omitted until we ship real, permission-cleared assets — anonymised
+// omitted until we ship real, permission-cleared assets anonymised
 // industry cards keep the page honest and NDA-safe.
 const INDUSTRIES = [
-  { name: "Beauty & Skincare", count: "18 brands", note: "Shopify Plus and Shopify — subscription + DTC" },
+  { name: "Beauty & Skincare", count: "18 brands", note: "Shopify Plus and Shopify subscription + DTC" },
   { name: "Fashion & Apparel", count: "22 brands", note: "Shopify, headless (Hydrogen)" },
-  { name: "Health & Supplements", count: "14 brands", note: "Shopify, WooCommerce — high retention economics" },
-  { name: "Home & Living", count: "12 brands", note: "WooCommerce, Shopify — high-AOV categories" },
-  { name: "Food & Drink", count: "9 brands", note: "Shopify — subscription + one-off" },
-  { name: "Jewellery & Accessories", count: "8 brands", note: "Shopify — high margin, gifting-led" },
+  { name: "Health & Supplements", count: "14 brands", note: "Shopify, WooCommerce high retention economics" },
+  { name: "Home & Living", count: "12 brands", note: "WooCommerce, Shopify high-AOV categories" },
+  { name: "Food & Drink", count: "9 brands", note: "Shopify subscription + one-off" },
+  { name: "Jewellery & Accessories", count: "8 brands", note: "Shopify high margin, gifting-led" },
   { name: "Pet Care", count: "6 brands", note: "Shopify, subscription commerce" },
   { name: "Sports & Outdoor", count: "7 brands", note: "Shopify, WooCommerce" },
-  { name: "Lifestyle & Wellness", count: "10 brands", note: "Shopify — DTC + content-led" },
+  { name: "Lifestyle & Wellness", count: "10 brands", note: "Shopify DTC + content-led" },
   { name: "Kids & Baby", count: "5 brands", note: "Shopify" },
   { name: "Electronics & Gadgets", count: "4 brands", note: "WooCommerce, high-consideration purchase" },
   { name: "B2B & Trade Ecommerce", count: "5 brands", note: "WooCommerce + Shopify Plus B2B" },
 ];
 
 const CANONICAL = `${SITE_URL}/clients`;
-const TITLE = "Clients & Industries — Who BeingEcom Works With | UK Ecommerce Agency";
+const TITLE = "Clients & Industries Who BeingEcom Works With | UK Ecommerce Agency";
 const DESC =
-  "BeingEcom serves Shopify and WooCommerce brands across 12 ecommerce categories in the UK, US, IE and AU — beauty, fashion, health, home, food, jewellery, pet, sports and more.";
+  "BeingEcom serves Shopify and WooCommerce brands across 12 ecommerce categories in the UK, US, IE and AU beauty, fashion, health, home, food, jewellery, pet, sports and more.";
 
 const jsonLd = [
   breadcrumbJsonLd([
@@ -42,7 +42,7 @@ const jsonLd = [
     publisher: { "@id": ORG_ID },
     hasPart: INDUSTRIES.map((i) => ({
       "@type": "Thing",
-      name: `${i.name} — ${i.count}`,
+      name: `${i.name} ${i.count}`,
       description: i.note,
     })),
   },
@@ -78,7 +78,7 @@ function ClientsPage() {
           <p className="mt-6 text-lg md:text-xl text-foreground/85 max-w-3xl leading-relaxed">
             BeingEcom serves Shopify and WooCommerce brands across 12 ecommerce categories in the UK,
             US, Ireland and Australia. Client names and screenshots are intentionally not published
-            until each brand has signed off on a public case study — the categories below reflect the
+            until each brand has signed off on a public case study the categories below reflect the
             full mix of work currently running inside the operator pods.
           </p>
         </div>
@@ -112,7 +112,7 @@ function ClientsPage() {
             Most ecommerce operators sign an NDA before a first strategy call. That means we cannot
             publish a client logo or a live dashboard screenshot until the brand has explicitly
             approved the case study, the numbers and the visuals. When you see a logo on this site,
-            it means we shipped the work AND the client signed off — nothing else counts as proof.
+            it means we shipped the work AND the client signed off nothing else counts as proof.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link

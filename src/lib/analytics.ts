@@ -1,6 +1,6 @@
 // Lightweight analytics event helper.
 // Pushes to window.dataLayer (GTM) and calls window.gtag if present.
-// Safe to call on the server — becomes a no-op.
+// Safe to call on the server becomes a no-op.
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 
@@ -25,7 +25,7 @@ export function trackEvent(event: string, params: EventParams = {}): void {
       console.log("[analytics]", event, params);
     }
   } catch {
-    /* swallow — analytics must never break UX */
+    /* swallow analytics must never break UX */
   }
 }
 

@@ -27,12 +27,12 @@ export const Route = createFileRoute("/glossary")({
     meta: [
       {
         title:
-          "Ecommerce Glossary 2026 — Shopify, SEO, CRO, Paid, Email & AI Terms | BeingEcom",
+          "Ecommerce Glossary 2026 Shopify, SEO, CRO, Paid, Email & AI Terms | BeingEcom",
       },
       {
         name: "description",
         content:
-          "The plain-English ecommerce glossary for UK Shopify & WooCommerce founders — 100+ SEO, CRO, paid media, email, analytics, platform and AI terms with real examples.",
+          "The plain-English ecommerce glossary for UK Shopify & WooCommerce founders 100+ SEO, CRO, paid media, email, analytics, platform and AI terms with real examples.",
       },
       {
         property: "og:title",
@@ -101,7 +101,7 @@ function GlossaryPage() {
           </h1>
           <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {GLOSSARY_TERMS.length}+ definitions across SEO, CRO, paid media, email, analytics,
-            platform and AI — written for Shopify & WooCommerce founders who need to make revenue
+            platform and AI written for Shopify & WooCommerce founders who need to make revenue
             decisions, not pass an exam.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -175,7 +175,7 @@ function GlossaryPage() {
             Turn ecommerce theory into revenue
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Get a free 12-point growth audit of your Shopify or WooCommerce store — built by senior
+            Get a free 12-point growth audit of your Shopify or WooCommerce store built by senior
             operators, not junior analysts.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">

@@ -48,7 +48,7 @@ export default function CsrPartnerForm() {
         <div className="text-4xl mb-2" aria-hidden="true">✓</div>
         <h3 className="text-xl font-bold text-ink">Request received</h3>
         <p className="mt-2 text-sm text-muted-foreground max-w-xl mx-auto">
-          Thanks — we review CSR partnership requests every quarter and reply personally. If we can't take you on directly, we'll usually introduce you to someone in our network who can.
+          Thanks we review CSR partnership requests every quarter and reply personally. If we can't take you on directly, we'll usually introduce you to someone in our network who can.
         </p>
       </div>
     );

@@ -24,22 +24,22 @@ import {
 const AUTHOR = TEAM.find((m) => m.slug === "tahir-abbas")!;
 const PATH = "/author/tahir-abbas";
 const CANONICAL = `${SITE_URL}${PATH}`;
-const TITLE = "Tahir Abbas — Author & Ecommerce Growth Operator | BeingEcom";
+const TITLE = "Tahir Abbas Author & Ecommerce Growth Operator | BeingEcom";
 const DESC =
-  "Articles, playbooks and frameworks by Tahir Abbas — Founder & CEO of BeingEcom, senior ecommerce growth operator for Shopify and WooCommerce brands in the UK, US, IE and AU.";
+  "Articles, playbooks and frameworks by Tahir Abbas Founder & CEO of BeingEcom, senior ecommerce growth operator for Shopify and WooCommerce brands in the UK, US, IE and AU.";
 
 const authoredArticles = [
   {
     title: "Shopify vs WooCommerce (UK, 2026)",
     to: "/compare/shopify-vs-woocommerce",
     summary:
-      "An honest, operator-authored platform comparison for growing UK DTC brands — cost, checkout conversion, SEO ceiling and scaling.",
+      "An honest, operator-authored platform comparison for growing UK DTC brands cost, checkout conversion, SEO ceiling and scaling.",
   },
   {
     title: "SEO vs Paid Ads for Ecommerce (2026)",
     to: "/compare/seo-vs-paid-ads",
     summary:
-      "The right question isn't SEO or paid — it's what percentage of the mix each channel should own at your revenue stage.",
+      "The right question isn't SEO or paid it's what percentage of the mix each channel should own at your revenue stage.",
   },
   {
     title: "Meta Ads vs Google Ads for Ecommerce (2026)",
@@ -51,25 +51,25 @@ const authoredArticles = [
     title: "Klaviyo vs Mailchimp for Ecommerce (2026)",
     to: "/compare/klaviyo-vs-mailchimp",
     summary:
-      "Which email platform actually deserves to run your retention P&L — and when Mailchimp is fine to keep.",
+      "Which email platform actually deserves to run your retention P&L and when Mailchimp is fine to keep.",
   },
   {
     title: "AI Automation vs Manual Marketing (2026)",
     to: "/compare/ai-automation-vs-manual-marketing",
     summary:
-      "Where AI genuinely compresses ecommerce ops time — and where senior humans still win. The operating model that combines both.",
+      "Where AI genuinely compresses ecommerce ops time and where senior humans still win. The operating model that combines both.",
   },
   {
     title: "The BeingEcom Growth Methodology",
     to: "/company/methodology",
     summary:
-      "The 13-phase framework BeingEcom uses on every engagement — diagnostic, stabilisation, 90-day plan, weekly rhythm, quarterly step-change.",
+      "The 13-phase framework BeingEcom uses on every engagement diagnostic, stabilisation, 90-day plan, weekly rhythm, quarterly step-change.",
   },
   {
     title: "Shopify Growth Hub",
     to: "/hub/shopify-growth",
     summary:
-      "SEO, speed, CRO, paid, email, headless Hydrogen and scaling for Shopify and Shopify Plus — the full growth stack.",
+      "SEO, speed, CRO, paid, email, headless Hydrogen and scaling for Shopify and Shopify Plus the full growth stack.",
   },
   {
     title: "Ecommerce SEO Hub",
@@ -78,7 +78,7 @@ const authoredArticles = [
       "Technical, on-page, off-page, local, international and Answer Engine Optimisation for product-led sites.",
   },
   {
-    title: "Shopify vs WooCommerce UK — 2026 Blog Deep-Dive",
+    title: "Shopify vs WooCommerce UK 2026 Blog Deep-Dive",
     to: "/blog/shopify-vs-woocommerce-uk",
     summary:
       "Long-form article version with UK VAT, PSD2 and Shopify Markets specifics for founders choosing a platform in 2026.",
@@ -87,7 +87,7 @@ const authoredArticles = [
     title: "Shopify Plus Migration for UK Brands",
     to: "/blog/shopify-plus-migration-uk",
     summary:
-      "WooCommerce to Shopify Plus migration playbook — SEO transfer, checkout parity, tax and inventory cutover.",
+      "WooCommerce to Shopify Plus migration playbook SEO transfer, checkout parity, tax and inventory cutover.",
   },
 ];
 
@@ -98,11 +98,11 @@ const faqs: FAQ[] = [
   },
   {
     q: "What is Tahir Abbas's editorial policy?",
-    a: "Every article is written from first-hand operator experience — a real client engagement, a real experiment, a real P&L outcome. AI is used for research, structure and first drafts, then edited and signed off by Tahir before publication. No content is generated end-to-end by AI without human editorial.",
+    a: "Every article is written from first-hand operator experience a real client engagement, a real experiment, a real P&L outcome. AI is used for research, structure and first drafts, then edited and signed off by Tahir before publication. No content is generated end-to-end by AI without human editorial.",
   },
   {
     q: "Can Tahir Abbas write for other publications?",
-    a: "Yes — Tahir contributes guest articles and commentary on ecommerce growth, Shopify, WooCommerce, paid media and AI automation for UK and international publications. Reach out via info@beingecom.com or LinkedIn to discuss a piece.",
+    a: "Yes Tahir contributes guest articles and commentary on ecommerce growth, Shopify, WooCommerce, paid media and AI automation for UK and international publications. Reach out via info@beingecom.com or LinkedIn to discuss a piece.",
   },
   {
     q: "How can I contact the author?",
@@ -190,7 +190,7 @@ function AuthorPage() {
           <div className="grid md:grid-cols-[220px_1fr] gap-8 items-center">
             <img
               src={founderImg.url}
-              alt="Tahir Abbas — Founder & CEO of BeingEcom"
+              alt="Tahir Abbas Founder & CEO of BeingEcom"
               width={220}
               height={260}
               className="rounded-2xl border object-cover w-[220px] h-[260px]"
@@ -209,7 +209,7 @@ function AuthorPage() {
                 Tahir Abbas is the Founder & CEO of BeingEcom and a senior ecommerce growth operator
                 with 10+ years running paid media, SEO, CRO and retention P&Ls for Shopify and
                 WooCommerce brands across the UK, US, Ireland and Australia. He writes the pillar
-                hubs, comparisons and methodology articles on this site — every piece grounded in a
+                hubs, comparisons and methodology articles on this site every piece grounded in a
                 real client engagement, experiment or P&L outcome.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -273,7 +273,7 @@ function AuthorPage() {
         <div className="space-y-4 text-[16px] leading-relaxed text-foreground/85">
           <p>
             Every article on BeingEcom is written from first-hand operator experience. If Tahir
-            hasn't personally executed the play — or hasn't seen it run inside a BeingEcom pod —
+            hasn't personally executed the play or hasn't seen it run inside a BeingEcom pod
             it doesn't get published as an assertion.
           </p>
           <p>
@@ -328,11 +328,11 @@ function AuthorPage() {
         </h2>
         <ul className="space-y-3">
           {[
-            "10+ years operating ecommerce brands — DTC operator, growth lead, head of performance, founder.",
+            "10+ years operating ecommerce brands DTC operator, growth lead, head of performance, founder.",
             "Ran an 8-figure DTC paid-media P&L across four brands as head of performance.",
             "Advised 200+ Shopify and WooCommerce brands across the UK, US, Ireland and Australia.",
             "Author of BeingEcom's 13-phase growth methodology, used on every client engagement.",
-            "Built the Being Ecom Brain™ AI store audit — 17 phases, sub-90-second execution.",
+            "Built the Being Ecom Brain™ AI store audit 17 phases, sub-90-second execution.",
           ].map((line) => (
             <li key={line} className="flex gap-3 text-foreground/85">
               <Award className="w-4 h-4 mt-1 text-primary flex-none" />

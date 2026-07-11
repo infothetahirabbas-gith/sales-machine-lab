@@ -66,12 +66,12 @@ export default function CompanyPage(props: CompanyPageProps) {
       type: "list",
       id: "aeo",
       heading: "Built to be read in 30 seconds, useful in 5 minutes",
-      intro: "Every Company section is written to be scannable in 30 seconds and useful in 5 minutes — whether you're a founder skimming or a team lead going deep.",
+      intro: "Every Company section is written to be scannable in 30 seconds and useful in 5 minutes whether you're a founder skimming or a team lead going deep.",
       items: [
         "Clear headings and sub-headings so you can jump straight to what matters.",
         "A short FAQ at the bottom answering the questions founders actually ask us.",
-        "Consistent naming across services, industries and locations — no jargon soup.",
-        "Every claim is scoped and specific — no vague superlatives or unfalsifiable promises.",
+        "Consistent naming across services, industries and locations no jargon soup.",
+        "Every claim is scoped and specific no vague superlatives or unfalsifiable promises.",
         "Updated dates so you know when we last reviewed the content.",
       ],
     },
@@ -81,10 +81,10 @@ export default function CompanyPage(props: CompanyPageProps) {
       heading: "The editorial standard behind every word on this site",
       intro: "A quick note on the editorial standard we hold every Company section to before it ships:",
       items: [
-        "Original perspective in every section — written by operators, not rewritten from competitors.",
-        "Clear relationships between our team, services and case studies — so you can trace any claim.",
+        "Original perspective in every section written by operators, not rewritten from competitors.",
+        "Clear relationships between our team, services and case studies so you can trace any claim.",
         "Deep links to related services, industries and case studies so you can go one level deeper.",
-        "Same company details (name, address, contact) across the site — no mixed messages.",
+        "Same company details (name, address, contact) across the site no mixed messages.",
         "Direct links to our LinkedIn, X and Instagram so you can verify the humans behind it.",
       ],
     },
@@ -103,7 +103,7 @@ export default function CompanyPage(props: CompanyPageProps) {
       type: "table",
       id: "trust-signals",
       heading: "Everything you can verify before you hire us",
-      intro: "What you should be able to verify before hiring any ecommerce agency — including us.",
+      intro: "What you should be able to verify before hiring any ecommerce agency including us.",
       columns: ["Signal", "Where to find it on our site"],
       rows: [
         ["Registered UK address", "Footer + /contact + Organization schema (Covent Garden, London)"],
@@ -124,19 +124,19 @@ export default function CompanyPage(props: CompanyPageProps) {
         { title: "Ecommerce founders", body: "Owners of £250k–£25M/yr Shopify or WooCommerce brands who need a senior growth partner." },
         { title: "Heads of growth", body: "In-house leads who want a senior strategy layer over their existing executor team." },
         { title: "Marketing directors at DTC groups", body: "Multi-brand groups needing one accountable pod across paid, SEO, CRO and email." },
-        { title: "Investor-backed brands", body: "Boards that need auditable reporting against MER, contribution margin and LTV — not vanity ROAS." },
+        { title: "Investor-backed brands", body: "Boards that need auditable reporting against MER, contribution margin and LTV not vanity ROAS." },
       ],
     },
     {
       type: "list",
       id: "how-we-work",
       heading: "How we work with clients",
-      intro: "The 90-day engagement everyone starts with — same shape whether you buy one service or the full stack.",
+      intro: "The 90-day engagement everyone starts with same shape whether you buy one service or the full stack.",
       items: [
         "Discovery: 30-minute qualifying call with the founder or a director.",
         "Diagnostic: 7-day deep dive across store, ads, SEO, email, analytics and creative.",
         "Plan: written 90-day plan with weekly milestones tied to P&L lines.",
-        "Onboarding: pod assembly, tool access, tracking hardening — 5–7 days.",
+        "Onboarding: pod assembly, tool access, tracking hardening 5–7 days.",
         "Execution: weekly ship review, weekly scorecard, monthly strategy call.",
         "Review: 90-day retrospective, then continue month-to-month.",
       ],
@@ -147,10 +147,10 @@ export default function CompanyPage(props: CompanyPageProps) {
       heading: "Explore related work",
       intro: "Everything on this page ties into the wider BeingEcom system.",
       items: [
-        { title: "Our services", body: "The full menu of ecommerce growth services — SEO, paid, CRO, email, analytics, AI and more.", to: "/services" },
+        { title: "Our services", body: "The full menu of ecommerce growth services SEO, paid, CRO, email, analytics, AI and more.", to: "/services" },
         { title: "Case studies", body: "Hand-picked engagements with real scope and numbers.", to: "/case-studies" },
-        { title: "Industries we serve", body: "12 ecommerce verticals we've operated in — beauty, fashion, health, home and more.", to: "/company/industries" },
-        { title: "Free growth audit", body: "The Being Ecom Brain™ audit — a free 90-second store scan across 17 growth phases.", to: "/audit" },
+        { title: "Industries we serve", body: "12 ecommerce verticals we've operated in beauty, fashion, health, home and more.", to: "/company/industries" },
+        { title: "Free growth audit", body: "The Being Ecom Brain™ audit a free 90-second store scan across 17 growth phases.", to: "/audit" },
       ],
     },
     {
@@ -168,7 +168,7 @@ export default function CompanyPage(props: CompanyPageProps) {
 
   const allSections = [...sections, ...sharedSections];
 
-  // Consolidated Knowledge Graph — every Company page emits the same
+  // Consolidated Knowledge Graph every Company page emits the same
   // Organization + Person nodes so search engines and LLMs treat the
   // entire site as one entity graph.
   const kgGraph = {
