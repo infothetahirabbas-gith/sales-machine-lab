@@ -185,7 +185,7 @@ function PricingPage() {
 
               <Link
                 to="/contact"
-                search={(prev) => ({ ...prev, plan: t.name })}
+                search={{ plan: t.name }}
                 className={`mt-7 btn justify-center ${t.popular ? "btn-primary btn-shimmer" : "btn-dark btn-shimmer"}`}
                 aria-label={`Get started with the ${t.name} plan`}
                 data-plan={t.name}
