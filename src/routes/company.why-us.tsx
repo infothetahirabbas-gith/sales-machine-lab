@@ -5,7 +5,7 @@ import { SITE_STATS } from "@/lib/stats";
 
 const SLUG = "why-us";
 const TITLE = "Why Choose BeingEcom | Best Ecommerce Marketing Agency UK";
-const DESC = "Why founders pick BeingEcom as their Ecommerce Marketing Agency UK — senior operators, revenue-first, no juniors, no vanity metrics, transparent reporting.";
+const DESC = "Why founders pick BeingEcom as their Ecommerce Marketing Agency UK senior operators, revenue-first, no juniors, no vanity metrics, transparent reporting.";
 
 const orgLd = professionalServiceJsonLd();
 
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/company/why-us")({
       slug={SLUG}
       h1="Why choose BeingEcom"
       eyebrow="Why us"
-      intro="You have real options — agencies, freelancers, in-house hires, growth communities. Here's what you actually get with BeingEcom, and where we're not the right fit."
+      intro="You have real options agencies, freelancers, in-house hires, growth communities. Here's what you actually get with BeingEcom, and where we're not the right fit."
       extraJsonLd={[orgLd]}
       sections={[
         {
@@ -25,10 +25,10 @@ export const Route = createFileRoute("/company/why-us")({
           heading: "Eight reasons brands pick us",
           items: [
             { title: "Ecommerce-only", body: "We only serve Shopify and WooCommerce brands. No SaaS side-projects, no lead-gen distractions." },
-            { title: "Senior-only pods", body: "Every discipline on your account is led by someone who has actually scaled a store — no juniors put on the P&L." },
+            { title: "Senior-only pods", body: "Every discipline on your account is led by someone who has actually scaled a store no juniors put on the P&L." },
             { title: "Revenue-first plans", body: "Every task ties to a specific P&L line. If we can't defend the revenue link, we don't ship it." },
             { title: "Honest reporting", body: "Losses are named. Wins are attributed to their real cause. You get raw data access, not a curated dashboard." },
-            { title: "AI as leverage", body: "Internal automations for reporting, creative, and research — so our operators spend time on judgement, not repetition." },
+            { title: "AI as leverage", body: "Internal automations for reporting, creative, and research so our operators spend time on judgement, not repetition." },
             { title: "One accountable pod", body: "No shifting cast of account managers. Same team from kickoff to quarterly review." },
             { title: "Weekly execution", body: "We don't run monthly-only accounts. Weekly ship review is non-negotiable." },
             { title: "90-day fixed then flexible", body: "A defined 90-day engagement then month-to-month. No 12-month lock-in." },
@@ -71,18 +71,18 @@ export const Route = createFileRoute("/company/why-us")({
           id: "not-fit",
           heading: "When we're not the right fit",
           items: [
-            "You want a low-cost freelancer replacement — our senior-only model is priced accordingly.",
+            "You want a low-cost freelancer replacement our senior-only model is priced accordingly.",
             "You don't have the ops capacity to ship the changes we recommend.",
-            "You want opaque black-box reporting — we insist on raw data access.",
+            "You want opaque black-box reporting we insist on raw data access.",
             "Your product is outside ecommerce (SaaS, lead-gen, marketplaces).",
-            "You need a 12-month lock-in — we don't offer them.",
+            "You need a 12-month lock-in we don't offer them.",
           ],
         },
       ]}
       faqs={[
         { q: "What makes BeingEcom different from other agencies?", a: "Three things: we're ecommerce-only, we're senior-only, and we tie every deliverable to a P&L line. Most agencies do at most one of those." },
         { q: "How do I know your claims are real?", a: "We publish anonymised case studies with real scope and numbers, and we're happy to backchannel-reference with previous clients on request during discovery." },
-        { q: "Are you more expensive than a freelancer?", a: "Per hour, yes — because you're getting senior operators. Per outcome, usually less, because you're not paying to train someone on your account or to redo work that shipped wrong." },
+        { q: "Are you more expensive than a freelancer?", a: "Per hour, yes because you're getting senior operators. Per outcome, usually less, because you're not paying to train someone on your account or to redo work that shipped wrong." },
         { q: "What's your typical engagement length?", a: "90-day fixed to install the plan and land initial wins, then month-to-month. Most brands stay 12–24 months voluntarily; we don't hold anyone in a contract." },
         { q: "Do you replace or augment an in-house team?", a: "Either. We can be the full growth stack for a lean brand or the senior strategy layer over an existing in-house executor." },
       ]}

@@ -108,7 +108,7 @@ export const Route = createFileRoute('/api/public/hooks/gsc-monitor')({
         if (insertErr) console.error('[gsc-monitor] insert failed:', insertErr)
 
         if (errors.length) console.error('[gsc-monitor] errors:', errors)
-        else console.log('[gsc-monitor] ok — no errors')
+        else console.log('[gsc-monitor] ok no errors')
 
         return new Response(
           JSON.stringify({ ok: true, has_error: errors.length > 0, errors, sitemaps: sitemapReport, pages: pageReport }),

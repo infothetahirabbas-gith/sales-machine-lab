@@ -4,7 +4,7 @@ import { CTA } from "@/components/site/Section";
 import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const TITLE = "GDPR Compliance | BeingEcom";
-const DESC = "How BeingEcom implements UK GDPR and EU GDPR — lawful basis, data subject rights, sub-processors, transfers and how to submit a request.";
+const DESC = "How BeingEcom implements UK GDPR and EU GDPR lawful basis, data subject rights, sub-processors, transfers and how to submit a request.";
 const URL = `${SITE_URL}/gdpr`;
 
 export const Route = createFileRoute("/gdpr")({
@@ -34,10 +34,10 @@ function GdprPage() {
             <p>We act as a <strong>data controller</strong> for personal data you submit to us directly (e.g. contact form). We act as a <strong>data processor</strong> for personal data you instruct us to process on your behalf as part of a client engagement (e.g. Klaviyo lists, Meta audiences).</p>
             <h2 className="text-xl font-bold text-ink">Lawful basis</h2>
             <ul className="list-disc pl-6 space-y-1">
-              <li><strong>Contract</strong> — to deliver services to clients under a signed agreement.</li>
-              <li><strong>Legitimate interests</strong> — to respond to enquiries, run our website and secure our systems.</li>
-              <li><strong>Consent</strong> — for marketing communications and non-essential cookies.</li>
-              <li><strong>Legal obligation</strong> — for tax, accounting and regulatory record-keeping.</li>
+              <li><strong>Contract</strong> to deliver services to clients under a signed agreement.</li>
+              <li><strong>Legitimate interests</strong> to respond to enquiries, run our website and secure our systems.</li>
+              <li><strong>Consent</strong> for marketing communications and non-essential cookies.</li>
+              <li><strong>Legal obligation</strong> for tax, accounting and regulatory record-keeping.</li>
             </ul>
             <h2 className="text-xl font-bold text-ink">Your rights</h2>
             <p>Under UK/EU GDPR you have the right to access, rectify, erase, restrict processing of, port, and object to processing of your personal data, as well as the right to withdraw consent and to complain to a supervisory authority (ICO in the UK).</p>

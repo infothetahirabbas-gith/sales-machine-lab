@@ -30,9 +30,9 @@ export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
       { title: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
-      { name: "description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok — creative + media buying that scales profitably." },
+      { name: "description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok creative + media buying that scales profitably." },
       { property: "og:title", content: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
-      { property: "og:description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok — creative + media buying that scales profitably." },
+      { property: "og:description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok creative + media buying that scales profitably." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],

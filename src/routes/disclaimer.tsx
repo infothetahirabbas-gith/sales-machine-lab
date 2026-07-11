@@ -4,7 +4,7 @@ import { CTA } from "@/components/site/Section";
 import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const TITLE = "Disclaimer | BeingEcom";
-const DESC = "General disclaimer for beingecom.com — accuracy of content, third-party links, results claims and professional advice.";
+const DESC = "General disclaimer for beingecom.com accuracy of content, third-party links, results claims and professional advice.";
 const URL = `${SITE_URL}/disclaimer`;
 
 export const Route = createFileRoute("/disclaimer")({
@@ -31,7 +31,7 @@ function DisclaimerPage() {
             <h2 className="text-xl font-bold text-ink">General information only</h2>
             <p>Content on this website is provided for general information about ecommerce growth practices and about {ORG_INFO.name}. It is not tailored advice for your specific business, and should not be relied on as such. Before acting on anything you read here, consider consulting a professional who understands your context.</p>
             <h2 className="text-xl font-bold text-ink">Results claims</h2>
-            <p>Where we describe past client outcomes — in case studies, blog posts, testimonials or elsewhere — they represent real engagements but are anonymised where NDAs require. Past results are never a prediction of future outcomes for your business. Ecommerce results depend on your product, market, unit economics, execution capacity and many factors outside our control.</p>
+            <p>Where we describe past client outcomes in case studies, blog posts, testimonials or elsewhere they represent real engagements but are anonymised where NDAs require. Past results are never a prediction of future outcomes for your business. Ecommerce results depend on your product, market, unit economics, execution capacity and many factors outside our control.</p>
             <h2 className="text-xl font-bold text-ink">Third-party links and brands</h2>
             <p>We link to third-party websites, tools and brands (Shopify, WooCommerce, Google, Meta, Klaviyo and others). We don't control those sites and are not responsible for their content, availability or practices. Brand names and logos are the property of their respective owners; mention does not imply endorsement of {ORG_INFO.name} by those companies unless explicitly stated on our Certifications & Partnerships page.</p>
             <h2 className="text-xl font-bold text-ink">No professional advice</h2>

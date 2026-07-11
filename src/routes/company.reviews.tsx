@@ -3,7 +3,7 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "reviews";
 const TITLE = "Ecommerce Agency Reviews UK | Client Testimonials | BeingEcom";
-const DESC = "Real client reviews of BeingEcom — the Ecommerce Marketing Agency UK Shopify and WooCommerce founders trust. Verified testimonials and outcomes.";
+const DESC = "Real client reviews of BeingEcom the Ecommerce Marketing Agency UK Shopify and WooCommerce founders trust. Verified testimonials and outcomes.";
 
 // Real, human-written testimonials representative of feedback themes.
 // We deliberately do NOT emit AggregateRating schema until we have a verifiable review count on a public review platform.
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/company/reviews")({
                 <blockquote key={i} className="card-surface rounded-2xl p-6 relative">
                   <div className="text-4xl leading-none text-primary/30 absolute top-3 left-4">“</div>
                   <p className="text-foreground/90 pl-3 pt-3">{t.quote}</p>
-                  <footer className="mt-4 text-xs font-semibold text-muted-foreground pl-3">— {t.who}</footer>
+                  <footer className="mt-4 text-xs font-semibold text-muted-foreground pl-3">{t.who}</footer>
                 </blockquote>
               ))}
             </div>
@@ -59,9 +59,9 @@ export const Route = createFileRoute("/company/reviews")({
           heading: "External review platforms",
           intro: "As accounts on these platforms mature we'll link them here. We only link platforms where we have a verifiable presence.",
           items: [
-            "Google Reviews — being profile built out over 2025/2026 as clients opt in to publicly review.",
-            "Trustpilot — invitation-only cadence to avoid the standard fake-review problem.",
-            "Clutch — for procurement teams that require Clutch verification.",
+            "Google Reviews being profile built out over 2025/2026 as clients opt in to publicly review.",
+            "Trustpilot invitation-only cadence to avoid the standard fake-review problem.",
+            "Clutch for procurement teams that require Clutch verification.",
           ],
         },
         {
@@ -77,9 +77,9 @@ export const Route = createFileRoute("/company/reviews")({
         },
       ]}
       faqs={[
-        { q: "Do you have a Google review count?", a: "Not yet — we deliberately don't drip-request reviews and we won't publish AggregateRating structured data with a low verifiable count. As the number grows we'll link the Google profile here." },
+        { q: "Do you have a Google review count?", a: "Not yet we deliberately don't drip-request reviews and we won't publish AggregateRating structured data with a low verifiable count. As the number grows we'll link the Google profile here." },
         { q: "Can I speak to a past client?", a: "Yes. During discovery we arrange backchannel reference calls with previous clients who match your vertical and stage." },
-        { q: "Why aren't client names shown?", a: "Most engagements are covered by mutual NDAs. Where a client is happy to be named publicly, we do — those cases sit in the main case-studies hub with the client identified." },
+        { q: "Why aren't client names shown?", a: "Most engagements are covered by mutual NDAs. Where a client is happy to be named publicly, we do those cases sit in the main case-studies hub with the client identified." },
         { q: "Are these testimonials edited?", a: "Grammar tidied, never meaning. Original written quotes are on file for anyone who wants to verify." },
       ]}
     />

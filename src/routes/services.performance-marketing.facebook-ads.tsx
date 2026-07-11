@@ -30,10 +30,10 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
   head: () => ({
     meta: [
       { title: "Facebook Ads Agency UK | Meta Ads for Shopify & Woo | BeingEcom" },
-      { name: "description", content: "Facebook Ads Agency UK for Shopify and WooCommerce brands. ASC+, UGC creative and CAPI-clean Meta scaling — profitably, by senior UK media buyers." },
+      { name: "description", content: "Facebook Ads Agency UK for Shopify and WooCommerce brands. ASC+, UGC creative and CAPI-clean Meta scaling profitably, by senior UK media buyers." },
       { name: "keywords", content: "Facebook Ads agency UK, Meta Ads agency, Shopify Facebook Ads, ecommerce Facebook Ads, Advantage+ Shopping, Meta Conversions API, Facebook Ads management UK" },
       { property: "og:title", content: "Facebook Ads Agency UK | Meta Ads for Shopify & Woo | BeingEcom" },
-      { property: "og:description", content: "Facebook Ads Agency UK for Shopify and WooCommerce brands. ASC+, UGC creative and CAPI-clean Meta scaling — profitably, by senior UK media buyers." },
+      { property: "og:description", content: "Facebook Ads Agency UK for Shopify and WooCommerce brands. ASC+, UGC creative and CAPI-clean Meta scaling profitably, by senior UK media buyers." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },
     ],
     links: [

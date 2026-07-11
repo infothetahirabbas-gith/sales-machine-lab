@@ -13,22 +13,22 @@ const pricingFaqs = [
   { q: "What happens after I choose a plan?", a: "You're routed to a booking form with your selected package pre-filled. We reply within one business day, confirm scope, sign a short MSA, and open a shared workspace so onboarding can begin the same week." },
   { q: "How long does onboarding take?", a: "Full onboarding takes 5–7 business days: tool access, tracking hardening, baselines, creative audit and a written 90-day plan. Quick wins usually ship inside the first two weeks." },
   { q: "What is included each month?", a: "Every plan includes a dedicated account manager, weekly execution, a weekly scorecard tied to your P&L, monthly strategy call, transparent reporting and unlimited Slack/email support during UK business hours." },
-  { q: "Are there any setup fees?", a: "No. Every plan is a flat monthly fee — no setup fees, no hidden onboarding charges, no per-user costs." },
-  { q: "Is there a minimum commitment?", a: "Yes — a 90-day initial engagement so we can properly execute a system. After that you're month-to-month with a 30-day notice. No 12-month lock-ins, ever." },
-  { q: "Can I upgrade my package later?", a: "Yes — you can move up a tier at any time and the change takes effect the following month. Most clients start on Growth and move to Enterprise or Business as their revenue scales." },
-  { q: "Can I downgrade my package?", a: "Yes — after the initial 90-day engagement you can move down a tier with 30 days' notice. We'll rescope deliverables so nothing important gets dropped." },
+  { q: "Are there any setup fees?", a: "No. Every plan is a flat monthly fee no setup fees, no hidden onboarding charges, no per-user costs." },
+  { q: "Is there a minimum commitment?", a: "Yes a 90-day initial engagement so we can properly execute a system. After that you're month-to-month with a 30-day notice. No 12-month lock-ins, ever." },
+  { q: "Can I upgrade my package later?", a: "Yes you can move up a tier at any time and the change takes effect the following month. Most clients start on Growth and move to Enterprise or Business as their revenue scales." },
+  { q: "Can I downgrade my package?", a: "Yes after the initial 90-day engagement you can move down a tier with 30 days' notice. We'll rescope deliverables so nothing important gets dropped." },
   { q: "Which ecommerce platforms do you support?", a: "Shopify, Shopify Plus and WooCommerce natively. We also support headless builds (Hydrogen, Next.js commerce) and can operate on BigCommerce or Magento for larger engagements." },
   { q: "Do you work internationally?", a: "Yes. We're based in London and work with brands across the UK, EU, US, Canada, UAE and Australia. All calls run on your working hours." },
-  { q: "Will I have a dedicated account manager?", a: "Yes. Every plan includes a named account manager who owns your roadmap, weekly reporting and communication — no ticket queues, no rotating juniors." },
+  { q: "Will I have a dedicated account manager?", a: "Yes. Every plan includes a named account manager who owns your roadmap, weekly reporting and communication no ticket queues, no rotating juniors." },
   { q: "How often will I receive reports?", a: "A live dashboard updates daily, a written scorecard lands weekly, and a strategic review deck lands monthly. Enterprise and Business get bi-weekly and weekly strategy calls respectively." },
   { q: "How are meetings and communication handled?", a: "Async by default via a shared Slack or Teams channel, plus a monthly strategy call as standard. Enterprise adds bi-weekly and Business adds weekly strategy sessions with the growth lead." },
   { q: "Do you provide custom strategies?", a: "Every engagement is bespoke. Plans define what's included, but the strategy, creative, keyword targets and CRO roadmap are built specifically for your brand, category and margins." },
-  { q: "Can you migrate my existing campaigns?", a: "Yes. We take a full handover from your previous agency or in-house team, audit account structure, keep what's working and rebuild what isn't — with zero downtime on live spend." },
+  { q: "Can you migrate my existing campaigns?", a: "Yes. We take a full handover from your previous agency or in-house team, audit account structure, keep what's working and rebuild what isn't with zero downtime on live spend." },
   { q: "How do I get started?", a: "Pick the plan that matches your stage and click Get Started. You'll land on a booking form with your package pre-selected. We reply within one business day to schedule your discovery call." },
 ];
 
 const TITLE = "Ecommerce Marketing Agency Pricing UK | Growth Packages | BeingEcom";
-const DESC = "Transparent Ecommerce Marketing Agency pricing UK. Starter, Growth and Scale packages for Shopify and WooCommerce brands — SEO, paid ads, CRO and Klaviyo email included.";
+const DESC = "Transparent Ecommerce Marketing Agency pricing UK. Starter, Growth and Scale packages for Shopify and WooCommerce brands SEO, paid ads, CRO and Klaviyo email included.";
 const URL = `${SITE_URL}/pricing`;
 
 const offersJsonLd = {
@@ -109,7 +109,7 @@ const proofHighlights = [
 
 const stagesOfEngagement = [
   { n: "01", t: "Pick your plan", body: "Choose the tier that matches your stage. Your selection is passed straight into the booking form." },
-  { n: "02", t: "Discovery call", body: "30-minute call with a senior operator. We confirm fit, scope and timeline — no sales theatre." },
+  { n: "02", t: "Discovery call", body: "30-minute call with a senior operator. We confirm fit, scope and timeline no sales theatre." },
   { n: "03", t: "Onboarding (5–7 days)", body: "Access, tracking, baselines and a written 90-day plan tied to your P&L." },
   { n: "04", t: "Weekly execution", body: "Weekly ship reviews, weekly scorecards, monthly strategy calls. Full transparency, always." },
 ];
@@ -169,9 +169,9 @@ const compareRows: CompareRow[] = [
 
 const objectionFaqs: { tag: string; q: string; a: string }[] = [
   { tag: "⏱", q: "How fast will I see results after signing?", a: "Onboarding wraps in 5–7 business days. Quick wins (tracking fixes, PDP tweaks, ad account cleanup) usually land inside the first two weeks. Meaningful revenue movement typically shows in weeks 4–8, with the full 90-day plan compounding from there." },
-  { tag: "📦", q: "What exactly will you ship each month?", a: "A written weekly scorecard tied to your P&L, ad + email + SEO + CRO execution per your plan, a monthly strategy deck, and a live dashboard that updates daily. Every deliverable in your tier is scoped in writing before we start — nothing hides behind vague retainers." },
+  { tag: "📦", q: "What exactly will you ship each month?", a: "A written weekly scorecard tied to your P&L, ad + email + SEO + CRO execution per your plan, a monthly strategy deck, and a live dashboard that updates daily. Every deliverable in your tier is scoped in writing before we start nothing hides behind vague retainers." },
   { tag: "🚀", q: "How does onboarding actually work?", a: "Day 0: kickoff call and access checklist. Days 1–3: audit + tracking hardening across GA4, Meta, Google and your store. Days 4–7: written 90-day plan mapped to revenue, ROAS and retention targets. Week 2: execution begins with a named senior operator, not a rotating junior." },
-  { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes — three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
+  { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
 ];
 
 function PricingPage() {
@@ -186,10 +186,10 @@ function PricingPage() {
             Pricing & engagements
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto leading-[1.04] text-ink">
-            Ecommerce growth pricing — <span className="text-gradient">built for scale, not surprises</span>
+            Ecommerce growth pricing <span className="text-gradient">built for scale, not surprises</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Four transparent monthly retainers. No setup fees. No 12-month lock-ins. A dedicated account manager on every plan — from £500/mo to £2,000+/mo.
+            Four transparent monthly retainers. No setup fees. No 12-month lock-ins. A dedicated account manager on every plan from £500/mo to £2,000+/mo.
           </p>
           <div className="mt-8 grid grid-cols-2 md:grid-cols-6 gap-3 max-w-5xl mx-auto">
             {heroStats.map((s) => (
@@ -261,7 +261,7 @@ function PricingPage() {
                   fontWeight: 700,
                   textDecoration: "none",
                 }}
-                aria-label={`Get started with the ${t.name} plan — opens the booking form`}
+                aria-label={`Get started with the ${t.name} plan opens the booking form`}
                 data-plan={t.name}
               >
                 Get Started →
@@ -289,7 +289,7 @@ function PricingPage() {
         alt
         eyebrow="Compare plans"
         title="See exactly what changes between tiers"
-        intro="Every row below matches the deliverables inside your monthly retainer — no asterisks, no fine print."
+        intro="Every row below matches the deliverables inside your monthly retainer no asterisks, no fine print."
       >
         <div className="overflow-x-auto rounded-3xl border border-border bg-card/70">
           <table className="w-full min-w-[720px] text-sm">
@@ -349,9 +349,9 @@ function PricingPage() {
                         minHeight: 40,
                         width: "100%",
                       }}
-                      aria-label={`Get started with the ${t.name} plan — opens the booking form`}
+                      aria-label={`Get started with the ${t.name} plan opens the booking form`}
                     >
-                      Get Started — {t.name}
+                      Get Started {t.name}
                     </Link>
                   </td>
                 ))}
@@ -387,7 +387,7 @@ function PricingPage() {
           <div className="rounded-2xl border border-border bg-card p-5">
             <Users className="w-5 h-5 text-primary" />
             <h3 className="mt-3 font-semibold text-ink">Senior-only pod</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Every plan is staffed by senior operators — never a junior running your account unsupervised.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Every plan is staffed by senior operators never a junior running your account unsupervised.</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <Headphones className="w-5 h-5 text-primary" />
@@ -406,7 +406,7 @@ function PricingPage() {
       {/* WHAT HAPPENS NEXT */}
       <Section
         eyebrow="What happens after you pick a plan"
-        title="A calm, structured onboarding — no chaos"
+        title="A calm, structured onboarding no chaos"
         intro="From clicking Get Started to live execution takes about a week."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -424,7 +424,7 @@ function PricingPage() {
       <Section
         eyebrow="Before you book"
         title="Straight answers to the four questions founders always ask"
-        intro="Timeline, deliverables, onboarding and guarantees — the objections that usually sit between you and the discovery call."
+        intro="Timeline, deliverables, onboarding and guarantees the objections that usually sit between you and the discovery call."
       >
         <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
           {objectionFaqs.map((f) => (
@@ -471,7 +471,7 @@ function PricingPage() {
       <Section
         alt
         eyebrow="Case study highlights"
-        title="Founders who picked a plan — and the numbers they shipped"
+        title="Founders who picked a plan and the numbers they shipped"
         intro="Three recent engagements, with before/after metrics pulled straight from GA4, Shopify and ad platforms."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -508,7 +508,7 @@ function PricingPage() {
                 <Quote className="w-4 h-4 text-primary absolute left-0 top-1" aria-hidden="true" />
                 {c.quote}
               </blockquote>
-              <footer className="mt-3 text-xs text-muted-foreground">— {c.author}</footer>
+              <footer className="mt-3 text-xs text-muted-foreground">{c.author}</footer>
             </article>
           ))}
         </div>
@@ -521,7 +521,7 @@ function PricingPage() {
 
       <FaqSection
         faqs={pricingFaqs}
-        title="Pricing —"
+        title="Pricing"
         highlight="everything founders ask before signing"
         intro="16 straight answers on onboarding, deliverables, contracts and how to actually get started."
       />

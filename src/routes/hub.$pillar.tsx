@@ -35,7 +35,7 @@ export const Route = createFileRoute("/hub/$pillar")({
     });
     const howLd = howToJsonLd({
       url,
-      name: `${entry.props.h1} — playbook`,
+      name: `${entry.props.h1} playbook`,
       description: entry.props.answer,
       steps: entry.props.playbook.map((p) => ({ name: p.step, text: p.body })),
     });

@@ -3,7 +3,7 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "certifications";
 const TITLE = "Certifications | Certified Ecommerce Agency UK | BeingEcom";
-const DESC = "Certified Ecommerce Agency UK — Meta Business Partner, Google Partner, Klaviyo Master, TikTok Partner and GA4-certified operators working on your account.";
+const DESC = "Certified Ecommerce Agency UK Meta Business Partner, Google Partner, Klaviyo Master, TikTok Partner and GA4-certified operators working on your account.";
 
 export const Route = createFileRoute("/company/certifications")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/company/certifications")({
       slug={SLUG}
       h1="Certifications & partnerships"
       eyebrow="Certifications"
-      intro="We list only certifications and partnership statuses we currently hold — no expired badges, no stock-photo logos. Verifiable references available on request."
+      intro="We list only certifications and partnership statuses we currently hold no expired badges, no stock-photo logos. Verifiable references available on request."
       sections={[
         {
           type: "paragraph",
@@ -44,8 +44,8 @@ export const Route = createFileRoute("/company/certifications")({
           id: "meta",
           heading: "Meta",
           items: [
-            { title: "Meta Blueprint — Media Buying",       body: "Advantage+ campaigns, budget structure and creative testing." },
-            { title: "Meta Blueprint — Creative Strategy",  body: "Creative for feed, Reels and Stories at scale." },
+            { title: "Meta Blueprint Media Buying",       body: "Advantage+ campaigns, budget structure and creative testing." },
+            { title: "Meta Blueprint Creative Strategy",  body: "Creative for feed, Reels and Stories at scale." },
             { title: "Conversions API implementation",      body: "Server-side event tracking best-practices." },
           ],
         },
@@ -66,7 +66,7 @@ export const Route = createFileRoute("/company/certifications")({
           heading: "Other training",
           items: [
             { title: "HubSpot Marketing Software",         body: "For the small number of hybrid content + marketing-ops engagements." },
-            { title: "CXL Institute — CRO / analytics",    body: "Rigorous experimentation and measurement training." },
+            { title: "CXL Institute CRO / analytics",    body: "Rigorous experimentation and measurement training." },
             { title: "Ahrefs & Semrush Academy",           body: "Ongoing SEO tooling proficiency across the SEO pod." },
           ],
         },
@@ -84,7 +84,7 @@ export const Route = createFileRoute("/company/certifications")({
       faqs={[
         { q: "Are you a Google Premier Partner?", a: "We maintain Google Partner status. Premier Partner status is tier-gated by monthly spend across our managed accounts; when we cross the threshold consistently we'll list Premier here. We do not pre-claim it." },
         { q: "Are you a Shopify Plus Partner?", a: "We operate on Shopify Plus, hold Shopify Partner access and staff certified Plus specialists. Formal Plus Partner listing is application-based and we update this page when status changes." },
-        { q: "Can I see the actual certification IDs?", a: "Yes — for procurement and RFP purposes we share credential IDs in the onboarding pack. Ask during discovery and we'll include them." },
+        { q: "Can I see the actual certification IDs?", a: "Yes for procurement and RFP purposes we share credential IDs in the onboarding pack. Ask during discovery and we'll include them." },
         { q: "Do you use partner status for kickbacks?", a: "No. Partner statuses give us tooling and roadmap access; they do not influence which platform we recommend for your business. Platform selection is always based on your operating fit." },
       ]}
     />

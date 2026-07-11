@@ -9,7 +9,7 @@ const REPORTS = [
     status: "In production",
     title: "State of UK Shopify Store Speed 2026",
     summary:
-      "Core Web Vitals, LCP, INP and mobile checkout speed across 500 UK Shopify stores — segmented by revenue tier and category. Publishing Q1 2026.",
+      "Core Web Vitals, LCP, INP and mobile checkout speed across 500 UK Shopify stores segmented by revenue tier and category. Publishing Q1 2026.",
   },
   {
     slug: "uk-ecommerce-benchmark-2026",
@@ -30,14 +30,14 @@ const REPORTS = [
     status: "Data collection",
     title: "Shopify CRO Benchmark Report 2026",
     summary:
-      "PDP conversion rate, cart-to-checkout and checkout completion benchmarks across 300 UK Shopify stores — by category, price point and device.",
+      "PDP conversion rate, cart-to-checkout and checkout completion benchmarks across 300 UK Shopify stores by category, price point and device.",
   },
   {
     slug: "ecommerce-ai-adoption-2026",
     status: "Planning",
     title: "Ecommerce AI Adoption Report 2026",
     summary:
-      "How UK DTC brands are actually using AI — reporting, creative, support, SEO — with time-saved, revenue-lift and governance patterns from 150 operators.",
+      "How UK DTC brands are actually using AI reporting, creative, support, SEO with time-saved, revenue-lift and governance patterns from 150 operators.",
   },
   {
     slug: "klaviyo-email-benchmark-2026",
@@ -58,18 +58,18 @@ const REPORTS = [
     status: "Planning",
     title: "Shopify vs WooCommerce TCO Study (UK, 2026)",
     summary:
-      "True total cost of ownership — platform, apps, hosting, dev, agency — across 250 UK brands running each platform at £30k–£3M/month.",
+      "True total cost of ownership platform, apps, hosting, dev, agency across 250 UK brands running each platform at £30k–£3M/month.",
   },
 ];
 
 export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Research Reports — Original UK Data | BeingEcom" },
+      { title: "Ecommerce Research Reports Original UK Data | BeingEcom" },
       {
         name: "description",
         content:
-          "Original ecommerce research from BeingEcom — UK Shopify speed benchmarks, growth benchmarks and paid-media efficiency reports. Data-driven, operator-authored, updated yearly.",
+          "Original ecommerce research from BeingEcom UK Shopify speed benchmarks, growth benchmarks and paid-media efficiency reports. Data-driven, operator-authored, updated yearly.",
       },
       { property: "og:title", content: "Ecommerce Research Reports | BeingEcom" },
       { property: "og:description", content: "Original UK ecommerce research and benchmark data." },

@@ -4,7 +4,7 @@ import { ORG_INFO, SITE_URL, articleJsonLd } from "@/lib/seo";
 
 const SLUG = "methodology";
 const TITLE = "Methodology | Ecommerce Growth Framework UK | BeingEcom";
-const DESC = "The BeingEcom Ecommerce Growth Framework UK — how we diagnose leaks, sequence sprints and scale Shopify and WooCommerce brands from 6 to 7 figures.";
+const DESC = "The BeingEcom Ecommerce Growth Framework UK how we diagnose leaks, sequence sprints and scale Shopify and WooCommerce brands from 6 to 7 figures.";
 const URL = `${SITE_URL}/company/methodology`;
 
 const articleLd = articleJsonLd({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/company/methodology")({
       slug={SLUG}
       h1="The BeingEcom Growth Methodology"
       eyebrow="Methodology"
-      intro={`Every engagement — Shopify or WooCommerce, £30k/month or £3M/month — moves through the same 13 phases. It's the framework ${ORG_INFO.name} uses to make growth deliberate, measurable and repeatable.`}
+      intro={`Every engagement Shopify or WooCommerce, £30k/month or £3M/month moves through the same 13 phases. It's the framework ${ORG_INFO.name} uses to make growth deliberate, measurable and repeatable.`}
       readingTime="11 min read"
       author="Tahir Abbas"
       extraJsonLd={[articleLd]}
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/company/methodology")({
             <p>
               Ad-hoc growth work rewards whoever shouts loudest that quarter. A fixed methodology forces the plan to start from the P&L,
               routes work through the same review gates, and makes it possible to compare wins and losses across accounts. Every phase below
-              has a defined input, output, owner and success criterion — nothing is left to interpretation.
+              has a defined input, output, owner and success criterion nothing is left to interpretation.
             </p>
           ),
         },
@@ -70,10 +70,10 @@ export const Route = createFileRoute("/company/methodology")({
             { title: "04 · Technical SEO",         body: "Screaming Frog crawl, Search Console + GSC review, Core Web Vitals, robots, sitemap, structured data. Fix list is scored by traffic delta." },
             { title: "05 · On-page SEO",           body: "Template rewrites for PDPs/PLPs, entity model, internal linking, content briefs. Ships in batches; measured by cluster-level impressions." },
             { title: "06 · Content strategy",      body: "Topical map, brief pipeline, editorial calendar, information gain review. Each piece has an owner, a target keyword cluster and a distribution plan." },
-            { title: "07 · Paid advertising",      body: "Channel mix by margin contribution, creative velocity plan, structured account rebuild if warranted. Targets set on MER and CM3 — not platform ROAS.", to: "/services/performance-marketing" },
+            { title: "07 · Paid advertising",      body: "Channel mix by margin contribution, creative velocity plan, structured account rebuild if warranted. Targets set on MER and CM3 not platform ROAS.", to: "/services/performance-marketing" },
             { title: "08 · CRO",                   body: "Experiment backlog scored by ICE, sample size pre-calculated, guardrail metrics agreed. Losses are shipped as learnings, not hidden." },
             { title: "09 · Email & retention",     body: "Klaviyo flow map, welcome/abandon/win-back rebuilds, segmentation by profitability. LTV as the north star." },
-            { title: "10 · AI automation",         body: "Internal automations that free operator time — reporting, keyword clustering, creative variant generation, forecast modelling. Never opaque." },
+            { title: "10 · AI automation",         body: "Internal automations that free operator time reporting, keyword clustering, creative variant generation, forecast modelling. Never opaque." },
             { title: "11 · Reporting",             body: "Weekly scorecard mapped to the client's P&L. Monthly narrative in plain English. Full data access, never gated behind a dashboard login." },
             { title: "12 · Continuous optimisation", body: "Rolling 30-day backlog, weekly ship review with the client, priorities re-scored monthly." },
             { title: "13 · Growth roadmap",        body: "Every 90 days we re-cut the roadmap against actual results. Old assumptions get killed; new ones are named." },
@@ -87,13 +87,13 @@ export const Route = createFileRoute("/company/methodology")({
             "If a task can't be tied to a P&L line, it doesn't ship.",
             "Every experiment has a hypothesis, a sample-size plan, and a guardrail metric.",
             "Reports name losses; wins are attributed to the real cause.",
-            "Weekly ritual is non-negotiable — no monthly-only accounts.",
+            "Weekly ritual is non-negotiable no monthly-only accounts.",
             "AI accelerates the work; it doesn't replace judgement.",
           ],
         },
       ]}
       faqs={[
-        { q: "Do you use the same methodology on every client?", a: "Yes — the 13 phases are constant, but the depth of each phase flexes to the client's stage and constraints. A £3M/month brand and a £30k/month brand hit the same gates, just at different scale." },
+        { q: "Do you use the same methodology on every client?", a: "Yes the 13 phases are constant, but the depth of each phase flexes to the client's stage and constraints. A £3M/month brand and a £30k/month brand hit the same gates, just at different scale." },
         { q: "How long before the methodology produces results?", a: "CRO and email lift usually shows in 2–4 weeks. Paid media stabilises in 30–60 days. SEO compounds over 3–6 months. We stage the plan so early wins fund the longer horizon work." },
         { q: "Can you run just part of the methodology?", a: "Yes. Common starts are (a) audit + technical SEO + on-page SEO or (b) paid + CRO. We only recommend the full 13 phases when your team has the capacity to execute against the full plan." },
         { q: "Do you share the actual methodology playbook?", a: "Clients get the full playbook, including SOPs, templates and internal checklists, on day one. It's part of what you're paying for." },

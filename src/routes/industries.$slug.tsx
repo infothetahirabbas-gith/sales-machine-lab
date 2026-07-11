@@ -30,7 +30,7 @@ export const Route = createFileRoute("/industries/$slug")({
       ? `${ind.name} Ecommerce Agency UK | Best ${ind.name} Shopify Agency | BeingEcom`
       : "Industry - Being Ecom";
     const desc = ind
-      ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce — SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
+      ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
       : "UK ecommerce agency by industry.";
     const C = ind ? industryContentFor(ind.slug, ind.name) : undefined;
     const heroImage = C?.images.hero;

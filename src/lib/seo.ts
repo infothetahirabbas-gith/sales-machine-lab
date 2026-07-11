@@ -124,7 +124,7 @@ export function organizationJsonLd() {
   };
 }
 
-// Canonical Person schemas — imported by Founder + Team pages and referenced
+// Canonical Person schemas imported by Founder + Team pages and referenced
 // by @id everywhere else (Organization.founder, Article.author, etc.).
 export type TeamMember = {
   id: string;
@@ -162,7 +162,7 @@ export const TEAM: TeamMember[] = [
     slug: "ali-abbas",
     name: "Ali Abbas",
     jobTitle: "Chief Technology Officer",
-    bio: "Ali Abbas leads engineering at BeingEcom — headless Shopify (Hydrogen), WooCommerce customisation, server-side tracking, AI automation pipelines and the internal tooling that lets a small senior team operate at scale.",
+    bio: "Ali Abbas leads engineering at BeingEcom headless Shopify (Hydrogen), WooCommerce customisation, server-side tracking, AI automation pipelines and the internal tooling that lets a small senior team operate at scale.",
     knowsAbout: [
       "Headless commerce", "Shopify Hydrogen", "WooCommerce development",
       "Next.js", "Server-side tracking", "GA4", "AI automation", "Cloudflare Workers",
@@ -175,7 +175,7 @@ export const TEAM: TeamMember[] = [
     slug: "hasnain-abbas",
     name: "Hasnain Abbas",
     jobTitle: "Managing Director",
-    bio: "Hasnain Abbas runs operations, delivery and client success across every BeingEcom engagement — from onboarding and pod assembly through to weekly reporting rituals and quarterly strategic reviews.",
+    bio: "Hasnain Abbas runs operations, delivery and client success across every BeingEcom engagement from onboarding and pod assembly through to weekly reporting rituals and quarterly strategic reviews.",
     knowsAbout: [
       "Ecommerce operations", "Client success", "Growth delivery",
       "Reporting rituals", "Team leadership", "Project management",

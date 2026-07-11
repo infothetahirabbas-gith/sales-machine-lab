@@ -4,7 +4,7 @@ import { CTA } from "@/components/site/Section";
 import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const TITLE = "Accessibility Statement | BeingEcom";
-const DESC = "BeingEcom's commitment to web accessibility on beingecom.com — WCAG 2.2 AA target, known limitations and how to report a barrier.";
+const DESC = "BeingEcom's commitment to web accessibility on beingecom.com WCAG 2.2 AA target, known limitations and how to report a barrier.";
 const URL = `${SITE_URL}/accessibility`;
 
 export const Route = createFileRoute("/accessibility")({
@@ -29,7 +29,7 @@ function AccessibilityPage() {
           <p className="mt-4 text-muted-foreground">This statement is maintained by {ORG_INFO.name} and applies to <strong>beingecom.com</strong>. Last updated {new Date().toISOString().slice(0, 10)}.</p>
           <div className="prose-body mt-8 space-y-5 text-muted-foreground leading-relaxed">
             <h2 className="text-xl font-bold text-ink">Our commitment</h2>
-            <p>We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA across every public page of this website. Accessibility is treated as part of the definition-of-done for any change we ship — not as an afterthought.</p>
+            <p>We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA across every public page of this website. Accessibility is treated as part of the definition-of-done for any change we ship not as an afterthought.</p>
             <h2 className="text-xl font-bold text-ink">What that means in practice</h2>
             <ul className="list-disc pl-6 space-y-1">
               <li>Semantic HTML, meaningful heading order and skip links where relevant.</li>
@@ -48,7 +48,7 @@ function AccessibilityPage() {
           </div>
         </div>
       </section>
-      <CTA heading="Questions about accessibility?" sub="Email us — we take reports seriously and reply personally." />
+      <CTA heading="Questions about accessibility?" sub="Email us we take reports seriously and reply personally." />
     </PageLayout>
   );
 }

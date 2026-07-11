@@ -3,7 +3,7 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "community";
 const TITLE = "Community | Ecommerce Founders UK | BeingEcom";
-const DESC = "Join the BeingEcom Ecommerce Founders Community UK — a private space for Shopify and WooCommerce operators scaling profitably.";
+const DESC = "Join the BeingEcom Ecommerce Founders Community UK a private space for Shopify and WooCommerce operators scaling profitably.";
 
 export const Route = createFileRoute("/company/community")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/company/community")({
       slug={SLUG}
       h1="Community & events"
       eyebrow="Community"
-      intro="We run and take part in a small number of events every year — always operator-to-operator, always focused on real growth work, never a rebranded sales pitch."
+      intro="We run and take part in a small number of events every year always operator-to-operator, always focused on real growth work, never a rebranded sales pitch."
       sections={[
         {
           type: "paragraph",
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/company/community")({
           heading: "Why we invest in community",
           body: (
             <p>
-              The best growth thinking still happens in rooms with other operators — comparing failures, sharing dashboards, arguing about
+              The best growth thinking still happens in rooms with other operators comparing failures, sharing dashboards, arguing about
               attribution. We host and attend selected events because they keep our thinking honest and give us patterns we couldn't get from client work alone.
             </p>
           ),
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/company/community")({
             { title: "Founder roundtables", body: "Small, invite-only sessions for founders at similar stages. No slides, no pitches, structured operator discussion." },
             { title: "Live webinars", body: "Occasional public webinars on a specific playbook (paid restructure, technical SEO, Klaviyo rebuild). Recordings archived on the blog." },
             { title: "Workshops", body: "Half-day working sessions delivered in-person for partner brands or communities." },
-            { title: "Meetups", body: "Informal UK-based meetups when we're travelling — announced via our email list." },
+            { title: "Meetups", body: "Informal UK-based meetups when we're travelling announced via our email list." },
           ],
         },
         {
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/company/community")({
       ]}
       faqs={[
         { q: "How do I get invited to a founder roundtable?", a: "Contact us with your store URL and monthly revenue. Sessions are matched by stage and vertical, so we run several per year rather than one large event." },
-        { q: "Are the webinars recorded?", a: "Yes — recordings and slides are archived on the blog after each session." },
+        { q: "Are the webinars recorded?", a: "Yes recordings and slides are archived on the blog after each session." },
         { q: "Do you speak at other people's events?", a: "Yes, selectively. See the Media & Press page for confirmed talks and interview appearances." },
         { q: "Is there a cost to attend?", a: "Webinars and roundtables are free. In-person workshops delivered for partner brands are commercial engagements." },
       ]}

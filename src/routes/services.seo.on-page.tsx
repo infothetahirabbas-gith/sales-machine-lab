@@ -15,9 +15,9 @@ export const Route = createFileRoute("/services/seo/on-page")({
   head: () => ({
     meta: [
       { title: "On-Page SEO Agency UK | Shopify & Woo Product SEO | BeingEcom" },
-      { name: "description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages — built by senior ecommerce SEOs." },
+      { name: "description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages built by senior ecommerce SEOs." },
       { property: "og:title", content: "On-Page SEO Agency UK | Shopify & Woo Product SEO | BeingEcom" },
-      { property: "og:description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages — built by senior ecommerce SEOs." },
+      { property: "og:description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages built by senior ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/on-page" },
       { property: "og:type", content: "website" },
     ],

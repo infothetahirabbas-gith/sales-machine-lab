@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/seo";
 
 const SLUG = "technology";
 const TITLE = "Technology Stack | Ecommerce Agency UK | BeingEcom";
-const DESC = "The technology stack behind BeingEcom, an Ecommerce Marketing Agency UK — Shopify, WooCommerce, Klaviyo, GA4, Triple Whale and the tools that scale profitably.";
+const DESC = "The technology stack behind BeingEcom, an Ecommerce Marketing Agency UK Shopify, WooCommerce, Klaviyo, GA4, Triple Whale and the tools that scale profitably.";
 
 const STACK = [
   { group: "Ecommerce platforms",  items: [
@@ -14,18 +14,18 @@ const STACK = [
   ]},
   { group: "Analytics",            items: [
     { name: "Google Analytics 4",  why: "Baseline behavioural analytics for every account." },
-    { name: "Google Tag Manager",  why: "Central tag layer — event integrity is a non-negotiable." },
+    { name: "Google Tag Manager",  why: "Central tag layer event integrity is a non-negotiable." },
     { name: "Microsoft Clarity",   why: "Session replay + heatmaps at no cost." },
     { name: "Hotjar",              why: "Deeper CRO qualitative when scoped." },
   ]},
   { group: "Paid media",           items: [
-    { name: "Google Ads",   why: "Search, Shopping, PMax — planned against margin, not blended ROAS." },
+    { name: "Google Ads",   why: "Search, Shopping, PMax planned against margin, not blended ROAS." },
     { name: "Meta Ads",     why: "Facebook + Instagram creative velocity engine." },
     { name: "TikTok Ads",   why: "Where category demand supports it and creative can keep pace." },
     { name: "YouTube Ads",  why: "Awareness + retargeting layer for scaled brands." },
   ]},
   { group: "Email & retention",    items: [
-    { name: "Klaviyo",       why: "Our default email + SMS platform — deep segmentation and flows." },
+    { name: "Klaviyo",       why: "Our default email + SMS platform deep segmentation and flows." },
     { name: "Postscript",    why: "SMS layer for US-heavy audiences." },
     { name: "Recharge",      why: "Subscription programme engineering." },
   ]},
@@ -39,7 +39,7 @@ const STACK = [
     { name: "OpenAI (GPT)",  why: "Content briefs, keyword clustering, ad-copy variant generation." },
     { name: "Anthropic Claude", why: "Long-context editorial review and technical audit summarisation." },
     { name: "Google Gemini", why: "Multimodal creative review and structured-data validation." },
-    { name: "n8n",           why: "Self-hosted workflow automation — reporting, alerts, data joins." },
+    { name: "n8n",           why: "Self-hosted workflow automation reporting, alerts, data joins." },
     { name: "Make",          why: "No-code integrations where n8n is overkill." },
     { name: "Zapier",        why: "Lightweight triggers between SaaS tools." },
   ]},
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/company/technology")({
       slug={SLUG}
       h1="Our technology stack"
       eyebrow="Stack"
-      intro="Every BeingEcom engagement runs on the same core stack. We're tool-opinionated so we don't waste your first quarter debating platforms — and so our reporting is consistent across every account we operate."
+      intro="Every BeingEcom engagement runs on the same core stack. We're tool-opinionated so we don't waste your first quarter debating platforms and so our reporting is consistent across every account we operate."
       extraJsonLd={[itemListLd]}
       sections={[
         {
@@ -85,10 +85,10 @@ export const Route = createFileRoute("/company/technology")({
         })),
       ]}
       faqs={[
-        { q: "Are you locked into these tools?", a: "No — the stack listed is our default. If you're already invested in a comparable tool that meets our data-integrity bar (e.g. Omnisend instead of Klaviyo), we'll adopt it. If it doesn't, we'll say so honestly." },
-        { q: "Do you use AI to write client content?", a: "AI is used as leverage inside the workflow — clustering, briefing, first-draft variants — never as the final voice. Everything shipped to a client is reviewed by a senior operator." },
-        { q: "Do we need to pay for these tools separately?", a: "For account-level tools (GA4, Klaviyo, Shopify) yes — those live in your name. For our operating tools (Ahrefs, Semrush, n8n) we pay; the cost is built into our fee." },
-        { q: "Can you migrate us from Klaviyo to something else, or vice versa?", a: "Yes — we've done Klaviyo↔Omnisend and Shopify↔WooCommerce migrations. Scope depends on flow count and data volume; we'll cost it in the plan." },
+        { q: "Are you locked into these tools?", a: "No the stack listed is our default. If you're already invested in a comparable tool that meets our data-integrity bar (e.g. Omnisend instead of Klaviyo), we'll adopt it. If it doesn't, we'll say so honestly." },
+        { q: "Do you use AI to write client content?", a: "AI is used as leverage inside the workflow clustering, briefing, first-draft variants never as the final voice. Everything shipped to a client is reviewed by a senior operator." },
+        { q: "Do we need to pay for these tools separately?", a: "For account-level tools (GA4, Klaviyo, Shopify) yes those live in your name. For our operating tools (Ahrefs, Semrush, n8n) we pay; the cost is built into our fee." },
+        { q: "Can you migrate us from Klaviyo to something else, or vice versa?", a: "Yes we've done Klaviyo↔Omnisend and Shopify↔WooCommerce migrations. Scope depends on flow count and data volume; we'll cost it in the plan." },
         { q: "Is the AI tooling private and secure?", a: "We use team/enterprise accounts with data-training disabled, and we never send raw customer PII to any third-party model." },
       ]}
     />

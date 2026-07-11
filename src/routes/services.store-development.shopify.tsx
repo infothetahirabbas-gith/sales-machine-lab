@@ -18,9 +18,9 @@ export const Route = createFileRoute("/services/store-development/shopify")({
   head: () => ({
     meta: [
       { title: "Shopify Marketing Agency UK | Shopify Plus Development | BeingEcom" },
-      { name: "description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email — one revenue-focused team." },
+      { name: "description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email one revenue-focused team." },
       { property: "og:title", content: "Shopify Marketing Agency UK | Shopify Plus Development | BeingEcom" },
-      { property: "og:description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email — one revenue-focused team." },
+      { property: "og:description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email one revenue-focused team." },
       { property: "og:url", content: "https://beingecom.com/services/store-development/shopify" },
       { property: "og:type", content: "website" },
     ],
