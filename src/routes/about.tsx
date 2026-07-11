@@ -11,10 +11,10 @@ import { GLOBAL_STATS } from "@/lib/stats";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom - UK Shopify & WooCommerce Agency" },
-      { name: "description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
-      { property: "og:title", content: "About BeingEcom - UK Shopify & WooCommerce Agency" },
-      { property: "og:description", content: "BeingEcom is a UK ecommerce growth agency for Shopify and WooCommerce brands. Senior operators, revenue-first strategy and full transparency on results." },
+      { title: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
+      { name: "description", content: "Meet the team behind BeingEcom — a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
+      { property: "og:title", content: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
+      { property: "og:description", content: "Meet the team behind BeingEcom — a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
     ],
