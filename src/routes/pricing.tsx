@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Sparkles, ShieldCheck, BadgeCheck, LineChart, Clock3, Users, Globe2, Award, Lock, FileText, Headphones } from "lucide-react";
+import { Check, Minus, Sparkles, ShieldCheck, BadgeCheck, LineChart, Clock3, Users, Globe2, Award, Lock, FileText, Headphones, Quote } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
 import { faqJsonLd, breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SITE_STATS } from "../lib/stats";
+import { trackEvent, AnalyticsEvents } from "../lib/analytics";
 
 const pricingFaqs = [
   { q: "How does the onboarding process work?", a: "Once you pick a plan, you'll book a 30-minute discovery call. We audit your store, ads and analytics, then deliver a written 90-day plan tied to specific P&L lines. Access is set up in the first 5–7 days and execution starts immediately after." },
