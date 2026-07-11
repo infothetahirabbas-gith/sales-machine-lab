@@ -32,11 +32,17 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const { plan } = Route.useSearch();
   return (
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative text-center lg:text-left">
+          {plan && (
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary mb-3">
+              Selected plan: {plan}
+            </div>
+          )}
           <div className="text-xs font-semibold uppercase tracking-widest text-primary">Contact</div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold max-w-3xl mx-auto lg:mx-0 leading-[1.04]">
             Get your <span className="text-gradient">free ecommerce growth audit</span>.
