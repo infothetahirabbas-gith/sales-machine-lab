@@ -274,7 +274,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is.">
+      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK — they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
