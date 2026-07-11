@@ -133,8 +133,8 @@ function Home() {
               <span key={phraseIdx} className="block text-brand my-1 md:my-2 min-h-[1.7em] md:min-h-0" style={{ fontSize: "0.85em" }}>
                 {rotatingPhrases[phraseIdx]}
               </span>
-              <span className="block whitespace-nowrap">Built to Grow UK Shopify</span>
-              <span className="block whitespace-nowrap">&amp; WooCommerce Brands</span>
+              <span className="block lg:whitespace-nowrap">Built to Grow UK Shopify</span>
+              <span className="block lg:whitespace-nowrap">&amp; WooCommerce Brands</span>
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
