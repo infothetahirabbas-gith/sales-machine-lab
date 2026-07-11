@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 
 const SLUG = "press";
-const TITLE = "Media & Press — Publications & Podcasts | BeingEcom";
-const DESC = "Where BeingEcom and its founder appear in the ecommerce media — publications, podcasts, guest articles, interviews and speaking engagements.";
+const TITLE = "Press | Ecommerce Agency UK Coverage | BeingEcom";
+const DESC = "BeingEcom press coverage, features and thought leadership — an Ecommerce Marketing Agency UK cited across ecommerce, Shopify and DTC media.";
 
 export const Route = createFileRoute("/company/press")({
   head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),

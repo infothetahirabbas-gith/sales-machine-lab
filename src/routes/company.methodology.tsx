@@ -3,8 +3,8 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 import { ORG_INFO, SITE_URL, articleJsonLd } from "@/lib/seo";
 
 const SLUG = "methodology";
-const TITLE = "Our Growth Methodology — 13 Phases | BeingEcom";
-const DESC = "The 13-phase ecommerce growth methodology BeingEcom uses on every Shopify and WooCommerce engagement — from discovery through continuous optimisation.";
+const TITLE = "Methodology | Ecommerce Growth Framework UK | BeingEcom";
+const DESC = "The BeingEcom Ecommerce Growth Framework UK — how we diagnose leaks, sequence sprints and scale Shopify and WooCommerce brands from 6 to 7 figures.";
 const URL = `${SITE_URL}/company/methodology`;
 
 const articleLd = articleJsonLd({

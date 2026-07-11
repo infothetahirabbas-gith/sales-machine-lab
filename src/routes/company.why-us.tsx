@@ -4,8 +4,8 @@ import { SITE_URL, professionalServiceJsonLd } from "@/lib/seo";
 import { SITE_STATS } from "@/lib/stats";
 
 const SLUG = "why-us";
-const TITLE = "Why Choose BeingEcom — 8 Reasons | UK Ecommerce Agency";
-const DESC = "Eight concrete reasons founders pick BeingEcom over other agencies, freelancers and in-house teams — senior operators, revenue-first plans, and honest reporting.";
+const TITLE = "Why Choose BeingEcom | Best Ecommerce Marketing Agency UK";
+const DESC = "Why founders pick BeingEcom as their Ecommerce Marketing Agency UK — senior operators, revenue-first, no juniors, no vanity metrics, transparent reporting.";
 
 const orgLd = professionalServiceJsonLd();
 

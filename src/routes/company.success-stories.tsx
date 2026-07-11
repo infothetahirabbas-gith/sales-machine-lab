@@ -3,8 +3,8 @@ import CompanyPage, { companyHead } from "@/components/site/CompanyPage";
 import { SITE_URL } from "@/lib/seo";
 
 const SLUG = "success-stories";
-const TITLE = "Client Success Stories — Ecommerce Case Studies | BeingEcom";
-const DESC = "Real case studies from BeingEcom's ecommerce engagements — scope, strategy, KPIs and outcomes across Shopify and WooCommerce brands.";
+const TITLE = "Shopify Success Stories UK | Growth Case Studies | BeingEcom";
+const DESC = "Shopify success stories UK — real Shopify and WooCommerce brands scaled by BeingEcom with SEO, paid ads, CRO and Klaviyo email. Numbers and playbooks inside.";
 
 const collectionLd = {
   "@context": "https://schema.org",

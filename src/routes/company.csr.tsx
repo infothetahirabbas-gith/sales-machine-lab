@@ -4,8 +4,8 @@ import CsrPartnerForm from "@/components/site/CsrPartnerForm";
 import { SITE_URL, ORG_INFO } from "@/lib/seo";
 
 const SLUG = "csr";
-const TITLE = "Corporate Social Responsibility (CSR) — BeingEcom's Commitments & Annual Scorecard";
-const DESC = "How BeingEcom gives back: pro-bono work, education, diversity & inclusion, sustainability, ethical marketing, mentorship, charitable giving — plus a downloadable CSR scorecard and a partnership request form.";
+const TITLE = "CSR | Ecommerce Agency Social Responsibility UK | BeingEcom";
+const DESC = "BeingEcom's CSR programme — how an Ecommerce Marketing Agency UK gives back through pro-bono work, sustainability and ethical ecommerce partnerships.";
 const SCORECARD_URL = `${SITE_URL}/downloads/beingecom-csr-scorecard.pdf`;
 
 const scorecardJsonLd = {
