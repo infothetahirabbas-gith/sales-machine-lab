@@ -616,6 +616,13 @@ h1, h2, h3 { text-wrap: balance; }
   letter-spacing: -0.02em;
 }
 
+.hero-mobile { display: block; }
+.hero-desktop { display: none; }
+@media (min-width: 640px) {
+  .hero-mobile { display: none; }
+  .hero-desktop { display: block; }
+}
+
 @media (min-width: 640px) {
   .hero-headline { font-size: clamp(38px, 5.4vw, 52px); letter-spacing: -0.025em; }
 }
