@@ -225,6 +225,7 @@ function RootComponent() {
       <PageFade pathname={pathname}>
         <Outlet />
       </PageFade>
+      <GlobalReveal />
       <ClientOnly fallback={null}>
         {deferredReady && isDesktop ? (
           <Suspense fallback={null}>
