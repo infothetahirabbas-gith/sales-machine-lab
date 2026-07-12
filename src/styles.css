@@ -128,6 +128,20 @@
   .split-line { text-wrap: pretty; }
   .split-line > .split-ink { color: var(--foreground); font-weight: 500; -webkit-text-fill-color: currentColor; }
   .split-line > .split-brand { color: var(--brand); font-weight: 600; -webkit-text-fill-color: currentColor; }
+  .hero-headline {
+    font-size: 21px;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  .hero-headline span {
+    text-wrap: balance;
+  }
+  @media (min-width: 640px) {
+    .hero-headline { font-size: 34px; }
+  }
+  @media (min-width: 1024px) {
+    .hero-headline { font-size: 72px; line-height: 1.05; }
+  }
   @media (max-width: 480px) {
     .split-heading > .split-brand::before { content: "\A"; white-space: pre; }
   }

@@ -126,7 +126,7 @@ function Home() {
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
-            <h1 className="mt-5 text-[clamp(16px,5.2vw,22px)] sm:text-[34px] lg:text-7xl font-bold leading-[1.08] lg:leading-[1.05] tracking-normal">
+            <h1 className="hero-headline mt-5 font-bold tracking-normal">
               <span className="block text-primary">Ecommerce Marketing Agency UK</span>
               <span className="block text-ink my-1 md:my-2">Driving More Traffic, Sales &amp; Revenue for</span>
               <span className="block text-primary">Shopify &amp; WooCommerce Brands</span>
