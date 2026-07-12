@@ -203,9 +203,9 @@ function RootComponent() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <QueryClientProvider client={queryClient}>
-      <div key={pathname}>
+      <PageFade pathname={pathname}>
         <Outlet />
-      </div>
+      </PageFade>
       <ClientOnly fallback={null}>
         {deferredReady && isDesktop ? (
           <Suspense fallback={null}>
