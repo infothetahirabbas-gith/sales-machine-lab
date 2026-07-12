@@ -277,7 +277,7 @@ export default function GrowthPathPlanner() {
                       ⚠ {plan.warning}
                     </div>
                   )}
-                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-background text-foreground font-semibold py-3 px-5 hover:bg-accent hover:text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl">
+                   <Link to="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary !text-primary-foreground font-semibold py-3 px-5 shadow-premium transition-all hover:-translate-y-0.5 hover:shadow-premium-lg hover:brightness-110">
                     Book Strategy Call <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
