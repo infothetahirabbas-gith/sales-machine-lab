@@ -329,6 +329,7 @@ function Home() {
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section
+        className="section-band--warm"
         center
         eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
         title="One senior team. Nine growth services. Every operator owns your P&L."
@@ -373,6 +374,7 @@ function Home() {
 
       {/* 6. BEFORE / AFTER - interactive slider */}
       <Section
+        className="section-band--slate"
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
@@ -448,6 +450,7 @@ function Home() {
 
       {/* 8. HOW IT WORKS */}
       <Section
+        className="section-band--lavender"
         center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
@@ -478,6 +481,7 @@ function Home() {
 
       {/* 9. TOOLS - grouped by job-to-be-done */}
       <Section
+        className="section-band--alt"
         center
         eyebrow="Stack"
         title="The tools we run on every store."
@@ -552,6 +556,7 @@ function Home() {
 
       {/* 9.5 WHY UK BRANDS CHOOSE BEINGECOM */}
       <Section
+        className="section-band--cool"
         center
         eyebrow="Why UK brands choose BeingEcom"
         title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
@@ -578,6 +583,7 @@ function Home() {
 
       {/* 9.6 INDUSTRIES WE SERVE */}
       <Section
+        className="section-band--warm"
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
