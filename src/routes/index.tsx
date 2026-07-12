@@ -700,13 +700,8 @@ function Home() {
       <CTA
         heading={
           <>
-            <span className="block lg:hidden">
-              <span className="block">Ready to Grow? Work With the</span>
-              <span className="block whitespace-nowrap text-primary mt-1">Best Ecommerce</span>
-              <span className="block whitespace-nowrap text-primary">Digital Marketing</span>
-              <span className="block whitespace-nowrap text-primary">Agency UK</span>
-            </span>
-            <span className="hidden lg:inline">Ready to Grow? Work With the <span className="text-primary">Best Ecommerce Digital Marketing Agency UK</span></span>
+            <span className="block text-ink">Ready to scale your store?</span>
+            <span className="block text-primary mt-1 md:mt-2">Let's build your revenue engine.</span>
           </>
         }
         sub="Book a free strategy call with our Shopify Ecommerce Agency UK & WooCommerce Marketing Agency UK team plus Ecommerce PPC Agency UK, Ecommerce CRO Agency UK and Ecommerce Automation Agency UK operators. We'll show you exactly how to scale revenue and dominate AI search."
