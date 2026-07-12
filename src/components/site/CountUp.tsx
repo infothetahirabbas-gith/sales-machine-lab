@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 interface CountUpProps {
   end: number;
   duration?: number;
@@ -19,12 +21,51 @@ export default function CountUp({
   decimals = 0,
   className,
 }: CountUpProps) {
-  void duration;
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [value, setValue] = useState(0);
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const node = ref.current;
+    if (!node) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setValue(end);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting && !startedRef.current) {
+            startedRef.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const t = Math.min(1, (now - start) / duration);
+              const eased = 1 - Math.pow(1 - t, 3);
+              setValue(end * eased);
+              if (t < 1) requestAnimationFrame(tick);
+              else setValue(end);
+            };
+            requestAnimationFrame(tick);
+            io.disconnect();
+          }
+        }
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, [end, duration]);
+
+  const formatted = decimals > 0
+    ? value.toFixed(decimals)
+    : Math.round(value).toLocaleString();
 
   return (
-    <span className={className}>
+    <span ref={ref} className={className}>
       {prefix}
-      {end.toFixed(decimals)}
+      {formatted}
       {suffix}
     </span>
   );
