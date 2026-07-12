@@ -200,13 +200,36 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.3s;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, background-color 0.4s;
+    will-change: transform;
+  }
+  .card-hover { position: relative; }
+  .card-hover::before {
+    content: "";
+    position: absolute; inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 40%, transparent), transparent 60%, color-mix(in oklab, var(--accent) 60%, transparent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
   .card-hover:hover {
-    transform: translateY(-6px);
-    border-color: color-mix(in oklab, var(--accent) 50%, transparent);
-    box-shadow: 0 24px 60px -32px color-mix(in oklab, var(--ink) 35%, transparent);
+    transform: translateY(-10px) scale(1.015);
+    border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.04),
+      0 18px 40px -18px rgba(15, 23, 42, 0.18),
+      0 40px 80px -40px color-mix(in oklab, var(--primary) 28%, transparent);
   }
+  .card-hover:hover::before { opacity: 1; }
+  .card-hover:hover .icon-lift,
+  .card-hover:hover [data-icon] { transform: translateY(-2px) rotate(-3deg); }
+  .icon-lift, [data-icon] { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
 
