@@ -240,17 +240,17 @@
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
 
-  /* Section bands - premium light rhythm using cool slate tints. */
-  .section-band { background-color: var(--background); transition: background-color 0.4s ease; }
-  .section-band--alt { background-color: #F8FAFC; }
-  .section-band--cool { background-color: #F5F9FF; }
-  .section-band--slate { background-color: #F1F5F9; }
-  .section-band--warm { background-color: #FDFBF7; }
-  .section-band--mint { background-color: #F3FAF6; }
-  .section-band--lavender { background-color: #F6F5FF; }
+  /* Section bands - premium light rhythm with slightly deeper tints. */
+  .section-band { background-color: #F4F7FB; transition: background-color 0.4s ease; }
+  .section-band--alt { background-color: #ECF1F8; }
+  .section-band--cool { background-color: #E6EEFB; }
+  .section-band--slate { background-color: #E4EAF3; }
+  .section-band--warm { background-color: #F7F1E6; }
+  .section-band--mint { background-color: #E4F3EA; }
+  .section-band--lavender { background-color: #ECE9FA; }
   .section-band--elevated {
     background-color: #FFFFFF;
-    box-shadow: 0 1px 0 0 rgba(15, 23, 42, 0.04), 0 24px 60px -40px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 1px 0 0 rgba(15, 23, 42, 0.05), 0 24px 60px -40px rgba(15, 23, 42, 0.2);
   }
   .section-band + [class*="section-band--"],
   [class*="section-band--"] + .section-band,
