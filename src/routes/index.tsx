@@ -126,10 +126,15 @@ function Home() {
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
-            <h1 className="mt-5 text-[26px] sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.15] md:leading-[1.05]">
-              <span className="block text-primary">Ecommerce Marketing Agency UK</span>
-              <span className="block text-ink my-1 md:my-2">Driving More Traffic, Sales &amp; Revenue for</span>
-              <span className="block text-primary">Shopify &amp; WooCommerce Brands</span>
+            <h1 className="hero-headline mt-5 font-bold tracking-normal">
+              <span className="block sm:hidden text-primary">Ecommerce Marketing</span>
+              <span className="block sm:hidden text-primary">Agency UK</span>
+              <span className="block sm:hidden text-ink mt-1">Driving More Traffic,</span>
+              <span className="block sm:hidden text-ink">Sales &amp; Revenue for</span>
+              <span className="block sm:hidden text-primary">Shopify &amp; WooCommerce Brands</span>
+              <span className="hidden sm:block text-primary">Ecommerce Marketing Agency UK</span>
+              <span className="hidden sm:block text-ink my-1 md:my-2">Driving More Traffic, Sales &amp; Revenue for</span>
+              <span className="hidden sm:block text-primary">Shopify &amp; WooCommerce Brands</span>
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">

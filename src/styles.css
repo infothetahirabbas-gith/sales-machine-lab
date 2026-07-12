@@ -574,6 +574,24 @@ img, video, svg, canvas, iframe { max-width: 100%; height: auto; }
 /* Long-word / URL wrapping so nothing breaks the viewport */
 p, li, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: normal; }
 h1, h2, h3 { text-wrap: balance; }
+
+.hero-headline {
+  font-size: 18px;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.hero-headline span {
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .hero-headline { font-size: 34px; }
+}
+
+@media (min-width: 1024px) {
+  .hero-headline { font-size: 72px; line-height: 1.05; }
+}
 p, li { text-wrap: pretty; }
 
 /* Respect reduced motion - kill entrance/loop animations for users who
