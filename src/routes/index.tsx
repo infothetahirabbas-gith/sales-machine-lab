@@ -269,7 +269,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
+      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -293,6 +293,7 @@ function Home() {
 
       {/* 4. SOLUTION - 4 PILLARS */}
       <Section
+        className="section-band--cool"
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
@@ -328,6 +329,7 @@ function Home() {
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section
+        className="section-band--warm"
         center
         eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
         title="One senior team. Nine growth services. Every operator owns your P&L."
@@ -372,6 +374,7 @@ function Home() {
 
       {/* 6. BEFORE / AFTER - interactive slider */}
       <Section
+        className="section-band--slate"
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
@@ -405,7 +408,7 @@ function Home() {
       </Section>
 
       {/* 7. CASE STUDY */}
-      <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
+      <Section className="section-band--mint" center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="relative rounded-2xl border border-border bg-card/60 p-3 overflow-hidden">
             <img
@@ -447,6 +450,7 @@ function Home() {
 
       {/* 8. HOW IT WORKS */}
       <Section
+        className="section-band--lavender"
         center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
@@ -477,6 +481,7 @@ function Home() {
 
       {/* 9. TOOLS - grouped by job-to-be-done */}
       <Section
+        className="section-band--alt"
         center
         eyebrow="Stack"
         title="The tools we run on every store."
@@ -551,6 +556,7 @@ function Home() {
 
       {/* 9.5 WHY UK BRANDS CHOOSE BEINGECOM */}
       <Section
+        className="section-band--cool"
         center
         eyebrow="Why UK brands choose BeingEcom"
         title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
@@ -577,6 +583,7 @@ function Home() {
 
       {/* 9.6 INDUSTRIES WE SERVE */}
       <Section
+        className="section-band--warm"
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
@@ -611,7 +618,7 @@ function Home() {
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
-      <Section center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
+      <Section className="section-band--slate" center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
         <div className="relative overflow-hidden">
           <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
