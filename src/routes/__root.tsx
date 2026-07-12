@@ -12,6 +12,25 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+
+function PageFade({ pathname, children }: { pathname: string; children: React.ReactNode }) {
+  return (
+    <LazyMotion features={domAnimation} strict>
+      <AnimatePresence mode="wait" initial={false}>
+        <m.div
+          key={pathname}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {children}
+        </m.div>
+      </AnimatePresence>
+    </LazyMotion>
+  );
+}
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
