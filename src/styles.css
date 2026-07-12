@@ -166,28 +166,32 @@
     background: var(--primary);
     color: var(--primary-foreground);
     box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--primary) 55%, transparent);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] active:translate-y-0 active:scale-[0.98];
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-1 hover:scale-[1.03] hover:bg-[var(--brand-strong)] active:translate-y-0 active:scale-[0.97];
   }
+  .btn-primary:hover { box-shadow: 0 20px 44px -18px color-mix(in oklab, var(--primary) 65%, transparent), 0 8px 20px -10px color-mix(in oklab, var(--primary) 40%, transparent); }
   .btn-dark {
     background: var(--ink);
     color: var(--primary-foreground);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0 active:scale-[0.98];
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-1 hover:scale-[1.03] hover:bg-accent hover:text-accent-foreground active:translate-y-0 active:scale-[0.97];
   }
   .btn-ghost {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--border);
-    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 active:translate-y-0 active:scale-[0.98];
+    @apply px-5 py-3 sm:px-6 sm:py-3 hover:-translate-y-1 hover:scale-[1.02] hover:border-accent hover:bg-accent/10 active:translate-y-0 active:scale-[0.97];
   }
   .btn-shimmer { position: relative; overflow: hidden; }
   .btn-shimmer::before {
     content: "";
     position: absolute; inset: 0;
-    background: none;
+    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.35) 50%, transparent 80%);
     transform: translateX(-100%);
-    transition: transform 0.8s;
+    transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
   }
   .btn-shimmer:hover::before { transform: translateX(100%); }
+  .btn svg, .btn [data-icon] { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .btn:hover svg, .btn:hover [data-icon] { transform: translateX(3px); }
 
   .btn-pair { @apply grid grid-cols-2 gap-2 sm:gap-3 items-stretch w-full sm:inline-flex sm:flex-row sm:w-auto sm:items-center; }
   .btn-pair .btn { @apply w-full min-w-0 justify-center px-2 py-2.5 text-[12px] leading-tight whitespace-normal text-center sm:text-sm sm:w-auto sm:px-6 sm:py-3 sm:whitespace-nowrap; }
@@ -200,13 +204,36 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.3s;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, background-color 0.4s;
+    will-change: transform;
+  }
+  .card-hover { position: relative; }
+  .card-hover::before {
+    content: "";
+    position: absolute; inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 40%, transparent), transparent 60%, color-mix(in oklab, var(--accent) 60%, transparent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
   .card-hover:hover {
-    transform: translateY(-6px);
-    border-color: color-mix(in oklab, var(--accent) 50%, transparent);
-    box-shadow: 0 24px 60px -32px color-mix(in oklab, var(--ink) 35%, transparent);
+    transform: translateY(-10px) scale(1.015);
+    border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.04),
+      0 18px 40px -18px rgba(15, 23, 42, 0.18),
+      0 40px 80px -40px color-mix(in oklab, var(--primary) 28%, transparent);
   }
+  .card-hover:hover::before { opacity: 1; }
+  .card-hover:hover .icon-lift,
+  .card-hover:hover [data-icon] { transform: translateY(-2px) rotate(-3deg); }
+  .icon-lift, [data-icon] { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
   .card-tilt { transform-style: preserve-3d; }
   .card-tilt:hover { animation: tilt 4s ease-in-out infinite; }
 
