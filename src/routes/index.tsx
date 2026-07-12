@@ -327,7 +327,12 @@ function Home() {
       </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
-      <Section center eyebrow="Ecommerce SEO Agency UK · Shopify Marketing Agency UK · WooCommerce Marketing Agency UK" title="One Ecommerce Digital Marketing Agency. Nine growth services. One operating system." intro="From our Ecommerce SEO Agency UK team to our Shopify Marketing Agency UK pod and WooCommerce Marketing Agency UK specialists, every operator inside our Ecommerce Digital Marketing Agency owns your P&L not a vanity metric. We also operate as your Ecommerce PPC Agency UK for Meta &amp; Google Ads, your Ecommerce CRO Agency UK for site-wide conversion lifts, a full-stack Shopify Ecommerce Agency UK for platform builds and migrations, and an Ecommerce Automation Agency UK for AI workflows that cut manual work.">
+      <Section
+        center
+        eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
+        title="One senior team. Nine growth services. Every operator owns your P&L."
+        intro="We are your Ecommerce Marketing Agency UK under one roof: SEO that compounds, Shopify and WooCommerce builds that convert, Meta and Google Ads managed for profit, CRO that lifts revenue per session, and AI automation that removes the busywork. No hand-offs, no vanity metrics, just one accountable team moving your numbers every week."
+      >
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
             <Link key={s.to} to={s.to} className={`w-full ${i === services.length - 1 && services.length % 2 === 1 ? "col-span-2 lg:col-span-1 max-w-full lg:max-w-none" : ""}`}>
