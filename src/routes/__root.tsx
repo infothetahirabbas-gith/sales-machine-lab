@@ -12,6 +12,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { GlobalReveal } from "../components/site/GlobalReveal";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 
 function PageFade({ pathname, children }: { pathname: string; children: React.ReactNode }) {
@@ -225,6 +226,7 @@ function RootComponent() {
       <PageFade pathname={pathname}>
         <Outlet />
       </PageFade>
+      <GlobalReveal />
       <ClientOnly fallback={null}>
         {deferredReady && isDesktop ? (
           <Suspense fallback={null}>
