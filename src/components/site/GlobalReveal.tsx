@@ -1,0 +1,83 @@
+import { useEffect } from "react";
+
+/**
+ * Global scroll reveal. Observes every section, heading, card, image,
+ * button-pair, list item, etc. across the whole site and toggles
+ * `data-inview="1"` when they enter the viewport. CSS in styles.css
+ * handles the actual transition using this attribute so every page
+ * animates without touching individual route files.
+ */
+const SELECTOR = [
+  "section > *",
+  "section h1, section h2, section h3, section h4",
+  "section p",
+  "section img",
+  "section .card-surface",
+  "section .card-premium",
+  "section [class*='rounded-2xl']",
+  "section [class*='rounded-3xl']",
+  "section .btn-pair",
+  "section ul > li",
+  "section ol > li",
+  "section .grid > *",
+].join(",");
+
+export function GlobalReveal() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const observed = new WeakSet<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).setAttribute("data-inview", "1");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" },
+    );
+
+    const seed = (root: ParentNode) => {
+      const nodes = root.querySelectorAll<HTMLElement>(SELECTOR);
+      let idx = 0;
+      nodes.forEach((n) => {
+        if (observed.has(n)) return;
+        if (n.hasAttribute("data-noreveal")) return;
+        observed.add(n);
+        // Assign an alternating entry direction for visual variety.
+        if (!n.hasAttribute("data-reveal")) {
+          const dirs = ["up", "left", "right", "up", "zoom", "down"] as const;
+          n.setAttribute("data-reveal", dirs[idx % dirs.length]);
+        }
+        // Small in-group stagger via CSS custom prop.
+        if (!n.style.getPropertyValue("--reveal-delay")) {
+          n.style.setProperty("--reveal-delay", `${(idx % 6) * 60}ms`);
+        }
+        idx++;
+        io.observe(n);
+      });
+    };
+
+    seed(document);
+
+    // Re-seed on client-side route changes and DOM additions.
+    const mo = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node.nodeType === 1) seed(node as Element);
+        }
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, []);
+
+  return null;
+}
