@@ -258,6 +258,14 @@
     border-top: 1px solid rgba(226, 232, 240, 0.7);
   }
 
+  /* Universal polish: any rounded container gets consistent premium depth. */
+  .section-band :where(.card-surface, .card-premium, [class*="rounded-2xl"], [class*="rounded-3xl"], [class*="rounded-xl"]) {
+    border-radius: var(--radius);
+  }
+  .section-band :where([class*="rounded-3xl"]) {
+    border-radius: calc(var(--radius) + 6px);
+  }
+
   /* -------- Premium depth + hover utilities -------- */
   .shadow-premium {
     box-shadow:
