@@ -77,7 +77,7 @@ export function Section({
           {(eyebrow || title || intro) && (
             <div className={`max-w-3xl mx-auto text-center mb-12 ${center ? "" : ""}`}>
               {eyebrow && (
-                <Reveal>
+                <Reveal from="down">
                   <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
                     <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
                     {eyebrow}
@@ -85,12 +85,12 @@ export function Section({
                 </Reveal>
               )}
               {title && (
-                <Reveal delay={1}>
+                <Reveal delay={1} from="left">
                   <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink"><SplitHeading value={title} /></h2>
                 </Reveal>
               )}
               {intro && (
-                <Reveal delay={2}>
+                <Reveal delay={2} from="right">
                   <p className="mt-5 text-lg text-muted-foreground"><SplitLine value={intro} /></p>
                 </Reveal>
               )}

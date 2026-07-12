@@ -38,35 +38,50 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.
 
 const DELAY_STEP = 0.08;
 
+type RevealDirection = "up" | "down" | "left" | "right" | "zoom" | "fade";
+
+function offsetFor(direction: RevealDirection, distance: number) {
+  switch (direction) {
+    case "up": return { y: distance, x: 0, scale: 1 };
+    case "down": return { y: -distance, x: 0, scale: 1 };
+    case "left": return { x: distance, y: 0, scale: 1 };
+    case "right": return { x: -distance, y: 0, scale: 1 };
+    case "zoom": return { x: 0, y: 0, scale: 0.92 };
+    case "fade": return { x: 0, y: 0, scale: 1 };
+  }
+}
+
 /**
- * Framer Motion powered reveal. Drop-in replacement for the previous CSS
- * variant — accepts the same `delay` (0..4) step index. Honours
- * `prefers-reduced-motion` automatically.
+ * Framer Motion powered reveal. Accepts a `from` direction so different
+ * sections can enter from up, down, left, right, zoom or plain fade.
  */
 export function Reveal({
   children,
   delay = 0,
   className = "",
   as: Tag = "div",
-  y = 24,
+  from = "up",
+  distance = 32,
 }: {
   children: ReactNode;
   delay?: 0 | 1 | 2 | 3 | 4;
   className?: string;
   as?: keyof React.JSX.IntrinsicElements;
-  y?: number;
+  from?: RevealDirection;
+  distance?: number;
 }) {
   const reduce = useReducedMotion();
   const MotionTag = (m as unknown as Record<string, React.ElementType>)[Tag as string] ?? m.div;
+  const off = offsetFor(from, distance);
   return (
     <LazyMotion features={domAnimation} strict>
       <MotionTag
         className={className}
-        initial={reduce ? false : { opacity: 0, y }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+        initial={reduce ? false : { opacity: 0, ...off }}
+        whileInView={reduce ? undefined : { opacity: 1, x: 0, y: 0, scale: 1 }}
         viewport={{ once: true, margin: "0px 0px -8% 0px" }}
         transition={{
-          duration: 0.7,
+          duration: 0.75,
           delay: delay * DELAY_STEP,
           ease: [0.16, 1, 0.3, 1],
         }}
@@ -78,24 +93,29 @@ export function Reveal({
 }
 
 /**
- * Stagger a list of children on scroll. Wrap grids/lists for orchestrated
- * entrances without hand-tuning each child.
+ * Stagger a list of children on scroll. `pattern` cycles child directions
+ * for a lively "some from left, some from right, some up" feel.
  */
 export function StaggerGroup({
   children,
   className = "",
-  stagger = 0.08,
+  stagger = 0.09,
   as: Tag = "div",
-  y = 24,
+  from = "up",
+  pattern,
+  distance = 32,
 }: {
   children: ReactNode;
   className?: string;
   stagger?: number;
   as?: keyof React.JSX.IntrinsicElements;
-  y?: number;
+  from?: RevealDirection;
+  pattern?: RevealDirection[];
+  distance?: number;
 }) {
   const reduce = useReducedMotion();
   const MotionTag = (m as unknown as Record<string, React.ElementType>)[Tag as string] ?? m.div;
+  const cycle = pattern && pattern.length > 0 ? pattern : [from];
   return (
     <LazyMotion features={domAnimation} strict>
       <MotionTag
@@ -109,21 +129,26 @@ export function StaggerGroup({
         }}
       >
         {Array.isArray(children)
-          ? children.map((child, i) => (
-              <m.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-                  },
-                }}
-              >
-                {child}
-              </m.div>
-            ))
+          ? children.map((child, i) => {
+              const off = offsetFor(cycle[i % cycle.length], distance);
+              return (
+                <m.div
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, ...off },
+                    show: {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      scale: 1,
+                      transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+                    },
+                  }}
+                >
+                  {child}
+                </m.div>
+              );
+            })
           : children}
       </MotionTag>
     </LazyMotion>
