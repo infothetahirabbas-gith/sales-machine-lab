@@ -603,21 +603,25 @@ p, li, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: normal; }
 h1, h2, h3 { text-wrap: balance; }
 
 .hero-headline {
-  font-size: 18px;
-  line-height: 1.08;
+  font-size: clamp(28px, 8.2vw, 34px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 .hero-headline span {
   text-wrap: balance;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 640px) {
-  .hero-headline { font-size: 34px; }
+  .hero-headline { font-size: clamp(38px, 5.4vw, 52px); letter-spacing: -0.025em; }
 }
 
 @media (min-width: 1024px) {
-  .hero-headline { font-size: 72px; line-height: 1.05; }
+  .hero-headline { font-size: clamp(60px, 5.6vw, 78px); line-height: 1.02; letter-spacing: -0.03em; }
 }
 p, li { text-wrap: pretty; }
 
