@@ -3,6 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 import RelatedHub from "./RelatedHub";
+import BackToTop from "./BackToTop";
 
 // Below-the-fold widgets - never block initial render.
 const FloatingWidgets = lazy(() => import("./FloatingWidgets"));
@@ -43,6 +44,7 @@ export default function PageLayout({ children }: { children: ReactNode }) {
       <RelatedHub />
       <Footer />
       <ClientOnly fallback={null}>
+        <BackToTop />
         <DeferredWidgets />
       </ClientOnly>
     </div>
