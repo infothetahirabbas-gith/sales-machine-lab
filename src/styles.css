@@ -215,6 +215,9 @@
   .section-band--alt { background-color: #F8FAFC; }
   .section-band--cool { background-color: #F5F9FF; }
   .section-band--slate { background-color: #F1F5F9; }
+  .section-band--warm { background-color: #FDFBF7; }
+  .section-band--mint { background-color: #F3FAF6; }
+  .section-band--lavender { background-color: #F6F5FF; }
   .section-band--elevated {
     background-color: #FFFFFF;
     box-shadow: 0 1px 0 0 rgba(15, 23, 42, 0.04), 0 24px 60px -40px rgba(15, 23, 42, 0.18);
