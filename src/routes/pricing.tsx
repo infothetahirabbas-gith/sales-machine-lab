@@ -212,12 +212,14 @@ function PricingPage() {
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`relative card-surface p-7 flex flex-col rounded-3xl ${
-                t.popular ? "ring-2 ring-primary shadow-xl scale-[1.02]" : ""
+              className={`group relative p-7 flex flex-col rounded-3xl transition-all duration-500 ${
+                t.popular
+                  ? "tier-featured md:scale-[1.03]"
+                  : "card-premium hover-lift"
               }`}
             >
               {t.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-lg">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-foreground shadow-premium">
                   <Sparkles className="w-3 h-3" /> Most Popular
                 </div>
               )}

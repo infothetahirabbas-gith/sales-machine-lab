@@ -41,32 +41,32 @@ export default function FaqSection({
               <div
                 key={id}
                 id={id}
-                className={`card-surface rounded-2xl transition-all duration-300 ${
-                  isOpen ? "shadow-xl ring-1 ring-primary/20" : "hover:shadow-md"
+                className={`card-premium rounded-2xl overflow-hidden transition-all duration-500 ${
+                  isOpen ? "shadow-premium-lg border-primary/40" : "hover-lift"
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left group"
                   aria-expanded={isOpen}
                   aria-controls={`${id}-answer`}
                 >
-                  <span className="font-semibold text-ink text-sm md:text-base">{f.q}</span>
+                  <span className="font-semibold text-ink text-sm md:text-base transition-colors group-hover:text-primary">{f.q}</span>
                   <span
-                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
-                      isOpen ? "bg-primary text-white" : "bg-primary/10 text-primary"
+                    className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isOpen ? "bg-primary text-white rotate-180" : "bg-primary/10 text-primary group-hover:bg-primary/20"
                     }`}
                   >
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                    <Plus className={`w-4 h-4 acc-chevron`} data-open={isOpen} />
                   </span>
                 </button>
                 <div
                   id={`${id}-answer`}
-                  className="grid transition-all duration-300 ease-out"
-                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                  className="acc-panel"
+                  data-open={isOpen}
                 >
-                  <div className="overflow-hidden">
+                  <div>
                     <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                   </div>
                 </div>
