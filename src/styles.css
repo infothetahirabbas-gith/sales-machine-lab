@@ -839,3 +839,185 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
     min-height: 44px;
   }
 }
+
+/* ============================================================
+   PREMIUM POLISH v2 — cross-site motion, depth & micro-interactions
+   Applies globally through existing GlobalReveal + shared classes.
+   ============================================================ */
+
+/* --- Hero headline: bigger, cleaner scale --- */
+.hero-headline {
+  font-size: clamp(2.5rem, 6.2vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.hero-headline .text-primary {
+  background: linear-gradient(115deg, var(--brand-strong, #1D4ED8) 0%, var(--brand, #3B82F6) 45%, #22D3EE 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 7s ease-in-out infinite;
+}
+
+/* --- Card premium hover: lift, glow, border sheen --- */
+.card-surface, .card-premium {
+  transition: transform 0.55s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.55s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.4s ease,
+              background-color 0.4s ease;
+  will-change: transform;
+}
+.card-surface:hover, .card-premium:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow:
+    0 30px 60px -20px rgba(15,23,42,0.18),
+    0 0 0 1px rgba(59,130,246,0.25),
+    0 0 40px -8px rgba(59,130,246,0.35);
+  border-color: rgba(59,130,246,0.4);
+}
+.card-surface:hover svg, .card-premium:hover svg {
+  transform: translateY(-3px) rotate(-6deg) scale(1.08);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* --- Buttons: magnetic-feel glow + arrow slide --- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(120px 60px at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.35), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 20px 40px -12px rgba(59,130,246,0.55), 0 0 0 4px rgba(59,130,246,0.15);
+}
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary span,
+.btn-primary .arrow,
+.btn a[class*="group"] .arrow {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.btn:hover span.arrow, .btn:hover .arrow { transform: translateX(6px); }
+
+/* --- Prose / nav links: animated underline sweep --- */
+a.story-link, .prose a:not(.btn):not([class*="rounded"]) {
+  position: relative;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  transition: background-size 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+a.story-link:hover, .prose a:not(.btn):not([class*="rounded"]):hover {
+  background-size: 100% 2px;
+}
+
+/* --- Images: subtle zoom on hover inside cards --- */
+.card-surface img, .card-premium img, [class*="rounded-2xl"] > img, [class*="rounded-3xl"] > img {
+  transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+}
+.card-surface:hover img, .card-premium:hover img,
+[class*="rounded-2xl"]:hover > img, [class*="rounded-3xl"]:hover > img {
+  transform: scale(1.06);
+  filter: saturate(1.08);
+}
+
+/* --- Floating dashboard-style cards (opt-in via .float-card) --- */
+.float-card { animation: float-y 6s ease-in-out infinite; }
+.float-card--slow { animation-duration: 9s; animation-delay: -2s; }
+.float-card--fast { animation-duration: 4.5s; animation-delay: -1s; }
+@keyframes float-y {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-14px) rotate(-0.4deg); }
+}
+
+/* --- Section reveal: shimmering sheen on premium cards --- */
+[data-reveal][data-inview="1"].card-premium::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: sheen 1.6s cubic-bezier(0.16,1,0.3,1) 0.2s 1 forwards;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.card-premium { position: relative; overflow: hidden; }
+@keyframes sheen { to { transform: translateX(120%); } }
+
+/* --- Richer section gradient meshes (layer on top of colors) --- */
+.section-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 15% 10%, rgba(59,130,246,0.10), transparent 60%),
+    radial-gradient(50% 40% at 90% 90%, rgba(34,211,238,0.09), transparent 60%);
+  pointer-events: none;
+  animation: mesh-drift 26s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.section-band > * { position: relative; z-index: 1; }
+.section-band--alt::before {
+  background:
+    radial-gradient(55% 45% at 85% 15%, rgba(99,102,241,0.10), transparent 60%),
+    radial-gradient(50% 40% at 10% 85%, rgba(59,130,246,0.09), transparent 60%);
+}
+.section-band--warm::before {
+  background:
+    radial-gradient(60% 50% at 20% 20%, rgba(251,191,36,0.10), transparent 60%),
+    radial-gradient(50% 40% at 85% 80%, rgba(244,114,182,0.08), transparent 60%);
+}
+@keyframes mesh-drift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-2%, 1.5%, 0) scale(1.04); }
+}
+
+/* --- Section-to-section soft transition band --- */
+section + section {
+  position: relative;
+}
+
+/* --- Global reveal enrichment: subtle blur clear on entry --- */
+[data-reveal] { filter: blur(6px); }
+[data-reveal][data-inview="1"] { filter: blur(0); transition: filter 0.9s ease, transform 0.85s cubic-bezier(0.16,1,0.3,1), opacity 0.75s ease; }
+
+/* --- Icons in accents: gentle bob --- */
+.pulse-dot {
+  box-shadow: 0 0 0 0 rgba(59,130,246,0.55);
+  animation: pulse-ring 2.2s cubic-bezier(0.16,1,0.3,1) infinite;
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(59,130,246,0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(59,130,246,0); }
+  100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+}
+
+/* --- Number pop-in --- */
+[data-reveal][data-inview="1"] .text-3xl,
+[data-reveal][data-inview="1"] .text-4xl,
+[data-reveal][data-inview="1"] .text-5xl,
+[data-reveal][data-inview="1"] .text-6xl {
+  animation: num-pop 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes num-pop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .float-card, .hero-headline .text-primary, .section-band::before,
+  .pulse-dot, [data-reveal] { animation: none !important; filter: none !important; }
+  .card-surface:hover, .card-premium:hover, .btn-primary:hover {
+    transform: none !important;
+  }
+}
