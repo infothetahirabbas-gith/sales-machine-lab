@@ -59,11 +59,19 @@ export default function Footer() {
         <div className="lg:col-span-3">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">COMPANY</div>
           <ul className="grid gap-2.5 text-background/60">
-            {COMPANY_LINKS.map((c) => (
+            {COMPANY_LINKS.slice(0, 5).map((c) => (
               <li key={c.slug}>
                 <Link to={c.to} className="hover:text-accent transition-colors">{c.label}</Link>
               </li>
             ))}
+            <li className="pt-1">
+              <Link
+                to="/company"
+                className="inline-flex items-center gap-1 font-semibold text-accent hover:text-background transition-colors group"
+              >
+                See all <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </li>
           </ul>
         </div>
 
