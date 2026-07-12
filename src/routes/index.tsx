@@ -293,6 +293,7 @@ function Home() {
 
       {/* 4. SOLUTION - 4 PILLARS */}
       <Section
+        className="section-band--cool"
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
@@ -327,6 +328,7 @@ function Home() {
       </Suspense>
 
       {/* 5. SERVICES PREVIEW GRID */}
+        className="section-band--warm"
       <Section
         center
         eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
@@ -370,6 +372,7 @@ function Home() {
         </div>
       </Section>
 
+        className="section-band--slate"
       {/* 6. BEFORE / AFTER - interactive slider */}
       <Section
         center
@@ -444,6 +447,7 @@ function Home() {
           </div>
         </div>
       </Section>
+        className="section-band--lavender"
 
       {/* 8. HOW IT WORKS */}
       <Section
@@ -473,6 +477,7 @@ function Home() {
             </Reveal>
           ))}
         </div>
+        className="section-band--alt"
       </Section>
 
       {/* 9. TOOLS - grouped by job-to-be-done */}
@@ -546,6 +551,7 @@ function Home() {
               </Card>
             </Reveal>
           ))}
+        className="section-band--cool"
         </div>
       </Section>
 
@@ -571,6 +577,7 @@ function Home() {
                 <p className="text-sm text-muted-foreground mt-2">{p.b}</p>
               </Card>
             </Reveal>
+        className="section-band--warm"
           ))}
         </div>
       </Section>
