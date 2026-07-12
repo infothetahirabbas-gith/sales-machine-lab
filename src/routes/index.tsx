@@ -269,7 +269,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
+      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need another Ecommerce PPC Agency UK they need an Ecommerce CRO Agency UK that fixes the leaks before scaling spend.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -405,7 +405,7 @@ function Home() {
       </Section>
 
       {/* 7. CASE STUDY */}
-      <Section center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
+      <Section className="section-band--mint" center eyebrow="Real result" title="From £18K to £214K/month in 6 months.">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="relative rounded-2xl border border-border bg-card/60 p-3 overflow-hidden">
             <img
@@ -611,7 +611,7 @@ function Home() {
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
-      <Section center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
+      <Section className="section-band--slate" center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
         <div className="relative overflow-hidden">
           <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
