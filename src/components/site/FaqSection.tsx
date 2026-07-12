@@ -48,7 +48,7 @@ export default function FaqSection({
             </div>
           </Reveal>
 
-          <StaggerGroup className="space-y-3" stagger={0.06}>
+          <StaggerGroup className="space-y-3" stagger={0.06} pattern={["left", "right", "up", "right", "left"]}>
             {faqs.map((f, i) => {
               const isOpen = open === i;
               const id = `faq-${faqSlug(f.q)}`;
