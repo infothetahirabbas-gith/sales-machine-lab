@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Reveal } from "../../hooks/useReveal";
 
 /** Split a heading string into ink + brand halves. Use "||" in the string for
