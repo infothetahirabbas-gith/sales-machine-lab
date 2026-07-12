@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Reveal } from "../../hooks/useReveal";
 
 /** Split a heading string into ink + brand halves. Use "||" in the string for
@@ -54,45 +55,66 @@ export function Section({
   alt?: boolean;
 }) {
   return (
-    <section
-      id={id}
-      data-alt={alt ? "true" : undefined}
-        className={`section-band cv-auto relative py-20 lg:py-28 ${alt ? "section-band--alt" : ""} ${className}`}
-    >
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        {(eyebrow || title || intro) && (
-          <div className={`max-w-3xl mx-auto text-center mb-12 ${center ? "" : ""}`}>
-            {eyebrow && (
-              <Reveal>
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
-                  <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-                  {eyebrow}
-                </div>
-              </Reveal>
-            )}
-            {title && (
-              <Reveal delay={1}>
-                <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink"><SplitHeading value={title} /></h2>
-              </Reveal>
-            )}
-            {intro && (
-              <Reveal delay={2}>
-                <p className="mt-5 text-lg text-muted-foreground"><SplitLine value={intro} /></p>
-              </Reveal>
-            )}
-          </div>
-        )}
-        {children}
-      </div>
-    </section>
+    <LazyMotion features={domAnimation} strict>
+      <section
+        id={id}
+        data-alt={alt ? "true" : undefined}
+        className={`section-band cv-auto relative py-20 lg:py-28 overflow-hidden ${alt ? "section-band--alt" : ""} ${className}`}
+      >
+        <m.div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -left-24 w-[380px] h-[380px] rounded-full bg-primary/[0.06] blur-[120px]"
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <m.div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-24 -right-24 w-[380px] h-[380px] rounded-full bg-accent/20 blur-[120px]"
+          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+          {(eyebrow || title || intro) && (
+            <div className={`max-w-3xl mx-auto text-center mb-12 ${center ? "" : ""}`}>
+              {eyebrow && (
+                <Reveal>
+                  <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-4">
+                    <span className="relative inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
+                    {eyebrow}
+                  </div>
+                </Reveal>
+              )}
+              {title && (
+                <Reveal delay={1}>
+                  <h2 className="text-3xl md:text-5xl font-bold leading-[1.05] text-ink"><SplitHeading value={title} /></h2>
+                </Reveal>
+              )}
+              {intro && (
+                <Reveal delay={2}>
+                  <p className="mt-5 text-lg text-muted-foreground"><SplitLine value={intro} /></p>
+                </Reveal>
+              )}
+            </div>
+          )}
+          {children}
+        </div>
+      </section>
+    </LazyMotion>
   );
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`card-surface card-hover group p-6 ${className}`}>
-      {children}
-    </div>
+    <LazyMotion features={domAnimation} strict>
+      <m.div
+        className={`card-surface card-hover group p-6 ${className}`}
+        whileHover={{ y: -8, scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      >
+        {children}
+      </m.div>
+    </LazyMotion>
   );
 }
 
