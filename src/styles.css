@@ -48,7 +48,7 @@
 }
 
 :root {
-  --radius: 0.9rem;
+  --radius: 1.25rem;
   /* Being Ecom brand palette - single brand orange #E47B02 + soft charcoal ink */
   --background: oklch(1 0 0);                       /* #FFFFFF */
   --foreground: oklch(0.36 0.018 264);              /* lighter charcoal, never jet black */
