@@ -335,19 +335,6 @@ export default function Header() {
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
             </select>
           </label>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change language">
-            <Languages className="size-3 shrink-0" />
-            <span className="min-w-0 truncate">{langLabel}</span>
-            <ChevronDown className="size-3 shrink-0 opacity-60" />
-            <select
-              value={currentPrefs.language}
-              onChange={(e) => updatePref("language", e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer"
-              aria-label="Change language"
-            >
-              {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
-            </select>
-          </label>
           <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change industry">
             <Briefcase className="size-3 shrink-0" />
             <span className="min-w-0 truncate min-[1024px]:max-w-[140px]">{industryLabel}</span>
