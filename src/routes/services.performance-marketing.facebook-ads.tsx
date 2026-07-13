@@ -126,7 +126,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where Meta traffic actually turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and statics — 3 batches/week." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },
-        { to: "/free-audit", title: "Free Facebook Ads Audit", body: "Book a free 30-min audit of your Meta account and tracking." },
+        { to: "/audit", title: "Free Facebook Ads Audit", body: "Book a free 30-min audit of your Meta account and tracking." },
         { to: "/case-studies", title: "Meta Ads Case Studies", body: "Real Shopify & Woo brands scaled by our Ecommerce Growth Agency." },
       ],
     }} />

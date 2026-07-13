@@ -126,7 +126,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
         { to: "/services/creative", title: "Creative Production", body: "UGC and creator video — 3 batches/week." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where TikTok traffic turns into revenue." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },
-        { to: "/free-audit", title: "Free TikTok Ads Audit", body: "Book a free 30-min audit of your account and creative." },
+        { to: "/audit", title: "Free TikTok Ads Audit", body: "Book a free 30-min audit of your account and creative." },
         { to: "/case-studies", title: "TikTok Ads Case Studies", body: "Real Shopify & Woo brands scaled on TikTok." },
       ],
     }} />

@@ -136,7 +136,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product — 3 batches/week." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers for every growth stage." },
-        { to: "/free-audit", title: "Free Paid Ads Audit", body: "Book a 30-min audit of your account, creative and tracking." },
+        { to: "/audit", title: "Free Paid Ads Audit", body: "Book a 30-min audit of your account, creative and tracking." },
         { to: "/case-studies", title: "Client Case Studies", body: "Real Shopify & WooCommerce brands scaled by our Ecommerce Growth Agency." },
       ],
     }} />
