@@ -25,11 +25,30 @@ const baseline = JSON.parse(readFileSync(resolve(__dirname, "seo-baseline.json")
 const BASE = baseline.base.replace(/\/$/, "");
 const ROOT = resolve(__dirname, "..");
 
-// Map baseline route → source file (dots for slashes, index for /).
+const SITE_URL = BASE;
+
+// Map baseline route → source file (dots for slashes, .tsx or .index.tsx).
+import { existsSync } from "node:fs";
 function routeToFile(route) {
   if (route === "/") return "src/routes/index.tsx";
   const seg = route.replace(/^\//, "").split("/").join(".");
-  return `src/routes/${seg}.tsx`;
+  const flat = `src/routes/${seg}.tsx`;
+  const layoutIdx = `src/routes/${seg}.index.tsx`;
+  if (existsSync(join(ROOT, layoutIdx))) return layoutIdx;
+  return flat;
+}
+
+// Resolve `${SITE_URL}` and a local `const URL = ...` template into a
+// concrete string for comparison.
+function resolveHref(rawHref, src) {
+  let out = rawHref.replace(/\$\{\s*SITE_URL\s*\}/g, SITE_URL);
+  const urlConst = /const\s+URL\s*=\s*`([^`]+)`/.exec(src);
+  if (urlConst) {
+    const resolved = urlConst[1].replace(/\$\{\s*SITE_URL\s*\}/g, SITE_URL);
+    out = out.replace(/\$\{\s*URL\s*\}/g, resolved);
+    if (out === "URL") out = resolved; // bare identifier reference
+  }
+  return out;
 }
 
 const failures = [];
@@ -48,11 +67,15 @@ for (const [route, expected] of Object.entries(baseline.routes)) {
     failures.push(`${route}: source uses loader-level 301/307 redirect but baseline expects HTTP ${expected.status}`);
   }
 
-  // Extract every canonical href literal declared in this file.
-  const canonicals = [
-    ...src.matchAll(/rel:\s*["']canonical["'][^}]*href:\s*["']([^"']+)["']/g),
-    ...src.matchAll(/href:\s*["']([^"']+)["'][^}]*rel:\s*["']canonical["']/g),
+  // Extract canonical href — supports string literals, template literals, and bare identifier `URL`.
+  const rawHrefs = [
+    ...src.matchAll(/rel:\s*["']canonical["'][^}]*href:\s*["`]([^"`]+)["`]/g),
+    ...src.matchAll(/href:\s*["`]([^"`]+)["`][^}]*rel:\s*["']canonical["']/g),
+    ...src.matchAll(/rel:\s*["']canonical["'][^}]*href:\s*(URL)\b/g),
+    ...src.matchAll(/href:\s*(URL)\b[^}]*rel:\s*["']canonical["']/g),
   ].map((m) => m[1]);
+
+  const canonicals = rawHrefs.map((h) => resolveHref(h, src));
 
   if (!canonicals.length) {
     failures.push(`${route}: no <link rel="canonical"> declared in ${file}`);
