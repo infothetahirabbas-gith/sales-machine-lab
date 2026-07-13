@@ -613,17 +613,20 @@ function Home() {
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget." },
-            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing." },
-            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand." },
-            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes." },
-            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers." },
-            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it." },
+            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget.", kpi: "120+ stores scaled" },
+            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing.", kpi: "1 revenue owner" },
+            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand.", kpi: "UK + 14 markets" },
+            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes.", kpi: "Weekly Loom + live dashboards" },
+            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers.", kpi: "7+ yrs avg operator experience" },
+            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it.", kpi: "94% retain past 90 days" },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
                 <h3 className="font-semibold text-lg text-ink">{p.t}</h3>
                 <p className="text-sm text-muted-foreground mt-2">{p.b}</p>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
+                  <span aria-hidden="true">✓</span>{p.kpi}
+                </div>
               </Card>
             </Reveal>
           ))}
