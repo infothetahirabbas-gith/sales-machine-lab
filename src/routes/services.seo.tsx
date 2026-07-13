@@ -55,8 +55,24 @@ export const Route = createFileRoute("/services/seo")({
     <ServicePage cfg={{
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
-      heroTitle: "No.1 Ecommerce SEO Agency UK for Shopify & WooCommerce brands.",
-      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click.",
+      heroTitle: "Best Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
+      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
+      intro: {
+        eyebrow: "Why brands hire us",
+        title: "The UK's Leading Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
+        paragraphs: [
+          "BeingEcom is a specialist Ecommerce SEO Agency UK - a team of senior operators who have shipped SEO strategies for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist marketing agency. We do not chase SaaS retainers or local plumbers. Every strategist, engineer and editor on your account is an ecommerce specialist, and every engagement is led by a UK-based senior SEO director from day one.",
+          "As an Ecommerce Marketing Agency UK we treat search as a revenue channel, not a traffic channel. Rankings are worthless if they don't convert - so every technical fix, on-page rebuild, editorial link and AEO block is judged against organic-attributed revenue, blended MER and CAC. We wire Google Search Console, GA4, Ahrefs, Semrush, Merchant Center and Triple Whale into a single dashboard so you can see exactly which pages are compounding and which are leaking.",
+          "The result is what an Ecommerce Growth Agency should actually deliver: a store that ranks for its highest-intent buyer queries, gets cited by Google AI Overviews, ChatGPT, Claude, Gemini and Perplexity, converts that traffic into orders, and stops depending on Meta's ROAS roulette to hit the monthly forecast.",
+        ],
+        highlights: [
+          "Senior UK SEO director on every account - no juniors, no rotating pods.",
+          "Ecommerce-only - 120+ Shopify & WooCommerce stores scaled, £48M+ tracked revenue.",
+          "Product, collection, technical, content and digital PR under one roof.",
+          "AEO / AI-Overview optimisation included by default in every engagement.",
+          "90-day initial engagement, then month-to-month. No 12-month lock-ins.",
+        ],
+      },
       problemTitle: "Most ecommerce stores are invisible on Google.",
       problemBullets: [
         "Product pages with 40 words of copy, no schema, no reviews - Google sees a duplicate of every competitor.",
