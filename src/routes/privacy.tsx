@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
 import { breadcrumbJsonLd } from "../lib/seo";
