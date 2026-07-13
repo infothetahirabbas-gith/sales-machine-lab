@@ -8,25 +8,33 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quot
 import heroPM from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. We manage blended ROAS (MER), CAC, LTV and payback period across Meta, Google, TikTok and YouTube as a single portfolio - never optimising one channel in isolation." },
-  { q: "What's a healthy blended ROAS (MER) for a scaling ecommerce brand?", a: "Depends on contribution margin. Most UK DTC brands need 3.0–4.5× MER to hit contribution-margin positive. We back-solve target MER from your unit economics - not from a vanity number." },
-  { q: "How much should I spend to properly test a channel?", a: "Meta: minimum £5-8k/mo to test 15+ creatives fairly. Google: £3-6k/mo depending on category CPCs. TikTok: £3k/mo minimum with a real creator pipeline. YouTube: £2k/mo for demand capture; £6k+ for demand generation." },
-  { q: "Do you handle creative production?", a: "Yes - 3-6 UGC + motion + static creatives shipped per week, briefed against a written creative testing framework (angle, hook, format, offer). No creative volume, no scale." },
-  { q: "What tracking stack do you set up?", a: "Server-side GA4, Meta CAPI, Google Enhanced Conversions, TikTok Events API 2.0, LinkedIn CAPI where relevant. Triple Whale or Northbeam for blended attribution. Set up properly in week one." },
-  { q: "Can we scale without ruining ROAS?", a: "Yes, if creative velocity, offer discipline and audience structure are right. We've scaled brands 3-8× in 6 months while keeping ROAS within 10% of baseline. The key: never scale on the same creative pool." },
-  { q: "How do you decide where to allocate budget?", a: "MER-first: which channel earns the most incremental profit per pound at your current spend level. Then geo-fenced holdout tests validate every reallocation before we commit." },
-  { q: "What if my product needs demand creation, not demand capture?", a: "Then TikTok, Meta and YouTube demand-gen come first, with Google Shopping/Search catching intent downstream. Category, not preference, decides the media mix." },
-  { q: "Do you have a minimum monthly ad spend?", a: "£10k/mo across paid media is our practical floor to run the full-funnel system properly. Below that we usually recommend focusing on one channel deeply first." },
+  { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. As a specialist Ecommerce Marketing Agency UK we manage blended ROAS (MER), CAC, LTV and payback across Meta, Google, TikTok and YouTube as a single portfolio — never optimising one channel in isolation." },
+  { q: "What's a healthy blended ROAS (MER) for a scaling ecommerce brand?", a: "Depends on contribution margin. Most UK DTC brands need 3.0–4.5× MER to hit contribution-margin positive. Every serious Ecommerce Agency UK back-solves target MER from your unit economics — not from a vanity number." },
+  { q: "How much should I spend to properly test a channel?", a: "Meta: minimum £5–8k/mo to test 15+ creatives fairly. Google: £3–6k/mo depending on category CPCs. TikTok: £3k/mo minimum with a real creator pipeline. YouTube: £2k/mo for demand capture; £6k+ for demand generation." },
+  { q: "Do you handle creative production?", a: "Yes — 3–6 UGC + motion + static creatives shipped per week, briefed against a written creative testing framework (angle, hook, format, offer). No creative volume, no scale." },
+  { q: "What tracking stack do you set up?", a: "Server-side GA4, Meta CAPI, Google Enhanced Conversions, TikTok Events API 2.0. Triple Whale or Northbeam for blended attribution. Set up in week one." },
+  { q: "Can we scale without ruining ROAS?", a: "Yes, if creative velocity, offer discipline and audience structure are right. We've scaled brands 3–8× in 6 months while keeping ROAS within 10% of baseline." },
+  { q: "How do you decide where to allocate budget?", a: "MER-first: which channel earns the most incremental profit per pound at your current spend level. Geo-fenced holdout tests validate every reallocation." },
+  { q: "What if my product needs demand creation, not demand capture?", a: "TikTok, Meta and YouTube demand-gen come first, with Google Shopping/Search catching intent downstream. Category decides the mix, not preference." },
+  { q: "Do you have a minimum monthly ad spend?", a: "£10k/mo across paid media is our practical floor to run the full-funnel system properly. Below that our Ecommerce Growth Agency team usually recommends focusing on one channel deeply first." },
+  { q: "Google Ads vs Meta Ads vs TikTok — which should I run?", a: "Google harvests demand (BOF, 3.5–6× ROAS). Meta creates demand at scale (TOF/MOF, 2.5–3.5×). TikTok creates viral demand (TOF, 1.8–3×). A real portfolio uses all three against blended MER." },
+  { q: "How fast will performance marketing see results?", a: "14–30 days on Meta and TikTok once creative velocity kicks in. Google Search and Shopping stabilise in 30–45 days. Real compounding scale from month 3." },
+  { q: "Do you pair paid media with SEO?", a: "Yes — our sister Ecommerce SEO Agency UK team captures the branded-search halo paid creates, compounding CAC downward over time." },
+  { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes — several clients sit between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
+  { q: "What contract length do you require?", a: "3-month initial commitment to hit a real testing cadence, then rolling monthly. No 12-month lock-ins." },
+  { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and Ecommerce SEO Agency UK collaboration so paid demand compounds into organic." },
+  { q: "What industries do you work with?", a: "Beauty, fashion, wellness, homewares, gadgets and food & drink DTC brands on Shopify, Shopify Plus and WooCommerce." },
+  { q: "How is BeingEcom different from other performance marketing agencies?", a: "We're a specialist Ecommerce Marketing Agency UK — media buying, creative, tracking, CRO and SEO share one revenue P&L per client, with a senior media buyer owning your account personally." },
 ];
 
 export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
-      { title: "Ecommerce PPC Agency UK | Meta, Google & TikTok Ads | BeingEcom" },
-      { name: "description", content: "Ecommerce PPC Agency UK managing Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands. Senior media buyers only." },
-      { name: "keywords", content: "performance marketing agency UK, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Meta Google TikTok agency, Shopify paid media" },
-      { property: "og:title", content: "Ecommerce PPC Agency UK | Meta, Google & TikTok Ads | BeingEcom" },
-      { property: "og:description", content: "Ecommerce PPC Agency UK managing Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands. Senior media buyers only." },
+      { title: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { name: "description", content: "Award-winning Performance Marketing Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands." },
+      { name: "keywords", content: "performance marketing agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Shopify paid media" },
+      { property: "og:title", content: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube ads as one P&L for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
     links: [
@@ -89,12 +97,12 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={1}>
                 <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
-                  <span className="text-gradient">Performance marketing agency UK</span> - full-funnel paid media, one P&L.
+                  <span className="text-gradient">No.1 Performance Marketing Agency UK</span> — full-funnel paid media, one P&L.
                 </h1>
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  Facebook, Google, TikTok, Instagram and YouTube Ads managed by UK ecommerce media buyers - one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify and DTC growth.
+                  The UK's leading Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
                 </p>
               </Reveal>
               <Reveal delay={3}>

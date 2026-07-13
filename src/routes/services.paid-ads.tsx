@@ -4,41 +4,39 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-paid-ads.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  {
-    "q": "Which platforms do you run ads on?",
-    "a": "Meta (Facebook/Instagram), Google (Search, Shopping, PMax, YouTube) and TikTok. Channel mix depends on margin, AOV and audience."
-  },
-  {
-    "q": "What's the minimum ad budget to work with you?",
-    "a": "We work best with brands spending £8k+/mo on ads. Below that, a focused single-channel sprint usually beats a multi-channel agency."
-  },
-  {
-    "q": "How do you measure success?",
-    "a": "Blended MER and contribution margin, not platform ROAS alone. Platform numbers lie; bank-account numbers don't."
-  },
-  {
-    "q": "Do you handle creative?",
-    "a": "Yes - UGC, statics and video all in-house. Creative wins more than account structure on Meta and TikTok."
-  },
-  {
-    "q": "How long is the contract?",
-    "a": "3-month initial commitment so we can hit a real testing cadence, then rolling monthly."
-  }
+  { q: "What does an ecommerce paid ads agency actually do?", a: "A specialist Ecommerce Marketing Agency UK like BeingEcom runs your Meta, Google, TikTok and YouTube ads as one profit engine — creative production, media buying, tracking, attribution and weekly capital reallocation against blended MER." },
+  { q: "Which platforms do you run ads on?", a: "Meta (Facebook/Instagram), Google (Search, Shopping, PMax, YouTube) and TikTok. As a full-stack Ecommerce Agency UK we recommend a channel mix based on margin, AOV, product and audience — never a template." },
+  { q: "What's the minimum ad budget to work with you?", a: "We work best with brands spending £8k+/mo on ads. Below that a single-channel sprint from an Ecommerce Growth Agency usually beats a multi-channel retainer." },
+  { q: "How do you measure success?", a: "Blended MER and contribution margin, not platform ROAS alone. Platform numbers lie; bank-account numbers don't. We report daily on new-customer CAC, payback and incremental revenue." },
+  { q: "Do you handle creative?", a: "Yes — UGC, statics, motion and Reels/Shorts in-house. Creative wins more than account structure on Meta and TikTok, so we ship 3 batches per week." },
+  { q: "How long is the contract?", a: "3-month initial commitment so we can hit a real testing cadence, then rolling monthly. No 12-month lock-ins." },
+  { q: "What ROAS should I expect?", a: "2.8×–4.2× blended ROAS is realistic for scaled DTC brands. Anything higher and you're probably harvesting brand demand created by your SEO — which is why we pair paid with our Ecommerce SEO Agency UK team." },
+  { q: "How fast will I see results?", a: "Meta and TikTok move in 14–30 days once creative velocity kicks in. Google Search and Shopping stabilise inside 30–45 days. Real scale typically compounds from month 3." },
+  { q: "Do you set up tracking, CAPI and server-side?", a: "Yes — Meta CAPI, Google Enhanced Conversions, GA4, server-side GTM and (optionally) Triple Whale or Hyros. Attribution is our first project week, always." },
+  { q: "Can you run ads for Shopify and WooCommerce?", a: "Yes — our stack is built around Shopify, Shopify Plus and WooCommerce catalogues, feed management and post-purchase attribution." },
+  { q: "How is paid different from organic?", a: "Paid buys attention; SEO earns it. The strongest ecommerce brands run both. Our sister Ecommerce SEO Agency UK team compounds the demand paid captures — lowering CAC over time." },
+  { q: "Do you offer a free audit?", a: "Yes — a free 30-minute paid-ads audit covering account structure, creative velocity, tracking health and MER opportunity. Book from the CTA below." },
+  { q: "What if my ROAS is currently profitable — do I still need an agency?", a: "If you can sustain 20%+ month-over-month growth solo, no. If you're capped or plateauing, a specialist Ecommerce Marketing Agency UK unlocks the next tier via creative velocity and cross-channel allocation." },
+  { q: "Do you work with beauty, fashion, supplements or homewares?", a: "Yes — most of our roster is beauty, fashion, wellness, homewares, gadgets and food & drink DTC. Vertical experience compounds our creative library and testing speed." },
+  { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes — several clients are between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
+  { q: "What tools do you use?", a: "Meta Ads Manager, Google Ads, TikTok Ads Manager, Triple Whale, GA4, Motion, Foreplay, Northbeam and Looker Studio dashboards you can log into any time." },
+  { q: "How is BeingEcom different from other paid-ads agencies?", a: "We're a specialist Ecommerce Agency UK — not a generalist. Every strategist runs 6-figure ecommerce accounts weekly, and our creative, media buying and SEO teams share one revenue P&L per client." },
 ];
 
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
-      { name: "description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok creative + media buying that scales profitably." },
-      { property: "og:title", content: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom" },
-      { property: "og:description", content: "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok creative + media buying that scales profitably." },
+      { title: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { name: "description", content: "Award-winning Ecommerce Paid Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Meta, Google Shopping, PMax, TikTok and YouTube for Shopify and WooCommerce brands — profitably, at scale." },
+      { name: "keywords", content: "Ecommerce Paid Ads Agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, PPC agency UK, Meta Ads agency UK, Google Ads agency UK, TikTok Ads agency UK, Shopify paid ads agency" },
+      { property: "og:title", content: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { property: "og:description", content: "Specialist Ecommerce Marketing Agency UK running Meta, Google, TikTok and YouTube for Shopify & WooCommerce brands. Profitable scale, blended MER, weekly creative." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/paid-ads" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "paid-ads", name: "Paid Advertising", description: "Meta, Google and TikTok ads built to scale profitably for Shopify and WooCommerce brands." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "paid-ads", name: "Ecommerce Paid Ads Agency UK", description: "Meta, Google, TikTok and YouTube ads built to scale profitably for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Paid Advertising", path: "/services/paid-ads" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/paid-ads")) },
     ],
@@ -47,27 +45,27 @@ export const Route = createFileRoute("/services/paid-ads")({
     <ServicePage cfg={{
       slug: "paid-ads",
       eyebrow: "Paid Advertising",
-      heroTitle: "Scale your ecommerce store with profitable ads.",
-      heroSub: "Meta, Google & TikTok ads built around creative volume, real targeting, and break-even math.",
+      heroTitle: "No.1 Ecommerce Paid Ads Agency UK — scale your store profitably.",
+      heroSub: "The UK's most trusted Ecommerce Marketing Agency UK for Meta, Google & TikTok — creative volume, real targeting, and break-even math built for Shopify & WooCommerce brands.",
       problemTitle: "Why most ecommerce ad accounts bleed money.",
       problemBullets: [
         "Boosting posts and calling it strategy.",
         "Creative fatigue every 2 weeks, no testing pipeline.",
         "Scaling without funnel structure → ROAS collapses.",
       ],
-      whatIsTitle: "Ads are a multiplier - not a savior.",
-      whatIsBody: "If your store doesn't convert, ads will just lose money faster. We build the creative engine, the funnel, and the testing system that turns ad spend into compounding revenue.",
+      whatIsTitle: "Ads are a multiplier — not a savior.",
+      whatIsBody: "If your store doesn't convert, ads will just lose money faster. As a full-stack Ecommerce Growth Agency we build the creative engine, the funnel and the testing system that turns ad spend into compounding revenue — and pair it with our Ecommerce SEO Agency UK team so paid demand keeps compounding into organic.",
       systemTitle: "Our paid ads system.",
       systemSteps: [
         { title: "Account & funnel audit", body: "Account structure, pixels, attribution, creative inventory." },
-        { title: "Creative engine setup", body: "Hooks, angles, formats - weekly testing pipeline." },
+        { title: "Creative engine setup", body: "Hooks, angles, formats — weekly testing pipeline." },
         { title: "Structured campaigns", body: "TOF/MOF/BOF + ASC/Performance Max where it makes sense." },
         { title: "Scale on break-even", body: "Spend more only where unit economics work." },
       ],
       pillarsTitle: "Channels we run.",
       pillars: [
         { title: "Meta Ads", body: "Facebook + Instagram, the workhorse of DTC." },
-        { title: "Google Ads", body: "Search, Shopping, PMax - capture intent." },
+        { title: "Google Ads", body: "Search, Shopping, PMax — capture intent." },
         { title: "TikTok Ads", body: "Native UGC creatives, top-funnel virality." },
         { title: "Retargeting", body: "Email + paid retargeting + dynamic product ads." },
       ],
@@ -79,8 +77,25 @@ export const Route = createFileRoute("/services/paid-ads")({
         { title: "Retargeting system", body: "Layered audiences, dynamic catalogue, post-purchase exclusions.", tags: ["DPA","Exclusion","Cross-sell"] },
         { title: "Scaling campaign structure", body: "Vertical vs horizontal scaling, MER targets, blended ROAS focus.", tags: ["MER","Blended ROAS","Spend curves"] },
       ],
-      triggersTitle: "Creative angles that work in 2025.",
+      triggersTitle: "Creative angles that work in 2026.",
       triggers: ["Problem-solution UGC","Founder story","Before/after","Product demo","Testimonial stack","List/Top-X","Comparison","Native review","Stitch / duet"],
+      comparison: {
+        rows: [
+          { criterion: "Best for", us: "Full-funnel DTC scaling", agency: "Cheap CPMs / awareness", inhouse: "One channel at a time" },
+          { criterion: "Intent level", us: "Mid–High (Google)", agency: "Low (Meta prospecting)", inhouse: "Low (TikTok discovery)" },
+          { criterion: "Typical ROAS", us: "3.5–5× (Google)", agency: "2.5–3.5× (Meta)", inhouse: "1.8–3× (TikTok)" },
+          { criterion: "Creative refresh", us: "Every 4–6 weeks", agency: "Every 10–14 days", inhouse: "Every 7–10 days" },
+          { criterion: "Min viable spend", us: "£3k/mo", agency: "£5k/mo", inhouse: "£3k/mo" },
+          { criterion: "Attribution risk", us: "Low", agency: "Medium (iOS)", inhouse: "High (native)" },
+        ],
+      },
+      mistakes: [
+        { title: "Chasing platform ROAS", body: "Meta reports 6× while your bank grows 1.4×. Report on blended MER, not platform ROAS." },
+        { title: "Two creatives on rotation", body: "ASC+ needs 10–20 new creatives per month to keep finding winners." },
+        { title: "No CAPI or server-side", body: "iOS + tracking loss = broken signal. Fix CAPI and Enhanced Conversions first, then scale." },
+        { title: "Ignoring brand search", body: "Competitors bid on your name. Defending brand terms is the cheapest ROAS in the account." },
+        { title: "Scaling before break-even", body: "Doubling spend on a losing funnel just doubles losses. Fix CVR and AOV first." },
+      ],
       beforeAfter: {
         before: ["1.6× ROAS","2 ads, no testing","£80 CAC","Stuck at £15K/mo"],
         after: ["3.4× ROAS","12+ creatives in rotation","£38 CAC","£95K/mo with stable ROAS"],
@@ -92,7 +107,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         result: "Scaled to £62K MRR at 2.6× ROAS in 90 days.",
         metrics: [{ label: "MRR", value: "£62K" }, { label: "ROAS", value: "2.6×" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Want ad spend to actually print revenue?",
+      ctaTitle: "Ready to work with the UK's leading Ecommerce Marketing Agency UK?",
       impactStats: [
         { value: "4.1×", label: "Blended ROAS" },
         { value: "-38%", label: "Avg CPA" },
@@ -101,7 +116,7 @@ export const Route = createFileRoute("/services/paid-ads")({
       metricBars: [
         { label: "ROAS", before: 1.6, after: 4.1, unit: "×", description: "Revenue ÷ ad spend across Meta + Google + TikTok blended." },
         { label: "CPA", before: 48, after: 22, unit: "£", description: "Cost per acquired customer. Lower CPA = profitable scaling room." },
-        { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads - the hook-rate signal." },
+        { label: "CTR", before: 0.9, after: 2.4, unit: "%", description: "Click-through rate on cold traffic ads — the hook-rate signal." },
         { label: "CPM efficiency", before: 32, after: 18, unit: "£", description: "Cost per 1,000 impressions. Reflects creative + audience strength." },
         { label: "Monthly ad revenue", before: 64, after: 246, unit: "£k", description: "Top-line revenue attributable to paid channels per month." },
       ],
@@ -116,9 +131,13 @@ export const Route = createFileRoute("/services/paid-ads")({
         { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel MER, blended ROAS and full-funnel budgets." },
       ],
       relatedServices: [
-        { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product - 3 batches/week." },
-        { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound the demand paid captures with our Ecommerce SEO Agency UK team." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where ad traffic actually turns into revenue." },
+        { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product — 3 batches/week." },
+        { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },
+        { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers for every growth stage." },
+        { to: "/free-audit", title: "Free Paid Ads Audit", body: "Book a 30-min audit of your account, creative and tracking." },
+        { to: "/case-studies", title: "Client Case Studies", body: "Real Shopify & WooCommerce brands scaled by our Ecommerce Growth Agency." },
       ],
     }} />
   ),
