@@ -52,8 +52,24 @@ export const Route = createFileRoute("/services/paid-ads")({
     <ServicePage cfg={{
       slug: "paid-ads",
       eyebrow: "Paid Advertising",
-      heroTitle: "No.1 Ecommerce Paid Ads Agency UK — scale your store profitably.",
-      heroSub: "The UK's most trusted Ecommerce Marketing Agency UK for Meta, Google & TikTok — creative volume, real targeting, and break-even math built for Shopify & WooCommerce brands.",
+      heroTitle: "Best Ecommerce Paid Ads Agency UK - Scale Meta, Google & TikTok Profitably.",
+      heroSub: "UK's leading Ecommerce Marketing Agency UK for paid media - Meta, Google Shopping, PMax, TikTok and YouTube run as one profit engine. Creative volume, real targeting, break-even math and blended MER reporting for Shopify and WooCommerce brands scaling past £50k/mo in ad spend. Senior UK media buyers, no juniors, no lock-ins.",
+      intro: {
+        eyebrow: "Why brands hire us",
+        title: "The UK's Most Trusted Ecommerce Paid Ads Agency for Profitable Scale.",
+        paragraphs: [
+          "BeingEcom is a specialist Ecommerce Paid Ads Agency UK - part of a full-stack Ecommerce Marketing Agency UK that runs creative, SEO, CRO and email under one revenue P&L. Every strategist on your account runs 6- and 7-figure ecommerce media budgets weekly, and every engagement is led by a senior UK media buyer from day one.",
+          "As an Ecommerce Growth Agency we treat paid ads as a profit engine, not a traffic tap. Meta, Google Shopping, PMax, TikTok and YouTube are managed as one budget allocated against blended MER, new-customer CAC and contribution margin. Creative velocity is baked in - 20-40 tested creatives per month via our in-house Ecommerce Creative Agency UK team - because targeting is automated and creative is 80% of what still moves.",
+          "The result is what a proper Ecommerce Agency UK should ship: rising blended MER, dropping new-customer CAC, weekly Loom reporting you actually understand, server-side attribution you can trust, and month-over-month profitable scale - not a Meta screenshot dressed up as growth.",
+        ],
+        highlights: [
+          "Senior UK media buyer on every account - no juniors, no rotating pods.",
+          "Ecommerce-only - 120+ Shopify & WooCommerce stores scaled, £48M+ tracked revenue.",
+          "One P&L across Meta, Google, TikTok, YouTube - allocated on blended MER.",
+          "In-house creative pod shipping 20-40 tested creatives/month per client.",
+          "3-month initial engagement, then rolling monthly. No 12-month lock-ins.",
+        ],
+      },
       problemTitle: "Why most ecommerce ad accounts bleed money.",
       problemBullets: [
         "Boosting posts and calling it strategy.",
