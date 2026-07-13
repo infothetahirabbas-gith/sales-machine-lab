@@ -206,19 +206,6 @@ for (const route of P1) {
   }
 
   summary.push({ route, file, types: [...types], blocks: blocks.length, skipped });
-    const nodes = Array.isArray(value) ? value : [value];
-    for (const n of nodes) {
-      if (!n || typeof n !== "object") continue;
-      types.add(n["@type"]);
-      const validator = RR[n["@type"]];
-      if (validator) {
-        const miss = validator(n);
-        if (miss.length) failures.push(`${route}: ${n["@type"]} missing fields → ${miss.join(", ")}`);
-      }
-    }
-  }
-
-  summary.push({ route, file, types: [...types], blocks: blocks.length, evalFailures });
 }
 
 const jsonOut = process.argv.includes("--json");
