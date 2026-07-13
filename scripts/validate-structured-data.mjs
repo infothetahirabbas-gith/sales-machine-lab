@@ -214,8 +214,8 @@ if (jsonOut) {
 } else {
   console.log(`\nStructured data validation (source-level) — ${P1.length} P1 routes`);
   for (const s of summary) {
-    const tag = s.evalFailures ? "✗" : "✓";
-    console.log(`  ${tag} ${s.route.padEnd(50)}  [${(s.types ?? []).join(", ") || "no JSON-LD"}]`);
+    const skipTag = s.skipped ? ` (${s.skipped} block${s.skipped === 1 ? "" : "s"} skipped)` : "";
+    console.log(`  ✓ ${s.route.padEnd(50)}  [${(s.types ?? []).join(", ") || "no evaluable JSON-LD"}]${skipTag}`);
   }
   if (failures.length) {
     console.error(`\n${failures.length} violation${failures.length === 1 ? "" : "s"}:`);
