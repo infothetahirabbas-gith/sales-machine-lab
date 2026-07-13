@@ -21,6 +21,13 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes — several clients are between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
   { q: "What tools do you use?", a: "Meta Ads Manager, Google Ads, TikTok Ads Manager, Triple Whale, GA4, Motion, Foreplay, Northbeam and Looker Studio dashboards you can log into any time." },
   { q: "How is BeingEcom different from other paid-ads agencies?", a: "We're a specialist Ecommerce Agency UK — not a generalist. Every strategist runs 6-figure ecommerce accounts weekly, and our creative, media buying and SEO teams share one revenue P&L per client." },
+  { q: "Do you offer a free paid-ads audit?", a: "Yes — a free 30-minute audit reviewing account structure, creative velocity, tracking health, attribution setup and MER opportunity. Delivered live by a senior UK media buyer." },
+  { q: "How do you approach creative for paid ads?", a: "Creative carries 80% of paid performance. We ship 20-40 tested creatives per month via our in-house Ecommerce Creative Agency UK team — UGC, statics, motion, founder — with weekly winner remixes." },
+  { q: "What's the difference between platform ROAS and MER?", a: "Platform ROAS (Meta, Google) is self-reported and double-counts across channels. MER (Marketing Efficiency Ratio) = total revenue ÷ total ad spend across ALL channels. MER is the only number that maps to bank-account growth." },
+  { q: "Can you help with international paid campaigns?", a: "Yes — UK, EU, US and MENA campaigns run under one strategy with per-region creative, currency handling, feed localisation and country-specific attribution windows." },
+  { q: "What ad platforms are worth testing in 2026?", a: "Meta and Google Shopping / PMax remain the workhorses. TikTok is essential for Gen Z. YouTube (Shorts + long-form) is under-priced. Pinterest works for aesthetic verticals. LinkedIn only for B2B ecommerce. We test the mix per brand." },
+  { q: "Do you run TikTok Shop ads?", a: "Yes — TikTok Shop native ads, Spark Ads and creator partnerships, plus product feed sync. TikTok Shop is now the fastest-growing paid channel for beauty, fashion and wellness DTC in the UK." },
+  { q: "What common paid ads mistakes do you see?", a: "Chasing platform ROAS instead of MER, running 2 creatives on rotation, no CAPI or server-side tracking, ignoring brand search, scaling before break-even, and never refreshing PMax asset groups. We fix all six from day one." },
 ];
 
 export const Route = createFileRoute("/services/paid-ads")({
