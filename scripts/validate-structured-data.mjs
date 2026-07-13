@@ -121,7 +121,9 @@ const sandbox = {
       "@type": "ListItem",
       position: i + 1,
       name: it.name,
-      item: it.item,
+      // Real helper accepts {name, path} and expands to `${SITE_URL}${path}`.
+      // Accept either shape so validation matches runtime output.
+      item: it.item ?? (it.path ? `${SITE_URL}${it.path}` : undefined),
     })),
   }),
   serviceJsonLd: (svc) => ({
