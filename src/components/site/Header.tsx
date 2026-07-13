@@ -312,7 +312,7 @@ export default function Header() {
   
   const cityLabel = LOCATIONS.find((l) => l.slug === currentPrefs.location)?.city ?? "London";
   const industryLabel = INDUSTRIES.find((i) => i.slug === currentPrefs.industry)?.name ?? "Fashion & Apparel";
-  const langLabel = LANG_OPTIONS.find((l) => l.code === currentPrefs.language)?.name ?? "English";
+  
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
