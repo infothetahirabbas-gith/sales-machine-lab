@@ -130,6 +130,29 @@ export const Route = createFileRoute("/services/paid-ads")({
         result: "Scaled to £62K MRR at 2.6× ROAS in 90 days.",
         metrics: [{ label: "MRR", value: "£62K" }, { label: "ROAS", value: "2.6×" }, { label: "Days", value: "90" }],
       },
+      trends: {
+        title: "Latest ecommerce paid ads trends UK brands need to act on now.",
+        items: [
+          { title: "Advantage+ Shopping dominates Meta", body: "ASC+ (Advantage+ Shopping Campaigns) is now the default Meta scaling structure. Manual campaigns are being throttled - the winning brands ship 20+ creatives per ASC+ per month." },
+          { title: "PMax + brand exclusions", body: "Google Performance Max eats brand-search unless you exclude your brand terms. Every serious PMax setup now runs paired brand-defense Search campaigns to protect margin." },
+          { title: "TikTok Shop ads exploding", body: "TikTok Shop native ads + Spark Ads + Creator partnerships are now the fastest-growing paid channel for beauty, fashion and wellness DTC in the UK." },
+          { title: "iOS 18 + Chrome cookie deprecation", body: "Cookie-based attribution is dying. Server-side GTM, Meta CAPI, Google Enhanced Conversions and a blended MER dashboard are now table stakes." },
+          { title: "Whitelisted creator ads", body: "Meta Partnership Ads (running ads from the creator's handle) out-perform brand-owned creative 20-40% on CTR because they don't look like ads." },
+          { title: "YouTube Shorts + Demand Gen", body: "Google's Demand Gen campaigns (YouTube Shorts + Discover + Gmail) are now the closest analog to Meta's ASC+ for cold-traffic scale - and severely under-priced." },
+        ],
+      },
+      aiSearch: {
+        title: "How paid ads intersect with AI Search in 2026.",
+        body: "AI-driven shopping and discovery is reshaping how buyers decide before they click. Paid ads still win the click - but the brands that get cited by ChatGPT, Perplexity and Google AI Overviews get pre-qualified, higher-intent traffic that converts at 2-3× cold cold-paid rates.",
+        items: [
+          { engine: "Google AI Overviews", body: "AI Overviews now sit above paid ads on many commercial queries. Brands with Product + Review + FAQ schema get cited - and their paid ads convert at higher rates because trust is pre-built." },
+          { engine: "ChatGPT Shopping", body: "ChatGPT Shopping surfaces cited brands directly. Our paired SEO + paid strategy earns the citation, then paid ads capture the click at lower CAC." },
+          { engine: "Perplexity", body: "Perplexity users are high-intent researchers. Paid remarketing to Perplexity-referred traffic converts at 3-4× cold paid rates." },
+          { engine: "Google Gemini", body: "Gemini Shopping surfaces branded results in native AI responses. Merchant Center feed hygiene + product schema now directly affect paid ad eligibility." },
+          { engine: "TikTok AI Search", body: "TikTok's AI-powered search now surfaces UGC and Spark Ads directly. Native-feel creative wins both organic reach and paid conversion." },
+          { engine: "Bing + Copilot", body: "Copilot Shopping surfaces cited brands with product feeds. Microsoft Ads + Bing Merchant Center feed = ad + AI-search visibility from one setup." },
+        ],
+      },
       ctaTitle: "Ready to work with the UK's leading Ecommerce Marketing Agency UK?",
       impactStats: [
         { value: "4.1×", label: "Blended ROAS" },
