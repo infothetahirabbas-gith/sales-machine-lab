@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Briefcase, Languages, Sparkles } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Briefcase, Sparkles } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 import { COMPANY_LINKS } from "@/config/company";
@@ -8,33 +8,10 @@ import { COMPANY_LINKS } from "@/config/company";
 
 const logo = logoAsset.url;
 
-const LANG_OPTIONS = [
-  { code: "en", name: "English" },
-  { code: "es", name: "Español (Spanish)" },
-  { code: "pl", name: "Polski (Polish)" },
-  { code: "ro", name: "Română (Romanian)" },
-  { code: "pt", name: "Português (Portuguese)" },
-  { code: "de", name: "Deutsch (German)" },
-  { code: "fr", name: "Français (French)" },
-];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
 const DEFAULT_PREFS: Prefs = { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" };
 
-function setSiteLanguage(code: string) {
-  if (typeof document === "undefined") return;
-  const host = window.location.hostname;
-  const domains = ["", host, `.${host}`];
-  const value = code && code !== "en" ? `/en/${code}` : "";
-  for (const d of domains) {
-    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
-    if (value) {
-      document.cookie = `googtrans=${value}; path=/${d ? `; domain=${d}` : ""}`;
-    }
-  }
-  try { localStorage.setItem("site_lang", code); } catch {}
-  window.location.reload();
-}
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
@@ -243,7 +220,7 @@ function prefsFromPath(pathname: string): Partial<Prefs> {
   const next: Partial<Prefs> = {};
   const isLocation = (slug?: string) => !!slug && LOCATIONS.some((l) => l.slug === slug);
   const isIndustry = (slug?: string) => !!slug && INDUSTRIES.some((i) => i.slug === slug);
-  const isLanguage = (code?: string) => !!code && LANG_OPTIONS.some((l) => l.code === code);
+  const isLanguage = (code?: string) => code === "en";
   const isService = (slug?: string) => !!slug && services.some((s) => s.to === `/services/${slug}`);
 
   if (parts[0] === "locations" && isLocation(parts[1])) next.location = parts[1];
@@ -324,13 +301,10 @@ export default function Header() {
 
 
   const updatePref = (key: keyof Prefs, value: string) => {
+    if (key === "language") return;
     const next: Prefs = { ...currentPrefs, [key]: value };
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
-    if (key === "language") {
-      setSiteLanguage(value);
-      return;
-    }
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
@@ -338,7 +312,7 @@ export default function Header() {
   
   const cityLabel = LOCATIONS.find((l) => l.slug === currentPrefs.location)?.city ?? "London";
   const industryLabel = INDUSTRIES.find((i) => i.slug === currentPrefs.industry)?.name ?? "Fashion & Apparel";
-  const langLabel = LANG_OPTIONS.find((l) => l.code === currentPrefs.language)?.name ?? "English";
+  
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
@@ -359,19 +333,6 @@ export default function Header() {
               aria-label="Change city"
             >
               {LOCATIONS.map((l) => (<option key={l.slug} value={l.slug}>{l.city}</option>))}
-            </select>
-          </label>
-          <label className="relative col-span-2 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change language">
-            <Languages className="size-3 shrink-0" />
-            <span className="min-w-0 truncate">{langLabel}</span>
-            <ChevronDown className="size-3 shrink-0 opacity-60" />
-            <select
-              value={currentPrefs.language}
-              onChange={(e) => updatePref("language", e.target.value)}
-              className="absolute inset-0 opacity-0 cursor-pointer"
-              aria-label="Change language"
-            >
-              {LANG_OPTIONS.map((l) => (<option key={l.code} value={l.code}>{l.name}</option>))}
             </select>
           </label>
           <label className="relative col-span-3 inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-border topbar-pill bg-background px-2 py-1.5 min-h-8 font-semibold cursor-pointer hover:border-primary transition min-[1024px]:col-auto min-[1024px]:justify-start min-[1024px]:gap-1.5 min-[1024px]:px-3" title="Change industry">
