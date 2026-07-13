@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import HubPillar from "@/components/site/HubPillar";
 import { HUB_PILLARS } from "@/lib/hub-content";
 import {
