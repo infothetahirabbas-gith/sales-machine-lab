@@ -220,7 +220,7 @@ function prefsFromPath(pathname: string): Partial<Prefs> {
   const next: Partial<Prefs> = {};
   const isLocation = (slug?: string) => !!slug && LOCATIONS.some((l) => l.slug === slug);
   const isIndustry = (slug?: string) => !!slug && INDUSTRIES.some((i) => i.slug === slug);
-  const isLanguage = (code?: string) => !!code && LANG_OPTIONS.some((l) => l.code === code);
+  const isLanguage = (code?: string) => code === "en";
   const isService = (slug?: string) => !!slug && services.some((s) => s.to === `/services/${slug}`);
 
   if (parts[0] === "locations" && isLocation(parts[1])) next.location = parts[1];
