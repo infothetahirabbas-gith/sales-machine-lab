@@ -203,6 +203,36 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       </section>
 
+      {/* 1b. LONG-FORM INTRO (optional) */}
+      {cfg.intro && (
+        <Section eyebrow={cfg.intro.eyebrow ?? "Overview"} title={cfg.intro.title}>
+          <div className="grid lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-3 space-y-5">
+              {cfg.intro.paragraphs.map((p, i) => (
+                <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                  <p className="text-base md:text-lg text-ink/80 leading-relaxed">{p}</p>
+                </Reveal>
+              ))}
+            </div>
+            {cfg.intro.highlights && cfg.intro.highlights.length > 0 && (
+              <Reveal delay={1} className="lg:col-span-2">
+                <div className="card-surface p-6 md:p-7 h-full bg-gradient-to-br from-primary/5 via-white to-accent/10">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary mb-4">Why it matters</div>
+                  <ul className="space-y-3">
+                    {cfg.intro.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm">
+                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-ink leading-relaxed">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            )}
+          </div>
+        </Section>
+      )}
+
       {/* 2. PROBLEM AWARENESS */}
       <Section eyebrow="The Problem" title={cfg.problemTitle} alt>
         <div className="grid md:grid-cols-3 gap-5">
