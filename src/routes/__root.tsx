@@ -5,10 +5,10 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+
 
 import appCss from "../styles.css?url";
 import { GlobalReveal } from "../components/site/GlobalReveal";
