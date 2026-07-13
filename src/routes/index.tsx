@@ -122,6 +122,20 @@ function Home() {
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
+            {/* Authority strip — 5-star trust + top-line proof, above H1 */}
+            <div className="mb-4 flex flex-col items-center lg:items-start gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900 shadow-sm">
+                <span aria-hidden="true" className="tracking-tight text-amber-500">★★★★★</span>
+                <span>Trusted by UK Ecommerce Brands</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                <span className="text-ink">500+ Growth Campaigns</span>
+                <span className="text-primary/40">·</span>
+                <span className="text-ink">Avg ROAS 4.1×</span>
+                <span className="text-primary/40">·</span>
+                <span className="text-ink">£48M+ Tracked Revenue</span>
+              </div>
+            </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
@@ -180,6 +194,34 @@ function Home() {
                 className="w-full h-full object-cover"
                 wrapperClassName="w-full h-full"
               />
+            </div>
+            {/* Floating premium metric chips — desktop only, decorative */}
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -left-8 top-8 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float-slow">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold">↑</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">+312%</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">Revenue Growth</div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -left-4 -bottom-6 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">£</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">£18M+</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">Revenue Generated</div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -right-4 bottom-16 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float-slow">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-amber-100 text-amber-700 font-bold">↓</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">−48%</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">CPA Reduced</div>
+                </div>
+              </div>
             </div>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
@@ -571,17 +613,20 @@ function Home() {
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget." },
-            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing." },
-            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand." },
-            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes." },
-            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers." },
-            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it." },
+            { t: "Ecommerce specialists, not generalists", b: "Every strategist, media buyer and CRO lead has scaled Shopify or WooCommerce stores. No B2B side-quests, no learning curve on your budget.", kpi: "120+ stores scaled" },
+            { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing.", kpi: "1 revenue owner" },
+            { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand.", kpi: "UK + 14 markets" },
+            { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes.", kpi: "Weekly Loom + live dashboards" },
+            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers.", kpi: "7+ yrs avg operator experience" },
+            { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it.", kpi: "94% retain past 90 days" },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="h-full">
                 <h3 className="font-semibold text-lg text-ink">{p.t}</h3>
                 <p className="text-sm text-muted-foreground mt-2">{p.b}</p>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
+                  <span aria-hidden="true">✓</span>{p.kpi}
+                </div>
               </Card>
             </Reveal>
           ))}
