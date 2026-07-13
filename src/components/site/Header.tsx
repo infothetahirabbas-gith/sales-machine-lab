@@ -8,33 +8,10 @@ import { COMPANY_LINKS } from "@/config/company";
 
 const logo = logoAsset.url;
 
-const LANG_OPTIONS = [
-  { code: "en", name: "English" },
-  { code: "es", name: "Español (Spanish)" },
-  { code: "pl", name: "Polski (Polish)" },
-  { code: "ro", name: "Română (Romanian)" },
-  { code: "pt", name: "Português (Portuguese)" },
-  { code: "de", name: "Deutsch (German)" },
-  { code: "fr", name: "Français (French)" },
-];
 const PREFS_KEY = "beingecom_welcome_v1_prefs";
 type Prefs = { country: string; location: string; industry: string; service: string; language: string };
 const DEFAULT_PREFS: Prefs = { country: "uk", location: "london", industry: "fashion-apparel", service: "seo", language: "en" };
 
-function setSiteLanguage(code: string) {
-  if (typeof document === "undefined") return;
-  const host = window.location.hostname;
-  const domains = ["", host, `.${host}`];
-  const value = code && code !== "en" ? `/en/${code}` : "";
-  for (const d of domains) {
-    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
-    if (value) {
-      document.cookie = `googtrans=${value}; path=/${d ? `; domain=${d}` : ""}`;
-    }
-  }
-  try { localStorage.setItem("site_lang", code); } catch {}
-  window.location.reload();
-}
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
