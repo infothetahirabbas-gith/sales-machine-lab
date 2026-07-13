@@ -14,13 +14,21 @@
  * or redirects (crawl budget waste).
  *
  * Usage:
- *   node scripts/seo-health.mjs                    # against live prod
- *   node scripts/seo-health.mjs https://preview... # against a preview
- *   node scripts/seo-health.mjs --json             # JSON output for CI
+ *   node scripts/seo-health.mjs                        # pretty console
+ *   node scripts/seo-health.mjs https://preview...     # override base
+ *   node scripts/seo-health.mjs --json                 # JSON to stdout
+ *   node scripts/seo-health.mjs --out report.json      # JSON to file
+ *   node scripts/seo-health.mjs --html report.html     # HTML report to file
  */
+
+import { writeFileSync } from "node:fs";
 
 const args = process.argv.slice(2);
 const jsonOut = args.includes("--json");
+const outIdx = args.indexOf("--out");
+const outPath = outIdx >= 0 ? args[outIdx + 1] : null;
+const htmlIdx = args.indexOf("--html");
+const htmlPath = htmlIdx >= 0 ? args[htmlIdx + 1] : null;
 const baseArg = args.find((a) => a.startsWith("http"));
 const BASE = (baseArg ?? "https://beingecom.com").replace(/\/$/, "");
 
@@ -195,8 +203,19 @@ async function main() {
     }
   }
 
+  const payload = { base: BASE, generatedAt: new Date().toISOString(), reports, missingFromSitemap };
+
+  if (outPath) {
+    writeFileSync(outPath, JSON.stringify(payload, null, 2));
+    console.log(`JSON report → ${outPath}`);
+  }
+  if (htmlPath) {
+    writeFileSync(htmlPath, renderHtml(payload));
+    console.log(`HTML report → ${htmlPath}`);
+  }
+
   if (jsonOut) {
-    console.log(JSON.stringify({ base: BASE, reports, missingFromSitemap }, null, 2));
+    console.log(JSON.stringify(payload, null, 2));
     return exitCode(reports);
   }
 
@@ -219,6 +238,58 @@ async function main() {
     `\n${reports.length - failures.length}/${reports.length} routes clean · ${failures.length} with issues · ${missingFromSitemap.length} missing from sitemap\n`,
   );
   return exitCode(reports);
+}
+
+function esc(s = "") {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function renderHtml({ base, generatedAt, reports, missingFromSitemap }) {
+  const failures = reports.filter((r) => r.issues.length);
+  const rows = reports
+    .map((r) => {
+      const ok = r.issues.length === 0;
+      const issues = r.issues.map((i) => `<li>${esc(i)}</li>`).join("") || "<li>—</li>";
+      return `<tr class="${ok ? "ok" : "bad"}">
+        <td><code>${esc(r.route)}</code></td>
+        <td>${r.status}</td>
+        <td>${esc(r.title ?? "")}</td>
+        <td><code>${esc(r.canonical ?? "")}</code></td>
+        <td>${esc(r.h1 ?? "")}</td>
+        <td><ul>${issues}</ul></td>
+      </tr>`;
+    })
+    .join("");
+  const missing = missingFromSitemap.length
+    ? `<h2>Missing from sitemap (${missingFromSitemap.length})</h2><ul>${missingFromSitemap.map((r) => `<li><code>${esc(r)}</code></li>`).join("")}</ul>`
+    : "";
+  return `<!doctype html><html><head><meta charset="utf-8"><title>SEO health — ${esc(base)}</title>
+<style>
+  body{font:14px/1.5 -apple-system,system-ui,sans-serif;margin:2rem;color:#111}
+  h1{margin:0 0 .25rem} .meta{color:#666;margin-bottom:1.5rem}
+  .summary{display:flex;gap:1rem;margin-bottom:1rem}
+  .card{padding:.75rem 1rem;border-radius:8px;background:#f4f4f5}
+  .card.bad{background:#fee2e2} .card.ok{background:#dcfce7}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{border:1px solid #e5e7eb;padding:.5rem;vertical-align:top;text-align:left}
+  th{background:#f9fafb;position:sticky;top:0}
+  tr.bad{background:#fef2f2} tr.ok td:first-child::before{content:"✓ ";color:#16a34a}
+  code{font:12px ui-monospace,monospace;background:#f4f4f5;padding:1px 4px;border-radius:3px}
+  ul{margin:0;padding-left:1.1rem}
+</style></head><body>
+<h1>SEO health report</h1>
+<div class="meta">${esc(base)} · generated ${esc(generatedAt)}</div>
+<div class="summary">
+  <div class="card ok"><strong>${reports.length - failures.length}</strong> passing</div>
+  <div class="card ${failures.length ? "bad" : ""}"><strong>${failures.length}</strong> failing</div>
+  <div class="card ${missingFromSitemap.length ? "bad" : ""}"><strong>${missingFromSitemap.length}</strong> missing from sitemap</div>
+</div>
+<table>
+  <thead><tr><th>Route</th><th>Status</th><th>Title</th><th>Canonical</th><th>H1</th><th>Issues</th></tr></thead>
+  <tbody>${rows}</tbody>
+</table>
+${missing}
+</body></html>`;
 }
 
 function exitCode(reports) {

@@ -1,0 +1,23 @@
+{
+  "_comment": "Expected HTTP status + canonical per route. seo-diff.mjs fails CI if live drifts. Update deliberately when a route intentionally changes.",
+  "base": "https://beingecom.com",
+  "routes": {
+    "/": { "status": 200, "canonical": "https://beingecom.com/" },
+    "/services": { "status": 200, "canonical": "https://beingecom.com/services" },
+    "/services/seo": { "status": 200, "canonical": "https://beingecom.com/services/seo" },
+    "/services/paid-ads": { "status": 200, "canonical": "https://beingecom.com/services/paid-ads" },
+    "/services/performance-marketing": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing" },
+    "/services/performance-marketing/google-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/google-ads" },
+    "/services/performance-marketing/facebook-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/facebook-ads" },
+    "/services/performance-marketing/instagram-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/instagram-ads" },
+    "/services/performance-marketing/tiktok-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/tiktok-ads" },
+    "/services/performance-marketing/youtube-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/youtube-ads" },
+    "/services/performance-marketing/media-buying": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/media-buying" },
+    "/case-studies": { "status": 200, "canonical": "https://beingecom.com/case-studies" },
+    "/pricing": { "status": 200, "canonical": "https://beingecom.com/pricing" },
+    "/audit": { "status": 200, "canonical": "https://beingecom.com/audit" },
+    "/contact": { "status": 200, "canonical": "https://beingecom.com/contact" },
+    "/about": { "status": 200, "canonical": "https://beingecom.com/about" },
+    "/blog": { "status": 200, "canonical": "https://beingecom.com/blog" }
+  }
+}
