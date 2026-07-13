@@ -33,6 +33,10 @@
   --color-sky: var(--sky);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-black: var(--brand-black);
+  --color-hero-headline-orange: var(--hero-headline-orange);
+  --color-hero-headline-black: var(--hero-headline-black);
   --font-display: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
@@ -49,30 +53,34 @@
 
 :root {
   --radius: 1.25rem;
-  /* Being Ecom brand palette - single brand orange #E47B02 + soft charcoal ink */
+  /* BeingEcom locked palette: exact brand orange + black headline ink. */
+  --brand-orange: #E47B02;
+  --brand-black: #111111;
+  --hero-headline-orange: var(--brand-orange);
+  --hero-headline-black: var(--brand-black);
   --background: oklch(1 0 0);                       /* #FFFFFF */
-  --foreground: oklch(0.36 0.018 264);              /* lighter charcoal, never jet black */
+  --foreground: var(--brand-black);
   --card: oklch(0.985 0.004 236);                   /* #F7FAFC */
-  --card-foreground: oklch(0.36 0.018 264);
+  --card-foreground: var(--brand-black);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.36 0.018 264);
-  --primary: oklch(0.687183 0.165136 57.381);       /* #E47B02 - locked brand orange */
+  --popover-foreground: var(--brand-black);
+  --primary: var(--brand-orange);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.953 0.024 67);               /* #FBEDDF */
-  --secondary-foreground: oklch(0.36 0.018 264);
+  --secondary-foreground: var(--brand-black);
   --muted: oklch(0.949 0 0);                        /* #EEEEEE */
   --muted-foreground: oklch(0.42 0.020 260);        /* AA contrast on white (~5.5:1) */
-  --accent: oklch(0.687183 0.165136 57.381);        /* #E47B02 */
+  --accent: var(--brand-orange);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.884 0.020 70);                  /* #E2D7CB */
   --input: oklch(0.884 0.020 70);
-  --ring: oklch(0.687183 0.165136 57.381);          /* #E47B02 */
-  --ink: oklch(0.36 0.018 264);                     /* lighter charcoal, not jet black */
-  --sky: oklch(0.687183 0.165136 57.381);
-  --brand: oklch(0.687183 0.165136 57.381);         /* #E47B02 */
-  --brand-strong: oklch(0.687183 0.165136 57.381);  /* same brand orange everywhere */
+  --ring: var(--brand-orange);
+  --ink: var(--brand-black);
+  --sky: var(--brand-orange);
+  --brand: var(--brand-orange);
+  --brand-strong: var(--brand-orange);
   --brand-on-dark: oklch(0.760 0.155 60);           /* lighter orange for dark surfaces */
 }
 
@@ -648,19 +656,15 @@ p, li { text-wrap: pretty; }
    PREMIUM MOTION UPGRADE — cascading site-wide effects
    ================================================================ */
 
-/* 1. Continuously flowing gradient text for .text-gradient */
+/* 1. Locked brand text: solid orange only, no animated gradient override. */
 .text-gradient, .text-sky-gradient {
-  background: linear-gradient(90deg,
-    var(--primary) 0%,
-    color-mix(in oklab, var(--primary) 55%, #fff) 40%,
-    var(--brand-strong, var(--primary)) 65%,
-    var(--primary) 100%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: gradient-flow 6s ease-in-out infinite;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--brand-orange) !important;
+  color: var(--brand-orange) !important;
+  animation: none !important;
 }
 @keyframes gradient-flow {
   0%, 100% { background-position: 0% 50%; }
@@ -846,22 +850,63 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
    Applies globally through existing GlobalReveal + shared classes.
    ============================================================ */
 
-/* --- Hero headline: bigger, cleaner scale --- */
+/* --- Hero headline: locked orange/black colors and desktop-only typography --- */
 .hero-headline {
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
-  line-height: 1.06;
-  letter-spacing: -0.022em;
-  font-weight: 800;
+  position: relative;
+  z-index: 5;
+  isolation: isolate;
+  color: var(--hero-headline-black) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--hero-headline-black) !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
 }
-.hero-headline span { font-weight: 800; }
-.hero-headline .text-primary {
-  color: var(--primary);
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  animation: none;
+.hero-headline,
+.hero-headline * {
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  backdrop-filter: none !important;
 }
-.hero-headline .text-ink {
-  color: var(--ink);
+.hero-headline::before,
+.hero-headline::after,
+.hero-headline *::before,
+.hero-headline *::after {
+  background: none !important;
+  background-image: none !important;
+}
+.hero-headline :is(.text-primary, .text-gradient, .text-sky-gradient) {
+  color: var(--hero-headline-orange) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--hero-headline-orange) !important;
+  animation: none !important;
+}
+.hero-headline :is(.text-ink, .text-foreground) {
+  color: var(--hero-headline-black) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--hero-headline-black) !important;
+}
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: clamp(42px, 3.95vw, 56px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+    font-weight: 800 !important;
+  }
+  .hero-headline span {
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+  }
 }
 
 /* --- Card premium hover: lift, glow, border sheen --- */
@@ -876,9 +921,9 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
   transform: translateY(-10px) scale(1.015);
   box-shadow:
     0 30px 60px -20px rgba(15,23,42,0.18),
-    0 0 0 1px rgba(59,130,246,0.25),
-    0 0 40px -8px rgba(59,130,246,0.35);
-  border-color: rgba(59,130,246,0.4);
+    0 0 0 1px color-mix(in oklab, var(--brand-orange) 25%, transparent),
+    0 0 40px -8px color-mix(in oklab, var(--brand-orange) 35%, transparent);
+  border-color: color-mix(in oklab, var(--brand-orange) 40%, transparent);
 }
 .card-surface:hover svg, .card-premium:hover svg {
   transform: translateY(-3px) rotate(-6deg) scale(1.08);
@@ -901,7 +946,7 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
 }
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 20px 40px -12px rgba(59,130,246,0.55), 0 0 0 4px rgba(59,130,246,0.15);
+  box-shadow: 0 20px 40px -12px color-mix(in oklab, var(--brand-orange) 55%, transparent), 0 0 0 4px color-mix(in oklab, var(--brand-orange) 15%, transparent);
 }
 .btn-primary:hover::before { opacity: 1; }
 .btn-primary span,
@@ -962,8 +1007,8 @@ a.story-link:hover, .prose a:not(.btn):not([class*="rounded"]):hover {
   content: "";
   position: absolute; inset: 0;
   background:
-    radial-gradient(60% 50% at 15% 10%, rgba(59,130,246,0.10), transparent 60%),
-    radial-gradient(50% 40% at 90% 90%, rgba(34,211,238,0.09), transparent 60%);
+    radial-gradient(60% 50% at 15% 10%, color-mix(in oklab, var(--brand-orange) 10%, transparent), transparent 60%),
+    radial-gradient(50% 40% at 90% 90%, color-mix(in oklab, var(--brand-orange) 8%, transparent), transparent 60%);
   pointer-events: none;
   animation: mesh-drift 26s ease-in-out infinite alternate;
   z-index: 0;
@@ -971,13 +1016,13 @@ a.story-link:hover, .prose a:not(.btn):not([class*="rounded"]):hover {
 .section-band > * { position: relative; z-index: 1; }
 .section-band--alt::before {
   background:
-    radial-gradient(55% 45% at 85% 15%, rgba(99,102,241,0.10), transparent 60%),
-    radial-gradient(50% 40% at 10% 85%, rgba(59,130,246,0.09), transparent 60%);
+    radial-gradient(55% 45% at 85% 15%, color-mix(in oklab, var(--brand-orange) 9%, transparent), transparent 60%),
+    radial-gradient(50% 40% at 10% 85%, color-mix(in oklab, var(--brand-orange) 7%, transparent), transparent 60%);
 }
 .section-band--warm::before {
   background:
-    radial-gradient(60% 50% at 20% 20%, rgba(251,191,36,0.10), transparent 60%),
-    radial-gradient(50% 40% at 85% 80%, rgba(244,114,182,0.08), transparent 60%);
+    radial-gradient(60% 50% at 20% 20%, color-mix(in oklab, var(--brand-orange) 10%, transparent), transparent 60%),
+    radial-gradient(50% 40% at 85% 80%, color-mix(in oklab, var(--brand-orange) 7%, transparent), transparent 60%);
 }
 @keyframes mesh-drift {
   0%   { transform: translate3d(0,0,0) scale(1); }
@@ -995,13 +1040,13 @@ section + section {
 
 /* --- Icons in accents: gentle bob --- */
 .pulse-dot {
-  box-shadow: 0 0 0 0 rgba(59,130,246,0.55);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand-orange) 55%, transparent);
   animation: pulse-ring 2.2s cubic-bezier(0.16,1,0.3,1) infinite;
 }
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0 rgba(59,130,246,0.55); }
-  70%  { box-shadow: 0 0 0 14px rgba(59,130,246,0); }
-  100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+  0%   { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand-orange) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 14px color-mix(in oklab, var(--brand-orange) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand-orange) 0%, transparent); }
 }
 
 /* --- Number pop-in --- */
