@@ -43,9 +43,10 @@ header>div:first-child>div{display:grid;grid-template-columns:repeat(6,minmax(0,
 
 const asyncCssLoader = `(()=>{var h=${JSON.stringify(appCss)};function l(){if(document.querySelector('link[data-app-css]'))return;var e=document.createElement('link');e.rel='stylesheet';e.href=h;e.setAttribute('data-app-css','');document.head.appendChild(e)}if('requestAnimationFrame'in window){requestAnimationFrame(()=>requestAnimationFrame(l))}else setTimeout(l,0)})();`;
 
-// Deferred - these are not needed for first paint. Loading them lazily
-// removes ~significant JS from the initial bundle and keeps LCP fast.
-const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
+// NOTE: Google Translate language switcher removed until proper /{lang}/
+// locale routes and hreflang are built. Serving 6 translation options without
+// backing pages created a duplicate-content / soft-404 risk.
+
 
 
 
