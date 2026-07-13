@@ -975,6 +975,49 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
+      {/* 25c. LATEST INDUSTRY TRENDS (optional) */}
+      {cfg.trends && cfg.trends.items.length > 0 && (
+        <Section eyebrow="What's changing" title={cfg.trends.title ?? `Latest ${cfg.eyebrow.toLowerCase()} trends UK ecommerce brands need to act on now.`} alt>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cfg.trends.items.map((t, i) => (
+              <Reveal key={t.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/15 to-accent/25 text-primary flex items-center justify-center mb-3">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-ink">{t.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{t.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 25d. AI SEARCH CONSIDERATIONS (optional) */}
+      {cfg.aiSearch && cfg.aiSearch.items.length > 0 && (
+        <Section eyebrow="AI Search" title={cfg.aiSearch.title ?? "How to win in Google AI Overviews, ChatGPT, Claude, Gemini & Perplexity."}>
+          {cfg.aiSearch.body && (
+            <p className="max-w-3xl text-lg text-ink/80 leading-relaxed mb-8">{cfg.aiSearch.body}</p>
+          )}
+          <div className="grid md:grid-cols-2 gap-4">
+            {cfg.aiSearch.items.map((it, i) => (
+              <Reveal key={it.engine} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface p-6 h-full flex gap-4">
+                  <div className="shrink-0 w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{it.engine}</div>
+                    <p className="mt-1.5 text-sm text-ink leading-relaxed">{it.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
       {/* 26. FINAL CTA */}
       <CTA heading={cfg.ctaTitle ?? "Ready to fix this for your store?"} />
     </PageLayout>
