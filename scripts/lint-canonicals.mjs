@@ -85,7 +85,7 @@ for (const [route, expected] of Object.entries(baseline.routes)) {
     continue;
   }
 
-  const expectedHref = expected.canonical;
+  const expectedHref = expandBase(expected.canonical);
   const bad = canonicals.filter((h) => h !== expectedHref);
   if (bad.length) {
     failures.push(
