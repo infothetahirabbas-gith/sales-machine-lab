@@ -567,7 +567,7 @@ function CroPreview({ seed, metric, metricLabel }: { seed: number; metric: strin
 
 function CaseStudies() {
   const { category } = Route.useSearch();
-  const [filter, setFilter] = useState<Category | "All">(category);
+  const [filter, setFilter] = useState<Category | "All">(category ?? "All");
 
   useEffect(() => {
     setFilter(category);
