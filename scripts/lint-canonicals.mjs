@@ -22,8 +22,11 @@ import { dirname, resolve, join } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const baseline = JSON.parse(readFileSync(resolve(__dirname, "seo-baseline.json"), "utf8"));
-const BASE = baseline.base.replace(/\/$/, "");
+// Source-level lint always checks against production URLs — that's what
+// leaf routes hardcode in head().links. Env-specific drift is seo-diff's job.
+const BASE = (baseline.environments?.production?.base ?? baseline.base).replace(/\/$/, "");
 const ROOT = resolve(__dirname, "..");
+const expandBase = (s) => (typeof s === "string" ? s.replace(/\{\{\s*BASE\s*\}\}/g, BASE) : s);
 
 const SITE_URL = BASE;
 
