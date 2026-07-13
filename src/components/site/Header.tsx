@@ -301,13 +301,10 @@ export default function Header() {
 
 
   const updatePref = (key: keyof Prefs, value: string) => {
+    if (key === "language") return;
     const next: Prefs = { ...currentPrefs, [key]: value };
     setPrefs(next);
     try { sessionStorage.setItem(PREFS_KEY, JSON.stringify(next)); } catch {}
-    if (key === "language") {
-      setSiteLanguage(value);
-      return;
-    }
     navigate({ to: "/$lang/$location/$industry/$service", params: { lang: next.language, location: next.location, industry: next.industry, service: next.service } });
   };
 
