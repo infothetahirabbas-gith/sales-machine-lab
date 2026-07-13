@@ -33,11 +33,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { name: "description", content: "Award-winning Ecommerce Paid Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Meta, Google Shopping, PMax, TikTok and YouTube for Shopify and WooCommerce brands — profitably, at scale." },
+      { title: "Best Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { name: "description", content: "Best Ecommerce Paid Ads Agency UK for Shopify & WooCommerce brands. Award-winning Meta, Google Shopping, PMax, TikTok and YouTube management — profitable scale, blended MER, weekly creative velocity. Senior UK media buyers, no lock-ins." },
       { name: "keywords", content: "Ecommerce Paid Ads Agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, PPC agency UK, Meta Ads agency UK, Google Ads agency UK, TikTok Ads agency UK, Shopify paid ads agency" },
-      { property: "og:title", content: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Marketing Agency UK running Meta, Google, TikTok and YouTube for Shopify & WooCommerce brands. Profitable scale, blended MER, weekly creative." },
+      { property: "og:title", content: "Best Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { property: "og:description", content: "Best Ecommerce Paid Ads Agency UK. Meta, Google, TikTok and YouTube for Shopify & WooCommerce brands. Profitable scale, blended MER, weekly creative." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
