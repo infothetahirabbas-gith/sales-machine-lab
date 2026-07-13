@@ -228,13 +228,7 @@ function RootComponent() {
         <Outlet />
       </PageFade>
       <GlobalReveal />
-      <ClientOnly fallback={null}>
-        {deferredReady && isDesktop ? (
-          <Suspense fallback={null}>
-            <GoogleTranslate />
-          </Suspense>
-        ) : null}
-      </ClientOnly>
+
     </QueryClientProvider>
   );
 }
