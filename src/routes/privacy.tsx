@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section } from "../components/site/Section";
 import { breadcrumbJsonLd } from "../lib/seo";
@@ -48,7 +48,7 @@ function Privacy() {
           <h2>Retention</h2>
           <p>Contact-form data is retained for up to 24 months from your last interaction, unless you request earlier deletion.</p>
           <h2>Cookies</h2>
-          <p>See our <a href="/cookies">Cookie Policy</a> for the categories used and how to manage them.</p>
+          <p>See our <Link to="/cookies" className="underline">Cookie Policy</Link> for the categories used and how to manage them.</p>
         </div>
       </Section>
     </PageLayout>

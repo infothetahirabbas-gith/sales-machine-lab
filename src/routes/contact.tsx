@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
@@ -129,7 +129,7 @@ function Contact() {
                 </div>
                 <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
                   <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
-                  <span>I agree to be contacted by BeingEcom about my enquiry and accept the <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>. We never share or sell your data.</span>
+                  <span>I agree to be contacted by BeingEcom about my enquiry and accept the <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>. We never share or sell your data.</span>
                 </label>
                 <button type="submit" className="btn btn-primary btn-shimmer justify-center">Send Audit Request →</button>
               </form>
