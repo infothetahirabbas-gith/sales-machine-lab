@@ -89,6 +89,24 @@ export type ServiceConfig = {
   timeline?: { w: string; t: string; b: string }[];
   /** Optional industry-impact grid - pain × outcome per vertical. */
   industryImpact?: { industry: string; pain: string; outcome: string }[];
+  /** Long-form intro block rendered under the hero (200-300 words). Supports paragraphs + highlight bullets. */
+  intro?: {
+    eyebrow?: string;
+    title: string;
+    paragraphs: string[];
+    highlights?: string[];
+  };
+  /** Latest industry trends section - 4-8 trend cards. */
+  trends?: {
+    title?: string;
+    items: { title: string; body: string }[];
+  };
+  /** AI search considerations - how the service ranks in ChatGPT / Perplexity / Gemini / AI Overviews. */
+  aiSearch?: {
+    title?: string;
+    body?: string;
+    items: { engine: string; body: string }[];
+  };
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
@@ -184,6 +202,36 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
 
       </section>
+
+      {/* 1b. LONG-FORM INTRO (optional) */}
+      {cfg.intro && (
+        <Section eyebrow={cfg.intro.eyebrow ?? "Overview"} title={cfg.intro.title}>
+          <div className="grid lg:grid-cols-5 gap-8">
+            <div className="lg:col-span-3 space-y-5">
+              {cfg.intro.paragraphs.map((p, i) => (
+                <Reveal key={i} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                  <p className="text-base md:text-lg text-ink/80 leading-relaxed">{p}</p>
+                </Reveal>
+              ))}
+            </div>
+            {cfg.intro.highlights && cfg.intro.highlights.length > 0 && (
+              <Reveal delay={1} className="lg:col-span-2">
+                <div className="card-surface p-6 md:p-7 h-full bg-gradient-to-br from-primary/5 via-white to-accent/10">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary mb-4">Why it matters</div>
+                  <ul className="space-y-3">
+                    {cfg.intro.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm">
+                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-ink leading-relaxed">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            )}
+          </div>
+        </Section>
+      )}
 
       {/* 2. PROBLEM AWARENESS */}
       <Section eyebrow="The Problem" title={cfg.problemTitle} alt>
@@ -926,6 +974,49 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           ))}
         </div>
       </Section>
+
+      {/* 25c. LATEST INDUSTRY TRENDS (optional) */}
+      {cfg.trends && cfg.trends.items.length > 0 && (
+        <Section eyebrow="What's changing" title={cfg.trends.title ?? `Latest ${cfg.eyebrow.toLowerCase()} trends UK ecommerce brands need to act on now.`} alt>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cfg.trends.items.map((t, i) => (
+              <Reveal key={t.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/15 to-accent/25 text-primary flex items-center justify-center mb-3">
+                    <TrendingUp className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-ink">{t.title}</h4>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{t.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 25d. AI SEARCH CONSIDERATIONS (optional) */}
+      {cfg.aiSearch && cfg.aiSearch.items.length > 0 && (
+        <Section eyebrow="AI Search" title={cfg.aiSearch.title ?? "How to win in Google AI Overviews, ChatGPT, Claude, Gemini & Perplexity."}>
+          {cfg.aiSearch.body && (
+            <p className="max-w-3xl text-lg text-ink/80 leading-relaxed mb-8">{cfg.aiSearch.body}</p>
+          )}
+          <div className="grid md:grid-cols-2 gap-4">
+            {cfg.aiSearch.items.map((it, i) => (
+              <Reveal key={it.engine} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
+                <div className="card-surface p-6 h-full flex gap-4">
+                  <div className="shrink-0 w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{it.engine}</div>
+                    <p className="mt-1.5 text-sm text-ink leading-relaxed">{it.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      )}
 
       {/* 26. FINAL CTA */}
       <CTA heading={cfg.ctaTitle ?? "Ready to fix this for your store?"} />

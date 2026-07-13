@@ -22,15 +22,21 @@ const FAQ_LIST: FAQ[] = [
   { q: "What reporting do you provide?", a: "Weekly Loom walkthrough, monthly revenue-attribution dashboard (GA4 + Search Console + Ahrefs), quarterly business review. You always know what's shipped, what ranked, and what revenue it drove." },
   { q: "Can you take over an existing SEO project?", a: "Yes - we run a full audit of the previous agency's work, salvage what's working and rebuild what isn't. Around 40% of new BeingEcom clients come from a previous UK agency relationship." },
   { q: "Do you handle content writing too?", a: "Yes - in-house UK ecommerce writers plus senior editors. Every piece is briefed against buyer intent, SERP structure and AI-Overview citation potential - never AI-spun filler." },
+  { q: "Do you offer a free ecommerce SEO audit?", a: "Yes - a free 30-minute audit covering technical health, on-page gaps, competitor overlap and the top 5 rankings you're one fix away from winning. Delivered by a senior UK SEO director, not a sales rep." },
+  { q: "How do you approach Shopify SEO specifically?", a: "We treat Shopify SEO as three layers: (1) theme-level technical hygiene - collection URL structure, canonicals, JSON-LD via JSON-LD for SEO or custom Liquid; (2) app hygiene - kill JS bloat, dedupe Smart SEO, Judge.me, Yotpo tags; (3) content velocity - collection intros, PDP long-form copy, guide + comparison articles that earn editorial links." },
+  { q: "How do you approach WooCommerce SEO?", a: "WooCommerce gives full control - so we ship Yoast/RankMath schema, custom taxonomy templates, WP Rocket + Cloudflare for Core Web Vitals, and product schema audits. We also fix the WooCommerce-specific traps: infinite faceted URLs, duplicate variation pages and cart-fragment PageSpeed hits." },
+  { q: "What's the difference between ecommerce SEO and SaaS/local SEO?", a: "Ecommerce SEO is architecture-first: product schema, collection taxonomy, faceted navigation and buyer-intent content at scale. SaaS SEO is content-marketing-heavy; local SEO is Google Business Profile-heavy. We're a specialist Ecommerce SEO Agency UK - we don't touch SaaS or local plumbers." },
+  { q: "What is AEO and why does it matter for ecommerce?", a: "AEO (Answer Engine Optimisation) is optimising your store to be cited by ChatGPT, Perplexity, Claude, Gemini and Google AI Overviews. It requires entity SEO, JSON-LD Organization/Product/FAQ schema, quotable answer blocks and citation-worthy long-form content. It's now a bigger lever than featured snippets ever were." },
+  { q: "How do you measure SEO ROI?", a: "Every engagement reports on organic sessions, organic revenue (GA4 last-non-direct + first-touch), keyword count in top 3/10, organic-attributed CAC and DR growth - not vanity metrics like impressions or 'traffic value'." },
 ];
 
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "Ecommerce SEO Agency UK | No.1 Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "BeingEcom is an award-winning Ecommerce SEO Agency UK for Shopify and WooCommerce brands. Technical SEO, product & collection SEO, digital PR and AI-search visibility that compounds free revenue - trusted by UK ecommerce growth leaders." },
-      { property: "og:title", content: "Ecommerce SEO Agency UK | No.1 Shopify & WooCommerce SEO | BeingEcom" },
-      { property: "og:description", content: "BeingEcom is an award-winning Ecommerce SEO Agency UK for Shopify and WooCommerce brands. Technical SEO, product & collection SEO, digital PR and AI-search visibility that compounds free revenue." },
+      { title: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { name: "description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
+      { property: "og:title", content: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { property: "og:description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
@@ -49,8 +55,24 @@ export const Route = createFileRoute("/services/seo")({
     <ServicePage cfg={{
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
-      heroTitle: "No.1 Ecommerce SEO Agency UK for Shopify & WooCommerce brands.",
-      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click.",
+      heroTitle: "Best Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
+      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
+      intro: {
+        eyebrow: "Why brands hire us",
+        title: "The UK's Leading Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
+        paragraphs: [
+          "BeingEcom is a specialist Ecommerce SEO Agency UK - a team of senior operators who have shipped SEO strategies for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist marketing agency. We do not chase SaaS retainers or local plumbers. Every strategist, engineer and editor on your account is an ecommerce specialist, and every engagement is led by a UK-based senior SEO director from day one.",
+          "As an Ecommerce Marketing Agency UK we treat search as a revenue channel, not a traffic channel. Rankings are worthless if they don't convert - so every technical fix, on-page rebuild, editorial link and AEO block is judged against organic-attributed revenue, blended MER and CAC. We wire Google Search Console, GA4, Ahrefs, Semrush, Merchant Center and Triple Whale into a single dashboard so you can see exactly which pages are compounding and which are leaking.",
+          "The result is what an Ecommerce Growth Agency should actually deliver: a store that ranks for its highest-intent buyer queries, gets cited by Google AI Overviews, ChatGPT, Claude, Gemini and Perplexity, converts that traffic into orders, and stops depending on Meta's ROAS roulette to hit the monthly forecast.",
+        ],
+        highlights: [
+          "Senior UK SEO director on every account - no juniors, no rotating pods.",
+          "Ecommerce-only - 120+ Shopify & WooCommerce stores scaled, £48M+ tracked revenue.",
+          "Product, collection, technical, content and digital PR under one roof.",
+          "AEO / AI-Overview optimisation included by default in every engagement.",
+          "90-day initial engagement, then month-to-month. No 12-month lock-ins.",
+        ],
+      },
       problemTitle: "Most ecommerce stores are invisible on Google.",
       problemBullets: [
         "Product pages with 40 words of copy, no schema, no reviews - Google sees a duplicate of every competitor.",
@@ -134,6 +156,29 @@ export const Route = createFileRoute("/services/seo")({
         { industry: "Sports & fitness", pain: "Buyer researches on Google, buys on Amazon - no first-party discovery." },
         { industry: "Health & wellness", pain: "YMYL constraints kill sites without E-E-A-T signals.", outcome: "Author schema, medical review process and citation-first content unlock rankings competitors can't touch." },
       ] as { industry: string; pain: string; outcome: string }[],
+      trends: {
+        title: "Latest ecommerce SEO trends UK brands need to act on now.",
+        items: [
+          { title: "Google AI Overviews are the new #1", body: "AI Overviews now occupy 40-60% of commercial SERPs in the UK. Brands without Organization + Product + FAQ schema and quotable answer blocks are invisible before the first blue link." },
+          { title: "Helpful Content is compounding", body: "Google's Helpful Content system now demotes thin blog networks at scale. Fewer, deeper, buyer-intent comparison and best-of pages are the only content that ranks in 2025-2026." },
+          { title: "INP replaced FID as a Core Web Vital", body: "Interaction to Next Paint (INP) is now a ranking factor. Most Shopify themes fail INP due to app bloat - a focused JS audit typically lifts rankings within one crawl cycle." },
+          { title: "Perplexity + ChatGPT Shopping are real traffic", body: "ChatGPT Shopping and Perplexity are already routing high-intent buyers to cited sources. AEO is no longer optional - it is the fastest-growing organic channel of the year." },
+          { title: "Collection pages beat blog posts", body: "Category / collection pages typically drive 3-5× more revenue than PDPs or blogs. Custom intros, filter URL strategy and CollectionPage schema are the highest-ROI SEO work in ecommerce right now." },
+          { title: "Digital PR is out-performing SEO tools", body: "Editorial links from real UK publishers (Wired, The Guardian, TechRadar, Which?) now move rankings faster than any on-page tweak. PBNs and niche edits are being neutralised in every core update." },
+        ],
+      },
+      aiSearch: {
+        title: "How the UK's best Ecommerce SEO Agency wins in AI Search.",
+        body: "AI-driven search engines answer buyer queries before the user ever reaches your store - unless your brand is the source they cite. Our AEO methodology is baked into every ecommerce SEO engagement, not sold as an upsell.",
+        items: [
+          { engine: "Google AI Overviews", body: "Product + Review + FAQ schema, quotable H2 answer blocks, entity consistency across Wikipedia, Wikidata and Knowledge Graph, and citation-worthy long-form pages." },
+          { engine: "ChatGPT + ChatGPT Shopping", body: "Structured Product data, review aggregation, comparison content and clean Organization schema so OpenAI's retrieval layer surfaces you against competitor queries." },
+          { engine: "Perplexity", body: "Semantic clustering, hub-and-spoke architecture and clean citations - Perplexity favours brands with topical authority and unique first-party data." },
+          { engine: "Google Gemini", body: "Structured data + E-E-A-T signals (author schema, medical/legal review process where relevant) plus Merchant Center feed hygiene for Gemini Shopping surfaces." },
+          { engine: "Claude (Anthropic)", body: "Long-form, well-structured pillar content with clear headings, source attribution and comparison tables Claude can quote verbatim in responses." },
+          { engine: "Bing + Copilot", body: "IndexNow submission, Bing Webmaster Tools hygiene, and image/video schema - Bing feeds Copilot and still drives 8-12% of UK ecommerce discovery." },
+        ],
+      },
       ctaTitle: "Ready to work with the UK's leading Ecommerce SEO Agency?",
       impactStats: [
         { value: "+312%", label: "Organic sessions" },
