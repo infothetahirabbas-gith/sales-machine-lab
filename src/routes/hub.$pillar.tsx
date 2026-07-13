@@ -76,7 +76,7 @@ function PillarNotFound() {
     <div className="mx-auto max-w-2xl px-5 py-32 text-center">
       <h1 className="font-display text-4xl font-bold">Hub not found</h1>
       <p className="mt-4 text-muted-foreground">
-        That pillar hub doesn't exist. Head back to the <a href="/hub" className="text-primary underline">Knowledge Hub</a>.
+        That pillar hub doesn't exist. Head back to the <Link to="/hub" className="text-primary underline">Knowledge Hub</Link>.
       </p>
     </div>
   );
