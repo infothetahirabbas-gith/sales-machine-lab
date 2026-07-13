@@ -73,7 +73,12 @@ export const Route = createFileRoute("/case-studies/")({
     const map: Record<string, "All" | "Ads" | "SEO" | "CRO" | "Website"> = {
       all: "All", ads: "Ads", seo: "SEO", cro: "CRO", website: "Website",
     };
-    return { category: map[raw] ?? "All" };
+    // Only include `category` in the parsed search when the user explicitly
+    // set it. Returning a default here causes TanStack Router to canonicalise
+    // the bare `/case-studies` URL by redirecting (307) to include the
+    // default query string. The component treats an absent value as "All".
+    const parsed = map[raw];
+    return parsed ? { category: parsed } : {};
   },
   head: () => ({
     meta: [
