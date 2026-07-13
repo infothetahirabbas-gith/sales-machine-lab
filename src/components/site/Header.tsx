@@ -1,6 +1,6 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X, MapPin, Briefcase, Languages, Sparkles } from "lucide-react";
+import { ChevronDown, Menu, X, MapPin, Briefcase, Sparkles } from "lucide-react";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 import { COMPANY_LINKS } from "@/config/company";
