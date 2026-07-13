@@ -1,0 +1,43 @@
+name: SEO diff (post-deploy)
+
+# Runs scripts/seo-diff.mjs against the live site after every push to main
+# (which triggers Lovable's auto-deploy). Fails the workflow if any P1
+# route's HTTP status or canonical drifts from scripts/seo-baseline.json.
+#
+# Also runnable on demand from the Actions tab.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Base URL to diff against (defaults to baseline.base)"
+        required: false
+        type: string
+  schedule:
+    # Belt-and-braces: catch silent regressions daily even without a push.
+    - cron: "0 6 * * *"
+
+jobs:
+  seo-diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Wait for deploy to propagate
+        if: github.event_name == 'push'
+        run: sleep 120
+
+      - name: Run redirect/canonical diff
+        run: |
+          if [ -n "${{ github.event.inputs.base }}" ]; then
+            node scripts/seo-diff.mjs "${{ github.event.inputs.base }}"
+          else
+            node scripts/seo-diff.mjs
+          fi
