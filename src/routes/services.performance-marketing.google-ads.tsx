@@ -125,7 +125,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn Google clicks into checkouts." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Enhanced Conversions, GA4 and server-side GTM." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers for every growth stage." },
-        { to: "/free-audit", title: "Free Google Ads Audit", body: "Book a free 30-min audit of your account, feed and tracking." },
+        { to: "/audit", title: "Free Google Ads Audit", body: "Book a free 30-min audit of your account, feed and tracking." },
         { to: "/case-studies", title: "Google Ads Case Studies", body: "Real Shopify & Woo brands scaled by our Ecommerce Growth Agency." },
       ],
     }} />

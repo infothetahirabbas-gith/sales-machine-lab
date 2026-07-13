@@ -127,7 +127,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound paid demand into organic revenue." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Attribution, MER dashboards and incrementality tests." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent hybrid retainer + % of spend." },
-        { to: "/free-audit", title: "Free Media Buying Audit", body: "Book a free 30-min audit of your portfolio and MER." },
+        { to: "/audit", title: "Free Media Buying Audit", body: "Book a free 30-min audit of your portfolio and MER." },
         { to: "/case-studies", title: "Media Buying Case Studies", body: "Real Shopify & Woo brands scaled by our Ecommerce Growth Agency." },
       ],
     }} />

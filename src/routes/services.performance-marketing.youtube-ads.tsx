@@ -127,7 +127,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         { to: "/services/creative", title: "Creative Production", body: "Video + Shorts production in-house." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Enhanced Conversions, GA4 and offline imports." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },
-        { to: "/free-audit", title: "Free YouTube Ads Audit", body: "Book a free 30-min audit of your VAC account and tracking." },
+        { to: "/audit", title: "Free YouTube Ads Audit", body: "Book a free 30-min audit of your VAC account and tracking." },
         { to: "/case-studies", title: "YouTube Ads Case Studies", body: "Real Shopify & Woo brands scaled on YouTube." },
       ],
     }} />

@@ -127,7 +127,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where IG traffic turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "Reels-native UGC — 3 batches/week." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },
-        { to: "/free-audit", title: "Free Instagram Ads Audit", body: "Book a free 30-min audit of your IG account and creative." },
+        { to: "/audit", title: "Free Instagram Ads Audit", body: "Book a free 30-min audit of your IG account and creative." },
         { to: "/case-studies", title: "Instagram Ads Case Studies", body: "Real Shopify & Woo brands scaled on Instagram." },
       ],
     }} />
