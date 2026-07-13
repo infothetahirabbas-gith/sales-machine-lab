@@ -141,20 +141,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     styles: [{ children: criticalCss }],
     scripts: (() => {
-      const gaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
+      const envGaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
+      const gaId = envGaId && /^G-[A-Z0-9]+$/i.test(envGaId) ? envGaId : "G-4ZMG6LQQKK";
       const base: Array<Record<string, unknown>> = [
         { children: asyncCssLoader },
         { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
         { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
+        { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
+        {
+          children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`,
+        },
       ];
-      if (gaId && /^G-[A-Z0-9]+$/i.test(gaId)) {
-        base.push(
-          { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
-          {
-            children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`,
-          },
-        );
-      }
       return base;
     })(),
 
