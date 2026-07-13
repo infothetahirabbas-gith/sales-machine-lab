@@ -156,6 +156,29 @@ export const Route = createFileRoute("/services/seo")({
         { industry: "Sports & fitness", pain: "Buyer researches on Google, buys on Amazon - no first-party discovery." },
         { industry: "Health & wellness", pain: "YMYL constraints kill sites without E-E-A-T signals.", outcome: "Author schema, medical review process and citation-first content unlock rankings competitors can't touch." },
       ] as { industry: string; pain: string; outcome: string }[],
+      trends: {
+        title: "Latest ecommerce SEO trends UK brands need to act on now.",
+        items: [
+          { title: "Google AI Overviews are the new #1", body: "AI Overviews now occupy 40-60% of commercial SERPs in the UK. Brands without Organization + Product + FAQ schema and quotable answer blocks are invisible before the first blue link." },
+          { title: "Helpful Content is compounding", body: "Google's Helpful Content system now demotes thin blog networks at scale. Fewer, deeper, buyer-intent comparison and best-of pages are the only content that ranks in 2025-2026." },
+          { title: "INP replaced FID as a Core Web Vital", body: "Interaction to Next Paint (INP) is now a ranking factor. Most Shopify themes fail INP due to app bloat - a focused JS audit typically lifts rankings within one crawl cycle." },
+          { title: "Perplexity + ChatGPT Shopping are real traffic", body: "ChatGPT Shopping and Perplexity are already routing high-intent buyers to cited sources. AEO is no longer optional - it is the fastest-growing organic channel of the year." },
+          { title: "Collection pages beat blog posts", body: "Category / collection pages typically drive 3-5× more revenue than PDPs or blogs. Custom intros, filter URL strategy and CollectionPage schema are the highest-ROI SEO work in ecommerce right now." },
+          { title: "Digital PR is out-performing SEO tools", body: "Editorial links from real UK publishers (Wired, The Guardian, TechRadar, Which?) now move rankings faster than any on-page tweak. PBNs and niche edits are being neutralised in every core update." },
+        ],
+      },
+      aiSearch: {
+        title: "How the UK's best Ecommerce SEO Agency wins in AI Search.",
+        body: "AI-driven search engines answer buyer queries before the user ever reaches your store - unless your brand is the source they cite. Our AEO methodology is baked into every ecommerce SEO engagement, not sold as an upsell.",
+        items: [
+          { engine: "Google AI Overviews", body: "Product + Review + FAQ schema, quotable H2 answer blocks, entity consistency across Wikipedia, Wikidata and Knowledge Graph, and citation-worthy long-form pages." },
+          { engine: "ChatGPT + ChatGPT Shopping", body: "Structured Product data, review aggregation, comparison content and clean Organization schema so OpenAI's retrieval layer surfaces you against competitor queries." },
+          { engine: "Perplexity", body: "Semantic clustering, hub-and-spoke architecture and clean citations - Perplexity favours brands with topical authority and unique first-party data." },
+          { engine: "Google Gemini", body: "Structured data + E-E-A-T signals (author schema, medical/legal review process where relevant) plus Merchant Center feed hygiene for Gemini Shopping surfaces." },
+          { engine: "Claude (Anthropic)", body: "Long-form, well-structured pillar content with clear headings, source attribution and comparison tables Claude can quote verbatim in responses." },
+          { engine: "Bing + Copilot", body: "IndexNow submission, Bing Webmaster Tools hygiene, and image/video schema - Bing feeds Copilot and still drives 8-12% of UK ecommerce discovery." },
+        ],
+      },
       ctaTitle: "Ready to work with the UK's leading Ecommerce SEO Agency?",
       impactStats: [
         { value: "+312%", label: "Organic sessions" },
