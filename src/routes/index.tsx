@@ -132,8 +132,10 @@ function Home() {
               <span className="hero-mobile text-ink mt-1">Driving More Traffic,</span>
               <span className="hero-mobile text-ink">Sales &amp; Revenue for</span>
               <span className="hero-mobile text-primary">Shopify &amp; WooCommerce Brands</span>
-              <span className="hero-desktop text-primary">Ecommerce Marketing Agency UK</span>
-              <span className="hero-desktop text-ink my-1 md:my-2">Driving More Traffic, Sales &amp; Revenue for</span>
+              <span className="hero-desktop text-primary">Ecommerce Marketing</span>
+              <span className="hero-desktop text-primary">Agency UK</span>
+              <span className="hero-desktop text-ink mt-1">Driving More Traffic,</span>
+              <span className="hero-desktop text-ink">Sales &amp; Revenue for</span>
               <span className="hero-desktop text-primary">Shopify &amp; WooCommerce Brands</span>
             </h1>
 

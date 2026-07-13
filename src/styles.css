@@ -639,7 +639,8 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 @media (min-width: 1024px) {
-  .hero-headline { font-size: clamp(60px, 5.6vw, 78px); line-height: 1.02; letter-spacing: -0.03em; }
+  .hero-headline { font-size: clamp(44px, 4.2vw, 60px); line-height: 1.06; letter-spacing: -0.025em; font-weight: 800; }
+  .hero-headline span { font-weight: 800; }
 }
 p, li { text-wrap: pretty; }
 
