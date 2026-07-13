@@ -855,12 +855,13 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
 }
 .hero-headline span { font-weight: 800; }
 .hero-headline .text-primary {
-  background: linear-gradient(115deg, var(--brand-strong, #1D4ED8) 0%, var(--brand, #3B82F6) 45%, #22D3EE 100%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-flow 7s ease-in-out infinite;
+  color: var(--primary);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+}
+.hero-headline .text-ink {
+  color: var(--ink);
 }
 
 /* --- Card premium hover: lift, glow, border sheen --- */
