@@ -1,23 +1,29 @@
 {
-  "_comment": "Expected HTTP status + canonical per route. seo-diff.mjs fails CI if live drifts. Update deliberately when a route intentionally changes.",
+  "_comment": "Expected HTTP status + canonical per route per environment. seo-diff.mjs fails CI if the target env drifts. Update deliberately when a route intentionally changes.",
+  "environments": {
+    "production": { "base": "https://beingecom.com" },
+    "staging":    { "base": "https://sales-machine-lab.lovable.app" },
+    "preview":    { "base": "https://id-preview--de1ad5a1-cc8c-4fd1-8084-40056f4b3d61.lovable.app" }
+  },
+  "defaultEnv": "production",
   "base": "https://beingecom.com",
   "routes": {
-    "/": { "status": 200, "canonical": "https://beingecom.com/" },
-    "/services": { "status": 200, "canonical": "https://beingecom.com/services" },
-    "/services/seo": { "status": 200, "canonical": "https://beingecom.com/services/seo" },
-    "/services/paid-ads": { "status": 200, "canonical": "https://beingecom.com/services/paid-ads" },
-    "/services/performance-marketing": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing" },
-    "/services/performance-marketing/google-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/google-ads" },
-    "/services/performance-marketing/facebook-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/facebook-ads" },
-    "/services/performance-marketing/instagram-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/instagram-ads" },
-    "/services/performance-marketing/tiktok-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/tiktok-ads" },
-    "/services/performance-marketing/youtube-ads": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/youtube-ads" },
-    "/services/performance-marketing/media-buying": { "status": 200, "canonical": "https://beingecom.com/services/performance-marketing/media-buying" },
-    "/case-studies": { "status": 200, "canonical": "https://beingecom.com/case-studies" },
-    "/pricing": { "status": 200, "canonical": "https://beingecom.com/pricing" },
-    "/audit": { "status": 200, "canonical": "https://beingecom.com/audit" },
-    "/contact": { "status": 200, "canonical": "https://beingecom.com/contact" },
-    "/about": { "status": 200, "canonical": "https://beingecom.com/about" },
-    "/blog": { "status": 200, "canonical": "https://beingecom.com/blog" }
+    "/": { "status": 200, "canonical": "{{BASE}}/" },
+    "/services": { "status": 200, "canonical": "{{BASE}}/services" },
+    "/services/seo": { "status": 200, "canonical": "{{BASE}}/services/seo" },
+    "/services/paid-ads": { "status": 200, "canonical": "{{BASE}}/services/paid-ads" },
+    "/services/performance-marketing": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing" },
+    "/services/performance-marketing/google-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/google-ads" },
+    "/services/performance-marketing/facebook-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/facebook-ads" },
+    "/services/performance-marketing/instagram-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/instagram-ads" },
+    "/services/performance-marketing/tiktok-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/tiktok-ads" },
+    "/services/performance-marketing/youtube-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/youtube-ads" },
+    "/services/performance-marketing/media-buying": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/media-buying" },
+    "/case-studies": { "status": 200, "canonical": "{{BASE}}/case-studies" },
+    "/pricing": { "status": 200, "canonical": "{{BASE}}/pricing" },
+    "/audit": { "status": 200, "canonical": "{{BASE}}/audit" },
+    "/contact": { "status": 200, "canonical": "{{BASE}}/contact" },
+    "/about": { "status": 200, "canonical": "{{BASE}}/about" },
+    "/blog": { "status": 200, "canonical": "{{BASE}}/blog" }
   }
 }

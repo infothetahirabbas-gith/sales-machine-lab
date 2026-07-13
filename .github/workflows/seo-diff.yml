@@ -1,28 +1,42 @@
 name: SEO diff (post-deploy)
 
-# Runs scripts/seo-diff.mjs against the live site after every push to main
-# (which triggers Lovable's auto-deploy). Fails the workflow if any P1
-# route's HTTP status or canonical drifts from scripts/seo-baseline.json.
+# Runs scripts/seo-diff.mjs against BOTH staging (preview) and production
+# after every push to main (which triggers Lovable's auto-deploy). Each
+# environment has its own baseline entry, and each is diffed independently
+# so a production regression fails independently of staging.
 #
-# Also runnable on demand from the Actions tab.
+# Also uploads the human-readable lint report (lang-routes, canonicals,
+# hreflang, structured data) as a build artifact for quick inspection.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
     inputs:
+      env:
+        description: "Environment to diff (production / staging / preview)"
+        required: false
+        default: "production"
+        type: choice
+        options: [production, staging, preview]
       base:
-        description: "Base URL to diff against (defaults to baseline.base)"
+        description: "Explicit base URL override (skips env picker)"
         required: false
         type: string
   schedule:
-    # Belt-and-braces: catch silent regressions daily even without a push.
     - cron: "0 6 * * *"
 
 jobs:
   seo-diff:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      matrix:
+        env: >-
+          ${{ github.event_name == 'workflow_dispatch'
+              && fromJSON(format('["{0}"]', inputs.env))
+              || fromJSON('["staging","production"]') }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,10 +48,43 @@ jobs:
         if: github.event_name == 'push'
         run: sleep 120
 
-      - name: Run redirect/canonical diff
+      - name: Run redirect/canonical diff — ${{ matrix.env }}
+        env:
+          SEO_DIFF_ENV: ${{ matrix.env }}
         run: |
+          mkdir -p artifacts
           if [ -n "${{ github.event.inputs.base }}" ]; then
-            node scripts/seo-diff.mjs "${{ github.event.inputs.base }}"
+            node scripts/seo-diff.mjs "${{ github.event.inputs.base }}" \
+              --out artifacts/seo-diff-${{ matrix.env }}.json
           else
-            node scripts/seo-diff.mjs
+            node scripts/seo-diff.mjs --env=${{ matrix.env }} \
+              --out artifacts/seo-diff-${{ matrix.env }}.json
           fi
+
+      - name: Upload diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-diff-${{ matrix.env }}
+          path: artifacts/
+
+  lint-report:
+    # Reporting-only companion job. Runs the source-level linters and
+    # publishes an HTML + Markdown report as a CI artifact.
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate combined lint report
+        run: node scripts/lint-report.mjs --out-dir artifacts/lint
+
+      - name: Upload lint report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: artifacts/lint/
