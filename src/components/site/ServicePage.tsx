@@ -89,6 +89,24 @@ export type ServiceConfig = {
   timeline?: { w: string; t: string; b: string }[];
   /** Optional industry-impact grid - pain × outcome per vertical. */
   industryImpact?: { industry: string; pain: string; outcome: string }[];
+  /** Long-form intro block rendered under the hero (200-300 words). Supports paragraphs + highlight bullets. */
+  intro?: {
+    eyebrow?: string;
+    title: string;
+    paragraphs: string[];
+    highlights?: string[];
+  };
+  /** Latest industry trends section - 4-8 trend cards. */
+  trends?: {
+    title?: string;
+    items: { title: string; body: string }[];
+  };
+  /** AI search considerations - how the service ranks in ChatGPT / Perplexity / Gemini / AI Overviews. */
+  aiSearch?: {
+    title?: string;
+    body?: string;
+    items: { engine: string; body: string }[];
+  };
 };
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
