@@ -5,25 +5,37 @@ import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "What does on-page SEO cover for an ecommerce store?", a: "Title tags, meta descriptions, H-structure, unique product/collection copy, internal linking, image alts and Product/Review/FAQ schema - the on-site levers Google actually ranks." },
-  { q: "How long until on-page changes move rankings?", a: "Most product and collection pages move within 4–8 weeks once titles, schema and internal links are rebuilt cleanly." },
+  { q: "How long until on-page changes move rankings?", a: "Most product and collection pages move within 4-8 weeks once titles, schema and internal links are rebuilt cleanly." },
   { q: "Do you rewrite product descriptions?", a: "Yes - unique, buyer-intent copy with USPs, FAQs and schema, not manufacturer boilerplate." },
   { q: "Will you fix duplicate collection and filter pages?", a: "Yes - canonicalisation, faceted-nav rules and unique intros so collections stop cannibalising each other." },
   { q: "Do you handle Shopify and WooCommerce equally?", a: "Yes - Shopify metafields/OS 2.0 and WooCommerce/Yoast/RankMath, both to the same standard." },
+  { q: "What makes you the best Ecommerce SEO Agency UK for on-page work?", a: "We're a specialist Ecommerce Marketing Agency UK. Every on-page rebuild is led by a senior UK SEO director who has shipped 7-figure Shopify and WooCommerce stores - not templated by a junior." },
+  { q: "How do you approach product title tags?", a: "Buyer-intent modifier + product + brand + differentiator, tested for SERP CTR - not just keyword-stuffed. We A/B title formats at the template level." },
+  { q: "Do you handle schema markup?", a: "Yes - Product, AggregateRating, Review, FAQ, HowTo, Breadcrumb and Organization JSON-LD, validated in Google's Rich Results Test and monitored in Search Console." },
+  { q: "How do you avoid keyword cannibalisation?", a: "We map every keyword to exactly one canonical URL, redirect or canonical the duplicates, and rewrite title/H1/copy so each page owns its intent." },
+  { q: "Do you optimise images for SEO?", a: "Yes - descriptive filenames, keyword-aware alt text, WebP/AVIF conversion, responsive srcset and lazy loading. Images drive organic traffic through Google Images too." },
+  { q: "What is a collection page intro and why does it matter?", a: "A 100-200 word above-the-fold or above-the-footer intro that gives Google unique, intent-matched copy to rank the category page - most Shopify stores skip this entirely." },
+  { q: "How many URLs can you rewrite per month?", a: "Bulk on-page rebuilds routinely cover 200-2,000 URLs per month using Shopify metafields, WooCommerce ACF or bulk CSV workflows - senior-reviewed, never AI-spun." },
+  { q: "Do you handle internal linking too?", a: "Yes - hub-and-spoke internal linking between collections, PDPs and blog hubs, plus orphan-page rescue and anchor diversification." },
+  { q: "Will on-page SEO alone rank a new store?", a: "It's necessary but rarely sufficient. On-page + technical usually gets you into striking distance; authority (links) and content velocity finish the job. As an Ecommerce Growth Agency we sequence all three." },
+  { q: "How does on-page SEO integrate with AI Overviews?", a: "FAQ + HowTo schema, direct-answer copy blocks and quotable definitions make PDPs and collection pages citable inside Google AI Overviews, ChatGPT and Perplexity." },
+  { q: "Do you rework meta descriptions at scale?", a: "Yes - rewritten for CTR with brand, benefit and modifier, then monitored in Search Console. Higher CTR is a ranking factor Google won't admit but everyone measures." },
+  { q: "Can you audit before we commit?", a: "Yes - free 40-point on-page audit across your top 50 URLs. You'll see exactly what's leaking before you spend a penny." },
 ];
 
 export const Route = createFileRoute("/services/seo/on-page")({
   head: () => ({
     meta: [
-      { title: "On-Page SEO Agency UK | Shopify & Woo Product SEO | BeingEcom" },
-      { name: "description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages built by senior ecommerce SEOs." },
-      { property: "og:title", content: "On-Page SEO Agency UK | Shopify & Woo Product SEO | BeingEcom" },
-      { property: "og:description", content: "On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages built by senior ecommerce SEOs." },
+      { title: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
+      { name: "description", content: "BeingEcom is a leading On-Page SEO Agency UK and specialist Ecommerce SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages - built by senior UK ecommerce SEOs." },
+      { property: "og:title", content: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
+      { property: "og:description", content: "BeingEcom is a leading On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages, built by senior UK ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/on-page" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/on-page" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/on-page", name: "On-Page SEO", description: "On-page SEO for ecommerce - titles, metas, schema, copy and internal linking." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/on-page", name: "On-Page SEO Agency UK", description: "On-page SEO for ecommerce - titles, metas, schema, copy and internal linking by an award-winning UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "On-Page SEO", path: "/services/seo/on-page" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/on-page")) },
     ],
@@ -31,10 +43,10 @@ export const Route = createFileRoute("/services/seo/on-page")({
   component: () => (
     <ServicePage cfg={{
       slug: "seo-on-page",
-      eyebrow: "On-Page SEO",
+      eyebrow: "On-Page SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "Rank every product and collection you already own.",
-      heroSub: "On-page SEO that turns thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
+      heroTitle: "Best Ecommerce Agency UK for on-page SEO that ranks every product and collection you already own.",
+      heroSub: "As an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce SEO Agency UK, we turn thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
       problemTitle: "Why on-page SEO quietly kills ecommerce rankings.",
       problemBullets: [
         "Product titles that read 'Buy Now - Free Shipping' instead of the keyword.",
@@ -42,7 +54,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
         "Zero Product/Review/FAQ schema, so no rich snippets in the SERP.",
       ],
       whatIsTitle: "On-page SEO is where ecommerce wins are cheapest.",
-      whatIsBody: "You already have the pages. On-page fixes turn existing product and collection URLs into ranking, click-worthy results - no new content required for the first wave of wins.",
+      whatIsBody: "You already have the pages. As the UK's leading Ecommerce Growth Agency for on-page work, we turn existing product and collection URLs into ranking, click-worthy results - no new content required for the first wave of wins. Titles, schema, unique copy, internal links: fix the templates once, rank everywhere.",
       systemTitle: "Our on-page system.",
       systemSteps: [
         { title: "Template audit", body: "PDP, PLP, blog and static templates scored against a 40-point checklist." },
@@ -78,7 +90,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
         result: "Organic sessions +62%, PDP-driven revenue +48% in 90 days - no new content.",
         metrics: [{ label: "Organic", value: "+62%" }, { label: "PDP revenue", value: "+48%" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Turn your existing pages into ranking assets.",
+      ctaTitle: "Turn your existing pages into ranking assets - with the UK's leading Ecommerce SEO Agency.",
       impactStats: [
         { value: "+62%", label: "Organic sessions" },
         { value: "+38%", label: "SERP CTR" },

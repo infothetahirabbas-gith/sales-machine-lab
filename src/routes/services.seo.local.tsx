@@ -9,21 +9,32 @@ const FAQ_LIST: FAQ[] = [
   { q: "How many locations can you handle?", a: "From single-showroom to 200+ locations with programmatic local pages, unique content and per-store GBP management." },
   { q: "Will local SEO help voice and 'near me' searches?", a: "Yes - that's exactly where local ranking wins the click." },
   { q: "Do you handle reviews?", a: "Yes - review acquisition flows via Klaviyo/SMS, review response templates and rating recovery." },
+  { q: "What makes you the best Ecommerce Agency UK for local SEO?", a: "We're a specialist Ecommerce Marketing Agency UK - we combine local map-pack tactics with ecommerce PDP/PLP SEO, so retailers rank both nationally and locally from one strategy." },
+  { q: "How long does local SEO take to work?", a: "Google Business Profile changes can move the map pack in 2-4 weeks. City landing pages typically rank inside 8-12 weeks with the right on-page + citation work." },
+  { q: "What is a Google Business Profile and why does it matter?", a: "It's the free Google-owned business listing that powers the map pack, 'near me' results and voice search. For local ecommerce it's often bigger than your website's organic traffic." },
+  { q: "Can you help with multi-location review management?", a: "Yes - review request flows via Klaviyo and SMS, per-store response templates, negative review escalation and rating recovery playbooks." },
+  { q: "Do you build citations manually?", a: "Yes - manual placements on Yell, Thomson Local, Scoot, FreeIndex, Yelp UK and industry-specific UK directories. NAP consistency is auto-monitored monthly." },
+  { q: "What is LocalBusiness schema?", a: "JSON-LD structured data that tells Google your store's address, hours, geo coordinates, price range and aggregate rating - critical for map-pack ranking." },
+  { q: "How does local SEO integrate with ecommerce SEO?", a: "As an Ecommerce Growth Agency we treat local as a channel inside the broader Ecommerce SEO Agency UK strategy - city pages internally link to money collections, and organic authority flows through." },
+  { q: "Do you handle click-and-collect stores?", a: "Yes - we optimise GBP inventory, click-and-collect messaging, store-locator schema and city landing pages that push footfall + orders." },
+  { q: "What cities have you scaled brands in?", a: "London, Manchester, Birmingham, Leeds, Glasgow, Edinburgh, Bristol, Liverpool, Newcastle, Sheffield, Cardiff, Belfast and 30+ other UK cities." },
+  { q: "Do you offer GBP posts and photo updates?", a: "Yes - weekly Google Posts, monthly photo uploads, Q&A management and product/service catalogue updates. Freshness signals move the map pack." },
+  { q: "How do you measure local SEO success?", a: "Map-pack rankings by city, GBP-driven calls / directions / website clicks, city landing page rankings, and in-store footfall attribution where possible." },
 ];
 
 export const Route = createFileRoute("/services/seo/local")({
   head: () => ({
     meta: [
-      { title: "Local SEO Agency UK | GBP, City Pages & Reviews | BeingEcom" },
-      { name: "description", content: "Local SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
-      { property: "og:title", content: "Local SEO Agency UK | GBP, City Pages & Reviews | BeingEcom" },
+      { title: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
+      { name: "description", content: "BeingEcom is a leading Local SEO Agency UK and specialist Ecommerce SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
+      { property: "og:title", content: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
       { property: "og:description", content: "Local SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
       { property: "og:url", content: "https://beingecom.com/services/seo/local" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/local" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO", description: "Local SEO for UK ecommerce, retail and multi-location brands." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO Agency UK", description: "Local SEO for UK ecommerce, retail and multi-location brands by an award-winning UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Local SEO", path: "/services/seo/local" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/local")) },
     ],
@@ -31,10 +42,10 @@ export const Route = createFileRoute("/services/seo/local")({
   component: () => (
     <ServicePage cfg={{
       slug: "seo-local",
-      eyebrow: "Local SEO",
+      eyebrow: "Local SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "Own 'near me' and every UK city that matters.",
-      heroSub: "Local SEO for ecommerce, retail and multi-location brands - Google Business Profile, local pages, citations and reviews, done right.",
+      heroTitle: "Best Ecommerce Agency UK for local SEO - own 'near me' in every UK city.",
+      heroSub: "Local SEO from a specialist Ecommerce Marketing Agency UK - Google Business Profile, local pages, citations and reviews for ecommerce, retail and multi-location UK brands.",
       problemTitle: "Why local rankings vanish for ecommerce brands.",
       problemBullets: [
         "GBP set up once in 2019 and never touched.",
@@ -42,7 +53,7 @@ export const Route = createFileRoute("/services/seo/local")({
         "Inconsistent NAP across Yell, TrustPilot and 40 citation sites.",
       ],
       whatIsTitle: "Local SEO is a distinct discipline.",
-      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema - not backlinks and blog posts.",
+      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema - not backlinks and blog posts. As an Ecommerce Growth Agency we run local as its own workstream and wire it into the broader Ecommerce SEO Agency UK strategy, so retailers win both nationally and locally.",
       systemTitle: "Our local SEO system.",
       systemSteps: [
         { title: "GBP audit & optimisation", body: "Categories, services, products, posts, photos, Q&A." },
@@ -78,7 +89,7 @@ export const Route = createFileRoute("/services/seo/local")({
         result: "Top-3 map pack in all 8 cities, in-store visits +64% via GBP.",
         metrics: [{ label: "Cities top-3", value: "8/8" }, { label: "Reviews", value: "+318" }, { label: "GBP visits", value: "+64%" }],
       },
-      ctaTitle: "Dominate local search in every UK city you serve.",
+      ctaTitle: "Dominate local search in every UK city - with the UK's leading Ecommerce SEO Agency.",
       impactStats: [
         { value: "8/8", label: "Cities in top-3" },
         { value: "+318", label: "Reviews added" },
