@@ -16,47 +16,14 @@ const DEFAULT_PREFS: Prefs = { country: "uk", location: "london", industry: "fas
 
 type ServiceItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
-const services: ServiceItem[] = [
-  {
-    to: "/services/seo",
-    label: "Ecommerce SEO",
-    children: [
-      { to: "/services/seo/on-page", label: "On-Page SEO" },
-      { to: "/services/seo/off-page", label: "Off-Page SEO" },
-      { to: "/services/seo/technical", label: "Technical SEO" },
-      { to: "/services/seo/local", label: "Local SEO" },
-      { to: "/services/seo/aeo", label: "AEO / AI Search" },
-      { to: "/services/seo/international", label: "International SEO" },
-    ],
-  },
-  {
-    to: "/services/performance-marketing",
-    label: "Performance Marketing",
-    children: [
-      { to: "/services/performance-marketing/facebook-ads", label: "Facebook Ads" },
-      { to: "/services/performance-marketing/instagram-ads", label: "Instagram Ads" },
-      { to: "/services/performance-marketing/tiktok-ads", label: "TikTok Ads" },
-      { to: "/services/performance-marketing/google-ads", label: "Google Ads" },
-      { to: "/services/performance-marketing/youtube-ads", label: "YouTube Ads" },
-      { to: "/services/performance-marketing/media-buying", label: "Media Buying" },
-    ],
-  },
-  {
-    to: "/services/store-development",
-    label: "Store Development",
-    children: [
-      { to: "/services/store-development/shopify", label: "Shopify Store Development" },
-      { to: "/services/store-development/woocommerce", label: "WooCommerce Store Development" },
-    ],
-  },
-  { to: "/services/cro", label: "Conversion Rate Optimisation" },
-  { to: "/services/creative", label: "Creative Production" },
-  { to: "/services/email-sms", label: "Email Marketing Automation" },
-  { to: "/services/ai-automation", label: "AI Automation" },
-  { to: "/services/funnel", label: "Funnel & Landing Pages" },
-  { to: "/services/analytics", label: "Analytics & Tracking" },
-  { to: "/services/scaling", label: "Scaling & Retention" },
-];
+// Derived from the single source of truth in src/config/services.ts so
+// Header, Footer, and homepage grid can never drift again.
+const services: ServiceItem[] = SERVICES.map((s) => ({
+  to: s.to,
+  label: s.label,
+  ...(s.children ? { children: s.children.map((c) => ({ to: c.to, label: c.label })) } : {}),
+}));
+
 
 export const locations = [
   { to: "/locations/london", label: "London" },
