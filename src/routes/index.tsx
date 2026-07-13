@@ -122,6 +122,20 @@ function Home() {
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
+            {/* Authority strip — 5-star trust + top-line proof, above H1 */}
+            <div className="mb-4 flex flex-col items-center lg:items-start gap-2">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900 shadow-sm">
+                <span aria-hidden="true" className="tracking-tight text-amber-500">★★★★★</span>
+                <span>Trusted by UK Ecommerce Brands</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                <span className="text-ink">500+ Growth Campaigns</span>
+                <span className="text-primary/40">·</span>
+                <span className="text-ink">Avg ROAS 4.1×</span>
+                <span className="text-primary/40">·</span>
+                <span className="text-ink">£48M+ Tracked Revenue</span>
+              </div>
+            </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
