@@ -1,16 +1,13 @@
 name: SEO diff (post-deploy)
 
-# Runs scripts/seo-diff.mjs against BOTH staging (preview) and production
-# after every push to main (which triggers Lovable's auto-deploy). Each
-# environment has its own baseline entry, and each is diffed independently
-# so a production regression fails independently of staging.
-#
-# Also uploads the human-readable lint report (lang-routes, canonicals,
-# hreflang, structured data) as a build artifact for quick inspection.
+# Runs seo-diff (per environment), the runtime JSON-LD checker, and the
+# combined lint report after every push to main. Posts a PR comment summary
+# when the workflow runs on a pull_request.
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
     inputs:
       env:
@@ -26,6 +23,10 @@ on:
   schedule:
     - cron: "0 6 * * *"
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   seo-diff:
     runs-on: ubuntu-latest
@@ -39,10 +40,8 @@ jobs:
               || fromJSON('["staging","production"]') }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+        with: { node-version: "20" }
 
       - name: Wait for deploy to propagate
         if: github.event_name == 'push'
@@ -61,7 +60,11 @@ jobs:
               --out artifacts/seo-diff-${{ matrix.env }}.json
           fi
 
-      - name: Upload diff report
+      - name: Runtime JSON-LD check — ${{ matrix.env }}
+        if: always()
+        run: node scripts/runtime-jsonld-check.mjs --env=${{ matrix.env }} --out artifacts/jsonld-${{ matrix.env }}.json
+
+      - name: Upload diff + jsonld report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -69,15 +72,26 @@ jobs:
           path: artifacts/
 
   lint-report:
-    # Reporting-only companion job. Runs the source-level linters and
-    # publishes an HTML + Markdown report as a CI artifact.
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    needs: [seo-diff]
+    if: always()
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+
+      - name: Download seo-diff artifacts
+        uses: actions/download-artifact@v4
         with:
-          node-version: "20"
+          path: downloaded
+        continue-on-error: true
+
+      - name: Collect artifacts for report
+        run: |
+          mkdir -p artifacts/lint
+          find downloaded -type f \( -name 'seo-diff-*.json' -o -name 'jsonld-*.json' \) \
+            -exec cp {} artifacts/lint/ \; || true
 
       - name: Generate combined lint report
         run: node scripts/lint-report.mjs --out-dir artifacts/lint
@@ -88,3 +102,38 @@ jobs:
         with:
           name: lint-report
           path: artifacts/lint/
+
+      - name: Post PR summary comment
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          DIFF_ARGS=""
+          for f in artifacts/lint/seo-diff-*.json; do
+            [ -f "$f" ] && DIFF_ARGS="$DIFF_ARGS --diff $f"
+          done
+          JSONLD=""
+          for f in artifacts/lint/jsonld-*.json; do
+            [ -f "$f" ] && JSONLD="--jsonld $f" && break
+          done
+          node scripts/pr-comment.mjs $DIFF_ARGS $JSONLD --lint-md artifacts/lint/lint-report.md
+
+  baseline-guard:
+    # Refuse to overwrite scripts/seo-baseline.json in CI unless someone sets
+    # SEO_BASELINE_APPROVE=1 as a workflow env / secret. The regen script
+    # itself enforces this; this job just documents the entrypoint.
+    if: github.event_name == 'workflow_dispatch' && inputs.env != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Propose new baseline (never overwrites without SEO_BASELINE_APPROVE=1)
+        env:
+          SEO_BASELINE_APPROVE: ${{ vars.SEO_BASELINE_APPROVE || '' }}
+        run: node scripts/regen-baseline.mjs --env=${{ inputs.env }} --approve || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: baseline-proposal-${{ inputs.env }}
+          path: scripts/seo-baseline.proposed.*.json
