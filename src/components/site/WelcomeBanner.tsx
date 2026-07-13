@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Globe, MapPin, Briefcase, Sparkles, Languages, ArrowRight, Check } from "lucide-react";
+import { Globe, MapPin, Briefcase, Sparkles, ArrowRight, Check } from "lucide-react";
 import { LOCATIONS, INDUSTRIES } from "../../lib/locations-industries";
+import { SERVICES as CANONICAL_SERVICES } from "../../config/services";
 import logoAsset from "@/assets/being-ecom-logo.jpeg.asset.json";
-
 
 const LOGO_URL = logoAsset.url;
 
@@ -11,42 +11,26 @@ const COUNTRIES = [
   { code: "uk", name: "United Kingdom", flag: "🇬🇧" },
 ];
 
-const SERVICES = [
-  { slug: "seo", name: "Ecommerce SEO" },
-  { slug: "seo-on-page", name: "- On-Page SEO" },
-  { slug: "seo-off-page", name: "- Off-Page SEO" },
-  { slug: "seo-technical", name: "- Technical SEO" },
-  { slug: "seo-local", name: "- Local SEO" },
-  { slug: "seo-aeo", name: "- AEO / AI Search" },
-  { slug: "seo-international", name: "- International SEO" },
-  { slug: "performance-marketing", name: "Performance Marketing" },
-  { slug: "ads-facebook", name: "- Facebook Ads" },
-  { slug: "ads-instagram", name: "- Instagram Ads" },
-  { slug: "ads-tiktok", name: "- TikTok Ads" },
-  { slug: "ads-google", name: "- Google Ads" },
-  { slug: "ads-youtube", name: "- YouTube Ads" },
-  { slug: "store-development", name: "Store Development" },
-  { slug: "store-shopify", name: "- Shopify Development" },
-  { slug: "store-woocommerce", name: "- WooCommerce Development" },
-  { slug: "cro", name: "Conversion Rate Optimisation" },
-  { slug: "creative", name: "Creative Production" },
-  { slug: "email-sms", name: "Email Marketing" },
-  { slug: "ai-automation", name: "AI Automation" },
-];
-
-const LANGUAGES = [
-  { code: "en", name: "English" },
-  { code: "es", name: "Español (Spanish)" },
-  { code: "pl", name: "Polski (Polish)" },
-  { code: "ro", name: "Română (Romanian)" },
-  { code: "pt", name: "Português (Portuguese)" },
-  { code: "de", name: "Deutsch (German)" },
-  { code: "fr", name: "Français (French)" },
-];
+// Derive the service picker from the single canonical service list so it can
+// never drift from the header, footer, homepage grid or /services index.
+// Top-level services render as bold rows; children render as indented rows.
+const SERVICES: { slug: string; name: string }[] = CANONICAL_SERVICES.flatMap((s) => {
+  const rows: { slug: string; name: string }[] = [{ slug: s.slug, name: s.label }];
+  if (s.children) {
+    for (const c of s.children) {
+      // Slug used by the /{lang}/{location}/{industry}/{service} target route
+      // must be flat, so prefix the child slug with the parent slug.
+      const childSlug = c.to.replace(/^\/services\//, "").replace(/\//g, "-");
+      const childLabel = c.label;
+      rows.push({ slug: childSlug, name: `- ${childLabel}` });
+    }
+  }
+  return rows;
+});
 
 const STORAGE_KEY = "beingecom_welcome_v1";
 
-type Step = 0 | 1 | 2 | 3 | 4;
+type Step = 0 | 1 | 2 | 3;
 
 export default function WelcomeBanner() {
   const navigate = useNavigate();
@@ -56,13 +40,9 @@ export default function WelcomeBanner() {
   const [location, setLocation] = useState("");
   const [industry, setIndustry] = useState("");
   const [service, setService] = useState("");
-  const [language, setLanguage] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Re-show the banner on any fresh visit. A completion is only honoured
-    // for 30 minutes of continuous activity; after that (tab closed, or user
-    // returns later), the banner starts from scratch.
     const TTL_MS = 5 * 60 * 1000;
     const ts = Number(sessionStorage.getItem(`${STORAGE_KEY}_ts`) || 0);
     const fresh = ts && Date.now() - ts < TTL_MS;
@@ -83,12 +63,12 @@ export default function WelcomeBanner() {
 
   if (!open) return null;
 
-  const stepValues = [country, location, industry, service, language];
+  const stepValues = [country, location, industry, service];
   const currentSelected = !!stepValues[step];
 
   const goNext = () => {
     if (!currentSelected) return;
-    if (step < 4) setStep((step + 1) as Step);
+    if (step < 3) setStep((step + 1) as Step);
   };
 
   const submit = () => {
@@ -97,40 +77,23 @@ export default function WelcomeBanner() {
     sessionStorage.setItem(`${STORAGE_KEY}_ts`, String(Date.now()));
     sessionStorage.setItem(
       `${STORAGE_KEY}_prefs`,
-      JSON.stringify({ country, location, industry, service, language })
+      JSON.stringify({ country, location, industry, service })
     );
     setOpen(false);
-    try { localStorage.setItem("site_lang", language); } catch {}
-    const target = `/${language}/${location}/${industry}/${service}`;
-    if (language && language !== "en") {
-      // Set Google Translate cookie then hard-navigate so the target page
-      // renders in the chosen language.
-      const host = window.location.hostname;
-      const value = `/en/${language}`;
-      for (const d of ["", host, `.${host}`]) {
-        document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
-        document.cookie = `googtrans=${value}; path=/${d ? `; domain=${d}` : ""}`;
-      }
-      window.location.href = target;
-      return;
-    }
-    // English: clear any prior translation cookie, then SPA-navigate.
-    for (const d of ["", window.location.hostname, `.${window.location.hostname}`]) {
-      document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT${d ? `; domain=${d}` : ""}`;
-    }
+    // Language selection intentionally removed - no /{lang}/ locale routes
+    // exist yet, so serving 6 translation options would create dead links
+    // and duplicate-content risk. Always route to English (default).
     navigate({
       to: "/$lang/$location/$industry/$service",
-      params: { lang: language, location, industry, service },
+      params: { lang: "en", location, industry, service },
     });
   };
-  
 
   const steps = [
     { icon: Globe, label: "Country" },
     { icon: MapPin, label: "City" },
     { icon: Briefcase, label: "Industry" },
     { icon: Sparkles, label: "Service" },
-    { icon: Languages, label: "Language" },
   ];
 
   return (
@@ -145,11 +108,9 @@ export default function WelcomeBanner() {
         className="relative w-full max-w-3xl overflow-hidden rounded-3xl bg-background shadow-[0_60px_120px_-30px_rgba(0,0,0,0.5)] border border-border/50"
         style={{ animation: "scaleIn 0.4s cubic-bezier(0.16,1,0.3,1) both" }}
       >
-        {/* Decorative gradient */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
 
-        {/* Header with logo */}
         <div className="relative px-6 pt-8 pb-4 text-center">
           <img
             src={LOGO_URL}
@@ -161,10 +122,9 @@ export default function WelcomeBanner() {
             Welcome to <span className="text-brand">BeingEcom</span>
           </h2>
           <p className="mt-2 text-sm md:text-base text-muted-foreground max-w-md mx-auto">
-            Personalise your experience in 5 quick steps and we'll route you to the right growth plan.
+            Personalise your experience in 4 quick steps and we'll route you to the right growth plan.
           </p>
 
-          {/* Progress */}
           <div className="mt-6 flex items-center justify-center gap-2">
             {steps.map((s, i) => {
               const Ic = s.icon;
@@ -193,7 +153,6 @@ export default function WelcomeBanner() {
           </div>
         </div>
 
-        {/* Step body */}
         <div className="px-6 pb-6 max-h-[45vh] overflow-y-auto">
           {step === 0 && (
             <Grid>
@@ -234,18 +193,8 @@ export default function WelcomeBanner() {
               options={SERVICES.map((s) => ({ value: s.slug, label: s.name }))}
             />
           )}
-          {step === 4 && (
-            <Dropdown
-              label="Select your language"
-              value={language}
-              onChange={setLanguage}
-              placeholder="Choose a language…"
-              options={LANGUAGES.map((l) => ({ value: l.code, label: l.name }))}
-            />
-          )}
         </div>
 
-        {/* Footer actions - sticky, prominent CTA */}
         <div className="sticky bottom-0 border-t-2 border-primary/20 px-5 py-4 md:py-5 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-background shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)]">
           <button
             onClick={() => step > 0 && setStep((step - 1) as Step)}
@@ -254,7 +203,7 @@ export default function WelcomeBanner() {
           >
             ← Back
           </button>
-          {step < 4 ? (
+          {step < 3 ? (
             <button
               onClick={goNext}
               disabled={!currentSelected}

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -8,7 +8,6 @@ import {
   useRouterState,
   HeadContent,
   Scripts,
-  ClientOnly,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -43,9 +42,10 @@ header>div:first-child>div{display:grid;grid-template-columns:repeat(6,minmax(0,
 
 const asyncCssLoader = `(()=>{var h=${JSON.stringify(appCss)};function l(){if(document.querySelector('link[data-app-css]'))return;var e=document.createElement('link');e.rel='stylesheet';e.href=h;e.setAttribute('data-app-css','');document.head.appendChild(e)}if('requestAnimationFrame'in window){requestAnimationFrame(()=>requestAnimationFrame(l))}else setTimeout(l,0)})();`;
 
-// Deferred - these are not needed for first paint. Loading them lazily
-// removes ~significant JS from the initial bundle and keeps LCP fast.
-const GoogleTranslate = lazy(() => import("../components/site/GoogleTranslate"));
+// NOTE: Google Translate language switcher removed until proper /{lang}/
+// locale routes and hreflang are built. Serving 6 translation options without
+// backing pages created a duplicate-content / soft-404 risk.
+
 
 
 
@@ -184,41 +184,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  // Mount deferred client-only widgets AFTER first paint so they never
-  // block LCP or TTI on the initial load. Google Translate is desktop-only
-  // (≥1024px) - on mobile it adds ~98 KiB of third-party JS with no value
-  // since the language switcher lives in the desktop header dropdown.
-  const [deferredReady, setDeferredReady] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const apply = () => setIsDesktop(mq.matches);
-    apply();
-    mq.addEventListener("change", apply);
-    const w = window as unknown as {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    let idleId: number | undefined;
-    let timeoutId: number | undefined;
-    if (typeof w.requestIdleCallback === "function") {
-      idleId = w.requestIdleCallback(() => setDeferredReady(true), { timeout: 2000 });
-    } else {
-      timeoutId = window.setTimeout(() => setDeferredReady(true), 400);
-    }
     // Real-user Core Web Vitals reporting is useful, but it should never
     // compete with mobile FCP/LCP. Start it well after the hero has painted.
     const vitalsTimer = window.setTimeout(() => {
       import("../lib/web-vitals-reporter").then((m) => m.startWebVitalsReporter()).catch(() => {});
     }, 8000);
     return () => {
-      mq.removeEventListener("change", apply);
-      if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
       window.clearTimeout(vitalsTimer);
     };
   }, []);
+
 
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
@@ -227,13 +204,7 @@ function RootComponent() {
         <Outlet />
       </PageFade>
       <GlobalReveal />
-      <ClientOnly fallback={null}>
-        {deferredReady && isDesktop ? (
-          <Suspense fallback={null}>
-            <GoogleTranslate />
-          </Suspense>
-        ) : null}
-      </ClientOnly>
+
     </QueryClientProvider>
   );
 }
