@@ -120,7 +120,7 @@ export default function CsrPartnerForm() {
 
       <label className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
         <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
-        <span>I agree to be contacted by BeingEcom about this CSR request and accept the <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>. We never share or sell your data.</span>
+        <span>I agree to be contacted by BeingEcom about this CSR request and accept the <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>. We never share or sell your data.</span>
       </label>
       {errFor("consent")}
 
