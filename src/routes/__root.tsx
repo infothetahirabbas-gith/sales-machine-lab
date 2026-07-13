@@ -176,14 +176,12 @@ function RootComponent() {
   }, []);
 
 
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <QueryClientProvider client={queryClient}>
-      <div key={pathname}>
-        <Outlet />
-      </div>
+      <Outlet />
       <GlobalReveal />
     </QueryClientProvider>
   );
 }
+
 
