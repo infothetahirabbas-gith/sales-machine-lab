@@ -224,20 +224,6 @@ function Home() {
               </div>
             </div>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
-              <SafeImg
-                src={HERO_PHONE}
-                alt="Shopify product page shown on a phone during a UK ecommerce growth sprint"
-                width={520}
-                height={640}
-                loading="lazy"
-                fetchPriority="low"
-                skeleton
-                brandOverlay
-                className="w-full h-full object-cover"
-                wrapperClassName="w-full h-full"
-              />
-            </div>
-            <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
                   <span className="relative w-2 h-2 rounded-full bg-primary pulse-dot" />
