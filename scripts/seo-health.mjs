@@ -14,13 +14,21 @@
  * or redirects (crawl budget waste).
  *
  * Usage:
- *   node scripts/seo-health.mjs                    # against live prod
- *   node scripts/seo-health.mjs https://preview... # against a preview
- *   node scripts/seo-health.mjs --json             # JSON output for CI
+ *   node scripts/seo-health.mjs                        # pretty console
+ *   node scripts/seo-health.mjs https://preview...     # override base
+ *   node scripts/seo-health.mjs --json                 # JSON to stdout
+ *   node scripts/seo-health.mjs --out report.json      # JSON to file
+ *   node scripts/seo-health.mjs --html report.html     # HTML report to file
  */
+
+import { writeFileSync } from "node:fs";
 
 const args = process.argv.slice(2);
 const jsonOut = args.includes("--json");
+const outIdx = args.indexOf("--out");
+const outPath = outIdx >= 0 ? args[outIdx + 1] : null;
+const htmlIdx = args.indexOf("--html");
+const htmlPath = htmlIdx >= 0 ? args[htmlIdx + 1] : null;
 const baseArg = args.find((a) => a.startsWith("http"));
 const BASE = (baseArg ?? "https://beingecom.com").replace(/\/$/, "");
 
