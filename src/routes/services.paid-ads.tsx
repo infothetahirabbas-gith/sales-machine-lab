@@ -21,16 +21,23 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes — several clients are between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
   { q: "What tools do you use?", a: "Meta Ads Manager, Google Ads, TikTok Ads Manager, Triple Whale, GA4, Motion, Foreplay, Northbeam and Looker Studio dashboards you can log into any time." },
   { q: "How is BeingEcom different from other paid-ads agencies?", a: "We're a specialist Ecommerce Agency UK — not a generalist. Every strategist runs 6-figure ecommerce accounts weekly, and our creative, media buying and SEO teams share one revenue P&L per client." },
+  { q: "Do you offer a free paid-ads audit?", a: "Yes — a free 30-minute audit reviewing account structure, creative velocity, tracking health, attribution setup and MER opportunity. Delivered live by a senior UK media buyer." },
+  { q: "How do you approach creative for paid ads?", a: "Creative carries 80% of paid performance. We ship 20-40 tested creatives per month via our in-house Ecommerce Creative Agency UK team — UGC, statics, motion, founder — with weekly winner remixes." },
+  { q: "What's the difference between platform ROAS and MER?", a: "Platform ROAS (Meta, Google) is self-reported and double-counts across channels. MER (Marketing Efficiency Ratio) = total revenue ÷ total ad spend across ALL channels. MER is the only number that maps to bank-account growth." },
+  { q: "Can you help with international paid campaigns?", a: "Yes — UK, EU, US and MENA campaigns run under one strategy with per-region creative, currency handling, feed localisation and country-specific attribution windows." },
+  { q: "What ad platforms are worth testing in 2026?", a: "Meta and Google Shopping / PMax remain the workhorses. TikTok is essential for Gen Z. YouTube (Shorts + long-form) is under-priced. Pinterest works for aesthetic verticals. LinkedIn only for B2B ecommerce. We test the mix per brand." },
+  { q: "Do you run TikTok Shop ads?", a: "Yes — TikTok Shop native ads, Spark Ads and creator partnerships, plus product feed sync. TikTok Shop is now the fastest-growing paid channel for beauty, fashion and wellness DTC in the UK." },
+  { q: "What common paid ads mistakes do you see?", a: "Chasing platform ROAS instead of MER, running 2 creatives on rotation, no CAPI or server-side tracking, ignoring brand search, scaling before break-even, and never refreshing PMax asset groups. We fix all six from day one." },
 ];
 
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { name: "description", content: "Award-winning Ecommerce Paid Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Meta, Google Shopping, PMax, TikTok and YouTube for Shopify and WooCommerce brands — profitably, at scale." },
+      { title: "Best Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { name: "description", content: "Best Ecommerce Paid Ads Agency UK for Shopify & WooCommerce brands. Award-winning Meta, Google Shopping, PMax, TikTok and YouTube management — profitable scale, blended MER, weekly creative velocity. Senior UK media buyers, no lock-ins." },
       { name: "keywords", content: "Ecommerce Paid Ads Agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, PPC agency UK, Meta Ads agency UK, Google Ads agency UK, TikTok Ads agency UK, Shopify paid ads agency" },
-      { property: "og:title", content: "No.1 Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Marketing Agency UK running Meta, Google, TikTok and YouTube for Shopify & WooCommerce brands. Profitable scale, blended MER, weekly creative." },
+      { property: "og:title", content: "Best Ecommerce Paid Ads Agency UK | Meta, Google & TikTok | BeingEcom" },
+      { property: "og:description", content: "Best Ecommerce Paid Ads Agency UK. Meta, Google, TikTok and YouTube for Shopify & WooCommerce brands. Profitable scale, blended MER, weekly creative." },
       { property: "og:url", content: "https://beingecom.com/services/paid-ads" },
       { property: "og:type", content: "website" },
     ],
@@ -45,8 +52,24 @@ export const Route = createFileRoute("/services/paid-ads")({
     <ServicePage cfg={{
       slug: "paid-ads",
       eyebrow: "Paid Advertising",
-      heroTitle: "No.1 Ecommerce Paid Ads Agency UK — scale your store profitably.",
-      heroSub: "The UK's most trusted Ecommerce Marketing Agency UK for Meta, Google & TikTok — creative volume, real targeting, and break-even math built for Shopify & WooCommerce brands.",
+      heroTitle: "Best Ecommerce Paid Ads Agency UK - Scale Meta, Google & TikTok Profitably.",
+      heroSub: "UK's leading Ecommerce Marketing Agency UK for paid media - Meta, Google Shopping, PMax, TikTok and YouTube run as one profit engine. Creative volume, real targeting, break-even math and blended MER reporting for Shopify and WooCommerce brands scaling past £50k/mo in ad spend. Senior UK media buyers, no juniors, no lock-ins.",
+      intro: {
+        eyebrow: "Why brands hire us",
+        title: "The UK's Most Trusted Ecommerce Paid Ads Agency for Profitable Scale.",
+        paragraphs: [
+          "BeingEcom is a specialist Ecommerce Paid Ads Agency UK - part of a full-stack Ecommerce Marketing Agency UK that runs creative, SEO, CRO and email under one revenue P&L. Every strategist on your account runs 6- and 7-figure ecommerce media budgets weekly, and every engagement is led by a senior UK media buyer from day one.",
+          "As an Ecommerce Growth Agency we treat paid ads as a profit engine, not a traffic tap. Meta, Google Shopping, PMax, TikTok and YouTube are managed as one budget allocated against blended MER, new-customer CAC and contribution margin. Creative velocity is baked in - 20-40 tested creatives per month via our in-house Ecommerce Creative Agency UK team - because targeting is automated and creative is 80% of what still moves.",
+          "The result is what a proper Ecommerce Agency UK should ship: rising blended MER, dropping new-customer CAC, weekly Loom reporting you actually understand, server-side attribution you can trust, and month-over-month profitable scale - not a Meta screenshot dressed up as growth.",
+        ],
+        highlights: [
+          "Senior UK media buyer on every account - no juniors, no rotating pods.",
+          "Ecommerce-only - 120+ Shopify & WooCommerce stores scaled, £48M+ tracked revenue.",
+          "One P&L across Meta, Google, TikTok, YouTube - allocated on blended MER.",
+          "In-house creative pod shipping 20-40 tested creatives/month per client.",
+          "3-month initial engagement, then rolling monthly. No 12-month lock-ins.",
+        ],
+      },
       problemTitle: "Why most ecommerce ad accounts bleed money.",
       problemBullets: [
         "Boosting posts and calling it strategy.",
@@ -106,6 +129,29 @@ export const Route = createFileRoute("/services/paid-ads")({
         strategy: "10 creator-driven UGC ads, ASC+ scaling, exclusions tightened.",
         result: "Scaled to £62K MRR at 2.6× ROAS in 90 days.",
         metrics: [{ label: "MRR", value: "£62K" }, { label: "ROAS", value: "2.6×" }, { label: "Days", value: "90" }],
+      },
+      trends: {
+        title: "Latest ecommerce paid ads trends UK brands need to act on now.",
+        items: [
+          { title: "Advantage+ Shopping dominates Meta", body: "ASC+ (Advantage+ Shopping Campaigns) is now the default Meta scaling structure. Manual campaigns are being throttled - the winning brands ship 20+ creatives per ASC+ per month." },
+          { title: "PMax + brand exclusions", body: "Google Performance Max eats brand-search unless you exclude your brand terms. Every serious PMax setup now runs paired brand-defense Search campaigns to protect margin." },
+          { title: "TikTok Shop ads exploding", body: "TikTok Shop native ads + Spark Ads + Creator partnerships are now the fastest-growing paid channel for beauty, fashion and wellness DTC in the UK." },
+          { title: "iOS 18 + Chrome cookie deprecation", body: "Cookie-based attribution is dying. Server-side GTM, Meta CAPI, Google Enhanced Conversions and a blended MER dashboard are now table stakes." },
+          { title: "Whitelisted creator ads", body: "Meta Partnership Ads (running ads from the creator's handle) out-perform brand-owned creative 20-40% on CTR because they don't look like ads." },
+          { title: "YouTube Shorts + Demand Gen", body: "Google's Demand Gen campaigns (YouTube Shorts + Discover + Gmail) are now the closest analog to Meta's ASC+ for cold-traffic scale - and severely under-priced." },
+        ],
+      },
+      aiSearch: {
+        title: "How paid ads intersect with AI Search in 2026.",
+        body: "AI-driven shopping and discovery is reshaping how buyers decide before they click. Paid ads still win the click - but the brands that get cited by ChatGPT, Perplexity and Google AI Overviews get pre-qualified, higher-intent traffic that converts at 2-3× cold cold-paid rates.",
+        items: [
+          { engine: "Google AI Overviews", body: "AI Overviews now sit above paid ads on many commercial queries. Brands with Product + Review + FAQ schema get cited - and their paid ads convert at higher rates because trust is pre-built." },
+          { engine: "ChatGPT Shopping", body: "ChatGPT Shopping surfaces cited brands directly. Our paired SEO + paid strategy earns the citation, then paid ads capture the click at lower CAC." },
+          { engine: "Perplexity", body: "Perplexity users are high-intent researchers. Paid remarketing to Perplexity-referred traffic converts at 3-4× cold paid rates." },
+          { engine: "Google Gemini", body: "Gemini Shopping surfaces branded results in native AI responses. Merchant Center feed hygiene + product schema now directly affect paid ad eligibility." },
+          { engine: "TikTok AI Search", body: "TikTok's AI-powered search now surfaces UGC and Spark Ads directly. Native-feel creative wins both organic reach and paid conversion." },
+          { engine: "Bing + Copilot", body: "Copilot Shopping surfaces cited brands with product feeds. Microsoft Ads + Bing Merchant Center feed = ad + AI-search visibility from one setup." },
+        ],
       },
       ctaTitle: "Ready to work with the UK's leading Ecommerce Marketing Agency UK?",
       impactStats: [

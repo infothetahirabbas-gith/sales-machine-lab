@@ -13,21 +13,33 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you work directly in our Shopify theme?", a: "Yes. Our devs work in Shopify Liquid, React (Hydrogen), and any headless stack. We can ship inside your existing theme or run experiments through a testing tool without a code touch." },
   { q: "Do you replace our in-house designer?", a: "No - we amplify them. We ship the hypothesis, wireframe and copy; your designer executes brand-perfect visuals; our dev QA the launch. Ideal partnership." },
   { q: "What's the biggest CRO win you've delivered?", a: "A UK beauty brand went from 1.4% to 4.1% conversion in 60 days by rewiring one page: the PDP. Same traffic, same spend, +192% CR, +228% revenue." },
+  { q: "Do you offer a free CRO audit?", a: "Yes - a free 30-minute audit covering funnel leaks, PDP structure, checkout friction and tracking health. Delivered live by a senior UK CRO operator, not a sales rep." },
+  { q: "How is CRO different for Shopify vs WooCommerce?", a: "Shopify limits some checkout customisation (unless you're on Shopify Plus with Checkout Extensibility). WooCommerce is fully customisable but ships slower. We work daily in both stacks and adapt the test roadmap to what each platform allows." },
+  { q: "What tools do you use for CRO?", a: "Hotjar or Microsoft Clarity for session replays and heatmaps, GA4 + server-side GTM for tracking, Intelligems / Convert / VWO / Optimizely for A/B testing, and Google Optimize replacements where needed. Full stack, not a single vendor." },
+  { q: "Can CRO help if my traffic is low?", a: "Below 20k monthly sessions, A/B testing takes too long to reach significance. We still run 'best-practice' CRO (PDP rewrites, checkout fixes, trust signals) with a rigorous before/after measurement - just no split-test infrastructure." },
+  { q: "Do you optimise mobile separately?", a: "Yes - 70% of ecommerce traffic is mobile, and mobile CR is usually half of desktop. Mobile-first PDP rebuilds, thumb-zone CTAs, sticky ATC and simplified navigation are shipped in the first sprint." },
+  { q: "How do you measure CRO ROI?", a: "Revenue per visitor (RPV), conversion rate, AOV, checkout completion and blended new-customer CAC. We report weekly with a monthly revenue-impact deck tying every winning experiment to £s recovered." },
+  { q: "Can you integrate CRO with paid ads?", a: "Yes - every ad campaign lands on a CRO-optimised page. We build dedicated PPC landing pages, run pre/post-click matching, and feed ad performance back into the CRO backlog. That's why our Ecommerce Marketing Agency UK model wires CRO + Paid Ads under one strategy." },
+  { q: "What common CRO mistakes do you see?", a: "Testing button colours, redesigning the whole site at once, copying competitor patterns blindly, stopping tests early, and never locking winners into the theme. We fix all five from day one." },
+  { q: "Do you help with subscription conversion?", a: "Yes - subscription opt-in rates, trial-to-paid upgrade flows, pause-vs-cancel flows and win-back campaigns. Subscription CRO typically lifts LTV 40-80% on the same acquisition spend." },
+  { q: "How does CRO help with AI search visibility?", a: "AI-Overview citations reward well-structured, quotable content. Our CRO rebuilds add FAQ blocks, comparison tables and expert answer sections - which convert AND get cited by ChatGPT, Perplexity and Google AI Overviews." },
+  { q: "What size ecommerce brand do you work with?", a: "Best-fit clients are Shopify and WooCommerce brands doing £50k-£5m/mo. Below that, a one-off audit is better ROI than a retainer. Above £5m/mo, we build a dedicated CRO squad." },
+  { q: "Can you take over an existing CRO programme?", a: "Yes - we audit the previous agency's roadmap, salvage what's working, kill dead tests and rebuild the backlog. About 35% of new CRO clients come from a previous UK agency." },
 ];
 
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
-      { title: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom" },
-      { name: "description", content: "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands." },
-      { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom" },
-      { property: "og:description", content: "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands." },
+      { title: "Best Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
+      { name: "description", content: "Best Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2–3× more revenue. Senior UK CRO operators, no lock-ins." },
+      { property: "og:title", content: "Best Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
+      { property: "og:description", content: "Award-winning Ecommerce CRO Agency UK. A/B testing, PDP & checkout optimisation, behavioural research - turning existing traffic into compounding revenue." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/cro" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Conversion Rate Optimisation", description: "Funnel audits, A/B testing, PDP and checkout optimisation for Shopify and WooCommerce." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "cro", name: "Ecommerce CRO Agency UK", description: "Funnel audits, A/B testing, PDP and checkout optimisation for Shopify and WooCommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Conversion Rate Optimisation", path: "/services/cro" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/cro")) },
     ],
@@ -37,8 +49,24 @@ export const Route = createFileRoute("/services/cro")({
       slug: "cro",
       eyebrow: "Conversion Rate Optimisation",
       heroImage: heroImg,
-      heroTitle: "Same traffic. Same spend. 2-3× the revenue.",
-      heroSub: "UK Conversion Rate Optimisation for Shopify and WooCommerce stores - weekly A/B tests, PDP rewrites, checkout surgery and behavioural research that unlocks the revenue already inside your funnel.",
+      heroTitle: "Best Ecommerce CRO Agency UK - Same Traffic, 2-3× the Revenue.",
+      heroSub: "UK's leading Ecommerce Growth Agency for Conversion Rate Optimisation - weekly A/B tests, PDP rewrites, checkout surgery and behavioural research that unlocks the revenue already inside your Shopify or WooCommerce funnel. Senior UK CRO operators, statistically rigorous experimentation, and every winner locked permanently into your theme.",
+      intro: {
+        eyebrow: "Why brands hire us",
+        title: "The UK's Most Trusted Ecommerce CRO Agency for Shopify & WooCommerce.",
+        paragraphs: [
+          "BeingEcom is a specialist Ecommerce CRO Agency UK - part of a full-stack Ecommerce Marketing Agency UK that runs SEO, paid ads and email under one revenue P&L. We don't sell CRO as a stand-alone service; we treat it as the multiplier that turns every acquisition pound into more customers, more repeat orders and a higher AOV.",
+          "As an Ecommerce Growth Agency we start every engagement with a full funnel diagnostic - GA4 event mapping, Hotjar / Microsoft Clarity session replays, on-page behavioural surveys and a manual walkthrough of every device, every persona and every entry point. That research becomes a revenue-impact-prioritised backlog. One or two experiments launch every week, every test carries a written hypothesis, MDE and stop rule, and every winning variant is locked permanently into the theme.",
+          "The result is what a genuine Ecommerce Agency UK partnership should deliver: compounding conversion-rate gains, a rising revenue-per-visitor, mobile CR that finally matches desktop, and a documented learning library so wins survive team turnover and platform migrations.",
+        ],
+        highlights: [
+          "Senior UK CRO operator on every account - no juniors, no rotating pods.",
+          "Ecommerce-only - 120+ Shopify & WooCommerce stores scaled, £48M+ tracked revenue.",
+          "Statistically rigorous A/B testing - MDE, sample size and stop rule set before launch.",
+          "Every winner locked permanently into the theme - no lost learnings.",
+          "90-day initial engagement, then month-to-month. No 12-month lock-ins.",
+        ],
+      },
       problemTitle: "Your store leaks revenue at every step.",
       problemBullets: [
         "Site-wide conversion rate stuck below 2% - a full percentage point beneath the DTC benchmark.",
@@ -122,6 +150,29 @@ export const Route = createFileRoute("/services/cro")({
         { industry: "Health & wellness", pain: "Subscription-heavy models with poor trial-to-paid conversion.", outcome: "Onboarding funnels and quiz-based prescription flows lift trial-conversion 40-60%." },
         { industry: "Baby & kids", pain: "Trust hurdles slow first purchase; parents research heavily.", outcome: "Founder-story blocks, safety credentials and real-parent UGC unlock first order." },
       ],
+      trends: {
+        title: "Latest ecommerce CRO trends UK brands need to act on now.",
+        items: [
+          { title: "Server-side A/B testing", body: "Client-side testing tools flash content and hurt Core Web Vitals. Server-side experimentation (Intelligems, Eppo) is now the standard for Shopify Plus brands - no flicker, no CWV penalty." },
+          { title: "Checkout Extensibility on Shopify", body: "Shopify's new Checkout Extensibility lets you finally A/B-test the checkout itself - upsells, custom fields, express-pay ordering, trust signals. It's the highest-leverage lever released in 3 years." },
+          { title: "Zero-party data quizzes", body: "Skin-type, fit-finder and product-finder quizzes now drive 20-35% of add-to-carts in beauty, fashion and wellness verticals. They also enrich your Klaviyo segmentation." },
+          { title: "Mobile PDPs beat desktop", body: "For the first time, mobile-first PDP designs are out-converting desktop equivalents when built for thumb-zone. Sticky ATC, bottom-nav CTAs and swipe-first galleries are the new default." },
+          { title: "AI-generated variants for testing", body: "AI-generated PDP copy, hero images and thumbnail variants let us test 5× more experiments per sprint. Human editors review every variant - AI ships the volume, humans ship the quality." },
+          { title: "Post-purchase upsells resurging", body: "Native post-purchase upsells (Aftersell, ReConvert, Selleasy) now lift AOV 8-15% on Shopify. One of the fastest wins we ship in month one." },
+        ],
+      },
+      aiSearch: {
+        title: "How CRO wins in Google AI Overviews, ChatGPT & Perplexity.",
+        body: "CRO isn't only about closing the sale on your site - it's also about winning the citation that sends AI-search traffic your way in the first place. The same structural signals that AI engines quote also convert human buyers.",
+        items: [
+          { engine: "Google AI Overviews", body: "FAQ blocks, comparison tables and expert answer sections are cited verbatim - and also lift on-page conversion by pre-answering objections." },
+          { engine: "ChatGPT + ChatGPT Shopping", body: "Structured Product schema + review aggregation makes your PDPs the source ChatGPT recommends when users ask 'best [product] for [use case]'." },
+          { engine: "Perplexity", body: "Quotable expert answer sections + comparison content earn Perplexity citations and drive high-intent, pre-qualified traffic straight to CRO-optimised pages." },
+          { engine: "Google Gemini", body: "E-E-A-T signals (author schema, founder bios, methodology pages) build the trust Gemini needs before it will surface your brand in shopping queries." },
+          { engine: "Claude (Anthropic)", body: "Long-form pillar content with clear headings, sources and comparison tables converts research traffic and gets quoted by Claude in decision-support queries." },
+          { engine: "Bing + Copilot", body: "Bing feeds Microsoft Copilot; Product schema + IndexNow submission ensure your pages surface in Copilot Shopping responses." },
+        ],
+      },
       ctaTitle: "Ready to turn your existing traffic into 2-3× more revenue?",
       impactStats: [
         { value: "+192%", label: "Avg CR lift" },
@@ -140,6 +191,7 @@ export const Route = createFileRoute("/services/cro")({
         { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and Triple Whale set up so every experiment can be trusted." },
         { to: "/services/funnel", title: "Funnels & Landing Pages", body: "Standalone landing pages that convert paid traffic without touching the core theme." },
         { to: "/services/email-sms", title: "Email Marketing Automation", body: "Cart-recovery, browse-abandon and post-purchase flows that finish the sale." },
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Rank the pages your CRO team has already optimised - compounding traffic AND CR." },
       ],
     }} />
   ),
