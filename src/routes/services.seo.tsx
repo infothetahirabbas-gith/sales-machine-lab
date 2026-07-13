@@ -33,10 +33,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "Ecommerce SEO Agency UK | No.1 Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "BeingEcom is an award-winning Ecommerce SEO Agency UK for Shopify and WooCommerce brands. Technical SEO, product & collection SEO, digital PR and AI-search visibility that compounds free revenue - trusted by UK ecommerce growth leaders." },
-      { property: "og:title", content: "Ecommerce SEO Agency UK | No.1 Shopify & WooCommerce SEO | BeingEcom" },
-      { property: "og:description", content: "BeingEcom is an award-winning Ecommerce SEO Agency UK for Shopify and WooCommerce brands. Technical SEO, product & collection SEO, digital PR and AI-search visibility that compounds free revenue." },
+      { title: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { name: "description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
+      { property: "og:title", content: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { property: "og:description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
