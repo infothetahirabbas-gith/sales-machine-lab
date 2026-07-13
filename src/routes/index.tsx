@@ -195,6 +195,48 @@ function Home() {
                 wrapperClassName="w-full h-full"
               />
             </div>
+            {/* Floating premium metric chips — desktop only, decorative */}
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -left-8 top-8 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float-slow">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold">↑</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">+312%</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">Revenue Growth</div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -left-4 -bottom-6 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">£</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">£18M+</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">Revenue Generated</div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -right-4 bottom-16 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float-slow">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-amber-100 text-amber-700 font-bold">↓</span>
+                <div>
+                  <div className="text-lg font-bold text-ink tabular-nums leading-none">−48%</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">CPA Reduced</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
+              <SafeImg
+                src={HERO_PHONE}
+                alt="Shopify product page shown on a phone during a UK ecommerce growth sprint"
+                width={520}
+                height={640}
+                loading="lazy"
+                fetchPriority="low"
+                skeleton
+                brandOverlay
+                className="w-full h-full object-cover"
+                wrapperClassName="w-full h-full"
+              />
+            </div>
             <div className="relative card-surface card-tilt p-5 shadow-[0_40px_80px_-30px_oklch(0.65_0.18_245/0.4)]">
               <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
                 <div className="flex items-center gap-2">
