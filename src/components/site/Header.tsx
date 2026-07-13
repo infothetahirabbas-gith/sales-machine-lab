@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X, MapPin, Briefcase, Sparkles } from "lucide-react"
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 import { COMPANY_LINKS } from "@/config/company";
+import { SERVICES } from "@/config/services";
 
 
 const logo = logoAsset.url;
