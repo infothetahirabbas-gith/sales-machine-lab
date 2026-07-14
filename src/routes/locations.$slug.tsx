@@ -373,7 +373,7 @@ function LocationPage() {
                 className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
-                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
+                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Top {city} client growth</div></div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-border animate-fade-in">
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary"><ShieldCheck className="w-3.5 h-3.5" /> {loc.region} coverage</div>
@@ -422,11 +422,18 @@ function LocationPage() {
             </p>
           </div>
           <div className="space-y-3">
-            {[`Ecommerce Marketing Agency ${city}`, `Ecommerce SEO Agency ${city}`, `Ecommerce Ads Agency ${city}`, `Shopify Agency ${city}`, `Shopify Marketing Agency ${city}`, `WooCommerce Agency ${city}`, `Google Ads Agency ${city}`, `Meta Ads Agency ${city}`, `Klaviyo Agency ${city}`, `CRO Agency ${city}`].map((k) => (
-              <div key={k} className="flex items-center gap-2 text-sm text-ink">
+            {[
+              { label: `Ecommerce SEO in ${city}`, to: "/services/seo" as const },
+              { label: `Shopify Marketing in ${city}`, to: "/services/store-development" as const },
+              { label: `WooCommerce Growth in ${city}`, to: "/services/store-development" as const },
+              { label: `Google & Meta Ads for ${city} brands`, to: "/services/paid-ads" as const },
+              { label: `CRO for ${city} stores`, to: "/services/cro" as const },
+              { label: `Klaviyo email & SMS`, to: "/services/email-sms" as const },
+            ].map((k) => (
+              <Link key={k.label} to={k.to} className="flex items-center gap-2 text-sm text-ink hover:text-primary transition-colors">
                 <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                <span>{k}</span>
-              </div>
+                <span>{k.label}</span>
+              </Link>
             ))}
           </div>
         </div>
