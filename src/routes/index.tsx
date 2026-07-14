@@ -154,7 +154,7 @@ function Home() {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is a results-driven Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow revenue through ecommerce SEO, paid advertising, CRO, email marketing, and AI-powered growth systems one senior team, one revenue P&amp;L.
+              BeingEcom is a results-driven Ecommerce Marketing Agency UK and Ecommerce Digital Marketing Agency UK helping Shopify and WooCommerce brands grow revenue through ecommerce SEO, paid advertising, CRO, Klaviyo email marketing and AI-powered growth systems &mdash; one senior team, one revenue P&amp;L.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -346,7 +346,7 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated Ecommerce Growth Agency UK the Shopify Marketing Agency UK and WooCommerce Marketing Agency UK pods working from one plan. No more disconnected teams blaming each other."
+        intro="One integrated Ecommerce Growth Agency UK &mdash; the Shopify Marketing Agency UK and WooCommerce Marketing Agency UK pods working from one plan. No more disconnected teams blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
@@ -639,7 +639,7 @@ function Home() {
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
-        intro="As a category-fluent Ecommerce Digital Marketing Agency, we've scaled Shopify and WooCommerce brands across the verticals UK consumers spend on most. Each niche gets its own Ecommerce SEO Agency UK map, creative playbook and retention model."
+        intro="As a category-fluent Ecommerce Digital Marketing Agency UK and Ecommerce Growth Agency UK, we've scaled Shopify and WooCommerce brands across the verticals UK consumers spend on most. Each niche gets its own Ecommerce SEO Agency UK map, creative playbook and retention model."
 
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
@@ -731,7 +731,7 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                The UK's best Ecommerce Digital Marketing Agency reviews your store, ads and analytics and sends back a 12-point loss-recovery plan covering Ecommerce CRO Agency UK fixes, Ecommerce SEO Agency UK gaps, Ecommerce PPC Agency UK waste and Ecommerce Automation Agency UK opportunities. No pitch deck.
+                The UK's best Ecommerce Digital Marketing Agency UK reviews your store, ads and analytics and sends back a 12-point loss-recovery plan covering Ecommerce CRO Agency UK fixes, Ecommerce SEO Agency UK gaps, Ecommerce PPC Agency UK waste and Ecommerce Automation Agency UK opportunities. No pitch deck.
               </p>
 
             </div>
