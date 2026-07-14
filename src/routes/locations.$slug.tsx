@@ -115,7 +115,6 @@ export const Route = createFileRoute("/locations/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
-        { name: "keywords", content: kw },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         ...(loc ? [{ name: "geo.placename", content: loc.city }, { name: "geo.region", content: loc.region }] : []),
         ...(geo ? [{ name: "geo.position", content: `${geo.latitude};${geo.longitude}` }, { name: "ICBM", content: `${geo.latitude}, ${geo.longitude}` }] : []),
@@ -252,7 +251,7 @@ function LocationPage() {
     { end: 120, suffix: "+", label: "UK DTC brands scaled" },
     { end: 47, suffix: "M+", prefix: "£", label: "Client revenue driven" },
     { end: 4.9, decimals: 1, suffix: "/5", label: "Average client rating" },
-    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Best ROAS in ${city}` },
+    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Top ${city} client ROAS` },
   ];
 
   const process = [
@@ -335,10 +334,10 @@ function LocationPage() {
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
                 <SplitHeading value={(() => {
                   const variants = [
-                    `Best Ecommerce Marketing Agency in ${city}`,
-                    `Top Rated Ecommerce Marketing Agency ${city}`,
-                    `#1 Ecommerce Marketing Agency in ${city}`,
-                    `${city} Ecommerce Marketing Agency`,
+                    `Ecommerce Marketing Agency in ${city}`,
+                    `${city} Ecommerce Growth Agency`,
+                    `Ecommerce Growth Partner for ${city} Brands`,
+                    `Specialist Ecommerce Agency in ${city}`,
                   ];
                   const idx = LOCATIONS.findIndex((l) => l.slug === loc.slug);
                   return variants[(idx >= 0 ? idx : 0) % variants.length];
