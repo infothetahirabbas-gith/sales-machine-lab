@@ -361,7 +361,7 @@ export default function Header() {
         <Link to="/" className="flex items-center shrink min-w-0 max-w-[60vw] min-[900px]:max-w-[160px] lg:max-w-[190px] xl:max-w-none leading-none" aria-label="BeingEcom home">
           <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-12 sm:h-14 md:h-14 min-[900px]:h-16 lg:h-[72px] w-auto max-w-full block object-contain" />
         </Link>
-        <nav className="desktop-main-nav hidden items-center gap-3 xl:gap-6 text-xs xl:text-sm">
+        <nav className="desktop-main-nav hidden items-center flex-nowrap whitespace-nowrap leading-none gap-2.5 xl:gap-5 text-[13px] xl:text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
           <div
             className="relative"
