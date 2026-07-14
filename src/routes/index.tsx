@@ -3,7 +3,6 @@ import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "rea
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3, Sparkles } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
-import { FeaturedStoresSection } from "../components/site/CaseStudyExtras";
 
 
 
@@ -35,6 +34,11 @@ const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanne
 const ContactFaq = lazy(() => import("../components/site/ContactFaq"));
 const FaqSection = lazy(() => import("../components/site/FaqSection"));
 const GrowthChart = lazy(() => import("../components/site/GrowthChart"));
+const FeaturedStoresSection = lazy(() =>
+  import("../components/site/CaseStudyExtras").then((module) => ({
+    default: module.FeaturedStoresSection,
+  })),
+);
 
 function WhenVisible({ children, minHeight = 360 }: { children: ReactNode; minHeight?: number }) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -707,7 +711,11 @@ function Home() {
       </Section>
 
       {/* 9b. FEATURED STORES - one-line marquee of live store showcases */}
-      <FeaturedStoresSection />
+      <WhenVisible minHeight={520}>
+        <Suspense fallback={<div className="min-h-[520px]" />}>
+          <FeaturedStoresSection />
+        </Suspense>
+      </WhenVisible>
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
