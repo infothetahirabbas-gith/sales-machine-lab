@@ -359,7 +359,7 @@ export default function Header() {
       </div>
       <div className="mx-auto max-w-7xl px-4 min-[900px]:px-5 lg:px-8 h-16 min-[900px]:h-20 flex items-center justify-between gap-2 min-[900px]:gap-3 xl:gap-6">
         <Link to="/" className="flex items-center shrink min-w-0 max-w-[60vw] min-[900px]:max-w-[160px] lg:max-w-[190px] xl:max-w-none leading-none" aria-label="BeingEcom home">
-          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-10 sm:h-12 md:h-11 min-[900px]:h-12 lg:h-14 w-auto max-w-full block object-contain" />
+          <img src={logo} alt="Being Ecom" width="340" height="100" decoding="async" fetchPriority="low" className="h-12 sm:h-14 md:h-14 min-[900px]:h-16 lg:h-[72px] w-auto max-w-full block object-contain" />
         </Link>
         <nav className="desktop-main-nav hidden items-center gap-3 xl:gap-6 text-xs xl:text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground font-semibold" }} className="text-muted-foreground hover:text-foreground transition">Home</Link>
