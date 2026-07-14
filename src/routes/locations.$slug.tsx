@@ -79,24 +79,21 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Agency ${loc.city} | Best Shopify, SEO & Ads Agency | BeingEcom`
+      ? `Ecommerce Marketing Agency ${loc.city} | Shopify & WooCommerce Growth | BeingEcom`
       : "Location - Being Ecom";
     const descOverrides: Record<string, string> = {
-      london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - built around real London buyer behaviour.",
-      manchester: "Ecommerce Marketing Agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior UK operators.",
-      birmingham: "Ecommerce Marketing Agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
-      leeds: "Ecommerce Marketing Agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
-      liverpool: "Ecommerce Marketing Agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
-      glasgow: "Ecommerce Marketing Agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
-      edinburgh: "Ecommerce Marketing Agency in Edinburgh focused on profitable revenue - CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
-      bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
+      london: "Ecommerce marketing agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — built around real London buyer behaviour.",
+      manchester: "Ecommerce marketing agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior operators.",
+      birmingham: "Ecommerce marketing agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
+      leeds: "Ecommerce marketing agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
+      liverpool: "Ecommerce marketing agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
+      glasgow: "Ecommerce marketing agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
+      edinburgh: "Ecommerce marketing agency in Edinburgh focused on profitable revenue — CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
+      bristol: "Ecommerce marketing agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Best Ecommerce Agency ${loc.city} for Shopify and WooCommerce brands Ecommerce SEO Agency ${loc.city}, Ecommerce PPC Agency ${loc.city}, Klaviyo email and CRO by senior UK operators.`)
+      ? (descOverrides[loc.slug] ?? `Ecommerce marketing agency in ${loc.city} helping Shopify and WooCommerce brands grow through SEO, paid ads, Klaviyo email and CRO — senior operators, one revenue P&L.`)
       : "UK ecommerce marketing agency locations.";
-    const kw = loc
-      ? `ecommerce agency ${loc.city}, best ecommerce agency ${loc.city}, ecommerce marketing agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ppc agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
-      : "ecommerce marketing agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
