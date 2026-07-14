@@ -141,13 +141,13 @@ function Home() {
               Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
             </div>
             <h1 className="hero-headline mt-5 font-black tracking-tight">
-              <span className="hero-mobile text-primary">Ecommerce Marketing</span>
-              <span className="hero-mobile text-primary">Agency UK</span>
+              <span className="hero-mobile text-primary">Ecommerce Growth</span>
+              <span className="hero-mobile text-primary">Marketing Agency UK</span>
               <span className="hero-mobile text-ink mt-1">Driving More Traffic,</span>
               <span className="hero-mobile text-ink">Sales &amp; Revenue for</span>
               <span className="hero-mobile text-primary">Shopify &amp; WooCommerce Brands</span>
-              <span className="hero-desktop text-primary">Ecommerce Marketing</span>
-              <span className="hero-desktop text-primary">Agency UK</span>
+              <span className="hero-desktop text-primary">Ecommerce Growth</span>
+              <span className="hero-desktop text-primary">Marketing Agency UK</span>
               <span className="hero-desktop text-ink mt-1">Driving More Traffic,</span>
               <span className="hero-desktop text-ink">Sales &amp; Revenue for</span>
               <span className="hero-desktop text-primary">Shopify &amp; WooCommerce Brands</span>
