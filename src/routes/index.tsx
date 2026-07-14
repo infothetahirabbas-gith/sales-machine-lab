@@ -123,7 +123,7 @@ function Home() {
 
         <div className="mx-auto max-w-7xl px-5 lg:px-8 relative grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Authority strip — 5-star trust + top-line proof, above H1 */}
+            {/* Authority strip - 5-star trust + top-line proof, above H1 */}
             <div className="mb-4 flex flex-col items-center lg:items-start gap-2">
               <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900 shadow-sm">
                 <span aria-hidden="true" className="tracking-tight text-amber-500">★★★★★</span>
@@ -196,7 +196,7 @@ function Home() {
                 wrapperClassName="w-full h-full"
               />
             </div>
-            {/* Floating premium metric chips — desktop only, decorative */}
+            {/* Floating premium metric chips - desktop only, decorative */}
             <div aria-hidden="true" className="pointer-events-none hidden lg:block absolute -left-8 top-8 z-20 rounded-2xl border border-border bg-white/95 backdrop-blur px-4 py-3 shadow-[0_20px_50px_-20px_oklch(0.65_0.18_245/0.45)] float-slow">
               <div className="flex items-center gap-2">
                 <span className="inline-flex w-8 h-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold">↑</span>

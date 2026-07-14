@@ -4,22 +4,22 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "Do YouTube ads work for ecommerce?", a: "Yes — Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking. A specialist Ecommerce Marketing Agency UK will run YouTube alongside Google Shopping for maximum incremental lift." },
+  { q: "Do YouTube ads work for ecommerce?", a: "Yes - Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking. A specialist Ecommerce Marketing Agency UK will run YouTube alongside Google Shopping for maximum incremental lift." },
   { q: "What's the minimum spend to test YouTube?", a: "£3k–£5k/mo for a 30-day read. Below that, YouTube's learning can't stabilise." },
-  { q: "Which YouTube ad formats do you run?", a: "Video Action Campaigns (VAC), Demand Gen, Shorts ads, and In-stream skippable — matched to funnel stage." },
+  { q: "Which YouTube ad formats do you run?", a: "Video Action Campaigns (VAC), Demand Gen, Shorts ads, and In-stream skippable - matched to funnel stage." },
   { q: "How long should a YouTube ad be?", a: "15–60s for cold prospecting VAC; 6s bumpers for retargeting; 15–30s vertical Shorts for mobile-first reach." },
-  { q: "Do I need a Google Ads account already?", a: "Yes — YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
-  { q: "YouTube Ads vs Meta or TikTok — where does it fit?", a: "YouTube is the biggest under-priced DR channel. It complements Meta (demand creation) and Google Search (harvest). A serious Ecommerce Growth Agency uses YouTube for incremental reach at Meta-beating CPMs." },
-  { q: "What ROAS should I expect on YouTube?", a: "2.8–3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search — measured by our Ecommerce SEO Agency UK team through query-level lift, not platform ROAS alone." },
+  { q: "Do I need a Google Ads account already?", a: "Yes - YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
+  { q: "YouTube Ads vs Meta or TikTok - where does it fit?", a: "YouTube is the biggest under-priced DR channel. It complements Meta (demand creation) and Google Search (harvest). A serious Ecommerce Growth Agency uses YouTube for incremental reach at Meta-beating CPMs." },
+  { q: "What ROAS should I expect on YouTube?", a: "2.8–3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search - measured by our Ecommerce SEO Agency UK team through query-level lift, not platform ROAS alone." },
   { q: "How fast will YouTube Ads see results?", a: "30–45 days to stabilise VAC learning. Real scale from month 2 with 3–5 concept refreshes." },
-  { q: "Do you handle YouTube ad creative production?", a: "Yes — in-house video production, editing, hooks, voiceover and Shorts adaptations." },
-  { q: "Can YouTube Shorts drive ecommerce sales?", a: "Yes — 9:16 vertical Shorts inventory is undervalued and mobile-first. Our Ecommerce Agency UK team ships Shorts adaptations of every VAC concept." },
-  { q: "What about YouTube for Shopify and WooCommerce?", a: "Yes — VAC integrates with Merchant Center feeds for Shopping-adjacent product ads. Full Shopify Google channel and Woo feed management included." },
+  { q: "Do you handle YouTube ad creative production?", a: "Yes - in-house video production, editing, hooks, voiceover and Shorts adaptations." },
+  { q: "Can YouTube Shorts drive ecommerce sales?", a: "Yes - 9:16 vertical Shorts inventory is undervalued and mobile-first. Our Ecommerce Agency UK team ships Shorts adaptations of every VAC concept." },
+  { q: "What about YouTube for Shopify and WooCommerce?", a: "Yes - VAC integrates with Merchant Center feeds for Shopping-adjacent product ads. Full Shopify Google channel and Woo feed management included." },
   { q: "How do you measure YouTube incrementality?", a: "Geo holdouts, conversion lift studies, branded-search lift and post-purchase surveys. Platform-attributed ROAS is only one signal." },
   { q: "What targeting works best on YouTube?", a: "Custom Intent (based on Google searches), Similar Audiences, In-Market and life events. Interest targeting is largely deprecated by Demand Gen." },
-  { q: "Does YouTube work at low budgets?", a: "Marginally — below £3k/mo YouTube's learning can't stabilise. For sub-£3k budgets, focus on Meta or Google Shopping first." },
+  { q: "Does YouTube work at low budgets?", a: "Marginally - below £3k/mo YouTube's learning can't stabilise. For sub-£3k budgets, focus on Meta or Google Shopping first." },
   { q: "What tools do you use for YouTube Ads?", a: "Google Ads, GA4, Merchant Center, Motion for editing, Triple Whale and Looker Studio dashboards." },
-  { q: "How is BeingEcom different from other YouTube Ads agencies?", a: "We're a specialist Ecommerce Marketing Agency UK — video production, media buying, feed engineering and Ecommerce SEO Agency UK measurement share one P&L per client." },
+  { q: "How is BeingEcom different from other YouTube Ads agencies?", a: "We're a specialist Ecommerce Marketing Agency UK - video production, media buying, feed engineering and Ecommerce SEO Agency UK measurement share one P&L per client." },
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" },
     ],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads Agency UK", description: "YouTube Ads for ecommerce — VAC, Demand Gen, Shorts and skippable in-stream." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing/youtube-ads", name: "YouTube Ads Agency UK", description: "YouTube Ads for ecommerce - VAC, Demand Gen, Shorts and skippable in-stream." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }, { name: "YouTube Ads", path: "/services/performance-marketing/youtube-ads" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing/youtube-ads")) },
     ],
@@ -47,8 +47,8 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 YouTube Ads Agency UK — engineered for revenue, not just views.",
-      heroSub: "The specialist Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts — profitable, measurable YouTube growth for Shopify and DTC brands.",
+      heroTitle: "No.1 YouTube Ads Agency UK - engineered for revenue, not just views.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts - profitable, measurable YouTube growth for Shopify and DTC brands.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
         "Boosted brand videos with no direct-response structure.",
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         "Broken enhanced conversions and no offline import.",
       ],
       whatIsTitle: "YouTube is the biggest untapped DR channel.",
-      whatIsBody: "Meta and Google Search are crowded and expensive. YouTube's inventory is huge, CPMs still competitive, and Video Action Campaigns can print acquisition when the creative is right — which is why every serious Ecommerce Growth Agency layers YouTube on top of Meta and Google, then measures branded-search lift with an Ecommerce SEO Agency UK team.",
+      whatIsBody: "Meta and Google Search are crowded and expensive. YouTube's inventory is huge, CPMs still competitive, and Video Action Campaigns can print acquisition when the creative is right - which is why every serious Ecommerce Growth Agency layers YouTube on top of Meta and Google, then measures branded-search lift with an Ecommerce SEO Agency UK team.",
       systemTitle: "Our YouTube Ads system.",
       systemSteps: [
         { title: "Account & tracking audit", body: "Google Ads, GA4, Merchant Center, enhanced conversions, CAPI." },
@@ -66,13 +66,13 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       ],
       pillarsTitle: "What we run on YouTube.",
       pillars: [
-        { title: "Video Action Campaigns", body: "Google's core DR video product — scales with the right creative." },
+        { title: "Video Action Campaigns", body: "Google's core DR video product - scales with the right creative." },
         { title: "Demand Gen", body: "YouTube + Discover + Gmail unified across the ecosystem." },
         { title: "Shorts ads", body: "9:16 vertical inventory Meta doesn't own." },
         { title: "Retargeting", body: "6s bumpers + skippable stacks to warm audiences." },
       ],
       deepBlocks: [
-        { title: "Video Action Campaigns", body: "Skippable in-stream + in-feed + Shorts — bidding for conversions.", tags: ["VAC","In-stream","In-feed"] },
+        { title: "Video Action Campaigns", body: "Skippable in-stream + in-feed + Shorts - bidding for conversions.", tags: ["VAC","In-stream","In-feed"] },
         { title: "Demand Gen", body: "Cross-surface Google DG for reach + conversion at scale.", tags: ["Demand Gen","YouTube","Discover"] },
         { title: "Shorts creative", body: "9:16 vertical, hook in 2s, native to the Shorts feed.", tags: ["Shorts","9:16","Hook"] },
         { title: "Tracking & attribution", body: "Enhanced conversions, GA4, Merchant Center, offline import.", tags: ["Enhanced","GA4","Offline"] },
@@ -121,8 +121,8 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube — one revenue P&L." },
-        { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "VAC lives inside Google Ads — pair with Shopping and Search." },
+        { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
+        { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "VAC lives inside Google Ads - pair with Shopping and Search." },
         { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Capture the branded-search lift YouTube generates." },
         { to: "/services/creative", title: "Creative Production", body: "Video + Shorts production in-house." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Enhanced Conversions, GA4 and offline imports." },

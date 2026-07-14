@@ -653,7 +653,7 @@ h1, h2, h3 { text-wrap: balance; }
 p, li { text-wrap: pretty; }
 
 /* ================================================================
-   PREMIUM MOTION UPGRADE — cascading site-wide effects
+   PREMIUM MOTION UPGRADE - cascading site-wide effects
    ================================================================ */
 
 /* 1. Locked brand text: solid orange only, no animated gradient override. */
@@ -746,7 +746,7 @@ section p a:hover::after, section li a:hover::after { right: 0; }
   50%      { box-shadow: 0 12px 28px -16px color-mix(in oklab, var(--primary) 55%, transparent), 0 0 0 10px color-mix(in oklab, var(--primary) 0%, transparent); }
 }
 
-/* 8. Section background parallax — animated gradient mesh */
+/* 8. Section background parallax - animated gradient mesh */
 .section-band {
   background-image:
     radial-gradient(1200px 500px at 10% -10%, color-mix(in oklab, var(--primary) 6%, transparent), transparent 60%),
@@ -806,7 +806,7 @@ section p a:hover::after, section li a:hover::after { right: 0; }
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
 }
-/* Never hide the initial above-the-fold hero content — it must paint
+/* Never hide the initial above-the-fold hero content - it must paint
    immediately for LCP. GlobalReveal doesn't tag <main>'s first section
    children because the observer runs after mount, but as a safety net
    we surface them if they end up marked. */
@@ -846,7 +846,7 @@ main > section:first-child [data-reveal]:not([data-inview="1"]) {
 }
 
 /* ============================================================
-   PREMIUM POLISH v2 — cross-site motion, depth & micro-interactions
+   PREMIUM POLISH v2 - cross-site motion, depth & micro-interactions
    Applies globally through existing GlobalReveal + shared classes.
    ============================================================ */
 
