@@ -138,7 +138,7 @@ function Home() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Ecommerce Marketing Agency UK · Ecommerce Growth Agency UK
+              Ecommerce Marketing Agency · UK-based Growth Team
             </div>
             <h1 className="hero-headline mt-5 font-black tracking-tight">
               <span className="hero-mobile text-primary">Ecommerce Growth</span>
@@ -154,7 +154,7 @@ function Home() {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is a results-driven Ecommerce Marketing Agency UK and Ecommerce Digital Marketing Agency UK helping Shopify and WooCommerce brands grow revenue through ecommerce SEO, paid advertising, CRO, Klaviyo email marketing and AI-powered growth systems &mdash; one senior team, one revenue P&amp;L.
+              BeingEcom is a results-driven ecommerce marketing agency helping Shopify and WooCommerce brands across the UK grow revenue through SEO, paid advertising, CRO, Klaviyo email and AI-powered growth systems &mdash; one senior team, one revenue P&amp;L.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -346,7 +346,7 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated Ecommerce Growth Agency UK &mdash; the Shopify Marketing Agency UK and WooCommerce Marketing Agency UK pods working from one plan. No more disconnected teams blaming each other."
+        intro="One integrated ecommerce growth team &mdash; Shopify and WooCommerce specialists working from a single plan. No more disconnected agencies blaming each other."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
@@ -639,7 +639,7 @@ function Home() {
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
-        intro="As a category-fluent Ecommerce Digital Marketing Agency UK and Ecommerce Growth Agency UK, we've scaled Shopify and WooCommerce brands across the verticals UK consumers spend on most. Each niche gets its own Ecommerce SEO Agency UK map, creative playbook and retention model."
+        intro="As a category-fluent ecommerce digital agency, we've scaled Shopify and WooCommerce brands across the verticals British consumers spend on most. Each niche gets its own SEO map, creative playbook and retention model."
 
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
@@ -670,7 +670,7 @@ function Home() {
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
-      <Section className="section-band--slate" center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from UK founders who hired us as their Ecommerce Marketing Agency UK Shopify Marketing Agency UK builds, WooCommerce Marketing Agency UK migrations and Ecommerce PPC Agency UK scaling.">
+      <Section className="section-band--slate" center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from British founders who hired us for Shopify builds, WooCommerce migrations and paid-media scaling.">
         <div className="relative overflow-hidden">
           <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
             {Array.from({ length: 2 }).flatMap((_, k) =>
@@ -731,7 +731,7 @@ function Home() {
               <div className="text-xs font-bold uppercase tracking-widest text-primary">Limited Offer</div>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold text-ink">Free Ecommerce Growth Audit</h3>
               <p className="mt-2 text-muted-foreground max-w-xl">
-                The UK's best Ecommerce Digital Marketing Agency UK reviews your store, ads and analytics and sends back a 12-point loss-recovery plan covering Ecommerce CRO Agency UK fixes, Ecommerce SEO Agency UK gaps, Ecommerce PPC Agency UK waste and Ecommerce Automation Agency UK opportunities. No pitch deck.
+                A senior team reviews your store, ads and analytics, then sends back a 12-point loss-recovery plan covering CRO fixes, SEO gaps, wasted PPC spend and automation opportunities. No pitch deck.
               </p>
 
             </div>
