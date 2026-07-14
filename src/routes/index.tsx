@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3, Sparkles } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
-import { FeaturedStoresSection } from "../components/site/CaseStudyExtras";
 
 
 
@@ -35,6 +34,42 @@ const GrowthPathPlanner = lazy(() => import("../components/site/GrowthPathPlanne
 const ContactFaq = lazy(() => import("../components/site/ContactFaq"));
 const FaqSection = lazy(() => import("../components/site/FaqSection"));
 const GrowthChart = lazy(() => import("../components/site/GrowthChart"));
+const FeaturedStoresSection = lazy(() =>
+  import("../components/site/CaseStudyExtras").then((module) => ({
+    default: module.FeaturedStoresSection,
+  })),
+);
+
+function WhenVisible({ children, minHeight = 360 }: { children: ReactNode; minHeight?: number }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (visible) return;
+    const node = ref.current;
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "700px 0px", threshold: 0.01 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [visible]);
+
+  return (
+    <div ref={ref} style={!visible ? { minHeight } : undefined}>
+      {visible ? children : null}
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -337,9 +372,11 @@ function Home() {
       </Section>
 
       {/* REVENUE LOSS CALCULATOR */}
-      <Suspense fallback={<div className="min-h-[400px]" />}>
-        <RevenueLossCalculator />
-      </Suspense>
+      <WhenVisible minHeight={400}>
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <RevenueLossCalculator />
+        </Suspense>
+      </WhenVisible>
 
       {/* 4. SOLUTION - 4 PILLARS */}
       <Section
@@ -373,9 +410,11 @@ function Home() {
       </Section>
 
       {/* 4.5 GROWTH PATH PLANNER */}
-      <Suspense fallback={<div className="min-h-[300px]" />}>
-        <GrowthPathPlanner />
-      </Suspense>
+      <WhenVisible minHeight={300}>
+        <Suspense fallback={<div className="min-h-[300px]" />}>
+          <GrowthPathPlanner />
+        </Suspense>
+      </WhenVisible>
 
       {/* 5. SERVICES PREVIEW GRID */}
       <Section
@@ -431,9 +470,11 @@ function Home() {
         intro="Drag the slider. Same store, same product, same audience different system. This is what happens when a real Ecommerce CRO Agency UK plugs into your Shopify Ecommerce Agency UK build."
       >
         <Reveal>
-          <Suspense fallback={<div className="min-h-[300px]" />}>
-            <BeforeAfter />
-          </Suspense>
+          <WhenVisible minHeight={300}>
+            <Suspense fallback={<div className="min-h-[300px]" />}>
+              <BeforeAfter />
+            </Suspense>
+          </WhenVisible>
         </Reveal>
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-5">
@@ -670,7 +711,11 @@ function Home() {
       </Section>
 
       {/* 9b. FEATURED STORES - one-line marquee of live store showcases */}
-      <FeaturedStoresSection />
+      <WhenVisible minHeight={520}>
+        <Suspense fallback={<div className="min-h-[520px]" />}>
+          <FeaturedStoresSection />
+        </Suspense>
+      </WhenVisible>
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
@@ -748,9 +793,11 @@ function Home() {
       </section>
 
       {/* 12. CONTACT + FAQ */}
-      <Suspense fallback={<div className="min-h-[400px]" />}>
-        <ContactFaq />
-      </Suspense>
+      <WhenVisible minHeight={400}>
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <ContactFaq />
+        </Suspense>
+      </WhenVisible>
 
       {/* 13. FINAL CTA */}
       <CTA
@@ -764,15 +811,17 @@ function Home() {
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
-      <Suspense fallback={<div className="min-h-[400px]" />}>
-        <FaqSection
-          faqs={homeFaqs}
-          eyebrow="Frequently asked"
-          title="Ecommerce marketing questions,"
-          highlight="answered"
-          intro="Everything UK Shopify & WooCommerce founders ask before hiring an ecommerce marketing agency - SEO, paid ads, CRO, Klaviyo email and analytics."
-        />
-      </Suspense>
+      <WhenVisible minHeight={400}>
+        <Suspense fallback={<div className="min-h-[400px]" />}>
+          <FaqSection
+            faqs={homeFaqs}
+            eyebrow="Frequently asked"
+            title="Ecommerce marketing questions,"
+            highlight="answered"
+            intro="Everything UK Shopify & WooCommerce founders ask before hiring an ecommerce marketing agency - SEO, paid ads, CRO, Klaviyo email and analytics."
+          />
+        </Suspense>
+      </WhenVisible>
     </PageLayout>
   );
 }

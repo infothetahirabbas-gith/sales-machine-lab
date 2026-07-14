@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -11,7 +10,6 @@ import {
 
 
 import appCss from "../styles.css?url";
-import { GlobalReveal } from "../components/site/GlobalReveal";
 
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
@@ -126,14 +124,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: (() => {
       const envGaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
       const gaId = envGaId && /^G-[A-Z0-9]+$/i.test(envGaId) ? envGaId : "G-4ZMG6LQQKK";
+      const analyticsLoader = `(()=>{var id='${gaId}',loaded=false;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config',id,{anonymize_ip:true})}['pointerdown','keydown','scroll'].forEach(function(e){addEventListener(e,load,{once:true,passive:true})});setTimeout(load,12000)})();`;
       const base: Array<Record<string, unknown>> = [
         { children: asyncCssLoader },
         { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
         { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
-        { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
-        {
-          children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`,
-        },
+        { children: analyticsLoader },
       ];
       return base;
     })(),
@@ -164,23 +160,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    // Real-user Core Web Vitals reporting is useful, but it should never
-    // compete with mobile FCP/LCP. Start it well after the hero has painted.
-    const vitalsTimer = window.setTimeout(() => {
-      import("../lib/web-vitals-reporter").then((m) => m.startWebVitalsReporter()).catch(() => {});
-    }, 8000);
-    return () => {
-      window.clearTimeout(vitalsTimer);
-    };
-  }, []);
-
-
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <GlobalReveal />
     </QueryClientProvider>
   );
 }

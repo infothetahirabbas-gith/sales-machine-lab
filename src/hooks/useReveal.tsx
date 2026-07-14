@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 /**
  * Reveal-on-scroll: adds `.in` to the returned ref the first time it enters
@@ -36,20 +35,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.
   return { ref, shown };
 }
 
-const DELAY_STEP = 0.08;
-
 type RevealDirection = "up" | "down" | "left" | "right" | "zoom" | "fade";
-
-function offsetFor(direction: RevealDirection, distance: number) {
-  switch (direction) {
-    case "up": return { y: distance, x: 0, scale: 1 };
-    case "down": return { y: -distance, x: 0, scale: 1 };
-    case "left": return { x: distance, y: 0, scale: 1 };
-    case "right": return { x: -distance, y: 0, scale: 1 };
-    case "zoom": return { x: 0, y: 0, scale: 0.92 };
-    case "fade": return { x: 0, y: 0, scale: 1 };
-  }
-}
 
 /**
  * Framer Motion powered reveal. Accepts a `from` direction so different
@@ -61,7 +47,7 @@ export function Reveal({
   className = "",
   as: Tag = "div",
   from = "up",
-  distance = 32,
+  distance: _distance = 32,
 }: {
   children: ReactNode;
   delay?: 0 | 1 | 2 | 3 | 4;
@@ -70,25 +56,15 @@ export function Reveal({
   from?: RevealDirection;
   distance?: number;
 }) {
-  const reduce = useReducedMotion();
-  const MotionTag = (m as unknown as Record<string, React.ElementType>)[Tag as string] ?? m.div;
-  const off = offsetFor(from, distance);
+  const Element = Tag as React.ElementType;
   return (
-    <LazyMotion features={domAnimation} strict>
-      <MotionTag
-        className={className}
-        initial={reduce ? false : { opacity: 0, ...off }}
-        whileInView={reduce ? undefined : { opacity: 1, x: 0, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: "0px 0px -8% 0px" }}
-        transition={{
-          duration: 0.75,
-          delay: delay * DELAY_STEP,
-          ease: [0.16, 1, 0.3, 1],
-        }}
-      >
-        {children}
-      </MotionTag>
-    </LazyMotion>
+    <Element
+      className={className}
+      data-reveal={from}
+      style={{ "--reveal-delay": `${delay * 80}ms` } as CSSProperties}
+    >
+      {children}
+    </Element>
   );
 }
 
@@ -103,7 +79,7 @@ export function StaggerGroup({
   as: Tag = "div",
   from = "up",
   pattern,
-  distance = 32,
+  distance: _distance = 32,
 }: {
   children: ReactNode;
   className?: string;
@@ -113,45 +89,22 @@ export function StaggerGroup({
   pattern?: RevealDirection[];
   distance?: number;
 }) {
-  const reduce = useReducedMotion();
-  const MotionTag = (m as unknown as Record<string, React.ElementType>)[Tag as string] ?? m.div;
+  const Element = Tag as React.ElementType;
   const cycle = pattern && pattern.length > 0 ? pattern : [from];
   return (
-    <LazyMotion features={domAnimation} strict>
-      <MotionTag
-        className={className}
-        initial={reduce ? false : "hidden"}
-        whileInView={reduce ? undefined : "show"}
-        viewport={{ once: true, margin: "0px 0px -8% 0px" }}
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: stagger, delayChildren: 0.05 } },
-        }}
-      >
-        {Array.isArray(children)
-          ? children.map((child, i) => {
-              const off = offsetFor(cycle[i % cycle.length], distance);
-              return (
-                <m.div
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, ...off },
-                    show: {
-                      opacity: 1,
-                      x: 0,
-                      y: 0,
-                      scale: 1,
-                      transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
-                    },
-                  }}
-                >
-                  {child}
-                </m.div>
-              );
-            })
-          : children}
-      </MotionTag>
-    </LazyMotion>
+    <Element className={className}>
+      {Array.isArray(children)
+        ? children.map((child, i) => (
+            <div
+              key={i}
+              data-reveal={cycle[i % cycle.length]}
+              style={{ "--reveal-delay": `${Math.round((0.05 + i * stagger) * 1000)}ms` } as CSSProperties}
+            >
+              {child}
+            </div>
+          ))
+        : children}
+    </Element>
   );
 }
 
@@ -159,8 +112,8 @@ export function StaggerGroup({
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.6,
-  y = 16,
+  duration: _duration = 0.6,
+  y: _y = 16,
   className = "",
 }: {
   children: ReactNode;
@@ -169,17 +122,13 @@ export function FadeIn({
   y?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
   return (
-    <LazyMotion features={domAnimation} strict>
-      <m.div
-        className={className}
-        initial={reduce ? false : { opacity: 0, y }}
-        animate={reduce ? undefined : { opacity: 1, y: 0 }}
-        transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {children}
-      </m.div>
-    </LazyMotion>
+    <div
+      className={className}
+      data-reveal="up"
+      style={{ "--reveal-delay": `${Math.round(delay * 1000)}ms` } as CSSProperties}
+    >
+      {children}
+    </div>
   );
 }
