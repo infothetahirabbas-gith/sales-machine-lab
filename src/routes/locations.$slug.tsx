@@ -79,24 +79,21 @@ export const Route = createFileRoute("/locations/$slug")({
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
     const title = loc
-      ? `Ecommerce Agency ${loc.city} | Best Shopify, SEO & Ads Agency | BeingEcom`
+      ? `Ecommerce Marketing Agency ${loc.city} | Shopify & WooCommerce Growth | BeingEcom`
       : "Location - Being Ecom";
     const descOverrides: Record<string, string> = {
-      london: "Ecommerce Marketing Agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - built around real London buyer behaviour.",
-      manchester: "Ecommerce Marketing Agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior UK operators.",
-      birmingham: "Ecommerce Marketing Agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
-      leeds: "Ecommerce Marketing Agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
-      liverpool: "Ecommerce Marketing Agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
-      glasgow: "Ecommerce Marketing Agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
-      edinburgh: "Ecommerce Marketing Agency in Edinburgh focused on profitable revenue - CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
-      bristol: "Ecommerce Marketing Agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
+      london: "Ecommerce marketing agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO — built around real London buyer behaviour.",
+      manchester: "Ecommerce marketing agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior operators.",
+      birmingham: "Ecommerce marketing agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
+      leeds: "Ecommerce marketing agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
+      liverpool: "Ecommerce marketing agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
+      glasgow: "Ecommerce marketing agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
+      edinburgh: "Ecommerce marketing agency in Edinburgh focused on profitable revenue — CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
+      bristol: "Ecommerce marketing agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
     };
     const desc = loc
-      ? (descOverrides[loc.slug] ?? `Best Ecommerce Agency ${loc.city} for Shopify and WooCommerce brands Ecommerce SEO Agency ${loc.city}, Ecommerce PPC Agency ${loc.city}, Klaviyo email and CRO by senior UK operators.`)
+      ? (descOverrides[loc.slug] ?? `Ecommerce marketing agency in ${loc.city} helping Shopify and WooCommerce brands grow through SEO, paid ads, Klaviyo email and CRO — senior operators, one revenue P&L.`)
       : "UK ecommerce marketing agency locations.";
-    const kw = loc
-      ? `ecommerce agency ${loc.city}, best ecommerce agency ${loc.city}, ecommerce marketing agency ${loc.city}, ecommerce seo agency ${loc.city}, ecommerce ppc agency ${loc.city}, shopify agency ${loc.city}, shopify marketing agency ${loc.city}, google ads agency ${loc.city}, meta ads agency ${loc.city}, klaviyo agency ${loc.city}, cro agency ${loc.city}, woocommerce agency ${loc.city}, ecommerce growth agency ${loc.city}, ecommerce experts ${loc.region}`
-      : "ecommerce marketing agency UK";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
@@ -118,7 +115,6 @@ export const Route = createFileRoute("/locations/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
-        { name: "keywords", content: kw },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         ...(loc ? [{ name: "geo.placename", content: loc.city }, { name: "geo.region", content: loc.region }] : []),
         ...(geo ? [{ name: "geo.position", content: `${geo.latitude};${geo.longitude}` }, { name: "ICBM", content: `${geo.latitude}, ${geo.longitude}` }] : []),
@@ -255,7 +251,7 @@ function LocationPage() {
     { end: 120, suffix: "+", label: "UK DTC brands scaled" },
     { end: 47, suffix: "M+", prefix: "£", label: "Client revenue driven" },
     { end: 4.9, decimals: 1, suffix: "/5", label: "Average client rating" },
-    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Best ROAS in ${city}` },
+    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Top ${city} client ROAS` },
   ];
 
   const process = [
@@ -338,10 +334,10 @@ function LocationPage() {
               <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink">
                 <SplitHeading value={(() => {
                   const variants = [
-                    `Best Ecommerce Marketing Agency in ${city}`,
-                    `Top Rated Ecommerce Marketing Agency ${city}`,
-                    `#1 Ecommerce Marketing Agency in ${city}`,
-                    `${city} Ecommerce Marketing Agency`,
+                    `Ecommerce Marketing Agency in ${city}`,
+                    `${city} Ecommerce Growth Agency`,
+                    `Ecommerce Growth Partner for ${city} Brands`,
+                    `Specialist Ecommerce Agency in ${city}`,
                   ];
                   const idx = LOCATIONS.findIndex((l) => l.slug === loc.slug);
                   return variants[(idx >= 0 ? idx : 0) % variants.length];
@@ -377,7 +373,7 @@ function LocationPage() {
                 className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
-                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Best {city} growth</div></div>
+                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Top {city} client growth</div></div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-border animate-fade-in">
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary"><ShieldCheck className="w-3.5 h-3.5" /> {loc.region} coverage</div>
@@ -426,11 +422,18 @@ function LocationPage() {
             </p>
           </div>
           <div className="space-y-3">
-            {[`Ecommerce Marketing Agency ${city}`, `Ecommerce SEO Agency ${city}`, `Ecommerce Ads Agency ${city}`, `Shopify Agency ${city}`, `Shopify Marketing Agency ${city}`, `WooCommerce Agency ${city}`, `Google Ads Agency ${city}`, `Meta Ads Agency ${city}`, `Klaviyo Agency ${city}`, `CRO Agency ${city}`].map((k) => (
-              <div key={k} className="flex items-center gap-2 text-sm text-ink">
+            {[
+              { label: `Ecommerce SEO in ${city}`, to: "/services/seo" as const },
+              { label: `Shopify Marketing in ${city}`, to: "/services/store-development" as const },
+              { label: `WooCommerce Growth in ${city}`, to: "/services/store-development" as const },
+              { label: `Google & Meta Ads for ${city} brands`, to: "/services/paid-ads" as const },
+              { label: `CRO for ${city} stores`, to: "/services/cro" as const },
+              { label: `Klaviyo email & SMS`, to: "/services/email-sms" as const },
+            ].map((k) => (
+              <Link key={k.label} to={k.to} className="flex items-center gap-2 text-sm text-ink hover:text-primary transition-colors">
                 <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                <span>{k}</span>
-              </div>
+                <span>{k.label}</span>
+              </Link>
             ))}
           </div>
         </div>
