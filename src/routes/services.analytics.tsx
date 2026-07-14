@@ -28,6 +28,8 @@ const FAQ_LIST: FAQ[] = [
   { q: "How do you handle attribution for influencer, affiliate and PR spend?", a: "Coupon-code attribution, UTM discipline, post-purchase surveys (KnoCommerce / Fairing) and MMM - triangulated so 'dark' channels stop looking like Direct traffic." },
   { q: "Is BeingEcom a specialist ecommerce analytics agency or a general one?", a: "Specialist. We only work with Shopify and WooCommerce ecommerce brands - not SaaS, not lead-gen, not local. Every tag, event and dashboard we build is designed around ecommerce KPIs." },
   { q: "How do you win in AI search and Google AI Overviews for analytics content?", a: "Structured comparison content (GA4 vs UA, MER vs ROAS, server-side vs client-side), FAQ + HowTo schema, and citation-worthy first-party benchmarks that ChatGPT, Perplexity, Gemini and AI Overviews quote directly." },
+  { q: "How does GA4 and server-side tracking improve ad performance?", a: "Server-side tracking (via GA4 and Conversions API) captures conversion data that browser-based tracking misses due to iOS privacy restrictions and ad blockers, giving ad platforms more complete data to optimise targeting and bidding accurately." },
+  { q: "How do you set up accurate tracking after iOS privacy changes?", a: "Accurate post-iOS14 tracking relies on server-side conversion APIs (Meta CAPI, Google Enhanced Conversions), first-party data collection, and GA4 configured correctly - reducing reliance on browser cookies that iOS now restricts by default." },
 ];
 
 export const Route = createFileRoute("/services/analytics")({

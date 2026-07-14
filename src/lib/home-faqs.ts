@@ -57,4 +57,40 @@ export const homeFaqs = [
     q: "What makes BeingEcom different from other UK ecommerce agencies?",
     a: "One senior team owns ecommerce SEO, Google Ads, Meta Ads, TikTok Ads, CRO, Klaviyo email and analytics against a single revenue P&L - no siloed departments blaming each other, no junior account handlers, no 12-month lock-ins. Every store gets a documented 90-day growth roadmap, a weekly Loom walkthrough, and a live dashboard covering ROAS, conversion rate, AOV, CAC and LTV. Pricing is custom by scope, engagements are rolling monthly, and everything is measured against profit - not impressions.",
   },
+  {
+    q: "Do ecommerce marketing agencies work with small or early-stage stores?",
+    a: "Yes, provided the store has a real product and existing traffic to work with. Early-stage brands with momentum are welcome; agencies generally can't create results from a store with zero product-market fit or traffic to optimise.",
+  },
+  {
+    q: "What ad budget do I need to hire an ecommerce agency?",
+    a: "Most UK ecommerce agencies work with brands spending £3,000+/month on paid ads. If your budget is smaller, agencies typically start with SEO, CRO or email marketing first, since these channels don't require large media spend to show returns.",
+  },
+  {
+    q: "How long are typical ecommerce agency contracts?",
+    a: "Most reputable agencies run a 90-day initial engagement to build and execute the growth system, then move to flexible month-to-month terms - avoiding 12-month lock-in contracts that don't reflect performance.",
+  },
+  {
+    q: "Who owns the ad accounts, creatives and code an agency builds?",
+    a: "The brand should always own every asset - ad accounts, creatives, funnels, code and automations - from day one. Any agency that retains ownership or access after the contract ends is a red flag.",
+  },
+  {
+    q: "Do ecommerce marketing agencies guarantee sales numbers?",
+    a: "No legitimate UK agency guarantees a specific sales number - the ASA (Advertising Standards Authority) treats such guarantees as misleading. What a credible agency offers instead is a measurable growth plan tied to revenue KPIs and full weekly transparency on results.",
+  },
+  {
+    q: "What's the difference between a Shopify agency and a general marketing agency?",
+    a: "A Shopify agency builds strategy around the platform's specific mechanics - theme performance, app stack conflicts, checkout customisation limits and Shopify Markets for international expansion - whereas a general marketing agency applies the same playbook regardless of platform.",
+  },
+  {
+    q: "Ecommerce SEO vs paid ads: which should I prioritise first?",
+    a: "Paid ads deliver sales within 7-30 days but stop the moment you stop paying. SEO takes 3-6 months to compound but generates free, permanent traffic. Most stores run both in parallel - ads for immediate cash flow, SEO for long-term compounding growth.",
+  },
+  {
+    q: "Should I hire an in-house marketer or an ecommerce agency?",
+    a: "An in-house marketer offers full-time focus but usually specialises in one channel. An ecommerce agency provides a full senior team (SEO, ads, CRO, email) for often less than one in-house senior hire - better suited to stores needing multi-channel execution without building a department.",
+  },
+  {
+    q: "Is it worth hiring separate SEO, ads and CRO agencies, or one integrated team?",
+    a: "Separate agencies for each channel often work in silos and blame each other when results stall. An integrated team running SEO, ads and CRO against one revenue P&L means channels compound together instead of competing for credit.",
+  },
 ];
