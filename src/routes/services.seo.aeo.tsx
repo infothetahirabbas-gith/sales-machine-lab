@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/aeo" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/aeo", name: "AEO Agency UK (AI Search Optimisation)", description: "AEO / GEO for AI search - Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude - by an specialist UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/aeo", name: "AEO Agency UK (AI Search Optimisation)", description: "AEO / GEO for AI search - Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude - by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "AEO", path: "/services/seo/aeo" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/aeo")) },
     ],

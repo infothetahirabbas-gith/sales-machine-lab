@@ -35,7 +35,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/on-page" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/on-page", name: "On-Page SEO Agency UK", description: "On-page SEO for ecommerce - titles, metas, schema, copy and internal linking by an specialist UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/on-page", name: "On-Page SEO Agency UK", description: "On-page SEO for ecommerce - titles, metas, schema, copy and internal linking by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "On-Page SEO", path: "/services/seo/on-page" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/on-page")) },
     ],

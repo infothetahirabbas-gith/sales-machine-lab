@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/local")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/local" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO Agency UK", description: "Local SEO for UK ecommerce, retail and multi-location brands by an specialist UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO Agency UK", description: "Local SEO for UK ecommerce, retail and multi-location brands by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Local SEO", path: "/services/seo/local" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/local")) },
     ],

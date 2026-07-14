@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/off-page" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/off-page", name: "Off-Page SEO Agency UK", description: "Off-page SEO, digital PR and link building for ecommerce by an specialist UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/off-page", name: "Off-Page SEO Agency UK", description: "Off-page SEO, digital PR and link building for ecommerce by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Off-Page SEO", path: "/services/seo/off-page" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/off-page")) },
     ],
