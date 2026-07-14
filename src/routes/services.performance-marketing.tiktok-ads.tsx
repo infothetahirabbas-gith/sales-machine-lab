@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
   head: () => ({
     meta: [
       { title: "No.1 TikTok Ads Agency UK | Spark Ads, TikTok Shop & UGC | BeingEcom" },
-      { name: "description", content: "Award-winning TikTok Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run native TikTok creative, Spark Ads and TikTok Shop that scale Shopify and WooCommerce brands profitably." },
+      { name: "description", content: "Specialist TikTok Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run native TikTok creative, Spark Ads and TikTok Shop that scale Shopify and WooCommerce brands profitably." },
       { name: "keywords", content: "TikTok Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Spark Ads agency, TikTok Shop agency, Shopify TikTok Ads, creator UGC agency" },
       { property: "og:title", content: "No.1 TikTok Ads Agency UK | Spark Ads & TikTok Shop | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK for TikTok Ads. Native TikTok creative, Spark Ads and TikTok Shop for Shopify and WooCommerce brands." },

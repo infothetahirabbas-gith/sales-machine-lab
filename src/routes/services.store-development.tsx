@@ -39,9 +39,9 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/store-development")({
   head: () => ({
     meta: [
-      { title: "Best Shopify & WooCommerce Development Agency UK | BeingEcom" },
+      { title: "Specialist Shopify & WooCommerce Development Agency UK | BeingEcom" },
       { name: "description", content: "Best Shopify, Shopify Plus, Hydrogen and WooCommerce Development Agency UK. Conversion-engineered store builds, migrations and optimisation - sub-2s LCP, JSON-LD schema, GA4 + CAPI live on day one. Senior UK developers, no offshoring." },
-      { property: "og:title", content: "Best Shopify & WooCommerce Development Agency UK | BeingEcom" },
+      { property: "og:title", content: "Specialist Shopify & WooCommerce Development Agency UK | BeingEcom" },
       { property: "og:description", content: "Conversion-engineered Shopify, Shopify Plus, Hydrogen and WooCommerce store builds + migrations - sub-2s LCP, JSON-LD schema and analytics live from day one." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },
       { property: "og:type", content: "website" },
@@ -61,11 +61,11 @@ export const Route = createFileRoute("/services/store-development")({
       slug: "store-development",
       eyebrow: "Ecommerce Store Development Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best Shopify & WooCommerce Development Agency UK - Stores That Actually Sell.",
+      heroTitle: "Specialist Shopify & WooCommerce Development Agency UK - Stores That Actually Sell.",
       heroSub: "BeingEcom is a specialist Ecommerce Store Development Agency UK building Shopify, Shopify Plus, Hydrogen and WooCommerce stores engineered for conversion, speed, SEO and scale - not design awards. Sub-2s LCP, JSON-LD schema, GA4 + Meta CAPI live on day one.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's leading Shopify & WooCommerce Development Agency for conversion-first store builds.",
+        title: "The a specialist Shopify & WooCommerce Development Agency for conversion-first store builds.",
         paragraphs: [
           "BeingEcom is an Ecommerce Store Development Agency UK - a team of senior developers, designers and CRO specialists who have shipped Shopify, Shopify Plus, Hydrogen and WooCommerce stores for 7- and 8-figure brands across the UK, EU and US. We are not a WordPress agency dabbling in ecommerce. Every engineer on your account has shipped production Shopify Liquid, Hydrogen React and Cloudflare Workers - and every build is led by a UK-based senior development director from day one.",
           "As an Ecommerce Marketing Agency UK we treat the store as a conversion machine, not a portfolio piece. Every hero, USP bar, PDP block, cart drawer, checkout extension and post-purchase upsell is designed against a real conversion baseline. Every page is engineered for sub-2s LCP on 4G mobile. Every product, collection and article ships with JSON-LD schema so Google, Bing and AI Overviews can parse and cite it. Every store leaves launch day with GA4 + Meta CAPI + Google Enhanced Conversions live, validated and deduped.",
@@ -188,7 +188,7 @@ export const Route = createFileRoute("/services/store-development")({
           { engine: "Bing + Copilot", body: "IndexNow submission on publish, Bing Webmaster Tools hygiene, image/video schema - Bing feeds Copilot Shopping and still drives 8-12% of UK ecommerce discovery." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading Shopify & WooCommerce Development Agency?",
+      ctaTitle: "Ready to work with the a specialist Shopify & WooCommerce Development Agency?",
       impactStats: [
         { value: "+128%", label: "Launch-week CR uplift" },
         { value: "1.4s", label: "Avg mobile LCP" },

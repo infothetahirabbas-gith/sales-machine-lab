@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you actually rank in AI Overviews?", a: "Yes - with entity SEO, structured data, answer-first content, citation-worthy sources and topical authority. We measure it via SGE tracking tools." },
   { q: "What content structure works for AEO?", a: "Direct answer first (30-60 words), followed by supporting detail, structured lists, FAQs and schema. Answer, then explain." },
   { q: "Which AI engines matter for UK ecommerce?", a: "Google AI Overviews (biggest volume), ChatGPT Search, Perplexity, Gemini and Claude - in that order for most UK DTC brands." },
-  { q: "What makes you the best Ecommerce SEO Agency UK for AEO?", a: "We're a specialist Ecommerce Marketing Agency UK running AEO on 30+ Shopify and WooCommerce brands right now - most UK agencies still call it 'SGE optimisation' and pretend it's optional." },
+  { q: "What makes you a specialist Ecommerce SEO Agency UK for AEO?", a: "We're a specialist Ecommerce Marketing Agency UK running AEO on 30+ Shopify and WooCommerce brands right now - most UK agencies still call it 'SGE optimisation' and pretend it's optional." },
   { q: "Is AEO replacing traditional SEO?", a: "No - AEO stacks on top. Traditional SEO still drives the majority of clicks in the UK. AEO defends the top-of-funnel queries AI Overviews are eating." },
   { q: "How do I get my brand into ChatGPT's knowledge?", a: "Entity SEO: Wikidata entry, Knowledge Graph presence, consistent sameAs graph, Organization schema, and high-authority editorial citations from sources ChatGPT trusts." },
   { q: "What is entity SEO?", a: "Making your brand a recognised entity in Google's Knowledge Graph and Wikidata via structured data, disambiguation, editorial mentions and cross-referenced sources." },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/aeo" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/aeo", name: "AEO Agency UK (AI Search Optimisation)", description: "AEO / GEO for AI search - Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude - by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/aeo", name: "AEO Agency UK (AI Search Optimisation)", description: "AEO / GEO for AI search - Google AI Overviews, ChatGPT, Perplexity, Gemini, Claude - by an specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "AEO", path: "/services/seo/aeo" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/aeo")) },
     ],
@@ -44,8 +44,8 @@ export const Route = createFileRoute("/services/seo/aeo")({
       slug: "seo-aeo",
       eyebrow: "AEO Agency UK / AI Search",
       heroImage: heroImg,
-      heroTitle: "UK's leading Ecommerce Agency for AEO - get cited by ChatGPT, Perplexity & Google AI Overviews.",
-      heroSub: "Answer Engine Optimisation from an award-winning Ecommerce Marketing Agency UK - entity SEO, schema and answer-first content that puts your brand inside the AI answer, not behind it.",
+      heroTitle: "a specialist Ecommerce Agency for AEO - get cited by ChatGPT, Perplexity & Google AI Overviews.",
+      heroSub: "Answer Engine Optimisation from an specialist Ecommerce Marketing Agency UK - entity SEO, schema and answer-first content that puts your brand inside the AI answer, not behind it.",
       problemTitle: "Why traditional SEO alone is losing traffic.",
       problemBullets: [
         "AI Overviews eating top-of-funnel blue-link clicks.",

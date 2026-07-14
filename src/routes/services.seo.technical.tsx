@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Will you fix Shopify's duplicate URL issues?", a: "Yes - /products/ vs /collections/x/products/, ?variant params, faceted-nav pages and pagination." },
   { q: "What about JavaScript rendering?", a: "We audit render-blocking JS, hydration issues and pre-render hero content so Google sees it in the initial HTML." },
   { q: "Do you handle migrations?", a: "Yes - full technical migration plan with 301 mapping, staging QA and post-launch monitoring." },
-  { q: "What makes you the best Ecommerce SEO Agency UK for technical work?", a: "We combine senior UK SEO leadership with in-house Shopify + WooCommerce developers, so technical fixes actually ship - not just get 'recommended' in a PDF." },
+  { q: "What makes you a specialist Ecommerce SEO Agency UK for technical work?", a: "We combine senior UK SEO leadership with in-house Shopify + WooCommerce developers, so technical fixes actually ship - not just get 'recommended' in a PDF." },
   { q: "How do you audit a Shopify store technically?", a: "Screaming Frog + Sitebulb crawl, log-file analysis, Chrome DevTools Lighthouse, WebPageTest, GSC coverage report and a manual JS-render QA - all cross-referenced." },
   { q: "How long do technical SEO fixes take to impact rankings?", a: "Crawl and indexation cleanups can move rankings in 2-4 weeks. Core Web Vitals improvements typically show in CrUX after 28 days of green field data." },
   { q: "What is crawl budget and does it matter?", a: "Yes - especially on Shopify stores with faceted nav or WooCommerce sites with filters. We often cut crawl waste by 80%+ so Google spends budget on money URLs." },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/technical")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/technical" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/technical", name: "Technical SEO Agency UK", description: "Technical SEO for ecommerce - CWV, crawl, indexation, schema and migrations by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/technical", name: "Technical SEO Agency UK", description: "Technical SEO for ecommerce - CWV, crawl, indexation, schema and migrations by an specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Technical SEO", path: "/services/seo/technical" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/technical")) },
     ],
@@ -44,8 +44,8 @@ export const Route = createFileRoute("/services/seo/technical")({
       slug: "seo-technical",
       eyebrow: "Technical SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "UK's leading Ecommerce Agency for technical SEO - crawlable, fast, indexable Shopify & WooCommerce stores.",
-      heroSub: "As an award-winning Ecommerce Marketing Agency UK and trusted Ecommerce Growth Agency, we turn broken technical foundations into machines Google can actually rank.",
+      heroTitle: "a specialist Ecommerce Agency for technical SEO - crawlable, fast, indexable Shopify & WooCommerce stores.",
+      heroSub: "As an specialist Ecommerce Marketing Agency UK and trusted Ecommerce Growth Agency, we turn broken technical foundations into machines Google can actually rank.",
       problemTitle: "Why technical debt caps ecommerce SEO.",
       problemBullets: [
         "Faceted-nav URLs wasting 60% of crawl budget.",

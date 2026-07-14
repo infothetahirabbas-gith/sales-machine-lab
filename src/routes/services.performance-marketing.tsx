@@ -31,7 +31,7 @@ export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
       { title: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { name: "description", content: "Award-winning Performance Marketing Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands." },
+      { name: "description", content: "Specialist Performance Marketing Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands." },
       { name: "keywords", content: "performance marketing agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Shopify paid media" },
       { property: "og:title", content: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube ads as one P&L for Shopify and WooCommerce brands." },

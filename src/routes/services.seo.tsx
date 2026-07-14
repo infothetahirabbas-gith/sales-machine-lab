@@ -4,7 +4,7 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "What makes BeingEcom the best Ecommerce SEO Agency UK?", a: "We're a specialist Ecommerce Marketing Agency UK - we don't touch SaaS, lead-gen or local plumbers. Every strategist has shipped SEO for 7-figure Shopify and WooCommerce brands, and every engagement is led by a senior UK SEO director, not a rotating junior." },
+  { q: "What makes BeingEcom a specialist Ecommerce SEO Agency UK?", a: "We're a specialist Ecommerce Marketing Agency UK - we don't touch SaaS, lead-gen or local plumbers. Every strategist has shipped SEO for 7-figure Shopify and WooCommerce brands, and every engagement is led by a senior UK SEO director, not a rotating junior." },
   { q: "How long does ecommerce SEO take to work?", a: "Technical fixes and on-page changes usually show in 4-8 weeks. Authority and category-level ranking compounding kicks in around month 4-6. Any agency promising top-3 in 30 days is selling PBNs or a lie." },
   { q: "Shopify or WooCommerce - which is better for SEO?", a: "Both can rank at the top of Google. WooCommerce gives you full URL, canonical and schema control out of the box. Shopify is faster to ship but needs apps (JSON-LD for SEO, Bulk 404 Redirect, Smart SEO) to close the same gaps. As an Ecommerce Growth Agency we handle both stacks weekly." },
   { q: "Do you do link building?", a: "Yes - editorial digital PR, niche edits and product-led outreach to real UK publishers. No PBNs, no comment spam, no automated tools. Every link is manually vetted for DR, topical relevance and traffic." },
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
       { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
+      { name: "description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Specialist technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
       { property: "og:title", content: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
       { property: "og:description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/seo")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO Agency UK", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO Agency UK", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores by an specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo")) },
     ],
@@ -66,10 +66,10 @@ export const Route = createFileRoute("/services/seo")({
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
       heroTitle: "Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
-      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
+      heroSub: "BeingEcom is an specialist Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's Leading Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
+        title: "The A Specialist Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
         paragraphs: [
           "BeingEcom is a specialist Ecommerce SEO Agency UK - a team of senior operators who have shipped SEO strategies for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist marketing agency. We do not chase SaaS retainers or local plumbers. Every strategist, engineer and editor on your account is an ecommerce specialist, and every engagement is led by a UK-based senior SEO director from day one.",
           "As an Ecommerce Marketing Agency UK we treat search as a revenue channel, not a traffic channel. Rankings are worthless if they don't convert - so every technical fix, on-page rebuild, editorial link and AEO block is judged against organic-attributed revenue, blended MER and CAC. We wire Google Search Console, GA4, Ahrefs, Semrush, Merchant Center and Triple Whale into a single dashboard so you can see exactly which pages are compounding and which are leaking.",

@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
   head: () => ({
     meta: [
       { title: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
-      { name: "description", content: "Award-winning YouTube Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
+      { name: "description", content: "Specialist YouTube Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
       { name: "keywords", content: "YouTube Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads" },
       { property: "og:title", content: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK for YouTube Ads. Video Action, Demand Gen and Shorts campaigns for Shopify and WooCommerce brands." },
