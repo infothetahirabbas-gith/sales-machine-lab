@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { Megaphone, MousePointerClick, Search, Rocket, ClipboardCheck, Wrench, ShoppingCart, TrendingUp, Mail, Palette, Magnet, BarChart3, Sparkles } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA, NumberedList } from "../components/site/Section";
+import { FeaturedStoresSection } from "../components/site/CaseStudyExtras";
 
 
 
@@ -667,6 +668,9 @@ function Home() {
           Don't see your niche? <Link to="/contact" className="text-primary font-semibold hover:underline">Talk to our ecommerce experts UK</Link>.
         </p>
       </Section>
+
+      {/* 9b. FEATURED STORES - one-line marquee of live store showcases */}
+      <FeaturedStoresSection />
 
       {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
           screen readers and crawlers only see each quote once). */}
