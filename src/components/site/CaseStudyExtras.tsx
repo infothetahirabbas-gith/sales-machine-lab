@@ -68,16 +68,8 @@ function StoreCard({ s }: { s: typeof featuredStores[number] }) {
 }
 
 export function FeaturedStoresSection() {
-  // 9 stores → 3 pages of 3, auto-advance every 4s
-  const pageSize = 3;
-  const pages = Math.ceil(featuredStores.length / pageSize);
-  const [page, setPage] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setPage((p) => (p + 1) % pages), 4000);
-    return () => clearInterval(id);
-  }, [pages]);
-
+  // Continuous single-line marquee. Duplicate the track so translateX(-50%)
+  // seamlessly loops. The clone is aria-hidden for a11y + crawlers.
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.98_0.01_245)] to-white" />
@@ -92,35 +84,25 @@ export function FeaturedStoresSection() {
           </h2>
         </div>
 
-        {/* Paginated slider - 3 at a time, 3 pages */}
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-700 ease-out"
-              style={{ transform: `translateX(-${page * 100}%)` }}
-            >
-              {Array.from({ length: pages }).map((_: unknown, p: number) => (
-                <div key={p} className="w-full shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {featuredStores.slice(p * pageSize, p * pageSize + pageSize).map((s, i) => (
-                    <StoreCard key={`${p}-${i}`} s={s} />
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Dots */}
-          <div className="mt-8 flex items-center justify-center gap-2">
-            {Array.from({ length: pages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setPage(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === page ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/40"
-                }`}
-              />
-            ))}
+        {/* One-line running marquee */}
+        <div className="relative overflow-hidden">
+          <div className="marquee-track py-4" style={{ animationDuration: "60s" }}>
+            {Array.from({ length: 2 }).flatMap((_, k) =>
+              featuredStores.map((s, i) => {
+                const isClone = k > 0;
+                return (
+                  <div
+                    key={`${k}-${i}`}
+                    className="w-[320px] md:w-[380px] shrink-0"
+                    aria-hidden={isClone ? "true" : undefined}
+                    {...(isClone ? { "data-nosnippet": "true" } : {})}
+                    {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                  >
+                    <StoreCard s={s} />
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </div>
