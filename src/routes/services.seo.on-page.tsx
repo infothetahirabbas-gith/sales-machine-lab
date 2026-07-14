@@ -46,7 +46,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
       eyebrow: "On-Page SEO Agency UK",
       heroImage: heroImg,
       heroTitle: "Specialist Ecommerce Agency UK for on-page SEO that ranks every product and collection you already own.",
-      heroSub: "As an specialist Ecommerce Marketing Agency UK and specialist Ecommerce SEO Agency UK, we turn thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
+      heroSub: "As a specialist Ecommerce Marketing Agency UK and specialist Ecommerce SEO Agency UK, we turn thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
       problemTitle: "Why on-page SEO quietly kills ecommerce rankings.",
       problemBullets: [
         "Product titles that read 'Buy Now - Free Shipping' instead of the keyword.",

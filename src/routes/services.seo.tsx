@@ -66,10 +66,10 @@ export const Route = createFileRoute("/services/seo")({
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
       heroTitle: "Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
-      heroSub: "BeingEcom is an specialist Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
+      heroSub: "BeingEcom is a specialist Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The A Specialist Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
+        title: "A Specialist Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
         paragraphs: [
           "BeingEcom is a specialist Ecommerce SEO Agency UK - a team of senior operators who have shipped SEO strategies for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist marketing agency. We do not chase SaaS retainers or local plumbers. Every strategist, engineer and editor on your account is an ecommerce specialist, and every engagement is led by a UK-based senior SEO director from day one.",
           "As an Ecommerce Marketing Agency UK we treat search as a revenue channel, not a traffic channel. Rankings are worthless if they don't convert - so every technical fix, on-page rebuild, editorial link and AEO block is judged against organic-attributed revenue, blended MER and CAC. We wire Google Search Console, GA4, Ahrefs, Semrush, Merchant Center and Triple Whale into a single dashboard so you can see exactly which pages are compounding and which are leaking.",

@@ -45,7 +45,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
       eyebrow: "AEO Agency UK / AI Search",
       heroImage: heroImg,
       heroTitle: "a specialist Ecommerce Agency for AEO - get cited by ChatGPT, Perplexity & Google AI Overviews.",
-      heroSub: "Answer Engine Optimisation from an specialist Ecommerce Marketing Agency UK - entity SEO, schema and answer-first content that puts your brand inside the AI answer, not behind it.",
+      heroSub: "Answer Engine Optimisation from a specialist Ecommerce Marketing Agency UK - entity SEO, schema and answer-first content that puts your brand inside the AI answer, not behind it.",
       problemTitle: "Why traditional SEO alone is losing traffic.",
       problemBullets: [
         "AI Overviews eating top-of-funnel blue-link clicks.",

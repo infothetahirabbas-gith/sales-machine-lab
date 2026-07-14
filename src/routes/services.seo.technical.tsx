@@ -45,7 +45,7 @@ export const Route = createFileRoute("/services/seo/technical")({
       eyebrow: "Technical SEO Agency UK",
       heroImage: heroImg,
       heroTitle: "a specialist Ecommerce Agency for technical SEO - crawlable, fast, indexable Shopify & WooCommerce stores.",
-      heroSub: "As an specialist Ecommerce Marketing Agency UK and trusted Ecommerce Growth Agency, we turn broken technical foundations into machines Google can actually rank.",
+      heroSub: "As a specialist Ecommerce Marketing Agency UK and trusted Ecommerce Growth Agency, we turn broken technical foundations into machines Google can actually rank.",
       problemTitle: "Why technical debt caps ecommerce SEO.",
       problemBullets: [
         "Faceted-nav URLs wasting 60% of crawl budget.",
