@@ -35,9 +35,9 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
-      { name: "description", content: "Best Ecommerce Analytics Agency UK for Shopify & WooCommerce brands. GA4, server-side GTM, Meta CAPI, Google Enhanced Conversions, MER dashboards, incrementality and cohort LTV rebuilt by senior UK analytics engineers - decisions on data, not vibes." },
-      { property: "og:title", content: "Best Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
+      { title: "Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
+      { name: "description", content: "Ecommerce Analytics Agency UK for Shopify & WooCommerce brands. GA4, server-side GTM, Meta CAPI, Google Enhanced Conversions, MER dashboards, incrementality and cohort LTV rebuilt by senior UK analytics engineers - decisions on data, not vibes." },
+      { property: "og:title", content: "Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
       { property: "og:description", content: "GA4, server-side tracking, Meta CAPI and revenue dashboards rebuilt for Shopify & WooCommerce brands - so every scaling decision is made on real data." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
@@ -57,11 +57,11 @@ export const Route = createFileRoute("/services/analytics")({
       slug: "analytics",
       eyebrow: "Ecommerce Analytics Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Analytics Agency UK - Track Every Sale, Click & Cohort.",
+      heroTitle: "Ecommerce Analytics Agency UK - Track Every Sale, Click & Cohort.",
       heroSub: "BeingEcom is a specialist Ecommerce Analytics Agency UK rebuilding measurement for Shopify and WooCommerce brands. GA4, server-side GTM, Meta CAPI, Google Enhanced Conversions, MER dashboards and cohort LTV - engineered so every scaling decision is made on real, deduped, first-party data.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's leading Ecommerce Analytics Agency for Shopify & WooCommerce data.",
+        title: "The specialist Ecommerce Analytics Agency for Shopify & WooCommerce data.",
         paragraphs: [
           "BeingEcom is an Ecommerce Analytics Agency UK - a team of senior analytics engineers who have rebuilt the measurement layer for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist digital agency. Every consultant on your account has shipped GA4 + server-side GTM + Meta CAPI at scale, and every engagement is led by a UK-based senior analytics director from day one.",
           "As an Ecommerce Marketing Agency UK we treat data as the substrate of every other decision. Bad data breaks paid ads (Meta optimises to noise), it breaks CRO (A/B tests hit false significance), it breaks retention (Klaviyo segments the wrong customers) and it breaks the board deck (revenue doesn't tie to Shopify). We fix the plumbing so Meta ROAS, GA4 revenue, Shopify orders and Klaviyo flow revenue finally agree.",
@@ -82,7 +82,7 @@ export const Route = createFileRoute("/services/analytics")({
         "No single dashboard - MER, CAC, LTV and margin decisions made on vibes.",
       ],
       whatIsTitle: "Ecommerce analytics is not GA4 with a Meta pixel bolted on.",
-      whatIsBody: "As the UK's leading Ecommerce Analytics Agency, we treat analytics as a full data system: first-party event capture, server-side transport, deduped attribution, warehoused revenue, cohort LTV and incremental MER. GA4 and Meta Pixel are two nodes in that system - not the whole thing. Get the system right and every downstream decision (paid, CRO, retention, buying) gets faster and cheaper.",
+      whatIsBody: "As the specialist Ecommerce Analytics Agency, we treat analytics as a full data system: first-party event capture, server-side transport, deduped attribution, warehoused revenue, cohort LTV and incremental MER. GA4 and Meta Pixel are two nodes in that system - not the whole thing. Get the system right and every downstream decision (paid, CRO, retention, buying) gets faster and cheaper.",
       systemTitle: "Our 4-stage ecommerce analytics system.",
       systemSteps: [
         { title: "Audit", body: "Find broken events, duplicate pixels, EMQ gaps, GA4/Shopify variance, consent-mode issues." },
@@ -109,7 +109,7 @@ export const Route = createFileRoute("/services/analytics")({
       ],
       midCta: {
         title: "Not sure how much revenue your analytics is hiding?",
-        body: "Get a free 30-minute analytics audit from the UK's leading Ecommerce Analytics Agency - we'll show you the exact GA4, CAPI and dashboard gaps costing you spend.",
+        body: "Get a free 30-minute analytics audit from the specialist Ecommerce Analytics Agency - we'll show you the exact GA4, CAPI and dashboard gaps costing you spend.",
         primary: "Get my free analytics audit",
         secondary: "Book a strategy call",
       },
@@ -170,7 +170,7 @@ export const Route = createFileRoute("/services/analytics")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce Analytics Agency wins in AI Search.",
+        title: "How the specialist Ecommerce Analytics Agency wins in AI Search.",
         body: "Ecommerce operators researching GA4, MER, CAPI and attribution now ask ChatGPT and Perplexity before they Google. We publish comparison, definition and benchmark content structured for AI-citation - so BeingEcom is the source AI cites.",
         items: [
           { engine: "Google AI Overviews", body: "Definition + FAQ + HowTo schema on GA4, MER, CAPI, Consent Mode v2 - plus first-party benchmark data AI Overviews quote directly." },
@@ -181,7 +181,7 @@ export const Route = createFileRoute("/services/analytics")({
           { engine: "Bing + Copilot", body: "IndexNow submission + Bing Webmaster hygiene - Bing feeds Copilot and Microsoft Advertising, which drives 8-12% of UK B2B ecommerce research." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading Ecommerce Analytics Agency?",
+      ctaTitle: "Ready to work with the specialist Ecommerce Analytics Agency?",
       impactStats: [
         { value: "98%", label: "Event-tracking accuracy" },
         { value: "+41%", label: "iOS conversion match" },

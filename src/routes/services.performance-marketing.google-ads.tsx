@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
   head: () => ({
     meta: [
       { title: "No.1 Google Ads Agency UK for Ecommerce | Search, Shopping & PMax | BeingEcom" },
-      { name: "description", content: "Award-winning Google Ads Agency UK for ecommerce. As a specialist Ecommerce Marketing Agency UK we run Search, Shopping and Performance Max with true incrementality for Shopify & WooCommerce brands." },
+      { name: "description", content: "Specialist Google Ads Agency UK for ecommerce. As a specialist Ecommerce Marketing Agency UK we run Search, Shopping and Performance Max with true incrementality for Shopify & WooCommerce brands." },
       { name: "keywords", content: "Google Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Google Shopping agency, Performance Max agency, Shopify Google Ads, Merchant Center optimisation" },
       { property: "og:title", content: "No.1 Google Ads Agency UK for Ecommerce | Search, Shopping & PMax | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK running Search, Shopping and Performance Max with true incrementality for Shopify and WooCommerce brands." },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       eyebrow: "Google Ads",
       heroImage: heroImg,
       heroTitle: "No.1 Google Ads Agency UK — capture every buying moment.",
-      heroSub: "The UK's leading Ecommerce Marketing Agency UK for Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",
       problemBullets: [
         "PMax dumping spend into brand traffic.",

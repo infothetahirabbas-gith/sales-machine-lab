@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How many links per month?", a: "Quality over volume. 6-15 editorial DR40+ links is a realistic monthly range depending on niche and budget." },
   { q: "Will off-page SEO help my product pages rank?", a: "Yes - authority passes through internal links from your money-page tier. We build to hub pages and money PDPs deliberately." },
   { q: "Is off-page SEO safe post-2024 spam updates?", a: "Yes when it's editorial and topically relevant. We avoid every pattern Google's spam updates target." },
-  { q: "What makes you the best Ecommerce SEO Agency UK for link building?", a: "We're a specialist Ecommerce Marketing Agency UK with in-house UK PR strategists and journalists on retainer - not offshored outreach VAs sending 500 spammy pitches a day." },
+  { q: "What makes you a specialist Ecommerce SEO Agency UK for link building?", a: "We're a specialist Ecommerce Marketing Agency UK with in-house UK PR strategists and journalists on retainer - not offshored outreach VAs sending 500 spammy pitches a day." },
   { q: "What is digital PR and how does it help ecommerce SEO?", a: "Data-led, product-led press stories placed in national and vertical publications - earning editorial DR60+ backlinks, brand mentions and referral traffic. It's the fastest ethical way to grow Domain Rating." },
   { q: "Do you help with HARO or Qwoted?", a: "Yes - we run daily founder-expert outreach on HARO, Qwoted, ResponseSource and Featured.com, placing 4-8 quotes per month in DR60+ media." },
   { q: "What kind of anchor text strategy do you use?", a: "Natural mix: mostly branded (60-70%), then generic/URL (15-20%), then partial-match (10-15%), and only a small share exact-match. Anchor patterns are a Google spam trigger; we look natural because we are." },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/off-page" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/off-page", name: "Off-Page SEO Agency UK", description: "Off-page SEO, digital PR and link building for ecommerce by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/off-page", name: "Off-Page SEO Agency UK", description: "Off-page SEO, digital PR and link building for ecommerce by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Off-Page SEO", path: "/services/seo/off-page" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/off-page")) },
     ],
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
         "PBNs, guest-post farms or 'link packages' from Fiverr.",
       ],
       whatIsTitle: "Off-page SEO is trust, at scale.",
-      whatIsBody: "As the UK's leading Ecommerce Growth Agency for authority building, we earn backlinks and brand signals that pass real trust to the URLs that actually make you money - collections, hero PDPs and revenue blog hubs. Every link is editorial. Every placement is one you'd be proud to send to a journalist.",
+      whatIsBody: "As the specialist Ecommerce Growth Agency for authority building, we earn backlinks and brand signals that pass real trust to the URLs that actually make you money - collections, hero PDPs and revenue blog hubs. Every link is editorial. Every placement is one you'd be proud to send to a journalist.",
       systemTitle: "Our off-page system.",
       systemSteps: [
         { title: "Link gap audit", body: "Competitor link profiles, DR gaps, target URLs mapped." },
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
         result: "DR 47, hero collection page 1 for 9 commercial terms, non-brand organic +214%.",
         metrics: [{ label: "DR", value: "47" }, { label: "Non-brand organic", value: "+214%" }, { label: "Months", value: "6" }],
       },
-      ctaTitle: "Build the authority that finally moves rankings - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Build the authority that finally moves rankings - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "DR 47", label: "Average DR reached" },
         { value: "12/mo", label: "Editorial links" },

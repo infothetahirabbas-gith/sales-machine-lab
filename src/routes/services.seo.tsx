@@ -4,7 +4,7 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-seo-growth.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "What makes BeingEcom the best Ecommerce SEO Agency UK?", a: "We're a specialist Ecommerce Marketing Agency UK - we don't touch SaaS, lead-gen or local plumbers. Every strategist has shipped SEO for 7-figure Shopify and WooCommerce brands, and every engagement is led by a senior UK SEO director, not a rotating junior." },
+  { q: "What makes BeingEcom a specialist Ecommerce SEO Agency UK?", a: "We're a specialist Ecommerce Marketing Agency UK - we don't touch SaaS, lead-gen or local plumbers. Every strategist has shipped SEO for 7-figure Shopify and WooCommerce brands, and every engagement is led by a senior UK SEO director, not a rotating junior." },
   { q: "How long does ecommerce SEO take to work?", a: "Technical fixes and on-page changes usually show in 4-8 weeks. Authority and category-level ranking compounding kicks in around month 4-6. Any agency promising top-3 in 30 days is selling PBNs or a lie." },
   { q: "Shopify or WooCommerce - which is better for SEO?", a: "Both can rank at the top of Google. WooCommerce gives you full URL, canonical and schema control out of the box. Shopify is faster to ship but needs apps (JSON-LD for SEO, Bulk 404 Redirect, Smart SEO) to close the same gaps. As an Ecommerce Growth Agency we handle both stacks weekly." },
   { q: "Do you do link building?", a: "Yes - editorial digital PR, niche edits and product-led outreach to real UK publishers. No PBNs, no comment spam, no automated tools. Every link is manually vetted for DR, topical relevance and traffic." },
@@ -43,10 +43,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
-      { property: "og:title", content: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { property: "og:description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
+      { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { name: "description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Specialist technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
+      { property: "og:title", content: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { property: "og:description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/seo")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO Agency UK", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO Agency UK", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo")) },
     ],
@@ -65,11 +65,11 @@ export const Route = createFileRoute("/services/seo")({
     <ServicePage cfg={{
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
-      heroTitle: "Best Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
-      heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
+      heroTitle: "Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
+      heroSub: "BeingEcom is a specialist Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's Leading Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
+        title: "A Specialist Ecommerce SEO Agency for Shopify & WooCommerce Growth.",
         paragraphs: [
           "BeingEcom is a specialist Ecommerce SEO Agency UK - a team of senior operators who have shipped SEO strategies for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generalist marketing agency. We do not chase SaaS retainers or local plumbers. Every strategist, engineer and editor on your account is an ecommerce specialist, and every engagement is led by a UK-based senior SEO director from day one.",
           "As an Ecommerce Marketing Agency UK we treat search as a revenue channel, not a traffic channel. Rankings are worthless if they don't convert - so every technical fix, on-page rebuild, editorial link and AEO block is judged against organic-attributed revenue, blended MER and CAC. We wire Google Search Console, GA4, Ahrefs, Semrush, Merchant Center and Triple Whale into a single dashboard so you can see exactly which pages are compounding and which are leaking.",
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/services/seo")({
         "Zero internal linking, no topical authority, no editorial backlinks - the algorithm has nothing to trust.",
       ],
       whatIsTitle: "Ecommerce SEO is nothing like blog SEO.",
-      whatIsBody: "Forget generic 'content marketing' playbooks. As the UK's leading Ecommerce SEO Agency, we treat ecommerce SEO as product-page architecture, collection taxonomy, structured data, faceted-nav strategy, and content built around buyer intent - comparison, best-of, guide and problem-solution formats that convert clicks into orders. It's a technical and editorial system, not a monthly blog quota - and it's what a specialist Ecommerce Agency UK ships that a generalist marketing team simply can't.",
+      whatIsBody: "Forget generic 'content marketing' playbooks. As the specialist Ecommerce SEO Agency, we treat ecommerce SEO as product-page architecture, collection taxonomy, structured data, faceted-nav strategy, and content built around buyer intent - comparison, best-of, guide and problem-solution formats that convert clicks into orders. It's a technical and editorial system, not a monthly blog quota - and it's what a specialist Ecommerce Agency UK ships that a generalist marketing team simply can't.",
       systemTitle: "Our 4-stage ecommerce SEO system.",
       systemSteps: [
         { title: "Keyword & intent map", body: "Full buyer-intent map: product, collection, informational, comparison, transactional. Sized by volume, difficulty and revenue." },
@@ -117,7 +117,7 @@ export const Route = createFileRoute("/services/seo")({
       ],
       midCta: {
         title: "Not sure where your SEO is actually leaking?",
-        body: "Get a free 30-minute audit from the UK's leading Ecommerce SEO Agency - we'll show you the top 5 rankings you're one fix away from winning.",
+        body: "Get a free 30-minute audit from the specialist Ecommerce SEO Agency - we'll show you the top 5 rankings you're one fix away from winning.",
         primary: "Get my free SEO audit",
         secondary: "Book a strategy call",
       },
@@ -178,7 +178,7 @@ export const Route = createFileRoute("/services/seo")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce SEO Agency wins in AI Search.",
+        title: "How the specialist Ecommerce SEO Agency wins in AI Search.",
         body: "AI-driven search engines answer buyer queries before the user ever reaches your store - unless your brand is the source they cite. Our AEO methodology is baked into every ecommerce SEO engagement, not sold as an upsell.",
         items: [
           { engine: "Google AI Overviews", body: "Product + Review + FAQ schema, quotable H2 answer blocks, entity consistency across Wikipedia, Wikidata and Knowledge Graph, and citation-worthy long-form pages." },
@@ -189,7 +189,7 @@ export const Route = createFileRoute("/services/seo")({
           { engine: "Bing + Copilot", body: "IndexNow submission, Bing Webmaster Tools hygiene, and image/video schema - Bing feeds Copilot and still drives 8-12% of UK ecommerce discovery." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading Ecommerce SEO Agency?",
+      ctaTitle: "Ready to work with the specialist Ecommerce SEO Agency?",
       impactStats: [
         { value: "+312%", label: "Organic sessions" },
         { value: "+148%", label: "Organic revenue" },

@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How many locations can you handle?", a: "From single-showroom to 200+ locations with programmatic local pages, unique content and per-store GBP management." },
   { q: "Will local SEO help voice and 'near me' searches?", a: "Yes - that's exactly where local ranking wins the click." },
   { q: "Do you handle reviews?", a: "Yes - review acquisition flows via Klaviyo/SMS, review response templates and rating recovery." },
-  { q: "What makes you the best Ecommerce Agency UK for local SEO?", a: "We're a specialist Ecommerce Marketing Agency UK - we combine local map-pack tactics with ecommerce PDP/PLP SEO, so retailers rank both nationally and locally from one strategy." },
+  { q: "What makes you a specialist Ecommerce Agency UK for local SEO?", a: "We're a specialist Ecommerce Marketing Agency UK - we combine local map-pack tactics with ecommerce PDP/PLP SEO, so retailers rank both nationally and locally from one strategy." },
   { q: "How long does local SEO take to work?", a: "Google Business Profile changes can move the map pack in 2-4 weeks. City landing pages typically rank inside 8-12 weeks with the right on-page + citation work." },
   { q: "What is a Google Business Profile and why does it matter?", a: "It's the free Google-owned business listing that powers the map pack, 'near me' results and voice search. For local ecommerce it's often bigger than your website's organic traffic." },
   { q: "Can you help with multi-location review management?", a: "Yes - review request flows via Klaviyo and SMS, per-store response templates, negative review escalation and rating recovery playbooks." },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/local")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/local" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO Agency UK", description: "Local SEO for UK ecommerce, retail and multi-location brands by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/local", name: "Local SEO Agency UK", description: "Local SEO for UK ecommerce, retail and multi-location brands by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "Local SEO", path: "/services/seo/local" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/local")) },
     ],
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/services/seo/local")({
       slug: "seo-local",
       eyebrow: "Local SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Agency UK for local SEO - own 'near me' in every UK city.",
+      heroTitle: "Specialist Ecommerce Agency UK for local SEO - own 'near me' in every UK city.",
       heroSub: "Local SEO from a specialist Ecommerce Marketing Agency UK - Google Business Profile, local pages, citations and reviews for ecommerce, retail and multi-location UK brands.",
       problemTitle: "Why local rankings vanish for ecommerce brands.",
       problemBullets: [
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/local")({
         result: "Top-3 map pack in all 8 cities, in-store visits +64% via GBP.",
         metrics: [{ label: "Cities top-3", value: "8/8" }, { label: "Reviews", value: "+318" }, { label: "GBP visits", value: "+64%" }],
       },
-      ctaTitle: "Dominate local search in every UK city - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Dominate local search in every UK city - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "8/8", label: "Cities in top-3" },
         { value: "+318", label: "Reviews added" },

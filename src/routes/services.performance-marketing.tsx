@@ -31,7 +31,7 @@ export const Route = createFileRoute("/services/performance-marketing")({
   head: () => ({
     meta: [
       { title: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
-      { name: "description", content: "Award-winning Performance Marketing Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands." },
+      { name: "description", content: "Specialist Performance Marketing Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands." },
       { name: "keywords", content: "performance marketing agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, paid media agency UK, ecommerce paid ads agency, full-funnel media buying, blended ROAS agency, Shopify paid media" },
       { property: "og:title", content: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube ads as one P&L for Shopify and WooCommerce brands." },
@@ -102,7 +102,7 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  The UK's leading Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
+                  The specialist Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
                 </p>
               </Reveal>
               <Reveal delay={3}>

@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
   head: () => ({
     meta: [
       { title: "No.1 Facebook Ads Agency UK | Meta Ads for Shopify & Woo | BeingEcom" },
-      { name: "description", content: "Award-winning Facebook Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run ASC+, UGC creative and CAPI-clean Meta scaling for Shopify and WooCommerce brands." },
+      { name: "description", content: "Specialist Facebook Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run ASC+, UGC creative and CAPI-clean Meta scaling for Shopify and WooCommerce brands." },
       { name: "keywords", content: "Facebook Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Meta Ads agency, Shopify Facebook Ads, Advantage+ Shopping, Meta Conversions API" },
       { property: "og:title", content: "No.1 Facebook Ads Agency UK | Meta Ads for Shopify & Woo | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK for Meta Ads. ASC+, UGC creative and CAPI-clean scaling for Shopify and WooCommerce brands." },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       eyebrow: "Facebook Ads",
       heroImage: heroImg,
       heroTitle: "No.1 Facebook Ads Agency UK — Meta ads that print revenue.",
-      heroSub: "Shopify and DTC Facebook Ads management by the UK's leading Ecommerce Marketing Agency UK. Creative volume, Advantage+ scaling and Conversions API engineered for profitable ecommerce ROAS.",
+      heroSub: "Shopify and DTC Facebook Ads management by the specialist Ecommerce Marketing Agency UK. Creative volume, Advantage+ scaling and Conversions API engineered for profitable ecommerce ROAS.",
       problemTitle: "Why most Meta accounts stop scaling.",
       problemBullets: [
         "2–3 creatives in rotation, fatigue every 14 days.",

@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you handle hreflang?", a: "Yes - full hreflang mapping, x-default, sitemap-based implementation and validation. Getting this wrong tanks international rankings." },
   { q: "What about translation vs localisation?", a: "Machine translation is a starting point, never the finish line. We use native-speaker localisation for money pages, product copy, ads and email - cultural nuance sells." },
   { q: "How long until international SEO shows results?", a: "3-6 months per new region - faster if you already have brand authority to pass through subfolder structure." },
-  { q: "What makes you the best Ecommerce SEO Agency UK for international expansion?", a: "We're a UK-headquartered Ecommerce Marketing Agency UK that has scaled brands into US, EU, MENA and APAC from UK Shopify and WooCommerce headquarters. UK strategy, global execution." },
+  { q: "What makes you a specialist Ecommerce SEO Agency UK for international expansion?", a: "We're a UK-headquartered Ecommerce Marketing Agency UK that has scaled brands into US, EU, MENA and APAC from UK Shopify and WooCommerce headquarters. UK strategy, global execution." },
   { q: "Can you help with Shopify Markets?", a: "Yes - full Shopify Markets configuration: country routing, currency, pricing, catalogues, hreflang, checkout language and payment methods per region." },
   { q: "Do you support WooCommerce multi-region setups?", a: "Yes - WPML or Polylang, multi-currency plugins, GeoIP routing, hreflang mapping and per-region schema. Woo is more flexible but needs more engineering." },
   { q: "How do you research international keyword demand?", a: "Ahrefs + Semrush per-country databases, local Search Console data, competitor SERP scraping in-country, and native-speaker validation of intent nuances." },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/services/seo/international")({
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/international" }],
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/international", name: "International SEO Agency UK", description: "International SEO - hreflang, subfolder architecture, localisation and country authority - by an award-winning UK Ecommerce SEO Agency." })) },
+      { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo/international", name: "International SEO Agency UK", description: "International SEO - hreflang, subfolder architecture, localisation and country authority - by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }, { name: "International SEO", path: "/services/seo/international" }])) },
       { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/seo/international")) },
     ],
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/services/seo/international")({
       eyebrow: "International SEO Agency UK",
       heroImage: heroImg,
       heroTitle: "No.1 Ecommerce Agency UK for international SEO - scale into the US, EU and beyond, profitably.",
-      heroSub: "International SEO from an award-winning Ecommerce Marketing Agency UK - the architecture, hreflang and localisation done right the first time, for Shopify and WooCommerce brands going global.",
+      heroSub: "International SEO from a specialist Ecommerce Marketing Agency UK - the architecture, hreflang and localisation done right the first time, for Shopify and WooCommerce brands going global.",
       problemTitle: "Why UK brands stall when they go international.",
       problemBullets: [
         "US pages ranking under UK URLs - wrong country, wrong currency.",
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/international")({
         "Google-translated copy that reads like machine output.",
       ],
       whatIsTitle: "International SEO is architecture + localisation.",
-      whatIsBody: "You can't just duplicate a UK store and slap /us/ on the URL. As the UK's leading Ecommerce Growth Agency for cross-border scale, we build the right structure, hreflang, native localisation and country-level authority signals - so /us/, /de/, /fr/ actually rank instead of quietly cannibalising your UK site.",
+      whatIsBody: "You can't just duplicate a UK store and slap /us/ on the URL. As the specialist Ecommerce Growth Agency for cross-border scale, we build the right structure, hreflang, native localisation and country-level authority signals - so /us/, /de/, /fr/ actually rank instead of quietly cannibalising your UK site.",
       systemTitle: "Our international SEO system.",
       systemSteps: [
         { title: "Market & keyword research", body: "Volume, intent and competitor mapping per target country." },
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/international")({
         result: "US organic sessions +410%, US CR 3.4%, US revenue £220k/mo in 6 months.",
         metrics: [{ label: "US organic", value: "+410%" }, { label: "US CR", value: "3.4%" }, { label: "US MRR", value: "£220k" }],
       },
-      ctaTitle: "Take your UK brand global - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Take your UK brand global - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "+410%", label: "US organic" },
         { value: "3.4%", label: "US conversion rate" },

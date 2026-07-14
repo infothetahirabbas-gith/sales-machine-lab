@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
   head: () => ({
     meta: [
       { title: "No.1 Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
-      { name: "description", content: "Award-winning Instagram Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Reels-first, Stories and creator UGC ads that scale Shopify and WooCommerce brands profitably." },
+      { name: "description", content: "Specialist Instagram Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Reels-first, Stories and creator UGC ads that scale Shopify and WooCommerce brands profitably." },
       { name: "keywords", content: "Instagram Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Instagram Reels Ads, Stories Ads agency, Shopify Instagram Ads, creator UGC agency" },
       { property: "og:title", content: "No.1 Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK for Instagram. Reels, Stories and creator UGC that scale Shopify and WooCommerce brands profitably." },
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
       eyebrow: "Instagram Ads",
       heroImage: heroImg,
       heroTitle: "No.1 Instagram Ads Agency UK — scroll-stopping Reels that convert.",
-      heroSub: "The UK's leading Ecommerce Marketing Agency UK for Reels-first creative, Stories placements and Advantage+ Shopping scaling — engineered for profitable Instagram ROAS on Shopify and DTC brands.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for Reels-first creative, Stories placements and Advantage+ Shopping scaling — engineered for profitable Instagram ROAS on Shopify and DTC brands.",
       problemTitle: "Why most Instagram accounts stall.",
       problemBullets: [
         "Static feed ads in a Reels-native world.",

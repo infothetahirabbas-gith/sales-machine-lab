@@ -34,10 +34,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
-      { name: "description", content: "Best Ecommerce Email Marketing Agency UK for Shopify & WooCommerce brands. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of monthly revenue - senior UK strategists, no lock-ins." },
-      { property: "og:title", content: "Best Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
-      { property: "og:description", content: "Award-winning Ecommerce Email Marketing Agency UK. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of revenue - senior UK strategists, no lock-ins." },
+      { title: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
+      { name: "description", content: "Ecommerce Email Marketing Agency UK for Shopify & WooCommerce brands. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of monthly revenue - senior UK strategists, no lock-ins." },
+      { property: "og:title", content: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
+      { property: "og:description", content: "Specialist ecommerce Email Marketing Agency UK. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of revenue - senior UK strategists, no lock-ins." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },
       { property: "og:type", content: "website" },
     ],
@@ -53,8 +53,8 @@ export const Route = createFileRoute("/services/email-sms")({
       slug: "email-sms",
       eyebrow: "Email Marketing Automation",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Email Marketing Agency UK - Klaviyo Flows That Add 25-35% Revenue.",
-      heroSub: "UK's leading Ecommerce Growth Agency for Klaviyo email and SMS - flows, campaigns and lifecycle automation that quietly recover lost sales, multiply repeat customers and add 25-35% of monthly revenue for Shopify and WooCommerce brands without lifting ad spend.",
+      heroTitle: "Ecommerce Email Marketing Agency UK - Klaviyo Flows That Add 25-35% Revenue.",
+      heroSub: "specialist Ecommerce Growth Agency for Klaviyo email and SMS - flows, campaigns and lifecycle automation that quietly recover lost sales, multiply repeat customers and add 25-35% of monthly revenue for Shopify and WooCommerce brands without lifting ad spend.",
       intro: {
         eyebrow: "Why brands hire us",
         title: "The UK's Most Trusted Ecommerce Email Marketing Agency for Klaviyo & SMS.",
