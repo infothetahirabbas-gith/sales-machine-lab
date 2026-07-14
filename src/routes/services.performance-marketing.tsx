@@ -102,7 +102,7 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  The UK's leading Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
+                  The specialist Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads — one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
                 </p>
               </Reveal>
               <Reveal delay={3}>

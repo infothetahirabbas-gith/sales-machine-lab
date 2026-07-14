@@ -47,7 +47,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       eyebrow: "Facebook Ads",
       heroImage: heroImg,
       heroTitle: "No.1 Facebook Ads Agency UK — Meta ads that print revenue.",
-      heroSub: "Shopify and DTC Facebook Ads management by the UK's leading Ecommerce Marketing Agency UK. Creative volume, Advantage+ scaling and Conversions API engineered for profitable ecommerce ROAS.",
+      heroSub: "Shopify and DTC Facebook Ads management by the specialist Ecommerce Marketing Agency UK. Creative volume, Advantage+ scaling and Conversions API engineered for profitable ecommerce ROAS.",
       problemTitle: "Why most Meta accounts stop scaling.",
       problemBullets: [
         "2–3 creatives in rotation, fatigue every 14 days.",

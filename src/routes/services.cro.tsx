@@ -38,10 +38,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
-      { name: "description", content: "Best Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2–3× more revenue. Senior UK CRO operators, no lock-ins." },
-      { property: "og:title", content: "Best Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
-      { property: "og:description", content: "Award-winning Ecommerce CRO Agency UK. A/B testing, PDP & checkout optimisation, behavioural research - turning existing traffic into compounding revenue." },
+      { title: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
+      { name: "description", content: "Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2–3× more revenue. Senior UK CRO operators, no lock-ins." },
+      { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
+      { property: "og:description", content: "Specialist ecommerce CRO Agency UK. A/B testing, PDP & checkout optimisation, behavioural research - turning existing traffic into compounding revenue." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
     ],
@@ -57,8 +57,8 @@ export const Route = createFileRoute("/services/cro")({
       slug: "cro",
       eyebrow: "Conversion Rate Optimisation",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce CRO Agency UK - Same Traffic, 2-3× the Revenue.",
-      heroSub: "UK's leading Ecommerce Growth Agency for Conversion Rate Optimisation - weekly A/B tests, PDP rewrites, checkout surgery and behavioural research that unlocks the revenue already inside your Shopify or WooCommerce funnel. Senior UK CRO operators, statistically rigorous experimentation, and every winner locked permanently into your theme.",
+      heroTitle: "Ecommerce CRO Agency UK - Same Traffic, 2-3× the Revenue.",
+      heroSub: "specialist Ecommerce Growth Agency for Conversion Rate Optimisation - weekly A/B tests, PDP rewrites, checkout surgery and behavioural research that unlocks the revenue already inside your Shopify or WooCommerce funnel. Senior UK CRO operators, statistically rigorous experimentation, and every winner locked permanently into your theme.",
       intro: {
         eyebrow: "Why brands hire us",
         title: "The UK's Most Trusted Ecommerce CRO Agency for Shopify & WooCommerce.",

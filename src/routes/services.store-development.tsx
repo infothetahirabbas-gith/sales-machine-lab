@@ -86,7 +86,7 @@ export const Route = createFileRoute("/services/store-development")({
         "Checkout drops 60-70% - no express pay, no threshold urgency, no post-purchase upsell live.",
       ],
       whatIsTitle: "What 'conversion-focused store' actually means.",
-      whatIsBody: "As the UK's leading Ecommerce Store Development Agency, we mean: every section, button and pixel exists to move a visitor closer to checkout. Information architecture guides browse to buy. Copy says exactly what the product does and why. Trust signals (real reviews, badges, guarantees) appear at the exact moment doubt hits. Speed keeps every stage under 2s. JSON-LD schema makes the store legible to Google, Bing and AI Overviews. Anything else is Pinterest theatre.",
+      whatIsBody: "As the specialist Ecommerce Store Development Agency, we mean: every section, button and pixel exists to move a visitor closer to checkout. Information architecture guides browse to buy. Copy says exactly what the product does and why. Trust signals (real reviews, badges, guarantees) appear at the exact moment doubt hits. Speed keeps every stage under 2s. JSON-LD schema makes the store legible to Google, Bing and AI Overviews. Anything else is Pinterest theatre.",
       systemTitle: "Our 4-stage ecommerce store build system.",
       systemSteps: [
         { title: "Audit + blueprint", body: "Tear down current store (or benchmark competitors), map ideal information architecture, define conversion baselines, spec the tech stack." },
@@ -115,7 +115,7 @@ export const Route = createFileRoute("/services/store-development")({
       ],
       midCta: {
         title: "Not sure if your store is the reason your ROAS is dropping?",
-        body: "Get a free store + CRO audit from the UK's leading Ecommerce Store Development Agency - we'll show you the exact PDP, checkout and speed leaks costing you conversions.",
+        body: "Get a free store + CRO audit from the specialist Ecommerce Store Development Agency - we'll show you the exact PDP, checkout and speed leaks costing you conversions.",
         primary: "Get my free store audit",
         secondary: "Book a strategy call",
       },
@@ -177,7 +177,7 @@ export const Route = createFileRoute("/services/store-development")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce Store Development Agency wins in AI Search.",
+        title: "How the specialist Ecommerce Store Development Agency wins in AI Search.",
         body: "Modern AI-driven search engines (Google AI Overviews, ChatGPT Shopping, Perplexity, Gemini) crawl your store's schema and semantic HTML - not the visual layout. We ship every build with the structured data, semantic markup and quotable content AI engines cite, so your store shows up in AI answers, not just Google's 10 blue links.",
         items: [
           { engine: "Google AI Overviews", body: "Full JSON-LD (Product + Review + FAQ + BreadcrumbList + Organization) + quotable H2 blocks + entity consistency (Wikidata, Knowledge Graph) - AI Overviews cite product + brand directly." },

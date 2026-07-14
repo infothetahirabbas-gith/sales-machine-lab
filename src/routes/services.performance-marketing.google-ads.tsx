@@ -47,7 +47,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       eyebrow: "Google Ads",
       heroImage: heroImg,
       heroTitle: "No.1 Google Ads Agency UK — capture every buying moment.",
-      heroSub: "The UK's leading Ecommerce Marketing Agency UK for Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for Google Shopping, Performance Max, Search and brand defence — Merchant Center feed optimisation engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",
       problemBullets: [
         "PMax dumping spend into brand traffic.",

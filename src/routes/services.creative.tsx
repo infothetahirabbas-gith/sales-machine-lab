@@ -29,10 +29,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/creative")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
-      { name: "description", content: "Best Ecommerce Creative Agency UK for Shopify & WooCommerce brands. Scroll-stopping UGC, static and video ad creative shipped weekly - 20-40 creatives/month, hook-first, tested against 8-12 angles." },
-      { property: "og:title", content: "Best Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
-      { property: "og:description", content: "Award-winning Ecommerce Creative Agency UK. UGC, static and video ad creative shipped weekly for Shopify & WooCommerce brands scaling on Meta, Google and TikTok." },
+      { title: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
+      { name: "description", content: "Ecommerce Creative Agency UK for Shopify & WooCommerce brands. Scroll-stopping UGC, static and video ad creative shipped weekly - 20-40 creatives/month, hook-first, tested against 8-12 angles." },
+      { property: "og:title", content: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
+      { property: "og:description", content: "Specialist ecommerce Creative Agency UK. UGC, static and video ad creative shipped weekly for Shopify & WooCommerce brands scaling on Meta, Google and TikTok." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
     ],
@@ -48,8 +48,8 @@ export const Route = createFileRoute("/services/creative")({
       slug: "creative",
       eyebrow: "Creative & Ad Content Production",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Creative Agency UK - Hooks, UGC & Videos That Actually Sell.",
-      heroSub: "UK's leading Ecommerce Growth Agency for creative production - hooks, scripts, UGC, statics and videos shipped weekly for Shopify and WooCommerce brands scaling on Meta, Google, TikTok and YouTube. 20-40 tested creatives per month, hook-first, native-feel, engineered to move units.",
+      heroTitle: "Ecommerce Creative Agency UK - Hooks, UGC & Videos That Actually Sell.",
+      heroSub: "specialist Ecommerce Growth Agency for creative production - hooks, scripts, UGC, statics and videos shipped weekly for Shopify and WooCommerce brands scaling on Meta, Google, TikTok and YouTube. 20-40 tested creatives per month, hook-first, native-feel, engineered to move units.",
       intro: {
         eyebrow: "Why brands hire us",
         title: "The UK's Most Trusted Ecommerce Creative Agency for Paid-Social Scale.",

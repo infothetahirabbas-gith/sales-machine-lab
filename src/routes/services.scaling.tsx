@@ -33,9 +33,9 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
-      { name: "description", content: "Best Ecommerce Scaling Agency UK for Shopify & WooCommerce brands. Scale from 6 to 7+ figures profitably - unit economics, channel diversification, retention and CFO-grade dashboards built by senior UK growth operators." },
-      { property: "og:title", content: "Best Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
+      { title: "Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
+      { name: "description", content: "Ecommerce Scaling Agency UK for Shopify & WooCommerce brands. Scale from 6 to 7+ figures profitably - unit economics, channel diversification, retention and CFO-grade dashboards built by senior UK growth operators." },
+      { property: "og:title", content: "Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
       { property: "og:description", content: "Scale from £30k/mo to £1m+/mo profitably. Unit economics, channel mix, retention and CFO-grade reporting for Shopify & WooCommerce brands - senior UK operators." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
       { property: "og:type", content: "website" },
@@ -55,11 +55,11 @@ export const Route = createFileRoute("/services/scaling")({
       slug: "scaling",
       eyebrow: "Ecommerce Scaling Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Scaling Agency UK - From £30K/mo to £1M+/mo, Profitably.",
+      heroTitle: "Ecommerce Scaling Agency UK - From £30K/mo to £1M+/mo, Profitably.",
       heroSub: "BeingEcom is a specialist Ecommerce Scaling Agency UK taking profitable Shopify and WooCommerce brands past their plateau - by rebuilding unit economics, diversifying channel mix, engineering retention and running scaling as a CFO-grade operation. Not 'more ads' - a full growth system.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's leading Ecommerce Scaling Agency for Shopify & WooCommerce brands past £30k/mo.",
+        title: "The specialist Ecommerce Scaling Agency for Shopify & WooCommerce brands past £30k/mo.",
         paragraphs: [
           "BeingEcom is an Ecommerce Scaling Agency UK - a team of senior growth operators who have scaled 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a Meta ads agency renaming themselves. Every strategist on your account has owned P&L at £1m+/mo before, and every engagement is led by a UK-based senior growth director who operates like a fractional CMO with a real numbers brain.",
           "As an Ecommerce Marketing Agency UK we treat scaling as a system, not a spend increase. Unit economics come first: contribution margin per order, break-even ROAS, cohort LTV. Then channel diversification: Meta, Google Pmax, TikTok, YouTube, Klaviyo and organic - each proven profitable at target scale before we layer the next. Then retention: subscription, VIP, replenishment and win-back. Then operations: inventory, cash and 3PL ready for volume. Skip a layer and scale just breaks the business faster.",
@@ -80,7 +80,7 @@ export const Route = createFileRoute("/services/scaling")({
         "No clear scaling roadmap beyond 'spend more on ads' - and one channel carries all the risk.",
       ],
       whatIsTitle: "Scaling ≠ starting.",
-      whatIsBody: "As the UK's leading Ecommerce Scaling Agency, we know the thinking, math and operations that get you to £10k/mo will quietly kill you at £100k/mo. We rebuild the financial model, attribution, channel mix, retention engine and cash-flow plan for the next stage - so scale compounds instead of imploding.",
+      whatIsBody: "As the specialist Ecommerce Scaling Agency, we know the thinking, math and operations that get you to £10k/mo will quietly kill you at £100k/mo. We rebuild the financial model, attribution, channel mix, retention engine and cash-flow plan for the next stage - so scale compounds instead of imploding.",
       systemTitle: "Our 4-stage ecommerce scaling system.",
       systemSteps: [
         { title: "Unit economics rebuild", body: "Contribution margin, break-even ROAS, cohort LTV, cash-conversion cycle - modelled end to end, per SKU and per channel." },
@@ -107,7 +107,7 @@ export const Route = createFileRoute("/services/scaling")({
       ],
       midCta: {
         title: "Stuck at your current plateau and not sure why?",
-        body: "Get a free scaling audit from the UK's leading Ecommerce Scaling Agency - we'll show you exactly which lever (economics, channel mix, retention, ops) is capping your growth.",
+        body: "Get a free scaling audit from the specialist Ecommerce Scaling Agency - we'll show you exactly which lever (economics, channel mix, retention, ops) is capping your growth.",
         primary: "Get my free scaling audit",
         secondary: "Book a strategy call",
       },
@@ -168,7 +168,7 @@ export const Route = createFileRoute("/services/scaling")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce Scaling Agency wins in AI Search.",
+        title: "How the specialist Ecommerce Scaling Agency wins in AI Search.",
         body: "Operators researching scaling strategy now ask ChatGPT, Perplexity, Claude and Gemini before Google. We publish first-party benchmarks (MER by vertical, CM benchmarks, cohort LTV curves) and comparison content structured for AI citation.",
         items: [
           { engine: "Google AI Overviews", body: "Definition + FAQ + HowTo schema on MER, break-even ROAS, cohort LTV, Meta vs Google Pmax scaling - AI Overviews cite first-party benchmark data directly." },
@@ -179,7 +179,7 @@ export const Route = createFileRoute("/services/scaling")({
           { engine: "Bing + Copilot", body: "IndexNow submission + Bing Webmaster hygiene - Bing feeds Copilot and Microsoft Advertising, meaningful for B2B ecommerce and finance research." },
         ],
       },
-      ctaTitle: "Ready to scale - profitably - with the UK's leading Ecommerce Scaling Agency?",
+      ctaTitle: "Ready to scale - profitably - with the specialist Ecommerce Scaling Agency?",
       impactStats: [
         { value: "£1.2M+", label: "Monthly run-rate scaled to" },
         { value: "3.4×", label: "Sustained blended MER" },

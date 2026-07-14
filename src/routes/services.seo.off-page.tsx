@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
         "PBNs, guest-post farms or 'link packages' from Fiverr.",
       ],
       whatIsTitle: "Off-page SEO is trust, at scale.",
-      whatIsBody: "As the UK's leading Ecommerce Growth Agency for authority building, we earn backlinks and brand signals that pass real trust to the URLs that actually make you money - collections, hero PDPs and revenue blog hubs. Every link is editorial. Every placement is one you'd be proud to send to a journalist.",
+      whatIsBody: "As the specialist Ecommerce Growth Agency for authority building, we earn backlinks and brand signals that pass real trust to the URLs that actually make you money - collections, hero PDPs and revenue blog hubs. Every link is editorial. Every placement is one you'd be proud to send to a journalist.",
       systemTitle: "Our off-page system.",
       systemSteps: [
         { title: "Link gap audit", body: "Competitor link profiles, DR gaps, target URLs mapped." },
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
         result: "DR 47, hero collection page 1 for 9 commercial terms, non-brand organic +214%.",
         metrics: [{ label: "DR", value: "47" }, { label: "Non-brand organic", value: "+214%" }, { label: "Months", value: "6" }],
       },
-      ctaTitle: "Build the authority that finally moves rankings - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Build the authority that finally moves rankings - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "DR 47", label: "Average DR reached" },
         { value: "12/mo", label: "Editorial links" },

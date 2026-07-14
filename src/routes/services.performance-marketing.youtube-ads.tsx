@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
       heroTitle: "No.1 YouTube Ads Agency UK — engineered for revenue, not just views.",
-      heroSub: "The UK's leading Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts — profitable, measurable YouTube growth for Shopify and DTC brands.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts — profitable, measurable YouTube growth for Shopify and DTC brands.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
         "Boosted brand videos with no direct-response structure.",

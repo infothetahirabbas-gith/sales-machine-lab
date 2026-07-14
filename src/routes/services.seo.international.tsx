@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/international")({
         "Google-translated copy that reads like machine output.",
       ],
       whatIsTitle: "International SEO is architecture + localisation.",
-      whatIsBody: "You can't just duplicate a UK store and slap /us/ on the URL. As the UK's leading Ecommerce Growth Agency for cross-border scale, we build the right structure, hreflang, native localisation and country-level authority signals - so /us/, /de/, /fr/ actually rank instead of quietly cannibalising your UK site.",
+      whatIsBody: "You can't just duplicate a UK store and slap /us/ on the URL. As the specialist Ecommerce Growth Agency for cross-border scale, we build the right structure, hreflang, native localisation and country-level authority signals - so /us/, /de/, /fr/ actually rank instead of quietly cannibalising your UK site.",
       systemTitle: "Our international SEO system.",
       systemSteps: [
         { title: "Market & keyword research", body: "Volume, intent and competitor mapping per target country." },
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/international")({
         result: "US organic sessions +410%, US CR 3.4%, US revenue £220k/mo in 6 months.",
         metrics: [{ label: "US organic", value: "+410%" }, { label: "US CR", value: "3.4%" }, { label: "US MRR", value: "£220k" }],
       },
-      ctaTitle: "Take your UK brand global - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Take your UK brand global - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "+410%", label: "US organic" },
         { value: "3.4%", label: "US conversion rate" },

@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/technical")({
         result: "CWV green, crawl waste cut 92%, non-brand organic +81%.",
         metrics: [{ label: "Organic", value: "+81%" }, { label: "LCP", value: "1.4s" }, { label: "Crawl waste", value: "-92%" }],
       },
-      ctaTitle: "Fix the technical debt capping your growth - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Fix the technical debt capping your growth - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "1.4s", label: "Mobile LCP" },
         { value: "-92%", label: "Crawl waste" },

@@ -43,10 +43,10 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
-      { property: "og:title", content: "Best Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { property: "og:description", content: "Best Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
+      { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { name: "description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Award-winning technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
+      { property: "og:title", content: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
+      { property: "og:description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/services/seo")({
     <ServicePage cfg={{
       slug: "seo",
       eyebrow: "Ecommerce SEO Agency UK",
-      heroTitle: "Best Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
+      heroTitle: "Ecommerce SEO Agency UK - Trusted by Growing Shopify & WooCommerce Brands.",
       heroSub: "BeingEcom is an award-winning Ecommerce Marketing Agency UK and specialist Ecommerce Growth Agency - engineered to compound organic revenue month after month for Shopify and WooCommerce brands, without paying Meta or Google for every click. Senior UK SEO directors, editorial digital PR, product & collection SEO, and AI-search visibility built in from day one.",
       intro: {
         eyebrow: "Why brands hire us",
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/services/seo")({
         "Zero internal linking, no topical authority, no editorial backlinks - the algorithm has nothing to trust.",
       ],
       whatIsTitle: "Ecommerce SEO is nothing like blog SEO.",
-      whatIsBody: "Forget generic 'content marketing' playbooks. As the UK's leading Ecommerce SEO Agency, we treat ecommerce SEO as product-page architecture, collection taxonomy, structured data, faceted-nav strategy, and content built around buyer intent - comparison, best-of, guide and problem-solution formats that convert clicks into orders. It's a technical and editorial system, not a monthly blog quota - and it's what a specialist Ecommerce Agency UK ships that a generalist marketing team simply can't.",
+      whatIsBody: "Forget generic 'content marketing' playbooks. As the specialist Ecommerce SEO Agency, we treat ecommerce SEO as product-page architecture, collection taxonomy, structured data, faceted-nav strategy, and content built around buyer intent - comparison, best-of, guide and problem-solution formats that convert clicks into orders. It's a technical and editorial system, not a monthly blog quota - and it's what a specialist Ecommerce Agency UK ships that a generalist marketing team simply can't.",
       systemTitle: "Our 4-stage ecommerce SEO system.",
       systemSteps: [
         { title: "Keyword & intent map", body: "Full buyer-intent map: product, collection, informational, comparison, transactional. Sized by volume, difficulty and revenue." },
@@ -117,7 +117,7 @@ export const Route = createFileRoute("/services/seo")({
       ],
       midCta: {
         title: "Not sure where your SEO is actually leaking?",
-        body: "Get a free 30-minute audit from the UK's leading Ecommerce SEO Agency - we'll show you the top 5 rankings you're one fix away from winning.",
+        body: "Get a free 30-minute audit from the specialist Ecommerce SEO Agency - we'll show you the top 5 rankings you're one fix away from winning.",
         primary: "Get my free SEO audit",
         secondary: "Book a strategy call",
       },
@@ -178,7 +178,7 @@ export const Route = createFileRoute("/services/seo")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce SEO Agency wins in AI Search.",
+        title: "How the specialist Ecommerce SEO Agency wins in AI Search.",
         body: "AI-driven search engines answer buyer queries before the user ever reaches your store - unless your brand is the source they cite. Our AEO methodology is baked into every ecommerce SEO engagement, not sold as an upsell.",
         items: [
           { engine: "Google AI Overviews", body: "Product + Review + FAQ schema, quotable H2 answer blocks, entity consistency across Wikipedia, Wikidata and Knowledge Graph, and citation-worthy long-form pages." },
@@ -189,7 +189,7 @@ export const Route = createFileRoute("/services/seo")({
           { engine: "Bing + Copilot", body: "IndexNow submission, Bing Webmaster Tools hygiene, and image/video schema - Bing feeds Copilot and still drives 8-12% of UK ecommerce discovery." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading Ecommerce SEO Agency?",
+      ctaTitle: "Ready to work with the specialist Ecommerce SEO Agency?",
       impactStats: [
         { value: "+312%", label: "Organic sessions" },
         { value: "+148%", label: "Organic revenue" },

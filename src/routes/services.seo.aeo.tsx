@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
         result: "41 AI Overview citations, Perplexity + ChatGPT citations tracked, AI-referred sessions +180%.",
         metrics: [{ label: "AIO citations", value: "41" }, { label: "AI sessions", value: "+180%" }, { label: "Days", value: "120" }],
       },
-      ctaTitle: "Own the AI answer, not just the blue link - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Own the AI answer, not just the blue link - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "41", label: "AIO citations" },
         { value: "+180%", label: "AI-referred sessions" },

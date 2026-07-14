@@ -33,9 +33,9 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
-      { title: "Best Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
-      { name: "description", content: "Best Ecommerce Funnel Agency UK for Shopify & WooCommerce brands. Advertorials, quiz funnels, landing pages, PDP upsells and post-purchase flows engineered to 2-3× cold-traffic CVR by senior UK direct-response operators." },
-      { property: "og:title", content: "Best Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
+      { title: "Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
+      { name: "description", content: "Ecommerce Funnel Agency UK for Shopify & WooCommerce brands. Advertorials, quiz funnels, landing pages, PDP upsells and post-purchase flows engineered to 2-3× cold-traffic CVR by senior UK direct-response operators." },
+      { property: "og:title", content: "Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
       { property: "og:description", content: "Advertorials, quiz funnels, landing pages and post-purchase upsells - engineered to 2-3× cold-traffic CVR for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
@@ -55,11 +55,11 @@ export const Route = createFileRoute("/services/funnel")({
       slug: "funnel",
       eyebrow: "Ecommerce Funnel Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best Ecommerce Funnel Agency UK - Turn Cold Traffic Into Profitable Repeat Buyers.",
+      heroTitle: "Ecommerce Funnel Agency UK - Turn Cold Traffic Into Profitable Repeat Buyers.",
       heroSub: "BeingEcom is a specialist Ecommerce Funnel Agency UK designing and building advertorials, quiz funnels, landing pages, PDP upsells and post-purchase flows for Shopify and WooCommerce brands. Every stage engineered against MER, contribution margin and LTV - not just CVR.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's leading Ecommerce Funnel Agency for Shopify & WooCommerce cold traffic.",
+        title: "The specialist Ecommerce Funnel Agency for Shopify & WooCommerce cold traffic.",
         paragraphs: [
           "BeingEcom is an Ecommerce Funnel Agency UK - a team of senior direct-response operators who have engineered paid-traffic funnels for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a landing-page shop. Every strategist, copywriter and developer on your account has shipped advertorials, quiz funnels and post-purchase upsell stacks against real Meta and TikTok ad spend, led by a UK-based senior funnel director from day one.",
           "As an Ecommerce Marketing Agency UK we treat the funnel as one system, not a set of pages. The ad hook decides the pre-sell format. The pre-sell decides the landing page structure. The landing decides the PDP layout. The PDP decides the post-purchase upsell. Every stage's copy, offer and design is measured against the next - LP→ATC, ATC→Checkout, Checkout→Buy - so we can name the exact stage leaking your ROAS.",
@@ -80,7 +80,7 @@ export const Route = createFileRoute("/services/funnel")({
         "No post-purchase upsell, no retargeting sequence, no journey - just a checkout button.",
       ],
       whatIsTitle: "A funnel is a system, not a page.",
-      whatIsBody: "As the UK's leading Ecommerce Funnel Agency, we treat each stage of the buyer journey - awareness, consideration, conversion, retention - as its own asset, message and metric. Ad hook → advertorial or quiz → landing → PDP → cart → checkout → post-purchase upsell → retargeting → email lifecycle. Miss one stage and the whole thing leaks. Build all nine and it compounds.",
+      whatIsBody: "As the specialist Ecommerce Funnel Agency, we treat each stage of the buyer journey - awareness, consideration, conversion, retention - as its own asset, message and metric. Ad hook → advertorial or quiz → landing → PDP → cart → checkout → post-purchase upsell → retargeting → email lifecycle. Miss one stage and the whole thing leaks. Build all nine and it compounds.",
       systemTitle: "Our 4-stage ecommerce funnel system.",
       systemSteps: [
         { title: "Journey map", body: "Map current touchpoints per audience, find drop-off and friction stage-by-stage." },
@@ -107,7 +107,7 @@ export const Route = createFileRoute("/services/funnel")({
       ],
       midCta: {
         title: "Not sure which stage of your funnel is bleeding ROAS?",
-        body: "Get a free full-funnel audit from the UK's leading Ecommerce Funnel Agency - we'll show you the exact stage (LP, ATC, checkout, post-purchase) costing you profit.",
+        body: "Get a free full-funnel audit from the specialist Ecommerce Funnel Agency - we'll show you the exact stage (LP, ATC, checkout, post-purchase) costing you profit.",
         primary: "Get my free funnel audit",
         secondary: "Book a strategy call",
       },
@@ -168,7 +168,7 @@ export const Route = createFileRoute("/services/funnel")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best Ecommerce Funnel Agency wins in AI Search.",
+        title: "How the specialist Ecommerce Funnel Agency wins in AI Search.",
         body: "Buyers researching products at consideration stage now query ChatGPT, Perplexity and Gemini before Google. Well-structured advertorials and comparison pages get cited as sources in AI answers - so BeingEcom's clients earn AI-driven pre-sold traffic that a bare PDP can't.",
         items: [
           { engine: "Google AI Overviews", body: "Advertorials + comparison pages with FAQ + HowTo + Product schema + quotable answer blocks - AI Overviews cite them directly for 'best X for Y' commercial queries." },
@@ -179,7 +179,7 @@ export const Route = createFileRoute("/services/funnel")({
           { engine: "Bing + Copilot", body: "IndexNow submission + Bing Webmaster Tools hygiene - Bing feeds Copilot Shopping, still a meaningful share of UK ecommerce research." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading Ecommerce Funnel Agency?",
+      ctaTitle: "Ready to work with the specialist Ecommerce Funnel Agency?",
       impactStats: [
         { value: "+218%", label: "Full-funnel CR" },
         { value: "+64%", label: "LP → ATC rate" },

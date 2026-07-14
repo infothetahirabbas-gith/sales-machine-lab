@@ -54,7 +54,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
         "Zero Product/Review/FAQ schema, so no rich snippets in the SERP.",
       ],
       whatIsTitle: "On-page SEO is where ecommerce wins are cheapest.",
-      whatIsBody: "You already have the pages. As the UK's leading Ecommerce Growth Agency for on-page work, we turn existing product and collection URLs into ranking, click-worthy results - no new content required for the first wave of wins. Titles, schema, unique copy, internal links: fix the templates once, rank everywhere.",
+      whatIsBody: "You already have the pages. As the specialist Ecommerce Growth Agency for on-page work, we turn existing product and collection URLs into ranking, click-worthy results - no new content required for the first wave of wins. Titles, schema, unique copy, internal links: fix the templates once, rank everywhere.",
       systemTitle: "Our on-page system.",
       systemSteps: [
         { title: "Template audit", body: "PDP, PLP, blog and static templates scored against a 40-point checklist." },
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
         result: "Organic sessions +62%, PDP-driven revenue +48% in 90 days - no new content.",
         metrics: [{ label: "Organic", value: "+62%" }, { label: "PDP revenue", value: "+48%" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Turn your existing pages into ranking assets - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Turn your existing pages into ranking assets - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "+62%", label: "Organic sessions" },
         { value: "+38%", label: "SERP CTR" },

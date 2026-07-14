@@ -36,9 +36,9 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({
     meta: [
-      { title: "Best AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
-      { name: "description", content: "Best AI Automation Agency UK for Shopify & WooCommerce brands. AI agents for support deflection, catalogue enrichment, personalisation, ad creative and marketing ops - built by senior UK engineers, measured in hours saved and revenue lifted." },
-      { property: "og:title", content: "Best AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
+      { title: "AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
+      { name: "description", content: "AI Automation Agency UK for Shopify & WooCommerce brands. AI agents for support deflection, catalogue enrichment, personalisation, ad creative and marketing ops - built by senior UK engineers, measured in hours saved and revenue lifted." },
+      { property: "og:title", content: "AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
       { property: "og:description", content: "AI agents and workflows for ecommerce - support, catalogue, personalisation, creative and ops. Senior UK engineers, measurable ROI, no GPT-wrapper theatre." },
       { property: "og:url", content: "https://beingecom.com/services/ai-automation" },
       { property: "og:type", content: "website" },
@@ -58,11 +58,11 @@ export const Route = createFileRoute("/services/ai-automation")({
       slug: "ai-automation",
       eyebrow: "AI Automation Agency UK",
       heroImage: heroImg,
-      heroTitle: "Best AI Automation Agency UK - AI Agents That Compound Ecommerce Margins.",
+      heroTitle: "AI Automation Agency UK - AI Agents That Compound Ecommerce Margins.",
       heroSub: "BeingEcom is a specialist AI Automation Agency UK building agentic workflows for Shopify and WooCommerce brands. Support deflection, catalogue enrichment, AI-personalised CRO, ad-creative generation and ops agents - measured in tickets deflected, hours saved and revenue lifted, never in 'AI theatre'.",
       intro: {
         eyebrow: "Why brands hire us",
-        title: "The UK's leading AI Automation Agency for Shopify & WooCommerce.",
+        title: "The specialist AI Automation team for Shopify & WooCommerce.",
         paragraphs: [
           "BeingEcom is an AI Automation Agency UK - a team of senior engineers who have shipped production AI agents and workflows for 7- and 8-figure Shopify and WooCommerce brands across the UK, EU and US. We are not a generic AI consultancy. Every engineer on your account has shipped LLM agents against real ecommerce revenue lines - support deflection, catalogue enrichment, personalisation, creative ops - and every engagement is led by a UK-based senior AI director from day one.",
           "As an Ecommerce Marketing Agency UK we treat AI as leverage, not a feature. Every workflow gets a hard baseline metric - tickets deflected, hours saved, conversion lift, contribution margin lifted - and we only ship agents that clear a payback threshold in 90 days or less. No GPT wrappers, no chatbots pretending to be strategy, no 'AI transformation' PowerPoint.",
@@ -83,7 +83,7 @@ export const Route = createFileRoute("/services/ai-automation")({
         "Marketing ops stitched together with screenshots, Slack messages and Notion.",
       ],
       whatIsTitle: "AI is leverage, not a feature.",
-      whatIsBody: "As the UK's leading AI Automation Agency, we pick the workflows where AI removes a real cost or unlocks a real lift - support deflection, catalogue enrichment, personalisation, content velocity, ad-creative iteration, ops reporting - and build them into your existing Shopify + Klaviyo + Gorgias + Meta stack. Everything else is theatre.",
+      whatIsBody: "As the specialist AI Automation team, we pick the workflows where AI removes a real cost or unlocks a real lift - support deflection, catalogue enrichment, personalisation, content velocity, ad-creative iteration, ops reporting - and build them into your existing Shopify + Klaviyo + Gorgias + Meta stack. Everything else is theatre.",
       systemTitle: "Our 4-stage AI automation system.",
       systemSteps: [
         { title: "Workflow audit", body: "Map manual workflows, cost-rank by hours + margin drag, automation-rank by feasibility." },
@@ -110,7 +110,7 @@ export const Route = createFileRoute("/services/ai-automation")({
       ],
       midCta: {
         title: "Not sure where AI would actually pay back in your store?",
-        body: "Get a free AI-Readiness Score from the UK's leading AI Automation Agency - we'll rank the 3 highest-ROI workflows to ship in your Shopify or WooCommerce stack.",
+        body: "Get a free AI-Readiness Score from the specialist AI Automation team - we'll rank the 3 highest-ROI workflows to ship in your Shopify or WooCommerce stack.",
         primary: "Get my AI-Readiness Score",
         secondary: "Book a strategy call",
       },
@@ -171,7 +171,7 @@ export const Route = createFileRoute("/services/ai-automation")({
         ],
       },
       aiSearch: {
-        title: "How the UK's best AI Automation Agency wins in AI Search.",
+        title: "How the specialist AI Automation team wins in AI Search.",
         body: "Operators researching AI for ecommerce now ask ChatGPT, Perplexity, Claude and Gemini before Google. Our AEO methodology is baked into every AI content and case study we publish - so BeingEcom is the source AI cites when someone asks 'best AI automation for Shopify'.",
         items: [
           { engine: "Google AI Overviews", body: "Definition + FAQ + HowTo schema on AI ecommerce, agentic workflows, Shopify AI apps, and first-party benchmark data AI Overviews quote directly." },
@@ -182,7 +182,7 @@ export const Route = createFileRoute("/services/ai-automation")({
           { engine: "Bing + Copilot", body: "IndexNow submission + Bing Webmaster hygiene - Bing feeds Copilot and Microsoft Advertising, which drives significant B2B ecommerce AI research." },
         ],
       },
-      ctaTitle: "Ready to work with the UK's leading AI Automation Agency?",
+      ctaTitle: "Ready to work with the specialist AI Automation team?",
       impactStats: [
         { value: "65%", label: "Avg support deflection" },
         { value: "10×", label: "Catalog throughput" },

@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
   head: () => ({
     meta: [
       { title: "No.1 Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
-      { name: "description", content: "Award-winning Ecommerce Media Buying Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube as one revenue P&L for Shopify and WooCommerce brands." },
+      { name: "description", content: "Specialist ecommerce Media Buying Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube as one revenue P&L for Shopify and WooCommerce brands." },
       { name: "keywords", content: "media buying agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, cross-channel media buying, blended ROAS agency, MER media buying, Shopify media buying" },
       { property: "og:title", content: "No.1 Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
       { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube as one P&L for Shopify and WooCommerce brands." },
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       eyebrow: "Media Buying",
       heroImage: heroImg,
       heroTitle: "No.1 Ecommerce Media Buying Agency UK — engineered for blended ROAS.",
-      heroSub: "The UK's leading Ecommerce Marketing Agency UK for cross-channel media buying — Meta, Google, TikTok and YouTube run as one P&L, with MER targets, full-funnel allocation and weekly capital reallocation.",
+      heroSub: "The specialist Ecommerce Marketing Agency UK for cross-channel media buying — Meta, Google, TikTok and YouTube run as one P&L, with MER targets, full-funnel allocation and weekly capital reallocation.",
       problemTitle: "Why single-channel buyers cap your scale.",
       problemBullets: [
         "Optimising per-channel ROAS instead of blended MER.",

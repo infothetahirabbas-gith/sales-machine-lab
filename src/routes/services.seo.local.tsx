@@ -89,7 +89,7 @@ export const Route = createFileRoute("/services/seo/local")({
         result: "Top-3 map pack in all 8 cities, in-store visits +64% via GBP.",
         metrics: [{ label: "Cities top-3", value: "8/8" }, { label: "Reviews", value: "+318" }, { label: "GBP visits", value: "+64%" }],
       },
-      ctaTitle: "Dominate local search in every UK city - with the UK's leading Ecommerce SEO Agency.",
+      ctaTitle: "Dominate local search in every UK city - with the specialist Ecommerce SEO Agency.",
       impactStats: [
         { value: "8/8", label: "Cities in top-3" },
         { value: "+318", label: "Reviews added" },
