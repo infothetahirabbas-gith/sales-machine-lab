@@ -28,6 +28,9 @@ const FAQ_LIST: FAQ[] = [
   { q: "What is an AI-Readiness Score?", a: "Our 12-point audit scoring your Shopify/WooCommerce data, ops and tech stack for automation potential. Available free - shows the 3 highest-ROI workflows to build next." },
   { q: "Can you retrofit AI onto our existing tech stack?", a: "Yes - we integrate with what you already run. No rip-and-replace. The best AI ROI is layered onto Klaviyo, Gorgias, Shopify and Meta - not a new SaaS you have to learn." },
   { q: "How does AI Automation win in AI Search (ChatGPT, Perplexity, Gemini)?", a: "Definition + comparison + how-to content on AI ecommerce workflows, agentic systems and Shopify AI apps - structured with FAQ + HowTo schema so ChatGPT, Perplexity, Gemini and Google AI Overviews cite BeingEcom as the source." },
+  { q: "What is AI automation for ecommerce stores?", a: "AI automation for ecommerce covers agentic workflows that handle repetitive tasks - customer service triage, inventory alerts, personalised product recommendations, dynamic pricing signals - reducing manual work while improving response speed and customer LTV." },
+  { q: "Can AI automation replace a customer service team for Shopify stores?", a: "AI automation can handle a significant share of repetitive queries (order status, returns policy, sizing questions) but works best as a first-response layer that escalates complex issues to a human team, rather than a full replacement." },
+  { q: "What is agentic workflow automation for ecommerce?", a: "Agentic workflows are AI systems that can take multi-step actions autonomously - like checking inventory, updating a customer record, and sending a follow-up email - rather than just answering a single question, making them suited to complex operational tasks." },
 ];
 
 export const Route = createFileRoute("/services/ai-automation")({
