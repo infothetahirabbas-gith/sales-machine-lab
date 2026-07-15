@@ -450,6 +450,8 @@ function Home() {
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
             <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO Agency UK</Link>
             <span className="text-muted-foreground">·</span>
+            <Link to="/services/paid-ads" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
+            <span className="text-muted-foreground">·</span>
             <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/services/store-development/woocommerce" className="font-semibold text-ink hover:text-primary hover:underline">WooCommerce Marketing Agency UK</Link>
@@ -457,6 +459,28 @@ function Home() {
             <Link to="/services/cro" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce CRO Agency UK</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/pricing" className="font-semibold text-ink hover:text-primary hover:underline">View Growth Plans</Link>
+          </div>
+        </div>
+
+        {/* Topical hubs & comparison guides - strengthens crawl paths to /hub and /compare clusters */}
+        <div className="mt-6 rounded-2xl border border-border bg-card/40 p-5 md:p-6">
+          <div className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 text-center">
+            Deep dives & buyer guides
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
+            <Link to="/hub/ecommerce-strategy" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Strategy Hub</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/hub/shopify-growth" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Growth Playbook</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/hub/customer-retention" className="font-semibold text-ink hover:text-primary hover:underline">Customer Retention Guide</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/compare/seo-vs-paid-ads" className="font-semibold text-ink hover:text-primary hover:underline">SEO vs Paid Ads</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/compare/shopify-plus-vs-bigcommerce" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Plus vs BigCommerce</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/compare/klaviyo-vs-mailchimp" className="font-semibold text-ink hover:text-primary hover:underline">Klaviyo vs Mailchimp</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/compare" className="font-semibold text-ink hover:text-primary hover:underline">All comparison guides →</Link>
           </div>
         </div>
       </Section>
