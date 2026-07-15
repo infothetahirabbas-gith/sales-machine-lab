@@ -40,7 +40,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How does local SEO work for an online-only ecommerce store?", a: "Even online-only stores benefit from local SEO if they have any physical presence (showroom, warehouse pickup) or want to target city-specific searches like 'ecommerce agency Manchester.' Local SEO uses Google Business Profile optimisation and city-targeted landing pages." },
 ];
 
-export const Route = createFileRoute("/services/seo")({
+export const Route = createFileRoute("/services/seo/")({
   head: () => ({
     meta: [
       { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
@@ -54,11 +54,7 @@ export const Route = createFileRoute("/services/seo")({
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
       { name: "twitter:image:alt", content: "BeingEcom - Ecommerce SEO Agency UK for Shopify and WooCommerce brands" },
     ],
-    // Canonical intentionally omitted at this parent layout: TanStack Router
-    // concatenates <link> tags without dedup, so a canonical here leaks into
-    // every child route (/services/seo/aeo, /on-page, etc.) and Google
-    // treated the children as duplicates of /services/seo. Each child sets
-    // its own self-canonical; Google infers /services/seo from the URL.
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/seo" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "seo", name: "Ecommerce SEO Agency UK", description: "Technical SEO, on-page, content and link building for Shopify and WooCommerce stores by a specialist UK Ecommerce SEO Agency." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Ecommerce SEO", path: "/services/seo" }])) },
