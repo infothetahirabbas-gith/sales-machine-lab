@@ -37,11 +37,7 @@ export const Route = createFileRoute("/services/performance-marketing/")({
       { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube ads as one P&L for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing" },
     ],
-    // Canonical intentionally omitted at this parent layout: TanStack Router
-    // concatenates <link> tags without dedup, so a canonical here leaked into
-    // every child (/instagram-ads, /tiktok-ads, ...) and made Google treat
-    // them as duplicates. Each child sets its own self-canonical.
-    links: [],
+    links: [{ rel: "canonical", href: "https://beingecom.com/services/performance-marketing" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing", name: "Performance Marketing", description: "Facebook, Google, TikTok ads and media buying for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }])) },
