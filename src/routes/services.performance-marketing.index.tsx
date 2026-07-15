@@ -27,7 +27,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How is BeingEcom different from other performance marketing agencies?", a: "We're a specialist Ecommerce Marketing Agency UK - media buying, creative, tracking, CRO and SEO share one revenue P&L per client, with a senior media buyer owning your account personally." },
 ];
 
-export const Route = createFileRoute("/services/performance-marketing")({
+export const Route = createFileRoute("/services/performance-marketing/")({
   head: () => ({
     meta: [
       { title: "No.1 Performance Marketing Agency UK | Meta, Google & TikTok | BeingEcom" },

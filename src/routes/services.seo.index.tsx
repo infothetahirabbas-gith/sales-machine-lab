@@ -40,7 +40,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How does local SEO work for an online-only ecommerce store?", a: "Even online-only stores benefit from local SEO if they have any physical presence (showroom, warehouse pickup) or want to target city-specific searches like 'ecommerce agency Manchester.' Local SEO uses Google Business Profile optimisation and city-targeted landing pages." },
 ];
 
-export const Route = createFileRoute("/services/seo")({
+export const Route = createFileRoute("/services/seo/")({
   head: () => ({
     meta: [
       { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
