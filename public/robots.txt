@@ -6,3 +6,6 @@ Disallow: /admin/
 Sitemap: https://beingecom.com/sitemap.xml
 Sitemap: https://beingecom.com/sitemap-pages.xml
 Sitemap: https://beingecom.com/sitemap-services.xml
+Sitemap: https://beingecom.com/sitemap-locations.xml
+Sitemap: https://beingecom.com/sitemap-industries.xml
+Sitemap: https://beingecom.com/sitemap-case-studies.xml
