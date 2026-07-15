@@ -831,7 +831,7 @@ function Home() {
             <span className="block text-primary mt-1 md:mt-2">Let's build your revenue engine.</span>
           </>
         }
-        sub="Book a free strategy call with our Shopify Ecommerce Agency UK & WooCommerce Marketing Agency UK team plus Ecommerce PPC Agency UK, Ecommerce CRO Agency UK and Ecommerce Automation Agency UK operators. We'll show you exactly how to scale revenue and dominate AI search."
+        sub="Book a free strategy call with our senior Shopify and WooCommerce team. We'll show you exactly how to scale revenue across paid, SEO, CRO and email."
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
