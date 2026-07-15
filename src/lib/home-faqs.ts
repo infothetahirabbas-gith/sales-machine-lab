@@ -93,4 +93,44 @@ export const homeFaqs = [
     q: "Is it worth hiring separate SEO, ads and CRO agencies, or one integrated team?",
     a: "Separate agencies for each channel often work in silos and blame each other when results stall. An integrated team running SEO, ads and CRO against one revenue P&L means channels compound together instead of competing for credit.",
   },
+  {
+    q: "Is Shopify better than WooCommerce for SEO?",
+    a: "Both can rank equally well; the difference is operational. Shopify ships fast hosting, HTTPS, mobile-friendly themes and clean URLs out of the box, so most SEO wins come from content, schema and internal linking. WooCommerce is more flexible (custom URLs, unlimited schema, full server access) but you own performance, security and Core Web Vitals. For most UK DTC brands under £10M revenue, Shopify's speed and reliability edge wins; larger catalogues with heavy customisation often prefer WooCommerce.",
+  },
+  {
+    q: "What is a good ecommerce conversion rate in 2026?",
+    a: "The UK ecommerce median conversion rate is 1.8-2.2% across all traffic. Above 3% is strong, above 4% is elite, and above 5% is usually a signal of narrow branded traffic rather than scaled acquisition. Fashion and beauty typically sit 1.5-2.5%, supplements 2.5-4%, home and DIY 1.2-2%. CRO work should target a 20-40% relative lift within 90 days on the top three landing pages before chasing site-wide averages.",
+  },
+  {
+    q: "How much should I spend on Meta Ads to grow a Shopify store?",
+    a: "Start at £3,000-£5,000/month to gather statistically significant creative and audience data on Meta Ads (Facebook and Instagram). Below £2,000/month the algorithm cannot exit the learning phase on Advantage+ Shopping Campaigns. A healthy rule: spend 10-20% of target monthly revenue on paid media in year one, with 60-70% going to Meta and Google Ads combined, and reinvest CRO and email lifts back into media as ROAS holds.",
+  },
+  {
+    q: "Do I need GA4 and server-side tracking for ecommerce?",
+    a: "Yes. GA4 is Google's only supported analytics platform and feeds Google Ads, Performance Max and Merchant Center. Server-side tracking (via Google Tag Manager server container, Stape or Shopify's own server pixel) recovers 15-30% of conversions lost to iOS 17+, ITP and ad-blockers, and is required for reliable Meta CAPI (Conversions API), TikTok Events API and Klaviyo attribution. Any UK store spending £3k+/month on ads without server-side tracking is bidding on incomplete data.",
+  },
+  {
+    q: "What is ecommerce CRO and how does it work?",
+    a: "Ecommerce CRO (Conversion Rate Optimisation) is the process of increasing the percentage of visitors who buy, without spending more on traffic. It combines heatmaps, session recordings, funnel analytics and qualitative research to identify friction, then runs A/B tests on product pages, PDP layouts, checkout, offers and site speed. A structured CRO programme typically lifts revenue per visitor 15-40% inside 90 days on Shopify and WooCommerce stores.",
+  },
+  {
+    q: "What is Klaviyo and why do ecommerce brands use it?",
+    a: "Klaviyo is the leading email and SMS platform for Shopify and WooCommerce, purpose-built for ecommerce. It syncs product, order and browsing data in real time to power abandoned-cart, browse-abandonment, welcome, post-purchase and win-back flows. For most UK DTC brands, a properly built Klaviyo account drives 25-40% of total store revenue from email and SMS alone - the highest-margin channel in ecommerce.",
+  },
+  {
+    q: "What is Performance Max and should ecommerce stores use it?",
+    a: "Performance Max (PMax) is Google Ads' AI-driven campaign type that runs across Search, Shopping, YouTube, Gmail, Discover and Display from a single asset group. For ecommerce it's essential - it typically delivers the highest ROAS of any Google Ads format when fed clean Merchant Center product data, negative keywords and segmented asset groups by product margin. Run it alongside Standard Shopping and branded Search, never as the only campaign.",
+  },
+  {
+    q: "What is ecommerce Answer Engine Optimisation (AEO)?",
+    a: "AEO is the practice of optimising a store to be cited by AI assistants - Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude - not just ranked in blue links. It relies on semantic HTML, Product, FAQPage and Organization schema, short 40-60 word direct answers near the top of key pages, strong entity coverage (brand, founder, categories, locations), and third-party citations from Reddit, YouTube and Trustpilot. Done right, AEO drives incremental branded search and high-intent traffic that classic SEO reporting misses.",
+  },
+  {
+    q: "What is Shopify Plus and when should a brand upgrade?",
+    a: "Shopify Plus is Shopify's enterprise tier for stores doing roughly £1M+ annual revenue. It unlocks checkout extensibility (custom checkout logic), Shopify Functions, Shopify Flow automation, Launchpad, wholesale/B2B, higher API limits, dedicated support and up to nine expansion stores for international markets. Upgrade when checkout limitations, custom logic, or multi-region operations start capping revenue - typically when a brand crosses £80k-£120k monthly on standard Shopify.",
+  },
+  {
+    q: "How do I choose an ecommerce marketing agency in the UK?",
+    a: "Check five things: (1) proof of scaling Shopify or WooCommerce stores in your revenue band, (2) named senior team members (not junior account handlers), (3) no 12-month lock-ins or percentage-of-ad-spend billing, (4) full ownership of ad accounts, creative and code from day one, and (5) reporting against ROAS, CAC, AOV, LTV and contribution margin - not clicks or impressions. Book a paid discovery call to see the actual audit process before signing anything.",
+  },
 ];
