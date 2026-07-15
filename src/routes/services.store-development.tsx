@@ -49,7 +49,9 @@ export const Route = createFileRoute("/services/store-development")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
     ],
-    links: [{ rel: "canonical", href: "https://beingecom.com/services/store-development" }],
+    // Canonical intentionally omitted at this parent layout so it doesn't
+    // leak into /services/store-development/shopify and mark it duplicate.
+    links: [],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "store-development", name: "Ecommerce Store Development Agency UK", description: "Custom Shopify, Shopify Plus, Hydrogen and WooCommerce store development - conversion-engineered, sub-2s LCP, schema + analytics live from day one." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Store Development", path: "/services/store-development" }])) },

@@ -61,9 +61,10 @@ export const Route = createFileRoute("/industries/$slug")({
                 "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
               fetchpriority: "high",
             },
-            { rel: "canonical", href: pageUrl },
           ]
-        : [{ rel: "canonical", href: pageUrl }],
+        : [],
+      // Canonical intentionally omitted at this parent layout so it doesn't
+      // leak into /industries/$slug/paid-ads (which sets its own canonical).
       scripts: ind && C
         ? [
             {
