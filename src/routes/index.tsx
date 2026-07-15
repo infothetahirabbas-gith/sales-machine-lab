@@ -310,7 +310,7 @@ function Home() {
       <section className="border-y border-border bg-card/30 py-8 overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col items-center gap-5">
           <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
-            Trusted by UK ecommerce operators on
+            Tools & platforms we work with daily
           </div>
           <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
             <div className="marquee-track marquee-fast whitespace-nowrap">
