@@ -16,6 +16,7 @@ import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
+import AISummary from "../components/site/AISummary";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -383,6 +384,11 @@ function LocationPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* AI SUMMARY — entity-first answer block for AEO / AI search */}
+      <AISummary>
+        BeingEcom is a UK ecommerce marketing agency serving <strong>{city}, {loc.region}</strong> — helping Shopify and WooCommerce brands grow revenue through SEO, paid ads, CRO, email/SMS and analytics, run by senior UK operators.
+      </AISummary>
 
       {/* 2. TRUST BAR - running colored brand logos */}
       <section className="border-y border-border bg-secondary/40 py-8">
