@@ -123,7 +123,7 @@ export function BenchmarkPage({ cfg }: { cfg: BenchmarkConfig }) {
       </Section>
 
       {/* FAQ */}
-      <FaqSection faqs={cfg.faqs} />
+      <FaqSection title="Frequently asked questions" faqs={cfg.faqs} />
 
       <CTA
         heading="Want benchmarks for your store?"
