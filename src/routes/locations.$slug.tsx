@@ -720,15 +720,27 @@ function LocationPage() {
               </div>
             </div>
           );
+          const originals = C.testimonials.length;
           const items = [...C.testimonials, ...C.testimonials, ...C.testimonials];
           return (
             <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
               <div className="marquee-track">
-                {items.map((t, i) => (
-                  <TestimonialCard key={`${t.name}-${i}`} t={t} i={i} />
-                ))}
+                {items.map((t, i) => {
+                  const isClone = i >= originals;
+                  return (
+                    <div
+                      key={`${t.name}-${i}`}
+                      aria-hidden={isClone ? "true" : undefined}
+                      {...(isClone ? { "data-nosnippet": "true" } : {})}
+                      {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                    >
+                      <TestimonialCard t={t} i={i} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
+
 
           );
         })()}
