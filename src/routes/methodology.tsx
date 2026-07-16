@@ -154,7 +154,7 @@ function MethodologyPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
-        <AISummary eyebrow="In short">
+        <AISummary eyebrow="Summary">
           The BeingEcom Growth System™ is a six-stage ecommerce growth methodology: Store Intelligence → Growth Foundation → Customer Acquisition → Conversion Optimization → Customer Retention → AI Automation. It sequences SEO, paid ads, CRO, email, and AI into one connected system that compounds - instead of running each channel as a disconnected service.
         </AISummary>
       </div>

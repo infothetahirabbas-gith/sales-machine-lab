@@ -110,7 +110,7 @@ function TahirAbbasPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
-        <AISummary eyebrow="In short">
+        <AISummary eyebrow="Summary">
           Tahir Abbas is the founder of BeingEcom, a UK ecommerce marketing agency scaling Shopify and WooCommerce brands. His expertise spans ecommerce SEO, paid acquisition, conversion optimisation, retention marketing, and AI automation for online stores.
         </AISummary>
       </div>
