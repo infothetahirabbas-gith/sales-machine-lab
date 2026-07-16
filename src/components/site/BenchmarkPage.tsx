@@ -1,5 +1,3 @@
-import { type ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
 import { BarChart3, TrendingUp, ArrowRight } from "lucide-react";
 import PageLayout from "./PageLayout";
 import { Section, Card, CTA } from "./Section";
