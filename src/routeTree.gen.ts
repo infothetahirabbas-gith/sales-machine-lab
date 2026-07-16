@@ -31,9 +31,9 @@ import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CompanyRouteImport } from './routes/company'
 import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as BenchmarksRouteImport } from './routes/benchmarks'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -44,6 +44,8 @@ import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BenchmarksIndexRouteImport } from './routes/benchmarks.index'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -77,10 +79,12 @@ import { Route as CompanyCertificationsRouteImport } from './routes/company.cert
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CaseStudiesIdRouteImport } from './routes/case-studies.$id'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as BenchmarksSlugRouteImport } from './routes/benchmarks.$slug'
 import { Route as AuthorTahirAbbasRouteImport } from './routes/author.tahir-abbas'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
+import { Route as AboutTahirAbbasRouteImport } from './routes/about.tahir-abbas'
 import { Route as ServicesSeoIndexRouteImport } from './routes/services.seo.index'
 import { Route as ServicesPerformanceMarketingIndexRouteImport } from './routes/services.performance-marketing.index'
 import { Route as ServicesStoreDevelopmentWoocommerceRouteImport } from './routes/services.store-development.woocommerce'
@@ -213,6 +217,11 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BenchmarksRoute = BenchmarksRouteImport.update({
+  id: '/benchmarks',
+  path: '/benchmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuditRoute = AuditRouteImport.update({
   id: '/audit',
   path: '/audit',
@@ -221,11 +230,6 @@ const AuditRoute = AuditRouteImport.update({
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -277,6 +281,16 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => BlogRoute,
+} as any)
+const BenchmarksIndexRoute = BenchmarksIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BenchmarksRoute,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsSlugRoute = ToolsSlugRouteImport.update({
   id: '/tools/$slug',
@@ -444,6 +458,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const BenchmarksSlugRoute = BenchmarksSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BenchmarksRoute,
+} as any)
 const AuthorTahirAbbasRoute = AuthorTahirAbbasRouteImport.update({
   id: '/author/tahir-abbas',
   path: '/author/tahir-abbas',
@@ -462,6 +481,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
 const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   id: '/admin/case-studies',
   path: '/admin/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutTahirAbbasRoute = AboutTahirAbbasRouteImport.update({
+  id: '/about/tahir-abbas',
+  path: '/about/tahir-abbas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesSeoIndexRoute = ServicesSeoIndexRouteImport.update({
@@ -579,9 +603,9 @@ const LangLocationIndustryServiceRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
+  '/benchmarks': typeof BenchmarksRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
   '/clients': typeof ClientsRoute
   '/company': typeof CompanyRouteWithChildren
@@ -604,10 +628,12 @@ export interface FileRoutesByFullPath {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
+  '/benchmarks/$slug': typeof BenchmarksSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -641,6 +667,8 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/benchmarks/': typeof BenchmarksIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -673,7 +701,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/clients': typeof ClientsRoute
@@ -694,10 +721,12 @@ export interface FileRoutesByTo {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
+  '/benchmarks/$slug': typeof BenchmarksSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -731,6 +760,8 @@ export interface FileRoutesByTo {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about': typeof AboutIndexRoute
+  '/benchmarks': typeof BenchmarksIndexRoute
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/company': typeof CompanyIndexRoute
@@ -764,9 +795,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
+  '/benchmarks': typeof BenchmarksRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
   '/clients': typeof ClientsRoute
   '/company': typeof CompanyRouteWithChildren
@@ -789,10 +820,12 @@ export interface FileRoutesById {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
+  '/benchmarks/$slug': typeof BenchmarksSlugRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$id': typeof CaseStudiesIdRoute
   '/company/careers': typeof CompanyCareersRoute
@@ -826,6 +859,8 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/benchmarks/': typeof BenchmarksIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -860,9 +895,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
+    | '/benchmarks'
     | '/blog'
     | '/clients'
     | '/company'
@@ -885,10 +920,12 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
+    | '/benchmarks/$slug'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -922,6 +959,8 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about/'
+    | '/benchmarks/'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -954,7 +993,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
     | '/clients'
@@ -975,10 +1013,12 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
+    | '/benchmarks/$slug'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -1012,6 +1052,8 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about'
+    | '/benchmarks'
     | '/blog'
     | '/case-studies'
     | '/company'
@@ -1044,9 +1086,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
+    | '/benchmarks'
     | '/blog'
     | '/clients'
     | '/company'
@@ -1069,10 +1111,12 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
+    | '/benchmarks/$slug'
     | '/blog/$slug'
     | '/case-studies/$id'
     | '/company/careers'
@@ -1106,6 +1150,8 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about/'
+    | '/benchmarks/'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -1139,9 +1185,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AuditRoute: typeof AuditRoute
+  BenchmarksRoute: typeof BenchmarksRouteWithChildren
   BlogRoute: typeof BlogRouteWithChildren
   ClientsRoute: typeof ClientsRoute
   CompanyRoute: typeof CompanyRouteWithChildren
@@ -1164,6 +1210,7 @@ export interface RootRouteChildren {
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  AboutTahirAbbasRoute: typeof AboutTahirAbbasRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -1182,6 +1229,7 @@ export interface RootRouteChildren {
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   ToolsSlugRoute: typeof ToolsSlugRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
@@ -1362,6 +1410,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/benchmarks': {
+      id: '/benchmarks'
+      path: '/benchmarks'
+      fullPath: '/benchmarks'
+      preLoaderRoute: typeof BenchmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/audit': {
       id: '/audit'
       path: '/audit'
@@ -1374,13 +1429,6 @@ declare module '@tanstack/react-router' {
       path: '/accessibility'
       fullPath: '/accessibility'
       preLoaderRoute: typeof AccessibilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -1452,6 +1500,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/benchmarks/': {
+      id: '/benchmarks/'
+      path: '/'
+      fullPath: '/benchmarks/'
+      preLoaderRoute: typeof BenchmarksIndexRouteImport
+      parentRoute: typeof BenchmarksRoute
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/tools/$slug': {
       id: '/tools/$slug'
@@ -1684,6 +1746,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/benchmarks/$slug': {
+      id: '/benchmarks/$slug'
+      path: '/$slug'
+      fullPath: '/benchmarks/$slug'
+      preLoaderRoute: typeof BenchmarksSlugRouteImport
+      parentRoute: typeof BenchmarksRoute
+    }
     '/author/tahir-abbas': {
       id: '/author/tahir-abbas'
       path: '/author/tahir-abbas'
@@ -1710,6 +1779,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/case-studies'
       fullPath: '/admin/case-studies'
       preLoaderRoute: typeof AdminCaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/tahir-abbas': {
+      id: '/about/tahir-abbas'
+      path: '/about/tahir-abbas'
+      fullPath: '/about/tahir-abbas'
+      preLoaderRoute: typeof AboutTahirAbbasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/seo/': {
@@ -1855,6 +1931,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BenchmarksRouteChildren {
+  BenchmarksSlugRoute: typeof BenchmarksSlugRoute
+  BenchmarksIndexRoute: typeof BenchmarksIndexRoute
+}
+
+const BenchmarksRouteChildren: BenchmarksRouteChildren = {
+  BenchmarksSlugRoute: BenchmarksSlugRoute,
+  BenchmarksIndexRoute: BenchmarksIndexRoute,
+}
+
+const BenchmarksRouteWithChildren = BenchmarksRoute._addFileChildren(
+  BenchmarksRouteChildren,
+)
+
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1966,9 +2056,9 @@ const ServicesStoreDevelopmentRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AuditRoute: AuditRoute,
+  BenchmarksRoute: BenchmarksRouteWithChildren,
   BlogRoute: BlogRouteWithChildren,
   ClientsRoute: ClientsRoute,
   CompanyRoute: CompanyRouteWithChildren,
@@ -1991,6 +2081,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  AboutTahirAbbasRoute: AboutTahirAbbasRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
@@ -2009,6 +2100,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   ToolsSlugRoute: ToolsSlugRoute,
+  AboutIndexRoute: AboutIndexRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
