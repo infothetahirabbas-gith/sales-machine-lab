@@ -27,8 +27,6 @@ export function GlobalReveal() {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    document.documentElement.classList.add("js-reveal");
-
     // Safety net: guarantee everything becomes visible no matter what.
     const failSafe = window.setTimeout(() => {
       document
@@ -37,7 +35,6 @@ export function GlobalReveal() {
     }, 2500);
 
     if (reduced) {
-      document.documentElement.classList.remove("js-reveal");
       return () => window.clearTimeout(failSafe);
     }
 
@@ -63,6 +60,13 @@ export function GlobalReveal() {
         if (observed.has(n)) return;
         if (n.hasAttribute("data-noreveal")) return;
         observed.add(n);
+        // Mark already-visible elements as in-view BEFORE we flip on the
+        // hiding class, so headings above the fold never flash out.
+        const rect = n.getBoundingClientRect();
+        const inView = rect.top < vh() && rect.bottom > 0;
+        if (inView) {
+          n.setAttribute("data-inview", "1");
+        }
         if (!n.hasAttribute("data-reveal")) {
           const dirs = ["up", "left", "right", "up", "zoom", "down"] as const;
           n.setAttribute("data-reveal", dirs[idx % dirs.length]);
@@ -71,18 +75,17 @@ export function GlobalReveal() {
           n.style.setProperty("--reveal-delay", `${(idx % 6) * 60}ms`);
         }
         idx++;
-        // Reveal anything already in the viewport immediately (prevents
-        // above-the-fold content from being stuck opacity:0).
-        const rect = n.getBoundingClientRect();
-        if (rect.top < vh() && rect.bottom > 0) {
-          n.setAttribute("data-inview", "1");
-        } else {
+        if (!inView) {
           io.observe(n);
         }
       });
     };
 
+    // Seed FIRST (marks above-the-fold nodes as data-inview="1"), THEN
+    // enable the CSS that hides un-revealed nodes. This prevents the
+    // "heading shows → disappears → animates back" flash.
     seed(document);
+    document.documentElement.classList.add("js-reveal");
 
     const mo = new MutationObserver((mutations) => {
       for (const m of mutations) {
