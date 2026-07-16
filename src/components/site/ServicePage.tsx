@@ -28,6 +28,7 @@ import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
 import { CountUp } from "../../hooks/useCountUp";
 import RevenueBars, { type Bar } from "./RevenueBars";
+import AISummary from "./AISummary";
 import type { FAQ } from "../../lib/seo";
 import { SafeImg } from "../SafeImg";
 import { whatsappUrl } from "../../lib/whatsapp";
@@ -40,6 +41,8 @@ export type ServiceConfig = {
   eyebrow: string;
   heroTitle: string;
   heroSub: string;
+  /** Entity-first AI summary rendered immediately under the hero. Optional; auto-derived from eyebrow + heroSub when omitted. */
+  aiSummary?: string;
   /** Optional hero image (Unsplash URL). Rendered eagerly for fast LCP. */
   heroImage?: string;
   problemTitle: string;
