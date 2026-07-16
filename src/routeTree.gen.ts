@@ -20,6 +20,7 @@ import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-c
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as HubRouteImport } from './routes/hub'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
@@ -160,6 +161,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HubRoute = HubRouteImport.update({
@@ -617,6 +623,7 @@ export interface FileRoutesByFullPath {
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
+  '/methodology': typeof MethodologyRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
@@ -710,6 +717,7 @@ export interface FileRoutesByTo {
   '/founder': typeof FounderRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/methodology': typeof MethodologyRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
@@ -809,6 +817,7 @@ export interface FileRoutesById {
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
+  '/methodology': typeof MethodologyRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
@@ -909,6 +918,7 @@ export interface FileRouteTypes {
     | '/gdpr'
     | '/glossary'
     | '/hub'
+    | '/methodology'
     | '/pricing'
     | '/privacy'
     | '/research'
@@ -1002,6 +1012,7 @@ export interface FileRouteTypes {
     | '/founder'
     | '/gdpr'
     | '/glossary'
+    | '/methodology'
     | '/pricing'
     | '/privacy'
     | '/research'
@@ -1100,6 +1111,7 @@ export interface FileRouteTypes {
     | '/gdpr'
     | '/glossary'
     | '/hub'
+    | '/methodology'
     | '/pricing'
     | '/privacy'
     | '/research'
@@ -1199,6 +1211,7 @@ export interface RootRouteChildren {
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
   HubRoute: typeof HubRouteWithChildren
+  MethodologyRoute: typeof MethodologyRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
@@ -1331,6 +1344,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hub': {
@@ -2070,6 +2090,7 @@ const rootRouteChildren: RootRouteChildren = {
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
   HubRoute: HubRouteWithChildren,
+  MethodologyRoute: MethodologyRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
