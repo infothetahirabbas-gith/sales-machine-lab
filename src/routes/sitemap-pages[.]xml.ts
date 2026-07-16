@@ -53,6 +53,7 @@ const entries: SitemapEntry[] = [
   { path: "/tools/break-even-calculator", changefreq: "monthly", priority: "0.8" },
   { path: "/author/tahir-abbas", changefreq: "monthly", priority: "0.8" },
   { path: "/about/tahir-abbas", changefreq: "monthly", priority: "0.8" },
+  { path: "/methodology", changefreq: "monthly", priority: "0.9" },
   { path: "/benchmarks", changefreq: "monthly", priority: "0.8" },
   { path: "/benchmarks/ecommerce-conversion-rates", changefreq: "monthly", priority: "0.8" },
   { path: "/benchmarks/paid-ads", changefreq: "monthly", priority: "0.8" },
