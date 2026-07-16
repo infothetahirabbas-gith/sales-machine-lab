@@ -61,9 +61,9 @@ export const roasCalc: CalcConfig = {
   name: "ROAS Calculator",
   eyebrow: "Free Ecommerce Tool",
   h1: "ROAS Calculator",
-  metaTitle: "ROAS Calculator — Return on Ad Spend for Ecommerce | BeingEcom",
+  metaTitle: "ROAS Calculator - Return on Ad Spend for Ecommerce | BeingEcom",
   metaDescription:
-    "Free ROAS calculator for Shopify and WooCommerce brands. Enter ad spend, revenue and gross margin to get ROAS, break-even ROAS and true profit — instantly.",
+    "Free ROAS calculator for Shopify and WooCommerce brands. Enter ad spend, revenue and gross margin to get ROAS, break-even ROAS and true profit - instantly.",
   quickAnswer:
     "ROAS (Return on Ad Spend) is revenue divided by ad spend. A ROAS of 4× means every £1 spent on ads returned £4 in revenue. Enter your numbers below to see your ROAS, break-even ROAS, and real profit after gross margin.",
   formula: "ROAS equals revenue from ads divided by the amount spent on those ads.",
@@ -114,15 +114,15 @@ export const roasCalc: CalcConfig = {
   },
   whyItMatters: [
     "ROAS is the fastest way to compare campaign efficiency across Google, Meta, TikTok and Klaviyo.",
-    "A 'good' ROAS is not universal — it depends entirely on your gross margin.",
+    "A 'good' ROAS is not universal - it depends entirely on your gross margin.",
     "Judging ads on ROAS alone hides losses when margin is thin or refund rates are high.",
   ],
   howToImprove: [
     "Raise AOV with bundles, thresholds for free shipping, and post-purchase upsells.",
     "Kill or cap creatives that spend heavily under break-even ROAS for 7+ days.",
-    "Improve landing-page conversion — same traffic, more revenue, better ROAS.",
+    "Improve landing-page conversion - same traffic, more revenue, better ROAS.",
     "Lower CPCs with tighter audiences, negative keywords, and better creative hooks.",
-    "Fix refund and cancellation leaks — they inflate revenue-based ROAS.",
+    "Fix refund and cancellation leaks - they inflate revenue-based ROAS.",
   ],
   faqs: [
     {
@@ -131,7 +131,7 @@ export const roasCalc: CalcConfig = {
     },
     {
       q: "How is ROAS different from POAS?",
-      a: "ROAS measures revenue per pound of ad spend. POAS (Profit on Ad Spend) measures gross profit per pound of ad spend. POAS is a better decision metric because it accounts for margin, shipping and refunds — a 4× ROAS at 25% margin is a loss, a 4× ROAS at 70% margin is very profitable.",
+      a: "ROAS measures revenue per pound of ad spend. POAS (Profit on Ad Spend) measures gross profit per pound of ad spend. POAS is a better decision metric because it accounts for margin, shipping and refunds - a 4× ROAS at 25% margin is a loss, a 4× ROAS at 70% margin is very profitable.",
     },
     {
       q: "What is break-even ROAS?",
@@ -139,7 +139,7 @@ export const roasCalc: CalcConfig = {
     },
     {
       q: "Should I use blended or channel-level ROAS?",
-      a: "Both. Channel-level ROAS (as reported in Meta Ads Manager or Google Ads) is useful for optimisation. Blended ROAS — total revenue ÷ total ad spend — is what you should judge overall growth by, because it can't be inflated by attribution overlap between platforms.",
+      a: "Both. Channel-level ROAS (as reported in Meta Ads Manager or Google Ads) is useful for optimisation. Blended ROAS - total revenue ÷ total ad spend - is what you should judge overall growth by, because it can't be inflated by attribution overlap between platforms.",
     },
     {
       q: "Why is my Shopify revenue lower than my Meta reported ROAS?",
@@ -157,11 +157,11 @@ export const cacCalc: CalcConfig = {
   name: "CAC Calculator",
   eyebrow: "Free Ecommerce Tool",
   h1: "Customer Acquisition Cost (CAC) Calculator",
-  metaTitle: "CAC Calculator — Customer Acquisition Cost for Ecommerce | BeingEcom",
+  metaTitle: "CAC Calculator - Customer Acquisition Cost for Ecommerce | BeingEcom",
   metaDescription:
     "Free CAC calculator for Shopify and WooCommerce brands. Enter marketing spend, new customers and average LTV to get CAC, LTV:CAC ratio and payback signal.",
   quickAnswer:
-    "CAC (Customer Acquisition Cost) is your total sales and marketing spend divided by the number of new customers acquired in the same period. It answers 'how much am I paying to win a new customer?' — the single most important efficiency metric in ecommerce.",
+    "CAC (Customer Acquisition Cost) is your total sales and marketing spend divided by the number of new customers acquired in the same period. It answers 'how much am I paying to win a new customer?' - the single most important efficiency metric in ecommerce.",
   formula: "CAC equals total sales and marketing spend divided by the number of new customers acquired.",
   formulaCode: "CAC = Marketing Spend ÷ New Customers",
   example:
@@ -199,26 +199,26 @@ export const cacCalc: CalcConfig = {
         label: "Budget headroom per new customer",
         format: "currency",
         value: v.ltv - cac,
-        help: "LTV − CAC — margin available for growth spend",
+        help: "LTV − CAC - margin available for growth spend",
       },
     ];
   },
   whyItMatters: [
-    "CAC tells you whether growth is profitable — a 3× ROAS with a rising CAC still means the business is getting worse.",
+    "CAC tells you whether growth is profitable - a 3× ROAS with a rising CAC still means the business is getting worse.",
     "LTV:CAC below 1 means you lose money on every new customer; below 3 means growth is fragile.",
     "Investors and lenders benchmark ecommerce businesses on CAC and payback period, not vanity revenue.",
   ],
   howToImprove: [
-    "Lift repeat-purchase rate — the fastest way to raise LTV without touching acquisition.",
+    "Lift repeat-purchase rate - the fastest way to raise LTV without touching acquisition.",
     "Move budget from broad prospecting to retention (email/SMS, ads to existing customers).",
     "Invest in SEO and referral: near-zero marginal CAC once ranking and word-of-mouth compound.",
-    "Improve landing-page and checkout CVR — same spend, more customers, lower CAC.",
+    "Improve landing-page and checkout CVR - same spend, more customers, lower CAC.",
     "Cut spend on channels where blended CAC exceeds first-order gross profit for 30+ days.",
   ],
   faqs: [
     {
       q: "What is a good CAC for ecommerce?",
-      a: "There is no single number — a good CAC is any CAC where LTV divided by CAC is at least 3 and payback happens within 6–12 months. A £15 CAC on a £30 candle is fine only if the customer buys again; a £150 CAC on a £2,000 mattress is fine if margin covers it in one order.",
+      a: "There is no single number - a good CAC is any CAC where LTV divided by CAC is at least 3 and payback happens within 6–12 months. A £15 CAC on a £30 candle is fine only if the customer buys again; a £150 CAC on a £2,000 mattress is fine if margin covers it in one order.",
     },
     {
       q: "What should I include in marketing spend?",
@@ -230,11 +230,11 @@ export const cacCalc: CalcConfig = {
     },
     {
       q: "How is CAC different from CPA?",
-      a: "CPA (Cost Per Acquisition) is usually the platform-reported cost per purchase — one order, in-window, in-platform. CAC is the blended cost of acquiring one net-new customer across your entire marketing stack. CPA is a channel metric; CAC is a business metric.",
+      a: "CPA (Cost Per Acquisition) is usually the platform-reported cost per purchase - one order, in-window, in-platform. CAC is the blended cost of acquiring one net-new customer across your entire marketing stack. CPA is a channel metric; CAC is a business metric.",
     },
     {
       q: "How often should I recalculate CAC?",
-      a: "Monthly at minimum for most Shopify stores; weekly for brands scaling paid spend past £50k/month. iOS 14/17 attribution loss, Meta reporting lag and seasonality all mean single-day CAC snapshots are noisy — use rolling 28-day windows for decisions.",
+      a: "Monthly at minimum for most Shopify stores; weekly for brands scaling paid spend past £50k/month. iOS 14/17 attribution loss, Meta reporting lag and seasonality all mean single-day CAC snapshots are noisy - use rolling 28-day windows for decisions.",
     },
   ],
   relatedService: { title: "Ecommerce Analytics & Attribution", to: "/services/analytics" },
@@ -248,9 +248,9 @@ export const ltvCalc: CalcConfig = {
   name: "LTV Calculator",
   eyebrow: "Free Ecommerce Tool",
   h1: "Customer Lifetime Value (LTV) Calculator",
-  metaTitle: "LTV Calculator — Customer Lifetime Value for Ecommerce | BeingEcom",
+  metaTitle: "LTV Calculator - Customer Lifetime Value for Ecommerce | BeingEcom",
   metaDescription:
-    "Free LTV calculator for ecommerce. Enter AOV, purchase frequency, customer lifespan and gross margin to get revenue LTV and profit LTV — the number you should really acquire against.",
+    "Free LTV calculator for ecommerce. Enter AOV, purchase frequency, customer lifespan and gross margin to get revenue LTV and profit LTV - the number you should really acquire against.",
   quickAnswer:
     "Customer Lifetime Value (LTV) is the total profit an average customer generates for your store across their entire relationship with your brand. It sets the ceiling on how much you can profitably spend to acquire each customer.",
   formula: "LTV equals average order value multiplied by purchase frequency, customer lifespan and gross margin.",
@@ -273,7 +273,7 @@ export const ltvCalc: CalcConfig = {
     ];
   },
   whyItMatters: [
-    "LTV — not first-order profit — is the ceiling for a healthy CAC.",
+    "LTV - not first-order profit - is the ceiling for a healthy CAC.",
     "Brands that lose the LTV lever compete on price and burn cash on acquisition.",
     "Small gains in repeat rate move LTV dramatically because the compounding is multiplicative.",
   ],
@@ -281,13 +281,13 @@ export const ltvCalc: CalcConfig = {
     "Launch (or fix) a Klaviyo/Omnisend welcome, browse-abandon, post-purchase and winback flow set.",
     "Bundle complementary SKUs to lift AOV by 10–25% at zero extra acquisition cost.",
     "Introduce a subscription or replenishment option for consumables.",
-    "Tighten the second-order window — email + SMS at day 14, 30 and 60 post-purchase.",
-    "Fix product quality and CX — refunds and 1-star reviews cap lifespan hard.",
+    "Tighten the second-order window - email + SMS at day 14, 30 and 60 post-purchase.",
+    "Fix product quality and CX - refunds and 1-star reviews cap lifespan hard.",
   ],
   faqs: [
     {
       q: "What is a good LTV for ecommerce?",
-      a: "A good LTV is one that is at least 3× your fully-loaded CAC. For a DTC brand with £50 CAC, aim for £150+ profit LTV. Category matters — consumables (supplements, coffee, skincare) target £300–£800 LTV; considered purchases (mattresses, luxury fashion) rely on high first-order margin.",
+      a: "A good LTV is one that is at least 3× your fully-loaded CAC. For a DTC brand with £50 CAC, aim for £150+ profit LTV. Category matters - consumables (supplements, coffee, skincare) target £300–£800 LTV; considered purchases (mattresses, luxury fashion) rely on high first-order margin.",
     },
     {
       q: "Should I use revenue LTV or profit LTV?",
@@ -299,11 +299,11 @@ export const ltvCalc: CalcConfig = {
     },
     {
       q: "How is LTV different from AOV?",
-      a: "AOV (Average Order Value) is the revenue from a single order. LTV is the total profit a customer generates across every order they place. AOV can be identical between two brands with wildly different LTVs — the one with better retention wins.",
+      a: "AOV (Average Order Value) is the revenue from a single order. LTV is the total profit a customer generates across every order they place. AOV can be identical between two brands with wildly different LTVs - the one with better retention wins.",
     },
     {
       q: "How often should I update LTV?",
-      a: "Recalculate quarterly for established brands, monthly for stores under 18 months old where cohorts are still forming. Update immediately when you launch a subscription, materially change pricing, or expand into a new category — all of these move LTV meaningfully.",
+      a: "Recalculate quarterly for established brands, monthly for stores under 18 months old where cohorts are still forming. Update immediately when you launch a subscription, materially change pricing, or expand into a new category - all of these move LTV meaningfully.",
     },
   ],
   relatedService: { title: "Email & SMS Retention", to: "/services/email-sms" },
@@ -317,7 +317,7 @@ export const marginCalc: CalcConfig = {
   name: "Profit Margin Calculator",
   eyebrow: "Free Ecommerce Tool",
   h1: "Profit Margin Calculator",
-  metaTitle: "Profit Margin Calculator — Gross & Net Margin for Ecommerce | BeingEcom",
+  metaTitle: "Profit Margin Calculator - Gross & Net Margin for Ecommerce | BeingEcom",
   metaDescription:
     "Free ecommerce profit margin calculator. Enter revenue, COGS and operating costs to get gross margin, net margin and profit per order for your Shopify or WooCommerce store.",
   quickAnswer:
@@ -354,13 +354,13 @@ export const marginCalc: CalcConfig = {
   whyItMatters: [
     "Gross margin sets the ceiling on how much you can spend on marketing and still be profitable.",
     "Two brands with identical revenue and different margins have completely different valuations.",
-    "Margin discipline — not top-line growth — is what separates fundable ecommerce brands from cash-flow disasters.",
+    "Margin discipline - not top-line growth - is what separates fundable ecommerce brands from cash-flow disasters.",
   ],
   howToImprove: [
-    "Renegotiate supplier and fulfilment contracts once you clear £250k/year — most SMEs overpay.",
+    "Renegotiate supplier and fulfilment contracts once you clear £250k/year - most SMEs overpay.",
     "Cut the SKU tail: 20% of SKUs usually generate 80% of profit; the rest tie up cash and space.",
-    "Reprice: a 5% price rise on inelastic products can double net margin — test it, don't guess.",
-    "Reduce refund and return rate — sizing, product-page clarity and QC changes pay back fast.",
+    "Reprice: a 5% price rise on inelastic products can double net margin - test it, don't guess.",
+    "Reduce refund and return rate - sizing, product-page clarity and QC changes pay back fast.",
     "Move slow-moving inventory before it becomes dead stock and a write-off.",
   ],
   faqs: [
@@ -370,19 +370,19 @@ export const marginCalc: CalcConfig = {
     },
     {
       q: "Is gross margin or net margin more important?",
-      a: "Both. Gross margin decides whether the unit economics work — if it's too low, no marketing efficiency will save the business. Net margin decides whether the whole business works — you can have great unit economics and still lose money if opex is bloated.",
+      a: "Both. Gross margin decides whether the unit economics work - if it's too low, no marketing efficiency will save the business. Net margin decides whether the whole business works - you can have great unit economics and still lose money if opex is bloated.",
     },
     {
       q: "What counts as COGS in ecommerce?",
-      a: "The direct cost to produce or acquire the product you sold: manufacturing/wholesale cost, inbound freight, direct packaging, per-unit fulfilment. Marketing, staff, apps and rent are operating costs, not COGS — mixing them makes gross margin unreliable.",
+      a: "The direct cost to produce or acquire the product you sold: manufacturing/wholesale cost, inbound freight, direct packaging, per-unit fulfilment. Marketing, staff, apps and rent are operating costs, not COGS - mixing them makes gross margin unreliable.",
     },
     {
       q: "How do payment processing fees affect margin?",
-      a: "Stripe, Shopify Payments and PayPal typically take 1.4–2.9% + a fixed fee per transaction. On a £30 AOV brand this can be 3–4% of revenue — a meaningful hit to gross margin. Model it into unit economics; don't leave it in 'other'.",
+      a: "Stripe, Shopify Payments and PayPal typically take 1.4–2.9% + a fixed fee per transaction. On a £30 AOV brand this can be 3–4% of revenue - a meaningful hit to gross margin. Model it into unit economics; don't leave it in 'other'.",
     },
     {
       q: "How is markup different from margin?",
-      a: "Markup is profit divided by cost. Margin is profit divided by revenue. A £10 product marked up 100% sells for £20 — that's a 50% margin, not 100%. Confusing the two is one of the most common Shopify pricing mistakes.",
+      a: "Markup is profit divided by cost. Margin is profit divided by revenue. A £10 product marked up 100% sells for £20 - that's a 50% margin, not 100%. Confusing the two is one of the most common Shopify pricing mistakes.",
     },
   ],
   relatedService: { title: "Store Development & Optimisation", to: "/services/store-development" },
@@ -396,11 +396,11 @@ export const breakevenCalc: CalcConfig = {
   name: "Break-even Calculator",
   eyebrow: "Free Ecommerce Tool",
   h1: "Break-even Calculator",
-  metaTitle: "Break-even Calculator — Ecommerce Break-even Point | BeingEcom",
+  metaTitle: "Break-even Calculator - Ecommerce Break-even Point | BeingEcom",
   metaDescription:
     "Free break-even calculator for ecommerce. Enter fixed costs, price and variable cost per unit to get contribution margin, break-even units and break-even revenue.",
   quickAnswer:
-    "Break-even is the point at which total revenue equals total costs — the volume you need to sell to stop losing money. It answers 'how many units must I sell each month before I make a penny of profit?'",
+    "Break-even is the point at which total revenue equals total costs - the volume you need to sell to stop losing money. It answers 'how many units must I sell each month before I make a penny of profit?'",
   formula:
     "Break-even units = Fixed Costs ÷ (Price − Variable Cost per Unit). Break-even revenue = Break-even units × Price.",
   formulaCode:
@@ -448,36 +448,36 @@ export const breakevenCalc: CalcConfig = {
   },
   whyItMatters: [
     "Break-even is the sanity check every ecommerce founder should redo whenever costs, pricing or ad rates change.",
-    "It exposes whether a growth plan is realistic — 'sell 2,000 units a month' is very different from 'sell 20,000'.",
+    "It exposes whether a growth plan is realistic - 'sell 2,000 units a month' is very different from 'sell 20,000'.",
     "Break-even reveals dangerous SKUs: if a product's contribution margin is negative, selling more makes losses worse.",
   ],
   howToImprove: [
-    "Raise price if the market allows — even small increases move break-even sharply.",
+    "Raise price if the market allows - even small increases move break-even sharply.",
     "Reduce variable cost per unit: better fulfilment rates, cheaper packaging, negotiated payment fees.",
     "Cut fixed costs by consolidating apps and rationalising staff/agency retainers.",
-    "Improve mix — sell more high-contribution SKUs, deprioritise loss leaders.",
+    "Improve mix - sell more high-contribution SKUs, deprioritise loss leaders.",
     "Bundle products to lift AOV without proportionally raising variable cost.",
   ],
   faqs: [
     {
       q: "What is the break-even point in ecommerce?",
-      a: "The break-even point is the number of units — or the revenue level — at which your total revenue covers total costs and profit is exactly zero. Below it you lose money; above it every additional unit contributes profit at the contribution-margin rate.",
+      a: "The break-even point is the number of units - or the revenue level - at which your total revenue covers total costs and profit is exactly zero. Below it you lose money; above it every additional unit contributes profit at the contribution-margin rate.",
     },
     {
       q: "Should I include ad spend as fixed or variable cost?",
-      a: "It depends on how you buy media. Fixed monthly budgets (retainers, always-on brand campaigns) belong in fixed costs. Performance budgets scaled per order — tROAS or CPA-capped campaigns — behave like variable costs and should be included in variable cost per unit for a realistic break-even.",
+      a: "It depends on how you buy media. Fixed monthly budgets (retainers, always-on brand campaigns) belong in fixed costs. Performance budgets scaled per order - tROAS or CPA-capped campaigns - behave like variable costs and should be included in variable cost per unit for a realistic break-even.",
     },
     {
       q: "How is break-even different from break-even ROAS?",
-      a: "Break-even (this calculator) is a business-level threshold — enough revenue to cover all costs. Break-even ROAS is an ad-account threshold — the ROAS at which gross profit equals ad spend. Both matter; the former protects the business, the latter protects the ad account.",
+      a: "Break-even (this calculator) is a business-level threshold - enough revenue to cover all costs. Break-even ROAS is an ad-account threshold - the ROAS at which gross profit equals ad spend. Both matter; the former protects the business, the latter protects the ad account.",
     },
     {
       q: "What if my contribution margin is negative?",
-      a: "You have a structural problem: every unit sold makes losses worse. You cannot outgrow negative contribution margin — raise price, cut variable cost, or discontinue the SKU before scaling anything else.",
+      a: "You have a structural problem: every unit sold makes losses worse. You cannot outgrow negative contribution margin - raise price, cut variable cost, or discontinue the SKU before scaling anything else.",
     },
     {
       q: "How often should I recalculate break-even?",
-      a: "Every time a major cost line moves: supplier price change, fulfilment renegotiation, big app or headcount decision, new market launch. At minimum, revisit quarterly — ecommerce cost bases drift, and stale break-even numbers lead to confidently wrong growth plans.",
+      a: "Every time a major cost line moves: supplier price change, fulfilment renegotiation, big app or headcount decision, new market launch. At minimum, revisit quarterly - ecommerce cost bases drift, and stale break-even numbers lead to confidently wrong growth plans.",
     },
   ],
   relatedService: { title: "Pricing, Scope & Engagement Models", to: "/pricing" },
@@ -501,7 +501,7 @@ export function calcBySlug(slug: string): CalcConfig | undefined {
 // ---------- formatting helpers used by the UI ----------
 
 export function formatCalcValue(value: number, format: CalcOutputFormat): string {
-  if (!isFinite(value) || isNaN(value)) return "—";
+  if (!isFinite(value) || isNaN(value)) return "-";
   switch (format) {
     case "currency":
       return new Intl.NumberFormat("en-GB", {

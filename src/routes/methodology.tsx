@@ -21,7 +21,7 @@ const STAGES = [
     n: "01",
     Icon: Search,
     title: "Store Intelligence",
-    body: "Full-stack audit of the store: technical SEO, analytics fidelity, funnel behaviour, unit economics, and competitor positioning. The output is a diagnosis, not a checklist — we identify the actual revenue bottleneck before touching a single lever.",
+    body: "Full-stack audit of the store: technical SEO, analytics fidelity, funnel behaviour, unit economics, and competitor positioning. The output is a diagnosis, not a checklist - we identify the actual revenue bottleneck before touching a single lever.",
     outputs: ["Growth thesis", "Revenue leakage map", "Unit economics baseline", "Competitor SERP shape"],
   },
   {
@@ -56,7 +56,7 @@ const STAGES = [
     n: "06",
     Icon: Bot,
     title: "AI Automation",
-    body: "Automate the repeatable: AI-assisted content production, product feed and PDP enrichment, creative variants, reporting, and inbound support workflows. AI is a margin lever, not a headline — it compounds every stage above.",
+    body: "Automate the repeatable: AI-assisted content production, product feed and PDP enrichment, creative variants, reporting, and inbound support workflows. AI is a margin lever, not a headline - it compounds every stage above.",
     outputs: ["AI content pipelines", "Automated feed/PDP enrichment", "AI creative variants", "Automated reporting"],
   },
 ];
@@ -76,15 +76,15 @@ const FAQS = [
   },
   {
     q: "Does the methodology work for both Shopify and WooCommerce?",
-    a: "Yes. The framework is platform-agnostic — only the implementation tooling changes. We run the same six stages on Shopify, Shopify Plus, WooCommerce, and headless stores.",
+    a: "Yes. The framework is platform-agnostic - only the implementation tooling changes. We run the same six stages on Shopify, Shopify Plus, WooCommerce, and headless stores.",
   },
   {
     q: "How is this different from a normal agency retainer?",
-    a: "Most agencies sell channels (SEO, ads, email) as separate services. The BeingEcom Growth System™ sequences them as one connected system where each stage feeds the next — foundations lift ad performance, ad traffic feeds CRO, CRO feeds retention, and AI compounds the whole loop.",
+    a: "Most agencies sell channels (SEO, ads, email) as separate services. The BeingEcom Growth System™ sequences them as one connected system where each stage feeds the next - foundations lift ad performance, ad traffic feeds CRO, CRO feeds retention, and AI compounds the whole loop.",
   },
   {
     q: "Where can I see this applied to a real store?",
-    a: "Our case studies walk through the six stages on real Shopify and WooCommerce brands — with the diagnosis, work shipped in each stage, and the revenue outcome. See /case-studies for the full library.",
+    a: "Our case studies walk through the six stages on real Shopify and WooCommerce brands - with the diagnosis, work shipped in each stage, and the revenue outcome. See /case-studies for the full library.",
   },
 ];
 
@@ -105,7 +105,7 @@ export const Route = createFileRoute("/methodology")({
       {
         name: "description",
         content:
-          "The BeingEcom Growth System™ — a six-stage ecommerce growth methodology for Shopify and WooCommerce brands: Store Intelligence → Foundation → Acquisition → CRO → Retention → AI Automation.",
+          "The BeingEcom Growth System™ - a six-stage ecommerce growth methodology for Shopify and WooCommerce brands: Store Intelligence → Foundation → Acquisition → CRO → Retention → AI Automation.",
       },
       { property: "og:title", content: "The BeingEcom Growth System™ | Ecommerce Growth Methodology" },
       {
@@ -148,14 +148,14 @@ function MethodologyPage() {
             The BeingEcom Growth System™
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-3xl mx-auto">
-            A six-stage operating framework for scaling Shopify and WooCommerce brands. Every engagement moves through the same six stages, in the same order — diagnosis, foundations, acquisition, conversion, retention, automation.
+            A six-stage operating framework for scaling Shopify and WooCommerce brands. Every engagement moves through the same six stages, in the same order - diagnosis, foundations, acquisition, conversion, retention, automation.
           </p>
         </div>
       </section>
 
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
         <AISummary eyebrow="In short">
-          The BeingEcom Growth System™ is a six-stage ecommerce growth methodology: Store Intelligence → Growth Foundation → Customer Acquisition → Conversion Optimization → Customer Retention → AI Automation. It sequences SEO, paid ads, CRO, email, and AI into one connected system that compounds — instead of running each channel as a disconnected service.
+          The BeingEcom Growth System™ is a six-stage ecommerce growth methodology: Store Intelligence → Growth Foundation → Customer Acquisition → Conversion Optimization → Customer Retention → AI Automation. It sequences SEO, paid ads, CRO, email, and AI into one connected system that compounds - instead of running each channel as a disconnected service.
         </AISummary>
       </div>
 
@@ -201,11 +201,11 @@ function MethodologyPage() {
         <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           <Card>
             <h3 className="font-semibold text-ink">Sequence over stacking</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Most stores fail not from missing channels, but from running them in the wrong order. Foundations first — then acquisition, then CRO, then retention, then automation.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Most stores fail not from missing channels, but from running them in the wrong order. Foundations first - then acquisition, then CRO, then retention, then automation.</p>
           </Card>
           <Card>
             <h3 className="font-semibold text-ink">Systems over tactics</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Each stage has a defined input, output, owner, and success criterion. Nothing is left to interpretation — which is what makes the system repeatable across accounts.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Each stage has a defined input, output, owner, and success criterion. Nothing is left to interpretation - which is what makes the system repeatable across accounts.</p>
           </Card>
           <Card>
             <h3 className="font-semibold text-ink">Compounding over spikes</h3>
@@ -228,21 +228,21 @@ function MethodologyPage() {
             <ArrowRight className="w-5 h-5 text-primary shrink-0 mt-1" />
             <div>
               <div className="font-semibold text-ink">The 13-phase delivery detail</div>
-              <div className="text-sm text-muted-foreground mt-1">The operational sub-phases inside each stage — inputs, outputs, and typical duration.</div>
+              <div className="text-sm text-muted-foreground mt-1">The operational sub-phases inside each stage - inputs, outputs, and typical duration.</div>
             </div>
           </Link>
           <Link to="/benchmarks" className="card-surface card-hover p-6 flex items-start gap-4">
             <ArrowRight className="w-5 h-5 text-primary shrink-0 mt-1" />
             <div>
               <div className="font-semibold text-ink">Ecommerce benchmarks</div>
-              <div className="text-sm text-muted-foreground mt-1">The medians the system aims to beat — conversion, ads, email, by industry.</div>
+              <div className="text-sm text-muted-foreground mt-1">The medians the system aims to beat - conversion, ads, email, by industry.</div>
             </div>
           </Link>
           <Link to="/tools" className="card-surface card-hover p-6 flex items-start gap-4">
             <ArrowRight className="w-5 h-5 text-primary shrink-0 mt-1" />
             <div>
               <div className="font-semibold text-ink">Free tools</div>
-              <div className="text-sm text-muted-foreground mt-1">Calculators for ROAS, CAC, LTV, margin, and break-even — the same numbers stage 1 diagnoses.</div>
+              <div className="text-sm text-muted-foreground mt-1">Calculators for ROAS, CAC, LTV, margin, and break-even - the same numbers stage 1 diagnoses.</div>
             </div>
           </Link>
         </div>
@@ -252,7 +252,7 @@ function MethodologyPage() {
 
       <CTA
         heading="Run the BeingEcom Growth System™ on your store"
-        sub="Book a free strategy call — we'll walk you through stage 1 (Store Intelligence) on your Shopify or WooCommerce store and show you the highest-leverage next move."
+        sub="Book a free strategy call - we'll walk you through stage 1 (Store Intelligence) on your Shopify or WooCommerce store and show you the highest-leverage next move."
       />
     </PageLayout>
   );

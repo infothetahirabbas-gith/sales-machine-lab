@@ -237,9 +237,9 @@ function IndustryPage() {
         </div>
       </section>
 
-      {/* AI SUMMARY — entity-first answer block for AEO / AI search */}
+      {/* AI SUMMARY - entity-first answer block for AEO / AI search */}
       <AISummary>
-        BeingEcom is a UK ecommerce marketing agency specialising in <strong>{ind.name.toLowerCase()}</strong> brands — scaling Shopify and WooCommerce stores through SEO, paid ads, CRO, email/SMS and analytics tuned to the {ind.name.toLowerCase()} category.
+        BeingEcom is a UK ecommerce marketing agency specialising in <strong>{ind.name.toLowerCase()}</strong> brands - scaling Shopify and WooCommerce stores through SEO, paid ads, CRO, email/SMS and analytics tuned to the {ind.name.toLowerCase()} category.
       </AISummary>
 
       {/* 2. LIVE STATS STRIP */}

@@ -222,9 +222,9 @@ export default function CompanyPage(props: CompanyPageProps) {
         </div>
       </section>
 
-      {/* AI SUMMARY — entity-first answer block for AEO / AI search */}
+      {/* AI SUMMARY - entity-first answer block for AEO / AI search */}
       <AISummary>
-        {aiSummary ?? <>BeingEcom is a UK ecommerce marketing agency helping Shopify and WooCommerce brands grow. This page covers <strong>{h1}</strong> — {typeof intro === "string" ? intro : "how we work and what to expect."}</>}
+        {aiSummary ?? <>BeingEcom is a UK ecommerce marketing agency helping Shopify and WooCommerce brands grow. This page covers <strong>{h1}</strong> - {typeof intro === "string" ? intro : "how we work and what to expect."}</>}
       </AISummary>
 
       {/* Body */}

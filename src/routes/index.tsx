@@ -354,7 +354,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads — they need to fix the leaks in their funnel before scaling spend.">
+      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads - they need to fix the leaks in their funnel before scaling spend.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -491,7 +491,7 @@ function Home() {
         center
         eyebrow="Before vs After"
         title={<>What a <span className="text-sky-gradient">real store transformation</span> looks like</>}
-        intro="Drag the slider. Same store, same product, same audience — different system. This is what conversion rate optimisation looks like when it's wired into a Shopify build."
+        intro="Drag the slider. Same store, same product, same audience - different system. This is what conversion rate optimisation looks like when it's wired into a Shopify build."
       >
         <Reveal>
           <WhenVisible minHeight={300}>
@@ -557,7 +557,7 @@ function Home() {
               ))}
             </div>
             <p className="mt-4 text-xs text-muted-foreground italic">
-              Methodology: results based on client-reported Shopify and GA4 data over a 6-month engagement (months 1–6 post-onboarding). Individual results vary by category, margin and starting baseline. Client name withheld under NDA — anonymised case study available on request.
+              Methodology: results based on client-reported Shopify and GA4 data over a 6-month engagement (months 1–6 post-onboarding). Individual results vary by category, margin and starting baseline. Client name withheld under NDA - anonymised case study available on request.
             </p>
             <Link to="/case-studies" className="inline-block mt-6 text-foreground font-semibold underline-offset-4 hover:text-brand hover:underline">
               See full case studies →
@@ -604,7 +604,7 @@ function Home() {
         center
         eyebrow="Stack"
         title="The tools we run on every store."
-        intro="One integrated stack — platform, paid media, analytics, retention and automation wired together so revenue, spend and LTV live in the same view."
+        intro="One integrated stack - platform, paid media, analytics, retention and automation wired together so revenue, spend and LTV live in the same view."
       >
         <div className="grid gap-5 md:grid-cols-2">
           {[

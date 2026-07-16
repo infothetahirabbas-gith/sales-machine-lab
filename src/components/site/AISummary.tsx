@@ -4,7 +4,7 @@
 // a self-contained, definitional paragraph before the marketing copy.
 //
 // The block is intentionally plain-language and entity-first
-// ("BeingEcom is a UK ecommerce marketing agency that…") — that's the
+// ("BeingEcom is a UK ecommerce marketing agency that…") - that's the
 // pattern ChatGPT / Perplexity / Gemini / Google AI Overviews reward.
 
 import { Sparkles } from "lucide-react";
