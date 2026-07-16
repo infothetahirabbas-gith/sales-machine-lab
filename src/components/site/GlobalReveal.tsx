@@ -52,6 +52,14 @@ export function GlobalReveal() {
     );
 
     const vh = () => window.innerHeight || document.documentElement.clientHeight;
+    const revealPassedNodes = () => {
+      document.querySelectorAll<HTMLElement>("[data-reveal]:not([data-inview='1'])").forEach((n) => {
+        const rect = n.getBoundingClientRect();
+        if (rect.top < vh() + 160) {
+          n.setAttribute("data-inview", "1");
+        }
+      });
+    };
 
     const seed = (root: ParentNode) => {
       const nodes = root.querySelectorAll<HTMLElement>(SELECTOR);
@@ -63,7 +71,7 @@ export function GlobalReveal() {
         // Mark already-visible elements as in-view BEFORE we flip on the
         // hiding class, so headings above the fold never flash out.
         const rect = n.getBoundingClientRect();
-        const inView = rect.top < vh() && rect.bottom > 0;
+        const inView = rect.top < vh() + 160;
         if (inView) {
           n.setAttribute("data-inview", "1");
         }
@@ -93,11 +101,17 @@ export function GlobalReveal() {
           if (node.nodeType === 1) seed(node as Element);
         }
       }
+      revealPassedNodes();
     });
     mo.observe(document.body, { childList: true, subtree: true });
 
+    window.addEventListener("scroll", revealPassedNodes, { passive: true });
+    window.addEventListener("resize", revealPassedNodes);
+
     return () => {
       window.clearTimeout(failSafe);
+      window.removeEventListener("scroll", revealPassedNodes);
+      window.removeEventListener("resize", revealPassedNodes);
       io.disconnect();
       mo.disconnect();
     };
