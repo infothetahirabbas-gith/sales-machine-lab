@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight, Clock, Calendar, User, ArrowRight } from "lucide-react";
 import PageLayout from "./PageLayout";
 import { Section, CTA } from "./Section";
+import AISummary from "./AISummary";
 import FaqSection from "./FaqSection";
 import { breadcrumbJsonLd, faqJsonLd, organizationJsonLd, SITE_URL, ORG_ID, ORG_INFO, ORG_KNOWS_ABOUT, TEAM, type FAQ } from "@/lib/seo";
 import { COMPANY_LINKS } from "@/config/company";
@@ -35,6 +36,8 @@ export type CompanyPageProps = {
   faqs: FAQ[];
   /** Extra schema.org objects for this specific page (Person, Article, ItemList, etc.) */
   extraJsonLd?: object[];
+  /** Optional entity-first AI summary. Falls back to a derived sentence when omitted. */
+  aiSummary?: ReactNode;
 };
 
 export default function CompanyPage(props: CompanyPageProps) {
