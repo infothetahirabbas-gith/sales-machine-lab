@@ -728,7 +728,7 @@ section p a:hover::after, section li a:hover::after { right: 0; }
 }
 
 /* 6. Numbers pop when scrolled into view */
-[data-reveal][data-inview="1"] :is(.text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl):where([class*="font-bold"], [class*="font-black"], [class*="font-extrabold"]) {
+[data-reveal][data-inview="1"] :is(.text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl).tabular-nums {
   animation: num-pop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 @keyframes num-pop {
@@ -797,7 +797,7 @@ section p a:hover::after, section li a:hover::after { right: 0; }
    (adds .js-reveal on <html>). Without JS, content stays fully visible
    so nothing is ever stuck invisible. */
 html.js-reveal [data-reveal]:not([data-inview="1"]) {
-  opacity: 0;
+  opacity: 1;
   transform: translate3d(0, 24px, 0);
   will-change: opacity, transform;
 }
@@ -1039,10 +1039,7 @@ section + section {
 }
 
 /* --- Number pop-in --- */
-[data-reveal][data-inview="1"] .text-3xl,
-[data-reveal][data-inview="1"] .text-4xl,
-[data-reveal][data-inview="1"] .text-5xl,
-[data-reveal][data-inview="1"] .text-6xl {
+[data-reveal][data-inview="1"] .tabular-nums:is(.text-3xl, .text-4xl, .text-5xl, .text-6xl) {
   animation: num-pop 0.9s cubic-bezier(0.16,1,0.3,1) both;
 }
 @keyframes num-pop {
