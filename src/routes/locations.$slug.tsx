@@ -769,7 +769,11 @@ function LocationPage() {
             </div>
           </div>
         </Reveal>
+        <p className="mt-4 text-xs text-muted-foreground italic text-center max-w-3xl mx-auto">
+          Methodology: results based on client-reported Shopify and GA4 data over the stated engagement window. Individual results vary by category, margin and starting baseline. Client name withheld under NDA — anonymised case study details available on request.
+        </p>
       </Section>
+
 
       {/* 20. PRICING */}
       <Section eyebrow="Pricing" title={`Transparent ecommerce agency pricing in ${city}`} alt>
