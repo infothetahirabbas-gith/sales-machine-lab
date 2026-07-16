@@ -28,6 +28,7 @@ import { Reveal } from "../../hooks/useReveal";
 import GrowthChart from "./GrowthChart";
 import { CountUp } from "../../hooks/useCountUp";
 import RevenueBars, { type Bar } from "./RevenueBars";
+import AISummary from "./AISummary";
 import type { FAQ } from "../../lib/seo";
 import { SafeImg } from "../SafeImg";
 import { whatsappUrl } from "../../lib/whatsapp";
@@ -40,6 +41,8 @@ export type ServiceConfig = {
   eyebrow: string;
   heroTitle: string;
   heroSub: string;
+  /** Entity-first AI summary rendered immediately under the hero. Optional; auto-derived from eyebrow + heroSub when omitted. */
+  aiSummary?: string;
   /** Optional hero image (Unsplash URL). Rendered eagerly for fast LCP. */
   heroImage?: string;
   problemTitle: string;
@@ -202,6 +205,11 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
 
       </section>
+
+      {/* 1a. AI SUMMARY — entity-first answer block for AEO / AI search extractability */}
+      <AISummary>
+        {cfg.aiSummary ?? `BeingEcom is a UK ecommerce marketing agency helping Shopify and WooCommerce brands scale through ${cfg.eyebrow.toLowerCase()}. ${cfg.heroSub}`}
+      </AISummary>
 
       {/* 1b. LONG-FORM INTRO (optional) */}
       {cfg.intro && (
