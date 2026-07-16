@@ -35,6 +35,7 @@ import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LocationsIndexRouteImport } from './routes/locations.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -43,6 +44,7 @@ import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
 import { Route as ServicesPaidAdsRouteImport } from './routes/services.paid-ads'
@@ -231,6 +233,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsIndexRoute = ToolsIndexRouteImport.update({
+  id: '/tools/',
+  path: '/tools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
@@ -270,6 +277,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => BlogRoute,
+} as any)
+const ToolsSlugRoute = ToolsSlugRouteImport.update({
+  id: '/tools/$slug',
+  path: '/tools/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesStoreDevelopmentRoute =
   ServicesStoreDevelopmentRouteImport.update({
@@ -628,6 +640,7 @@ export interface FileRoutesByFullPath {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/tools/$slug': typeof ToolsSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -636,6 +649,7 @@ export interface FileRoutesByFullPath {
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/tools/': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -716,6 +730,7 @@ export interface FileRoutesByTo {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/tools/$slug': typeof ToolsSlugRoute
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/company': typeof CompanyIndexRoute
@@ -724,6 +739,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesIndexRoute
   '/locations': typeof LocationsIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/tools': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -809,6 +825,7 @@ export interface FileRoutesById {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
+  '/tools/$slug': typeof ToolsSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -817,6 +834,7 @@ export interface FileRoutesById {
   '/industries/': typeof IndustriesIndexRoute
   '/locations/': typeof LocationsIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/tools/': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
@@ -903,6 +921,7 @@ export interface FileRouteTypes {
     | '/services/paid-ads'
     | '/services/scaling'
     | '/services/store-development'
+    | '/tools/$slug'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -911,6 +930,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/locations/'
     | '/services/'
+    | '/tools/'
     | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -991,6 +1011,7 @@ export interface FileRouteTypes {
     | '/services/paid-ads'
     | '/services/scaling'
     | '/services/store-development'
+    | '/tools/$slug'
     | '/blog'
     | '/case-studies'
     | '/company'
@@ -999,6 +1020,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/locations'
     | '/services'
+    | '/tools'
     | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -1083,6 +1105,7 @@ export interface FileRouteTypes {
     | '/services/paid-ads'
     | '/services/scaling'
     | '/services/store-development'
+    | '/tools/$slug'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -1091,6 +1114,7 @@ export interface FileRouteTypes {
     | '/industries/'
     | '/locations/'
     | '/services/'
+    | '/tools/'
     | '/industries/$slug/paid-ads'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
@@ -1157,10 +1181,12 @@ export interface RootRouteChildren {
   ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
+  ToolsSlugRoute: typeof ToolsSlugRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  ToolsIndexRoute: typeof ToolsIndexRoute
   ServicesPerformanceMarketingFacebookAdsRoute: typeof ServicesPerformanceMarketingFacebookAdsRoute
   ServicesPerformanceMarketingGoogleAdsRoute: typeof ServicesPerformanceMarketingGoogleAdsRoute
   ServicesPerformanceMarketingInstagramAdsRoute: typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -1364,6 +1390,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/': {
+      id: '/tools/'
+      path: '/tools'
+      fullPath: '/tools/'
+      preLoaderRoute: typeof ToolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/': {
       id: '/services/'
       path: '/services'
@@ -1419,6 +1452,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/tools/$slug': {
+      id: '/tools/$slug'
+      path: '/tools/$slug'
+      fullPath: '/tools/$slug'
+      preLoaderRoute: typeof ToolsSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/services/store-development': {
       id: '/services/store-development'
@@ -1968,10 +2008,12 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesPaidAdsRoute: ServicesPaidAdsRoute,
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
+  ToolsSlugRoute: ToolsSlugRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  ToolsIndexRoute: ToolsIndexRoute,
   ServicesPerformanceMarketingFacebookAdsRoute:
     ServicesPerformanceMarketingFacebookAdsRoute,
   ServicesPerformanceMarketingGoogleAdsRoute:
