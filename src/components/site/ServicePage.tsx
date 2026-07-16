@@ -206,6 +206,11 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       </section>
 
+      {/* 1a. AI SUMMARY — entity-first answer block for AEO / AI search extractability */}
+      <AISummary>
+        {cfg.aiSummary ?? `BeingEcom is a UK ecommerce marketing agency helping Shopify and WooCommerce brands scale through ${cfg.eyebrow.toLowerCase()}. ${cfg.heroSub}`}
+      </AISummary>
+
       {/* 1b. LONG-FORM INTRO (optional) */}
       {cfg.intro && (
         <Section eyebrow={cfg.intro.eyebrow ?? "Overview"} title={cfg.intro.title}>
