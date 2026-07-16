@@ -52,6 +52,7 @@ export default function CompanyPage(props: CompanyPageProps) {
     sections,
     faqs,
     extraJsonLd = [],
+    aiSummary,
   } = props;
 
   const link = COMPANY_LINKS.find((c) => c.slug === slug);
