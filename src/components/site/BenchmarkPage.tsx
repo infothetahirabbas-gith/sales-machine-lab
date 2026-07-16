@@ -29,7 +29,7 @@ export type BenchmarkConfig = {
   keyTakeaways: string[];
   tables: BenchmarkTable[];
   howToImprove: { title: string; body: string }[];
-  faqs: FaqItem[];
+  faqs: FAQ[];
   relatedServiceHref: string;
   relatedServiceLabel: string;
 };
