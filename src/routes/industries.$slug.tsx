@@ -11,6 +11,7 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { SafeImg, unsplashSrcSet } from "../components/SafeImg";
+import AISummary from "../components/site/AISummary";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { studies } from "./case-studies.index";
 import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
@@ -235,6 +236,11 @@ function IndustryPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* AI SUMMARY — entity-first answer block for AEO / AI search */}
+      <AISummary>
+        BeingEcom is a UK ecommerce marketing agency specialising in <strong>{ind.name.toLowerCase()}</strong> brands — scaling Shopify and WooCommerce stores through SEO, paid ads, CRO, email/SMS and analytics tuned to the {ind.name.toLowerCase()} category.
+      </AISummary>
 
       {/* 2. LIVE STATS STRIP */}
       <section className="border-y border-border bg-secondary/40">
