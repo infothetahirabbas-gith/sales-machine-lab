@@ -116,9 +116,9 @@ export function BenchmarkPage({ cfg }: { cfg: BenchmarkConfig }) {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <Link to={cfg.relatedServiceHref as ReactNode as string} className="btn btn-ghost inline-flex items-center gap-2">
+          <a href={cfg.relatedServiceHref} className="btn btn-ghost inline-flex items-center gap-2">
             {cfg.relatedServiceLabel} <ArrowRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </Section>
 
