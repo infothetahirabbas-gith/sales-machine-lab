@@ -385,9 +385,9 @@ function LocationPage() {
         </div>
       </section>
 
-      {/* AI SUMMARY — entity-first answer block for AEO / AI search */}
+      {/* AI SUMMARY - entity-first answer block for AEO / AI search */}
       <AISummary>
-        BeingEcom is a UK ecommerce marketing agency serving <strong>{city}, {loc.region}</strong> — helping Shopify and WooCommerce brands grow revenue through SEO, paid ads, CRO, email/SMS and analytics, run by senior UK operators.
+        BeingEcom is a UK ecommerce marketing agency serving <strong>{city}, {loc.region}</strong> - helping Shopify and WooCommerce brands grow revenue through SEO, paid ads, CRO, email/SMS and analytics, run by senior UK operators.
       </AISummary>
 
       {/* 2. TRUST BAR - running colored brand logos */}
@@ -776,7 +776,7 @@ function LocationPage() {
           </div>
         </Reveal>
         <p className="mt-4 text-xs text-muted-foreground italic text-center max-w-3xl mx-auto">
-          Methodology: results based on client-reported Shopify and GA4 data over the stated engagement window. Individual results vary by category, margin and starting baseline. Client name withheld under NDA — anonymised case study details available on request.
+          Methodology: results based on client-reported Shopify and GA4 data over the stated engagement window. Individual results vary by category, margin and starting baseline. Client name withheld under NDA - anonymised case study details available on request.
         </p>
       </Section>
 

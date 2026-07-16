@@ -4,13 +4,13 @@
 // a self-contained, definitional paragraph before the marketing copy.
 //
 // The block is intentionally plain-language and entity-first
-// ("BeingEcom is a UK ecommerce marketing agency that…") — that's the
+// ("BeingEcom is a UK ecommerce marketing agency that…") - that's the
 // pattern ChatGPT / Perplexity / Gemini / Google AI Overviews reward.
 
 import { Sparkles } from "lucide-react";
 
 export type AISummaryProps = {
-  /** Optional eyebrow. Defaults to "In short". */
+  /** Optional eyebrow. Defaults to "Summary". */
   eyebrow?: string;
   /**
    * The definitional sentence(s). Should lead with the entity
@@ -19,7 +19,7 @@ export type AISummaryProps = {
   children: React.ReactNode;
 };
 
-export default function AISummary({ eyebrow = "In short", children }: AISummaryProps) {
+export default function AISummary({ eyebrow = "Summary", children }: AISummaryProps) {
   return (
     <section
       aria-label="Page summary"

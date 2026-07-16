@@ -10,7 +10,7 @@ const FAQS = [
   { q: "Who is Tahir Abbas?", a: "Tahir Abbas is the founder of BeingEcom, a UK ecommerce marketing agency helping Shopify and WooCommerce brands scale through SEO, paid advertising, CRO, email, analytics, and AI automation." },
   { q: "What is Tahir Abbas's ecommerce expertise?", a: "Ecommerce SEO, Shopify and WooCommerce growth, paid acquisition (Meta and Google Ads), conversion rate optimisation, retention marketing, and AI automation for online stores." },
   { q: "How can I contact Tahir Abbas?", a: "You can reach out via the BeingEcom contact page or connect on LinkedIn. For growth work, the fastest path is booking a strategy call through the site." },
-  { q: "Does Tahir Abbas speak or write on ecommerce?", a: "Yes — Tahir publishes research, frameworks, and playbooks on ecommerce growth via BeingEcom's blog and research hub, and is available for podcasts, panels, and expert commentary on ecommerce and AI." },
+  { q: "Does Tahir Abbas speak or write on ecommerce?", a: "Yes - Tahir publishes research, frameworks, and playbooks on ecommerce growth via BeingEcom's blog and research hub, and is available for podcasts, panels, and expert commentary on ecommerce and AI." },
 ];
 
 const EXPERTISE = [
@@ -35,9 +35,9 @@ export const Route = createFileRoute("/about/tahir-abbas")({
     const url = `${SITE_URL}/about/tahir-abbas`;
     return {
       meta: [
-        { title: "Tahir Abbas — Founder, BeingEcom | Ecommerce Growth Expert" },
+        { title: "Tahir Abbas - Founder, BeingEcom | Ecommerce Growth Expert" },
         { name: "description", content: "Tahir Abbas is the founder of BeingEcom, a UK ecommerce marketing agency scaling Shopify and WooCommerce brands through SEO, paid ads, CRO, email, and AI automation." },
-        { property: "og:title", content: "Tahir Abbas — Founder, BeingEcom" },
+        { property: "og:title", content: "Tahir Abbas - Founder, BeingEcom" },
         { property: "og:description", content: "Founder of BeingEcom. Ecommerce growth expert scaling Shopify and WooCommerce brands." },
         { property: "og:url", content: url },
         { property: "og:type", content: "profile" },
@@ -110,7 +110,7 @@ function TahirAbbasPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
-        <AISummary eyebrow="In short">
+        <AISummary eyebrow="Summary">
           Tahir Abbas is the founder of BeingEcom, a UK ecommerce marketing agency scaling Shopify and WooCommerce brands. His expertise spans ecommerce SEO, paid acquisition, conversion optimisation, retention marketing, and AI automation for online stores.
         </AISummary>
       </div>
@@ -119,7 +119,7 @@ function TahirAbbasPage() {
         <div className="max-w-3xl mx-auto">
           <Card>
             <p className="text-ink leading-relaxed">
-              Tahir has spent over a decade in ecommerce — building, scaling, and operating Shopify and WooCommerce brands. BeingEcom was founded to bring senior operator thinking to growing DTC brands: teams that have actually run stores, not just consulted on them. Today BeingEcom works with founders across the UK, US, Canada, and Australia across fashion, beauty, health, home, and electronics.
+              Tahir has spent over a decade in ecommerce - building, scaling, and operating Shopify and WooCommerce brands. BeingEcom was founded to bring senior operator thinking to growing DTC brands: teams that have actually run stores, not just consulted on them. Today BeingEcom works with founders across the UK, US, Canada, and Australia across fashion, beauty, health, home, and electronics.
             </p>
           </Card>
         </div>
@@ -141,12 +141,12 @@ function TahirAbbasPage() {
           <Card>
             <GraduationCap className="w-6 h-6 text-primary" />
             <h3 className="mt-3 font-semibold text-ink">Systems over tactics</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Growth is a system — acquisition, conversion, retention, automation — not a single channel bet.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Growth is a system - acquisition, conversion, retention, automation - not a single channel bet.</p>
           </Card>
           <Card>
             <BookOpen className="w-6 h-6 text-primary" />
             <h3 className="mt-3 font-semibold text-ink">Data before opinion</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Every decision starts from analytics, benchmarks, and behavioural data — not vibes.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Every decision starts from analytics, benchmarks, and behavioural data - not vibes.</p>
           </Card>
           <Card>
             <Award className="w-6 h-6 text-primary" />
@@ -188,7 +188,7 @@ function TahirAbbasPage() {
 
       <CTA
         heading="Work with Tahir & the BeingEcom team"
-        sub="Book a free strategy call — we'll audit your store and map the fastest path to revenue growth."
+        sub="Book a free strategy call - we'll audit your store and map the fastest path to revenue growth."
       />
     </PageLayout>
   );

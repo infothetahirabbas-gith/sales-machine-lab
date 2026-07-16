@@ -41,10 +41,10 @@ const CONFIGS: Record<string, BenchmarkConfig> = {
       { title: "Trust and social proof", body: "Verified reviews, UGC, guarantee badges, delivery timelines. Adds 5–12% CVR uplift." },
     ],
     faqs: [
-      { q: "What is a good conversion rate for a Shopify store?", a: "The Shopify median is around 1.8%. Top-quartile Shopify stores convert at 3.2% or higher. Category and traffic source both matter — branded search converts much higher than cold paid social." },
+      { q: "What is a good conversion rate for a Shopify store?", a: "The Shopify median is around 1.8%. Top-quartile Shopify stores convert at 3.2% or higher. Category and traffic source both matter - branded search converts much higher than cold paid social." },
       { q: "Why is my mobile conversion rate lower than desktop?", a: "Mobile CVR is typically 40–50% lower than desktop across ecommerce. Common causes are slow LCP, tiny tap targets, hidden add-to-cart on scroll, and checkout friction. Optimising mobile UX and Core Web Vitals usually recovers most of the gap." },
       { q: "How often do these benchmarks update?", a: "We refresh benchmarks quarterly using audit data from Shopify and WooCommerce stores we operate or review, plus public industry reports from Shopify, Klaviyo, and WordStream." },
-      { q: "How do I compare my store to these benchmarks?", a: "Pull your last 90 days of GA4 or Shopify Analytics sessions and orders, calculate sessions ÷ orders per device, and match to the industry row above. If you're below the median, we can help — book a free audit." },
+      { q: "How do I compare my store to these benchmarks?", a: "Pull your last 90 days of GA4 or Shopify Analytics sessions and orders, calculate sessions ÷ orders per device, and match to the industry row above. If you're below the median, we can help - book a free audit." },
     ],
     relatedServiceHref: "/services/cro",
     relatedServiceLabel: "See our CRO service",
@@ -101,7 +101,7 @@ const CONFIGS: Record<string, BenchmarkConfig> = {
     faqs: [
       { q: "What is a good ROAS for a Shopify store?", a: "It depends on channel. Meta Ads median ROAS is 2.4x, top quartile 4x+. Google Shopping median is 4.1x, top quartile 6.5x+. Blended ROAS across all paid channels for a healthy ecommerce brand usually sits at 3–5x." },
       { q: "Why is my Meta ROAS dropping in 2026?", a: "Meta CPMs are up ~12% YoY, iOS attribution is still lossy, and creative fatigue kicks in fast on broad audiences. The fix is more creative volume, server-side tracking (CAPI), and consolidated Advantage+ Shopping campaigns." },
-      { q: "Google Ads vs Meta Ads for ecommerce — which is better?", a: "They serve different jobs. Google (Shopping + Search) captures existing demand at higher ROAS. Meta creates demand at lower ROAS but higher scale. Most brands need both, with roughly 60/40 Meta-to-Google spend for growth or the reverse for steady-state." },
+      { q: "Google Ads vs Meta Ads for ecommerce - which is better?", a: "They serve different jobs. Google (Shopping + Search) captures existing demand at higher ROAS. Meta creates demand at lower ROAS but higher scale. Most brands need both, with roughly 60/40 Meta-to-Google spend for growth or the reverse for steady-state." },
       { q: "How often should I refresh ad creative?", a: "Meta creatives fatigue within 2–4 weeks at scale. Top-quartile ecommerce brands ship 8–15 new creatives per week to combat this. Google Shopping/PMax rely more on feed quality than fresh creative." },
     ],
     relatedServiceHref: "/services/paid-ads",
@@ -159,7 +159,7 @@ const CONFIGS: Record<string, BenchmarkConfig> = {
     faqs: [
       { q: "What is a good open rate for ecommerce emails in 2026?", a: "40% is the ecommerce median post-Apple MPP. Top-quartile brands hit 48%+. Because Apple opens are inflated by MPP, click rate (target 1.6%+) and revenue-per-recipient (£0.11+) are more reliable performance signals." },
       { q: "How much revenue should email drive for an ecommerce store?", a: "A well-run Klaviyo (or Omnisend) setup with the core five flows should deliver 20–30% of total store revenue via email alone, or 25–35% with SMS added. Anything below 15% means flows or segmentation are underbuilt." },
-      { q: "Klaviyo vs Mailchimp — which is better for ecommerce?", a: "Klaviyo. Native Shopify/WooCommerce integration, product feeds, predictive analytics, and flow templates built for ecommerce give Klaviyo brands 40–70% higher revenue-per-recipient than Mailchimp on the same list size." },
+      { q: "Klaviyo vs Mailchimp - which is better for ecommerce?", a: "Klaviyo. Native Shopify/WooCommerce integration, product feeds, predictive analytics, and flow templates built for ecommerce give Klaviyo brands 40–70% higher revenue-per-recipient than Mailchimp on the same list size." },
       { q: "What are the most important email flows to set up first?", a: "In order: welcome series, abandoned cart, browse abandonment, post-purchase, and winback. These five typically drive 30–40% of total email revenue and are the fastest ROI email work you can ship." },
     ],
     relatedServiceHref: "/services/email-sms",

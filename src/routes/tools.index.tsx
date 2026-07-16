@@ -28,7 +28,7 @@ export const Route = createFileRoute("/tools/")({
       {
         name: "description",
         content:
-          "Free ecommerce calculators for UK Shopify and WooCommerce brands — ROAS, CAC, LTV, profit margin and break-even. Instant results, formulas explained, no signup.",
+          "Free ecommerce calculators for UK Shopify and WooCommerce brands - ROAS, CAC, LTV, profit margin and break-even. Instant results, formulas explained, no signup.",
       },
       { property: "og:title", content: "Free Ecommerce Calculators & Tools | BeingEcom" },
       {
@@ -70,7 +70,7 @@ function ToolsIndex() {
             Free ecommerce calculators for Shopify &amp; WooCommerce brands
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            The same numbers our team runs before every strategy call — ROAS, CAC, LTV, profit margin and break-even. Free, instant, no signup. Formulas, examples and improvement plans included.
+            The same numbers our team runs before every strategy call - ROAS, CAC, LTV, profit margin and break-even. Free, instant, no signup. Formulas, examples and improvement plans included.
           </p>
         </div>
       </section>

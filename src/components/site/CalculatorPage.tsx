@@ -212,7 +212,7 @@ export default function CalculatorPage({ cfg }: { cfg: CalcConfig }) {
       </section>
 
       {/* FAQ */}
-      <FaqSection eyebrow="FAQ" title={`${cfg.name} — questions founders ask`} faqs={cfg.faqs} />
+      <FaqSection eyebrow="FAQ" title={`${cfg.name} - questions founders ask`} faqs={cfg.faqs} />
 
       {/* CTA + related */}
       <section className="py-16 border-t border-border bg-secondary/30">

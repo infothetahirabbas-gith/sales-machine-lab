@@ -39,7 +39,7 @@ export const Route = createFileRoute("/benchmarks/")({
       { title: "Ecommerce Benchmarks 2026 | Conversion, Paid Ads & Email | BeingEcom" },
       { name: "description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion rates, paid ads (Meta & Google), and email marketing performance by industry." },
       { property: "og:title", content: "Ecommerce Benchmarks 2026 | BeingEcom" },
-      { property: "og:description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion, ads, email — by industry." },
+      { property: "og:description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion, ads, email - by industry." },
       { property: "og:url", content: "https://beingecom.com/benchmarks" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/benchmarks" }],
