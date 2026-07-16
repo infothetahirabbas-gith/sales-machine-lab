@@ -5,7 +5,7 @@ import PageLayout from "./PageLayout";
 import { Section, Card, CTA } from "./Section";
 import AISummary from "./AISummary";
 import FaqSection from "./FaqSection";
-import type { FaqItem } from "@/lib/seo";
+import type { FAQ } from "@/lib/seo";
 
 export type BenchmarkRow = {
   label: string;
