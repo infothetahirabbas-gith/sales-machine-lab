@@ -12,7 +12,7 @@ export const ORG_INFO = {
   address: {
     streetAddress: "71-75 Shelton Street, Covent Garden",
     addressLocality: "London",
-    addressRegion: "England",
+    addressRegion: "Greater London",
     postalCode: "WC2H 9JQ",
     addressCountry: "GB",
   },
