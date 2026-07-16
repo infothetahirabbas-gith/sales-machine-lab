@@ -5,12 +5,13 @@ import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "../lib/seo";
 
 export const Route = createFileRoute("/tools/$slug")({
   loader: ({ params }) => {
-    const cfg = calcBySlug(params.slug);
-    if (!cfg) throw notFound();
-    return { cfg };
+    if (!calcBySlug(params.slug)) throw notFound();
+    // Return only serialisable data; the config (with compute fn) is
+    // resolved from the module registry in the component + head().
+    return { slug: params.slug };
   },
-  head: ({ loaderData, params }) => {
-    const cfg = loaderData?.cfg ?? calcBySlug(params.slug);
+  head: ({ params }) => {
+    const cfg = calcBySlug(params.slug);
     if (!cfg) {
       return {
         meta: [
@@ -62,10 +63,13 @@ export const Route = createFileRoute("/tools/$slug")({
   },
   component: ToolRoute,
   notFoundComponent: ToolNotFound,
+  errorComponent: ToolNotFound,
 });
 
 function ToolRoute() {
-  const { cfg } = Route.useLoaderData();
+  const { slug } = Route.useLoaderData();
+  const cfg = calcBySlug(slug);
+  if (!cfg) return <ToolNotFound />;
   return <CalculatorPage cfg={cfg} />;
 }
 
