@@ -8,7 +8,7 @@ import { Reveal } from "../hooks/useReveal";
 
 import { GLOBAL_STATS } from "@/lib/stats";
 
-export const Route = createFileRoute("/about")({
+export const Route = createFileRoute("/about/")({
   head: () => ({
     meta: [
       { title: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },

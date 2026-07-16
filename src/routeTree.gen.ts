@@ -33,7 +33,6 @@ import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -44,6 +43,7 @@ import { Route as CompareIndexRouteImport } from './routes/compare.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -223,11 +223,6 @@ const AccessibilityRoute = AccessibilityRouteImport.update({
   path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -277,6 +272,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => BlogRoute,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsSlugRoute = ToolsSlugRouteImport.update({
   id: '/tools/$slug',
@@ -579,7 +579,6 @@ const LangLocationIndustryServiceRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
@@ -641,6 +640,7 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about/': typeof AboutIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -673,7 +673,6 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/clients': typeof ClientsRoute
@@ -731,6 +730,7 @@ export interface FileRoutesByTo {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about': typeof AboutIndexRoute
   '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/company': typeof CompanyIndexRoute
@@ -764,7 +764,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/audit': typeof AuditRoute
   '/blog': typeof BlogRouteWithChildren
@@ -826,6 +825,7 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/about/': typeof AboutIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/company/': typeof CompanyIndexRoute
@@ -860,7 +860,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
     | '/blog'
@@ -922,6 +921,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about/'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -954,7 +954,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
     | '/clients'
@@ -1012,6 +1011,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about'
     | '/blog'
     | '/case-studies'
     | '/company'
@@ -1044,7 +1044,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/about'
     | '/accessibility'
     | '/audit'
     | '/blog'
@@ -1106,6 +1105,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/about/'
     | '/blog/'
     | '/case-studies/'
     | '/company/'
@@ -1139,7 +1139,6 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AuditRoute: typeof AuditRoute
   BlogRoute: typeof BlogRouteWithChildren
@@ -1182,6 +1181,7 @@ export interface RootRouteChildren {
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   ToolsSlugRoute: typeof ToolsSlugRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   LocationsIndexRoute: typeof LocationsIndexRoute
@@ -1376,13 +1376,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -1452,6 +1445,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/tools/$slug': {
       id: '/tools/$slug'
@@ -1966,7 +1966,6 @@ const ServicesStoreDevelopmentRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   AuditRoute: AuditRoute,
   BlogRoute: BlogRouteWithChildren,
@@ -2009,6 +2008,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   ToolsSlugRoute: ToolsSlugRoute,
+  AboutIndexRoute: AboutIndexRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   LocationsIndexRoute: LocationsIndexRoute,
