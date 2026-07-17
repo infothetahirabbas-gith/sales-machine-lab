@@ -10,7 +10,14 @@ export const Route = createFileRoute("/sitemap-company.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const paths: string[] = ["/company", ...COMPANY_LINKS.filter((c) => !c.external).map((c) => c.to), ...extras];
+        // Exclude /company/founder: it renders the same component as /founder
+        // and its canonical points to /founder, so listing it here duplicates
+        // the canonical target in the sitemap.
+        const paths: string[] = [
+          "/company",
+          ...COMPANY_LINKS.filter((c) => !c.external && c.to !== "/company/founder").map((c) => c.to),
+          ...extras,
+        ];
         const urls = paths.map(
           (p) =>
             `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${p === "/company" ? "0.9" : "0.7"}</priority>\n  </url>`,
