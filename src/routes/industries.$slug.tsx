@@ -51,21 +51,24 @@ export const Route = createFileRoute("/industries/$slug")({
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: desc },
       ],
-      links: heroImage
-        ? [
-            {
-              rel: "preload",
-              as: "image",
-              href: heroImage,
-              imagesrcset: unsplashSrcSet(heroImage),
-              imagesizes:
-                "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
-              fetchpriority: "high",
-            },
-          ]
-        : [],
-      // Canonical intentionally omitted at this parent layout so it doesn't
-      // leak into /industries/$slug/paid-ads (which sets its own canonical).
+      links: [
+        { rel: "canonical", href: pageUrl },
+        ...(heroImage
+          ? [
+              {
+                rel: "preload" as const,
+                as: "image" as const,
+                href: heroImage,
+                imagesrcset: unsplashSrcSet(heroImage),
+                imagesizes:
+                  "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
+                fetchpriority: "high" as const,
+              },
+            ]
+          : []),
+      ],
+      // industries.$slug.paid-ads.tsx is a sibling route (not a child layout),
+      // so its own canonical is the only one emitted on /industries/$slug/paid-ads.
       scripts: ind && C
         ? [
             {
