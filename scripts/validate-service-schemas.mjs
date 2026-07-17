@@ -13,7 +13,14 @@ try { register("tsx/esm", pathToFileURL("./")); } catch {}
 const ROUTES = "src/routes";
 const files = readdirSync(ROUTES).filter((f) => f.startsWith("services.") && f.endsWith(".tsx"));
 
-const leaves = files.filter((f) => f !== "services.index.tsx");
+// Skip layout-only files (no head() — children emit their own JSON-LD).
+// e.g. services.store-development.tsx became a pure <Outlet /> layout after
+// splitting the leaf into services.store-development.index.tsx.
+const leaves = files.filter((f) => {
+  if (f === "services.index.tsx") return false;
+  const src = readFileSync(join(ROUTES, f), "utf8");
+  return /head\s*:/.test(src);
+});
 const errors = [];
 const warns = [];
 
