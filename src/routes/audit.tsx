@@ -93,7 +93,7 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   h("Business");
   Object.entries(r.business).forEach(([k, v]) => kv(k, String(v)));
 
-  h("Scorecard (0–100)");
+  h("Scorecard (0-100)");
   Object.entries(r.scorecard).forEach(([k, v]) => kv(k, v));
 
   h("SEO Intelligence");
@@ -149,9 +149,9 @@ function downloadReportMarkdown(r: AuditReport, url: string) {
   r.opportunities.forEach(o => lines.push(`- **${o.title}** [${o.difficulty} / ROI: ${o.roi}] - ${o.expectedImpact} → ${o.action}`));
 
   h("90-Day Action Plan");
-  h3("0–7 Days (Immediate)"); r.actionPlan.immediate.forEach(i => lines.push(`- ${i}`));
-  h3("7–30 Days (Growth)"); r.actionPlan.growth.forEach(i => lines.push(`- ${i}`));
-  h3("30–90 Days (Scale)"); r.actionPlan.scale.forEach(i => lines.push(`- ${i}`));
+  h3("0-7 Days (Immediate)"); r.actionPlan.immediate.forEach(i => lines.push(`- ${i}`));
+  h3("7-30 Days (Growth)"); r.actionPlan.growth.forEach(i => lines.push(`- ${i}`));
+  h3("30-90 Days (Scale)"); r.actionPlan.scale.forEach(i => lines.push(`- ${i}`));
 
   h("Founder Insights");
   Object.entries(r.founderInsights).forEach(([k, v]) => kv(k, String(v)));
@@ -508,7 +508,7 @@ function AuditPage() {
                   <span>The store is taking longer than 90 seconds to respond. Check the URL, then refresh and retry.</span>
                 </div>
               ) : (
-                <p className="mt-4 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at ~90s.</p>
+                <p className="mt-4 text-xs text-muted-foreground">Typical run: 20-40 seconds across 17 phases. Hard timeout at ~90s.</p>
               )}
             </div>
           )}
@@ -540,7 +540,7 @@ function AuditPage() {
                   <li key={t} className="flex gap-2 text-ink"><CheckCircle2 className="w-4 h-4 mt-0.5 text-emerald-500 shrink-0" /><span>{t}</span></li>
                 ))}
               </ul>
-              <p className="mt-5 text-xs text-muted-foreground">Typical run: 20–40 seconds across 17 phases. Hard timeout at 90 seconds. Timestamps render in 24-hour en-GB format.</p>
+              <p className="mt-5 text-xs text-muted-foreground">Typical run: 20-40 seconds across 17 phases. Hard timeout at 90 seconds. Timestamps render in 24-hour en-GB format.</p>
             </div>
             <div className="relative">
               <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-3xl rounded-3xl pointer-events-none" />

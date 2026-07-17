@@ -94,7 +94,7 @@ function buildCaseFaqs(s: Study): FAQ[] {
     },
     {
       q: `How long did the ${s.category} engagement take?`,
-      a: `The core ${s.category} program ran across ${s.duration}. Initial wins typically appeared within the first 30–45 days, with compounding gains across the full window.`,
+      a: `The core ${s.category} program ran across ${s.duration}. Initial wins typically appeared within the first 30-45 days, with compounding gains across the full window.`,
     },
     {
       q: `What was the main result?`,
@@ -113,7 +113,7 @@ function beforeMetrics(s: Study) {
     Ads: [
       { label: "ROAS", value: "1.4×" },
       { label: "CAC trend", value: "Rising" },
-      { label: "Creative cadence", value: "1–2 / week" },
+      { label: "Creative cadence", value: "1-2 / week" },
       { label: "Funnel structure", value: "Unstructured" },
     ],
     SEO: [

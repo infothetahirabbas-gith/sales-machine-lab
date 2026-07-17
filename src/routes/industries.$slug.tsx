@@ -783,7 +783,7 @@ function IndustryPage() {
                 { label: "Analytics", to: "/services/analytics" as const },
                 { label: "Scaling", to: "/services/scaling" as const },
               ] },
-            { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30–40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list",
+            { to: "/services/email-sms" as const, img: C.images.buyers, icon: MessageCircle, title: "Email & SMS", desc: `Klaviyo flows and campaigns that make retention 30-40% of ${ind.name.toLowerCase()} revenue.`, tag: "Own your list",
               subs: [
                 { label: "Email & SMS", to: "/services/email-sms" as const },
                 { label: "Funnel Design", to: "/services/funnel" as const },

@@ -46,7 +46,7 @@ const faqs: FAQ[] = [
   { q: "Does Tahir Abbas work with international brands?", a: "Yes. BeingEcom serves brands across the United Kingdom, United States, Ireland, Australia and the wider European market." },
   { q: "Can I book a consultation with Tahir Abbas?", a: "Yes. Qualified brands can book a 30-minute discovery call through the contact page. Tahir personally leads the strategy phase for every engagement and joins onboarding calls in the first 90 days." },
   { q: "What makes Tahir Abbas's approach different?", a: "Every plan is tied to a P&L line, measured against MER and contribution margin rather than vanity ROAS, executed by senior-only operators, and shipped on a weekly cadence with transparent reporting wins and losses." },
-  { q: "Where is Tahir Abbas based?", a: "London, United Kingdom. BeingEcom is registered at 71–75 Shelton Street, Covent Garden, London WC2H 9JQ." },
+  { q: "Where is Tahir Abbas based?", a: "London, United Kingdom. BeingEcom is registered at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ." },
   { q: "How can I contact Tahir Abbas directly?", a: "Through info@beingecom.com, via the contact page, or on LinkedIn links are provided in the 'Connect with the founder' section of this page." },
 ];
 
@@ -248,7 +248,7 @@ export default function FounderAuthorityPage() {
 
   const insights = [
     "Reads 40+ books a year currently on 'The Great CEO Within' and 'Play Bigger'.",
-    "Runs a strict 05:30 – 07:00 deep-work block before email, calls or Slack.",
+    "Runs a strict 05:30 - 07:00 deep-work block before email, calls or Slack.",
     "Keeps a written 'lessons ledger' every project logs one thing that worked and one that didn't.",
     "Believes in 90-day sprints tied to written outcomes, not annual plans.",
     "Advice to founders: hire senior earlier than you think you can afford juniors compound cost, seniors compound revenue.",

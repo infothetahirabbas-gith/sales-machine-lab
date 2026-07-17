@@ -33,9 +33,9 @@ export const HUB_PILLARS: Record<string, {
       ),
       keyFacts: [
         { label: "Shopify GMV 2024", value: "$292B+", source: "Shopify 2024 Annual Report" },
-        { label: "Avg speed lift → conv.", value: "+7–12%", source: "Deloitte + BeingEcom benchmarks" },
-        { label: "Email share of revenue", value: "20–30%", source: "Klaviyo benchmarks" },
-        { label: "PDP tests / quarter", value: "6–10", source: "BeingEcom pod cadence" },
+        { label: "Avg speed lift → conv.", value: "+7-12%", source: "Deloitte + BeingEcom benchmarks" },
+        { label: "Email share of revenue", value: "20-30%", source: "Klaviyo benchmarks" },
+        { label: "PDP tests / quarter", value: "6-10", source: "BeingEcom pod cadence" },
       ],
       subtopics: [
         { title: "Shopify SEO", summary: "Collection architecture, product schema, faceted URLs and crawl-budget control.", href: "/services/seo" },
@@ -56,7 +56,7 @@ export const HUB_PILLARS: Record<string, {
       ],
       faqs: [
         { q: "When is a Shopify brand ready to invest in growth infrastructure?", a: "Once you have product-market fit and ~£30k/month in revenue. Below that, spend on offer, product and creative before hiring an operator team." },
-        { q: "How long before Shopify SEO shows revenue?", a: "Technical + on-page fixes on top 20 PDPs typically show organic revenue movement inside 60–90 days. Category-level authority compounds across 6–12 months." },
+        { q: "How long before Shopify SEO shows revenue?", a: "Technical + on-page fixes on top 20 PDPs typically show organic revenue movement inside 60-90 days. Category-level authority compounds across 6-12 months." },
         { q: "Should we go headless with Hydrogen?", a: "Only if you have a real merchandising or performance ceiling on the standard Shopify theme layer usually £5m+ GMV brands. Headless adds engineering cost most sub-£5m brands cannot justify." },
         { q: "Which channel should we scale first?", a: "The one closest to profitability on your last 90 days of data. We rank channels by contribution margin per £ spent, not attribution model." },
       ],
@@ -174,12 +174,12 @@ export const HUB_PILLARS: Record<string, {
       playbook: [
         { step: "Crawl + index audit", body: "Baseline Sitebulb/Screaming Frog + GSC coverage export. Output: index-worthy vs waste-worthy URL list, canonical + noindex changes." },
         { step: "PDP + collection template pass", body: "Rebuild templates for the top 20% of pages driving 80% of the traffic. Schema, copy, review corpus, internal links, image alt." },
-        { step: "Authority build", body: "Digital PR campaigns tied to data or opinion never PBNs. Target 3–6 real editorial links per month, measured on referring domains." },
+        { step: "Authority build", body: "Digital PR campaigns tied to data or opinion never PBNs. Target 3-6 real editorial links per month, measured on referring domains." },
         { step: "Local + international layers", body: "Layer GBP, hreflang and market-specific stores only after the base layers hit target." },
         { step: "AEO + GEO layer", body: "Rewrite every commercial page to answer-first shape: ≤60-word direct answer, definitional block, named evidence, FAQ." },
       ],
       faqs: [
-        { q: "How long does ecommerce SEO take to work?", a: "Technical fixes: 30–60 days. On-page rewrites on top pages: 60–90 days. Authority + category dominance: 6–12 months. This is normal SEO compounds." },
+        { q: "How long does ecommerce SEO take to work?", a: "Technical fixes: 30-60 days. On-page rewrites on top pages: 60-90 days. Authority + category dominance: 6-12 months. This is normal SEO compounds." },
         { q: "Do we still need backlinks in 2026?", a: "Yes. Links remain a top-3 ranking factor for commercial queries. What changed is the source quality bar links from real editorial coverage still work; PBNs and directories don't." },
         { q: "What is Answer Engine Optimisation (AEO)?", a: "Structuring content so answer engines (Google AI Overviews, ChatGPT, Perplexity, Claude) can extract and cite it. Short direct answers, definitional blocks, named evidence, FAQ schema." },
         { q: "How is GEO different from AEO?", a: "AEO is about being extractable. GEO (Generative Engine Optimisation) is about being cited verifiable stats, named authors, outbound source links, original research." },
@@ -220,7 +220,7 @@ export const HUB_PILLARS: Record<string, {
         { label: "Meta CPMs YoY", value: "+7%", source: "Skai 2025 Digital Marketing Report" },
         { label: "TikTok Shop GMV 2024", value: "$33B+", source: "TikTok Q4 2024 investor letter" },
         { label: "Google P-Max share of Shopping", value: "70%+", source: "Tinuiti 2025" },
-        { label: "Avg creative testing needed", value: "20–40/mo", source: "BeingEcom paid pod cadence" },
+        { label: "Avg creative testing needed", value: "20-40/mo", source: "BeingEcom paid pod cadence" },
       ],
       subtopics: [
         { title: "Meta Ads for ecommerce", summary: "Creative-first accounts, CBO vs ABO, Advantage+ Shopping, CAPI and MMM.", href: "/services/performance-marketing/facebook-ads" },
@@ -235,7 +235,7 @@ export const HUB_PILLARS: Record<string, {
       playbook: [
         { step: "Set the north-star", body: "Contribution margin per £ spent, tracked at MER level. Everything else is a diagnostic, not a decision." },
         { step: "Fix tracking", body: "GA4 + Meta CAPI + Google Enhanced Conversions + server-side layer. No optimisation on broken data." },
-        { step: "Creative supply chain", body: "20–40 fresh creatives / month minimum for accounts >£30k/month spend. UGC, statics, motion testing matrix, not one-offs." },
+        { step: "Creative supply chain", body: "20-40 fresh creatives / month minimum for accounts >£30k/month spend. UGC, statics, motion testing matrix, not one-offs." },
         { step: "Channel allocation", body: "Rebalance monthly by contribution margin, not platform ROAS. Incrementality-test the biggest bets quarterly." },
         { step: "Scale", body: "Once winning ads + LTV curve support it, scale in 20% weekly increments never doubling budget overnight." },
       ],
@@ -267,7 +267,7 @@ export const HUB_PILLARS: Record<string, {
       intro: (
         <>
           <p>
-            The average Shopify or Woo store leaves 30–60% of revenue on the table between add-to-cart and thank-you.
+            The average Shopify or Woo store leaves 30-60% of revenue on the table between add-to-cart and thank-you.
             Finding that revenue is not about the latest checkout hack it's about the right test, run at the right
             sample size, on the right page, in the right sequence.
           </p>
@@ -280,7 +280,7 @@ export const HUB_PILLARS: Record<string, {
       keyFacts: [
         { label: "Avg ecommerce checkout abandonment", value: "69.8%", source: "Baymard Institute 2025" },
         { label: "Tests needed before 1 win", value: "~5", source: "Convert.com 2025 benchmarks" },
-        { label: "Min sample per variant", value: "~5–10k users", source: "BeingEcom test protocol" },
+        { label: "Min sample per variant", value: "~5-10k users", source: "BeingEcom test protocol" },
         { label: "Avg PDP conv. lift (winning test)", value: "+9%", source: "BeingEcom experiment log" },
       ],
       subtopics: [
@@ -291,7 +291,7 @@ export const HUB_PILLARS: Record<string, {
         { title: "PLP CRO", summary: "Filter UX, out-of-stock handling, badge system, sort defaults.", href: "/services/cro" },
         { title: "Personalisation", summary: "Segment-based hero, category-based recommendations, returning-visitor journeys.", href: "/services/cro" },
         { title: "Experimentation tooling", summary: "Convert vs VWO vs GrowthBook the trade-offs at each stage.", href: "/services/cro" },
-        { title: "Test velocity", summary: "How to run 6–10 winning-or-learning tests per quarter without breaking the site.", href: "/services/cro" },
+        { title: "Test velocity", summary: "How to run 6-10 winning-or-learning tests per quarter without breaking the site.", href: "/services/cro" },
       ],
       playbook: [
         { step: "Baseline the funnel", body: "GA4 exploration + Shopify/Woo funnel export. Find the biggest drop-off in absolute revenue, not percentage." },
@@ -301,7 +301,7 @@ export const HUB_PILLARS: Record<string, {
         { step: "Ship + document", body: "Winning tests roll out, losing tests are documented in the experiment log. The log is the moat it's how tests get faster over time." },
       ],
       faqs: [
-        { q: "How many tests do we need per quarter?", a: "6–10 well-designed experiments per quarter is a healthy cadence for a £100k–£1m/month brand. Volume above that adds cost faster than it adds learning." },
+        { q: "How many tests do we need per quarter?", a: "6-10 well-designed experiments per quarter is a healthy cadence for a £100k-£1m/month brand. Volume above that adds cost faster than it adds learning." },
         { q: "What's a good conversion rate?", a: "Depends on category, price and traffic mix. Median UK Shopify ecommerce is ~2.1% (Littledata 2025). Anything above 3.5% is strong; above 5% is exceptional." },
         { q: "Should we do CRO before we scale ads?", a: "Yes. A 15% CRO lift multiplies against every future pound of ad spend. Skipping CRO to scale ads first is buying revenue at a permanent discount." },
         { q: "Which tool should we use?", a: "GrowthBook (open-source, cheap) up to ~£300k/month, Convert or VWO past that. Optimizely and Adobe Target only if you already run enterprise stacks." },
@@ -339,9 +339,9 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "Time saved / operator / week", value: "8–12h", source: "BeingEcom internal audit 2025" },
-        { label: "Creative variants / prompt cycle", value: "20–40", source: "BeingEcom creative pipeline" },
-        { label: "Support tickets AI-triaged", value: "60–80%", source: "Gorgias + BeingEcom benchmarks" },
+        { label: "Time saved / operator / week", value: "8-12h", source: "BeingEcom internal audit 2025" },
+        { label: "Creative variants / prompt cycle", value: "20-40", source: "BeingEcom creative pipeline" },
+        { label: "Support tickets AI-triaged", value: "60-80%", source: "Gorgias + BeingEcom benchmarks" },
         { label: "Reporting cycle time cut", value: "-70%", source: "BeingEcom Looker + LLM pipeline" },
       ],
       subtopics: [
@@ -384,7 +384,7 @@ export const HUB_PILLARS: Record<string, {
       eyebrow: "Email & SMS Hub",
       h1: "Email & SMS: the retention engine that funds acquisition",
       answer:
-        "Ecommerce email and SMS should drive 25–35% of revenue by month 12 not through more sends, but through segmented flows (welcome, browse, cart, post-purchase, winback, VIP) wired to Shopify or WooCommerce data, tested weekly against contribution margin.",
+        "Ecommerce email and SMS should drive 25-35% of revenue by month 12 not through more sends, but through segmented flows (welcome, browse, cart, post-purchase, winback, VIP) wired to Shopify or WooCommerce data, tested weekly against contribution margin.",
       intro: (
         <>
           <p>
@@ -398,9 +398,9 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "Email share of revenue (mature)", value: "25–35%", source: "Klaviyo 2025 benchmarks" },
+        { label: "Email share of revenue (mature)", value: "25-35%", source: "Klaviyo 2025 benchmarks" },
         { label: "Flow vs campaign revenue split", value: "60 / 40", source: "BeingEcom Klaviyo cohort" },
-        { label: "SMS revenue per recipient", value: "£0.20–0.60", source: "Postscript + Attentive 2025" },
+        { label: "SMS revenue per recipient", value: "£0.20-0.60", source: "Postscript + Attentive 2025" },
         { label: "Deliverability floor (inbox)", value: "≥95%", source: "GlockApps benchmarks" },
       ],
       subtopics: [
@@ -459,8 +459,8 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "Client-side signal loss (iOS)", value: "20–30%", source: "Meta CAPI benchmarks 2025" },
-        { label: "GA4 vs Shopify order variance", value: "5–15%", source: "BeingEcom audits" },
+        { label: "Client-side signal loss (iOS)", value: "20-30%", source: "Meta CAPI benchmarks 2025" },
+        { label: "GA4 vs Shopify order variance", value: "5-15%", source: "BeingEcom audits" },
         { label: "Server-side match rate (CAPI)", value: "≥85%", source: "Meta EMQ benchmark" },
         { label: "Attribution model gap (last-click vs DDA)", value: "±30% ROAS", source: "Google Ads help" },
       ],
@@ -519,10 +519,10 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "AOV lift from bundle strategy", value: "+18–35%", source: "BeingEcom bundle case studies" },
-        { label: "Repeat rate benchmark (mature DTC)", value: "35–45%", source: "Shopify DTC report 2025" },
+        { label: "AOV lift from bundle strategy", value: "+18-35%", source: "BeingEcom bundle case studies" },
+        { label: "Repeat rate benchmark (mature DTC)", value: "35-45%", source: "Shopify DTC report 2025" },
         { label: "Contribution margin target", value: "≥45%", source: "BeingEcom finance model" },
-        { label: "Category expansion payback", value: "9–18mo", source: "BeingEcom category launches" },
+        { label: "Category expansion payback", value: "9-18mo", source: "BeingEcom category launches" },
       ],
       subtopics: [
         { title: "Brand positioning", summary: "Category, promise and proof the three-line brief every ad and PDP follows.", href: "/services/consulting" },
@@ -537,7 +537,7 @@ export const HUB_PILLARS: Record<string, {
       playbook: [
         { step: "Positioning audit", body: "Rewrite the one-sentence brand promise, identify the category proof points, and align every PDP hero to them." },
         { step: "Merchandising review", body: "Classify every SKU as hero / halo / tail and set the mix target for the next 12 months." },
-        { step: "Pricing + bundles", body: "Introduce a price ladder and 2–3 bundle SKUs sized to lift AOV by 20% without margin erosion." },
+        { step: "Pricing + bundles", body: "Introduce a price ladder and 2-3 bundle SKUs sized to lift AOV by 20% without margin erosion." },
         { step: "Operating cadence", body: "Set weekly growth stand-up, monthly board metrics, and quarterly bets with a single dashboard behind them." },
         { step: "Category or market bet", body: "One deliberate expansion per year either a new category or a new geography with a 12-month payback plan." },
       ],
@@ -564,7 +564,7 @@ export const HUB_PILLARS: Record<string, {
       eyebrow: "Ecommerce Operations Hub",
       h1: "Ecommerce Operations: the hidden lever that protects margin",
       answer:
-        "Ecommerce operations decide whether growth is profitable. Fulfilment cost, inventory turn, return rate, and CX response time compound into 10–15 margin points the same lift most brands chase through paid media, without the media spend.",
+        "Ecommerce operations decide whether growth is profitable. Fulfilment cost, inventory turn, return rate, and CX response time compound into 10-15 margin points the same lift most brands chase through paid media, without the media spend.",
       intro: (
         <>
           <p>
@@ -578,10 +578,10 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "Fulfilment as % of revenue", value: "8–15%", source: "ShipBob 2025 benchmark" },
-        { label: "Return rate (apparel)", value: "25–40%", source: "Loop Returns 2025" },
+        { label: "Fulfilment as % of revenue", value: "8-15%", source: "ShipBob 2025 benchmark" },
+        { label: "Return rate (apparel)", value: "25-40%", source: "Loop Returns 2025" },
         { label: "CX response SLA (best-in-class)", value: "< 2h", source: "Gorgias CX benchmarks" },
-        { label: "Inventory turn target", value: "5–8× / yr", source: "BeingEcom ops benchmarks" },
+        { label: "Inventory turn target", value: "5-8× / yr", source: "BeingEcom ops benchmarks" },
       ],
       subtopics: [
         { title: "3PL selection", summary: "How to score 3PLs on cost, SLA, tech, and international coverage.", href: "/services/consulting" },
@@ -595,7 +595,7 @@ export const HUB_PILLARS: Record<string, {
       ],
       playbook: [
         { step: "Ops baseline", body: "Score fulfilment cost / revenue, return rate, CX SLA, and inventory turn. Anything outside the benchmark ranges is the first fix." },
-        { step: "3PL and carrier review", body: "Re-tender the 3PL every 18–24 months and diversify the carrier mix to reduce peak-season risk." },
+        { step: "3PL and carrier review", body: "Re-tender the 3PL every 18-24 months and diversify the carrier mix to reduce peak-season risk." },
         { step: "Returns strategy", body: "Implement a returns portal, publish a clear policy, and start a refurb loop for high-margin categories." },
         { step: "CX SLA design", body: "Set first-response SLA under two hours (email) and one hour (chat), staff to it, and automate triage on Tier-1 tickets." },
         { step: "Peak season plan", body: "August: inventory forecast. September: CX plan. October: creative + landing. November: freeze changes. December: execute." },
@@ -603,8 +603,8 @@ export const HUB_PILLARS: Record<string, {
       faqs: [
         { q: "In-house fulfilment or 3PL?", a: "3PL until you exceed ~10,000 orders/month per region, then evaluate hybrid. Very few DTC brands beat a modern 3PL on unit cost until that scale." },
         { q: "Should we offer free returns?", a: "For apparel and considered categories, yes return-friendly brands win repeat rate. Pair free returns with a portal that upsells exchanges over refunds." },
-        { q: "How do we cut return rates?", a: "Better PDP (size guides, video, UGC), post-purchase education, and category-level analysis of return reasons. Fixing the top three reasons usually cuts rates 20–30%." },
-        { q: "What's the right CX headcount?", a: "One CX agent per ~1,500 monthly orders as a baseline, adjusted for ticket complexity. AI triage extends this ratio 30–50%." },
+        { q: "How do we cut return rates?", a: "Better PDP (size guides, video, UGC), post-purchase education, and category-level analysis of return reasons. Fixing the top three reasons usually cuts rates 20-30%." },
+        { q: "What's the right CX headcount?", a: "One CX agent per ~1,500 monthly orders as a baseline, adjusted for ticket complexity. AI triage extends this ratio 30-50%." },
       ],
       ctaService: { label: "See our Consulting service", to: "/services/consulting" },
       relatedServices: [
@@ -623,7 +623,7 @@ export const HUB_PILLARS: Record<string, {
       eyebrow: "Customer Retention Hub",
       h1: "Customer Retention: where profitable ecommerce is actually made",
       answer:
-        "Retention is the difference between an ecommerce business that scales profitably and one that funds the ad platforms. Every point of repeat rate over 35% adds 8–12% to LTV and lets you outbid every competitor for first-time buyers.",
+        "Retention is the difference between an ecommerce business that scales profitably and one that funds the ad platforms. Every point of repeat rate over 35% adds 8-12% to LTV and lets you outbid every competitor for first-time buyers.",
       intro: (
         <>
           <p>
@@ -638,10 +638,10 @@ export const HUB_PILLARS: Record<string, {
         </>
       ),
       keyFacts: [
-        { label: "Repeat rate (mature DTC)", value: "35–45%", source: "Shopify DTC report 2025" },
-        { label: "Subscription revenue share (haircare/consumables)", value: "30–50%", source: "Recharge 2025" },
-        { label: "Loyalty active member LTV lift", value: "+45–70%", source: "Yotpo Loyalty 2025" },
-        { label: "Winback flow revenue share", value: "3–6% of email revenue", source: "Klaviyo benchmarks" },
+        { label: "Repeat rate (mature DTC)", value: "35-45%", source: "Shopify DTC report 2025" },
+        { label: "Subscription revenue share (haircare/consumables)", value: "30-50%", source: "Recharge 2025" },
+        { label: "Loyalty active member LTV lift", value: "+45-70%", source: "Yotpo Loyalty 2025" },
+        { label: "Winback flow revenue share", value: "3-6% of email revenue", source: "Klaviyo benchmarks" },
       ],
       subtopics: [
         { title: "LTV modelling", summary: "Cohort CLV, predictive CLV, and the finance model behind CAC decisions.", href: "/services/analytics" },
@@ -661,10 +661,10 @@ export const HUB_PILLARS: Record<string, {
         { step: "Monthly cohort review", body: "First-of-month retention dashboard reviewed by the whole growth team, tied back to acquisition source and first SKU." },
       ],
       faqs: [
-        { q: "What's a good ecommerce repeat rate?", a: "35–45% at 12 months is healthy for most DTC categories. Consumables should target 50%+; considered purchases (furniture, appliances) 15–25%." },
+        { q: "What's a good ecommerce repeat rate?", a: "35-45% at 12 months is healthy for most DTC categories. Consumables should target 50%+; considered purchases (furniture, appliances) 15-25%." },
         { q: "Do subscriptions work for every brand?", a: "No they work best for consumables and predictable-reorder categories. Forcing them onto considered purchases hurts brand and lifts churn." },
         { q: "Is a loyalty programme worth building?", a: "Yes, once repeat rate is above 25% and you have >20,000 customers. Below that, invest the same energy in flows and VIP outreach." },
-        { q: "How do we improve LTV fast?", a: "Fix the second-order rate. Post-purchase flow, replenishment SMS, and a clean VIP tier typically add 15–25% LTV inside 90 days." },
+        { q: "How do we improve LTV fast?", a: "Fix the second-order rate. Post-purchase flow, replenishment SMS, and a clean VIP tier typically add 15-25% LTV inside 90 days." },
       ],
       ctaService: { label: "See our Scaling service", to: "/services/scaling" },
       relatedServices: [

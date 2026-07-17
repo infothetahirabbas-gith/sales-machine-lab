@@ -5,13 +5,13 @@ import heroImg from "../assets/hero-performance-marketing.jpg?format=webp&qualit
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do YouTube ads work for ecommerce?", a: "Yes - Video Action Campaigns and Demand Gen convert profitably for DTC brands with the right creative and CAPI-clean tracking. A specialist Ecommerce Marketing Agency UK will run YouTube alongside Google Shopping for maximum incremental lift." },
-  { q: "What's the minimum spend to test YouTube?", a: "£3k–£5k/mo for a 30-day read. Below that, YouTube's learning can't stabilise." },
+  { q: "What's the minimum spend to test YouTube?", a: "£3k-£5k/mo for a 30-day read. Below that, YouTube's learning can't stabilise." },
   { q: "Which YouTube ad formats do you run?", a: "Video Action Campaigns (VAC), Demand Gen, Shorts ads, and In-stream skippable - matched to funnel stage." },
-  { q: "How long should a YouTube ad be?", a: "15–60s for cold prospecting VAC; 6s bumpers for retargeting; 15–30s vertical Shorts for mobile-first reach." },
+  { q: "How long should a YouTube ad be?", a: "15-60s for cold prospecting VAC; 6s bumpers for retargeting; 15-30s vertical Shorts for mobile-first reach." },
   { q: "Do I need a Google Ads account already?", a: "Yes - YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
   { q: "YouTube Ads vs Meta or TikTok - where does it fit?", a: "YouTube is the biggest under-priced DR channel. It complements Meta (demand creation) and Google Search (harvest). A serious Ecommerce Growth Agency uses YouTube for incremental reach at Meta-beating CPMs." },
-  { q: "What ROAS should I expect on YouTube?", a: "2.8–3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search - measured by our Ecommerce SEO Agency UK team through query-level lift, not platform ROAS alone." },
-  { q: "How fast will YouTube Ads see results?", a: "30–45 days to stabilise VAC learning. Real scale from month 2 with 3–5 concept refreshes." },
+  { q: "What ROAS should I expect on YouTube?", a: "2.8-3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search - measured by our Ecommerce SEO Agency UK team through query-level lift, not platform ROAS alone." },
+  { q: "How fast will YouTube Ads see results?", a: "30-45 days to stabilise VAC learning. Real scale from month 2 with 3-5 concept refreshes." },
   { q: "Do you handle YouTube ad creative production?", a: "Yes - in-house video production, editing, hooks, voiceover and Shorts adaptations." },
   { q: "Can YouTube Shorts drive ecommerce sales?", a: "Yes - 9:16 vertical Shorts inventory is undervalued and mobile-first. Our Ecommerce Agency UK team ships Shorts adaptations of every VAC concept." },
   { q: "What about YouTube for Shopify and WooCommerce?", a: "Yes - VAC integrates with Merchant Center feeds for Shopping-adjacent product ads. Full Shopify Google channel and Woo feed management included." },
@@ -81,19 +81,19 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       triggers: ["Problem-solution","Founder story","Product demo","Review compilation","UGC testimonial","Comparison","Explainer","Native Shorts"],
       comparison: {
         rows: [
-          { criterion: "Format", us: "15–60s video + Shorts", agency: "Static feed + RSA", inhouse: "9:16 UGC" },
-          { criterion: "Typical ROAS", us: "2.8–3.5×", agency: "3.5–6× (Shopping)", inhouse: "1.8–3× (TikTok)" },
+          { criterion: "Format", us: "15-60s video + Shorts", agency: "Static feed + RSA", inhouse: "9:16 UGC" },
+          { criterion: "Typical ROAS", us: "2.8-3.5×", agency: "3.5-6× (Shopping)", inhouse: "1.8-3× (TikTok)" },
           { criterion: "Buyer intent", us: "Med (custom intent)", agency: "High (search)", inhouse: "Low (discovery)" },
           { criterion: "CPM efficiency", us: "Low (video inventory undervalued)", agency: "High", inhouse: "Very low" },
           { criterion: "Best funnel stage", us: "TOF + MOF DR", agency: "BOF harvest", inhouse: "TOF demand" },
-          { criterion: "Min viable spend", us: "£3–5k/mo", agency: "£3k/mo", inhouse: "£2–3k/mo" },
+          { criterion: "Min viable spend", us: "£3-5k/mo", agency: "£3k/mo", inhouse: "£2-3k/mo" },
         ],
       },
       mistakes: [
         { title: "Only running 30-second brand videos", body: "Cold VAC needs a real DR hook in the first 5 seconds. Cinematic brand content dies on skippable in-stream." },
-        { title: "No Shorts creative", body: "Shorts inventory is huge and undervalued. Skipping it leaves 20–40% of YouTube reach on the table." },
+        { title: "No Shorts creative", body: "Shorts inventory is huge and undervalued. Skipping it leaves 20-40% of YouTube reach on the table." },
         { title: "Broken enhanced conversions", body: "Without Enhanced Conversions, VAC signal is weak. It's the highest-leverage tracking fix on YouTube." },
-        { title: "Cutting spend before learning", body: "VAC needs 30–45 days to stabilise. Judging on week one wastes the learning window." },
+        { title: "Cutting spend before learning", body: "VAC needs 30-45 days to stabilise. Judging on week one wastes the learning window." },
         { title: "Ignoring branded search lift", body: "YouTube's true value shows in branded-search volume. Measure it via GA4 + Ecommerce SEO Agency UK reporting." },
       ],
       beforeAfter: {

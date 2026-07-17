@@ -16,7 +16,7 @@ const REPORTS = [
     status: "Data collection",
     title: "UK Ecommerce Growth Benchmark 2026",
     summary:
-      "Conversion rate, AOV, MER, RPR and email revenue share benchmarks across UK Shopify and WooCommerce brands £30k–£5M/month.",
+      "Conversion rate, AOV, MER, RPR and email revenue share benchmarks across UK Shopify and WooCommerce brands £30k-£5M/month.",
   },
   {
     slug: "meta-vs-google-uk-2026",
@@ -58,7 +58,7 @@ const REPORTS = [
     status: "Planning",
     title: "Shopify vs WooCommerce TCO Study (UK, 2026)",
     summary:
-      "True total cost of ownership platform, apps, hosting, dev, agency across 250 UK brands running each platform at £30k–£3M/month.",
+      "True total cost of ownership platform, apps, hosting, dev, agency across 250 UK brands running each platform at £30k-£3M/month.",
   },
 ];
 

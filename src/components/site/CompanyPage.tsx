@@ -125,7 +125,7 @@ export default function CompanyPage(props: CompanyPageProps) {
       id: "who-we-help",
       heading: "Brands and teams we partner with",
       items: [
-        { title: "Ecommerce founders", body: "Owners of £250k–£25M/yr Shopify or WooCommerce brands who need a senior growth partner." },
+        { title: "Ecommerce founders", body: "Owners of £250k-£25M/yr Shopify or WooCommerce brands who need a senior growth partner." },
         { title: "Heads of growth", body: "In-house leads who want a senior strategy layer over their existing executor team." },
         { title: "Marketing directors at DTC groups", body: "Multi-brand groups needing one accountable pod across paid, SEO, CRO and email." },
         { title: "Investor-backed brands", body: "Boards that need auditable reporting against MER, contribution margin and LTV not vanity ROAS." },
@@ -140,7 +140,7 @@ export default function CompanyPage(props: CompanyPageProps) {
         "Discovery: 30-minute qualifying call with the founder or a director.",
         "Diagnostic: 7-day deep dive across store, ads, SEO, email, analytics and creative.",
         "Plan: written 90-day plan with weekly milestones tied to P&L lines.",
-        "Onboarding: pod assembly, tool access, tracking hardening 5–7 days.",
+        "Onboarding: pod assembly, tool access, tracking hardening 5-7 days.",
         "Execution: weekly ship review, weekly scorecard, monthly strategy call.",
         "Review: 90-day retrospective, then continue month-to-month.",
       ],
@@ -163,7 +163,7 @@ export default function CompanyPage(props: CompanyPageProps) {
       heading: "Get in touch with BeingEcom",
       body: (
         <>
-          <p>Every page in the Company section links back to a real, contactable business. BeingEcom is registered at {ORG_INFO.address.streetAddress}, {ORG_INFO.address.addressLocality} {ORG_INFO.address.postalCode}, {ORG_INFO.address.addressCountry}. Reach us at {ORG_INFO.email} or {ORG_INFO.telephone} on UK business hours (Mon–Fri, 09:00–18:00 GMT/BST).</p>
+          <p>Every page in the Company section links back to a real, contactable business. BeingEcom is registered at {ORG_INFO.address.streetAddress}, {ORG_INFO.address.addressLocality} {ORG_INFO.address.postalCode}, {ORG_INFO.address.addressCountry}. Reach us at {ORG_INFO.email} or {ORG_INFO.telephone} on UK business hours (Mon-Fri, 09:00-18:00 GMT/BST).</p>
           <p>For a scoped conversation, book a 30-minute discovery call via the <Link to="/contact" className="text-primary underline">contact page</Link> or run the free <Link to="/audit" className="text-primary underline">Being Ecom Brain™ growth audit</Link> first and bring the report to the call.</p>
         </>
       ),

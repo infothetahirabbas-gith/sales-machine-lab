@@ -5,7 +5,7 @@ import heroImg from "../assets/hero-shopify-commerce.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do you build on Shopify or Shopify Plus?", a: "Both. Standard Shopify for growing DTC brands, Shopify Plus for £5m+ merchants that need Scripts, Flow, checkout extensibility, wholesale channels and B2B." },
-  { q: "How long does a Shopify build take?", a: "A conversion-first standard Shopify build ships in 4–6 weeks. Shopify Plus custom builds run 8–12 weeks. Migrations from Magento, BigCommerce, WooCommerce or Wix take 6–10 weeks including full 301 mapping and SEO preservation." },
+  { q: "How long does a Shopify build take?", a: "A conversion-first standard Shopify build ships in 4-6 weeks. Shopify Plus custom builds run 8-12 weeks. Migrations from Magento, BigCommerce, WooCommerce or Wix take 6-10 weeks including full 301 mapping and SEO preservation." },
   { q: "Will my Shopify store pass Core Web Vitals?", a: "Yes. We engineer for green CWV on mobile 4G - lean Liquid, image optimisation, deferred sections, minimal apps and a curated theme. It's a ranking lever and a direct conversion lever." },
   { q: "Do you customise themes or build from scratch?", a: "Both. We optimise premium OS 2.0 themes like Impulse, Prestige and Dawn for speed and CR, or build fully custom Liquid sections. For brands needing best-in-class UX we build headless on Hydrogen or Remix on Oxygen." },
   { q: "Can you migrate my existing store to Shopify?", a: "Yes - from Magento, BigCommerce, WooCommerce, Wix or custom carts. Products, customers, orders, blog content, redirects, SEO metadata, review data and Klaviyo flows are preserved with a documented 301 map." },
@@ -91,11 +91,11 @@ export const Route = createFileRoute("/services/store-development/shopify")({
       ],
       mistakes: [
         { title: "Shipping the theme demo", body: "Stock themes are designed to look good in screenshots, not to convert your buyer. Every section must earn its place against real funnel data - otherwise it's just decoration that slows the page." },
-        { title: "Installing 20+ apps", body: "Each Shopify app injects JavaScript into every page and often duplicates functionality. We routinely delete 40–60% of app bloat during audits - usually with zero feature loss and a 30–50% speed lift." },
+        { title: "Installing 20+ apps", body: "Each Shopify app injects JavaScript into every page and often duplicates functionality. We routinely delete 40-60% of app bloat during audits - usually with zero feature loss and a 30-50% speed lift." },
         { title: "Ignoring mobile PDP", body: "70% of Shopify traffic buys on mobile, but most PDPs are designed on a 27-inch desktop. If the primary ATC isn't in the first thumb zone, mobile CR will stay flat forever." },
         { title: "Skipping structured data", body: "Product, Offer, AggregateRating, BreadcrumbList and FAQ schema are how Google - and now AI Overviews - understand a Shopify store. Missing them costs you both rankings and rich results." },
         { title: "Under-using metafields", body: "Metafields and metaobjects are what let non-devs merchandise fast. Skip them and every content change becomes a dev ticket, which quietly kills iteration speed." },
-        { title: "No post-purchase funnel", body: "The order confirmation page is the highest-intent moment in the entire funnel. Ignoring one-click upsells and post-purchase offers leaves 8–15% AOV on the table every month." },
+        { title: "No post-purchase funnel", body: "The order confirmation page is the highest-intent moment in the entire funnel. Ignoring one-click upsells and post-purchase offers leaves 8-15% AOV on the table every month." },
       ],
       comparison: {
         rows: [
@@ -124,12 +124,12 @@ export const Route = createFileRoute("/services/store-development/shopify")({
         { w: "Week 6", t: "Launch & handover", b: "Monitored go-live, 301 map deployed, GA4/GSC validated, team training and post-launch playbook delivered." },
       ],
       industryImpact: [
-        { industry: "Fashion & Apparel", pain: "High return rates and low mobile CR on visually heavy PDPs.", outcome: "Sticky ATC + size guide + UGC gallery + Shop Pay lifts mobile CR by 2–3× within 60 days." },
-        { industry: "Beauty & Skincare", pain: "Complex routines and ingredient stories are buried below the fold.", outcome: "Ingredient blocks + before/after + subscribe module drives 30–40% subscription attach." },
+        { industry: "Fashion & Apparel", pain: "High return rates and low mobile CR on visually heavy PDPs.", outcome: "Sticky ATC + size guide + UGC gallery + Shop Pay lifts mobile CR by 2-3× within 60 days." },
+        { industry: "Beauty & Skincare", pain: "Complex routines and ingredient stories are buried below the fold.", outcome: "Ingredient blocks + before/after + subscribe module drives 30-40% subscription attach." },
         { industry: "Supplements & Wellness", pain: "Compliance-heavy claims kill above-the-fold clarity.", outcome: "Structured benefit blocks + reviews + Recharge subscription flow raises LTV by 60%+." },
-        { industry: "Home & Furniture", pain: "Configurable products crush native Shopify variants.", outcome: "Metaobject-driven configurator + AR preview + financing badges lifts AOV 40–70%." },
+        { industry: "Home & Furniture", pain: "Configurable products crush native Shopify variants.", outcome: "Metaobject-driven configurator + AR preview + financing badges lifts AOV 40-70%." },
         { industry: "Food & Beverage", pain: "Bundle logic and shipping cut-offs confuse buyers.", outcome: "Bundle builder + delivery-zone widget + subscribe & save prints predictable weekly revenue." },
-        { industry: "Electronics & DTC gadgets", pain: "Long consideration cycles and abandoned carts.", outcome: "Comparison tables + finance calculator + Klaviyo abandonment recovers 12–18% of lost carts." },
+        { industry: "Electronics & DTC gadgets", pain: "Long consideration cycles and abandoned carts.", outcome: "Comparison tables + finance calculator + Klaviyo abandonment recovers 12-18% of lost carts." },
       ],
       beforeAfter: {
         before: [
@@ -213,20 +213,20 @@ export const Route = createFileRoute("/services/store-development/shopify")({
             "Core app stack wired",
             "Green Core Web Vitals",
             "GA4 & Meta CAPI setup",
-            "4–6 week timeline",
+            "4-6 week timeline",
           ],
         },
         {
           tier: "Growth",
           price: "from £14k",
-          body: "Fully custom OS 2.0 Shopify build for scaling brands £50k–£500k/mo.",
+          body: "Fully custom OS 2.0 Shopify build for scaling brands £50k-£500k/mo.",
           features: [
             "Custom Liquid sections & metafields",
             "Full PDP engine + bundle picker",
             "Migration & 301 mapping included",
             "Server-side tracking (sGTM)",
             "90-day post-launch CRO window",
-            "6–8 week timeline",
+            "6-8 week timeline",
           ],
           featured: true,
         },
@@ -240,7 +240,7 @@ export const Route = createFileRoute("/services/store-development/shopify")({
             "B2B / wholesale channel",
             "Headless Hydrogen option",
             "Dedicated senior team",
-            "8–12 week timeline",
+            "8-12 week timeline",
           ],
         },
       ],
@@ -268,7 +268,7 @@ export const Route = createFileRoute("/services/store-development/shopify")({
         { label: "Page load (LCP)", before: 4.8, after: 1.4, unit: "s", description: "Largest Contentful Paint on mobile 4G. Every 1s faster ≈ 7% more Shopify revenue." },
         { label: "Mobile CR", before: 0.9, after: 3.2, unit: "%", description: "Shopify mobile conversion rate - where 70% of DTC traffic buys." },
         { label: "AOV", before: 46, after: 78, unit: "£", description: "AOV lifted with Shopify Bundles, upsells and tiered offers built into the theme." },
-        { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed on Shopify (0–100). Directly affects SEO and Meta ad quality." },
+        { label: "Lighthouse score", before: 52, after: 96, description: "Google PageSpeed on Shopify (0-100). Directly affects SEO and Meta ad quality." },
       ],
       faqs: FAQ_LIST,
     }} />

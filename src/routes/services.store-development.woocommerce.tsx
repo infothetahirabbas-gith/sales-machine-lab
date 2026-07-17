@@ -5,7 +5,7 @@ import heroImg from "../assets/hero-woocommerce-store.jpg";
 
 const FAQ_LIST: FAQ[] = [
   { q: "Do you build WooCommerce stores from scratch?", a: "Yes - custom WordPress + WooCommerce builds with performant hosting, conversion-ready templates and every plugin justified against revenue impact." },
-  { q: "How long does a WooCommerce build take?", a: "Standard Woo store: 6–8 weeks. Custom / high-catalogue Woo: 8–12 weeks. Headless Woo with a React/Next.js frontend: 10–14 weeks." },
+  { q: "How long does a WooCommerce build take?", a: "Standard Woo store: 6-8 weeks. Custom / high-catalogue Woo: 8-12 weeks. Headless Woo with a React/Next.js frontend: 10-14 weeks." },
   { q: "Can you make WooCommerce fast?", a: "Yes. Object cache (Redis), full-page cache, image CDN, lean theme, and only the plugins that earn their weight. We routinely hit sub-2s LCP on Woo." },
   { q: "Do you migrate from Shopify or Magento to WooCommerce?", a: "Yes - products, customers, orders, categories, redirects and SEO metadata all preserved. Full 301 mapping so rankings don't drop." },
   { q: "What hosting do you recommend for WooCommerce?", a: "Kinsta, WP Engine or Cloudways for most brands. Dedicated / Cloudflare Enterprise for £500K+/month stores. We handle the setup and tuning." },
@@ -90,7 +90,7 @@ export const Route = createFileRoute("/services/store-development/woocommerce")(
         { label: "Page load (s)", before: 5.6, after: 1.6, unit: "s", description: "LCP on mobile 4G. Every 1s faster ≈ 7% more Woo conversions." },
         { label: "Mobile CR", before: 0.8, after: 3.0, unit: "%", description: "WooCommerce mobile conversion - where 70% of DTC traffic buys." },
         { label: "AOV", before: 44, after: 76, unit: "£", description: "AOV lifted with Woo cross-sells, upsells, and bundle plugins built into the theme." },
-        { label: "Lighthouse score", before: 46, after: 94, description: "Google PageSpeed on WooCommerce (0–100). Directly affects SEO + Meta ad quality." },
+        { label: "Lighthouse score", before: 46, after: 94, description: "Google PageSpeed on WooCommerce (0-100). Directly affects SEO + Meta ad quality." },
       ],
       faqs: FAQ_LIST,
     }} />

@@ -146,7 +146,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     vibe: "London is the UK's DTC capital - CPMs are brutal, shoppers are savvy, and creative fatigue is measured in days.",
     whyCity: [
       { title: "Highest AOV market in the UK", body: "London postcodes over-index 22% on order value versus the UK average - every optimisation compounds harder here." },
-      { title: "Density of Shopify Plus brands", body: "More 7-figure Shopify Plus merchants HQ'd in Zone 1–3 than any other UK city." },
+      { title: "Density of Shopify Plus brands", body: "More 7-figure Shopify Plus merchants HQ'd in Zone 1-3 than any other UK city." },
       { title: "Elite creative talent pool", body: "UGC creators, photographers and motion editors ready to shoot within 48 hours across all boroughs." },
       { title: "In-person Shoreditch strategy days", body: "We run quarterly workshops from Old Street to Kings Cross with your founder + growth team." },
     ],

@@ -4,9 +4,9 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-creative.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "How many ad creatives do you produce per month?", a: "Standard pods ship 20–40 creatives/month - a mix of UGC, statics, founder, demo and remixes of winners. Scale pods ship 60-100." },
+  { q: "How many ad creatives do you produce per month?", a: "Standard pods ship 20-40 creatives/month - a mix of UGC, statics, founder, demo and remixes of winners. Scale pods ship 60-100." },
   { q: "Do you source UGC creators?", a: "Yes - we cast, brief, ship product, review footage and edit into ad-ready variants. You approve the briefs, we run the pipeline. 200+ UK + US creators in our roster." },
-  { q: "What makes a winning ecommerce ad?", a: "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA - tested against 8–12 angles, not 1 hero. Format + hook > production quality, every time." },
+  { q: "What makes a winning ecommerce ad?", a: "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA - tested against 8-12 angles, not 1 hero. Format + hook > production quality, every time." },
   { q: "Will the creatives match my brand?", a: "Yes. We work from your brand book, tone and visual guardrails - creator-led but on-brand. Every batch goes through brand QA before ship." },
   { q: "Who owns the footage?", a: "You do. We hand over raw clips, edits, source files and creator releases at the end of every sprint. No hostage-taking, no re-use fees." },
   { q: "Do you offer a free creative audit?", a: "Yes - a free 30-minute audit reviewing your current creative library, hook rate, thumbstop rate and format mix. Delivered by a senior UK creative strategist." },
@@ -180,7 +180,7 @@ export const Route = createFileRoute("/services/creative")({
       ],
       metricBars: [
         { label: "Hook rate (3s view)", before: 18, after: 46, unit: "%", description: "Share of viewers who watch the first 3 seconds - the #1 creative signal in Meta." },
-        { label: "Thumbstop rate", before: 24, after: 52, unit: "%", description: "Hold-rate at the first frame. Strong thumbstops lower CPM by 30–50%." },
+        { label: "Thumbstop rate", before: 24, after: 52, unit: "%", description: "Hold-rate at the first frame. Strong thumbstops lower CPM by 30-50%." },
         { label: "CTR", before: 0.8, after: 2.3, unit: "%", description: "Click-through rate on cold creative - measures concept + offer clarity." },
         { label: "Creative ROAS", before: 1.5, after: 3.9, unit: "×", description: "ROAS isolated to new creative concepts (not winning evergreens)." },
         { label: "Cost per thumbstop", before: 0.48, after: 0.18, unit: "£", description: "How expensive each engaged view is. Lower = healthier funnel top." },

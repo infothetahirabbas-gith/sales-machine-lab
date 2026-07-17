@@ -83,7 +83,7 @@ export const Route = createFileRoute("/company/why-us")({
         { q: "What makes BeingEcom different from other agencies?", a: "Three things: we're ecommerce-only, we're senior-only, and we tie every deliverable to a P&L line. Most agencies do at most one of those." },
         { q: "How do I know your claims are real?", a: "We publish anonymised case studies with real scope and numbers, and we're happy to backchannel-reference with previous clients on request during discovery." },
         { q: "Are you more expensive than a freelancer?", a: "Per hour, yes because you're getting senior operators. Per outcome, usually less, because you're not paying to train someone on your account or to redo work that shipped wrong." },
-        { q: "What's your typical engagement length?", a: "90-day fixed to install the plan and land initial wins, then month-to-month. Most brands stay 12–24 months voluntarily; we don't hold anyone in a contract." },
+        { q: "What's your typical engagement length?", a: "90-day fixed to install the plan and land initial wins, then month-to-month. Most brands stay 12-24 months voluntarily; we don't hold anyone in a contract." },
         { q: "Do you replace or augment an in-house team?", a: "Either. We can be the full growth stack for a lean brand or the senior strategy layer over an existing in-house executor." },
       ]}
     />

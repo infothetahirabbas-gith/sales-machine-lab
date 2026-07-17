@@ -119,8 +119,8 @@ function IndustryPaidAdsPage() {
   ];
 
   const BUDGET = [
-    { tier: "£3k–£8k/mo",  headline: "Test & prove",  body: "Single channel (usually Meta) to prove economics before scaling." },
-    { tier: "£8k–£25k/mo", headline: "Scale phase",   body: "Meta + Google in parallel, creative production baked in." },
+    { tier: "£3k-£8k/mo",  headline: "Test & prove",  body: "Single channel (usually Meta) to prove economics before scaling." },
+    { tier: "£8k-£25k/mo", headline: "Scale phase",   body: "Meta + Google in parallel, creative production baked in." },
     { tier: "£25k+/mo",    headline: "Growth engine", body: "Full-channel stack, senior pod, weekly strategy days." },
   ];
 

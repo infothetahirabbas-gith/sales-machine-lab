@@ -81,7 +81,7 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
     supporting: ["Conversion Rate Optimisation UK", "Shopify CRO Agency UK", "Best Ecommerce CRO Agency UK"],
     title: "Ecommerce CRO Agency UK | Shopify Conversion Rate Optimisation | BeingEcom",
     description:
-      "Ecommerce CRO Agency UK turning existing traffic into 2–3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands.",
+      "Ecommerce CRO Agency UK turning existing traffic into 2-3× more sales. A/B testing, PDP & checkout optimisation for Shopify and WooCommerce brands.",
   },
   "/services/performance-marketing": {
     primary: "Ecommerce PPC Agency UK",
@@ -137,7 +137,7 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
     supporting: ["Klaviyo Agency UK", "Shopify Email Marketing Agency UK", "Best Email Marketing Agency UK"],
     title: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom",
     description:
-      "Ecommerce Email Marketing Agency UK. Klaviyo flows, campaigns and SMS that drive 30–45% of monthly revenue for Shopify and WooCommerce brands.",
+      "Ecommerce Email Marketing Agency UK. Klaviyo flows, campaigns and SMS that drive 30-45% of monthly revenue for Shopify and WooCommerce brands.",
   },
   "/services/creative": {
     primary: "Ecommerce Creative Agency UK",
