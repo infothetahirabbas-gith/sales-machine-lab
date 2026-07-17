@@ -48,7 +48,6 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BenchmarksIndexRouteImport } from './routes/benchmarks.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
-import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
 import { Route as ServicesPaidAdsRouteImport } from './routes/services.paid-ads'
 import { Route as ServicesFunnelRouteImport } from './routes/services.funnel'
@@ -86,6 +85,7 @@ import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 import { Route as AboutTahirAbbasRouteImport } from './routes/about.tahir-abbas'
+import { Route as ServicesStoreDevelopmentIndexRouteImport } from './routes/services.store-development.index'
 import { Route as ServicesSeoIndexRouteImport } from './routes/services.seo.index'
 import { Route as ServicesPerformanceMarketingIndexRouteImport } from './routes/services.performance-marketing.index'
 import { Route as ServicesStoreDevelopmentWoocommerceRouteImport } from './routes/services.store-development.woocommerce'
@@ -303,12 +303,6 @@ const ToolsSlugRoute = ToolsSlugRouteImport.update({
   path: '/tools/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesStoreDevelopmentRoute =
-  ServicesStoreDevelopmentRouteImport.update({
-    id: '/services/store-development',
-    path: '/services/store-development',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const ServicesScalingRoute = ServicesScalingRouteImport.update({
   id: '/services/scaling',
   path: '/services/scaling',
@@ -494,6 +488,12 @@ const AboutTahirAbbasRoute = AboutTahirAbbasRouteImport.update({
   path: '/about/tahir-abbas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesStoreDevelopmentIndexRoute =
+  ServicesStoreDevelopmentIndexRouteImport.update({
+    id: '/services/store-development/',
+    path: '/services/store-development/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicesSeoIndexRoute = ServicesSeoIndexRouteImport.update({
   id: '/services/seo/',
   path: '/services/seo/',
@@ -507,15 +507,15 @@ const ServicesPerformanceMarketingIndexRoute =
   } as any)
 const ServicesStoreDevelopmentWoocommerceRoute =
   ServicesStoreDevelopmentWoocommerceRouteImport.update({
-    id: '/woocommerce',
-    path: '/woocommerce',
-    getParentRoute: () => ServicesStoreDevelopmentRoute,
+    id: '/services/store-development/woocommerce',
+    path: '/services/store-development/woocommerce',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesStoreDevelopmentShopifyRoute =
   ServicesStoreDevelopmentShopifyRouteImport.update({
-    id: '/shopify',
-    path: '/shopify',
-    getParentRoute: () => ServicesStoreDevelopmentRoute,
+    id: '/services/store-development/shopify',
+    path: '/services/store-development/shopify',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const ServicesSeoTechnicalRoute = ServicesSeoTechnicalRouteImport.update({
   id: '/services/seo/technical',
@@ -672,7 +672,6 @@ export interface FileRoutesByFullPath {
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
   '/about/': typeof AboutIndexRoute
   '/benchmarks/': typeof BenchmarksIndexRoute
@@ -702,6 +701,7 @@ export interface FileRoutesByFullPath {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/services/performance-marketing/': typeof ServicesPerformanceMarketingIndexRoute
   '/services/seo/': typeof ServicesSeoIndexRoute
+  '/services/store-development/': typeof ServicesStoreDevelopmentIndexRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
   '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
@@ -766,7 +766,6 @@ export interface FileRoutesByTo {
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
   '/about': typeof AboutIndexRoute
   '/benchmarks': typeof BenchmarksIndexRoute
@@ -796,6 +795,7 @@ export interface FileRoutesByTo {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingIndexRoute
   '/services/seo': typeof ServicesSeoIndexRoute
+  '/services/store-development': typeof ServicesStoreDevelopmentIndexRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
   '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
@@ -866,7 +866,6 @@ export interface FileRoutesById {
   '/services/funnel': typeof ServicesFunnelRoute
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
-  '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
   '/about/': typeof AboutIndexRoute
   '/benchmarks/': typeof BenchmarksIndexRoute
@@ -896,6 +895,7 @@ export interface FileRoutesById {
   '/services/store-development/woocommerce': typeof ServicesStoreDevelopmentWoocommerceRoute
   '/services/performance-marketing/': typeof ServicesPerformanceMarketingIndexRoute
   '/services/seo/': typeof ServicesSeoIndexRoute
+  '/services/store-development/': typeof ServicesStoreDevelopmentIndexRoute
   '/$lang/$location/$industry/$service': typeof LangLocationIndustryServiceRoute
   '/api/public/debug/faq-jsonld': typeof ApiPublicDebugFaqJsonldRoute
   '/api/public/hooks/gsc-monitor': typeof ApiPublicHooksGscMonitorRoute
@@ -967,7 +967,6 @@ export interface FileRouteTypes {
     | '/services/funnel'
     | '/services/paid-ads'
     | '/services/scaling'
-    | '/services/store-development'
     | '/tools/$slug'
     | '/about/'
     | '/benchmarks/'
@@ -997,6 +996,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/services/performance-marketing/'
     | '/services/seo/'
+    | '/services/store-development/'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
     | '/api/public/hooks/gsc-monitor'
@@ -1061,7 +1061,6 @@ export interface FileRouteTypes {
     | '/services/funnel'
     | '/services/paid-ads'
     | '/services/scaling'
-    | '/services/store-development'
     | '/tools/$slug'
     | '/about'
     | '/benchmarks'
@@ -1091,6 +1090,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/services/performance-marketing'
     | '/services/seo'
+    | '/services/store-development'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
     | '/api/public/hooks/gsc-monitor'
@@ -1160,7 +1160,6 @@ export interface FileRouteTypes {
     | '/services/funnel'
     | '/services/paid-ads'
     | '/services/scaling'
-    | '/services/store-development'
     | '/tools/$slug'
     | '/about/'
     | '/benchmarks/'
@@ -1190,6 +1189,7 @@ export interface FileRouteTypes {
     | '/services/store-development/woocommerce'
     | '/services/performance-marketing/'
     | '/services/seo/'
+    | '/services/store-development/'
     | '/$lang/$location/$industry/$service'
     | '/api/public/debug/faq-jsonld'
     | '/api/public/hooks/gsc-monitor'
@@ -1240,7 +1240,6 @@ export interface RootRouteChildren {
   ServicesFunnelRoute: typeof ServicesFunnelRoute
   ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
   ServicesScalingRoute: typeof ServicesScalingRoute
-  ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   ToolsSlugRoute: typeof ToolsSlugRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
@@ -1260,8 +1259,11 @@ export interface RootRouteChildren {
   ServicesSeoOffPageRoute: typeof ServicesSeoOffPageRoute
   ServicesSeoOnPageRoute: typeof ServicesSeoOnPageRoute
   ServicesSeoTechnicalRoute: typeof ServicesSeoTechnicalRoute
+  ServicesStoreDevelopmentShopifyRoute: typeof ServicesStoreDevelopmentShopifyRoute
+  ServicesStoreDevelopmentWoocommerceRoute: typeof ServicesStoreDevelopmentWoocommerceRoute
   ServicesPerformanceMarketingIndexRoute: typeof ServicesPerformanceMarketingIndexRoute
   ServicesSeoIndexRoute: typeof ServicesSeoIndexRoute
+  ServicesStoreDevelopmentIndexRoute: typeof ServicesStoreDevelopmentIndexRoute
   LangLocationIndustryServiceRoute: typeof LangLocationIndustryServiceRoute
   ApiPublicDebugFaqJsonldRoute: typeof ApiPublicDebugFaqJsonldRoute
   ApiPublicHooksGscMonitorRoute: typeof ApiPublicHooksGscMonitorRoute
@@ -1542,13 +1544,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/store-development': {
-      id: '/services/store-development'
-      path: '/services/store-development'
-      fullPath: '/services/store-development'
-      preLoaderRoute: typeof ServicesStoreDevelopmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services/scaling': {
       id: '/services/scaling'
       path: '/services/scaling'
@@ -1808,6 +1803,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutTahirAbbasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/store-development/': {
+      id: '/services/store-development/'
+      path: '/services/store-development'
+      fullPath: '/services/store-development/'
+      preLoaderRoute: typeof ServicesStoreDevelopmentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/seo/': {
       id: '/services/seo/'
       path: '/services/seo'
@@ -1824,17 +1826,17 @@ declare module '@tanstack/react-router' {
     }
     '/services/store-development/woocommerce': {
       id: '/services/store-development/woocommerce'
-      path: '/woocommerce'
+      path: '/services/store-development/woocommerce'
       fullPath: '/services/store-development/woocommerce'
       preLoaderRoute: typeof ServicesStoreDevelopmentWoocommerceRouteImport
-      parentRoute: typeof ServicesStoreDevelopmentRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/store-development/shopify': {
       id: '/services/store-development/shopify'
-      path: '/shopify'
+      path: '/services/store-development/shopify'
       fullPath: '/services/store-development/shopify'
       preLoaderRoute: typeof ServicesStoreDevelopmentShopifyRouteImport
-      parentRoute: typeof ServicesStoreDevelopmentRoute
+      parentRoute: typeof rootRouteImport
     }
     '/services/seo/technical': {
       id: '/services/seo/technical'
@@ -2057,23 +2059,6 @@ const IndustriesSlugRouteWithChildren = IndustriesSlugRoute._addFileChildren(
   IndustriesSlugRouteChildren,
 )
 
-interface ServicesStoreDevelopmentRouteChildren {
-  ServicesStoreDevelopmentShopifyRoute: typeof ServicesStoreDevelopmentShopifyRoute
-  ServicesStoreDevelopmentWoocommerceRoute: typeof ServicesStoreDevelopmentWoocommerceRoute
-}
-
-const ServicesStoreDevelopmentRouteChildren: ServicesStoreDevelopmentRouteChildren =
-  {
-    ServicesStoreDevelopmentShopifyRoute: ServicesStoreDevelopmentShopifyRoute,
-    ServicesStoreDevelopmentWoocommerceRoute:
-      ServicesStoreDevelopmentWoocommerceRoute,
-  }
-
-const ServicesStoreDevelopmentRouteWithChildren =
-  ServicesStoreDevelopmentRoute._addFileChildren(
-    ServicesStoreDevelopmentRouteChildren,
-  )
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
@@ -2119,7 +2104,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesFunnelRoute: ServicesFunnelRoute,
   ServicesPaidAdsRoute: ServicesPaidAdsRoute,
   ServicesScalingRoute: ServicesScalingRoute,
-  ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   ToolsSlugRoute: ToolsSlugRoute,
   AboutIndexRoute: AboutIndexRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
@@ -2145,9 +2129,13 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesSeoOffPageRoute: ServicesSeoOffPageRoute,
   ServicesSeoOnPageRoute: ServicesSeoOnPageRoute,
   ServicesSeoTechnicalRoute: ServicesSeoTechnicalRoute,
+  ServicesStoreDevelopmentShopifyRoute: ServicesStoreDevelopmentShopifyRoute,
+  ServicesStoreDevelopmentWoocommerceRoute:
+    ServicesStoreDevelopmentWoocommerceRoute,
   ServicesPerformanceMarketingIndexRoute:
     ServicesPerformanceMarketingIndexRoute,
   ServicesSeoIndexRoute: ServicesSeoIndexRoute,
+  ServicesStoreDevelopmentIndexRoute: ServicesStoreDevelopmentIndexRoute,
   LangLocationIndustryServiceRoute: LangLocationIndustryServiceRoute,
   ApiPublicDebugFaqJsonldRoute: ApiPublicDebugFaqJsonldRoute,
   ApiPublicHooksGscMonitorRoute: ApiPublicHooksGscMonitorRoute,

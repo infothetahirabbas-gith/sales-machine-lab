@@ -36,7 +36,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What's the ecommerce agency process for migrating platforms?", a: "Platform migration typically follows: audit and data mapping, staged rebuild on the new platform, 301 redirect mapping to preserve SEO equity, parallel testing, then a low-traffic cutover window with post-launch monitoring for broken links and tracking gaps." },
 ];
 
-export const Route = createFileRoute("/services/store-development")({
+export const Route = createFileRoute("/services/store-development/")({
   head: () => ({
     meta: [
       { title: "Specialist Shopify & WooCommerce Development Agency UK | BeingEcom" },
