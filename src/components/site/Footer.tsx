@@ -3,7 +3,32 @@ import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 
 import { SITE } from "@/config/site";
 import { COMPANY_LINKS } from "@/config/company";
 import { SERVICES } from "@/config/services";
+import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
+
+// Hub pillars, tools and comparisons - keeps every deep page ≤2 clicks from home
+// so Google can crawl them and they don't end up "Discovered - currently not indexed".
+const HUB_PILLARS: { to: string; label: string }[] = [
+  { to: "/hub/shopify-growth", label: "Shopify Growth" },
+  { to: "/hub/woocommerce-growth", label: "WooCommerce Growth" },
+  { to: "/hub/ecommerce-seo", label: "Ecommerce SEO" },
+  { to: "/hub/paid-media", label: "Paid Media" },
+  { to: "/hub/cro", label: "CRO" },
+  { to: "/hub/email-marketing", label: "Email Marketing" },
+  { to: "/hub/ai-automation", label: "AI Automation" },
+  { to: "/hub/analytics-tracking", label: "Analytics & Tracking" },
+];
+
+const RESOURCES: { to: string; label: string }[] = [
+  { to: "/blog", label: "Blog" },
+  { to: "/case-studies", label: "Case Studies" },
+  { to: "/tools", label: "Free Tools" },
+  { to: "/compare", label: "Comparisons" },
+  { to: "/benchmarks", label: "Benchmarks" },
+  { to: "/methodology", label: "Growth Methodology" },
+  { to: "/glossary", label: "SEO Glossary" },
+  { to: "/research", label: "Research" },
+];
 
 export default function Footer() {
   return (
