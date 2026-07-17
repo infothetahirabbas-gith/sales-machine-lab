@@ -34,14 +34,14 @@ const COMPARE: Record<string, ComparisonEntry> = {
     eyebrow: "Platform comparison",
     h1: "Shopify vs WooCommerce (UK, 2026)",
     verdict:
-      "For most UK DTC brands doing £0–£10M/year, Shopify wins on speed-to-launch, checkout conversion, PSD2/Strong Customer Authentication handling and total cost of ownership. WooCommerce wins for content-led, high-margin niches that need deep customisation and already run WordPress engineering.",
+      "For most UK DTC brands doing £0-£10M/year, Shopify wins on speed-to-launch, checkout conversion, PSD2/Strong Customer Authentication handling and total cost of ownership. WooCommerce wins for content-led, high-margin niches that need deep customisation and already run WordPress engineering.",
     bestFor: {
-      a: "DTC brands £0–£10M scaling paid + email without a dev team.",
+      a: "DTC brands £0-£10M scaling paid + email without a dev team.",
       b: "Content-led, high-margin brands with WordPress and dev in-house.",
     },
     rows: [
-      { criterion: "Speed to launch", a: "1–4 weeks", b: "4–12 weeks", winner: "a" },
-      { criterion: "Monthly platform cost", a: "£25–£2,300", b: "£30–£400 (hosting + plugins)", winner: "b" },
+      { criterion: "Speed to launch", a: "1-4 weeks", b: "4-12 weeks", winner: "a" },
+      { criterion: "Monthly platform cost", a: "£25-£2,300", b: "£30-£400 (hosting + plugins)", winner: "b" },
       { criterion: "Checkout conversion", a: "Best-in-class, PSD2 handled", b: "Plugin-dependent", winner: "a" },
       { criterion: "Design freedom", a: "Themes + sections", b: "Total freedom (dev needed)", winner: "b" },
       { criterion: "Plugin/app ecosystem", a: "8,000+ curated apps", b: "60,000+ plugins (quality varies)", winner: "a" },
@@ -66,7 +66,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     cons: {
       a: [
-        "Monthly SaaS + app stack adds up (£300–£1,500/mo typical)",
+        "Monthly SaaS + app stack adds up (£300-£1,500/mo typical)",
         "Some checkout customisation still Plus-only",
         "Transaction fees if not using Shopify Payments",
       ],
@@ -90,16 +90,16 @@ const COMPARE: Record<string, ComparisonEntry> = {
         </p>
         <p>
           Choose WooCommerce when you're content-led, already on WordPress, and have engineering
-          capacity you'd otherwise waste. Above £3–5M/year the platform choice matters far less than
+          capacity you'd otherwise waste. Above £3-5M/year the platform choice matters far less than
           your ops, creative and retention systems.
         </p>
       </>
     ),
     faqs: [
       { q: "Is Shopify or WooCommerce better for SEO in the UK?", a: "Both can rank equally well. WooCommerce has a higher technical ceiling because you own the stack, but Shopify's built-in structure (predictable URLs, fast global CDN, clean JSON-LD support via apps) means most brands rank faster on Shopify without needing a developer." },
-      { q: "What's the real total cost of ownership?", a: "Shopify: platform + apps + payment fees typically £300–£1,500/month for a growing DTC brand. WooCommerce: hosting + plugins + maintenance dev retainer typically £250–£800/month, but a checkout or Core Web Vitals project can add £5k–£30k one-off." },
-      { q: "Which converts better in the UK?", a: "Shopify's Shop Pay accelerator and PSD2/SCA-optimised checkout typically converts 5–15% higher on mobile than a default WooCommerce checkout. A custom Woo checkout can close the gap but rarely beats Shop Pay." },
-      { q: "Can I migrate WooCommerce to Shopify later?", a: "Yes products, customers, orders, historical data and blog content all migrate cleanly with tools like Matrixify or LitExtension. Redirects and SEO transfer are the make-or-break; plan 3–6 weeks with a specialist." },
+      { q: "What's the real total cost of ownership?", a: "Shopify: platform + apps + payment fees typically £300-£1,500/month for a growing DTC brand. WooCommerce: hosting + plugins + maintenance dev retainer typically £250-£800/month, but a checkout or Core Web Vitals project can add £5k-£30k one-off." },
+      { q: "Which converts better in the UK?", a: "Shopify's Shop Pay accelerator and PSD2/SCA-optimised checkout typically converts 5-15% higher on mobile than a default WooCommerce checkout. A custom Woo checkout can close the gap but rarely beats Shop Pay." },
+      { q: "Can I migrate WooCommerce to Shopify later?", a: "Yes products, customers, orders, historical data and blog content all migrate cleanly with tools like Matrixify or LitExtension. Redirects and SEO transfer are the make-or-break; plan 3-6 weeks with a specialist." },
     ],
     meta: {
       title: "Shopify vs WooCommerce (UK, 2026) Honest Comparison | BeingEcom",
@@ -120,17 +120,17 @@ const COMPARE: Record<string, ComparisonEntry> = {
     verdict:
       "A specialist agency wins when you need multi-discipline execution dev, CRO, paid, SEO, email held to weekly rhythm and revenue accountability. A freelancer wins for a single scoped project (theme build, one migration, a checkout tweak) where dependency risk and continuity aren't critical.",
     bestFor: {
-      a: "Brands £30k–£1M/month wanting a senior fractional growth team.",
+      a: "Brands £30k-£1M/month wanting a senior fractional growth team.",
       b: "Founders with a specific, scoped, one-off deliverable.",
     },
     rows: [
       { criterion: "Multi-discipline coverage", a: "Yes dev, CRO, paid, SEO, email", b: "No one specialism", winner: "a" },
       { criterion: "Speed on a single task", a: "Coordinated but slower", b: "Fast", winner: "b" },
-      { criterion: "Cost", a: "£4k–£25k/month", b: "£300–£1,200/day", winner: "b" },
+      { criterion: "Cost", a: "£4k-£25k/month", b: "£300-£1,200/day", winner: "b" },
       { criterion: "Bus factor / continuity", a: "Team-backed", b: "Single point of failure", winner: "a" },
       { criterion: "Process & reporting", a: "Weekly cadence, dashboards", b: "Ad-hoc", winner: "a" },
       { criterion: "Accountability to revenue", a: "Usually contractual", b: "Rarely", winner: "a" },
-      { criterion: "Onboarding friction", a: "1–2 weeks", b: "Days", winner: "b" },
+      { criterion: "Onboarding friction", a: "1-2 weeks", b: "Days", winner: "b" },
     ],
     pros: {
       a: [
@@ -150,7 +150,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       a: [
         "Higher monthly commitment",
         "Weaker fit for a single one-off task",
-        "Onboarding takes 1–2 weeks",
+        "Onboarding takes 1-2 weeks",
       ],
       b: [
         "Only covers one discipline",
@@ -160,7 +160,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       ],
     },
     when: {
-      a: "You're doing £30k–£1M/month, don't want to hire a full in-house team, and need paid + CRO + SEO + email pulling in the same direction against one weekly plan.",
+      a: "You're doing £30k-£1M/month, don't want to hire a full in-house team, and need paid + CRO + SEO + email pulling in the same direction against one weekly plan.",
       b: "You have a scoped, one-off need a theme build, a migration, a Klaviyo audit and you already have a senior person to integrate their work into your overall strategy.",
     },
     bottomLine: (
@@ -179,12 +179,12 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ),
     faqs: [
       { q: "How do I know if an agency is senior-only vs junior-heavy?", a: "Ask who will do the work day-to-day and see their LinkedIn. If the pitch team is senior but delivery is a 22-year-old account exec, it's junior-heavy. Senior-only agencies name their operators upfront and put them on discovery calls." },
-      { q: "What retainer size is reasonable?", a: "In the UK, a serious senior growth retainer covering multiple disciplines runs £4k–£15k/month for £30k–£500k/month brands. Below £3k/month you're either buying junior time or a single specialism." },
+      { q: "What retainer size is reasonable?", a: "In the UK, a serious senior growth retainer covering multiple disciplines runs £4k-£15k/month for £30k-£500k/month brands. Below £3k/month you're either buying junior time or a single specialism." },
       { q: "Can I combine agency + freelancer?", a: "Yes many brands use an agency for strategy and continuous execution across disciplines, and a freelancer for a specialist one-off (headless dev, a particular integration). Make sure the agency owns the overall growth plan." },
     ],
     meta: {
       title: "Shopify Agency vs Freelancer (2026) Which Is Right for Your Brand? | BeingEcom",
-      description: "Agency or freelancer for your Shopify store? Cost, speed, coverage, continuity and revenue accountability compared for UK DTC brands £30k–£1M/month.",
+      description: "Agency or freelancer for your Shopify store? Cost, speed, coverage, continuity and revenue accountability compared for UK DTC brands £30k-£1M/month.",
     },
     relatedServices: [
       { label: "See our services", to: "/services" },
@@ -205,7 +205,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: "Brands needing predictable weekly revenue and fast validation of offers.",
     },
     rows: [
-      { criterion: "Time to first revenue", a: "3–6 months", b: "Days", winner: "b" },
+      { criterion: "Time to first revenue", a: "3-6 months", b: "Days", winner: "b" },
       { criterion: "Cost per incremental customer", a: "Falls over time", b: "Rises over time", winner: "a" },
       { criterion: "Compounding", a: "Yes", b: "No spend stops = revenue stops", winner: "a" },
       { criterion: "Predictability week-to-week", a: "Low early, high after 12mo", b: "High", winner: "b" },
@@ -229,7 +229,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     cons: {
       a: [
-        "Slow meaningful traffic usually takes 4–9 months",
+        "Slow meaningful traffic usually takes 4-9 months",
         "Requires content + engineering + link investment",
         "Google algorithm risk (though far lower than platform ad risk)",
       ],
@@ -241,7 +241,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       ],
     },
     when: {
-      a: "You're building a brand you'd like to sell or run for 5+ years. You want your CAC to fall not rise. You have 6–12 months of runway to invest before the payoff curve steepens.",
+      a: "You're building a brand you'd like to sell or run for 5+ years. You want your CAC to fall not rise. You have 6-12 months of runway to invest before the payoff curve steepens.",
       b: "You're validating a new brand, launching a product, or need cash-generative revenue right now to fund the rest of the business. You accept the CAC ceiling in exchange for speed.",
     },
     bottomLine: (
@@ -258,8 +258,8 @@ const COMPARE: Record<string, ComparisonEntry> = {
       </>
     ),
     faqs: [
-      { q: "How long until SEO pays back?", a: "For a UK Shopify or WooCommerce brand starting from scratch: 4–6 months to first meaningful traffic, 9–12 months to real revenue, 18 months to be a top-3 channel. Existing sites with authority can compress that by 40–60%." },
-      { q: "What's the right paid : organic ratio?", a: "For growth-stage DTC (£30k–£300k/month): roughly 60–70% paid. For established brands (£500k+/month): closer to 40–50% paid, with SEO and email eating a bigger share. Zero paid is under-scaling; zero SEO is unsustainable." },
+      { q: "How long until SEO pays back?", a: "For a UK Shopify or WooCommerce brand starting from scratch: 4-6 months to first meaningful traffic, 9-12 months to real revenue, 18 months to be a top-3 channel. Existing sites with authority can compress that by 40-60%." },
+      { q: "What's the right paid : organic ratio?", a: "For growth-stage DTC (£30k-£300k/month): roughly 60-70% paid. For established brands (£500k+/month): closer to 40-50% paid, with SEO and email eating a bigger share. Zero paid is under-scaling; zero SEO is unsustainable." },
       { q: "Should I stop paid ads and 'just do SEO'?", a: "Only if your business can survive 6+ months of revenue drought. For most brands the answer is no instead, tighten paid to profitable spend and reinvest saved margin into SEO content and links." },
     ],
     meta: {
@@ -287,7 +287,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     rows: [
       { criterion: "Demand type", a: "Creates demand", b: "Captures demand", winner: "tie" },
       { criterion: "Creative dependency", a: "Extreme", b: "Moderate", winner: "b" },
-      { criterion: "Weekly creative volume needed", a: "15–40 variants", b: "3–8 RSAs + assets", winner: "b" },
+      { criterion: "Weekly creative volume needed", a: "15-40 variants", b: "3-8 RSAs + assets", winner: "b" },
       { criterion: "Prospecting reach", a: "Excellent", b: "Limited (Shopping + PMax)", winner: "a" },
       { criterion: "Bottom-funnel conversion", a: "Moderate", b: "Excellent", winner: "b" },
       { criterion: "Tracking accuracy (2026)", a: "Requires CAPI + server-side", b: "More resilient", winner: "b" },
@@ -329,7 +329,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       <>
         <p>
           Both channels together beat either alone. A healthy ecommerce paid mix typically runs
-          55–70% Meta / 25–40% Google for lifestyle DTC, and flips (30% Meta / 60% Google) for
+          55-70% Meta / 25-40% Google for lifestyle DTC, and flips (30% Meta / 60% Google) for
           high-intent search-first categories.
         </p>
         <p>
@@ -341,7 +341,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ),
     faqs: [
       { q: "Which platform should I start with?", a: "If people already search for your product (\"electric bike UK\", \"vitamin C serum\"), start Google Shopping + Search. If they don't (a new category, a novel product, a lifestyle brand), start Meta you need to create demand before you can capture it." },
-      { q: "What's a healthy Meta : Google split?", a: "For lifestyle DTC (fashion, beauty, home): 55–70% Meta, 25–40% Google, remainder on TikTok/YouTube. For high-intent search-first categories: flip to 30% Meta, 60% Google Shopping + Search, 10% remarketing." },
+      { q: "What's a healthy Meta : Google split?", a: "For lifestyle DTC (fashion, beauty, home): 55-70% Meta, 25-40% Google, remainder on TikTok/YouTube. For high-intent search-first categories: flip to 30% Meta, 60% Google Shopping + Search, 10% remarketing." },
       { q: "Should I use Performance Max?", a: "Yes, but only after your Shopping and Search structure is dialled and after excluding brand terms. Fed poorly, PMax cannibalises brand + retargeting and reports inflated ROAS. Fed properly, it's one of the best incremental channels of the last 3 years." },
     ],
     meta: {
@@ -404,7 +404,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       ],
     },
     when: {
-      a: "You're a Shopify or WooCommerce brand doing £15k+/month where email should be 20–35% of revenue. Migrate immediately if you're on Mailchimp payback is usually under 60 days.",
+      a: "You're a Shopify or WooCommerce brand doing £15k+/month where email should be 20-35% of revenue. Migrate immediately if you're on Mailchimp payback is usually under 60 days.",
       b: "You run a content site, newsletter or non-ecommerce business where segmentation depth doesn't matter and price does. Fine to stay.",
     },
     bottomLine: (
@@ -415,14 +415,14 @@ const COMPARE: Record<string, ComparisonEntry> = {
           justified.
         </p>
         <p>
-          Moving from Mailchimp to Klaviyo typically lifts email revenue 40–120% within 90 days on
+          Moving from Mailchimp to Klaviyo typically lifts email revenue 40-120% within 90 days on
           the same list from a better flow engine, deeper segmentation and predictive send-time.
         </p>
       </>
     ),
     faqs: [
-      { q: "Is Klaviyo worth the extra cost?", a: "For a DTC brand doing £15k+/month, yes the flow engine and segmentation typically add 15–35% to email revenue vs Mailchimp. Below £5k/month the extra cost isn't always justified until the list grows." },
-      { q: "How hard is the migration?", a: "For a 10k–50k contact list with a Shopify or WooCommerce brand: 2–3 weeks. Historical data, segments, popup and flow rebuilds are all straightforward. The hard part is rewriting flows to actually use Klaviyo's features, not just copying Mailchimp." },
+      { q: "Is Klaviyo worth the extra cost?", a: "For a DTC brand doing £15k+/month, yes the flow engine and segmentation typically add 15-35% to email revenue vs Mailchimp. Below £5k/month the extra cost isn't always justified until the list grows." },
+      { q: "How hard is the migration?", a: "For a 10k-50k contact list with a Shopify or WooCommerce brand: 2-3 weeks. Historical data, segments, popup and flow rebuilds are all straightforward. The hard part is rewriting flows to actually use Klaviyo's features, not just copying Mailchimp." },
       { q: "Does Klaviyo work with WooCommerce?", a: "Yes the WooCommerce integration is mature. Product catalogue sync, event tracking (checkout started, order placed, refunded), and dynamic product blocks all work. Set up the WooCommerce integration and Klaviyo webhooks together so events fire reliably." },
     ],
     meta: {
@@ -457,7 +457,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     ],
     pros: {
       a: [
-        "Ships 10–50× more first-draft output per person",
+        "Ships 10-50× more first-draft output per person",
         "Consistent formatting, structure, schema",
         "Cheap enough to try more experiments",
         "Handles reporting, monitoring and routing 24/7",
@@ -492,7 +492,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
         <p>
           The right pattern in 2026 is not \"AI replaces marketing\" it's \"AI removes the boring
           60% so senior operators do 100% strategic work.\" Every marketing hire without an AI
-          workflow is doing 3–5 hours a day a machine could do in minutes.
+          workflow is doing 3-5 hours a day a machine could do in minutes.
         </p>
         <p>
           Brands that ban AI look expensive by 2027. Brands that go fully AI without senior oversight
@@ -533,7 +533,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { criterion: "Multi-storefront", a: "Markets (limited)", b: "Native multi-storefront", winner: "b" },
       { criterion: "Transaction fees", a: "Yes off Shopify Payments", b: "None", winner: "b" },
       { criterion: "Total cost of ownership", a: "Higher SaaS cost", b: "Lower for large catalogs", winner: "b" },
-      { criterion: "Speed to launch", a: "4–8 weeks", b: "6–12 weeks", winner: "a" },
+      { criterion: "Speed to launch", a: "4-8 weeks", b: "6-12 weeks", winner: "a" },
       { criterion: "Ecosystem talent pool", a: "Very deep", b: "Smaller but capable", winner: "a" },
     ],
     pros: {
@@ -588,11 +588,11 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: "Specialist execution across SEO, paid, CRO, email and development.",
     },
     rows: [
-      { criterion: "Cost per senior specialist", a: "£70–£120k + benefits", b: "£3–£10k/month fractional", winner: "b" },
+      { criterion: "Cost per senior specialist", a: "£70-£120k + benefits", b: "£3-£10k/month fractional", winner: "b" },
       { criterion: "Depth of expertise", a: "One area, deep", b: "Multiple areas, deep", winner: "b" },
       { criterion: "Brand ownership", a: "Full", b: "Partnered", winner: "a" },
-      { criterion: "Ramp time", a: "3–6 months", b: "2–4 weeks", winner: "b" },
-      { criterion: "Loss when someone leaves", a: "Total (3–6 months)", b: "Minimal (team pod)", winner: "b" },
+      { criterion: "Ramp time", a: "3-6 months", b: "2-4 weeks", winner: "b" },
+      { criterion: "Loss when someone leaves", a: "Total (3-6 months)", b: "Minimal (team pod)", winner: "b" },
       { criterion: "Alignment with business goals", a: "Highest", b: "Requires strong brief", winner: "a" },
       { criterion: "Access to tooling", a: "You pay for it all", b: "Included", winner: "b" },
     ],
@@ -601,7 +601,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: ["Multiple senior specialists for less than one hire", "Zero recruitment risk", "Access to cross-brand pattern recognition", "Faster to scale up or down"],
     },
     cons: {
-      a: ["High fixed cost with no flexibility", "Recruitment risk and 3–6 month ramp", "Single point of failure per discipline", "Hard to keep pace with 4 platforms + 5 disciplines"],
+      a: ["High fixed cost with no flexibility", "Recruitment risk and 3-6 month ramp", "Single point of failure per discipline", "Hard to keep pace with 4 platforms + 5 disciplines"],
       b: ["Requires strong internal owner to brief and QA", "Less deep on brand nuance without time", "Contracts and dependency risk if partner is weak"],
     },
     when: {
@@ -648,7 +648,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: "Order-level revenue reporting, cohort and merchandising analysis.",
     },
     rows: [
-      { criterion: "Order accuracy", a: "±5–15% vs Shopify", b: "Source of truth", winner: "b" },
+      { criterion: "Order accuracy", a: "±5-15% vs Shopify", b: "Source of truth", winner: "b" },
       { criterion: "Traffic source detail", a: "Full UTM + channel", b: "Basic", winner: "a" },
       { criterion: "Funnel analysis", a: "Full Enhanced Ecommerce", b: "Limited", winner: "a" },
       { criterion: "Cohort and LTV", a: "Requires BigQuery", b: "Native", winner: "b" },
@@ -661,7 +661,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: ["Zero setup accurate from day one", "Native cohort and repeat-rate reporting", "Perfect order-level accuracy", "Merchandising insights out of the box"],
     },
     cons: {
-      a: ["Order counts drift 5–15% from Shopify", "Requires proper GTM and event setup", "Steep learning curve for non-analysts"],
+      a: ["Order counts drift 5-15% from Shopify", "Requires proper GTM and event setup", "Steep learning curve for non-analysts"],
       b: ["No true funnel analysis", "Limited traffic source breakdown", "Weaker audience export", "Reports harder to customise"],
     },
     when: {
@@ -678,7 +678,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       </>
     ),
     faqs: [
-      { q: "Which should I trust for revenue?", a: "Shopify always. GA4 is directionally correct on revenue but will always show 5–15% variance vs Shopify because of consent, ad-blockers and cross-device gaps." },
+      { q: "Which should I trust for revenue?", a: "Shopify always. GA4 is directionally correct on revenue but will always show 5-15% variance vs Shopify because of consent, ad-blockers and cross-device gaps." },
       { q: "Do I need GA4 if I have Shopify?", a: "Yes, if you run any paid media or care about SEO. GA4 is the only place you see funnel drop-off, source attribution and cross-device journeys." },
       { q: "What about GA4 vs Northbeam/Triple Whale?", a: "GA4 covers behavioural + free forever. Northbeam/Triple Whale add MTA, MMM and paid-media-centric dashboards worth the cost above ~£30k/mo ad spend, but don't replace GA4 for funnel analysis." },
     ],
@@ -709,7 +709,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { criterion: "Creator content leverage", a: "Native, unmatched", b: "Growing (Reels)", winner: "a" },
       { criterion: "Gen Z / younger reach", a: "Highest", b: "Fair", winner: "a" },
       { criterion: "Retargeting", a: "Limited", b: "Strong", winner: "b" },
-      { criterion: "CPMs (UK, 2026)", a: "£3–£8", b: "£8–£18", winner: "a" },
+      { criterion: "CPMs (UK, 2026)", a: "£3-£8", b: "£8-£18", winner: "a" },
       { criterion: "Creative volume required", a: "Very high (20+ /week)", b: "High (15+ /week)", winner: "b" },
       { criterion: "Shop integration", a: "TikTok Shop", b: "Shop + catalog sales", winner: "b" },
     ],
@@ -718,7 +718,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: ["Advantage+ Shopping is the strongest DTC scaling product", "Deepest first-party + third-party targeting", "CAPI and Aggregated Attribution restore signal", "Retargeting still profitable at scale"],
     },
     cons: {
-      a: ["Weak retargeting compared to Meta", "Attribution still catching up", "Creative burnout in 5–7 days"],
+      a: ["Weak retargeting compared to Meta", "Attribution still catching up", "Creative burnout in 5-7 days"],
       b: ["Rising CPMs (+7% YoY)", "iOS signal loss even with CAPI", "Advantage+ can be a black box"],
     },
     when: {
@@ -737,7 +737,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     faqs: [
       { q: "Should we start with Meta or TikTok?", a: "Meta first, in almost every case. Attribution is more mature, audiences are richer, and scaling ROAS is more predictable. Layer TikTok once Meta is profitable at your target CAC." },
       { q: "Is TikTok Shop worth it?", a: "For Gen Z-focused, visual-demonstration-friendly categories (beauty, fashion, gadgets), yes. For considered purchases and premium brands, TikTok Shop still cannibalises DTC store margin." },
-      { q: "How much creative do we need for TikTok?", a: "20–40 new variants per week to feed the algorithm and dodge creative fatigue. Below that, TikTok performance plateaus fast." },
+      { q: "How much creative do we need for TikTok?", a: "20-40 new variants per week to feed the algorithm and dodge creative fatigue. Below that, TikTok performance plateaus fast." },
     ],
     meta: {
       title: "TikTok Ads vs Meta Ads (2026) ROAS, Reach & Creative Compared | BeingEcom",
@@ -762,9 +762,9 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: "Every brand under £5M/year, and most above who don't need custom composition.",
     },
     rows: [
-      { criterion: "Time to launch", a: "12–24 weeks", b: "2–8 weeks", winner: "b" },
-      { criterion: "Build cost (UK)", a: "£60k–£250k", b: "£8k–£40k", winner: "b" },
-      { criterion: "Ongoing dev cost", a: "1–3 devs FTE", b: "Occasional agency", winner: "b" },
+      { criterion: "Time to launch", a: "12-24 weeks", b: "2-8 weeks", winner: "b" },
+      { criterion: "Build cost (UK)", a: "£60k-£250k", b: "£8k-£40k", winner: "b" },
+      { criterion: "Ongoing dev cost", a: "1-3 devs FTE", b: "Occasional agency", winner: "b" },
       { criterion: "Performance ceiling", a: "Highest", b: "High with discipline", winner: "a" },
       { criterion: "Design freedom", a: "Total", b: "Section + block based", winner: "a" },
       { criterion: "Access to Shopify apps", a: "Limited/custom integration", b: "Full app ecosystem", winner: "b" },
@@ -776,7 +776,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       b: ["Fast to ship, cheap to iterate", "Full Shopify app ecosystem works out of the box", "Modern themes hit sub-2s LCP with good ops", "Zero dev headcount required to operate"],
     },
     cons: {
-      a: ["Requires 1–3 permanent devs", "Most Shopify apps need custom integration", "Migration risk (SEO, tracking, checkout)", "Total cost 5–10× a theme build"],
+      a: ["Requires 1-3 permanent devs", "Most Shopify apps need custom integration", "Migration risk (SEO, tracking, checkout)", "Total cost 5-10× a theme build"],
       b: ["Design ceiling on complex merchandising", "Section builder limits some composition needs", "Performance requires disciplined ops"],
     },
     when: {
@@ -792,13 +792,13 @@ const COMPARE: Record<string, ComparisonEntry> = {
         </p>
         <p>
           When you do move, migrate one high-value template at a time (PDP first, then PLP), never
-          the whole store in one release and expect a 60–90 day SEO recovery curve.
+          the whole store in one release and expect a 60-90 day SEO recovery curve.
         </p>
       </>
     ),
     faqs: [
       { q: "Does headless make my site faster?", a: "Only if executed well. A modern Shopify theme with disciplined ops hits sub-2s LCP; a poorly built Hydrogen store can be slower. Speed is an ops discipline, not a platform choice." },
-      { q: "Does headless hurt SEO?", a: "Not inherently, but migrations do. Every headless project we've reviewed loses 20–40% of organic traffic in the first 60 days without a disciplined redirect map and template-by-template rollout." },
+      { q: "Does headless hurt SEO?", a: "Not inherently, but migrations do. Every headless project we've reviewed loses 20-40% of organic traffic in the first 60 days without a disciplined redirect map and template-by-template rollout." },
       { q: "When is headless worth it?", a: "£5M+/year with in-house dev, custom composition needs and an SEO/content plan that outgrows Liquid. Below that, the numbers rarely justify it." },
     ],
     meta: {

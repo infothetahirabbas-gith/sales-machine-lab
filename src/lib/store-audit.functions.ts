@@ -265,7 +265,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
   const hasReviewApp = tools.some((t) => reviewApps.includes(t));
   const hasStarMarkup = /★|⭐|class=["'][^"']*\b(stars?|rating|review-stars|spr-icon-star)\b/i.test(html);
   const hasReviewText = /\b\d(?:\.\d)?\s*\/\s*5\b|\b\d{2,}\s*reviews?\b|customer reviews|verified reviews|what (?:our )?customers say/i.test(textLower);
-  const hasTestimonialBlock = /testimonial|"[A-Z][^"]{30,200}"\s*[-–-]\s*[A-Z][a-z]+/m.test(html);
+  const hasTestimonialBlock = /testimonial|"[A-Z][^"]{30,200}"\s*[---]\s*[A-Z][a-z]+/m.test(html);
   const hasReviews = hasReviewApp || hasStarMarkup || hasReviewText || hasTestimonialBlock;
 
   const socialLinks: string[] = [];
@@ -278,7 +278,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 
   const brandName =
     (ogTitleMatch?.[1] || titleMatch?.[1] || host.split(".")[0])
-      .split(/[|\-:·–]/)[0]
+      .split(/[|\-:·-]/)[0]
       .trim()
       .slice(0, 40) || host;
 
@@ -349,7 +349,7 @@ function analyzeHtml(html: string, url: string, status: number): Signals {
 
   // ---- Copyright year ----
   const thisYear = new Date().getUTCFullYear();
-  const yearMatches = [...html.matchAll(/(?:©|&copy;|copyright)\s*(\d{4})(?:\s*[-–-]\s*(\d{4}))?/gi)];
+  const yearMatches = [...html.matchAll(/(?:©|&copy;|copyright)\s*(\d{4})(?:\s*[---]\s*(\d{4}))?/gi)];
   let copyrightYear: number | null = null;
   for (const m of yearMatches) {
     const y = parseInt(m[2] || m[1], 10);
@@ -527,7 +527,7 @@ function buildReport(s: Signals, input: { revenue?: string | null; adSpend?: str
       drivers: [
         { signal: "Email platform", detected: s.hasKlaviyo, evidence: signalEvidence(s.hasKlaviyo, "Klaviyo detected", "Klaviyo not detected"), impact: s.hasKlaviyo ? "+15 retention points" : "-5 retention points" },
         { signal: "Newsletter capture", detected: s.hasNewsletter, evidence: signalEvidence(s.hasNewsletter, "Signup language detected", "No newsletter capture detected"), impact: s.hasNewsletter ? "+8 retention points" : "-5 retention points" },
-        { signal: `${retentionChannel} channel`, detected: isNonWestern ? tools_includes(s, "WhatsApp") : s.hasSMS, evidence: isNonWestern ? (tools_includes(s, "WhatsApp") ? "WhatsApp link/button detected" : "No WhatsApp channel detected") : (s.hasSMS ? "SMS tool detected" : "No SMS tool detected"), impact: "+10–12 retention points if present" },
+        { signal: `${retentionChannel} channel`, detected: isNonWestern ? tools_includes(s, "WhatsApp") : s.hasSMS, evidence: isNonWestern ? (tools_includes(s, "WhatsApp") ? "WhatsApp link/button detected" : "No WhatsApp channel detected") : (s.hasSMS ? "SMS tool detected" : "No SMS tool detected"), impact: "+10-12 retention points if present" },
         { signal: "Subscription", detected: s.hasSubscription, evidence: signalEvidence(s.hasSubscription, "Subscription offer detected", "No subscription offer detected"), impact: s.hasSubscription ? "+12 retention points" : "No score change" },
       ],
     },

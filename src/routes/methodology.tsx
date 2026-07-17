@@ -42,7 +42,7 @@ const STAGES = [
     n: "04",
     Icon: MousePointerClick,
     title: "Conversion Optimization",
-    body: "Turn more of the traffic you already have into revenue. Structured CRO programme: heatmaps, session replay, PDP/PLP experiments, checkout friction removal, trust signals, mobile UX. Ship 2–4 tests per month against a documented hypothesis backlog.",
+    body: "Turn more of the traffic you already have into revenue. Structured CRO programme: heatmaps, session replay, PDP/PLP experiments, checkout friction removal, trust signals, mobile UX. Ship 2-4 tests per month against a documented hypothesis backlog.",
     outputs: ["CRO test roadmap", "Winning variants shipped", "CVR lift by device", "Documented learnings"],
   },
   {
@@ -72,7 +72,7 @@ const FAQS = [
   },
   {
     q: "How long does the full BeingEcom Growth System™ take?",
-    a: "Stages 1–2 (diagnosis and foundations) take 4–6 weeks. Stages 3–5 (acquisition, CRO, retention) run in parallel from month 2 onwards. Stage 6 (AI automation) layers in from month 3. Meaningful revenue impact is visible within 60–90 days on most stores.",
+    a: "Stages 1-2 (diagnosis and foundations) take 4-6 weeks. Stages 3-5 (acquisition, CRO, retention) run in parallel from month 2 onwards. Stage 6 (AI automation) layers in from month 3. Meaningful revenue impact is visible within 60-90 days on most stores.",
   },
   {
     q: "Does the methodology work for both Shopify and WooCommerce?",

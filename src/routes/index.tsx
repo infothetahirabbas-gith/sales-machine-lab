@@ -557,7 +557,7 @@ function Home() {
               ))}
             </div>
             <p className="mt-4 text-xs text-muted-foreground italic">
-              Methodology: results based on client-reported Shopify and GA4 data over a 6-month engagement (months 1–6 post-onboarding). Individual results vary by category, margin and starting baseline. Client name withheld under NDA - anonymised case study available on request.
+              Methodology: results based on client-reported Shopify and GA4 data over a 6-month engagement (months 1-6 post-onboarding). Individual results vary by category, margin and starting baseline. Client name withheld under NDA - anonymised case study available on request.
             </p>
             <Link to="/case-studies" className="inline-block mt-6 text-foreground font-semibold underline-offset-4 hover:text-brand hover:underline">
               See full case studies →
@@ -637,7 +637,7 @@ function Home() {
             },
             {
               group: "Email, SMS & retention",
-              body: "Klaviyo flows, subscription revenue, and reviews stack into 25–35% of monthly revenue - on autopilot.",
+              body: "Klaviyo flows, subscription revenue, and reviews stack into 25-35% of monthly revenue - on autopilot.",
               tools: [
                 { name: "Klaviyo", color: "#1E1E1E", initial: "K" },
                 { name: "Recharge", color: "#3D1D72", initial: "R" },

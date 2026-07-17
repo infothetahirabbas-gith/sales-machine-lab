@@ -127,7 +127,7 @@ export const roasCalc: CalcConfig = {
   faqs: [
     {
       q: "What is a good ROAS for ecommerce?",
-      a: "There is no universal number. A ROAS above your break-even ROAS (1 ÷ gross margin) is profitable. Most Shopify DTC brands aim for 3–5× on prospecting and 6–10× on retargeting, but a fashion brand at 45% margin and a supplement brand at 75% margin have very different targets.",
+      a: "There is no universal number. A ROAS above your break-even ROAS (1 ÷ gross margin) is profitable. Most Shopify DTC brands aim for 3-5× on prospecting and 6-10× on retargeting, but a fashion brand at 45% margin and a supplement brand at 75% margin have very different targets.",
     },
     {
       q: "How is ROAS different from POAS?",
@@ -218,7 +218,7 @@ export const cacCalc: CalcConfig = {
   faqs: [
     {
       q: "What is a good CAC for ecommerce?",
-      a: "There is no single number - a good CAC is any CAC where LTV divided by CAC is at least 3 and payback happens within 6–12 months. A £15 CAC on a £30 candle is fine only if the customer buys again; a £150 CAC on a £2,000 mattress is fine if margin covers it in one order.",
+      a: "There is no single number - a good CAC is any CAC where LTV divided by CAC is at least 3 and payback happens within 6-12 months. A £15 CAC on a £30 candle is fine only if the customer buys again; a £150 CAC on a £2,000 mattress is fine if margin covers it in one order.",
     },
     {
       q: "What should I include in marketing spend?",
@@ -279,7 +279,7 @@ export const ltvCalc: CalcConfig = {
   ],
   howToImprove: [
     "Launch (or fix) a Klaviyo/Omnisend welcome, browse-abandon, post-purchase and winback flow set.",
-    "Bundle complementary SKUs to lift AOV by 10–25% at zero extra acquisition cost.",
+    "Bundle complementary SKUs to lift AOV by 10-25% at zero extra acquisition cost.",
     "Introduce a subscription or replenishment option for consumables.",
     "Tighten the second-order window - email + SMS at day 14, 30 and 60 post-purchase.",
     "Fix product quality and CX - refunds and 1-star reviews cap lifespan hard.",
@@ -287,7 +287,7 @@ export const ltvCalc: CalcConfig = {
   faqs: [
     {
       q: "What is a good LTV for ecommerce?",
-      a: "A good LTV is one that is at least 3× your fully-loaded CAC. For a DTC brand with £50 CAC, aim for £150+ profit LTV. Category matters - consumables (supplements, coffee, skincare) target £300–£800 LTV; considered purchases (mattresses, luxury fashion) rely on high first-order margin.",
+      a: "A good LTV is one that is at least 3× your fully-loaded CAC. For a DTC brand with £50 CAC, aim for £150+ profit LTV. Category matters - consumables (supplements, coffee, skincare) target £300-£800 LTV; considered purchases (mattresses, luxury fashion) rely on high first-order margin.",
     },
     {
       q: "Should I use revenue LTV or profit LTV?",
@@ -295,7 +295,7 @@ export const ltvCalc: CalcConfig = {
     },
     {
       q: "How do I calculate LTV in Shopify?",
-      a: "Shopify's Customers report shows repeat rate and AOV by cohort. Multiply the historical AOV by orders-per-customer-per-year and estimated lifespan (usually 1–3 years for DTC). For a live cohort view, use Lifetimely, Peel or Triple Whale, or query the Shopify Admin API directly.",
+      a: "Shopify's Customers report shows repeat rate and AOV by cohort. Multiply the historical AOV by orders-per-customer-per-year and estimated lifespan (usually 1-3 years for DTC). For a live cohort view, use Lifetimely, Peel or Triple Whale, or query the Shopify Admin API directly.",
     },
     {
       q: "How is LTV different from AOV?",
@@ -366,7 +366,7 @@ export const marginCalc: CalcConfig = {
   faqs: [
     {
       q: "What is a good profit margin for ecommerce?",
-      a: "For DTC brands, aim for 60%+ gross margin and 10–20% net margin. Below 50% gross margin, paid acquisition becomes almost impossible to make profitable at scale. Below 5% net margin, you're one bad month away from cash-flow trouble.",
+      a: "For DTC brands, aim for 60%+ gross margin and 10-20% net margin. Below 50% gross margin, paid acquisition becomes almost impossible to make profitable at scale. Below 5% net margin, you're one bad month away from cash-flow trouble.",
     },
     {
       q: "Is gross margin or net margin more important?",
@@ -378,7 +378,7 @@ export const marginCalc: CalcConfig = {
     },
     {
       q: "How do payment processing fees affect margin?",
-      a: "Stripe, Shopify Payments and PayPal typically take 1.4–2.9% + a fixed fee per transaction. On a £30 AOV brand this can be 3–4% of revenue - a meaningful hit to gross margin. Model it into unit economics; don't leave it in 'other'.",
+      a: "Stripe, Shopify Payments and PayPal typically take 1.4-2.9% + a fixed fee per transaction. On a £30 AOV brand this can be 3-4% of revenue - a meaningful hit to gross margin. Model it into unit economics; don't leave it in 'other'.",
     },
     {
       q: "How is markup different from margin?",

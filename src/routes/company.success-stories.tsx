@@ -83,7 +83,7 @@ export const Route = createFileRoute("/company/success-stories")({
       faqs={[
         { q: "Are the case studies real?", a: "Yes every case study is drawn from a real engagement. Brand names and screenshots are anonymised where NDA requires it, and headline numbers are represented as realistic outcome ranges rather than a single client's live dashboard where anonymity is needed." },
         { q: "Can I see verified numbers for a specific client?", a: "Yes. After a discovery call we share verified references, and where the client agrees, we can walk you through their real dashboards for a brand at your stage or in your vertical." },
-        { q: "What's the typical time-to-result?", a: "CRO and email lift in 2–4 weeks, paid ads stabilise in 30–60 days, SEO compounds over 3–6 months. Full timing is described in each case study." },
+        { q: "What's the typical time-to-result?", a: "CRO and email lift in 2-4 weeks, paid ads stabilise in 30-60 days, SEO compounds over 3-6 months. Full timing is described in each case study." },
         { q: "Do results predict my outcome?", a: "No past client results are never a prediction of future outcomes. What we commit to is senior operators on your account, weekly execution against a revenue-tied plan, and full transparency on the numbers." },
       ]}
     />

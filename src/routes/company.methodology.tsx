@@ -45,11 +45,11 @@ export const Route = createFileRoute("/company/methodology")({
           columns: ["#", "Phase", "Output", "Typical duration"],
           rows: [
             ["01", "Discovery",              "Current-state summary, primary bottlenecks, growth thesis.", "Week 1"],
-            ["02", "Business audit",         "Unit economics, contribution margin, cohort behaviour.",     "Week 1–2"],
+            ["02", "Business audit",         "Unit economics, contribution margin, cohort behaviour.",     "Week 1-2"],
             ["03", "Market research",        "Category demand map, competitor positioning, SERP shape.",   "Week 2"],
-            ["04", "Technical SEO",          "Crawl, index and Core Web Vitals baseline + fix list.",      "Week 2–3"],
-            ["05", "On-page SEO",            "Template and content rewrite plan, entity model.",           "Week 3–5"],
-            ["06", "Content strategy",       "Topical map, brief pipeline, editorial calendar.",           "Week 3–6"],
+            ["04", "Technical SEO",          "Crawl, index and Core Web Vitals baseline + fix list.",      "Week 2-3"],
+            ["05", "On-page SEO",            "Template and content rewrite plan, entity model.",           "Week 3-5"],
+            ["06", "Content strategy",       "Topical map, brief pipeline, editorial calendar.",           "Week 3-6"],
             ["07", "Paid advertising",       "Channel mix, creative pipeline, MER + CM3 targets.",         "Week 3+"],
             ["08", "Conversion optimisation","Experiment backlog, sample-size plan, guardrails.",          "Week 4+"],
             ["09", "Email & retention",      "Klaviyo flow map, list hygiene, LTV programme.",             "Week 4+"],
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/company/methodology")({
       ]}
       faqs={[
         { q: "Do you use the same methodology on every client?", a: "Yes the 13 phases are constant, but the depth of each phase flexes to the client's stage and constraints. A £3M/month brand and a £30k/month brand hit the same gates, just at different scale." },
-        { q: "How long before the methodology produces results?", a: "CRO and email lift usually shows in 2–4 weeks. Paid media stabilises in 30–60 days. SEO compounds over 3–6 months. We stage the plan so early wins fund the longer horizon work." },
+        { q: "How long before the methodology produces results?", a: "CRO and email lift usually shows in 2-4 weeks. Paid media stabilises in 30-60 days. SEO compounds over 3-6 months. We stage the plan so early wins fund the longer horizon work." },
         { q: "Can you run just part of the methodology?", a: "Yes. Common starts are (a) audit + technical SEO + on-page SEO or (b) paid + CRO. We only recommend the full 13 phases when your team has the capacity to execute against the full plan." },
         { q: "Do you share the actual methodology playbook?", a: "Clients get the full playbook, including SOPs, templates and internal checklists, on day one. It's part of what you're paying for." },
         { q: "How is progress measured?", a: "Weekly scorecard against the client's P&L, monthly written narrative, quarterly roadmap review. All three tie back to the same north-star metric agreed in phase 01." },

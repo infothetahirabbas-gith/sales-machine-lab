@@ -10,7 +10,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What dashboards do I get?", a: "Daily blended MER, contribution margin, new-customer CAC and creative-level performance - usually in Triple Whale, Hyros or a custom Looker dashboard." },
   { q: "Is this a fixed retainer or % of spend?", a: "Hybrid - fixed retainer up to a spend threshold, then a small % of spend above it. Aligns incentives without billing surprises." },
   { q: "How does media buying differ across Google, Meta and TikTok?", a: "Google harvests demand (BOF); Meta creates demand at scale (TOF/MOF); TikTok creates viral demand (TOF). A real Ecommerce Growth Agency runs all three against one blended MER target." },
-  { q: "What MER should I aim for?", a: "Depends on contribution margin and payback window. Beauty/skincare 2.8–3.5×, apparel 3.5–4.5×, low-margin gadgets 4.5×+. We model the target before spending." },
+  { q: "What MER should I aim for?", a: "Depends on contribution margin and payback window. Beauty/skincare 2.8-3.5×, apparel 3.5-4.5×, low-margin gadgets 4.5×+. We model the target before spending." },
   { q: "How often do you reallocate budget?", a: "Weekly, based on marginal MER by channel. Static budgets are how brands overspend on yesterday's winner." },
   { q: "Do you do incrementality testing?", a: "Yes - geo holdouts, conversion lift studies and brand-spend pauses. Platform ROAS alone doesn't prove incremental revenue." },
   { q: "Can media buying scale a brand past £500k/mo?", a: "Yes - most of our >£500k/mo clients are managed on a portfolio MER, not per-channel ROAS. It's the only way to protect margin at scale." },
@@ -82,10 +82,10 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       comparison: {
         rows: [
           { criterion: "Role in the funnel", us: "Demand harvest (BOF)", agency: "Demand creation (TOF/MOF)", inhouse: "Viral demand (TOF)" },
-          { criterion: "Typical channel ROAS", us: "3.5–6× Google", agency: "2.5–3.5× Meta", inhouse: "1.8–3× TikTok" },
-          { criterion: "Budget share (typical)", us: "35–45%", agency: "40–50%", inhouse: "10–20%" },
+          { criterion: "Typical channel ROAS", us: "3.5-6× Google", agency: "2.5-3.5× Meta", inhouse: "1.8-3× TikTok" },
+          { criterion: "Budget share (typical)", us: "35-45%", agency: "40-50%", inhouse: "10-20%" },
           { criterion: "Attribution risk", us: "Low", agency: "Medium (iOS)", inhouse: "High (native)" },
-          { criterion: "Creative velocity", us: "Low (feed + RSA)", agency: "10–20/mo", inhouse: "15–25/mo" },
+          { criterion: "Creative velocity", us: "Low (feed + RSA)", agency: "10-20/mo", inhouse: "15-25/mo" },
           { criterion: "Best combined role", us: "Harvest branded + non-branded", agency: "Fill the funnel", inhouse: "Ignite new demand" },
         ],
       },

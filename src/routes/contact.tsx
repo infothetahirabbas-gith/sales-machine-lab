@@ -112,14 +112,14 @@ function Contact() {
                     <label htmlFor="c-revenue" className="text-xs font-semibold text-ink">Monthly revenue</label>
                     <select id="c-revenue" name="revenue" defaultValue="" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40">
                       <option value="" disabled>Select range</option>
-                      <option>£0 – £5K</option><option>£5K – £25K</option><option>£25K – £100K</option><option>£100K+</option>
+                      <option>£0 - £5K</option><option>£5K - £25K</option><option>£25K - £100K</option><option>£100K+</option>
                     </select>
                   </div>
                   <div className="grid gap-1.5">
                     <label htmlFor="c-spend" className="text-xs font-semibold text-ink">Monthly ad spend</label>
                     <select id="c-spend" name="spend" defaultValue="" className="rounded-xl bg-secondary/60 border border-border px-4 py-3 min-h-11 outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/40">
                       <option value="" disabled>Select range</option>
-                      <option>£0 – £1K</option><option>£1K – £5K</option><option>£5K – £25K</option><option>£25K+</option>
+                      <option>£0 - £1K</option><option>£1K - £5K</option><option>£5K - £25K</option><option>£25K+</option>
                     </select>
                   </div>
                 </div>

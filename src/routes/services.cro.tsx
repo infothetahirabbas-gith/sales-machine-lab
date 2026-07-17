@@ -4,8 +4,8 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import heroImg from "../assets/hero-cro-testing.jpg";
 
 const FAQ_LIST: FAQ[] = [
-  { q: "What conversion rate should a Shopify store be hitting?", a: "Healthy UK DTC stores run 2.5–4% on cold traffic and 6–9% on warm. Below 1.8% almost always means PDP, offer or trust issues - not a traffic problem. We diagnose which of the three is killing you in the first two weeks." },
-  { q: "How long until I see CRO results?", a: "Quick wins (PDP, checkout, trust signals) land in 2–4 weeks. Compounded gains from A/B testing show in 60–90 days. Full system uplift compounds over 6 months." },
+  { q: "What conversion rate should a Shopify store be hitting?", a: "Healthy UK DTC stores run 2.5-4% on cold traffic and 6-9% on warm. Below 1.8% almost always means PDP, offer or trust issues - not a traffic problem. We diagnose which of the three is killing you in the first two weeks." },
+  { q: "How long until I see CRO results?", a: "Quick wins (PDP, checkout, trust signals) land in 2-4 weeks. Compounded gains from A/B testing show in 60-90 days. Full system uplift compounds over 6 months." },
   { q: "Do you actually run A/B tests, or just make 'best-practice' changes?", a: "Both. On Shopify we use Intelligems or Convert; on WooCommerce we use VWO or Optimizely. Every test carries a written hypothesis, sample-size target and pre-agreed stop rule. Best-practice changes only ship on validated foundations." },
   { q: "What's the difference between CRO and UX design?", a: "UX makes the experience nicer. CRO makes it convert. We do both - but every decision is graded on revenue per visitor, not opinion or aesthetics." },
   { q: "Do you need access to my analytics?", a: "Yes - GA4, Shopify analytics, Hotjar or Microsoft Clarity, and ideally session replays. If any of those are missing or misconfigured, we install and configure them properly (server-side included) in week one." },
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
       { title: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
-      { name: "description", content: "Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2–3× more revenue. Senior UK CRO operators, no lock-ins." },
+      { name: "description", content: "Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2-3× more revenue. Senior UK CRO operators, no lock-ins." },
       { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
       { property: "og:description", content: "Specialist ecommerce CRO Agency UK. A/B testing, PDP & checkout optimisation, behavioural research - turning existing traffic into compounding revenue." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
@@ -118,14 +118,14 @@ export const Route = createFileRoute("/services/cro")({
       mistakes: [
         { title: "Testing on low-traffic pages", body: "You need statistical significance. Running an A/B test on a page getting 400 visits/month will finish in 8 months - by which point the season, offer and store are all different." },
         { title: "Copying competitor 'best practices' blindly", body: "Their audience isn't yours. What converts at Gymshark won't convert at a niche skincare brand - validate every borrowed idea." },
-        { title: "Redesigning the whole site at once", body: "Full redesigns tank CR 30–40% on launch because nothing about them is validated. We change one thing at a time." },
+        { title: "Redesigning the whole site at once", body: "Full redesigns tank CR 30-40% on launch because nothing about them is validated. We change one thing at a time." },
         { title: "Only testing button colour and copy", body: "The 20% wins are in offer, PDP structure and trust - not in swapping 'Buy now' for 'Add to bag'." },
         { title: "Stopping tests early because you 'saw a pattern'", body: "Early results lie. Every test hits its pre-agreed sample size before we call a winner - no exceptions." },
         { title: "Not shipping the winner permanently", body: "Winning variants that stay inside the testing tool die when the tool licence lapses. Lock every winner into the theme." },
       ],
       comparison: {
         rows: [
-          { criterion: "Test velocity", us: "1–2 rigorous experiments live every week", agency: "1 test per month, no post-mortem", inhouse: "Ad-hoc, whenever there's time" },
+          { criterion: "Test velocity", us: "1-2 rigorous experiments live every week", agency: "1 test per month, no post-mortem", inhouse: "Ad-hoc, whenever there's time" },
           { criterion: "Statistical rigour", us: "MDE, sample size and stop rule set before launch", agency: "'Looks like a winner' calls", inhouse: "Best-guess intuition" },
           { criterion: "Research inputs", us: "Heatmaps + session replays + surveys + GA4 funnel", agency: "GA4 export only", inhouse: "Whatever the tool suggests" },
           { criterion: "Winner implementation", us: "Locked permanently into theme, added to learning library", agency: "Stays in the testing tool", inhouse: "Forgotten after 3 months" },

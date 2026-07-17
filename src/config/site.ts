@@ -29,10 +29,10 @@ export const SITE = {
     "WC2H 9JQ, United Kingdom",
   ],
   addressOneLine:
-    "71–75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom",
+    "71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom",
 
   // Hours
-  hours: "Mon–Fri, 09:00–18:00 GMT/BST",
+  hours: "Mon-Fri, 09:00-18:00 GMT/BST",
 
   // Socials
   socials: {
