@@ -96,8 +96,67 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Locations - internal linking so every city page is 1 click from home */}
+        <div className="lg:col-span-4">
+          <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">LOCATIONS</div>
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
+            {LOCATIONS.map((l) => (
+              <li key={l.slug}>
+                <Link to="/locations/$slug" params={{ slug: l.slug }} className="hover:text-accent transition-colors">
+                  Ecommerce Agency {l.city}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-1 col-span-2">
+              <Link to="/locations" className="inline-flex items-center gap-1 font-semibold text-accent hover:text-background transition-colors">
+                All UK locations <ArrowUpRight className="size-3.5" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Industries */}
+        <div className="lg:col-span-4">
+          <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">INDUSTRIES</div>
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
+            {INDUSTRIES.map((i) => (
+              <li key={i.slug}>
+                <Link to="/industries/$slug" params={{ slug: i.slug }} className="hover:text-accent transition-colors">
+                  {i.name}
+                </Link>
+              </li>
+            ))}
+            <li className="pt-1 col-span-2">
+              <Link to="/industries" className="inline-flex items-center gap-1 font-semibold text-accent hover:text-background transition-colors">
+                All industries <ArrowUpRight className="size-3.5" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Resources + Growth Hubs */}
+        <div className="lg:col-span-4">
+          <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">GROWTH HUBS</div>
+          <ul className="grid grid-cols-1 gap-y-2.5 text-background/60 mb-6">
+            {HUB_PILLARS.map((h) => (
+              <li key={h.to}>
+                <Link to={h.to} className="hover:text-accent transition-colors">{h.label}</Link>
+              </li>
+            ))}
+          </ul>
+          <div className="text-background font-bold tracking-[0.16em] text-xs mb-4">RESOURCES</div>
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
+            {RESOURCES.map((r) => (
+              <li key={r.to}>
+                <Link to={r.to} className="hover:text-accent transition-colors">{r.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Get in touch */}
         <div className="lg:col-span-12 border-t border-background/15 pt-8 mt-2 grid lg:grid-cols-3 gap-6 text-center lg:text-left">
+
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-background shrink-0" />
