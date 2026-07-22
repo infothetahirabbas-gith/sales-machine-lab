@@ -487,8 +487,76 @@ function LocationPage() {
         </div>
       </Section>
 
+      {/* 4b. LOCAL NARRATIVE - unique long-form, per-city (Nottingham, Leeds, Manchester...) */}
+      {narrative && (
+        <Section eyebrow={`Inside ${city} ecommerce`} title={`Why ${city} brands work with Being Ecom`} alt>
+          <div className="grid lg:grid-cols-3 gap-10 max-w-6xl">
+            <div className="lg:col-span-2 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+              {narrative.intro.map((p, i) => (
+                <p key={i} className={i === 0 ? "text-ink font-medium text-lg leading-relaxed" : ""}>
+                  {p}
+                </p>
+              ))}
+              <div className="pt-4 grid sm:grid-cols-2 gap-4">
+                {narrative.ecosystem.map((e) => (
+                  <div key={e.title} className="rounded-2xl border border-border bg-white p-5">
+                    <div className="text-xs font-bold uppercase tracking-widest text-primary">{e.title}</div>
+                    <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-2">
+                <h3 className="text-lg font-bold text-ink mb-3">{city}-specific growth playbook</h3>
+                <ul className="space-y-3">
+                  {narrative.playbook.map((p) => (
+                    <li key={p.title} className="flex gap-3 items-start">
+                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-ink">{p.title}.</strong> <span className="text-muted-foreground">{p.body}</span></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <aside className="space-y-6">
+              <div className="rounded-2xl border border-border bg-white p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">Nearby cities we serve</h3>
+                <ul className="space-y-2">
+                  {narrative.nearby.map((slug) => {
+                    const nearby = LOCATIONS.find((l) => l.slug === slug);
+                    if (!nearby) return null;
+                    return (
+                      <li key={slug}>
+                        <Link
+                          to="/locations/$slug"
+                          params={{ slug }}
+                          className="text-sm text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                          Ecommerce Agency {nearby.city}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 border border-primary/20 p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-2">Related services</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/services/seo" className="text-ink hover:text-primary">Ecommerce SEO in {city}</Link></li>
+                  <li><Link to="/services/seo/local" className="text-ink hover:text-primary">Local SEO for {city}</Link></li>
+                  <li><Link to="/services/paid-ads" className="text-ink hover:text-primary">Paid Ads for {city} brands</Link></li>
+                  <li><Link to="/services/email-sms" className="text-ink hover:text-primary">Klaviyo Email &amp; SMS</Link></li>
+                  <li><Link to="/services/cro" className="text-ink hover:text-primary">CRO for {city} stores</Link></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </Section>
+      )}
+
       {/* 5. NEIGHBOURHOODS */}
       <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`} intro={`From founders in ${C.neighbourhoods[0]} to warehouses in ${C.neighbourhoods[C.neighbourhoods.length - 1]}, we partner with ecommerce brands across every corner of ${city} and ${loc.region}.`}>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {C.neighbourhoods.map((n, i) => (
             <Reveal key={n} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
