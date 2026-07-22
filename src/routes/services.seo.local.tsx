@@ -102,6 +102,14 @@ export const Route = createFileRoute("/services/seo/local")({
         { label: "GBP-driven visits", before: 100, after: 164, unit: "%", description: "Store visits attributed to GBP vs baseline." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - local is one specialism inside it." },
+        { to: "/services/seo/technical", title: "Technical SEO", body: "LocalBusiness schema and hreflang are technical prerequisites." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "City-specific PDP and landing-page copy that ranks in local packs." },
+        { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Local intent queries increasingly resolve in AI Overviews first." },
+        { to: "/locations", title: "UK locations we serve", body: "City-specific pages for London, Manchester, Birmingham and more." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "How local SEO plugs into our 6-stage methodology." },
+      ],
     }} />
   ),
 });
