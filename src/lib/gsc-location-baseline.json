@@ -1,0 +1,22 @@
+{
+  "_comment": "GSC baseline snapshot for /locations/* pages. Captured 2026-07-22 (28-day window: 2026-06-21 → 2026-07-19). Used by /admin/location-performance for before/after comparison after the CTR meta rewrite ships.",
+  "capturedAt": "2026-07-22",
+  "windowStart": "2026-06-21",
+  "windowEnd": "2026-07-19",
+  "windowDays": 28,
+  "site": "https://beingecom.com/",
+  "pages": {
+    "london":     { "clicks": 0, "impressions": 753, "ctr": 0,       "position": 68.83 },
+    "manchester": { "clicks": 0, "impressions": 433, "ctr": 0,       "position": 67.56 },
+    "birmingham": { "clicks": 1, "impressions": 427, "ctr": 0.00234, "position": 80.19 },
+    "glasgow":    { "clicks": 0, "impressions": 350, "ctr": 0,       "position": 74.36 },
+    "bristol":    { "clicks": 0, "impressions": 126, "ctr": 0,       "position": 76.93 },
+    "leeds":      { "clicks": 0, "impressions": 753, "ctr": 0,       "position": 67.42 },
+    "liverpool":  { "clicks": 1, "impressions": 85,  "ctr": 0.01176, "position": 58.16 },
+    "leicester":  { "clicks": 0, "impressions": 573, "ctr": 0,       "position": 89.35 },
+    "nottingham": { "clicks": 1, "impressions": 900, "ctr": 0.00111, "position": 75.48 },
+    "edinburgh":  { "clicks": 0, "impressions": 315, "ctr": 0,       "position": 73.15 },
+    "poole":      { "clicks": 0, "impressions": 888, "ctr": 0,       "position": 84.66 },
+    "bradford":   { "clicks": 1, "impressions": 326, "ctr": 0.00307, "position": 71.93 }
+  }
+}
