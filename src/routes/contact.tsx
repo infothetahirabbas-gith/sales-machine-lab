@@ -77,6 +77,22 @@ function Contact() {
                       revenue: String(data.get("revenue") ?? ""),
                       spend: String(data.get("spend") ?? ""),
                     });
+                    // Per-city conversion tracking (call booking).
+                    try {
+                      // Lazy-load to keep this route lean if attribution ever grows.
+                      // eslint-disable-next-line @typescript-eslint/no-var-requires
+                      const attr = (require("../lib/location-attribution") as typeof import("../lib/location-attribution")).readLocationAttribution();
+                      if (attr) {
+                        trackEvent("location_call_booked", {
+                          city: attr.city || "",
+                          city_slug: attr.slug,
+                          region: attr.region || "",
+                          placement: attr.placement,
+                          experiment_variant: attr.variant ?? "unknown",
+                          plan: plan ?? "none",
+                        });
+                      }
+                    } catch { /* no-op */ }
                   } catch { /* no-op */ }
                   setSent(true);
                 }}
