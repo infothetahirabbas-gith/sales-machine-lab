@@ -102,6 +102,14 @@ export const Route = createFileRoute("/services/seo/aeo")({
         { label: "AI-referred sessions", before: 100, after: 280, unit: "%", description: "Sessions from AI engines vs baseline." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - AEO is baked into every engagement." },
+        { to: "/services/seo/technical", title: "Technical SEO", body: "Organization + Product + FAQ schema is the technical foundation of AEO." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "Quotable H2 answer blocks so AI engines cite your pages verbatim." },
+        { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial mentions build the entity signals AI engines trust." },
+        { to: "/services/analytics", title: "Analytics & Tracking", body: "Measure AI-Overview and ChatGPT citations - not just Google clicks." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "How AEO plugs into our 6-stage growth methodology." },
+      ],
     }} />
   ),
 });
