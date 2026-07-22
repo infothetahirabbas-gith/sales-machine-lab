@@ -103,6 +103,14 @@ export const Route = createFileRoute("/services/seo/on-page")({
         { label: "Unique PDP copy", before: 12, after: 100, unit: "%", description: "PDPs with unique USP + FAQ blocks vs manufacturer text." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service that houses on-page work inside a wider strategy." },
+        { to: "/services/seo/technical", title: "Technical SEO", body: "Site speed, indexation and schema fixes that let on-page work rank." },
+        { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial links that compound on-page rewrites into top-3 rankings." },
+        { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Turn on-page copy into AI-Overview-quotable answer blocks." },
+        { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Ranking is worthless if the page does not convert - CRO ships next." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "Where on-page rewrites sit in our 6-stage growth methodology." },
+      ],
     }} />
   ),
 });
