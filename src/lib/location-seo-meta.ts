@@ -1,12 +1,13 @@
 // CTR-optimized meta title + description per location page.
-// Formulas: benefit-led headline, proof point (120+ brands / £47M+), brackets or
-// pipe separator for visual scan, target keyword up front, natural CTA in desc.
+// - Variant A: authority + service list (default, current champion).
+// - Variant B: benefit-led / proof-point angle for A/B test (28-day window).
+// Assignment is per-browser sticky (see location-attribution.ts).
 // Target: title ≤ 60 chars, description ≤ 158 chars.
-// Baseline (2026-07-22) captured in gsc-location-baseline.json for before/after.
+// Baseline (2026-07-22) captured in gsc-location-baseline.json.
 
 export type LocationMeta = { title: string; description: string };
 
-export const LOCATION_META: Record<string, LocationMeta> = {
+export const LOCATION_META_A: Record<string, LocationMeta> = {
   london: {
     title: "Ecommerce Agency London | Shopify Growth · 120+ Brands",
     description:
@@ -69,11 +70,120 @@ export const LOCATION_META: Record<string, LocationMeta> = {
   },
 };
 
+// Variant B: benefit-led / outcome-first framing. Shorter, punchier, question hook.
+export const LOCATION_META_B: Record<string, LocationMeta> = {
+  london: {
+    title: "London Shopify Growth Agency | £47M+ Revenue Scaled",
+    description:
+      "Struggling to scale profitably in London? BeingEcom has scaled 120+ Shopify & WooCommerce brands to £47M+. Book your free 45-min growth audit.",
+  },
+  manchester: {
+    title: "Scale Your Manchester Shopify Store | Free Growth Audit",
+    description:
+      "Manchester DTC brand ready to grow? We cut CAC and lift AOV for Shopify & WooCommerce stores across the North West. Book a free 45-min audit.",
+  },
+  birmingham: {
+    title: "Grow Your Birmingham Shopify Store Profitably | Free Audit",
+    description:
+      "West Midlands ecommerce brand? Our senior team scales Shopify & WooCommerce revenue without wasted ad spend. Get a free 45-min growth audit.",
+  },
+  glasgow: {
+    title: "Glasgow Shopify Agency | Scale Scottish DTC Brands",
+    description:
+      "Scottish ecommerce brand? We help Glasgow Shopify & WooCommerce stores lower CAC, lift AOV and compound revenue. Free 45-min growth audit.",
+  },
+  bristol: {
+    title: "Bristol Shopify Growth Partner | Free 45-min Audit",
+    description:
+      "South West DTC brand? We scale Bristol Shopify & WooCommerce stores through SEO, paid media, CRO & retention. Book your free growth audit.",
+  },
+  leeds: {
+    title: "Leeds Shopify Growth Agency | Turn Traffic Into Revenue",
+    description:
+      "Yorkshire ecommerce brand? BeingEcom lifts repeat rate and AOV for Leeds Shopify & WooCommerce stores. Book a free 45-min growth audit.",
+  },
+  liverpool: {
+    title: "Liverpool Ecommerce Growth Team | Free 45-min Audit",
+    description:
+      "Merseyside DTC brand? Our Liverpool team scales Shopify & WooCommerce revenue with clean tracking and senior operators. Free growth audit.",
+  },
+  leicester: {
+    title: "Leicester Shopify Growth Agency | Free 45-min Audit",
+    description:
+      "East Midlands ecommerce brand? We scale Leicester Shopify & WooCommerce stores with creative-led paid social and Klaviyo. Free audit.",
+  },
+  nottingham: {
+    title: "Nottingham Shopify Growth Agency | Lower CAC, Lift AOV",
+    description:
+      "Nottingham DTC brand? Our senior team lowers CAC and lifts AOV for East Midlands Shopify & WooCommerce stores. Free 45-min growth audit.",
+  },
+  edinburgh: {
+    title: "Edinburgh Shopify Growth Agency | Premium DTC Team",
+    description:
+      "Premium Scottish DTC brand? We scale Edinburgh Shopify & WooCommerce stores with CRO, SEO and Klaviyo. Book a free 45-min growth audit.",
+  },
+  poole: {
+    title: "Poole Ecommerce Growth Agency | Dorset Shopify Team",
+    description:
+      "Dorset or South Coast DTC brand? We scale Poole Shopify & WooCommerce stores across paid ads, SEO, Klaviyo & CRO. Free 45-min audit.",
+  },
+  bradford: {
+    title: "Bradford Shopify Growth Agency | West Yorkshire DTC Team",
+    description:
+      "West Yorkshire ecommerce brand? BeingEcom scales Bradford Shopify & WooCommerce stores with paid ads, SEO and Klaviyo. Free growth audit.",
+  },
+};
+
+// Back-compat: LOCATION_META still exported (variant A).
+export const LOCATION_META = LOCATION_META_A;
+
+// A/B experiment cohort: which variant each city serves to Google + users.
+// Half serve A, half serve B for a 28-day CTR test. After the window closes,
+// admin dashboard reports CTR by variant and we roll the winner globally.
+// Started 2026-07-22; ends 2026-08-19.
+export const EXPERIMENT_START = "2026-07-22";
+export const EXPERIMENT_END = "2026-08-19";
+export const EXPERIMENT_ASSIGNMENT: Record<string, "A" | "B"> = {
+  london: "A",
+  manchester: "B",
+  birmingham: "A",
+  glasgow: "B",
+  bristol: "A",
+  leeds: "B",
+  liverpool: "A",
+  leicester: "B",
+  nottingham: "A",
+  edinburgh: "B",
+  poole: "A",
+  bradford: "B",
+};
+
+export function variantForSlug(slug: string): "A" | "B" {
+  return EXPERIMENT_ASSIGNMENT[slug] ?? "A";
+}
+
 export function metaFor(slug: string, city: string, region: string): LocationMeta {
-  const found = LOCATION_META[slug];
+  return metaForVariant(slug, city, region, variantForSlug(slug));
+}
+
+export function metaForVariant(
+  slug: string,
+  city: string,
+  region: string,
+  variant: "A" | "B",
+): LocationMeta {
+  const map = variant === "B" ? LOCATION_META_B : LOCATION_META_A;
+  const found = map[slug];
   if (found) return found;
   return {
-    title: `Ecommerce Agency ${city} | Shopify & WooCommerce Growth`,
-    description: `${city} ecommerce agency for Shopify & WooCommerce brands. SEO, Google Ads, Meta Ads, Klaviyo & CRO run by senior UK operators. Free audit.`,
+    title:
+      variant === "B"
+        ? `${city} Shopify Growth Agency | Free 45-min Audit`
+        : `Ecommerce Agency ${city} | Shopify & WooCommerce Growth`,
+    description:
+      variant === "B"
+        ? `${city} DTC brand? We scale Shopify & WooCommerce revenue with SEO, paid ads, Klaviyo and CRO. Free 45-min growth audit.`
+        : `${city} ecommerce agency for Shopify & WooCommerce brands. SEO, Google Ads, Meta Ads, Klaviyo & CRO run by senior UK operators. Free audit.`,
   };
 }
+

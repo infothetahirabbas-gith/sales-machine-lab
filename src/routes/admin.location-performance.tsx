@@ -4,10 +4,11 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyAdminStatus } from "@/lib/case-studies.functions";
 import { fetchCurrentLocationGsc, type GscRow } from "@/lib/gsc-monitor.functions";
+import { buildLocationDigest } from "@/lib/gsc-digest.functions";
 import { LOCATION_META } from "@/lib/location-seo-meta";
 import { LOCATIONS } from "@/lib/locations-industries";
 import baseline from "@/lib/gsc-location-baseline.json";
-import { ArrowUpRight, ArrowDownRight, Minus, RefreshCcw, LogOut } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, Minus, RefreshCcw, LogOut, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 type BaselineRow = { clicks: number; impressions: number; ctr: number; position: number };
@@ -63,6 +64,41 @@ function LocationPerformanceDashboard() {
   const navigate = useNavigate();
   const checkAdmin = useServerFn(getMyAdminStatus);
   const fetchCurrent = useServerFn(fetchCurrentLocationGsc);
+  const runDigest = useServerFn(buildLocationDigest);
+  const [digesting, setDigesting] = useState(false);
+
+  const sendDigest = async () => {
+    setDigesting(true);
+    try {
+      const d = await runDigest({ data: {} });
+      // Open the default mail client with a prefilled digest so the admin
+      // can forward it - no email infra dependency.
+      const subject = `Location performance digest ${d.startDate} - ${d.endDate}`;
+      const body = d.text;
+      const href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Also copy HTML to clipboard for richer forwarding when supported.
+      try {
+        if (navigator.clipboard && "write" in navigator.clipboard) {
+          const item = new ClipboardItem({
+            "text/html": new Blob([d.html], { type: "text/html" }),
+            "text/plain": new Blob([d.text], { type: "text/plain" }),
+          });
+          await navigator.clipboard.write([item]);
+          toast.success("Digest copied to clipboard (rich HTML) and email draft opened.");
+        } else {
+          toast.success("Digest ready - email draft opened.");
+        }
+      } catch {
+        toast.success("Digest ready - email draft opened.");
+      }
+      window.open(href, "_blank");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Failed to build digest";
+      toast.error(msg);
+    } finally {
+      setDigesting(false);
+    }
+  };
 
   const [status, setStatus] = useState<"checking" | "not-admin" | "ready">("checking");
   const [loading, setLoading] = useState(false);
@@ -157,6 +193,15 @@ function LocationPerformanceDashboard() {
           >
             <RefreshCcw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
             {loading ? "Loading…" : "Refresh Search Console"}
+          </button>
+          <button
+            onClick={() => void sendDigest()}
+            disabled={digesting}
+            className="btn btn-ghost border border-border"
+            title="Build a before/after digest and open an email draft"
+          >
+            <Mail className={`w-4 h-4 ${digesting ? "animate-pulse" : ""}`} />
+            {digesting ? "Building…" : "Send digest"}
           </button>
           <button
             onClick={async () => {

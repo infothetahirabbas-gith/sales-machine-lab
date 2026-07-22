@@ -6,6 +6,7 @@ import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
 import { trackEvent, AnalyticsEvents } from "../lib/analytics";
+import { readLocationAttribution } from "../lib/location-attribution";
 
 
 export const Route = createFileRoute("/contact")({
@@ -77,6 +78,20 @@ function Contact() {
                       revenue: String(data.get("revenue") ?? ""),
                       spend: String(data.get("spend") ?? ""),
                     });
+                    // Per-city conversion tracking (call booking).
+                    try {
+                      const attr = readLocationAttribution();
+                      if (attr) {
+                        trackEvent("location_call_booked", {
+                          city: attr.city || "",
+                          city_slug: attr.slug,
+                          region: attr.region || "",
+                          placement: attr.placement,
+                          experiment_variant: attr.variant ?? "unknown",
+                          plan: plan ?? "none",
+                        });
+                      }
+                    } catch { /* no-op */ }
                   } catch { /* no-op */ }
                   setSent(true);
                 }}

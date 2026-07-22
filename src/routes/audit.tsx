@@ -18,6 +18,8 @@ const formatTimestamp = (d: Date = new Date()) =>
 import { Button } from "../components/ui/button";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
+import { trackEvent } from "../lib/analytics";
+import { readLocationAttribution } from "../lib/location-attribution";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis,
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
@@ -321,6 +323,20 @@ function AuditPage() {
       const result = await fetchAudit({ data: { url, revenue: revenue || null, adSpend: adSpend || null, country: country || null } });
       setReport(result.report);
       setAuditedUrl(result.url);
+      // Fire success conversion event, attributed to source city when present.
+      try {
+        const attr = readLocationAttribution();
+        trackEvent("location_audit_submit", {
+          audited_url: result.url,
+          city: attr?.city ?? "",
+          city_slug: attr?.slug ?? "direct",
+          region: attr?.region ?? "",
+          placement: attr?.placement ?? "direct",
+          experiment_variant: attr?.variant ?? "unknown",
+          revenue: revenue || "",
+          ad_spend: adSpend || "",
+        });
+      } catch { /* no-op */ }
       setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behavior: "smooth" }), 100);
     } catch (err) {
       const elapsedSec = Math.floor((Date.now() - startedAt) / 1000);

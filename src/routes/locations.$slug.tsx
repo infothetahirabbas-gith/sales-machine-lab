@@ -17,8 +17,9 @@ import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import AISummary from "../components/site/AISummary";
-import { metaFor } from "../lib/location-seo-meta";
+import { metaFor, variantForSlug } from "../lib/location-seo-meta";
 import { trackEvent } from "../lib/analytics";
+import { buildLocationLink, withLocationUtm, stashLocationAttribution, type LocationCtx } from "../lib/location-attribution";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -290,19 +291,35 @@ function LocationPage() {
     { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly - usually a reply within an hour on UK business days.` },
   ];
 
-  const trackCta = (ctaType: string, placement: string, extra: Record<string, string> = {}) =>
+  const variant = variantForSlug(loc.slug);
+  const baseCtx: Omit<LocationCtx, "placement"> = {
+    city,
+    slug: loc.slug,
+    region: loc.region,
+    variant,
+  };
+
+  const trackCta = (ctaType: string, placement: string, extra: Record<string, string> = {}) => {
+    const ctx: LocationCtx = { ...baseCtx, placement };
+    stashLocationAttribution(ctx);
     trackEvent("location_cta_click", {
       cta_type: ctaType,
       placement,
       city,
       city_slug: loc.slug,
       region: loc.region,
+      experiment_variant: variant,
       ...extra,
     });
+  };
+
+  const ctaHref = (path: string, placement: string) =>
+    buildLocationLink(path, { ...baseCtx, placement });
+  const waHref = (placement: string) => withLocationUtm(WA, { ...baseCtx, placement });
 
   const WhatsAppBtn = ({ label = `WhatsApp ${city} team`, placement = "generic" }: { label?: string; placement?: string }) => (
     <a
-      href={WA}
+      href={waHref(placement)}
       target="_blank"
       rel="noreferrer noopener"
       aria-label={`${label} on WhatsApp`}
@@ -353,21 +370,21 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={2}>
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <Link
-                  to="/contact"
+                <a
+                  href={ctaHref("/contact", "hero")}
                   className="btn btn-primary btn-shimmer hover-scale"
                   onClick={() => trackCta("call_booking", "hero", { destination: "/contact" })}
                 >
                   Book Free {city} Strategy Call <ArrowRight className="w-4 h-4" />
-                </Link>
+                </a>
                 <WhatsAppBtn label={`Chat on WhatsApp`} placement="hero" />
-                <Link
-                  to="/audit"
+                <a
+                  href={ctaHref("/audit", "hero")}
                   className="btn btn-ghost border border-border hover-scale"
                   onClick={() => trackCta("audit_request", "hero", { destination: "/audit" })}
                 >
                   <Play className="w-4 h-4" /> Get Free Audit
-                </Link>
+                </a>
               </div>
             </Reveal>
             <Reveal delay={3}>
@@ -938,21 +955,21 @@ function LocationPage() {
               </Reveal>
             ))}
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                to="/contact"
+              <a
+                href={ctaHref("/contact", "contact_section")}
                 className="btn btn-primary btn-shimmer hover-scale"
                 onClick={() => trackCta("call_booking", "contact_section", { destination: "/contact" })}
               >
                 Book strategy call <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <WhatsAppBtn label={`WhatsApp ${city} team`} placement="contact_section" />
-              <Link
-                to="/audit"
+              <a
+                href={ctaHref("/audit", "contact_section")}
                 className="btn btn-ghost border border-border hover-scale"
                 onClick={() => trackCta("audit_request", "contact_section", { destination: "/audit" })}
               >
                 Free audit
-              </Link>
+              </a>
             </div>
           </div>
         </div>
