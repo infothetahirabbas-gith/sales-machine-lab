@@ -80,9 +80,7 @@ function Contact() {
                     });
                     // Per-city conversion tracking (call booking).
                     try {
-                      // Lazy-load to keep this route lean if attribution ever grows.
-                      // eslint-disable-next-line @typescript-eslint/no-var-requires
-                      const attr = (require("../lib/location-attribution") as typeof import("../lib/location-attribution")).readLocationAttribution();
+                      const attr = readLocationAttribution();
                       if (attr) {
                         trackEvent("location_call_booked", {
                           city: attr.city || "",
