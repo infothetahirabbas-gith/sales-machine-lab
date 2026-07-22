@@ -102,6 +102,14 @@ export const Route = createFileRoute("/services/seo/technical")({
         { label: "Non-brand organic", before: 100, after: 181, unit: "%", description: "Non-brand organic sessions vs baseline." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - product, collection, technical and content SEO in one system." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "Sits on top of technical hygiene - PDP and PLP rewrites that rank the fixed pages." },
+        { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial digital PR that turns technical wins into authority gains." },
+        { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Get cited by ChatGPT, Perplexity and Google AI Overviews once schema is clean." },
+        { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4 + server-side so technical fixes show measurable revenue impact." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "How technical SEO fits into our 6-stage growth methodology." },
+      ],
     }} />
   ),
 });
