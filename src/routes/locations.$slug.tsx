@@ -370,21 +370,21 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={2}>
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <Link
-                  to="/contact"
+                <a
+                  href={ctaHref("/contact", "hero")}
                   className="btn btn-primary btn-shimmer hover-scale"
                   onClick={() => trackCta("call_booking", "hero", { destination: "/contact" })}
                 >
                   Book Free {city} Strategy Call <ArrowRight className="w-4 h-4" />
-                </Link>
+                </a>
                 <WhatsAppBtn label={`Chat on WhatsApp`} placement="hero" />
-                <Link
-                  to="/audit"
+                <a
+                  href={ctaHref("/audit", "hero")}
                   className="btn btn-ghost border border-border hover-scale"
                   onClick={() => trackCta("audit_request", "hero", { destination: "/audit" })}
                 >
                   <Play className="w-4 h-4" /> Get Free Audit
-                </Link>
+                </a>
               </div>
             </Reveal>
             <Reveal delay={3}>
