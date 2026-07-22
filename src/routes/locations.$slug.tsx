@@ -17,8 +17,9 @@ import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import AISummary from "../components/site/AISummary";
-import { metaFor } from "../lib/location-seo-meta";
+import { metaFor, variantForSlug } from "../lib/location-seo-meta";
 import { trackEvent } from "../lib/analytics";
+import { buildLocationLink, withLocationUtm, stashLocationAttribution, type LocationCtx } from "../lib/location-attribution";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
