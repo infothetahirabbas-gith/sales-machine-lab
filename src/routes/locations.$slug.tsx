@@ -290,13 +290,24 @@ function LocationPage() {
     { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly - usually a reply within an hour on UK business days.` },
   ];
 
-  const WhatsAppBtn = ({ label = `WhatsApp ${city} team` }: { label?: string }) => (
+  const trackCta = (ctaType: string, placement: string, extra: Record<string, string> = {}) =>
+    trackEvent("location_cta_click", {
+      cta_type: ctaType,
+      placement,
+      city,
+      city_slug: loc.slug,
+      region: loc.region,
+      ...extra,
+    });
+
+  const WhatsAppBtn = ({ label = `WhatsApp ${city} team`, placement = "generic" }: { label?: string; placement?: string }) => (
     <a
       href={WA}
       target="_blank"
       rel="noreferrer noopener"
       aria-label={`${label} on WhatsApp`}
       className="btn wa-btn group relative overflow-hidden"
+      onClick={() => trackCta("whatsapp", placement, { label })}
     >
       <span className="wa-btn-ping" aria-hidden="true" />
       <span className="relative flex items-center justify-center w-5 h-5 rounded-full bg-white/25 shrink-0">
