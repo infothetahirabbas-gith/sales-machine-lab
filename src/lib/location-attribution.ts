@@ -7,8 +7,7 @@
 const STORAGE_CITY = "be_source_city";
 
 
-// Experiment window: 28 days from first assignment.
-const VARIANT_TTL_MS = 28 * 24 * 60 * 60 * 1000;
+
 
 export type LocationCtx = {
   city: string;
