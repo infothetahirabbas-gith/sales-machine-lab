@@ -16,11 +16,12 @@ export const Route = createFileRoute("/sitemap-case-studies.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const LASTMOD = "2026-07-22";
         const urls: string[] = [
-          `  <url>\n    <loc>${BASE_URL}/case-studies</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}/case-studies</loc>\n    <lastmod>${LASTMOD}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           ...IDS.map(
             (id) =>
-              `  <url>\n    <loc>${BASE_URL}/case-studies/${id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+              `  <url>\n    <loc>${BASE_URL}/case-studies/${id}</loc>\n    <lastmod>${LASTMOD}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           ),
         ];
         const xml = [

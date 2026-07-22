@@ -42,10 +42,12 @@ export const Route = createFileRoute("/sitemap-services.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const LASTMOD = "2026-07-22";
         const urls = entries.map((e) =>
           [
             `  <url>`,
             `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <lastmod>${LASTMOD}</lastmod>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
