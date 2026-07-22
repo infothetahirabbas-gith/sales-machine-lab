@@ -104,6 +104,8 @@ import { Route as ServicesPerformanceMarketingMediaBuyingRouteImport } from './r
 import { Route as ServicesPerformanceMarketingInstagramAdsRouteImport } from './routes/services.performance-marketing.instagram-ads'
 import { Route as ServicesPerformanceMarketingGoogleAdsRouteImport } from './routes/services.performance-marketing.google-ads'
 import { Route as ServicesPerformanceMarketingFacebookAdsRouteImport } from './routes/services.performance-marketing.facebook-ads'
+import { Route as LocationsRegionsYorkshireRouteImport } from './routes/locations.regions.yorkshire'
+import { Route as LocationsRegionsScotlandRouteImport } from './routes/locations.regions.scotland'
 import { Route as IndustriesSlugPaidAdsRouteImport } from './routes/industries.$slug.paid-ads'
 import { Route as ApiPublicHooksGscMonitorRouteImport } from './routes/api/public/hooks/gsc-monitor'
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
@@ -598,6 +600,18 @@ const ServicesPerformanceMarketingFacebookAdsRoute =
     path: '/services/performance-marketing/facebook-ads',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LocationsRegionsYorkshireRoute =
+  LocationsRegionsYorkshireRouteImport.update({
+    id: '/locations/regions/yorkshire',
+    path: '/locations/regions/yorkshire',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LocationsRegionsScotlandRoute =
+  LocationsRegionsScotlandRouteImport.update({
+    id: '/locations/regions/scotland',
+    path: '/locations/regions/scotland',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndustriesSlugPaidAdsRoute = IndustriesSlugPaidAdsRouteImport.update({
   id: '/paid-ads',
   path: '/paid-ads',
@@ -701,6 +715,8 @@ export interface FileRoutesByFullPath {
   '/services/': typeof ServicesIndexRoute
   '/tools/': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
+  '/locations/regions/scotland': typeof LocationsRegionsScotlandRoute
+  '/locations/regions/yorkshire': typeof LocationsRegionsYorkshireRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -796,6 +812,8 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/tools': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
+  '/locations/regions/scotland': typeof LocationsRegionsScotlandRoute
+  '/locations/regions/yorkshire': typeof LocationsRegionsYorkshireRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -898,6 +916,8 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/tools/': typeof ToolsIndexRoute
   '/industries/$slug/paid-ads': typeof IndustriesSlugPaidAdsRoute
+  '/locations/regions/scotland': typeof LocationsRegionsScotlandRoute
+  '/locations/regions/yorkshire': typeof LocationsRegionsYorkshireRoute
   '/services/performance-marketing/facebook-ads': typeof ServicesPerformanceMarketingFacebookAdsRoute
   '/services/performance-marketing/google-ads': typeof ServicesPerformanceMarketingGoogleAdsRoute
   '/services/performance-marketing/instagram-ads': typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -1001,6 +1021,8 @@ export interface FileRouteTypes {
     | '/services/'
     | '/tools/'
     | '/industries/$slug/paid-ads'
+    | '/locations/regions/scotland'
+    | '/locations/regions/yorkshire'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -1096,6 +1118,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/tools'
     | '/industries/$slug/paid-ads'
+    | '/locations/regions/scotland'
+    | '/locations/regions/yorkshire'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -1197,6 +1221,8 @@ export interface FileRouteTypes {
     | '/services/'
     | '/tools/'
     | '/industries/$slug/paid-ads'
+    | '/locations/regions/scotland'
+    | '/locations/regions/yorkshire'
     | '/services/performance-marketing/facebook-ads'
     | '/services/performance-marketing/google-ads'
     | '/services/performance-marketing/instagram-ads'
@@ -1273,6 +1299,8 @@ export interface RootRouteChildren {
   LocationsIndexRoute: typeof LocationsIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
+  LocationsRegionsScotlandRoute: typeof LocationsRegionsScotlandRoute
+  LocationsRegionsYorkshireRoute: typeof LocationsRegionsYorkshireRoute
   ServicesPerformanceMarketingFacebookAdsRoute: typeof ServicesPerformanceMarketingFacebookAdsRoute
   ServicesPerformanceMarketingGoogleAdsRoute: typeof ServicesPerformanceMarketingGoogleAdsRoute
   ServicesPerformanceMarketingInstagramAdsRoute: typeof ServicesPerformanceMarketingInstagramAdsRoute
@@ -1959,6 +1987,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesPerformanceMarketingFacebookAdsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations/regions/yorkshire': {
+      id: '/locations/regions/yorkshire'
+      path: '/locations/regions/yorkshire'
+      fullPath: '/locations/regions/yorkshire'
+      preLoaderRoute: typeof LocationsRegionsYorkshireRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations/regions/scotland': {
+      id: '/locations/regions/scotland'
+      path: '/locations/regions/scotland'
+      fullPath: '/locations/regions/scotland'
+      preLoaderRoute: typeof LocationsRegionsScotlandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/$slug/paid-ads': {
       id: '/industries/$slug/paid-ads'
       path: '/paid-ads'
@@ -2169,6 +2211,8 @@ const rootRouteChildren: RootRouteChildren = {
   LocationsIndexRoute: LocationsIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   ToolsIndexRoute: ToolsIndexRoute,
+  LocationsRegionsScotlandRoute: LocationsRegionsScotlandRoute,
+  LocationsRegionsYorkshireRoute: LocationsRegionsYorkshireRoute,
   ServicesPerformanceMarketingFacebookAdsRoute:
     ServicesPerformanceMarketingFacebookAdsRoute,
   ServicesPerformanceMarketingGoogleAdsRoute:
@@ -2197,13 +2241,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
