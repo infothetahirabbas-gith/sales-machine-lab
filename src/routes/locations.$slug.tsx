@@ -955,21 +955,21 @@ function LocationPage() {
               </Reveal>
             ))}
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                to="/contact"
+              <a
+                href={ctaHref("/contact", "contact_section")}
                 className="btn btn-primary btn-shimmer hover-scale"
                 onClick={() => trackCta("call_booking", "contact_section", { destination: "/contact" })}
               >
                 Book strategy call <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <WhatsAppBtn label={`WhatsApp ${city} team`} placement="contact_section" />
-              <Link
-                to="/audit"
+              <a
+                href={ctaHref("/audit", "contact_section")}
                 className="btn btn-ghost border border-border hover-scale"
                 onClick={() => trackCta("audit_request", "contact_section", { destination: "/audit" })}
               >
                 Free audit
-              </Link>
+              </a>
             </div>
           </div>
         </div>
