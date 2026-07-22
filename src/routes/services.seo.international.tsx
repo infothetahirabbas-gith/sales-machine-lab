@@ -102,6 +102,14 @@ export const Route = createFileRoute("/services/seo/international")({
         { label: "Hreflang errors", before: 320, after: 0, description: "Hreflang errors reported in Search Console." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - international is a specialism inside it." },
+        { to: "/services/seo/technical", title: "Technical SEO", body: "hreflang, canonicals and Shopify Markets routing are technical work." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "Per-region PDP and PLP copy that actually ranks in each market." },
+        { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Region-specific digital PR for UK, US, EU and MENA storefronts." },
+        { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Multi-region search and Shopping campaigns paired with international SEO." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "How multi-region SEO fits our 6-stage methodology." },
+      ],
     }} />
   ),
 });
