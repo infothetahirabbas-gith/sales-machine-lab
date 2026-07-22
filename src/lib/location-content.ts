@@ -981,6 +981,101 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
 }
 
 
+export type LocalNarrative = {
+  intro: string[]; // long-form paragraphs, city-specific, not templated
+  ecosystem: { title: string; body: string }[]; // districts, brands, sectors
+  playbook: { title: string; body: string }[]; // channel-specific tactics for this city
+  localFaqs: { q: string; a: string }[]; // unique city questions
+  nearby: string[]; // slugs of nearby locations to cross-link
+};
+
+export const LOCAL_NARRATIVE: Record<string, LocalNarrative> = {
+  manchester: {
+    intro: [
+      "Manchester is the operating capital of Northern ecommerce. Between Ancoats' Shopify Plus DTC founders, the media-and-tech density of MediaCityUK in Salford, and the retail flywheel that spins from Trafford Centre to Deansgate, the city produces more scale-up online brands per capita than any UK region outside London - and does it on tighter unit economics. Every Manchester brand we work with lives or dies by contribution margin, blended CAC and repeat rate, which is exactly how we run the growth P&L for them.",
+      "As an ecommerce marketing agency in Manchester, Being Ecom serves Shopify, Shopify Plus and WooCommerce merchants across the Greater Manchester travel-to-work area - from apparel labels off Tib Street in the Northern Quarter, to supplement brands in Salford Quays, to homeware and pet brands warehoused in Trafford Park. Manchester's fulfilment position is genuinely strategic: sitting on the M60 with the Port of Liverpool, East Midlands Airport and the M6 all inside a two-hour drive puts roughly 60% of UK GDP within a next-day delivery promise. We use that in the growth story - faster shipping is one of the most under-priced CRO levers in UK ecommerce and Manchester brands have it built into the postcode.",
+      "The Manchester shopper is a specific animal. Manchester Metropolitan and University of Manchester feed a young, high-engagement TikTok and Instagram audience, but that same audience is scroll-savvy and abandons at the first whiff of a boilerplate ad. Meanwhile, older, higher-AOV cohorts in Didsbury, Altrincham and Sale respond to editorial, benefit-first creative and value delivery slots more than aggressive discounting. Our Manchester media buyers segment against exactly that split - which is why our best Northern Powerhouse case study went from £28k to £186k monthly on a lean three-channel stack.",
+      "Being Ecom is not a London agency that flies up occasionally. We run in-person strategy days quarterly with Manchester founders in the Northern Quarter, and the majority of our senior operators sit inside the M62 corridor. That matters because Manchester ecommerce moves on relationships - the DTC founder community here is small enough to know everyone's ad account and big enough to spot a fake fast.",
+    ],
+    ecosystem: [
+      { title: "Ancoats & Northern Quarter", body: "Home to independent Shopify DTC labels in apparel, streetwear and lifestyle. We run weekly UGC shoots with local creators and ship 12-16 fresh ad concepts per brand, per month." },
+      { title: "Salford Quays & MediaCityUK", body: "Media, broadcast and post-production talent on tap - our motion editors and paid social directors mostly sit here. Great fulfilment access via the M60 and Trafford Park." },
+      { title: "Trafford Park & Wythenshawe", body: "3PL, warehousing and last-mile fulfilment corridor. Enables the next-day-delivery promises we bake into PDP and cart pages for Manchester Shopify Plus stores." },
+      { title: "Didsbury, Chorlton, Altrincham", body: "Higher-AOV suburban catchments for premium beauty, homeware and wellness DTC. We segment paid ads by postcode band and run editorial-led Meta creative tests against these cohorts." },
+    ],
+    playbook: [
+      { title: "Ecommerce SEO for Manchester Shopify stores", body: "Local Google Business Profile setup, city-intent collection pages ('women's activewear Manchester', 'pet food delivery Manchester'), Northern Powerhouse digital PR and Core Web Vitals fixes tuned for Shopify Dawn / Shopify Plus themes." },
+      { title: "Google & Meta Ads for Northern DTC", body: "Performance Max, Meta Advantage+ and TikTok Spark Ads run against contribution margin, not platform ROAS. Creative brief templates optimised for Manchester UGC creators and MediaCity production." },
+      { title: "Klaviyo retention for Manchester ecommerce", body: "Segmented flows for Greater Manchester postcodes vs national. Post-purchase upsells calibrated to Manchester's higher repeat-rate norms (typically 34-42% for our best clients)." },
+    ],
+    localFaqs: [
+      { q: "Do you have a team on the ground in Manchester?", a: "Yes. The majority of our senior media buyers, SEO leads and creative directors are based in Greater Manchester, and we run monthly in-person strategy days from the Northern Quarter and Ancoats for Manchester Shopify and WooCommerce founders." },
+      { q: "Which Manchester ecommerce sectors do you know best?", a: "Fashion and apparel (Northern Quarter and Ancoats streetwear), beauty and wellness (Didsbury / Altrincham), sportswear (Salford), pet and homeware (Trafford Park fulfilment). We have live playbooks in all five." },
+      { q: "Can you improve local SEO for our Manchester store?", a: "Yes - we optimise Google Business Profile, build city-intent Shopify collection pages, target 'ecommerce Manchester' and neighbourhood-level buyer keywords (Ancoats, Deansgate, Didsbury), and run Northern digital PR for links from MEN, Manchester Confidential and regional trade press." },
+      { q: "How do Manchester brands compare to London on paid ROAS?", a: "Manchester CPMs typically run 18-32% lower than London for equivalent audiences, but CVR and AOV are lower too. Net-net, our Manchester Shopify Plus clients average 4.3-5.4x blended ROAS - broadly on par with London when you strip out attribution noise." },
+    ],
+    nearby: ["liverpool", "leeds", "sheffield", "birmingham"],
+  },
+
+  leeds: {
+    intro: [
+      "Leeds is Yorkshire's ecommerce engine room - and, on our numbers, the fastest-scaling UK city outside London for Shopify DTC. The Leeds economy is unusual: a serious financial-services core (Bank of England's Northern hub, First Direct, Lloyds, YBS) sitting alongside a young creator population from University of Leeds and Leeds Beckett, wrapped in a genuinely retail-literate city that ran on Kirkgate Market and Trinity Leeds long before Shopify existed. That combination produces ecommerce founders who think in P&L terms but ship creative like TikTok natives.",
+      "As an ecommerce marketing agency in Leeds, Being Ecom works with Shopify and WooCommerce brands across the Leeds City Region - from Chapel Allerton and Headingley skincare founders, to fitness apparel warehoused around Leeds Dock and Holbeck, to homeware and jewellery labels in Kirkstall and Horsforth. Leeds' TikTok Shop density is a big deal: the city's creator network punches multiples above its population, and we run TikTok Shop as a first-class channel for Leeds DTC brands rather than a bolt-on. Our recent Leeds fitness-apparel case study - £22k to £176k monthly in six months on a TikTok Shop + Meta stack - is a direct product of that.",
+      "The Leeds shopper index is heavier on 'plainspoken value' than London or Manchester - benefit-led creative, transparent shipping and refunds language, and honest before/after transformation content outperforms aspirational lifestyle ads. Our Yorkshire media buyers brief creative teams accordingly, which is why our Leeds ads tend to have longer average watch times and better hook retention than the same brand's London-targeted variants.",
+      "Leeds is also the UK's most credible city for finance-grade attribution work. Our GA4, server-side tracking and blended-CAC dashboards go down well with a founder base that grew up watching Barclays and First Direct model risk - nobody in Leeds tolerates platform-ROAS storytelling. That's why every Leeds engagement starts with rebuilding the analytics stack in the first sprint.",
+    ],
+    ecosystem: [
+      { title: "Leeds Dock & Holbeck Urban Village", body: "Tech and DTC hub - many of our fitness, apparel and food-and-drink Shopify Plus clients HQ here, with warehousing in Holbeck and last-mile via Yodel and DPD Wakefield." },
+      { title: "Chapel Allerton & Roundhay", body: "High-AOV suburban catchment for premium beauty, wellness and homeware DTC. We run separate paid audiences for LS7 and LS8 postcodes because CVR and AOV both over-index." },
+      { title: "Kirkstall & Horsforth", body: "Emerging DTC founder cluster - homeware, jewellery and lifestyle brands with genuinely differentiated product stories. We pair them with Yorkshire UGC creators for weekly content batches." },
+      { title: "University of Leeds & LBU corridor", body: "Creator and student community that powers our TikTok Shop shoots for Leeds fashion and beauty brands. Sessions typically run at £180-£280 per creator, well below London rates." },
+    ],
+    playbook: [
+      { title: "TikTok Shop for Leeds DTC", body: "Live-selling sessions with Yorkshire creators, TikTok Spark Ads on the winning UGC, and TikTok Shop product feed cleanup. Our Leeds fitness case study did £40k in month one from this stack alone." },
+      { title: "SEO for Leeds Shopify stores", body: "Local SEO across LS1-LS17, city-intent collection pages, Yorkshire digital PR (Yorkshire Evening Post, Business Desk, Leeds List) and technical audits tuned for Shopify Plus and Shopify Dawn themes." },
+      { title: "Klaviyo and SMS retention", body: "Post-purchase flows built for Leeds and West Yorkshire repeat behaviour (typically 36-44% email revenue share for our best clients). SMS opt-in flows for fitness, beauty and food DTC." },
+    ],
+    localFaqs: [
+      { q: "Do you actually understand the Leeds ecommerce scene?", a: "Yes - we run monthly Yorkshire founder meetups, most of our SEO leads and creative directors live in West Yorkshire, and our Leeds client roster covers fitness, beauty, fashion, food and homeware DTC. We know the Leeds Dock, Holbeck and Chapel Allerton clusters by name." },
+      { q: "Are you a good fit for TikTok Shop in Leeds?", a: "TikTok Shop is a core channel for us, not a bolt-on. We manage seller-of-record setup, creator sourcing across the Leeds and York belt, live-selling calendars and Spark Ads on winning UGC. Multiple Leeds clients now do 25-45% of monthly revenue on TikTok Shop." },
+      { q: "How does Leeds SEO compare to Manchester or Sheffield?", a: "Leeds has a stronger financial-services SERP but a less saturated ecommerce SERP than Manchester, so ranking for 'Shopify Leeds' or 'ecommerce agency Leeds' takes fewer authority links than Manchester equivalents. That's a real efficiency advantage for Leeds DTC brands." },
+      { q: "Do you support fitness and apparel DTC specifically?", a: "Yes. Yorkshire is disproportionately strong in fitness and streetwear DTC - our best current Leeds case study is a fitness apparel brand that scaled £22k to £176k monthly in six months on TikTok Shop plus Meta Ads." },
+    ],
+    nearby: ["sheffield", "bradford", "manchester", "newcastle-upon-tyne"],
+  },
+
+  nottingham: {
+    intro: [
+      "Nottingham is the quiet compounder of UK ecommerce. It does not shout the way London or Manchester does, but Nottinghamshire's DTC economy has been growing for years on genuinely durable foundations: two large universities pumping creative talent into the Lace Market and Hockley, a fulfilment corridor running down the M1 that gives East Midlands brands near-national reach, and a growing tech-and-financial-services base around the Broadmarsh regeneration and Ng2 that raises the bar on analytics and attribution. It is also, on our data, one of the most under-priced ecommerce media markets in the UK - Nottingham CPMs run cheaper than Manchester or Leeds for equivalent audiences.",
+      "As an ecommerce marketing agency in Nottingham, Being Ecom works with Shopify, Shopify Plus and WooCommerce brands across Nottinghamshire and the wider East Midlands - from baby-and-kids DTC founders in West Bridgford, to skincare and beauty brands in Hockley and the Lace Market, to homeware and pet brands warehoused around Beeston, Colwick and the A453 fulfilment corridor. Our best Nottingham case study is a baby-and-kids brand that scaled £24k to £158k monthly in eight months by rebuilding retention flows first, paid second - a very Notts sequence.",
+      "Nottingham's founder base thinks in cohorts, not campaigns. Our engagements typically start by rebuilding GA4, server-side tracking and a cohorted contribution-margin dashboard before we touch ad spend. That fits the local operator profile - Nottingham DTC founders tend to have finance or ops backgrounds and want revenue attribution they can defend to a board, not vanity ROAS. Once the numbers are trustworthy, we lean into email and SMS retention hard: Nottingham clients regularly do 42-48% of monthly revenue from Klaviyo flows and campaigns, which is 8-12 points above our UK average.",
+      "The Nottingham creator network is another quiet advantage. University of Nottingham and Nottingham Trent between them produce a large, low-cost UGC pool that we brief for weekly product shoots - typically £120-£220 per creator, roughly half of London rates. Combined with the M1 fulfilment position, that lets Nottingham brands test more SKUs, ship more creative and iterate faster than most UK cities of comparable size.",
+    ],
+    ecosystem: [
+      { title: "Lace Market & Hockley", body: "Independent Shopify DTC founder cluster - beauty, skincare, jewellery and lifestyle brands with strong editorial identities. We pair them with local UGC creators and Nottingham photographers for weekly asset batches." },
+      { title: "West Bridgford & Wollaton", body: "Higher-AOV suburban catchments for premium baby-and-kids, homeware and wellness DTC. Postcode-level paid audience splits (NG2, NG8) consistently produce our best CVR uplift on Nottingham accounts." },
+      { title: "Beeston, Colwick & A453 corridor", body: "3PL, warehousing and last-mile fulfilment. Enables the aggressive next-day-delivery promises that Nottingham Shopify Plus stores run in PDP and cart copy." },
+      { title: "University of Nottingham & NTU", body: "Creator, model and copywriter pool that powers our weekly UGC shoots for Nottingham fashion, beauty and food-and-drink DTC brands - typically 40-60% cheaper than London-equivalent talent." },
+    ],
+    playbook: [
+      { title: "Klaviyo retention for Nottingham DTC", body: "Post-purchase, replenishment and winback flows built for East Midlands repeat behaviour. Nottingham baby-and-kids and beauty clients regularly hit 42-48% email revenue share on Klaviyo." },
+      { title: "SEO for Nottingham Shopify stores", body: "Local SEO across NG1-NG17, Google Business Profile optimisation, city-intent collection pages, and East Midlands digital PR (Nottingham Post, East Midlands Business Link) for authority link building." },
+      { title: "Google & Meta Ads for East Midlands", body: "Nottingham CPMs run 12-24% cheaper than Manchester for comparable audiences - we lean into that with volume-first creative testing on Meta Advantage+ and Performance Max on Google, run to contribution-margin targets." },
+    ],
+    localFaqs: [
+      { q: "Do Nottingham ecommerce brands really need a specialist agency?", a: "Yes - Nottingham's ecommerce SERPs, TikTok creator supply and East Midlands fulfilment behaviour differ enough from London and Manchester that generic playbooks lose money. Our Nottingham engagements are calibrated to those local realities." },
+      { q: "Which Nottingham ecommerce sectors do you know best?", a: "Baby and kids (West Bridgford / Wollaton), beauty and skincare (Hockley, Lace Market), homeware and pet (Beeston, Colwick), and food and drink DTC. Our current Nottingham roster covers all four with live playbooks." },
+      { q: "How does Nottingham compare on media efficiency?", a: "Nottingham Meta and Google CPMs run 12-24% cheaper than Manchester and 30-40% cheaper than London for comparable audiences. Combined with the lower-cost UGC talent pool, that gives Nottingham DTC brands one of the best cost-per-test ratios in UK ecommerce." },
+      { q: "Do you help with East Midlands digital PR and links?", a: "Yes - we build authority links from Nottingham Post, East Midlands Business Link, LeftLion and regional trade press, plus Nottinghamshire founder-network features that compound with the technical SEO work." },
+    ],
+    nearby: ["leicester", "birmingham", "sheffield", "leeds"],
+  },
+};
+
+export function narrativeFor(slug: string): LocalNarrative | undefined {
+  return LOCAL_NARRATIVE[slug];
+}
+
 export function contentFor(slug: string, cityFallback: string): LocationContent {
   const c = LOCATION_CONTENT[slug];
   if (c) return c;
@@ -991,4 +1086,5 @@ export function contentFor(slug: string, cityFallback: string): LocationContent 
     vibe: `${cityFallback} founders trust us to run their growth engine end-to-end.`,
   };
 }
+
 

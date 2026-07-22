@@ -11,7 +11,7 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
-import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
+import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl, narrativeFor } from "../lib/location-content";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
@@ -100,6 +100,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
+    const narrative = loc ? narrativeFor(loc.slug) : undefined;
     const faqData = loc ? [
       { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
       { q: `Are you actually based in ${loc.city}?`, a: `Yes - we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
@@ -111,6 +112,7 @@ export const Route = createFileRoute("/locations/$slug")({
       { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
       { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+      ...(narrative?.localFaqs ?? []),
     ] : [];
     return {
       meta: [
@@ -234,6 +236,7 @@ function LocationPage() {
   const { loc } = Route.useLoaderData();
   const city = loc.city;
   const C = contentFor(loc.slug, city);
+  const narrative = narrativeFor(loc.slug);
   const IMG = C.images;
   const WA = whatsappUrl(city, loc.slug);
 
@@ -484,8 +487,76 @@ function LocationPage() {
         </div>
       </Section>
 
+      {/* 4b. LOCAL NARRATIVE - unique long-form, per-city (Nottingham, Leeds, Manchester...) */}
+      {narrative && (
+        <Section eyebrow={`Inside ${city} ecommerce`} title={`Why ${city} brands work with Being Ecom`} alt>
+          <div className="grid lg:grid-cols-3 gap-10 max-w-6xl">
+            <div className="lg:col-span-2 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
+              {narrative.intro.map((p, i) => (
+                <p key={i} className={i === 0 ? "text-ink font-medium text-lg leading-relaxed" : ""}>
+                  {p}
+                </p>
+              ))}
+              <div className="pt-4 grid sm:grid-cols-2 gap-4">
+                {narrative.ecosystem.map((e) => (
+                  <div key={e.title} className="rounded-2xl border border-border bg-white p-5">
+                    <div className="text-xs font-bold uppercase tracking-widest text-primary">{e.title}</div>
+                    <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="pt-2">
+                <h3 className="text-lg font-bold text-ink mb-3">{city}-specific growth playbook</h3>
+                <ul className="space-y-3">
+                  {narrative.playbook.map((p) => (
+                    <li key={p.title} className="flex gap-3 items-start">
+                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span><strong className="text-ink">{p.title}.</strong> <span className="text-muted-foreground">{p.body}</span></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <aside className="space-y-6">
+              <div className="rounded-2xl border border-border bg-white p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">Nearby cities we serve</h3>
+                <ul className="space-y-2">
+                  {narrative.nearby.map((slug) => {
+                    const nearby = LOCATIONS.find((l) => l.slug === slug);
+                    if (!nearby) return null;
+                    return (
+                      <li key={slug}>
+                        <Link
+                          to="/locations/$slug"
+                          params={{ slug }}
+                          className="text-sm text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                          Ecommerce Agency {nearby.city}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 border border-primary/20 p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-2">Related services</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/services/seo" className="text-ink hover:text-primary">Ecommerce SEO in {city}</Link></li>
+                  <li><Link to="/services/seo/local" className="text-ink hover:text-primary">Local SEO for {city}</Link></li>
+                  <li><Link to="/services/paid-ads" className="text-ink hover:text-primary">Paid Ads for {city} brands</Link></li>
+                  <li><Link to="/services/email-sms" className="text-ink hover:text-primary">Klaviyo Email &amp; SMS</Link></li>
+                  <li><Link to="/services/cro" className="text-ink hover:text-primary">CRO for {city} stores</Link></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </Section>
+      )}
+
       {/* 5. NEIGHBOURHOODS */}
       <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`} intro={`From founders in ${C.neighbourhoods[0]} to warehouses in ${C.neighbourhoods[C.neighbourhoods.length - 1]}, we partner with ecommerce brands across every corner of ${city} and ${loc.region}.`}>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {C.neighbourhoods.map((n, i) => (
             <Reveal key={n} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
