@@ -8,7 +8,7 @@ import { buildLocationDigest } from "@/lib/gsc-digest.functions";
 import { LOCATION_META } from "@/lib/location-seo-meta";
 import { LOCATIONS } from "@/lib/locations-industries";
 import baseline from "@/lib/gsc-location-baseline.json";
-import { ArrowUpRight, ArrowDownRight, Minus, RefreshCcw, LogOut } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, Minus, RefreshCcw, LogOut, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 type BaselineRow = { clicks: number; impressions: number; ctr: number; position: number };
