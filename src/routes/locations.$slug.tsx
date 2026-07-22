@@ -17,6 +17,8 @@ import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
 import { SafeImg } from "../components/SafeImg";
 import AISummary from "../components/site/AISummary";
+import { metaFor } from "../lib/location-seo-meta";
+import { trackEvent } from "../lib/analytics";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -79,22 +81,9 @@ export const Route = createFileRoute("/locations/$slug")({
   },
   head: ({ loaderData }) => {
     const loc = loaderData?.loc;
-    const title = loc
-      ? `Ecommerce Marketing Agency ${loc.city} | Shopify & WooCommerce Growth | BeingEcom`
-      : "Location - Being Ecom";
-    const descOverrides: Record<string, string> = {
-      london: "Ecommerce marketing agency in London helping Shopify and WooCommerce brands grow with SEO, Google Ads, Meta Ads, Klaviyo email and CRO - built around real London buyer behaviour.",
-      manchester: "Ecommerce marketing agency in Manchester scaling Shopify and WooCommerce stores with SEO, paid ads, Klaviyo and CRO managed by senior operators.",
-      birmingham: "Ecommerce marketing agency in Birmingham driving compounding SEO, Google Ads, Meta Ads and CRO growth for Shopify and WooCommerce brands across the West Midlands.",
-      leeds: "Ecommerce marketing agency in Leeds turning traffic into repeat revenue with SEO, Klaviyo, Meta Ads, Google Ads and CRO for Shopify and WooCommerce brands.",
-      liverpool: "Ecommerce marketing agency in Liverpool combining clean GA4 tracking, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands you can measure.",
-      glasgow: "Ecommerce marketing agency in Glasgow delivering full-stack SEO, Google Ads, Meta Ads, Klaviyo and CRO for Shopify and WooCommerce brands across Scotland.",
-      edinburgh: "Ecommerce marketing agency in Edinburgh focused on profitable revenue - CRO, SEO, Google Ads, Meta Ads and Klaviyo for Shopify and WooCommerce brands.",
-      bristol: "Ecommerce marketing agency in Bristol scaling sustainable Shopify and WooCommerce brands with SEO, paid ads, Klaviyo email and CRO built for long-term growth.",
-    };
-    const desc = loc
-      ? (descOverrides[loc.slug] ?? `Ecommerce marketing agency in ${loc.city} helping Shopify and WooCommerce brands grow through SEO, paid ads, Klaviyo email and CRO - senior operators, one revenue P&L.`)
-      : "UK ecommerce marketing agency locations.";
+    const m = loc ? metaFor(loc.slug, loc.city, loc.region) : undefined;
+    const title = m ? m.title : "Location - Being Ecom";
+    const desc = m ? m.description : "UK ecommerce marketing agency locations.";
     const C = loc ? contentFor(loc.slug, loc.city) : undefined;
     const heroImage = C?.images.hero;
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
@@ -301,13 +290,24 @@ function LocationPage() {
     { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly - usually a reply within an hour on UK business days.` },
   ];
 
-  const WhatsAppBtn = ({ label = `WhatsApp ${city} team` }: { label?: string }) => (
+  const trackCta = (ctaType: string, placement: string, extra: Record<string, string> = {}) =>
+    trackEvent("location_cta_click", {
+      cta_type: ctaType,
+      placement,
+      city,
+      city_slug: loc.slug,
+      region: loc.region,
+      ...extra,
+    });
+
+  const WhatsAppBtn = ({ label = `WhatsApp ${city} team`, placement = "generic" }: { label?: string; placement?: string }) => (
     <a
       href={WA}
       target="_blank"
       rel="noreferrer noopener"
       aria-label={`${label} on WhatsApp`}
       className="btn wa-btn group relative overflow-hidden"
+      onClick={() => trackCta("whatsapp", placement, { label })}
     >
       <span className="wa-btn-ping" aria-hidden="true" />
       <span className="relative flex items-center justify-center w-5 h-5 rounded-full bg-white/25 shrink-0">
@@ -353,11 +353,19 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={2}>
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <Link to="/contact" className="btn btn-primary btn-shimmer hover-scale">
+                <Link
+                  to="/contact"
+                  className="btn btn-primary btn-shimmer hover-scale"
+                  onClick={() => trackCta("call_booking", "hero", { destination: "/contact" })}
+                >
                   Book Free {city} Strategy Call <ArrowRight className="w-4 h-4" />
                 </Link>
-                <WhatsAppBtn label={`Chat on WhatsApp`} />
-                <Link to="/audit" className="btn btn-ghost border border-border hover-scale">
+                <WhatsAppBtn label={`Chat on WhatsApp`} placement="hero" />
+                <Link
+                  to="/audit"
+                  className="btn btn-ghost border border-border hover-scale"
+                  onClick={() => trackCta("audit_request", "hero", { destination: "/audit" })}
+                >
                   <Play className="w-4 h-4" /> Get Free Audit
                 </Link>
               </div>
@@ -930,9 +938,21 @@ function LocationPage() {
               </Reveal>
             ))}
             <div className="flex flex-wrap gap-3 pt-2">
-              <Link to="/contact" className="btn btn-primary btn-shimmer hover-scale">Book strategy call <ArrowRight className="w-4 h-4" /></Link>
-              <WhatsAppBtn label={`WhatsApp ${city} team`} />
-              <Link to="/audit" className="btn btn-ghost border border-border hover-scale">Free audit</Link>
+              <Link
+                to="/contact"
+                className="btn btn-primary btn-shimmer hover-scale"
+                onClick={() => trackCta("call_booking", "contact_section", { destination: "/contact" })}
+              >
+                Book strategy call <ArrowRight className="w-4 h-4" />
+              </Link>
+              <WhatsAppBtn label={`WhatsApp ${city} team`} placement="contact_section" />
+              <Link
+                to="/audit"
+                className="btn btn-ghost border border-border hover-scale"
+                onClick={() => trackCta("audit_request", "contact_section", { destination: "/audit" })}
+              >
+                Free audit
+              </Link>
             </div>
           </div>
         </div>
