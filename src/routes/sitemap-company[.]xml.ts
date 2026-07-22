@@ -18,9 +18,10 @@ export const Route = createFileRoute("/sitemap-company.xml")({
           ...COMPANY_LINKS.filter((c) => !c.external && c.to !== "/company/founder").map((c) => c.to),
           ...extras,
         ];
+        const LASTMOD = "2026-07-22";
         const urls = paths.map(
           (p) =>
-            `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${p === "/company" ? "0.9" : "0.7"}</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${LASTMOD}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${p === "/company" ? "0.9" : "0.7"}</priority>\n  </url>`,
         );
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
