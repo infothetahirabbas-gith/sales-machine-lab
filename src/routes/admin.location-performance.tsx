@@ -37,13 +37,14 @@ function fmtPct(n: number) {
 function fmtPos(n: number) {
   return n ? n.toFixed(1) : "—";
 }
-function delta(current: number, base: number, higherIsBetter = true) {
-  if (!base && !current) return { label: "—", tone: "neutral" as const };
+type Tone = "up" | "down" | "neutral";
+function delta(current: number, base: number, higherIsBetter = true): { label: string; tone: Tone } {
+  if (!base && !current) return { label: "—", tone: "neutral" };
   const diff = current - base;
-  if (!diff) return { label: "0", tone: "neutral" as const };
+  if (!diff) return { label: "0", tone: "neutral" };
   const good = higherIsBetter ? diff > 0 : diff < 0;
   const sign = diff > 0 ? "+" : "";
-  return { label: `${sign}${diff.toFixed(2)}`, tone: good ? "up" : ("down" as const) };
+  return { label: `${sign}${diff.toFixed(2)}`, tone: good ? "up" : "down" };
 }
 
 function DeltaCell({ value, tone }: { value: string; tone: "up" | "down" | "neutral" }) {

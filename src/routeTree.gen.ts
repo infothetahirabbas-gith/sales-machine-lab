@@ -84,6 +84,7 @@ import { Route as BenchmarksSlugRouteImport } from './routes/benchmarks.$slug'
 import { Route as AuthorTahirAbbasRouteImport } from './routes/author.tahir-abbas'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminLocationPerformanceRouteImport } from './routes/admin.location-performance'
 import { Route as AdminCaseStudiesRouteImport } from './routes/admin.case-studies'
 import { Route as AboutTahirAbbasRouteImport } from './routes/about.tahir-abbas'
 import { Route as ServicesStoreDevelopmentIndexRouteImport } from './routes/services.store-development.index'
@@ -485,6 +486,12 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLocationPerformanceRoute =
+  AdminLocationPerformanceRouteImport.update({
+    id: '/admin/location-performance',
+    path: '/admin/location-performance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AdminCaseStudiesRoute = AdminCaseStudiesRouteImport.update({
   id: '/admin/case-studies',
   path: '/admin/case-studies',
@@ -644,6 +651,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/location-performance': typeof AdminLocationPerformanceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
@@ -739,6 +747,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/location-performance': typeof AdminLocationPerformanceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
@@ -839,6 +848,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
+  '/admin/location-performance': typeof AdminLocationPerformanceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/chat': typeof ApiChatRoute
   '/author/tahir-abbas': typeof AuthorTahirAbbasRoute
@@ -941,6 +951,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
+    | '/admin/location-performance'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
@@ -1036,6 +1047,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
+    | '/admin/location-performance'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
@@ -1135,6 +1147,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
+    | '/admin/location-performance'
     | '/admin/login'
     | '/api/chat'
     | '/author/tahir-abbas'
@@ -1236,6 +1249,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   AboutTahirAbbasRoute: typeof AboutTahirAbbasRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
+  AdminLocationPerformanceRoute: typeof AdminLocationPerformanceRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiChatRoute: typeof ApiChatRoute
   AuthorTahirAbbasRoute: typeof AuthorTahirAbbasRoute
@@ -1805,6 +1819,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/location-performance': {
+      id: '/admin/location-performance'
+      path: '/admin/location-performance'
+      fullPath: '/admin/location-performance'
+      preLoaderRoute: typeof AdminLocationPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/case-studies': {
       id: '/admin/case-studies'
       path: '/admin/case-studies'
@@ -2124,6 +2145,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   AboutTahirAbbasRoute: AboutTahirAbbasRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
+  AdminLocationPerformanceRoute: AdminLocationPerformanceRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiChatRoute: ApiChatRoute,
   AuthorTahirAbbasRoute: AuthorTahirAbbasRoute,
@@ -2175,13 +2197,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
