@@ -64,6 +64,41 @@ function LocationPerformanceDashboard() {
   const navigate = useNavigate();
   const checkAdmin = useServerFn(getMyAdminStatus);
   const fetchCurrent = useServerFn(fetchCurrentLocationGsc);
+  const runDigest = useServerFn(buildLocationDigest);
+  const [digesting, setDigesting] = useState(false);
+
+  const sendDigest = async () => {
+    setDigesting(true);
+    try {
+      const d = await runDigest({ data: {} });
+      // Open the default mail client with a prefilled digest so the admin
+      // can forward it - no email infra dependency.
+      const subject = `Location performance digest ${d.startDate} - ${d.endDate}`;
+      const body = d.text;
+      const href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Also copy HTML to clipboard for richer forwarding when supported.
+      try {
+        if (navigator.clipboard && "write" in navigator.clipboard) {
+          const item = new ClipboardItem({
+            "text/html": new Blob([d.html], { type: "text/html" }),
+            "text/plain": new Blob([d.text], { type: "text/plain" }),
+          });
+          await navigator.clipboard.write([item]);
+          toast.success("Digest copied to clipboard (rich HTML) and email draft opened.");
+        } else {
+          toast.success("Digest ready - email draft opened.");
+        }
+      } catch {
+        toast.success("Digest ready - email draft opened.");
+      }
+      window.open(href, "_blank");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Failed to build digest";
+      toast.error(msg);
+    } finally {
+      setDigesting(false);
+    }
+  };
 
   const [status, setStatus] = useState<"checking" | "not-admin" | "ready">("checking");
   const [loading, setLoading] = useState(false);
