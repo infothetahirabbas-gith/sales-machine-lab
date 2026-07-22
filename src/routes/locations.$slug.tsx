@@ -11,7 +11,7 @@ import { Reveal } from "../hooks/useReveal";
 import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
-import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl } from "../lib/location-content";
+import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl, narrativeFor } from "../lib/location-content";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
