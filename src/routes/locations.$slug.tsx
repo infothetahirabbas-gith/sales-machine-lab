@@ -100,6 +100,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
+    const narrative = loc ? narrativeFor(loc.slug) : undefined;
     const faqData = loc ? [
       { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
       { q: `Are you actually based in ${loc.city}?`, a: `Yes - we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
@@ -111,6 +112,7 @@ export const Route = createFileRoute("/locations/$slug")({
       { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
       { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+      ...(narrative?.localFaqs ?? []),
     ] : [];
     return {
       meta: [
