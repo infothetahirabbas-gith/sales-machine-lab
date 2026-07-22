@@ -574,6 +574,37 @@ function LocationPage() {
                   <li><Link to="/services/cro" className="text-ink hover:text-primary">CRO for {city} stores</Link></li>
                 </ul>
               </div>
+              <div className="rounded-2xl border border-border bg-white p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">SEO specialisms for {city} brands</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/services/seo/technical" className="text-ink hover:text-primary">Technical SEO for {city} stores</Link></li>
+                  <li><Link to="/services/seo/on-page" className="text-ink hover:text-primary">On-Page SEO in {city}</Link></li>
+                  <li><Link to="/services/seo/off-page" className="text-ink hover:text-primary">Off-Page SEO &amp; digital PR</Link></li>
+                  <li><Link to="/services/seo/international" className="text-ink hover:text-primary">International SEO from {city}</Link></li>
+                  <li><Link to="/services/seo/aeo" className="text-ink hover:text-primary">AEO / AI Search for {city}</Link></li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-border bg-white p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">Paid media specialisms in {city}</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/services/performance-marketing" className="text-ink hover:text-primary">Performance marketing in {city}</Link></li>
+                  <li><Link to="/services/performance-marketing/google-ads" className="text-ink hover:text-primary">Google Ads for {city} brands</Link></li>
+                  <li><Link to="/services/performance-marketing/facebook-ads" className="text-ink hover:text-primary">Facebook Ads in {city}</Link></li>
+                  <li><Link to="/services/performance-marketing/instagram-ads" className="text-ink hover:text-primary">Instagram Ads in {city}</Link></li>
+                  <li><Link to="/services/performance-marketing/tiktok-ads" className="text-ink hover:text-primary">TikTok Ads in {city}</Link></li>
+                  <li><Link to="/services/performance-marketing/youtube-ads" className="text-ink hover:text-primary">YouTube Ads in {city}</Link></li>
+                  <li><Link to="/services/performance-marketing/media-buying" className="text-ink hover:text-primary">Media buying for {city} stores</Link></li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-white border border-border p-5">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">More reading</h3>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/methodology" className="text-ink hover:text-primary">The BeingEcom Growth System</Link></li>
+                  <li><Link to="/case-studies" className="text-ink hover:text-primary">UK ecommerce case studies</Link></li>
+                  <li><Link to="/tools" className="text-ink hover:text-primary">Free ecommerce calculators</Link></li>
+                  <li><Link to="/about" className="text-ink hover:text-primary">About BeingEcom</Link></li>
+                </ul>
+              </div>
             </aside>
           </div>
         </Section>
