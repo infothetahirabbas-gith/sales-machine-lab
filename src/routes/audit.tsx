@@ -18,6 +18,8 @@ const formatTimestamp = (d: Date = new Date()) =>
 import { Button } from "../components/ui/button";
 import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
+import { trackEvent } from "../lib/analytics";
+import { readLocationAttribution } from "../lib/location-attribution";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis,
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
