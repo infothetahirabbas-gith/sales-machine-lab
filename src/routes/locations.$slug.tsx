@@ -236,6 +236,7 @@ function LocationPage() {
   const { loc } = Route.useLoaderData();
   const city = loc.city;
   const C = contentFor(loc.slug, city);
+  const narrative = narrativeFor(loc.slug);
   const IMG = C.images;
   const WA = whatsappUrl(city, loc.slug);
 
