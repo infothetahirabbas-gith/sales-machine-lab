@@ -195,6 +195,15 @@ function LocationPerformanceDashboard() {
             {loading ? "Loading…" : "Refresh Search Console"}
           </button>
           <button
+            onClick={() => void sendDigest()}
+            disabled={digesting}
+            className="btn btn-ghost border border-border"
+            title="Build a before/after digest and open an email draft"
+          >
+            <Mail className={`w-4 h-4 ${digesting ? "animate-pulse" : ""}`} />
+            {digesting ? "Building…" : "Send digest"}
+          </button>
+          <button
             onClick={async () => {
               await supabase.auth.signOut();
               navigate({ to: "/admin/login" });
