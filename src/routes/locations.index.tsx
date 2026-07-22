@@ -40,6 +40,23 @@ function LocationsIndex() {
         </div>
       </section>
 
+      <Section title="Regional hubs">
+        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+          <Link to="/locations/regions/scotland" className="group card-surface card-hover p-5">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><MapPin className="size-5" /></div>
+            <h3 className="mt-4 text-lg font-bold text-ink">Scotland</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">Glasgow, Edinburgh</p>
+            <div className="mt-4 inline-flex items-center gap-1 text-sm text-primary font-semibold">Explore Scotland <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></div>
+          </Link>
+          <Link to="/locations/regions/yorkshire" className="group card-surface card-hover p-5">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><MapPin className="size-5" /></div>
+            <h3 className="mt-4 text-lg font-bold text-ink">Yorkshire</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">Leeds, Sheffield, Bradford</p>
+            <div className="mt-4 inline-flex items-center gap-1 text-sm text-primary font-semibold">Explore Yorkshire <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></div>
+          </Link>
+        </div>
+      </Section>
+
       <Section title="Find your city" alt>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {LOCATIONS.map((l) => (
