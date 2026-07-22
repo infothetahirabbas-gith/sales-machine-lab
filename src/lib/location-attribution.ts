@@ -98,38 +98,7 @@ export function readLocationAttribution(): StashedAttribution | null {
   return null;
 }
 
-/**
- * Deterministic 50/50 variant assignment for the meta A/B test.
- * Persists per browser for a 28-day window. Query override `?ab=A|B`.
- */
-export function assignMetaVariant(slug: string): "A" | "B" {
-  if (typeof window === "undefined") return "A";
-  try {
-    const p = new URLSearchParams(window.location.search);
-    const override = p.get("ab");
-    if (override === "A" || override === "B") return override;
+// Variant assignment is now server-side per-city (see EXPERIMENT_ASSIGNMENT in
+// location-seo-meta.ts) so Google and users see a stable title/description for
+// the 28-day CTR test window.
 
-    const expRaw = window.localStorage.getItem(STORAGE_VARIANT_EXP);
-    const exp = expRaw ? parseInt(expRaw, 10) : 0;
-    if (exp && Date.now() > exp) {
-      // Window closed - clear all variant assignments.
-      Object.keys(window.localStorage)
-        .filter((k) => k.startsWith(STORAGE_VARIANT_PREFIX))
-        .forEach((k) => window.localStorage.removeItem(k));
-      window.localStorage.removeItem(STORAGE_VARIANT_EXP);
-    }
-
-    const key = STORAGE_VARIANT_PREFIX + slug;
-    const existing = window.localStorage.getItem(key);
-    if (existing === "A" || existing === "B") return existing;
-
-    const v: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
-    window.localStorage.setItem(key, v);
-    if (!exp) {
-      window.localStorage.setItem(STORAGE_VARIANT_EXP, String(Date.now() + VARIANT_TTL_MS));
-    }
-    return v;
-  } catch {
-    return "A";
-  }
-}
