@@ -102,6 +102,14 @@ export const Route = createFileRoute("/services/seo/off-page")({
         { label: "Money-page keywords", before: 6, after: 41, description: "Page-1 keywords on money collections + PDPs." },
       ],
       faqs: FAQ_LIST,
+      relatedServices: [
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - off-page is one of four pillars." },
+        { to: "/services/seo/technical", title: "Technical SEO", body: "Backlinks compound faster on a technically clean site." },
+        { to: "/services/seo/on-page", title: "On-Page SEO", body: "Editorial links land better when target pages are optimised." },
+        { to: "/services/seo/international", title: "International SEO", body: "Region-specific digital PR for UK, US and EU stores." },
+        { to: "/case-studies", title: "UK ecommerce case studies", body: "Real digital PR wins and the revenue they compounded." },
+        { to: "/methodology", title: "The BeingEcom Growth System", body: "How off-page fits our 6-stage compounding methodology." },
+      ],
     }} />
   ),
 });
