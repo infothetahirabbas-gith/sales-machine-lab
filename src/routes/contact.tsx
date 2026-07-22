@@ -6,6 +6,7 @@ import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../
 import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
 import { trackEvent, AnalyticsEvents } from "../lib/analytics";
+import { readLocationAttribution } from "../lib/location-attribution";
 
 
 export const Route = createFileRoute("/contact")({
