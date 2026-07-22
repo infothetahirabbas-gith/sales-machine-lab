@@ -1070,6 +1070,195 @@ export const LOCAL_NARRATIVE: Record<string, LocalNarrative> = {
     ],
     nearby: ["leicester", "birmingham", "sheffield", "leeds"],
   },
+
+  birmingham: {
+    intro: [
+      "Birmingham is the fulfilment and manufacturing pivot of UK ecommerce. Ninety percent of the UK population sits inside a four-hour drive of the city, which is why so many Shopify Plus and WooCommerce brands with real physical product economics end up warehoused somewhere between Aston, Tyseley and Solihull. As an ecommerce marketing agency in Birmingham, Being Ecom works with founders who compete on unit economics first and marketing second - which is exactly the order we like.",
+      "The Birmingham DTC scene is genuinely broad. The Jewellery Quarter still supplies a large slice of UK independent jewellery and gifting brands, Digbeth's creative renaissance is churning out apparel and lifestyle labels every quarter, and Solihull, Edgbaston and Sutton Coldfield deliver a suburban high-AOV catchment that over-indexes on beauty, homeware and premium giftables. Our best Birmingham case study - a homeware brand scaled from £54k to £340k monthly on Shopify Plus and Google Shopping - is a direct read on how those catchments convert when the feed and PDP are engineered properly.",
+      "Media economics in Birmingham are more favourable than most founders expect. West Midlands CPMs typically run 20-30% below London on Meta for comparable audiences, and Google Shopping competition on category-level keywords is materially softer, which is why we default to Performance Max plus a manual Shopping campaign structure for most Birmingham accounts. Combined with the region's structurally lower overheads, that lets Birmingham brands reinvest into creative volume and retention infrastructure earlier in the growth curve than their London peers.",
+      "We run monthly in-person sessions with Birmingham founders in the Jewellery Quarter and Digbeth, and our senior media buyers cover the West Midlands from Coventry through to Wolverhampton. Being Ecom is not a London agency parachuting in - the majority of our Birmingham engagements start with a physical audit day at the founder's warehouse or office, because getting product, fulfilment and paid economics aligned is the whole game here.",
+    ],
+    ecosystem: [
+      { title: "Jewellery Quarter (B1, B18)", body: "Independent jewellery, gifting and accessories DTC cluster. We run gifting-season Meta calendars and Google Shopping feed work for Jewellery Quarter brands from Q3 onwards - Q4 alone often does 45-55% of annual revenue." },
+      { title: "Digbeth & Custard Factory", body: "Creative-quarter apparel, streetwear and lifestyle Shopify DTC founders. Weekly UGC shoots with Birmingham creators, motion editing and Meta Advantage+ creative testing at high volume." },
+      { title: "Solihull, Edgbaston & Sutton Coldfield", body: "High-AOV suburban catchments for premium beauty, homeware, gifting and wellness DTC. Postcode-level paid audiences (B91, B15, B74) consistently produce our best Birmingham CVR uplift." },
+      { title: "Aston, Tyseley & Fort Dunlop corridor", body: "3PL, warehousing and last-mile fulfilment. Enables the aggressive next-day-delivery promises we bake into Birmingham Shopify Plus PDP and cart copy for national reach." },
+    ],
+    playbook: [
+      { title: "Google Shopping & Performance Max for Birmingham", body: "Feed optimisation, custom labels for margin and stock, PMax asset-group segmentation, and a manual Shopping campaign as the priority-high shield. This is the stack behind our £54k-to-£340k homeware case study." },
+      { title: "SEO for Birmingham Shopify stores", body: "Local SEO across B1-B98, Google Business Profile, city-intent collection pages ('gold jewellery Birmingham', 'homeware Solihull'), and West Midlands digital PR (BirminghamLive, Business Live, Birmingham Post) for authority links." },
+      { title: "Klaviyo retention for West Midlands DTC", body: "Gifting-season flows for Jewellery Quarter brands, replenishment flows for beauty and homeware, and postcode-segmented winback campaigns tuned for Solihull and Sutton Coldfield repeat behaviour." },
+    ],
+    localFaqs: [
+      { q: "Do you have a physical presence in Birmingham?", a: "Yes - we run monthly in-person strategy days from the Jewellery Quarter and Digbeth, and our senior media and SEO leads cover the West Midlands from Coventry through Wolverhampton. Most Birmingham engagements start with a warehouse or office audit day." },
+      { q: "Which Birmingham ecommerce sectors do you know best?", a: "Jewellery and gifting (Jewellery Quarter), homeware and giftables (Solihull, Sutton Coldfield), apparel and streetwear (Digbeth), and beauty and wellness (Edgbaston, Harborne). We have live playbooks in all four." },
+      { q: "Is Birmingham cheaper than London for paid ads?", a: "For comparable audiences, West Midlands Meta CPMs run 20-30% below London and Google Shopping category CPCs are materially softer. Our Birmingham Shopify Plus clients regularly hit 4.4-5.1x blended ROAS on that arbitrage." },
+      { q: "Can you handle Jewellery Quarter gifting season?", a: "Yes - Q4 gifting is a specialism. We build 90-day Meta and Google calendars from Black Friday through Valentine's, plus a Klaviyo gifting flow set specifically for Jewellery Quarter DTC brands." },
+    ],
+    nearby: ["nottingham", "leicester", "manchester", "bradford"],
+  },
+
+  bradford: {
+    intro: [
+      "Bradford is one of the most under-rated ecommerce cities in the UK - a claim we back with client P&Ls, not marketing copy. The city sits on genuine textile-and-manufacturing depth (Little Germany and the wider Bradford mill network still supply a meaningful share of UK apparel), it has one of the UK's youngest populations, and it sits inside the West Yorkshire logistics ring that makes national delivery cheap. Bradford brands who compete on product and fulfilment quality tend to compound faster than their marketing budgets would suggest.",
+      "As an ecommerce marketing agency in Bradford, Being Ecom works with Shopify and WooCommerce brands across Bradford and the wider West Yorkshire district - from modest-fashion and apparel labels in Manningham and Little Germany, to lifestyle and homeware brands in Saltaire and Shipley, to health, wellness and grocery DTC founders warehoused around Idle and Bingley. Our best current Bradford case study - a modest-fashion label scaled from £21k to £164k monthly by adding a UK-plus-Gulf audience split - is exactly the kind of internationalisation Bradford brands are quietly good at.",
+      "Bradford's demographic profile makes it a live-fire testbed for social-first creative. Under-30 population share is one of the highest in the UK, and the city's cultural mix produces creative audiences that translate globally - Bradford-shot UGC routinely outperforms London-shot equivalents on Middle East, South Asia and North African Meta placements. That is a real, monetisable arbitrage that we build into international paid strategies for Bradford brands from day one.",
+      "Bradford also benefits from being 20 minutes from Leeds. Our West Yorkshire media buyers, SEO leads and UGC producers cover the Leeds-Bradford belt as one operational region, which means Bradford brands get access to the full Yorkshire operator stack rather than a stripped-down 'satellite' team. In-person sessions typically run from Little Germany or the Leeds Dock cluster, whichever is closer to the founder's warehouse.",
+    ],
+    ecosystem: [
+      { title: "Little Germany & City Centre", body: "Independent DTC founder cluster with genuine architectural and heritage brand equity. We pair Little Germany apparel and lifestyle brands with West Yorkshire UGC creators for weekly asset batches." },
+      { title: "Manningham & Heaton", body: "Modest-fashion and apparel DTC hub with strong UK-plus-international reach. Postcode-level Meta audiences (BD8, BD9) plus Gulf and South Asian expansion is our default Bradford apparel playbook." },
+      { title: "Saltaire, Shipley & Baildon", body: "Higher-AOV suburban catchment for premium homeware, lifestyle and wellness DTC. Excellent for editorial Meta creative and heritage-storytelling angles." },
+      { title: "Idle, Bingley & Bradford fulfilment ring", body: "3PL, warehousing and last-mile access into the wider West Yorkshire logistics network. Enables the next-day national delivery promises we bake into Bradford Shopify PDP copy." },
+    ],
+    playbook: [
+      { title: "International paid for Bradford modest-fashion", body: "UK, Gulf and South Asian Meta audiences with locally-shot Bradford UGC, currency-and-payment localisation on Shopify, and Klaviyo flows for international repeat behaviour. This drove our £21k-to-£164k modest-fashion case study." },
+      { title: "SEO for Bradford Shopify stores", body: "Local SEO across BD1-BD22, Google Business Profile, city-intent collection pages, and West Yorkshire digital PR (Telegraph & Argus, Yorkshire Post, The Business Desk) for authority link building." },
+      { title: "Klaviyo & SMS retention for West Yorkshire DTC", body: "Segmented flows for Bradford, Leeds and wider West Yorkshire postcodes plus international repeat cohorts. Bradford apparel and homeware clients regularly hit 38-44% Klaviyo revenue share." },
+    ],
+    localFaqs: [
+      { q: "Do you have real experience with Bradford ecommerce brands?", a: "Yes - our current Bradford roster covers modest-fashion, apparel, homeware and wellness DTC, and our West Yorkshire operators cover the Leeds-Bradford belt as one region. Sessions run from Little Germany or Leeds Dock depending on the founder's base." },
+      { q: "Can you help a Bradford brand expand into the Gulf or South Asia?", a: "Yes - Bradford is one of our strongest UK cities for international expansion. We handle Meta audience structure, Bradford-shot UGC that travels, Shopify currency and payment localisation, and Klaviyo flows for international repeat behaviour." },
+      { q: "Is Bradford SEO very competitive?", a: "Bradford ecommerce SERPs are meaningfully less saturated than Leeds or Manchester, which means ranking for 'ecommerce agency Bradford', 'Shopify Bradford' or neighbourhood-level buyer terms takes fewer authority links. That is a real efficiency advantage for Bradford DTC brands." },
+      { q: "Do you understand modest-fashion and heritage brands specifically?", a: "Yes - modest-fashion is one of our strongest verticals. We have live playbooks for UK plus Gulf plus South Asia paid strategy, culturally-appropriate UGC briefing, and Ramadan and Eid calendar campaigns for Bradford apparel DTC founders." },
+    ],
+    nearby: ["leeds", "manchester", "sheffield", "liverpool"],
+  },
+
+  liverpool: {
+    intro: [
+      "Liverpool is one of the most distinctive ecommerce cities in the UK - a small, culturally intense DTC scene where brand personality is the primary growth lever and generic direct-response ads simply do not work. As an ecommerce marketing agency in Liverpool, Being Ecom works with Shopify and WooCommerce founders across Merseyside for whom brand voice, community and creator networks are non-negotiable. Bland ads fail here faster than anywhere else we operate.",
+      "The Baltic Triangle is the operational heart of the Liverpool DTC scene. Streetwear, music-adjacent apparel, beauty and lifestyle brands cluster here alongside a serious creative production ecosystem - photographers, motion editors and directors who ship Meta and TikTok assets that read as native Liverpool rather than agency-generic. Our best Liverpool case study - £17k to £128k monthly on Meta plus TikTok Shop for a streetwear brand - is a direct product of that creative density. Liverpool ROAS numbers are consistently among the highest in our client base because the creative works harder.",
+      "Merseyside's shopper profile matters. Liverpool audiences over-index heavily on brand loyalty and repeat behaviour - once a Scouse customer buys, they buy again, they refer, and they engage. That makes Liverpool a retention marketer's dream and shifts the growth model materially: our Liverpool clients typically spend proportionally more on Klaviyo, SMS and community than the UK average, and less on cold Meta prospecting, because the LTV maths supports it.",
+      "The Manchester-Liverpool logistics corridor is also quietly important. Liverpool brands warehoused around Speke, Aintree or the Port of Liverpool sit inside the same North West fulfilment ring as Manchester, which means the next-day national delivery promise is genuinely credible from Merseyside. We build that into PDP and cart copy for every Liverpool Shopify Plus store we run.",
+    ],
+    ecosystem: [
+      { title: "Baltic Triangle & Ropewalks", body: "Streetwear, lifestyle and music-adjacent DTC cluster with genuine creative production infrastructure. Weekly UGC and Reel shoots with Baltic Triangle creators is the default Liverpool creative rhythm." },
+      { title: "Georgian Quarter & Sefton Park", body: "Higher-AOV catchment for premium beauty, wellness and homeware DTC. Editorial, story-led Meta creative outperforms discount-led angles here by a meaningful margin." },
+      { title: "Allerton, Woolton & Aigburth", body: "Suburban premium catchment for gifting, homeware and lifestyle brands. Postcode-level paid audiences (L18, L25) consistently produce our best Liverpool CVR uplift." },
+      { title: "Speke, Aintree & Port of Liverpool corridor", body: "3PL, warehousing and last-mile fulfilment. Sits inside the Manchester-Liverpool logistics ring for national next-day delivery credibility." },
+    ],
+    playbook: [
+      { title: "Brand-led Meta & TikTok Shop for Liverpool DTC", body: "Personality-first creative briefs, Merseyside UGC creators, TikTok Shop live-selling calendars, and Meta Advantage+ tested against contribution margin. This is the stack behind our £17k-to-£128k streetwear case study." },
+      { title: "Klaviyo & community retention for Merseyside", body: "Retention flows tuned for Liverpool's high-repeat customer behaviour, SMS opt-in flows, and community and loyalty program builds. Liverpool clients regularly hit 34-42% Klaviyo revenue share, often on lighter cold-paid spend than UK peers." },
+      { title: "SEO for Liverpool Shopify stores", body: "Local SEO across L1-L38, Google Business Profile, city-intent collection pages, and Merseyside digital PR (Liverpool Echo, Business Live, LivBiz) for authority link building." },
+    ],
+    localFaqs: [
+      { q: "Do you actually get Liverpool brand voice?", a: "Yes - our Liverpool creative directors are Merseyside-based, and our default brief for Liverpool clients is personality-first, community-led and Scouse-native. Generic direct-response creative does not work here and we do not ship it." },
+      { q: "Which Liverpool ecommerce sectors do you know best?", a: "Streetwear and apparel (Baltic Triangle), beauty and wellness (Georgian Quarter, Allerton), gifting and homeware (Sefton Park, Woolton), and lifestyle and music-adjacent DTC. Current Liverpool roster covers all four." },
+      { q: "How does Liverpool compare to Manchester on ROAS?", a: "Liverpool CPMs are typically 8-15% below Manchester, and Liverpool CVR on brand-led creative runs materially higher because of the city's loyalty and repeat behaviour. Our best Liverpool Shopify clients average 5.4-6.3x blended ROAS." },
+      { q: "Do you handle TikTok Shop and creator sourcing for Liverpool?", a: "Yes - TikTok Shop is a core Liverpool channel. We handle seller-of-record setup, Baltic Triangle creator sourcing, live-selling calendars and Spark Ads on winning UGC. Liverpool streetwear clients regularly do 30-45% of monthly revenue on TikTok Shop." },
+    ],
+    nearby: ["manchester", "leeds", "bradford", "birmingham"],
+  },
+
+  london: {
+    intro: [
+      "London is the UK's ecommerce capital and the hardest market in the country to scale profitably. As an ecommerce marketing agency in London, Being Ecom works with Shopify Plus and WooCommerce founders for whom the challenge is not awareness or traffic but blended CAC, creative fatigue and margin defence in a market where CPMs are structurally elevated and the shopper is the most sophisticated in the UK. Everything we do for London brands is calibrated around contribution margin, not platform-reported ROAS.",
+      "The London DTC ecosystem is genuinely uneven. Zone 1-3 concentrates a huge slice of the UK's Shopify Plus roster - Shoreditch and Old Street for tech-adjacent brands, Kings Cross and Farringdon for the more mature scale-ups, Notting Hill and Fulham for premium beauty and lifestyle, Camden and Hackney for streetwear and lifestyle labels. Our best London case study - a beauty DTC scaled from £68k to £412k monthly across Meta plus Google in eight months - reflects how a properly integrated London stack behaves when creative volume, retention and analytics are all engineered in parallel.",
+      "Creative fatigue is the defining London problem. AOV is high, shopper willingness-to-pay is high, but creative shelf-life is measured in days rather than weeks. Our London engagements default to shipping 12-20 fresh Meta creative concepts a month per brand, run through a UGC-plus-motion pipeline that sources from Shoreditch, Hackney and Peckham creators. Founders who cannot sustain creative velocity struggle to hold ROAS in London regardless of media buying quality - which is why we run creative production in-house rather than outsourcing it.",
+      "London also demands the strongest attribution stack of any UK city. Server-side tracking, GA4 with proper enhanced conversions, Northbeam or Triple Whale for blended reporting, and a contribution-margin dashboard reconciled weekly against Shopify are non-negotiable. Every London engagement starts with that foundation in the first sprint - because there is no world in which London paid decisions can be made responsibly on platform-reported ROAS alone.",
+    ],
+    ecosystem: [
+      { title: "Shoreditch, Old Street & Hackney", body: "Tech-adjacent Shopify Plus DTC cluster - beauty, wellness, apparel and lifestyle brands with sophisticated data and creative expectations. Default London home for our in-person strategy sessions." },
+      { title: "Kings Cross, Farringdon & Clerkenwell", body: "Mature scale-up cluster - Shopify Plus brands with 8-figure trajectories and boardroom reporting. Contribution-margin dashboards and international expansion work dominate the roadmap here." },
+      { title: "Notting Hill, Kensington & Fulham", body: "Premium beauty, wellness, gifting and homeware DTC. Editorial creative and press-driven retargeting outperforms aggressive direct-response angles for Zone 2-3 premium catchments." },
+      { title: "Camden, Peckham & Brixton", body: "Streetwear, music-adjacent apparel and lifestyle DTC. High-volume UGC creator supply and TikTok Shop density supports weekly Meta and TikTok creative testing at scale." },
+    ],
+    playbook: [
+      { title: "Creative velocity for London DTC", body: "12-20 fresh Meta and TikTok concepts a month per brand, sourced from Shoreditch, Hackney and Peckham UGC creators, edited in-house, and rotated against Meta Advantage+ and TikTok Spark. Non-negotiable for holding London ROAS at scale." },
+      { title: "Contribution-margin paid for London", body: "Server-side tracking, GA4, Northbeam or Triple Whale, and a weekly contribution-margin dashboard reconciled against Shopify. Paid decisions run against blended CAC and margin, not platform ROAS." },
+      { title: "SEO & digital PR for London Shopify", body: "Technical SEO on Shopify Plus themes, London-intent collection pages, Core Web Vitals engineering, and premium digital PR (Vogue Business, Drapers, Retail Week, The Times, Evening Standard) for authority links." },
+    ],
+    localFaqs: [
+      { q: "Are you actually competitive against the big London agencies?", a: "Yes - our London roster includes 8-figure Shopify Plus brands and our best London case study is a beauty DTC scaled £68k to £412k monthly in eight months. We compete on creative velocity, contribution-margin discipline and senior-operator retention, not agency badges." },
+      { q: "Do you have in-person capacity in London?", a: "Yes - we run weekly in-person sessions from Shoreditch and Old Street, and our London media buyers, creative directors and analytics leads cover Zone 1-3 in person for all London engagements." },
+      { q: "How do you handle creative fatigue in London?", a: "By shipping 12-20 fresh Meta and TikTok concepts a month per brand through an in-house UGC-plus-motion pipeline sourced from Shoreditch, Hackney and Peckham creators. Founders who cannot sustain that velocity cannot hold London ROAS - so we run the pipeline for them." },
+      { q: "Can you handle international expansion for a London brand?", a: "Yes - most of our mature London Shopify Plus clients expand into EU and US in parallel with UK growth. We handle currency, payment, tax, hreflang, translated Meta creative and international Klaviyo flow variants." },
+    ],
+    nearby: ["birmingham", "nottingham", "leicester", "poole"],
+  },
+
+  glasgow: {
+    intro: [
+      "Glasgow is the operational capital of Scottish ecommerce - and, on our numbers, the UK city with the highest concentration of Shopify Plus brands outside London and Manchester. As an ecommerce marketing agency in Glasgow, Being Ecom works with founders across the Central Belt for whom the growth challenge is a genuine two-market problem: scale profitably inside Scotland, then scale south-of-the-border into rUK and international without brand dilution.",
+      "The Glasgow DTC scene runs through three clusters. Merchant City and Finnieston concentrate the independent apparel, beauty and lifestyle Shopify founders; the West End and Byres Road corridor delivers a higher-AOV catchment for premium beauty, homeware and craft brands; and the Southside plus Shawlands supplies a steady pipeline of emerging DTC labels leaning into heritage and craft storytelling. Our best Glasgow case study - a whisky-accessories brand scaled £19k to £142k monthly on international Google Ads - is a read on how Glasgow brands compound when the international story is engineered properly.",
+      "Glasgow shoppers are unusually direct. Discount-led creative reads as insulting; heritage, craft and provenance angles outperform aspirational lifestyle by a wide margin. Our Glasgow media buyers brief creative accordingly, which is why our Scottish paid accounts tend to run longer creative shelf-lives than English equivalents - honest, story-led creative simply does not fatigue as fast.",
+      "Scotland is also a genuinely different SEO market. Google.co.uk still surfaces distinct SERPs for 'ecommerce agency Scotland', 'Shopify Glasgow' and 'PPC Edinburgh', and Scottish digital PR (The Herald, The Scotsman, DIGIT, Scottish Business News) is materially less contested than English equivalents. That gives Glasgow brands a real authority-link efficiency advantage that we lean into on every SEO engagement.",
+    ],
+    ecosystem: [
+      { title: "Merchant City & Finnieston", body: "Independent Shopify DTC cluster - apparel, beauty and lifestyle brands with genuine craft and heritage storytelling. Default home for our in-person Glasgow strategy sessions and creator meetups." },
+      { title: "West End & Byres Road", body: "Higher-AOV catchment for premium beauty, homeware, wellness and craft DTC. Postcode-level Meta audiences (G12, G11) consistently produce the best Glasgow CVR uplift." },
+      { title: "Southside, Shawlands & Dennistoun", body: "Emerging DTC founder cluster - fashion, food-and-drink and lifestyle brands with distinctive Glasgow brand voice. Strong local UGC creator supply from GSA and Strathclyde graduates." },
+      { title: "Paisley, Cambuslang & Central Belt corridor", body: "3PL, warehousing and last-mile fulfilment into rUK. Enables the next-day-national-delivery promise that Glasgow Shopify Plus stores need to compete with English DTC on shipping." },
+    ],
+    playbook: [
+      { title: "International Google Ads for Glasgow DTC", body: "Multi-market Performance Max plus manual Shopping structures across UK, EU and US. This is the stack behind our £19k-to-£142k whisky-accessories case study - Scottish brands with genuine heritage travel exceptionally well." },
+      { title: "SEO for Scottish Shopify stores", body: "Scotland-specific SERPs, G-postcode local SEO, Google Business Profile optimisation and Scottish digital PR (The Herald, The Scotsman, DIGIT, The Business Desk Scotland) for authority link building at meaningfully lower cost than English equivalents." },
+      { title: "Klaviyo retention for Central Belt DTC", body: "Segmented flows for Scottish, rUK and international cohorts, whisky and craft gifting calendars for Q4, and post-purchase upsell flows tuned for Glasgow's craft-buyer repeat behaviour." },
+    ],
+    localFaqs: [
+      { q: "Do you have real Scottish ecommerce experience?", a: "Yes - our current Glasgow and Edinburgh roster covers apparel, beauty, whisky and craft DTC. Our senior operators know the Merchant City, Finnieston, West End and Southside clusters by name, and we run monthly in-person sessions in Glasgow." },
+      { q: "Can you handle international expansion for a Scottish brand?", a: "Yes - Scottish heritage brands travel exceptionally well, and international expansion is one of our strongest Glasgow specialisms. We handle multi-market Google Ads and Meta, Shopify currency and payment localisation, and international Klaviyo flow variants for UK, EU and US." },
+      { q: "How does Scottish SEO differ from English SEO?", a: "Google.co.uk surfaces distinct SERPs for Scottish intent queries, and Scottish digital PR is materially less contested than English equivalents. Ranking for 'ecommerce agency Scotland' or 'Shopify Glasgow' takes fewer authority links than comparable English terms - a real efficiency advantage." },
+      { q: "Do you understand Scottish shopper behaviour?", a: "Yes - Glasgow and wider Scottish audiences reward heritage, craft and provenance storytelling and reject discount-led aspirational creative. We brief Scottish paid creative to that reality, which is why our Scottish accounts hold ROAS longer than English equivalents." },
+    ],
+    nearby: ["edinburgh", "newcastle-upon-tyne", "manchester", "liverpool"],
+  },
+
+  leicester: {
+    intro: [
+      "Leicester is the operational engine of UK fashion DTC - and, in raw supply-chain terms, one of the most strategically important ecommerce cities in the country. As an ecommerce marketing agency in Leicester, Being Ecom works with Shopify and WooCommerce fashion, apparel and lifestyle founders who compete on iteration speed as much as on marketing. Leicester's textile-manufacturing base gives founders small MOQs and fast turnaround that no other UK city can match, and we build growth strategies that convert that supply-chain edge into paid-media and retention advantage.",
+      "The Leicester DTC scene concentrates around the Cultural Quarter, the New Walk corridor and Belgrave, with warehousing running out to the M1 and M69 junction. Womenswear, modest-fashion, occasion-wear and lifestyle apparel dominate the roster, along with a growing footprint of beauty, jewellery and homeware brands leveraging the same fast-turnaround supply chain. Our best Leicester case study - a womenswear brand scaled £26k to £212k monthly on a weekly UGC batch model - is a direct read on how quickly Leicester brands can iterate SKU velocity when creative production keeps pace.",
+      "Leicester shoppers, and Leicester brand audiences more broadly, are genuinely diverse. The city's demographic mix produces creative audiences that translate globally, which is why Leicester-shot UGC often outperforms London-shot equivalents on Middle East, South Asia and North America placements. Combined with the local supply chain, that makes Leicester the natural home for UK modest-fashion and internationally-scaled apparel DTC.",
+      "Leicester also benefits from the East Midlands fulfilment corridor. M1, M69 and East Midlands Airport put roughly 85% of the UK population inside a next-day delivery window from a Leicester warehouse, at operating costs materially below London or Manchester. We build that shipping advantage into Leicester PDP and cart copy on every Shopify Plus engagement.",
+    ],
+    ecosystem: [
+      { title: "Cultural Quarter & Highcross", body: "Independent Shopify DTC founder cluster - womenswear, occasion-wear and lifestyle apparel with distinctive brand identities. Weekly UGC shoots with Leicester creators and in-house Meta creative testing." },
+      { title: "Belgrave, Melton Road & Evington", body: "Modest-fashion, occasion-wear and jewellery DTC hub with strong UK-plus-international reach. Ramadan, Eid and Diwali paid calendars are a Leicester specialism." },
+      { title: "New Walk, Stoneygate & Clarendon Park", body: "Higher-AOV suburban catchment for premium beauty, homeware and lifestyle DTC. Postcode-level Meta audiences (LE2) consistently produce the best Leicester CVR uplift." },
+      { title: "M1 / M69 / East Midlands Airport corridor", body: "3PL, warehousing and last-mile fulfilment. Puts 85% of the UK population inside next-day delivery at operating costs materially below London or Manchester." },
+    ],
+    playbook: [
+      { title: "High-velocity UGC for Leicester fashion DTC", body: "Weekly creator shoots, 30-50 fresh Meta and TikTok concepts a month, and rapid SKU testing against Leicester's fast-turnaround supply chain. This is the stack behind our £26k-to-£212k womenswear case study." },
+      { title: "International paid for modest-fashion & occasion-wear", body: "UK, Gulf, South Asia and North America Meta audiences with Leicester-shot UGC that travels, Ramadan and Eid campaign calendars, and Shopify currency and payment localisation for international scale." },
+      { title: "SEO for Leicester Shopify stores", body: "Local SEO across LE1-LE19, Google Business Profile, city-intent collection pages, and East Midlands digital PR (Leicester Mercury, East Midlands Business Link, The Business Desk) for authority link building." },
+    ],
+    localFaqs: [
+      { q: "Do you understand Leicester's fashion and modest-fashion DTC market?", a: "Yes - Leicester fashion is one of our strongest verticals. Current roster covers womenswear, occasion-wear, modest-fashion and lifestyle apparel, and we run Ramadan, Eid and Diwali paid calendars as standard for Leicester DTC founders." },
+      { q: "Can you handle international expansion from Leicester?", a: "Yes - Leicester-shot UGC travels exceptionally well on Middle East, South Asia and North America Meta placements. We handle multi-market paid, Shopify currency and payment localisation, and international Klaviyo flow variants." },
+      { q: "How does Leicester compare to London on iteration speed?", a: "Leicester's local textile-manufacturing base supports MOQs and turnaround times London brands cannot match. Combined with lower creative production costs, Leicester DTC brands can test 3-5x the SKU-and-creative combinations per pound of marketing spend versus London equivalents." },
+      { q: "Do you have Leicester-based creator and UGC supply?", a: "Yes - we source Leicester UGC creators for weekly product shoots across womenswear, occasion-wear, modest-fashion and beauty. Typical creator rates run £120-£200 per session, roughly half London equivalents, which is what enables the high-velocity testing model." },
+    ],
+    nearby: ["nottingham", "birmingham", "leeds", "bradford"],
+  },
+
+  poole: {
+    intro: [
+      "Poole and the wider Dorset coast are the quiet home of premium lifestyle DTC in the UK. Sandbanks, Canford Cliffs, Studland and the Purbeck coast supply both an affluent local shopper base and the kind of photographic backdrops that premium Meta and Instagram creative is built on. As an ecommerce marketing agency in Poole, Being Ecom works with Shopify and WooCommerce founders scaling lifestyle, coastal, wellness and homeware brands that trade on aesthetic as much as on product economics.",
+      "The Poole DTC scene is compact but genuine. Old Town Poole and Ashley Cross house independent Shopify founders in beauty, wellness, homeware and coastal apparel; Sandbanks and Canford Cliffs deliver one of the highest-AOV catchments in the UK for premium gifting, jewellery and lifestyle; and the wider Bournemouth-Poole conurbation gives access to a growing South Coast tech corridor that supplies dev, data and creative talent locally. Our best Poole case study - a coastal-lifestyle brand scaled £19k to £134k monthly on premium creative plus Klaviyo - is a direct read on how well Poole brands compound when the retention infrastructure keeps pace with the aesthetic.",
+      "Poole shoppers, and the Poole audience for lifestyle brands more broadly, respond to editorial and aspirational creative in ways that value-led messaging cannot match. Our South Coast media buyers brief Poole paid accounts as premium-lifestyle-first: cinematic UGC, product-in-context Reels, editorial email design and gift-focused Klaviyo flows outperform aggressive direct-response angles by wide margins. That shifts the entire growth model - Poole brands typically spend more on creative production and retention infrastructure and less on cold-paid prospecting than comparable inland DTC founders.",
+      "Poole also benefits from the Bournemouth tech corridor. Local dev, data and analytics talent supports the kind of GA4, server-side tracking and contribution-margin dashboarding work that premium Shopify Plus brands need but often struggle to source outside London. Being Ecom coordinates that stack for Poole clients as part of a single South Coast engagement rather than a fragmented set of vendors.",
+    ],
+    ecosystem: [
+      { title: "Sandbanks & Canford Cliffs", body: "One of the UK's highest-AOV catchments - premium gifting, jewellery, beauty and lifestyle DTC. Postcode-level Meta audiences (BH13, BH14) consistently produce our best Poole CVR uplift." },
+      { title: "Old Town Poole & Ashley Cross", body: "Independent Shopify DTC founder cluster - beauty, wellness, homeware and coastal apparel with distinctive editorial brand identity. Weekly UGC shoots on the Poole harbour and Purbeck coastline." },
+      { title: "Studland, Sandbanks & Purbeck coastline", body: "Photographic backdrop supply - one of the strongest natural UGC-and-Reel locations in the UK for lifestyle DTC creative production." },
+      { title: "Bournemouth tech corridor", body: "Local dev, data and analytics talent supply. Supports the GA4, server-side tracking and contribution-margin dashboards that premium Poole Shopify Plus brands need." },
+    ],
+    playbook: [
+      { title: "Premium creative & Klaviyo for Poole lifestyle DTC", body: "Cinematic UGC on the Purbeck coast, editorial Meta and Instagram creative, and Klaviyo retention flows tuned for premium gifting and lifestyle repeat behaviour. This is the stack behind our £19k-to-£134k coastal-lifestyle case study." },
+      { title: "SEO for Poole & Dorset Shopify stores", body: "Local SEO across BH postcodes, Google Business Profile, city-intent collection pages, and South Coast digital PR (Bournemouth Echo, Dorset Business Live, Insider Media South) for authority link building." },
+      { title: "Contribution-margin analytics for premium DTC", body: "GA4, server-side tracking, Northbeam or Triple Whale and weekly contribution-margin reconciliation against Shopify. Non-negotiable for premium Poole brands where AOV is high and CAC needs to be defended as the brand scales." },
+    ],
+    localFaqs: [
+      { q: "Is Poole really a viable ecommerce hub?", a: "Yes - Sandbanks and Canford Cliffs deliver one of the highest-AOV catchments in the UK, and Old Town Poole plus Ashley Cross houses a compact but genuine premium DTC founder scene. Our best Poole case study scaled £19k to £134k monthly on premium lifestyle creative." },
+      { q: "Do you have South Coast operators on the ground?", a: "Yes - our South Coast creative directors and media buyers cover the Poole-Bournemouth conurbation, and we coordinate with the local Bournemouth tech corridor for dev, data and analytics work as part of a single South Coast engagement." },
+      { q: "Which Poole ecommerce sectors do you know best?", a: "Premium lifestyle and homeware, beauty and wellness, coastal and outdoor apparel, and gifting and jewellery. Current Poole and wider Dorset roster covers all four with live playbooks." },
+      { q: "Can you handle premium-brand creative production in Poole?", a: "Yes - the Purbeck coast, Sandbanks and Studland are among the strongest natural UGC-and-Reel backdrops in the UK. We run weekly cinematic shoots for Poole lifestyle Shopify brands that outperform inland-shot creative on Meta and Instagram by wide margins." },
+    ],
+    nearby: ["london", "bristol", "birmingham", "leicester"],
+  },
 };
 
 export function narrativeFor(slug: string): LocalNarrative | undefined {
