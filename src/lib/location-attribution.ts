@@ -1,13 +1,11 @@
 // Location page attribution helpers.
 // - Auto-appends city-specific UTM params to every outbound link on /locations/*.
-// - Persists city + variant in sessionStorage so /contact and /audit can fire
+// - Persists city + meta variant in sessionStorage so /contact and /audit can fire
 //   conversion events attributed back to the city that referred them.
-// - Deterministic A/B assignment for the meta title/description experiment
-//   (28-day window, sticky per browser).
+// Variant is server-assigned per-city via EXPERIMENT_ASSIGNMENT (see location-seo-meta.ts).
 
 const STORAGE_CITY = "be_source_city";
-const STORAGE_VARIANT_PREFIX = "be_loc_variant_";
-const STORAGE_VARIANT_EXP = "be_loc_variant_exp";
+
 
 // Experiment window: 28 days from first assignment.
 const VARIANT_TTL_MS = 28 * 24 * 60 * 60 * 1000;
