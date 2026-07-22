@@ -137,8 +137,33 @@ export const LOCATION_META_B: Record<string, LocationMeta> = {
 // Back-compat: LOCATION_META still exported (variant A).
 export const LOCATION_META = LOCATION_META_A;
 
+// A/B experiment cohort: which variant each city serves to Google + users.
+// Half serve A, half serve B for a 28-day CTR test. After the window closes,
+// admin dashboard reports CTR by variant and we roll the winner globally.
+// Started 2026-07-22; ends 2026-08-19.
+export const EXPERIMENT_START = "2026-07-22";
+export const EXPERIMENT_END = "2026-08-19";
+export const EXPERIMENT_ASSIGNMENT: Record<string, "A" | "B"> = {
+  london: "A",
+  manchester: "B",
+  birmingham: "A",
+  glasgow: "B",
+  bristol: "A",
+  leeds: "B",
+  liverpool: "A",
+  leicester: "B",
+  nottingham: "A",
+  edinburgh: "B",
+  poole: "A",
+  bradford: "B",
+};
+
+export function variantForSlug(slug: string): "A" | "B" {
+  return EXPERIMENT_ASSIGNMENT[slug] ?? "A";
+}
+
 export function metaFor(slug: string, city: string, region: string): LocationMeta {
-  return metaForVariant(slug, city, region, "A");
+  return metaForVariant(slug, city, region, variantForSlug(slug));
 }
 
 export function metaForVariant(
@@ -161,3 +186,4 @@ export function metaForVariant(
         : `${city} ecommerce agency for Shopify & WooCommerce brands. SEO, Google Ads, Meta Ads, Klaviyo & CRO run by senior UK operators. Free audit.`,
   };
 }
+
