@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyAdminStatus } from "@/lib/case-studies.functions";
 import { fetchCurrentLocationGsc, type GscRow } from "@/lib/gsc-monitor.functions";
+import { buildLocationDigest } from "@/lib/gsc-digest.functions";
 import { LOCATION_META } from "@/lib/location-seo-meta";
 import { LOCATIONS } from "@/lib/locations-industries";
 import baseline from "@/lib/gsc-location-baseline.json";
