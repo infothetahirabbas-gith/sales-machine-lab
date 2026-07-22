@@ -8,12 +8,13 @@ export const Route = createFileRoute("/sitemap-locations.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const today = new Date().toISOString().slice(0, 10);
         const urls: string[] = [
-          `  <url>\n    <loc>${BASE_URL}/locations</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}/locations</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
         ];
         for (const loc of LOCATIONS) {
           urls.push(
-            `  <url>\n    <loc>${BASE_URL}/locations/${loc.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.75</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}/locations/${loc.slug}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.75</priority>\n  </url>`,
           );
         }
         const xml = [
