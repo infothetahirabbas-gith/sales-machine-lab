@@ -24,6 +24,13 @@ const FAQ_LIST: FAQ[] = [
   { q: "How do you handle creator briefs and rights?", a: "Every creator signs a usage licence covering paid social, organic, whitelisting and duration. We manage the entire briefing → shooting → revision → delivery pipeline." },
   { q: "Do you integrate creative with paid media buying?", a: "Yes - our sister Ecommerce Paid Ads Agency UK team ships the creatives into structured Meta + TikTok + YouTube campaigns and feeds performance back into the creative backlog." },
   { q: "What common creative mistakes do you see?", a: "Two creatives on rotation, generic 'lifestyle' content, no hook variation, ignoring statics, copying competitors verbatim, and shipping quarterly instead of weekly. We fix all six from day one." },
+  { q: "How many creative concepts do you ship per week?", a: "A minimum of 3 fresh concepts per week for scaling brands - a blend of UGC, motion, static and founder-led hooks. Each concept ships with a named hypothesis (angle, pain, promise) so wins can be doubled down on and losers killed fast." },
+  { q: "Do you handle UGC creator sourcing?", a: "Yes - vetted UK & US creators, briefed, contracted, paid and rights-cleared under our roof. You get the raw + edited files with commercial-use rights included, no per-usage fees or renewals." },
+  { q: "Which ad platforms do your creatives run on?", a: "Meta (Feed, Reels, Stories), TikTok, YouTube Shorts, Instagram organic, and Google Demand Gen. Every asset is cut for platform-native ratios (9:16, 1:1, 4:5) and hook-timing conventions, not just resized." },
+  { q: "How does creative link back to CRO and landing pages?", a: "Every winning ad ships alongside a matched landing page or PDP treatment so the promise made in the hook is delivered on-page. See our /services/cro and /services/funnel playbooks for how creative → landing → checkout is one system, not three teams." },
+  { q: "Do you produce creative for retention (email & SMS)?", a: "Yes - static + motion assets for Klaviyo campaigns, Postscript SMS visuals, and lifecycle flow imagery. Same brief system, same performance loop. Pairs with /services/email-sms." },
+  { q: "How do you measure creative performance?", a: "Hook rate (3s), hold rate (15s), CTR, thumb-stop ratio, CPA, ROAS and incremental lift on scaled sets - reviewed weekly. Winners graduate, losers get killed inside 7 days on spend." },
+  { q: "Can you audit our existing creative library first?", a: "Yes - the free growth audit at /audit includes a creative teardown: what's fatigued, what's under-scaled, what angles you've never tested. Delivered by a senior creative strategist, not a template." },
 ];
 
 export const Route = createFileRoute("/services/creative")({
