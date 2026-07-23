@@ -54,8 +54,11 @@ export function getRelatedServices(currentSlug: string, count = 6): ServiceCatal
 export const RESOURCE_LINKS = [
   { title: "Free Growth Audit", body: "Get a 20-page teardown of your store, ads & funnel.", to: "/audit" },
   { title: "Pricing & Packages", body: "Transparent retainers built for every growth stage.", to: "/pricing" },
-  { title: "Case Studies", body: "Real ecommerce brands, real revenue lifts.", to: "/case-studies" },
+  { title: "Case Studies", body: "Real UK Shopify & Woo brands, real revenue lifts.", to: "/case-studies" },
+  { title: "ROAS Calculator", body: "Model paid-ad payback in seconds - free tool.", to: "/tools/roas-calculator" },
+  { title: "CAC Calculator", body: "Work out true customer acquisition cost by channel.", to: "/tools/cac-calculator" },
+  { title: "LTV Calculator", body: "Forecast lifetime value & cohort payback windows.", to: "/tools/ltv-calculator" },
+  { title: "All Growth Tools", body: "ROAS, CAC, LTV, break-even & margin - free.", to: "/tools" },
   { title: "Insights & Playbooks", body: "Field-tested tactics from our operator team.", to: "/blog" },
   { title: "Industries We Serve", body: "Specialised playbooks by vertical.", to: "/industries" },
-  { title: "Talk to Strategy", body: "Book a 30-min call with a senior strategist.", to: "/contact" },
 ] as const;
