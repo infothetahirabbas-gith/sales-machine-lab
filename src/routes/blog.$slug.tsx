@@ -1741,3 +1741,594 @@ function LocalSeoMultiLocationUkEcommerce() {
   );
 }
 
+
+function UkDtcPaidMediaPlaybook() {
+  return (
+    <>
+      <h2 id="tldr">Short answer first</h2>
+      <p>UK DTC brands scale paid media by running <strong>Meta for demand generation</strong>, <strong>Google Shopping for intent capture</strong>, and <strong>TikTok as a creative amplifier</strong> - measured against <strong>MER, not platform ROAS</strong>. This playbook is the exact operating model we run for £1M-£15M UK DTC brands in 2026.</p>
+      <h2 id="channel-mix">1. The right channel mix by revenue stage</h2>
+      <ul>
+        <li><strong>£30K-£100K/month:</strong> 70% Meta, 25% Google (branded + Shopping), 5% test channel.</li>
+        <li><strong>£100K-£500K/month:</strong> 55% Meta, 30% Google (Shopping + non-brand search), 10% TikTok, 5% test.</li>
+        <li><strong>£500K+/month:</strong> 45% Meta, 35% Google, 12% TikTok, 8% incremental (YouTube, Reddit, Pinterest, affiliate).</li>
+      </ul>
+      <h2 id="meta">2. Meta - the demand engine</h2>
+      <p>Meta is the top of the UK DTC funnel. Consolidated campaign structure (1 CBO campaign per major creative theme), broad targeting with only exclusions, and creative volume as the primary optimisation lever. See the <Link to="/blog/$slug" params={{ slug: "meta-ads-creative-testing-uk-dtc" }}>creative testing framework</Link> for the operating cadence.</p>
+      <h2 id="google">3. Google - the intent capture layer</h2>
+      <p>Google Shopping covers 60-80% of Google spend for most UK DTC brands. Non-brand search covers the rest. Brand search is defensive - keep CPCs low and ROAS high. Feed quality is the differentiator: our <Link to="/blog/$slug" params={{ slug: "google-shopping-feed-optimisation-shopify-uk" }}>Shopify feed guide</Link> covers title structure, GTINs and PMax.</p>
+      <h2 id="tiktok">4. TikTok - creative amplifier</h2>
+      <p>TikTok works best for UK beauty, fashion, food and accessories under £60 AOV. Spark Ads on real creator content outperform brand-produced video. See the <Link to="/blog/$slug" params={{ slug: "tiktok-ads-uk-beauty-fashion-brands" }}>TikTok playbook</Link> for creator sourcing and Spark Ads setup.</p>
+      <h2 id="attribution">5. Attribution after iOS 17</h2>
+      <p>Platform ROAS is directional at best. Track MER weekly, run a Shopify post-purchase survey, install Meta CAPI and Google enhanced conversions. Details in the <Link to="/blog/$slug" params={{ slug: "ios17-attribution-uk-ecommerce" }}>iOS 17 attribution guide</Link>.</p>
+      <h2 id="metrics">6. Metrics that matter</h2>
+      <p>MER as the north star, new-customer CPA as the growth signal, contribution margin as the survival metric. See <Link to="/blog/$slug" params={{ slug: "mer-vs-roas-uk-dtc-founders" }}>MER vs ROAS</Link> for the full metric hierarchy.</p>
+      <h2 id="budget">7. Budget rules of thumb</h2>
+      <ul>
+        <li>Ad spend 15-30% of revenue in growth mode; 10-18% at scale.</li>
+        <li>Creative budget 8-15% of ad spend (production, not media).</li>
+        <li>Never scale a campaign more than 20% in 48 hours.</li>
+        <li>Kill creative below 0.8% CTR after 10K impressions.</li>
+      </ul>
+    </>
+  );
+}
+
+function MetaAdsCreativeTestingUkDtc() {
+  return (
+    <>
+      <h2 id="framework">The framework</h2>
+      <p>Test <strong>concepts</strong> (big ideas), not <strong>variations</strong> (colour swaps). A concept is a message + format + hook pairing; variations are minor edits inside a winning concept.</p>
+      <h2 id="cadence">Weekly cadence</h2>
+      <ul>
+        <li><strong>Monday:</strong> ship 6-10 new concepts into a testing CBO.</li>
+        <li><strong>Wednesday:</strong> mid-week review. Kill anything below 0.7% CTR with £50+ spend and zero purchases.</li>
+        <li><strong>Friday:</strong> promote winners into the evergreen CBO. Brief next week's creatives.</li>
+      </ul>
+      <h2 id="signals">The signals to trust</h2>
+      <ul>
+        <li>CTR (all) &gt; 1.2% on cold audiences.</li>
+        <li>Hook rate (3-sec video views / impressions) &gt; 30%.</li>
+        <li>Hold rate (thruplays / 3-sec views) &gt; 15%.</li>
+        <li>CPA within 2x target on the first £3-5K spend.</li>
+      </ul>
+      <h2 id="angles">Angles that work for UK DTC</h2>
+      <ol>
+        <li>Founder story (why we built this).</li>
+        <li>Problem/solution demo (before/after).</li>
+        <li>UGC testimonial (real customer, not actor).</li>
+        <li>Press mention or expert endorsement.</li>
+        <li>Category comparison (versus the incumbent).</li>
+        <li>Ingredient/material deep-dive.</li>
+        <li>Behind-the-scenes production.</li>
+      </ol>
+      <p>Rotate through all 7 - the algorithm rewards concept diversity more than raw volume.</p>
+      <h2 id="format">Format guidance</h2>
+      <p>60/40 static-to-video by spend for most UK DTC brands. Statics are cheaper to produce and win on hook clarity; UGC video wins on retention. Avoid highly-produced brand video for cold audiences - it under-performs UGC by 30-60%.</p>
+      <h2 id="mistakes">Mistakes we see weekly</h2>
+      <ul>
+        <li>Killing ads on day 1 (need 24-48h to leave learning).</li>
+        <li>Testing 30 creatives on £50/day (impossible to get signal).</li>
+        <li>Judging by 7-day ROAS on new creative (window closes before organic tail).</li>
+        <li>Refreshing the same concept endlessly instead of shipping new angles.</li>
+      </ul>
+    </>
+  );
+}
+
+function GoogleShoppingFeedOptimisationShopifyUk() {
+  return (
+    <>
+      <h2 id="titles">Product title structure</h2>
+      <p>The single biggest lever. Rewrite from <code>[Brand] Product Name</code> to <code>[Brand] [Product Type] [Attribute] [Colour] [Size]</code>. Example: <em>Being Ecom Merino Wool Jumper Navy Medium</em>. Match how UK shoppers actually query.</p>
+      <h2 id="gtins">GTINs and identifier_exists</h2>
+      <p>Branded resellable products need GTINs (barcode). Own-brand SKUs set <code>identifier_exists: false</code>. Missing GTINs on branded items get feed items disapproved or throttled.</p>
+      <h2 id="pricing">Pricing and availability</h2>
+      <ul>
+        <li>All UK feed prices in GBP, VAT-inclusive.</li>
+        <li>Delivery configured at merchant centre - Google penalises feeds without accurate UK shipping cost.</li>
+        <li>Availability updated at least daily; sold-out items pulled within 24h.</li>
+      </ul>
+      <h2 id="custom-labels">Custom labels for PMax</h2>
+      <p>Set 5 custom labels for asset group segmentation:</p>
+      <ul>
+        <li><code>margin_tier</code>: high / mid / low.</li>
+        <li><code>bestseller</code>: true / false.</li>
+        <li><code>new_launch</code>: true / false (last 60 days).</li>
+        <li><code>price_band</code>: sub_25 / 25_75 / 75_plus.</li>
+        <li><code>category</code>: internal category code.</li>
+      </ul>
+      <p>These let PMax bid harder on your best-margin SKUs.</p>
+      <h2 id="structure">PMax vs Standard Shopping</h2>
+      <p>Recommended structure: brand-only PMax (defensive), non-brand PMax (growth), Standard Shopping campaign for your top 20 SKUs (control). Exclude brand terms from non-brand PMax with negative brand keywords at account level.</p>
+      <h2 id="reviews">Product reviews feed</h2>
+      <p>Enable the product reviews feed via Judge.me, Yotpo or Loox integration. Star snippets in Shopping ads lift CTR 15-30% for UK DTC brands with 25+ reviews per SKU.</p>
+      <h2 id="quality">Feed quality checks</h2>
+      <ul>
+        <li>Image size 800x800 minimum, white background where possible.</li>
+        <li>All required attributes present (colour, size, gender, age_group where relevant).</li>
+        <li>Zero disapproved items on the merchant centre diagnostics.</li>
+      </ul>
+    </>
+  );
+}
+
+function TiktokAdsUkBeautyFashion() {
+  return (
+    <>
+      <h2 id="fit">Why TikTok works for UK beauty and fashion</h2>
+      <p>UK 16-34 shoppers spend 45+ minutes/day on TikTok. Discovery of new beauty and fashion brands increasingly happens there before Instagram. Sub-£60 AOV brands with visual products and a strong hook see 2-4x ROAS at £5K-£30K/month spend.</p>
+      <h2 id="creative">Creative that converts</h2>
+      <ol>
+        <li><strong>Native UGC:</strong> shot vertically on phone, not staged.</li>
+        <li><strong>Hook in the first 1.2 seconds:</strong> product on screen or bold spoken hook.</li>
+        <li><strong>Show, don't tell:</strong> demo, apply, try-on.</li>
+        <li><strong>Trending sound:</strong> lifts hook rate 30-50% versus custom audio.</li>
+        <li><strong>15-30s duration:</strong> anything longer loses UK audiences quickly.</li>
+      </ol>
+      <h2 id="spark-ads">Spark Ads</h2>
+      <p>Boost real creator posts with the creator's handle as the advertiser identity. Spark Ads outperform brand-produced ads by 25-60% on CTR and CPA for UK beauty/fashion. Pay creators £150-£800 per post plus usage rights.</p>
+      <h2 id="creators">Sourcing UK creators</h2>
+      <ul>
+        <li>TikTok Creator Marketplace for micro-creators (10K-100K).</li>
+        <li>Direct DM to UK creators using your product organically.</li>
+        <li>Gifting programme - send 30 units/month, capture organic content.</li>
+      </ul>
+      <h2 id="shop">TikTok Shop</h2>
+      <p>For sub-£40 AOV impulse SKUs, TikTok Shop becomes the primary conversion path. Above £60 AOV, shoppers still cross-shop to your Shopify site - keep the Shopify PDP mobile-optimised.</p>
+      <h2 id="budget">Budget and structure</h2>
+      <ul>
+        <li>Minimum test: £3K-£5K/month for 30 days.</li>
+        <li>Campaign structure: 1 broad prospecting campaign + 1 retargeting.</li>
+        <li>Refresh creative every 10-14 days - TikTok fatigue is faster than Meta.</li>
+      </ul>
+    </>
+  );
+}
+
+function Ios17AttributionUkEcommerce() {
+  return (
+    <>
+      <h2 id="whats-changed">What iOS 17 broke</h2>
+      <p>Link Tracking Protection strips known tracking parameters (fbclid, gclid, some UTM permutations) from links opened in Messages, Mail and Safari Private Browsing. Meta and Google both lose visibility on a chunk of iOS conversions.</p>
+      <h2 id="impact">Impact on UK DTC brands</h2>
+      <p>Meta reports 60-85% of true conversions from iOS. Google's enhanced conversions recover most losses if configured. Klaviyo attribution is unaffected because it uses first-party server-side cookies.</p>
+      <h2 id="fixes">The fixes that matter</h2>
+      <ol>
+        <li><strong>Meta Conversions API (CAPI):</strong> server-side event forwarding. Non-negotiable in 2026.</li>
+        <li><strong>Google enhanced conversions:</strong> hashes first-party data (email, phone) into Google Ads.</li>
+        <li><strong>Shopify post-purchase survey:</strong> "How did you hear about us?" adds ground-truth attribution.</li>
+        <li><strong>UTM discipline:</strong> keep utm_source/medium/campaign - Shopify captures these regardless of Link Tracking Protection.</li>
+      </ol>
+      <h2 id="triangulation">Triangulation, not single-source</h2>
+      <p>Never trust one platform's ROAS in isolation. Compare Meta ROAS + Shopify post-purchase survey + MER trend + Google Analytics 4 - directional agreement is the signal, not one number.</p>
+      <h2 id="mmm">Should UK brands run marketing mix modelling?</h2>
+      <p>Above £2M/year in ad spend, yes. Below that, weekly MER tracking and post-purchase surveys are enough. MMM tools worth evaluating: Prescient AI, Recast, Northbeam.</p>
+    </>
+  );
+}
+
+function MerVsRoasUkDtcFounders() {
+  return (
+    <>
+      <h2 id="definitions">Definitions</h2>
+      <ul>
+        <li><strong>ROAS:</strong> platform-reported revenue / platform ad spend. Attribution-window dependent.</li>
+        <li><strong>MER:</strong> total business revenue / total marketing spend. Whole-business truth.</li>
+      </ul>
+      <h2 id="why-mer">Why MER wins as the north star</h2>
+      <p>ROAS double-counts revenue across platforms and misses the compound effect of paid on organic/email/direct. MER can't lie - it's the top of your P&amp;L divided by the marketing line.</p>
+      <h2 id="targets">MER targets by margin</h2>
+      <table>
+        <thead><tr><th>Gross margin</th><th>Healthy MER</th></tr></thead>
+        <tbody>
+          <tr><td>65%+ (beauty, digital)</td><td>1.8 - 2.2</td></tr>
+          <tr><td>45-60% (accessories)</td><td>2.5 - 3.2</td></tr>
+          <tr><td>30-45% (apparel)</td><td>3.5 - 4.5</td></tr>
+          <tr><td>Under 30% (commodity)</td><td>5.0+</td></tr>
+        </tbody>
+      </table>
+      <h2 id="how-to-use">How to use both</h2>
+      <p>MER for budget decisions (should I spend more this month?). ROAS for campaign-level optimisation (which ad set to scale?). Never use ROAS for budget-level decisions - it will justify unprofitable growth.</p>
+      <h2 id="new-vs-repeat">New customer MER</h2>
+      <p>Split MER into new-customer MER (aggressive threshold, since LTV compounds) and repeat-customer MER (must be profitable on first order). This split reveals whether you're actually growing or just churning.</p>
+    </>
+  );
+}
+
+function UkEcommerceCroPlaybookShopify() {
+  return (
+    <>
+      <h2 id="tldr">Short answer first</h2>
+      <p>UK Shopify conversion rate optimisation isn't A/B tests - it's an operating system. Best-practice fixes ship first (cart, checkout, mobile speed, trust signals), then structured testing above 30K sessions/month, then personalisation and merchandising at scale.</p>
+      <h2 id="benchmarks">UK Shopify benchmarks 2026</h2>
+      <ul>
+        <li>Median UK Shopify conversion: 1.6-2.4%.</li>
+        <li>Beauty top quartile: 3.5-5%.</li>
+        <li>Fashion: 1.8-3%.</li>
+        <li>Furniture / high-consideration: 0.6-1.4%.</li>
+      </ul>
+      <h2 id="priority">Priority order for a UK Shopify store</h2>
+      <ol>
+        <li><strong>Cart and checkout</strong> (biggest single lever). See <Link to="/blog/$slug" params={{ slug: "cart-checkout-cro-shopify-uk" }}>the cart/checkout guide</Link>.</li>
+        <li><strong>Mobile CRO</strong> (60%+ of UK Shopify traffic). See <Link to="/blog/$slug" params={{ slug: "mobile-cro-fixing-mobile-dropoff" }}>the mobile guide</Link>.</li>
+        <li><strong>PDP</strong> (where the buying decision happens). See <Link to="/blog/$slug" params={{ slug: "pdp-cro-14-tests-that-move-revenue" }}>14 PDP tests</Link>.</li>
+        <li><strong>Site search</strong> (searchers convert 3-6x). See <Link to="/blog/$slug" params={{ slug: "site-search-cro-uk-ecommerce" }}>site search CRO</Link>.</li>
+        <li><strong>Trust signals</strong> (UK-specific). See <Link to="/blog/$slug" params={{ slug: "trust-signals-that-convert-uk-shoppers" }}>trust signals</Link>.</li>
+      </ol>
+      <h2 id="testing">When to actually A/B test</h2>
+      <p>Above 30,000 sessions/month you have enough traffic. Below that, ship best-practice fixes and measure pre/post - not concurrent split tests. Use GA4 + Shopify analytics + a tool like Convert or VWO for real experiments.</p>
+      <h2 id="analytics">Analytics setup</h2>
+      <ul>
+        <li>GA4 with ecommerce events + funnel view.</li>
+        <li>Shopify analytics for gross truth on revenue.</li>
+        <li>Hotjar or Microsoft Clarity for session replay.</li>
+        <li>Weekly funnel review: session &rarr; PDP view &rarr; ATC &rarr; checkout &rarr; purchase.</li>
+      </ul>
+      <h2 id="mindset">The CRO mindset</h2>
+      <p>Assume nothing. Every "obvious" best practice needs to be verified on your traffic. But don't A/B test until you've fixed the basics - most UK Shopify stores leave 15-30% conversion on the table before testing is even worth doing.</p>
+    </>
+  );
+}
+
+function PdpCro14Tests() {
+  return (
+    <>
+      <h2 id="tests">The 14 tests</h2>
+      <ol>
+        <li><strong>Sticky mobile ATC bar</strong> - +8-15% mobile conversion.</li>
+        <li><strong>Price + VAT display</strong> - "£49 inc. VAT" outperforms "£40.83 + VAT" for B2C.</li>
+        <li><strong>Star rating below H1</strong> - moves 3-6% of shoppers past the trust threshold.</li>
+        <li><strong>Delivery estimate above ATC</strong> - "Order today, get it Wed 27th" beats generic 2-3 day promise.</li>
+        <li><strong>Free returns callout</strong> - "Free UK returns for 60 days" belongs at ATC, not the footer.</li>
+        <li><strong>Multi-image gallery with lifestyle first</strong> - lifestyle image as #1 outperforms product-only for apparel/beauty.</li>
+        <li><strong>Video on PDP</strong> - 10-30s product video lifts PDP conversion 4-9%.</li>
+        <li><strong>Size guide inline (not modal)</strong> - inline accordion beats modal by 3-5% for apparel.</li>
+        <li><strong>Bundle / cross-sell above the fold</strong> - "Complete the look" or "Frequently bought together" placed below ATC.</li>
+        <li><strong>Trust badges near ATC</strong> - Visa/Mastercard/Klarna/Clearpay/PayPal.</li>
+        <li><strong>Social proof snippet</strong> - "Loved by 12,847 UK customers" or similar.</li>
+        <li><strong>Product FAQ accordion</strong> - answers top 5 pre-purchase questions.</li>
+        <li><strong>Reviews section with photos</strong> - photo reviews convert 2x higher than text-only.</li>
+        <li><strong>Recently viewed / related products</strong> - keeps browsers on-site 40% longer.</li>
+      </ol>
+      <h2 id="priority">Ship order</h2>
+      <p>Sticky mobile ATC first (highest ROI), delivery clarity second, reviews and social proof third. Everything else is refinement.</p>
+    </>
+  );
+}
+
+function CartCheckoutCroShopifyUk() {
+  return (
+    <>
+      <h2 id="cart">Cart page fixes</h2>
+      <ul>
+        <li>Delivery threshold progress bar ("£12 more for free UK delivery").</li>
+        <li>Shop Pay + Apple Pay + Google Pay express checkout buttons at the top.</li>
+        <li>Trust badges: Visa, Mastercard, Amex, PayPal, Klarna, Clearpay.</li>
+        <li>Estimated delivery date, not a range.</li>
+        <li>Free returns copy visible.</li>
+      </ul>
+      <h2 id="checkout">Checkout fixes</h2>
+      <ul>
+        <li>One-page checkout enabled (Shopify default in 2026).</li>
+        <li>Shop Pay opt-in prominent - accounts for 30-45% of returning UK Shopify checkouts.</li>
+        <li>Address autocomplete via Loqate or Google Places for UK addresses.</li>
+        <li>Delivery options presented clearly with prices upfront.</li>
+        <li>BNPL (Klarna, Clearpay) enabled for sub-£300 AOV brands - lifts conversion 3-8%.</li>
+      </ul>
+      <h2 id="abandonment">Recovery flows</h2>
+      <p>See <Link to="/blog/$slug" params={{ slug: "abandoned-cart-flows-that-recover-15-percent" }}>abandoned cart flows that recover 15%+</Link> for the Klaviyo flow structure.</p>
+      <h2 id="mistakes">Common mistakes</h2>
+      <ul>
+        <li>Surprise delivery cost only shown at address step - top UK abandonment cause.</li>
+        <li>Account creation required (allow guest checkout).</li>
+        <li>Discount code field prominent - reminds shoppers a code exists, sends them off-site to find one.</li>
+        <li>Cluttered upsell modules on checkout page.</li>
+      </ul>
+    </>
+  );
+}
+
+function MobileCroFixingMobileDropoff() {
+  return (
+    <>
+      <h2 id="why">Why mobile converts lower</h2>
+      <p>Slower LCP, harder form completion, interrupted sessions. Desktop UK Shopify conversion is typically 2.5-4x mobile. Closing that gap is where mobile CRO lives.</p>
+      <h2 id="speed">Speed fixes</h2>
+      <ul>
+        <li>Preload hero image with <code>rel="preload"</code>.</li>
+        <li>Defer non-critical JS (chat, reviews widget below-the-fold).</li>
+        <li>WebP for all product imagery (Shopify serves natively).</li>
+        <li>Audit third-party apps - kill anything adding &gt;200ms to LCP.</li>
+      </ul>
+      <p>Target: mobile LCP under 2.0s. Typical result: +10-18% mobile conversion.</p>
+      <h2 id="ux">Mobile UX fixes</h2>
+      <ul>
+        <li>Sticky ATC bar (highest ROI mobile fix).</li>
+        <li>Thumb-zone CTAs - primary buttons in the bottom third.</li>
+        <li>Larger tap targets (44x44px minimum).</li>
+        <li>Collapsed navigation, sticky mini-header.</li>
+        <li>Address autocomplete for UK postcodes.</li>
+      </ul>
+      <h2 id="forms">Forms on mobile</h2>
+      <ul>
+        <li>Correct <code>inputmode</code> attributes for numeric fields.</li>
+        <li>UK postcode auto-uppercases + auto-formats.</li>
+        <li>Single-column form layout.</li>
+        <li>Show password toggle.</li>
+      </ul>
+      <h2 id="test">How to measure</h2>
+      <p>Segment GA4 by device. Track mobile-only PDP-to-ATC and ATC-to-checkout rates. Any mobile fix should move at least one of those by 5% relative to hold consideration.</p>
+    </>
+  );
+}
+
+function SiteSearchCroUkEcommerce() {
+  return (
+    <>
+      <h2 id="why">Why site search matters</h2>
+      <p>Site-search users convert 3-6x higher than average sessions. On UK Shopify stores 12-25% of engaged sessions run a search. Every zero-result search is a missed sale or a merchandising gap.</p>
+      <h2 id="basics">Basics to get right</h2>
+      <ul>
+        <li>Search bar visible above the fold on every page.</li>
+        <li>Autocomplete with product thumbnails.</li>
+        <li>Recent + popular searches shown on focus.</li>
+        <li>Zero-result page suggests categories, not "no results".</li>
+      </ul>
+      <h2 id="synonyms">Synonyms and misspellings</h2>
+      <p>UK spelling variants matter: "trainers" = "sneakers", "jumper" = "sweater", "trousers" = "pants". Map these in Shopify's native search or your search app. Handle common misspellings ("moisteriser" =&gt; "moisturiser").</p>
+      <h2 id="apps">When to move off default search</h2>
+      <p>Above 500 SKUs, or if variants/synonyms/misspellings matter, upgrade to Searchanise, Fast Simon or Klevu (£30-£150/month). Below 500 SKUs Shopify native is usually enough.</p>
+      <h2 id="analytics">Search analytics</h2>
+      <ul>
+        <li>Export zero-result queries weekly - fix or redirect.</li>
+        <li>Track top 20 searches - ensure they land on optimised collections.</li>
+        <li>Merchandise search results - pin best-margin SKUs first for high-intent queries.</li>
+      </ul>
+    </>
+  );
+}
+
+function TrustSignalsConvertUkShoppers() {
+  return (
+    <>
+      <h2 id="what-uk-shoppers-trust">What UK shoppers actually trust in 2026</h2>
+      <ol>
+        <li>Verified reviews with visible total count (Trustpilot, Judge.me, Yotpo).</li>
+        <li>Payment logos - Visa, Mastercard, Amex, PayPal, Klarna, Clearpay.</li>
+        <li>Free returns policy, prominently stated.</li>
+        <li>UK-based customer service (real address, real phone or WhatsApp).</li>
+        <li>Press mentions and independent editorial.</li>
+      </ol>
+      <h2 id="reviews">Reviews - the biggest lever</h2>
+      <p>Star rating + review count below PDP H1. Full review section below the description with photo reviews first. UK shoppers trust brands with 250+ reviews and a 4.4+ average - anything below that requires stronger secondary trust signals.</p>
+      <h2 id="payment">Payment logos</h2>
+      <p>Show at PDP (near ATC), cart and checkout. Klarna and Clearpay logos lift PDP conversion 3-8% for sub-£300 AOV brands. Never show generic "SSL" or "McAfee" badges - UK shoppers ignore them.</p>
+      <h2 id="returns">Returns policy</h2>
+      <p>30-day free UK returns is table stakes. 60-day free returns lifts conversion 3-7% for apparel and homeware. Bury returns in the footer and you leak 4-10% of conversion.</p>
+      <h2 id="ukness">UK-ness signals</h2>
+      <ul>
+        <li>GBP prices, VAT-inclusive, no currency toggle for UK shoppers.</li>
+        <li>UK address in footer (not a PO box).</li>
+        <li>UK-based support hours displayed.</li>
+        <li>UK delivery estimate, not "3-5 business days".</li>
+      </ul>
+      <h2 id="press">Press and editorial</h2>
+      <p>"As seen in" strip with real UK publications (Guardian, Telegraph, GQ, Vogue, Stylist) beats generic Forbes/Techcrunch mentions for UK shoppers. Only claim what's true.</p>
+    </>
+  );
+}
+
+function UkEcommerceEmailRetentionKlaviyo() {
+  return (
+    <>
+      <h2 id="tldr">Short answer first</h2>
+      <p>Email should drive <strong>20-35% of revenue</strong> for a UK DTC brand. That comes from six flows (welcome, browse-abandon, cart-abandon, post-purchase, winback, birthday) plus a weekly campaign cadence, all built on segmentation.</p>
+      <h2 id="platform">Why Klaviyo for UK Shopify</h2>
+      <p>Native Shopify integration, event-level segmentation, revenue attribution baked in. Above £30K/month, Klaviyo pays back in weeks over Mailchimp or Omnisend.</p>
+      <h2 id="flows">The six core flows</h2>
+      <ul>
+        <li><Link to="/blog/$slug" params={{ slug: "klaviyo-welcome-flow-uk-dtc-template" }}>Welcome flow</Link> - 5 emails, 10-14 days. 8-14% first-purchase conversion.</li>
+        <li>Browse abandonment - 2 emails, 24 hours.</li>
+        <li><Link to="/blog/$slug" params={{ slug: "abandoned-cart-flows-that-recover-15-percent" }}>Abandoned cart</Link> - 3 emails over 48h. 15%+ recovery.</li>
+        <li><Link to="/blog/$slug" params={{ slug: "post-purchase-flows-for-repeat-revenue" }}>Post-purchase</Link> - 45-180 days depending on category.</li>
+        <li><Link to="/blog/$slug" params={{ slug: "winback-flows-for-lapsed-uk-customers" }}>Winback</Link> - triggered at 2x average repurchase window.</li>
+        <li>Birthday - one email with a small gift or discount.</li>
+      </ul>
+      <p>Together these should drive 65-80% of email revenue.</p>
+      <h2 id="segmentation">Segmentation</h2>
+      <ul>
+        <li>Engaged 30 (opened/clicked in last 30 days) - your money segment.</li>
+        <li>Engaged 90 - broader nurture.</li>
+        <li>Non-engaged 120+ - sunset or winback only.</li>
+        <li>VIP (top 10% LTV) - separate cadence, softer offers.</li>
+        <li>Recent purchasers - suppress from acquisition campaigns.</li>
+      </ul>
+      <h2 id="campaigns">Campaign cadence</h2>
+      <p>2-3 campaigns/week to engaged segments, 1-2 to broader lists. Rotate: product education, launch, curated collection, story, offer. Never more than 25% offer-led or you erode margin.</p>
+      <h2 id="sms">SMS layer</h2>
+      <p>Add SMS to abandoned cart, shipping updates, back-in-stock and time-sensitive campaigns only. Full details in <Link to="/blog/$slug" params={{ slug: "sms-email-uk-compliance-safe-combo" }}>SMS + email: the UK compliance-safe combo</Link>.</p>
+      <h2 id="metrics">Metrics that matter</h2>
+      <ul>
+        <li>Email revenue as % of total (target 20-35%).</li>
+        <li>Flow revenue vs campaign revenue (65/35 healthy).</li>
+        <li>List growth rate (5-12%/month).</li>
+        <li>Engaged 30 as % of list (target 25-40%).</li>
+        <li>Placed order rate per campaign (0.4-0.8% for cold-ish sends, 1.5%+ for engaged).</li>
+      </ul>
+    </>
+  );
+}
+
+function KlaviyoWelcomeFlowUkDtc() {
+  return (
+    <>
+      <h2 id="structure">Structure</h2>
+      <ol>
+        <li><strong>Email 1 (immediate):</strong> Welcome + the offer. Discount code or free UK shipping.</li>
+        <li><strong>Email 2 (day 2):</strong> Brand story. Why the brand exists, founder note.</li>
+        <li><strong>Email 3 (day 4):</strong> Bestsellers or hero product with social proof.</li>
+        <li><strong>Email 4 (day 7):</strong> Objection handling - FAQs, materials, sustainability, delivery.</li>
+        <li><strong>Email 5 (day 12):</strong> Offer reminder + urgency close.</li>
+      </ol>
+      <h2 id="offer">Offer strategy</h2>
+      <ul>
+        <li>Sub-£50 AOV: 10-15% off first order.</li>
+        <li>£50+ AOV: free UK shipping on first order.</li>
+        <li>Premium (£150+ AOV): no discount, brand-first sequence.</li>
+      </ul>
+      <h2 id="copy">Copy principles</h2>
+      <ul>
+        <li>First-person from founder or team.</li>
+        <li>Plain text feel, not heavy image emails.</li>
+        <li>One CTA per email.</li>
+        <li>Mobile-first design - 70%+ of opens are mobile.</li>
+      </ul>
+      <h2 id="benchmarks">Benchmarks</h2>
+      <ul>
+        <li>Open rate 40-55% (much higher than campaign average).</li>
+        <li>Click rate 5-12%.</li>
+        <li>Placed order rate 8-14% over 30 days.</li>
+        <li>Revenue per recipient £3-£12.</li>
+      </ul>
+    </>
+  );
+}
+
+function AbandonedCartFlowsRecover15() {
+  return (
+    <>
+      <h2 id="structure">The 3-email structure</h2>
+      <ol>
+        <li><strong>Email 1 (1 hour):</strong> soft reminder. "You left this behind" + cart contents.</li>
+        <li><strong>Email 2 (24 hours):</strong> objection handling. Reviews, FAQ, delivery clarity - no discount.</li>
+        <li><strong>Email 3 (48 hours):</strong> soft offer. Free UK shipping or 10-15% off, urgency close.</li>
+      </ol>
+      <h2 id="sms">SMS at hour 4</h2>
+      <p>For opted-in subscribers, add an SMS at hour 4. Adds 4-7% to cart recovery on top of email. UK GDPR requires explicit opt-in at checkout - not pre-ticked, not bundled.</p>
+      <h2 id="copy">Copy that works</h2>
+      <ul>
+        <li>Show the actual cart item image and name.</li>
+        <li>Address the top UK abandonment reasons: unexpected delivery cost, forgot, comparison shopping.</li>
+        <li>Third email: urgency, but honest (stock, offer expiry).</li>
+      </ul>
+      <h2 id="offer-strategy">Offer strategy</h2>
+      <p>Only in email 3, only if margin allows, and only 10-15%. Too generous trains shoppers to abandon; too small doesn't move the needle. Free UK shipping often outperforms a % discount at similar cost.</p>
+      <h2 id="benchmarks">Benchmarks</h2>
+      <ul>
+        <li>Recovery rate 12-20% of abandoners (best-in-class 20%+).</li>
+        <li>Email 1 open rate 55-70%.</li>
+        <li>Revenue per recipient £8-£25.</li>
+      </ul>
+      <h2 id="pitfalls">Pitfalls</h2>
+      <ul>
+        <li>Sending beyond 72 hours (diminishing returns).</li>
+        <li>Discount in email 1 (trains abandonment).</li>
+        <li>No SMS layer despite opt-in list (leaving 4-7% on the table).</li>
+      </ul>
+    </>
+  );
+}
+
+function PostPurchaseFlowsRepeatRevenue() {
+  return (
+    <>
+      <h2 id="structure">Structure</h2>
+      <ol>
+        <li><strong>Email 1 (immediate):</strong> thank you + what happens next (dispatch, delivery estimate).</li>
+        <li><strong>Email 2 (day of dispatch):</strong> tracking + preparation ("get ready to use it").</li>
+        <li><strong>Email 3 (day 3-5 post-delivery):</strong> usage tips + hero product education.</li>
+        <li><strong>Email 4 (day 10-14):</strong> review request + UGC ask.</li>
+        <li><strong>Email 5 (day 25-35):</strong> cross-sell or bundle recommendation.</li>
+        <li><strong>Email 6 (day 45-60):</strong> second-order incentive (small discount or bundle).</li>
+      </ol>
+      <h2 id="timing">Timing by category</h2>
+      <ul>
+        <li>Consumables (skincare, food, supplements): 45-60 days.</li>
+        <li>Apparel: 90 days.</li>
+        <li>Furniture, home: 180+ days.</li>
+      </ul>
+      <p>Match the flow to the natural repurchase window - stop the flow before natural repurchase would occur.</p>
+      <h2 id="review-timing">Review request timing</h2>
+      <p>7-14 days after delivery, never at purchase. Requesting reviews before the shopper has used the product tanks response rate. Judge.me and Klaviyo integrate cleanly - trigger on the fulfilled event with a 7-day delay.</p>
+      <h2 id="metrics">Metrics</h2>
+      <ul>
+        <li>Second-order rate (target 25-35% for beauty/food, 12-20% for apparel).</li>
+        <li>Review request response rate (10-20%).</li>
+        <li>Post-purchase flow revenue per recipient £5-£15.</li>
+      </ul>
+    </>
+  );
+}
+
+function WinbackFlowsLapsedUkCustomers() {
+  return (
+    <>
+      <h2 id="definition">When is a customer "lapsed"?</h2>
+      <p>2x average repurchase window. UK skincare buyers repurchase every 60 days &rarr; 120-day gap = lapsed. Segment high-LTV customers separately with a longer window and warmer message.</p>
+      <h2 id="structure">Structure</h2>
+      <ol>
+        <li><strong>Email 1:</strong> "We miss you" + what's new since last order.</li>
+        <li><strong>Email 2 (5 days later):</strong> social proof + hero product update.</li>
+        <li><strong>Email 3 (10 days later):</strong> soft offer for standard-LTV customers, product tease for high-LTV.</li>
+        <li><strong>Email 4 (final, day 20):</strong> stronger offer + "last chance" honest urgency.</li>
+      </ol>
+      <h2 id="segmentation">Segment by LTV</h2>
+      <ul>
+        <li><strong>High LTV (top 20%):</strong> no discount in emails 1-3. New product tease or exclusive access wins.</li>
+        <li><strong>Mid LTV:</strong> soft offer in email 3 (free shipping or 10%).</li>
+        <li><strong>Low LTV / one-time buyers:</strong> stronger offer (15-20%) - lower opportunity cost.</li>
+      </ul>
+      <h2 id="offer">Offer principles</h2>
+      <p>Never repeat the acquisition discount - devalues both the winback and future acquisition offers. Free UK shipping often wins over a percentage.</p>
+      <h2 id="sunset">Sunset non-openers</h2>
+      <p>After 4-6 months of zero opens, remove from campaign sends. Deliverability compounds - bloated non-engaged lists drag inbox rate for the engaged core.</p>
+      <h2 id="benchmarks">Benchmarks</h2>
+      <ul>
+        <li>Reactivation rate 3-8% of lapsed segment.</li>
+        <li>Revenue per recipient £2-£8.</li>
+      </ul>
+    </>
+  );
+}
+
+function SmsEmailUkComplianceSafe() {
+  return (
+    <>
+      <h2 id="legal">The legal position</h2>
+      <p>SMS marketing in the UK is governed by PECR (Privacy and Electronic Communications Regulations) and UK GDPR. You need <strong>explicit, freely-given, informed opt-in</strong>. Pre-ticked boxes, bundled consent, or "opt-in to receive shipping updates and marketing" are non-compliant.</p>
+      <h2 id="opt-in">Compliant opt-in patterns</h2>
+      <ul>
+        <li>Dedicated, unticked SMS opt-in at checkout with clear frequency ("2-4 msgs/month").</li>
+        <li>Standalone SMS opt-in on a keyword-based landing page.</li>
+        <li>Post-purchase opt-in with clear message purpose.</li>
+      </ul>
+      <p>Never assume SMS consent from email consent - they are separate under PECR.</p>
+      <h2 id="cadence">Cadence</h2>
+      <p>3-5 SMS per month maximum. Beyond that opt-outs spike above 2%/month and list value collapses inside a year.</p>
+      <h2 id="use-cases">Where SMS earns its place</h2>
+      <ul>
+        <li>Abandoned cart (hour 4) - +4-7% recovery.</li>
+        <li>Shipping/delivery updates - service, not marketing.</li>
+        <li>Back-in-stock alerts - high intent.</li>
+        <li>Time-sensitive campaigns (flash sale, launch day).</li>
+      </ul>
+      <h2 id="not-sms">Where SMS doesn't belong</h2>
+      <ul>
+        <li>General newsletters.</li>
+        <li>Welcome flow (email handles this).</li>
+        <li>Birthday.</li>
+        <li>Educational or brand-story content.</li>
+      </ul>
+      <h2 id="copy">Copy principles</h2>
+      <ul>
+        <li>140 characters or less.</li>
+        <li>Brand name in first 5 characters.</li>
+        <li>One clear CTA + link.</li>
+        <li>Always include STOP instructions ("Reply STOP to opt out").</li>
+      </ul>
+      <h2 id="ico">ICO enforcement</h2>
+      <p>The ICO has fined UK brands £130K+ for non-compliant SMS. If you can't evidence opt-in for every number on your list, don't send to it.</p>
+    </>
+  );
+}
