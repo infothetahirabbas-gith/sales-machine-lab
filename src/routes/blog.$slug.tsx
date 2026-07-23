@@ -522,7 +522,10 @@ export const Route = createFileRoute("/blog/$slug")({
               description: post.description,
               image: post.ogImage,
               datePublished: post.datePublished,
+              dateModified: post.dateModified,
               about: post.about,
+              keywords: post.primaryKeyword,
+              articleSection: post.category,
             }),
           ),
         },
@@ -543,6 +546,7 @@ export const Route = createFileRoute("/blog/$slug")({
       ],
     };
   },
+
   notFoundComponent: () => (
     <PageLayout>
       <Section title="Article not found">
