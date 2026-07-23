@@ -604,8 +604,10 @@ function BlogPostPage() {
           </div>
         </section>
 
+        <RelatedArticles slug={post.slug} />
 
         <FaqSection faqs={post.faqs} title="Frequently asked questions" />
+
       </article>
       <CTA
         heading="Not sure which platform fits your brand?"
