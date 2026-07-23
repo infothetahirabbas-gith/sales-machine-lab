@@ -336,9 +336,11 @@ function BlogPostPage() {
 
         <section className="pb-16 lg:pb-24">
           <div className="mx-auto max-w-3xl px-5 lg:px-8 prose-article">
+            <ClusterNav currentSlug={post.slug} titles={buildTitlesMap(POSTS)} />
             {Body ? <Body /> : null}
           </div>
         </section>
+
 
         <FaqSection faqs={post.faqs} title="Frequently asked questions" />
       </article>
