@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import FounderAuthorityPage, { founderAuthorityHead } from "./founder";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// Consolidated to canonical founder page.
 export const Route = createFileRoute("/company/founder")({
-  head: founderAuthorityHead,
-  component: FounderAuthorityPage,
+  beforeLoad: () => {
+    throw redirect({ to: "/about/tahir-abbas", statusCode: 301 });
+  },
+  component: () => null,
 });
