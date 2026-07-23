@@ -880,3 +880,588 @@ function ShopifyVsWooCommerceUK() {
     </>
   );
 }
+
+function UkEcommerceSeoPlaybookShopify() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        For UK Shopify brands doing £1M-£15M/year, ranking on Google is a{" "}
+        <strong>technical, on-page and content system</strong> - not a monthly blog
+        quota. Fix duplicate content and faceted URLs first, then rebuild product and
+        collection pages against real buyer intent, then earn editorial links. This
+        guide is the entire playbook in one place, with links out to five deep dives
+        for each stage.
+      </p>
+
+      <h2 id="who">Who this is for</h2>
+      <ul>
+        <li>UK-registered Shopify or Shopify Plus stores with £80K-£1.2M monthly revenue.</li>
+        <li>Teams currently overspending on paid ads (blended MER under 3) and needing organic to compound.</li>
+        <li>Brands with an aged domain, live catalogue and at least basic Klaviyo + reviews already in place.</li>
+      </ul>
+
+      <h2 id="stage-1">Stage 1 - Technical foundations</h2>
+      <p>
+        Nothing in stages 2-4 works if Google is wasting crawl budget on filter URLs and
+        duplicate tag pages. Every Shopify SEO engagement we run starts with a technical
+        audit against the same checklist:
+      </p>
+      <ul>
+        <li>Duplicate content from <Link to="/blog/$slug" params={{ slug: "shopify-duplicate-content-faceted-urls" }} className="text-primary underline">faceted collection URLs</Link>.</li>
+        <li>Canonical hygiene on filtered collections, tag pages and vendor URLs.</li>
+        <li>hreflang if you sell across UK, EU and US via Shopify Markets.</li>
+        <li>Core Web Vitals - LCP under 2.5s on mobile, CLS under 0.1, INP under 200ms.</li>
+        <li>JSON-LD: Product, Review, Breadcrumb, Organisation at minimum.</li>
+        <li>Sitemap segmentation once your catalogue passes 5,000 URLs.</li>
+      </ul>
+      <p>
+        Full detail: <Link to="/blog/$slug" params={{ slug: "shopify-plus-technical-seo-checklist" }} className="text-primary underline">technical SEO checklist for Shopify Plus</Link>.
+      </p>
+
+      <h2 id="stage-2">Stage 2 - Product page rebuild</h2>
+      <p>
+        Product pages carry the highest commercial intent on your store. Most Shopify
+        PDPs ship with 40 words of copy, generic H1s and no unique reason for Google to
+        rank them above Amazon or a competitor. The fix isn't more copy - it's a
+        structured template:
+      </p>
+      <ol>
+        <li>60-word above-the-fold benefit hook, keyword-primary in the H1.</li>
+        <li>3-5 short scannable sections: benefits, materials, sizing/fit, care, shipping.</li>
+        <li>Reviews block with AggregateRating schema (Judge.me or Yotpo).</li>
+        <li>UK-specific signals: GBP with VAT-inclusive pricing, UK delivery estimate, GB priceCurrency in schema.</li>
+        <li>Internal links to 3-5 related products and the parent collection.</li>
+      </ol>
+      <p>
+        Template + examples: <Link to="/blog/$slug" params={{ slug: "shopify-product-page-seo-uk" }} className="text-primary underline">product page SEO for UK Shopify stores</Link>.
+      </p>
+
+      <h2 id="stage-3">Stage 3 - Collection page architecture</h2>
+      <p>
+        Collections are the middle of your SEO funnel: high-volume commercial queries
+        (men's black trainers, oat milk 12 pack, etc.) that convert to product-page
+        clicks. Default Shopify collection pages under-rank because they're grids with
+        no copy and no schema. The rebuild:
+      </p>
+      <ul>
+        <li>80 words unique intro above the grid, 300-500 words below.</li>
+        <li>ItemList JSON-LD listing every product with price and availability.</li>
+        <li>Facet-nav strategy - which filters are indexable, which are noindex.</li>
+        <li>Internal links from parent collection to child collections and back.</li>
+      </ul>
+      <p>
+        Full playbook: <Link to="/blog/$slug" params={{ slug: "shopify-collection-page-seo" }} className="text-primary underline">collection page SEO: templates that rank</Link>.
+      </p>
+
+      <h2 id="stage-4">Stage 4 - Content and authority</h2>
+      <p>
+        Content SEO on ecommerce is not blogging. It's building comparison, best-of,
+        problem-solution and buyer-guide pages that Google trusts as commercial answers
+        and that link internally back to your PDPs and collections. Layer editorial
+        digital PR on top - one placement in a UK title like The Independent or Wired
+        UK moves domain authority more than 50 guest posts on low-trust sites.
+      </p>
+
+      <h2 id="stage-5">Stage 5 - Local and geographic signals</h2>
+      <p>
+        UK brands with a showroom, warehouse pickup or regional installation partner
+        should build local pack visibility on top of national organic. If you're pure
+        DTC with no physical premises, skip GBP and invest in national authority
+        instead - fake GBPs get suspended.
+      </p>
+      <p>
+        Detail: <Link to="/blog/$slug" params={{ slug: "local-seo-multi-location-uk-ecommerce" }} className="text-primary underline">local SEO for multi-location UK ecommerce brands</Link>.
+      </p>
+
+      <h2 id="measurement">Measurement</h2>
+      <p>
+        Rankings alone are a vanity metric. Wire Search Console, GA4 and Shopify orders
+        into a single dashboard tracking:
+      </p>
+      <ul>
+        <li>Organic non-brand sessions and orders week-over-week.</li>
+        <li>Organic-attributed revenue and blended MER.</li>
+        <li>Indexation rate (indexed URLs vs sitemap URLs) in Search Console.</li>
+        <li>Top-10 keywords by revenue potential, not by search volume.</li>
+      </ul>
+
+      <h2 id="timeline">Realistic timeline</h2>
+      <p>
+        Meaningful movement on non-brand queries: 90-120 days. Material revenue lift:
+        month 6. Compounding organic contribution above 25% of revenue: 12-18 months.
+        Anyone promising month-1 rankings on a competitive UK term is either lying or
+        selling brand-term traffic you already had.
+      </p>
+
+      <h2 id="next">Where to start</h2>
+      <p>
+        If you take one thing from this guide: audit your indexation report in Search
+        Console this week. Every UK Shopify store we onboard has 30-70% of its URLs
+        either 'Discovered - currently not indexed' or duplicating each other. Fixing
+        that alone tends to lift non-brand organic 15-40% inside 60 days, before you
+        write a single new page.
+      </p>
+    </>
+  );
+}
+
+function ShopifyDuplicateContentFacetedUrls() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        Shopify auto-canonicals product URLs but leaves collection filters, tags and
+        vendor URLs to duplicate themselves. Fix in three moves: block filter
+        parameters in <code>robots.txt.liquid</code>, add <code>noindex</code> to tag
+        pages via theme conditional, and verify the theme sets correct canonicals on
+        filtered collection URLs.
+      </p>
+
+      <h2 id="what">What Shopify duplicates by default</h2>
+      <ul>
+        <li><strong>Filtered collections:</strong> <code>/collections/x?filter.p.vendor=y</code></li>
+        <li><strong>Tag pages:</strong> <code>/collections/all/tag-name</code></li>
+        <li><strong>Vendor URLs:</strong> <code>/collections/vendors?q=Brand</code></li>
+        <li><strong>Search URLs:</strong> <code>/search?q=term</code></li>
+        <li><strong>Pagination in some themes:</strong> <code>/collections/x?page=2</code></li>
+      </ul>
+      <p>
+        Every one of these is a distinct URL Google can crawl and (sometimes) index. On
+        a store with 500 products and 5 filters, that's thousands of near-duplicate
+        pages competing with your canonical collection.
+      </p>
+
+      <h2 id="fix-1">Fix 1 - Block filter parameters in robots.txt</h2>
+      <p>
+        Create or edit <code>templates/robots.txt.liquid</code> and add:
+      </p>
+      <pre><code>{`{% for group in robots.default_groups %}
+{{ group.user_agent }}
+{% for rule in group.rules %}{{ rule }}
+{% endfor %}
+Disallow: /*?*filter.
+Disallow: /*?*sort_by=
+Disallow: /search
+{% endfor %}`}</code></pre>
+      <p>
+        This tells Google not to crawl any URL containing <code>?filter.</code> or
+        <code>?sort_by=</code> without breaking the URLs for users.
+      </p>
+
+      <h2 id="fix-2">Fix 2 - Noindex tag pages</h2>
+      <p>
+        In your theme's <code>theme.liquid</code>, add inside the <code>&lt;head&gt;</code>:
+      </p>
+      <pre><code>{`{% if template contains 'collection' and current_tags %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}`}</code></pre>
+      <p>
+        Tag pages stay accessible and pass link equity but drop out of the index. On
+        stores with 20+ tags per collection this alone can recover 10-20% of crawl
+        budget.
+      </p>
+
+      <h2 id="fix-3">Fix 3 - Verify collection canonicals</h2>
+      <p>
+        Filtered collection URLs should <code>&lt;link rel="canonical"&gt;</code> back to
+        the unfiltered collection. Shopify Dawn does this correctly. Older themes
+        (pre-2022) and heavily customised themes often don't. Test with:
+      </p>
+      <pre><code>curl -s https://yourstore.com/collections/x?filter.p.vendor=y | grep canonical</code></pre>
+      <p>
+        The canonical should point to <code>/collections/x</code>, not
+        <code>/collections/x?filter.p.vendor=y</code>. If it doesn't, edit
+        <code>sections/main-collection.liquid</code> or your equivalent to output the
+        canonical from <code>collection.url</code>.
+      </p>
+
+      <h2 id="verify">How to verify the fix worked</h2>
+      <ol>
+        <li>Submit an updated sitemap in Search Console.</li>
+        <li>Wait 14-28 days.</li>
+        <li>Check the <em>Indexed, not submitted in sitemap</em> report - it should drop.</li>
+        <li>Check the <em>Excluded by 'noindex' tag</em> and <em>Blocked by robots.txt</em> counts - they should rise, matching your intentional blocks.</li>
+      </ol>
+
+      <h2 id="bonus">Bonus - handle search URLs</h2>
+      <p>
+        Shopify's internal search URLs (<code>/search?q=</code>) create infinite
+        low-quality index entries. Blocking them via robots.txt (as above) is enough for
+        most stores. If you want to be extra safe, add <code>noindex</code> to the
+        search template as well.
+      </p>
+    </>
+  );
+}
+
+function ShopifyProductPageSeoUk() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        A UK Shopify PDP that ranks and converts has five things: a keyword-primary
+        H1, 300-600 words of unique copy in a scannable structure, review schema, GBP
+        pricing with UK delivery signals, and internal links to related products. The
+        template below is what we ship on every UK client PDP rebuild.
+      </p>
+
+      <h2 id="anatomy">Anatomy of a ranking Shopify PDP</h2>
+      <ol>
+        <li><strong>H1:</strong> product name + primary keyword modifier ("Merino Wool Base Layer - Men's UK").</li>
+        <li><strong>Above the fold:</strong> 60-word benefit hook - what it does, who it's for, why it's better.</li>
+        <li><strong>Body copy:</strong> 3-5 short sections (benefits, materials/spec, sizing/fit, care, shipping).</li>
+        <li><strong>Reviews block:</strong> AggregateRating schema + written reviews with UGC photos.</li>
+        <li><strong>UK signals:</strong> GBP price, VAT-inclusive display, UK delivery estimate on the PDP itself.</li>
+        <li><strong>Internal links:</strong> 3-5 related products, parent collection link, at least one guide/blog link.</li>
+      </ol>
+
+      <h2 id="schema">The schema that earns star snippets</h2>
+      <p>
+        Judge.me and Yotpo both emit valid Product + AggregateRating + Review JSON-LD
+        by default. If you're on a custom theme without a reviews app, add this to your
+        PDP template:
+      </p>
+      <pre><code>{`{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title }}",
+  "image": "{{ product.featured_image | img_url: 'master' }}",
+  "description": "{{ product.description | strip_html }}",
+  "sku": "{{ product.selected_or_first_available_variant.sku }}",
+  "brand": { "@type": "Brand", "name": "{{ product.vendor }}" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "GBP",
+    "price": "{{ product.selected_or_first_available_variant.price | money_without_currency }}",
+    "availability": "https://schema.org/InStock"
+  }
+}`}</code></pre>
+      <p>
+        Star snippets lift CTR 20-35% versus a plain result. On a PDP getting 400
+        impressions/month, that's roughly 6-12 additional sessions from the same
+        ranking.
+      </p>
+
+      <h2 id="uk-signals">UK-specific PDP signals</h2>
+      <ul>
+        <li>Show GBP pricing with 20% VAT included (required for B2C display).</li>
+        <li>List UK delivery estimate on the PDP itself, not just at checkout - "Delivery to UK: 2-3 working days".</li>
+        <li>Mention UK fulfilment city if you have one - "Dispatched from our Leicester warehouse".</li>
+        <li>Set <code>priceCurrency: "GBP"</code> and <code>availableAtOrFrom.addressCountry: "GB"</code> in schema.</li>
+        <li>Use UK English spellings in copy - "colour", "grey", "organise".</li>
+      </ul>
+
+      <h2 id="copy">Copy structure that ranks and converts</h2>
+      <p>
+        Google rewards useful copy; buyers reward scannable copy. The overlap is
+        short paragraphs with bold-lead sentences and structured lists. A UK PDP that
+        converts at 4%+ usually follows this order:
+      </p>
+      <ol>
+        <li><strong>Hook (60 words):</strong> what it is, who it's for, primary benefit.</li>
+        <li><strong>Benefits (100 words, bulleted):</strong> 4-6 concrete outcome bullets.</li>
+        <li><strong>Materials or spec (80 words):</strong> factual, technical, honest.</li>
+        <li><strong>Fit / sizing (60 words):</strong> if applicable, always includes a size guide link.</li>
+        <li><strong>Care and shipping (80 words):</strong> UK-specific delivery and returns.</li>
+        <li><strong>Reviews (below the fold):</strong> AggregateRating + top 3 reviews.</li>
+      </ol>
+
+      <h2 id="internal-links">Internal linking from PDPs</h2>
+      <p>
+        Every PDP should link to 3-5 related products, its parent collection and at
+        least one relevant guide or blog post. This is not just SEO - internal links
+        raise session depth and revenue per visitor. Use manual related-products (not
+        just "customers also bought" widgets) so you control the taxonomy signals
+        Google reads.
+      </p>
+
+      <h2 id="pitfalls">Common mistakes</h2>
+      <ul>
+        <li>Copying supplier descriptions - the fastest way to trigger duplicate content across every competitor.</li>
+        <li>Hiding all copy behind a "Read more" toggle - Google still sees it, but users don't, and the page reads as thin.</li>
+        <li>Using generic H1s like just the product name with no keyword modifier.</li>
+        <li>No AggregateRating schema even when reviews exist on the page.</li>
+        <li>Pricing shown ex-VAT (illegal for UK B2C).</li>
+      </ul>
+    </>
+  );
+}
+
+function ShopifyCollectionPageSeo() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        Default Shopify collection pages ship as bare product grids with no copy and
+        no schema. To rank them you need three things: 80 words of unique intro copy
+        above the grid, 300-500 words below, and ItemList schema. Do that on your top
+        30 collections first - it usually lifts collection-page sessions 40-90% inside
+        90 days.
+      </p>
+
+      <h2 id="why-dont-rank">Why collections don't rank by default</h2>
+      <p>
+        Google treats a page with 12 product cards, an H1 and no other content as
+        thin. It ranks Amazon, John Lewis or ASOS instead - all of which have
+        thousands of internal links, review-rich cards, and category copy Google can
+        actually parse. Closing the gap doesn't require matching Amazon; it requires
+        giving Google something to rank.
+      </p>
+
+      <h2 id="template">The collection page template</h2>
+      <ol>
+        <li><strong>H1:</strong> match search intent, not just internal taxonomy ("Men's Black Running Shoes - UK").</li>
+        <li><strong>Intro copy (80 words above grid):</strong> what's in the collection, who it's for, one differentiator.</li>
+        <li><strong>Product grid:</strong> default Shopify layout is fine.</li>
+        <li><strong>Body copy (300-500 words below grid):</strong> buying guide, materials context, size/fit notes, care.</li>
+        <li><strong>FAQ block (3-5 questions):</strong> answers the top informational queries in the SERP.</li>
+        <li><strong>Internal links:</strong> to adjacent collections, parent category, top 3 guide posts.</li>
+      </ol>
+
+      <h2 id="copy-placement">Copy placement matters</h2>
+      <p>
+        Some teams push all collection copy below the grid to preserve the merch view.
+        This is a mistake. Google trusts above-the-fold content more heavily. The
+        split is 80 words above (short, tight, keyword-primary) and 300-500 words
+        below (deeper, useful, long-tail).
+      </p>
+
+      <h2 id="schema">ItemList schema</h2>
+      <p>
+        Add to your collection template:
+      </p>
+      <pre><code>{`{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for product in collection.products limit: 24 %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "url": "{{ shop.url }}{{ product.url }}",
+      "name": "{{ product.title }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}`}</code></pre>
+
+      <h2 id="facets">Faceted navigation strategy</h2>
+      <p>
+        Which filters should be indexable? Rule of thumb: if a filter combination has
+        real search demand and would earn a distinct H1, index it as a dedicated
+        collection. If it's just a UX filter with no demand, noindex it.
+      </p>
+      <ul>
+        <li><strong>Index:</strong> "Men's Running Shoes", "Men's Black Running Shoes" (both real queries).</li>
+        <li><strong>Noindex:</strong> "Men's Running Shoes sorted by newest".</li>
+        <li><strong>Block via robots:</strong> any filter combination with no demand and infinite permutations.</li>
+      </ul>
+
+      <h2 id="internal-links">Internal linking from collections</h2>
+      <p>
+        Collections should link to parent categories, sibling collections and 2-3
+        related guide posts. This builds topical clusters Google can trust. A "Men's
+        Black Running Shoes" collection should link to "Men's Running Shoes" (parent),
+        "Women's Black Running Shoes" (sibling), and "How to choose running shoes"
+        (guide).
+      </p>
+
+      <h2 id="pitfalls">Common mistakes</h2>
+      <ul>
+        <li>Creating one collection per keyword permutation - creates duplicate content between near-identical URLs.</li>
+        <li>Copy 100% below the fold - Google discounts what it doesn't see in the first viewport.</li>
+        <li>No ItemList schema - misses a free rich-result opportunity.</li>
+        <li>No FAQ block - misses the featured-snippet opportunity for buying queries.</li>
+      </ul>
+    </>
+  );
+}
+
+function ShopifyPlusTechnicalSeoChecklist() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        Shopify Plus stores fail SEO in different ways than Basic stores. Plus adds
+        multi-market complexity (hreflang, currency-specific canonicals), heavier
+        catalogues (crawl budget matters), and custom Liquid or Hydrogen builds that
+        break default schema. This checklist covers what actually breaks in the wild.
+      </p>
+
+      <h2 id="checklist">The checklist</h2>
+
+      <h3>1. Indexation</h3>
+      <ul>
+        <li>Indexed URLs in Search Console within 10% of sitemap URLs.</li>
+        <li>No spike in "Discovered - currently not indexed" over the last 90 days.</li>
+        <li>Tag pages noindexed via theme conditional.</li>
+        <li>Filter parameters blocked in <code>robots.txt.liquid</code>.</li>
+      </ul>
+
+      <h3>2. Canonicals</h3>
+      <ul>
+        <li>Filtered collection URLs canonical to the unfiltered collection.</li>
+        <li>Duplicate product URLs (accessed via collection path) canonical to <code>/products/x</code>.</li>
+        <li>Market-specific URLs use correct rel-alternate + hreflang, not cross-market canonicals.</li>
+      </ul>
+
+      <h3>3. hreflang (Shopify Markets)</h3>
+      <ul>
+        <li>Every active market emits hreflang for every language pair.</li>
+        <li><code>x-default</code> present and pointing to the primary market.</li>
+        <li>hreflang URLs return 200 (not 3xx or 4xx).</li>
+        <li>Verify with Screaming Frog's hreflang audit before every launch.</li>
+      </ul>
+
+      <h3>4. Core Web Vitals</h3>
+      <ul>
+        <li>Mobile LCP under 2.5s at the 75th percentile.</li>
+        <li>CLS under 0.1.</li>
+        <li>INP under 200ms.</li>
+        <li>Hero image preloaded with <code>&lt;link rel="preload"&gt;</code>.</li>
+        <li>All below-fold images lazy-loaded.</li>
+        <li>Third-party apps audited quarterly - one heavy chat or review widget can add 800ms to LCP.</li>
+      </ul>
+
+      <h3>5. Structured data</h3>
+      <ul>
+        <li>Product + AggregateRating + Review on every PDP.</li>
+        <li>ItemList on every collection.</li>
+        <li>Organisation + WebSite on the homepage.</li>
+        <li>BreadcrumbList on all deep pages.</li>
+        <li>Validate quarterly with Google's Rich Results Test.</li>
+      </ul>
+
+      <h3>6. Sitemaps</h3>
+      <ul>
+        <li>Shopify auto-generates <code>/sitemap.xml</code> - do not disable.</li>
+        <li>Above 50,000 URLs, Shopify segments automatically - submit each segment in Search Console.</li>
+        <li>Custom pages (case studies, blog articles served outside Shopify content) need a supplementary sitemap.</li>
+      </ul>
+
+      <h3>7. Redirects</h3>
+      <ul>
+        <li>All old URLs from previous rebuilds 301'd to closest match.</li>
+        <li>No redirect chains longer than 1 hop.</li>
+        <li>Bulk import redirects via Shopify's redirect CSV - do not build redirects one-at-a-time in Admin.</li>
+      </ul>
+
+      <h3>8. Custom themes / headless</h3>
+      <ul>
+        <li>If on Hydrogen or a headless build: schema does not ship by default - inject manually.</li>
+        <li>Verify canonical output on every template.</li>
+        <li>Verify sitemap generation - Hydrogen requires a custom route.</li>
+        <li>Confirm robots.txt is served from the storefront, not the framework default.</li>
+      </ul>
+
+      <h2 id="frequency">How often to run it</h2>
+      <p>
+        Full checklist quarterly. Indexation and Core Web Vitals monthly. Anything
+        touching a theme deploy: canonical, hreflang, schema - verify on staging
+        before every release.
+      </p>
+    </>
+  );
+}
+
+function LocalSeoMultiLocationUkEcommerce() {
+  return (
+    <>
+      <h2 id="tldr">Short answer</h2>
+      <p>
+        UK ecommerce brands with showrooms, warehouse pickup or regional installers
+        can rank in Google's local pack on top of national organic. The three levers:
+        a Google Business Profile per physical location, LocalBusiness + Store schema
+        on your city pages, and consistent NAP (name, address, phone) across your
+        site and directories.
+      </p>
+
+      <h2 id="when">When local SEO makes sense</h2>
+      <ul>
+        <li>Physical showroom customers can visit.</li>
+        <li>Staffed warehouse pickup point.</li>
+        <li>Regional installation or fitting service (e.g. blinds, furniture).</li>
+        <li>Wholesale trade counter.</li>
+      </ul>
+      <p>
+        Pure DTC brands with no physical premises should not create GBPs. Fake or
+        virtual-office GBPs get suspended and can damage domain trust. Invest in
+        national organic authority instead.
+      </p>
+
+      <h2 id="gbp">Google Business Profile setup</h2>
+      <ol>
+        <li>One GBP per physical location, verified with a real postal mailer.</li>
+        <li>Primary category matches actual activity ("Furniture Store", not "Ecommerce Business").</li>
+        <li>Hours, phone and website filled and kept current.</li>
+        <li>Weekly posts (offers, new products, events).</li>
+        <li>Review response within 48 hours - both positive and negative.</li>
+      </ol>
+
+      <h2 id="city-pages">City pages that Google trusts</h2>
+      <p>
+        Don't spam 50 thin "we serve London/Manchester/Leeds" pages. Build a city page
+        only when you have a genuine signal to write about:
+      </p>
+      <ul>
+        <li>Physical showroom or trade counter at that address.</li>
+        <li>Named local partner (installer, wholesaler, fulfilment centre).</li>
+        <li>Documented pattern of orders from that catchment.</li>
+      </ul>
+      <p>
+        Each city page should include: local address (if applicable), local phone,
+        embedded map, 600-1,000 words of genuinely local content (nearby districts,
+        local delivery times, local partners), LocalBusiness schema, and 2-3 real
+        customer stories from that area.
+      </p>
+
+      <h2 id="schema">LocalBusiness schema</h2>
+      <pre><code>{`{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Your Brand - Manchester Showroom",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1 Example Street",
+    "addressLocality": "Manchester",
+    "postalCode": "M1 1AA",
+    "addressCountry": "GB"
+  },
+  "telephone": "+44 161 000 0000",
+  "openingHoursSpecification": [ /* per-day */ ],
+  "geo": { "@type": "GeoCoordinates", "latitude": 53.48, "longitude": -2.24 }
+}`}</code></pre>
+
+      <h2 id="reviews">Review strategy</h2>
+      <p>
+        In competitive UK cities (London, Manchester, Birmingham) top-3 local pack
+        positions usually require 50+ Google reviews and a 4.5+ average. In smaller
+        towns 15-25 well-managed reviews can rank. Volume alone doesn't work - review
+        recency and response rate are both ranking factors.
+      </p>
+      <ul>
+        <li>Automate post-purchase review requests via Klaviyo or Judge.me.</li>
+        <li>Ask on delivery receipt for physical fulfilment.</li>
+        <li>Respond to every review within 48 hours.</li>
+        <li>Never buy reviews. Suspension risk is total.</li>
+      </ul>
+
+      <h2 id="citations">Citations and directories</h2>
+      <p>
+        NAP consistency across Yell, Bing Places, Apple Maps, Trustpilot business
+        page, and any relevant UK trade directory. Inconsistent addresses or phone
+        numbers are the most common cause of a stalled local ranking.
+      </p>
+
+      <h2 id="pitfalls">Common mistakes</h2>
+      <ul>
+        <li>Creating a GBP at a virtual mailbox or coworking address (suspension guaranteed).</li>
+        <li>Duplicate GBP listings for the same location (rank neither).</li>
+        <li>Copy-pasted city pages with only the city name changed.</li>
+        <li>Ignoring GBP posts and Q&amp;A - both are active ranking signals.</li>
+      </ul>
+    </>
+  );
+}
+
