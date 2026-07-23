@@ -64,13 +64,13 @@ const PILLARS = [
 export const Route = createFileRoute("/hub/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Knowledge Hub Shopify, WooCommerce, SEO, Paid, CRO | BeingEcom" },
+      { title: "Ecommerce Knowledge Hub UK | Shopify, WooCommerce, SEO, Paid, CRO | BeingEcom" },
       {
         name: "description",
-        content: "Free ecommerce growth hub for Shopify and WooCommerce brands pillar guides, playbooks and benchmarks across SEO, paid media, CRO, email and AI automation.",
+        content: "Free UK ecommerce growth hub for Shopify and WooCommerce brands pillar guides, playbooks and benchmarks across SEO, paid media, CRO, email and AI automation.",
       },
-      { property: "og:title", content: "Ecommerce Knowledge Hub | BeingEcom" },
-      { property: "og:description", content: "Pillar guides for Shopify and WooCommerce brands SEO, paid, CRO, email, AI automation." },
+      { property: "og:title", content: "Ecommerce Knowledge Hub UK | BeingEcom" },
+      { property: "og:description", content: "UK pillar guides for Shopify and WooCommerce brands SEO, paid, CRO, email, AI automation." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/hub` },
     ],
