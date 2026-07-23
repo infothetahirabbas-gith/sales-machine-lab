@@ -626,7 +626,26 @@ const ARTICLES: Record<string, () => ReactElement> = {
   "shopify-collection-page-seo": ShopifyCollectionPageSeo,
   "shopify-plus-technical-seo-checklist": ShopifyPlusTechnicalSeoChecklist,
   "local-seo-multi-location-uk-ecommerce": LocalSeoMultiLocationUkEcommerce,
+  "uk-dtc-paid-media-playbook": UkDtcPaidMediaPlaybook,
+  "meta-ads-creative-testing-uk-dtc": MetaAdsCreativeTestingUkDtc,
+  "google-shopping-feed-optimisation-shopify-uk": GoogleShoppingFeedOptimisationShopifyUk,
+  "tiktok-ads-uk-beauty-fashion-brands": TiktokAdsUkBeautyFashion,
+  "ios17-attribution-uk-ecommerce": Ios17AttributionUkEcommerce,
+  "mer-vs-roas-uk-dtc-founders": MerVsRoasUkDtcFounders,
+  "uk-ecommerce-cro-playbook-shopify": UkEcommerceCroPlaybookShopify,
+  "pdp-cro-14-tests-that-move-revenue": PdpCro14Tests,
+  "cart-checkout-cro-shopify-uk": CartCheckoutCroShopifyUk,
+  "mobile-cro-fixing-mobile-dropoff": MobileCroFixingMobileDropoff,
+  "site-search-cro-uk-ecommerce": SiteSearchCroUkEcommerce,
+  "trust-signals-that-convert-uk-shoppers": TrustSignalsConvertUkShoppers,
+  "uk-ecommerce-email-retention-klaviyo": UkEcommerceEmailRetentionKlaviyo,
+  "klaviyo-welcome-flow-uk-dtc-template": KlaviyoWelcomeFlowUkDtc,
+  "abandoned-cart-flows-that-recover-15-percent": AbandonedCartFlowsRecover15,
+  "post-purchase-flows-for-repeat-revenue": PostPurchaseFlowsRepeatRevenue,
+  "winback-flows-for-lapsed-uk-customers": WinbackFlowsLapsedUkCustomers,
+  "sms-email-uk-compliance-safe-combo": SmsEmailUkComplianceSafe,
 };
+
 
 function ShopifyPlusMigrationUK() {
   return (
