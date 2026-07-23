@@ -57,7 +57,7 @@ export const Route = createFileRoute("/about/tahir-abbas")({
               "https://www.linkedin.com/company/beingecom/",
             ],
             worksFor: {
-              "@type": "Organisation",
+              "@type": "Organization",
               name: "BeingEcom",
               url: SITE_URL,
             },

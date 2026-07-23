@@ -63,7 +63,7 @@ export const ORG_KNOWS_ABOUT = [
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organisation", "ProfessionalService"],
+    "@type": ["Organization", "ProfessionalService"],
     "@id": ORG_ID,
     name: ORG_INFO.name,
     alternateName: ["Being Ecom", "BeingEcom Agency"],
@@ -277,7 +277,7 @@ export function contactPageJsonLd() {
     name: `Contact ${ORG_INFO.name}`,
     description: `Contact ${ORG_INFO.name} for a free ecommerce growth audit - reply within 48 hours.`,
     mainEntity: {
-      "@type": "Organisation",
+      "@type": "Organization",
       name: ORG_INFO.name,
       url: SITE_URL,
       email: ORG_INFO.email,
@@ -413,7 +413,7 @@ export function courseJsonLd(opts: {
     description: opts.description,
     url: opts.url,
     about: opts.about,
-    provider: { "@id": ORG_ID, "@type": "Organisation", name: ORG_INFO.name, url: ORG_INFO.url },
+    provider: { "@id": ORG_ID, "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
     inLanguage: "en-GB",
     isAccessibleForFree: true,
     educationalLevel: "Intermediate",
@@ -501,7 +501,7 @@ export function serviceJsonLd(opts: {
     description: opts.description,
     url,
     provider: {
-      "@type": "Organisation",
+      "@type": "Organization",
       name: ORG_INFO.name,
       url: ORG_INFO.url,
     },

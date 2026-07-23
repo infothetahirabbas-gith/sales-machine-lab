@@ -96,7 +96,7 @@ export const Route = createFileRoute("/research")({
           name: "BeingEcom Ecommerce Research",
           url: `${SITE_URL}/research`,
           about: "Original ecommerce research and benchmark data",
-          publisher: { "@type": "Organisation", name: "BeingEcom", url: SITE_URL },
+          publisher: { "@type": "Organization", name: "BeingEcom", url: SITE_URL },
         }),
       },
     ],
