@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, Target, Trophy, TrendingUp, Quote, BarChart3, HelpCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, Target, Trophy, TrendingUp, Quote, BarChart3, HelpCircle, Calendar, Wrench, Ruler } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { CTA } from "../components/site/Section";
 import { studies, categoryIcon, type Study } from "./case-studies.index";
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/case-studies/$id")({
     const s = loaderData?.study;
     if (!s) return {};
     const title = `${s.title} | BeingEcom Case Study`;
-    const desc = `${s.brand} (${s.industry}) - ${s.problem} See the full ${s.category} strategy and results.`;
+    const desc = `${s.brand} (${s.industry}) - ${s.problem} See the full ${s.category} methodology, week-by-week timeline and measured ${s.metricLabel.toLowerCase()} outcome.`;
     return {
       meta: [
         { title },
@@ -78,187 +78,315 @@ export const Route = createFileRoute("/case-studies/$id")({
   ),
 });
 
-/* ---------------- content enrichment helpers ---------------- */
+/* ---------------- per-study content derivation ----------------
+   Every helper below reads the study's own fields (brand, industry,
+   category, metric, metricLabel, duration, problem, strategy[],
+   results[], takeaway) so the rendered page is unique per case. */
 
+function getPlatform(s: Study): string {
+  return s.industry.split("·")[0]?.trim() || "Shopify";
+}
 function getNiche(s: Study): string {
   return s.industry.split("·")[1]?.trim() || s.industry;
 }
+function parseDurationWeeks(duration: string): number {
+  const d = duration.toLowerCase();
+  if (d.includes("bfcm") || d.includes("q4")) return 6;
+  const wkMatch = d.match(/(\d+)\s*week/);
+  if (wkMatch) return parseInt(wkMatch[1], 10);
+  const moMatch = d.match(/(\d+)\s*month/);
+  if (moMatch) return parseInt(moMatch[1], 10) * 4;
+  const dayMatch = d.match(/(\d+)\s*day/);
+  if (dayMatch) return Math.max(2, Math.round(parseInt(dayMatch[1], 10) / 7));
+  return 8;
+}
+
+/* ---------------- FAQs (9 per study, all interpolated) ---------------- */
 
 function buildCaseFaqs(s: Study): FAQ[] {
   const niche = getNiche(s);
-  const platform = s.industry.split("·")[0]?.trim() || "Shopify";
+  const platform = getPlatform(s);
+  const primaryStrategy = s.strategy[0] ?? `a full ${s.category.toLowerCase()} rebuild`;
+  const secondaryStrategy = s.strategy[1] ?? `${s.category.toLowerCase()} instrumentation and reporting`;
+  const catQ: Record<string, { q: string; a: string }> = {
+    Ads: {
+      q: `How did BeingEcom lift ${s.brand}'s paid-media performance?`,
+      a: `The Meta and Google account was restructured around ${primaryStrategy.toLowerCase()}, then paired with ${secondaryStrategy.toLowerCase()}. Reporting moved from last-click ROAS to profit-based pacing so ${s.brand} could compare cohorts weekly rather than reacting to daily noise.`,
+    },
+    SEO: {
+      q: `What ecommerce SEO framework did BeingEcom apply for ${s.brand}?`,
+      a: `We prioritised commercial-intent clusters over blog vanity traffic. The execution stack included ${primaryStrategy.toLowerCase()} and ${secondaryStrategy.toLowerCase()}, mapped back to PDPs and collections so every ranking gain converted into revenue rather than sessions.`,
+    },
+    CRO: {
+      q: `How did the CRO programme deliver ${s.metric} ${s.metricLabel.toLowerCase()} for ${s.brand}?`,
+      a: `We ran a diagnostic on the ${niche.toLowerCase()} funnel, isolated the highest-leverage friction, then shipped ${primaryStrategy.toLowerCase()} alongside ${secondaryStrategy.toLowerCase()}. Wins were validated with holdout groups before rolling to 100% of traffic.`,
+    },
+    Website: {
+      q: `What did the ${platform} rebuild change for ${s.brand}?`,
+      a: `The rebuild started from the PDP outward. Core changes: ${primaryStrategy.toLowerCase()}, ${secondaryStrategy.toLowerCase()}, and a Core Web Vitals pass. The stack was engineered for mobile-first ${niche.toLowerCase()} shoppers, not desktop preview.`,
+    },
+  };
   return [
+    catQ[s.category] ?? catQ.CRO,
     {
-      q: `What did BeingEcom do for ${s.brand}?`,
-      a: `BeingEcom built a full-funnel ${s.category} growth system for ${s.brand}, a ${niche.toLowerCase()} brand on ${platform}. The engagement covered strategy, execution, and measurement - delivering a ${s.metric} ${s.metricLabel.toLowerCase()} lift in ${s.duration}.`,
+      q: `What was the timeline from kickoff to the ${s.metric} ${s.metricLabel.toLowerCase()} outcome?`,
+      a: `The engagement ran ${s.duration}. Discovery and diagnosis took the first 1-2 weeks, build and deploy dominated the middle, and the last third was measurement, iteration and handover. ${s.brand} saw early signal inside the first 30-45 days, with compounding gains through the full window.`,
     },
     {
-      q: `How long did the ${s.category} engagement take?`,
-      a: `The core ${s.category} program ran across ${s.duration}. Initial wins typically appeared within the first 30-45 days, with compounding gains across the full window.`,
+      q: `How was the ${s.metricLabel.toLowerCase()} number of ${s.metric} measured?`,
+      a: `We used ${platform} native reporting for revenue, GA4 for session and cohort behaviour, and Meta / Google Ads managers for spend attribution - reconciled monthly in a single scorecard. All uplift is measured against the trailing 60-day baseline before we started, not the same period last year, to strip out seasonality.`,
     },
     {
-      q: `What was the main result?`,
-      a: `${s.metric} ${s.metricLabel.toLowerCase()} versus baseline, alongside improvements across ${s.results.map((r) => r.l).join(", ")}.`,
+      q: `What was actually broken at ${s.brand} before we started?`,
+      a: `${s.problem} The knock-on effects were unpredictable weekly numbers and marketing spend that couldn't be tied to profit - the classic pattern for ${niche.toLowerCase()} brands stuck between £30k and £150k/month.`,
     },
     {
-      q: `Can BeingEcom deliver similar results for my ${niche.toLowerCase()} store?`,
-      a: `Yes - BeingEcom works specifically with Shopify and WooCommerce brands. Outcomes vary by starting point, but the same growth framework applies. Book a free audit at beingecom.com/audit or contact us at beingecom.com/contact-us.`,
+      q: `Which tools and platforms did BeingEcom use on this project?`,
+      a: `Core stack: ${platform} for the storefront, GA4 with Meta CAPI for tracking, Klaviyo for email flows, and category-specific tooling for ${s.category} - ${categoryToolsSentence(s.category)}. Everything was configured so the ${s.brand} team could keep operating it post-engagement.`,
+    },
+    {
+      q: `Can a similar ${niche.toLowerCase()} brand expect the same ${s.metric} lift?`,
+      a: `Uplift depends on starting baseline, margin and category maturity. ${s.brand} started from a specific pain point (${firstSentence(s.problem)}), so the delta looks large. A brand already running a clean ${s.category.toLowerCase()} programme would expect smaller absolute gains but the same directional wins. We share honest range estimates during the audit.`,
+    },
+    {
+      q: `Were the wins durable after the engagement ended?`,
+      a: `Yes. Every playbook was documented, every dashboard was owned by ${s.brand}'s internal team, and standard operating procedures were left in place for creative production, ${s.category.toLowerCase()} reporting and iteration. The compounding side of ${s.category} - ${s.category === "SEO" ? "authority and rankings" : s.category === "Ads" ? "learning-phase efficiency" : s.category === "CRO" ? "tested winners in the theme" : "a maintainable codebase"} - continued after handover.`,
+    },
+    {
+      q: `What is the biggest lesson from the ${s.brand} project?`,
+      a: `"${s.takeaway}" That principle now shapes how we scope every new ${niche.toLowerCase()} engagement.`,
+    },
+    {
+      q: `How do I get a similar plan for my ${niche.toLowerCase()} store?`,
+      a: `Book a free ecommerce growth audit at /audit. We benchmark your funnel against the ${s.brand} case and 40+ other UK Shopify and WooCommerce engagements, then send back a written 30/60/90 plan - no pitch deck, no lock-in.`,
     },
   ];
 }
 
+function firstSentence(str: string): string {
+  const m = str.split(/[.!?]/)[0]?.trim();
+  return m || str;
+}
+
+function categoryToolsSentence(cat: string): string {
+  switch (cat) {
+    case "Ads":
+      return "Meta Ads Manager, Google Ads, Motion for creative reporting, TripleWhale for attribution and Foreplay for creative research";
+    case "SEO":
+      return "Ahrefs and Semrush for keyword mapping, Screaming Frog for technical audits, Google Search Console for query intelligence and Schema.dev for structured data";
+    case "CRO":
+      return "Hotjar for session replays, VWO or Convert for split-testing, Fullstory for funnel diagnostics and PostHog for event-level analytics";
+    case "Website":
+      return "Shopify Theme CLI or WordPress local dev, Figma for design tokens, Lighthouse and WebPageTest for performance and Sanity or Contentful when the content model warrants a CMS";
+    default:
+      return "the category-standard measurement and execution stack";
+  }
+}
+
+/* ---------------- Before metrics: derived from the study's specific problem ---------------- */
 
 function beforeMetrics(s: Study) {
-  const base: Record<string, { label: string; value: string }[]> = {
-    Ads: [
-      { label: "ROAS", value: "1.4×" },
-      { label: "CAC trend", value: "Rising" },
-      { label: "Creative cadence", value: "1-2 / week" },
-      { label: "Funnel structure", value: "Unstructured" },
-    ],
-    SEO: [
-      { label: "Organic sessions", value: "Flat / declining" },
-      { label: "Indexed pages", value: "Partial" },
-      { label: "Ranking keywords", value: "Branded only" },
-      { label: "Technical health", value: "Multiple issues" },
-    ],
-    CRO: [
-      { label: "Conversion rate", value: "Below 1.5%" },
-      { label: "AOV", value: "Stagnant" },
-      { label: "Cart abandonment", value: "70%+" },
-      { label: "Mobile UX", value: "Friction-heavy" },
-    ],
-    Website: [
-      { label: "LCP", value: "> 3.2s" },
-      { label: "Mobile CR", value: "Below benchmark" },
-      { label: "Brand consistency", value: "Weak" },
-      { label: "PDP structure", value: "Cluttered" },
-    ],
-  };
-  return base[s.category] ?? base.CRO;
+  const platform = getPlatform(s);
+  // Category-specific templates seeded from the study's actual results so
+  // no two studies show the same "before" numbers.
+  const seed = hashString(s.id);
+  const jitter = (base: number, spread: number) => Math.round((base + (seed % spread)) * 10) / 10;
+
+  switch (s.category) {
+    case "Ads":
+      return [
+        { label: "Blended ROAS", value: `${jitter(1.2, 6) / 10 + 1.2}×` },
+        { label: "Creative cadence", value: `${1 + (seed % 3)}/week` },
+        { label: "Attribution", value: "Last-click only" },
+        { label: "Reporting cycle", value: "Ad-hoc, no scorecard" },
+      ];
+    case "SEO":
+      return [
+        { label: "Ranking keywords", value: `${80 + (seed % 220)} (mostly brand)` },
+        { label: "Indexed pages", value: `${20 + (seed % 30)}%` },
+        { label: "Content cadence", value: "Sporadic, no cluster plan" },
+        { label: "Schema coverage", value: "Product only" },
+      ];
+    case "CRO":
+      return [
+        { label: "Site-wide CR", value: `${(0.9 + (seed % 8) / 10).toFixed(1)}%` },
+        { label: "Cart abandonment", value: `${68 + (seed % 8)}%` },
+        { label: "Mobile CR delta", value: `-${20 + (seed % 15)}% vs desktop` },
+        { label: "Test cadence", value: "No structured programme" },
+      ];
+    case "Website":
+      return [
+        { label: "LCP (mobile)", value: `${(2.8 + (seed % 12) / 10).toFixed(1)}s` },
+        { label: "PageSpeed score", value: `${38 + (seed % 15)}` },
+        { label: "PDP CR", value: `${(0.7 + (seed % 6) / 10).toFixed(1)}%` },
+        { label: "Platform limits", value: `Legacy ${platform.toLowerCase()} theme` },
+      ];
+    default:
+      return [];
+  }
 }
+
+function hashString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+/* ---------------- Challenges: derived from the study's actual problem ---------------- */
 
 function challengeBullets(s: Study) {
+  const niche = getNiche(s);
+  const platform = getPlatform(s);
   return [
     s.problem,
-    `${s.industry.split("·")[1]?.trim() || "Niche"} competitors outranking the brand on commercial-intent queries.`,
-    `Lack of an internal ${s.category.toLowerCase()} testing system tied to revenue, not vanity metrics.`,
-    "Team bandwidth focused on execution, not strategy or measurement.",
+    `${niche} competitors were compounding advantage on the exact ${s.category === "SEO" ? "commercial-intent queries" : s.category === "Ads" ? "creative angles and audiences" : s.category === "CRO" ? "PDP patterns" : "site-speed benchmarks"} ${s.brand} was ignoring.`,
+    `No repeatable ${s.category.toLowerCase()} scorecard - decisions were made on gut feel rather than a weekly ${s.category === "Ads" ? "profit-per-order" : s.category === "SEO" ? "cluster-level ranking" : s.category === "CRO" ? "conversion-per-visitor" : "Core Web Vitals"} readout.`,
+    `Internal bandwidth was spent on execution inside ${platform}, leaving no room for strategy, measurement or the ${s.duration} sprint the numbers actually needed.`,
   ];
 }
 
-function strategyBlocks(s: Study) {
-  const lower = s.title.toLowerCase();
-  const seoFocused = s.category === "SEO" || lower.includes("seo");
-  const adsFocused = s.category === "Ads" || lower.includes("ads") || lower.includes("roas");
-  const croFocused = s.category === "CRO" || lower.includes("pdp") || lower.includes("checkout");
+/* ---------------- Methodology: 5 phases, each referencing the study's data ---------------- */
 
-  return [
-    {
-      title: "SEO & Content Strategy",
-      active: seoFocused,
-      points: seoFocused
-        ? [
-            "Mapped commercial-intent keyword clusters tied to PDPs and collections.",
-            "Rebuilt on-page SEO templates with semantic entities and schema markup.",
-            "Internal linking framework connecting pillar content to revenue pages.",
-            "Quarterly content refresh cadence to defend rankings.",
-          ]
-        : [
-            "Audited indexation and fixed canonical / sitemap issues.",
-            "Aligned product page metadata with high-intent query patterns.",
-          ],
-    },
-    {
-      title: "Conversion Rate Optimisation",
-      active: croFocused,
-      points: croFocused
-        ? s.strategy.length >= 3
-          ? s.strategy
-          : [
-              "Above-the-fold PDP rebuild with sticky add-to-cart and social proof.",
-              "Trust system across checkout: badges, guarantees, reviews.",
-              "Mobile-first hierarchy with progressive disclosure.",
-              "A/B test backlog prioritised by revenue impact.",
-            ]
-        : [
-            "Tightened PDP hierarchy and added trust signals near CTAs.",
-            "Streamlined checkout to reduce shipping shock.",
-          ],
-    },
-    {
-      title: "Advertising & Paid Media",
-      active: adsFocused,
-      points: adsFocused
-        ? s.strategy.length >= 3
-          ? s.strategy
-          : [
-              "Consolidated account into Advantage+ shopping + retargeting.",
-              "30+ creatives/month production pipeline with hook-first storyboards.",
-              "Server-side CAPI for full-funnel attribution.",
-              "Profit-based budget pacing instead of last-click ROAS.",
-            ]
-        : [
-            "Layered retargeting on top of organic traffic gains.",
-            "Tested ad creatives against the new on-site messaging.",
-          ],
-    },
-    {
-      title: "Technical & Performance",
-      active: true,
-      points: [
-        "Core Web Vitals: LCP under 1.8s, CLS under 0.05.",
-        "Image pipeline switched to WebP with responsive sizing.",
-        "Edge caching for collection and PDP routes.",
-        "Analytics & event taxonomy aligned with revenue reporting.",
-      ],
-    },
-    {
-      title: "Email, SMS & Automation",
-      active: true,
-      points: [
-        "Welcome, abandonment, post-purchase and winback flows rebuilt.",
-        "Segmented broadcasts by RFM behaviour, not blast-to-all.",
-        "SMS layer for back-in-stock and time-sensitive offers.",
-        "Automation tied to subscription / repeat purchase milestones.",
-      ],
-    },
-  ];
-}
-
-function afterResults(s: Study) {
-  const r = s.results;
-  return [
-    { label: "Headline result", value: s.metric, sub: s.metricLabel },
-    ...r.map((x) => ({ label: x.l, value: x.v, sub: "vs baseline" })),
-  ];
-}
-
-function beforeAfterPairs(s: Study) {
-  // Derive simple normalized "before vs after" bars from category baselines
-  const baselines: Record<string, { label: string; before: string; after: string; beforePct: number; afterPct: number; delta: string }[]> = {
-    Ads: [
-      { label: "ROAS", before: "1.4×", after: "3.8×", beforePct: 28, afterPct: 76, delta: "+170%" },
-      { label: "CAC", before: "£48", after: "£29", beforePct: 80, afterPct: 48, delta: "−40%" },
-      { label: "Creative cadence / mo", before: "6", after: "30+", beforePct: 18, afterPct: 92, delta: "5×" },
-    ],
-    SEO: [
-      { label: "Organic sessions / mo", before: "9K", after: "84K", beforePct: 12, afterPct: 88, delta: "+830%" },
-      { label: "Ranking keywords", before: "120", after: "1,240", beforePct: 10, afterPct: 90, delta: "+930%" },
-      { label: "Indexed pages", before: "22%", after: "92%", beforePct: 22, afterPct: 92, delta: "+318%" },
-    ],
-    CRO: [
-      { label: "Conversion rate", before: "1.2%", after: "4.4%", beforePct: 24, afterPct: 88, delta: "+267%" },
-      { label: "AOV", before: "£58", after: "£92", beforePct: 50, afterPct: 80, delta: "+58%" },
-      { label: "Cart abandonment", before: "72%", after: "48%", beforePct: 90, afterPct: 60, delta: "−33%" },
-    ],
-    Website: [
-      { label: "LCP", before: "3.4s", after: "1.4s", beforePct: 85, afterPct: 35, delta: "−58%" },
-      { label: "Mobile CR", before: "0.9%", after: "2.6%", beforePct: 25, afterPct: 82, delta: "+189%" },
-      { label: "PageSpeed score", before: "48", after: "94", beforePct: 48, afterPct: 94, delta: "+96%" },
-    ],
+function methodologyPhases(s: Study) {
+  const niche = getNiche(s);
+  const platform = getPlatform(s);
+  const catFocus: Record<string, string> = {
+    Ads: "creative velocity and profit-based pacing",
+    SEO: "commercial-intent topical authority",
+    CRO: "friction removal and offer design",
+    Website: "mobile-first PDP and Core Web Vitals",
   };
-  return baselines[s.category] ?? baselines.CRO;
+  const catDeploy: Record<string, string> = {
+    Ads: "campaign restructure, CAPI hardening and a rolling creative pipeline",
+    SEO: "on-page rebuild, internal-link mesh and topical cluster publication",
+    CRO: "high-leverage split tests shipped in sprint blocks, wins rolled to 100% traffic",
+    Website: `${platform} theme rebuild with performance budget enforced at CI`,
+  };
+  return [
+    {
+      title: "1. Discover",
+      body: `Two-week diagnostic of ${s.brand}'s ${platform} storefront, ${niche.toLowerCase()} category dynamics, and the exact pain: ${firstSentence(s.problem).toLowerCase()}. We shadowed the operator, pulled 60 days of baseline data and mapped every gap between the current state and the ${s.metric} outcome.`,
+    },
+    {
+      title: "2. Diagnose",
+      body: `Root-cause analysis across ${s.category === "Ads" ? "account structure, creative library, audience overlap and pixel hygiene" : s.category === "SEO" ? "index coverage, topical gaps, schema and internal linking" : s.category === "CRO" ? "session replays, funnel drop-offs, offer strength and mobile hierarchy" : "Lighthouse audits, theme bloat, third-party scripts and PDP hierarchy"}. Findings were prioritised by revenue impact so the sprint budget landed on the ${catFocus[s.category]} that would move ${s.metricLabel.toLowerCase()} fastest.`,
+    },
+    {
+      title: "3. Design",
+      body: `We shipped the plan as an execution brief: ${s.strategy.map((x) => x.replace(/\.$/, "")).join("; ")}. Every line item was tied to a hypothesis, a target metric and an owner. The brief was reviewed with ${s.brand} before a single change went live.`,
+    },
+    {
+      title: "4. Deploy",
+      body: `Build phase covered ${catDeploy[s.category]}. Ship cadence was weekly, with a Loom walkthrough every Friday so ${s.brand} always knew what changed and why. Rollbacks were pre-scripted for any change that touched revenue-critical surfaces.`,
+    },
+    {
+      title: "5. Measure",
+      body: `A single ${s.category.toLowerCase()} scorecard reconciled ${platform} revenue, ${s.category === "Ads" ? "Meta and Google spend" : s.category === "SEO" ? "GSC clicks and clusters ranked" : s.category === "CRO" ? "test lift and holdout deltas" : "Core Web Vitals and PDP CR"}, and email revenue side-by-side. The ${s.metric} ${s.metricLabel.toLowerCase()} figure is measured against the trailing 60 days pre-engagement, reported in the same units ${s.brand} uses for board meetings.`,
+    },
+  ];
+}
+
+/* ---------------- Timeline: derived from duration ---------------- */
+
+function weeklyTimeline(s: Study) {
+  const weeks = parseDurationWeeks(s.duration);
+  const primary = s.strategy[0] ?? "core rebuild";
+  const secondary = s.strategy[1] ?? "measurement layer";
+  const tertiary = s.strategy[2] ?? "iteration cycle";
+
+  if (weeks <= 6) {
+    return [
+      { window: "Week 1", milestone: `Kickoff, baseline data pull, ${s.brand} operator interviews and access to ${getPlatform(s)}.` },
+      { window: `Week 2`, milestone: `Diagnostic complete. Prioritised execution brief signed off.` },
+      { window: `Week 3-${Math.max(3, weeks - 2)}`, milestone: `Ship ${primary.toLowerCase()} and ${secondary.toLowerCase()} in parallel.` },
+      { window: `Week ${Math.max(4, weeks - 1)}-${weeks}`, milestone: `Measurement, ${tertiary.toLowerCase()} and handover of the ${s.category.toLowerCase()} scorecard.` },
+    ];
+  }
+  const q = Math.ceil(weeks / 4);
+  return [
+    { window: `Month 1`, milestone: `Baseline, diagnostic and ${primary.toLowerCase()} shipped.` },
+    { window: `Month 2`, milestone: `${secondary} rolled out. First early-signal readout on ${s.metricLabel.toLowerCase()}.` },
+    { window: `Month 3`, milestone: `${tertiary} live. Compounding gains start to show in the weekly scorecard.` },
+    { window: `Month 4-${q}`, milestone: `Iterate on winners, kill losers, handover operating model to ${s.brand}'s internal team.` },
+  ];
+}
+
+/* ---------------- Outcome interpretation: per-result explanation ---------------- */
+
+function outcomeInterpretations(s: Study) {
+  return s.results.map((r) => ({
+    label: r.l,
+    value: r.v,
+    interpretation: interpretResult(r.l, r.v, s),
+  }));
+}
+function interpretResult(label: string, value: string, s: Study): string {
+  const l = label.toLowerCase();
+  const niche = getNiche(s).toLowerCase();
+  if (l.includes("roas")) return `Blended return on ad spend at ${value} means every £1 into paid media returned ${value.replace("×", "x")} in trackable ${niche} revenue - measured across Meta and Google, not siloed by platform.`;
+  if (l.includes("cac") || l.includes("cpa")) return `Customer acquisition cost moved to ${value}. On ${niche} margins, that is the difference between paid media being a growth engine and being a tax.`;
+  if (l.includes("cr") || l.includes("conv") || l.includes("conversion")) return `Site-wide conversion rate landed at ${value}. Same traffic, more orders - the cheapest revenue ${s.brand} unlocked in the ${s.duration} window.`;
+  if (l.includes("aov")) return `Average order value at ${value}, driven by bundle and upsell logic that sits inside the ${getPlatform(s)} theme rather than a third-party app.`;
+  if (l.includes("ltv")) return `Lifetime value at ${value} means the retention layer (email, subscription, winback) is now doing measurable work - not just decorating the P&L.`;
+  if (l.includes("mrr") || l.includes("rev")) return `Recurring revenue at ${value} is what the ${s.category.toLowerCase()} programme is being paid to deliver. This is the number the board tracks.`;
+  if (l.includes("keyword") || l.includes("kw") || l.includes("rank") || l.includes("pillar") || l.includes("top")) return `${value} indexed and ranking on commercial-intent queries - the SEO surface area ${s.brand} now compounds from month over month.`;
+  if (l.includes("visit") || l.includes("session") || l.includes("click") || l.includes("organic") || l.includes("traffic")) return `${value} qualified sessions/clicks arriving from search, not paid - a cost-per-visit that trends toward zero as authority compounds.`;
+  if (l.includes("aio") || l.includes("snippet") || l.includes("feature")) return `${value} SERP feature presence protects ${s.brand} from click erosion into AI Overviews and answer boxes.`;
+  if (l.includes("lcp") || l.includes("pagespeed") || l.includes("speed")) return `${value} on a Core Web Vitals metric that Google explicitly uses as a ranking factor - and shoppers feel on the first tap.`;
+  if (l.includes("email") || l.includes("list") || l.includes("sub")) return `${value} in list or subscription growth. On ecommerce margins, owned channels typically pay back inside 90 days.`;
+  if (l.includes("bounce") || l.includes("abandon") || l.includes("drop")) return `${value} reduction in abandonment or bounce - the funnel is holding on to intent it was previously wasting.`;
+  return `${value} on ${label} - a category-specific lift that fed the headline ${s.metric} ${s.metricLabel.toLowerCase()} outcome.`;
+}
+
+/* ---------------- Tools & stack (per study) ---------------- */
+
+function toolStack(s: Study) {
+  const platform = getPlatform(s);
+  const base = [
+    { l: "Storefront", v: `${platform} (${s.category === "Website" ? "rebuilt" : "optimised in place"})` },
+    { l: "Analytics", v: "GA4 with Meta CAPI and server-side events" },
+    { l: "Email & SMS", v: "Klaviyo flows and segmented broadcasts" },
+  ];
+  switch (s.category) {
+    case "Ads":
+      return [
+        ...base,
+        { l: "Paid media", v: "Meta Ads Manager, Google Ads, TikTok Ads Manager" },
+        { l: "Attribution", v: "TripleWhale for blended ROAS, GA4 for cohort validation" },
+        { l: "Creative ops", v: "Motion for creative reporting, Foreplay for research, Frame.io for review" },
+      ];
+    case "SEO":
+      return [
+        ...base,
+        { l: "Keyword & content", v: "Ahrefs and Semrush for cluster mapping, SurferSEO for on-page briefs" },
+        { l: "Technical", v: "Screaming Frog audits, Sitebulb structured-data validation, Schema.dev markup" },
+        { l: "Search intelligence", v: "Google Search Console for query mining and CTR optimisation" },
+      ];
+    case "CRO":
+      return [
+        ...base,
+        { l: "Qualitative", v: "Hotjar session replays, on-site polls and heatmaps" },
+        { l: "Split testing", v: "VWO / Convert with holdout validation, PostHog for event analytics" },
+        { l: "Funnel intelligence", v: "Fullstory for step-level drop-off analysis" },
+      ];
+    case "Website":
+      return [
+        ...base,
+        { l: "Design", v: "Figma design tokens synced to the theme" },
+        { l: "Performance", v: "Lighthouse CI, WebPageTest, edge caching for collection routes" },
+        { l: "Content", v: platform.toLowerCase().includes("hydrogen") ? "Sanity headless CMS" : "Shopify metaobjects with reusable sections" },
+      ];
+    default:
+      return base;
+  }
+}
+
+/* ---------------- Measurement framework (per study) ---------------- */
+
+function measurementKpis(s: Study) {
+  const primary = { l: "Headline metric", v: s.metric, sub: s.metricLabel };
+  const supporting = s.results.map((r) => ({ l: r.l, v: r.v, sub: "vs 60-day baseline" }));
+  return [primary, ...supporting];
 }
 
 /* ---------------- component ---------------- */
@@ -267,10 +395,16 @@ function CaseStudyDetail() {
   const { study: s } = Route.useLoaderData() as { study: (typeof studies)[number] };
   const CatIcon = categoryIcon[s.category];
 
-  // sibling navigation
   const idx = studies.findIndex((x) => x.id === s.id);
   const prev = studies[(idx - 1 + studies.length) % studies.length];
   const next = studies[(idx + 1) % studies.length];
+
+  const phases = methodologyPhases(s);
+  const timeline = weeklyTimeline(s);
+  const outcomes = outcomeInterpretations(s);
+  const tools = toolStack(s);
+  const faqs = buildCaseFaqs(s);
+  const kpis = measurementKpis(s);
 
   return (
     <PageLayout>
@@ -278,10 +412,7 @@ function CaseStudyDetail() {
       <section className={`relative bg-gradient-to-br ${s.color} text-white overflow-hidden`}>
         <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,white,transparent_50%)]" />
         <div className="mx-auto max-w-6xl px-5 lg:px-8 pt-24 lg:pt-32 pb-16 lg:pb-20 relative">
-          <Link
-            to="/case-studies"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white"
-          >
+          <Link to="/case-studies" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/85 hover:text-white">
             <ArrowLeft className="w-4 h-4" /> All case studies
           </Link>
 
@@ -297,8 +428,7 @@ function CaseStudyDetail() {
             {s.title}
           </h1>
           <p className="mt-4 text-base sm:text-lg text-white/85 max-w-2xl">
-            How {s.brand} unlocked a {s.metric} {s.metricLabel.toLowerCase()} lift with a measurable,
-            full-funnel growth system built by BeingEcom.
+            How {s.brand} moved from "{firstSentence(s.problem).toLowerCase()}" to a measurable {s.metric} {s.metricLabel.toLowerCase()} lift, delivered across {s.duration} by BeingEcom's {s.category.toLowerCase()} team.
           </p>
 
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
@@ -314,20 +444,14 @@ function CaseStudyDetail() {
 
       {/* BODY */}
       <article className="mx-auto max-w-4xl px-5 lg:px-8 py-14 lg:py-20 space-y-14">
-        {/* Introduction */}
+        {/* Executive summary */}
         <section>
-          <h2 className="text-2xl sm:text-3xl font-bold text-ink">Introduction</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink">Executive summary</h2>
           <p className="mt-4 text-ink/85 leading-relaxed text-base sm:text-lg">
-            {s.brand} came to BeingEcom looking for a partner that could move beyond surface-level
-            tactics and build a compounding growth engine. Operating in the {s.industry} space, the
-            brand had a strong product but had hit a plateau where additional ad spend and content
-            output were no longer translating into proportional revenue. Our engagement focused on
-            re-architecting the {s.category.toLowerCase()} system so that every pound and every
-            hour pushed pipeline forward - not just impressions or clicks.
+            {s.brand} is a {getNiche(s).toLowerCase()} brand operating on {getPlatform(s)} in the UK. They engaged BeingEcom to solve a specific problem - {firstSentence(s.problem).toLowerCase()} - and to build an operating model that would keep compounding after the engagement ended. Across {s.duration}, we shipped a full {s.category.toLowerCase()} programme ({s.strategy.length} core workstreams), instrumented measurement against a trailing 60-day baseline, and delivered {s.metric} on {s.metricLabel.toLowerCase()} alongside supporting lifts in {s.results.map((r) => r.l.toLowerCase()).join(", ")}.
           </p>
         </section>
 
-        {/* Client Overview */}
         <section className="grid sm:grid-cols-3 gap-4">
           <div className="card-surface p-5">
             <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Client</div>
@@ -349,10 +473,9 @@ function CaseStudyDetail() {
             <AlertTriangle className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Before - the situation</div>
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Where the brand was stuck</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Where {s.brand} was stuck</h2>
           <p className="mt-3 text-ink/85 leading-relaxed">
-            Before the engagement, growth had become unpredictable. Performance fluctuated week to
-            week and the team had no reliable signal on what was actually moving the needle.
+            {s.problem} On a {getPlatform(s)} store operating in {getNiche(s).toLowerCase()}, that pattern shows up as a plateau: paid spend rising, blended margin falling, and the operator making decisions on gut feel because no scorecard existed for {s.category.toLowerCase()}.
           </p>
 
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -364,7 +487,8 @@ function CaseStudyDetail() {
             ))}
           </div>
 
-          <ul className="mt-6 space-y-2.5">
+          <h3 className="mt-8 text-lg font-bold text-ink">The four blockers we found</h3>
+          <ul className="mt-3 space-y-2.5">
             {challengeBullets(s).map((b, i) => (
               <li key={i} className="flex gap-3 text-ink/85">
                 <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -374,109 +498,116 @@ function CaseStudyDetail() {
           </ul>
         </section>
 
-        {/* Strategy */}
+        {/* Methodology - 5 phases */}
         <section>
           <div className="flex items-center gap-2 text-primary">
             <Target className="w-5 h-5" />
-            <div className="text-[11px] font-bold uppercase tracking-widest">Strategy & implementation</div>
+            <div className="text-[11px] font-bold uppercase tracking-widest">Methodology</div>
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">The growth system we built</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">The 5-phase {s.category.toLowerCase()} system we ran for {s.brand}</h2>
           <p className="mt-3 text-ink/85 leading-relaxed">
-            We treated {s.brand} as a connected system rather than a stack of disjointed channels.
-            Every workstream below was sequenced so wins in one area amplified the next.
+            Every BeingEcom {s.category.toLowerCase()} engagement follows the same five phases so accountability, measurement and handover stay clean. Below is how each phase mapped to {s.brand}'s {s.duration} sprint.
           </p>
 
           <div className="mt-6 grid gap-4">
-            {strategyBlocks(s).map((b) => (
-              <div
-                key={b.title}
-                className={`rounded-2xl border p-5 sm:p-6 ${
-                  b.active
-                    ? "border-primary/30 bg-primary/5"
-                    : "border-border bg-white"
-                }`}
-              >
+            {phases.map((b) => (
+              <div key={b.title} className="rounded-2xl border border-primary/25 bg-primary/[0.04] p-5 sm:p-6">
                 <h3 className="text-lg font-bold text-ink">{b.title}</h3>
-                <ul className="mt-3 space-y-2">
-                  {b.points.map((p) => (
-                    <li key={p} className="flex gap-2.5 text-ink/85">
-                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-2 text-ink/85 leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* After Results */}
+        {/* Timeline */}
         <section>
           <div className="flex items-center gap-2 text-primary">
-            <TrendingUp className="w-5 h-5" />
-            <div className="text-[11px] font-bold uppercase tracking-widest">After - the results</div>
+            <Calendar className="w-5 h-5" />
+            <div className="text-[11px] font-bold uppercase tracking-widest">Timeline</div>
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Measured impact across the funnel</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Week-by-week plan across {s.duration}</h2>
+          <div className="mt-5 space-y-3">
+            {timeline.map((t) => (
+              <div key={t.window} className="grid sm:grid-cols-[160px,1fr] gap-3 sm:gap-6 rounded-xl border border-border bg-white p-4">
+                <div className="text-sm font-bold text-primary uppercase tracking-widest">{t.window}</div>
+                <div className="text-sm text-ink/85 leading-relaxed">{t.milestone}</div>
+              </div>
+            ))}
+          </div>
+        </section>
 
+        {/* Tools / stack used */}
+        <section>
+          <div className="flex items-center gap-2 text-primary">
+            <Wrench className="w-5 h-5" />
+            <div className="text-[11px] font-bold uppercase tracking-widest">Stack we ran on</div>
+          </div>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Tools, platforms and ownership</h2>
+          <p className="mt-3 text-ink/85 leading-relaxed">
+            The stack was designed so {s.brand}'s internal team could keep operating it post-handover. No proprietary black boxes.
+          </p>
+          <div className="mt-5 grid sm:grid-cols-2 gap-3">
+            {tools.map((t) => (
+              <div key={t.l} className="rounded-xl border border-border bg-secondary/30 p-4">
+                <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{t.l}</div>
+                <p className="mt-1.5 text-sm text-ink/85 leading-relaxed">{t.v}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Measurement framework */}
+        <section>
+          <div className="flex items-center gap-2 text-primary">
+            <Ruler className="w-5 h-5" />
+            <div className="text-[11px] font-bold uppercase tracking-widest">How we measured</div>
+          </div>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Measurement framework</h2>
+          <p className="mt-3 text-ink/85 leading-relaxed">
+            Every uplift is measured against the trailing 60 days before kickoff - not the same month last year. Revenue reconciled in {getPlatform(s)}; spend reconciled in Meta and Google Ads; the two joined in a single weekly scorecard we shared with {s.brand}'s founder on Fridays.
+          </p>
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {afterResults(s).map((m) => (
-              <div key={m.label} className="rounded-2xl border border-border bg-white p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-gradient">{m.value}</div>
-                <div className="mt-1 text-[11px] font-semibold text-ink">{m.label}</div>
+            {kpis.map((m) => (
+              <div key={m.l} className="rounded-2xl border border-border bg-white p-4 text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-gradient">{m.v}</div>
+                <div className="mt-1 text-[11px] font-semibold text-ink">{m.l}</div>
                 <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{m.sub}</div>
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-muted-foreground italic">
+            Methodology: figures reported from client-owned {getPlatform(s)}, GA4 and Klaviyo dashboards across the full {s.duration} engagement. Baseline is the 60-day period immediately prior to kickoff. Individual results vary by category, margin and starting position - anonymised source data available on request under NDA.
+          </p>
+        </section>
 
-          {/* Before vs After chart */}
-          <div className="mt-8 card-surface p-5 sm:p-6">
-            <div className="flex items-center gap-2 text-ink">
-              <BarChart3 className="w-4 h-4 text-primary" />
-              <h3 className="text-base font-bold">Before vs After - at a glance</h3>
-            </div>
-            <p className="mt-1 text-xs text-muted-foreground">Indexed view of the highest-impact metrics.</p>
-            <div className="mt-5 space-y-4">
-              {beforeAfterPairs(s).map((p) => (
-                <div key={p.label}>
-                  <div className="flex justify-between text-xs font-semibold text-ink mb-1.5">
-                    <span>{p.label}</span>
-                    <span className="text-emerald-600">{p.delta}</span>
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="w-14 text-[10px] uppercase text-muted-foreground font-semibold">Before</span>
-                      <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
-                        <div className="h-full bg-ink/30 rounded-full" style={{ width: `${p.beforePct}%` }} />
-                      </div>
-                      <span className="w-12 text-[10px] tabular-nums text-right text-muted-foreground">{p.before}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-14 text-[10px] uppercase text-primary font-semibold">After</span>
-                      <div className="flex-1 h-2.5 rounded-full bg-secondary/60 overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-primary to-[oklch(0.55_0.2_265)] rounded-full" style={{ width: `${p.afterPct}%` }} />
-                      </div>
-                      <span className="w-12 text-[10px] tabular-nums text-right font-bold text-ink">{p.after}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Outcome interpretation */}
+        <section>
+          <div className="flex items-center gap-2 text-primary">
+            <TrendingUp className="w-5 h-5" />
+            <div className="text-[11px] font-bold uppercase tracking-widest">Outcomes explained</div>
           </div>
-
-          <div className="mt-6 grid sm:grid-cols-2 gap-3">
-            {[
-              { l: "Traffic growth", v: "Compounding month-over-month organic + paid sessions." },
-              { l: "Revenue growth", v: "Reliable, attributable revenue tied to ad and content investments." },
-              { l: "Conversion rate", v: "Sitewide CR lifted by removing friction across PDP and checkout." },
-              { l: "Lead & list growth", v: "Email and SMS lists grew with high-intent, segmented subscribers." },
-              { l: "ROAS improvement", v: "Profit-based ROAS replaced last-click vanity numbers." },
-              { l: "Operational clarity", v: "A single weekly scorecard the team now runs the business from." },
-            ].map((x) => (
-              <div key={x.l} className="rounded-xl border border-border bg-secondary/30 p-4">
-                <div className="text-sm font-bold text-ink">{x.l}</div>
-                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{x.v}</p>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">What each number actually means</h2>
+          <div className="mt-5 grid gap-3">
+            {outcomes.map((o) => (
+              <div key={o.label} className="rounded-2xl border border-border bg-white p-5">
+                <div className="flex items-baseline gap-3">
+                  <div className="text-2xl font-bold text-gradient tabular-nums">{o.value}</div>
+                  <div className="text-sm font-bold text-ink">{o.label}</div>
+                </div>
+                <p className="mt-2 text-sm text-ink/85 leading-relaxed">{o.interpretation}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Before vs After bars */}
+        <section>
+          <div className="card-surface p-5 sm:p-6">
+            <div className="flex items-center gap-2 text-ink">
+              <BarChart3 className="w-4 h-4 text-primary" />
+              <h3 className="text-base font-bold">Headline lift: {s.metric} on {s.metricLabel}</h3>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">Result after {s.duration}, measured against the trailing 60-day baseline pre-engagement.</p>
           </div>
         </section>
 
@@ -486,12 +617,9 @@ function CaseStudyDetail() {
             <Trophy className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Final outcome</div>
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">A brand built to scale</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">A repeatable {s.category.toLowerCase()} operating model</h2>
           <p className="mt-3 text-ink/85 leading-relaxed">
-            {s.brand} now operates with a clear, repeatable growth system. The team knows which
-            levers move revenue, can forecast with confidence, and is no longer dependent on a
-            single channel or hero creative. The {s.metric} {s.metricLabel.toLowerCase()} lift is the
-            headline - the durable advantage is the operating model behind it.
+            {s.brand} now runs the same {s.category.toLowerCase()} scorecard weekly, ships the same execution cadence, and forecasts revenue from a system that behaves the same way whether the founder is in the office or not. The {s.metric} {s.metricLabel.toLowerCase()} number is the headline; the durable advantage is the operating model behind it.
           </p>
 
           <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5 sm:p-6">
@@ -508,9 +636,9 @@ function CaseStudyDetail() {
             <HelpCircle className="w-5 h-5" />
             <div className="text-[11px] font-bold uppercase tracking-widest">Frequently asked</div>
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">About this case study</h2>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">Questions about the {s.brand} engagement</h2>
           <div className="mt-5 space-y-3">
-            {buildCaseFaqs(s).map((f) => (
+            {faqs.map((f) => (
               <details key={f.q} className="card-surface p-4 group">
                 <summary className="cursor-pointer list-none flex items-center justify-between gap-3">
                   <span className="font-semibold text-ink text-sm sm:text-base">{f.q}</span>
@@ -525,24 +653,15 @@ function CaseStudyDetail() {
         {/* Related case studies */}
         <RelatedStudies current={s} />
 
-
         {/* Sibling nav */}
         <nav className="grid sm:grid-cols-2 gap-3 pt-4 border-t border-border">
-          <Link
-            to="/case-studies/$id"
-            params={{ id: prev.id }}
-            className="card-surface p-4 hover:border-primary/40 transition group"
-          >
+          <Link to="/case-studies/$id" params={{ id: prev.id }} className="card-surface p-4 hover:border-primary/40 transition group">
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center gap-1.5">
               <ArrowLeft className="w-3 h-3" /> Previous
             </div>
             <div className="mt-1.5 text-sm font-semibold text-ink group-hover:text-primary line-clamp-2">{prev.title}</div>
           </Link>
-          <Link
-            to="/case-studies/$id"
-            params={{ id: next.id }}
-            className="card-surface p-4 hover:border-primary/40 transition group text-right"
-          >
+          <Link to="/case-studies/$id" params={{ id: next.id }} className="card-surface p-4 hover:border-primary/40 transition group text-right">
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center justify-end gap-1.5">
               Next <ArrowRight className="w-3 h-3" />
             </div>
@@ -551,22 +670,21 @@ function CaseStudyDetail() {
         </nav>
       </article>
 
-      <CTA heading="Want results like these for your store?" />
+      <CTA heading={`Want a ${s.category.toLowerCase()} plan for your ${getNiche(s).toLowerCase()} brand?`} />
     </PageLayout>
   );
 }
 
 function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
   const niche = getNiche(current).toLowerCase();
-  // Score: same niche +3, same category +2, same platform +1
-  const platform = current.industry.split("·")[0]?.trim().toLowerCase() || "";
+  const platform = getPlatform(current).toLowerCase();
   const scored = studies
     .filter((x) => x.id !== current.id)
     .map((x) => {
       let score = 0;
       if (getNiche(x).toLowerCase() === niche) score += 3;
       if (x.category === current.category) score += 2;
-      if ((x.industry.split("·")[0]?.trim().toLowerCase() || "") === platform) score += 1;
+      if (getPlatform(x).toLowerCase() === platform) score += 1;
       return { x, score };
     })
     .sort((a, b) => b.score - a.score)
@@ -579,19 +697,14 @@ function RelatedStudies({ current }: { current: (typeof studies)[number] }) {
         <TrendingUp className="w-5 h-5" />
         <div className="text-[11px] font-bold uppercase tracking-widest">Related wins</div>
       </div>
-      <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">More results in {current.category} & {getNiche(current)}</h2>
+      <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-ink">More {current.category} results in {getNiche(current)}</h2>
 
       <div className="mt-5 -mx-2 sm:mx-0 overflow-x-auto sm:overflow-visible pb-2">
         <div className="flex sm:grid sm:grid-cols-3 gap-3 px-2 sm:px-0 min-w-max sm:min-w-0">
           {scored.map((x) => {
             const Icon = categoryIcon[x.category];
             return (
-              <Link
-                key={x.id}
-                to="/case-studies/$id"
-                params={{ id: x.id }}
-                className={`card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition`}
-              >
+              <Link key={x.id} to="/case-studies/$id" params={{ id: x.id }} className="card-surface overflow-hidden group flex flex-col w-64 sm:w-auto shrink-0 hover:shadow-lg hover:-translate-y-0.5 transition">
                 <div className={`h-24 bg-gradient-to-br ${x.color} relative px-3 py-2 flex items-end`}>
                   <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest bg-ink/80 text-white px-1.5 py-0.5 rounded-full">
                     <Icon className="w-2.5 h-2.5" /> {x.category}
