@@ -4,6 +4,8 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
 import ClusterNav, { buildTitlesMap } from "../components/site/ClusterNav";
+import { findClusterForSlug } from "../lib/blog-clusters";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
