@@ -671,6 +671,46 @@ function RelatedArticles({ slug }: { slug: string }) {
   );
 }
 
+function RelatedResources({ slug }: { slug: string }) {
+  const match = findClusterForSlug(slug);
+  if (!match) return null;
+  const { cluster } = match;
+  const resources = cluster.resources ?? [];
+  if (resources.length === 0) return null;
+  return (
+    <section aria-labelledby="related-resources-heading" className="border-t border-border py-12 lg:py-16">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <div className="mb-6 flex flex-col gap-2">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            Tools & resources
+          </span>
+          <h2 id="related-resources-heading" className="text-2xl font-bold text-ink lg:text-3xl">
+            Related tools & resources
+          </h2>
+          <p className="text-sm text-muted-foreground max-w-2xl">
+            Free UK ecommerce calculators, definitions and benchmarks referenced in this guide.
+          </p>
+        </div>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {resources.map((r) => (
+            <li key={r.to}>
+              <Link
+                to={r.to}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:text-primary"
+              >
+                <span>{r.label}</span>
+                <span aria-hidden className="text-primary opacity-60 group-hover:opacity-100">→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+
+
 function formatDate(iso: string) {
 
   return new Date(iso).toLocaleDateString("en-GB", {
