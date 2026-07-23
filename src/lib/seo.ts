@@ -366,7 +366,11 @@ export function articleJsonLd(opts: {
   description: string;
   image?: string;
   datePublished?: string;
+  dateModified?: string;
   about?: string;
+  keywords?: string;
+  articleSection?: string;
+  wordCount?: number;
 }) {
   return {
     "@context": "https://schema.org",
@@ -376,17 +380,23 @@ export function articleJsonLd(opts: {
     description: opts.description,
     image: opts.image,
     datePublished: opts.datePublished ?? "2024-01-15",
-    dateModified: new Date().toISOString().slice(0, 10),
+    dateModified: opts.dateModified ?? opts.datePublished ?? new Date().toISOString().slice(0, 10),
     about: opts.about,
-    author: { "@type": "Organisation", name: ORG_INFO.name, url: ORG_INFO.url },
+    keywords: opts.keywords,
+    articleSection: opts.articleSection,
+    wordCount: opts.wordCount,
+    inLanguage: "en-GB",
+    isAccessibleForFree: true,
+    author: { "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
     publisher: {
-      "@type": "Organisation",
+      "@type": "Organization",
       name: ORG_INFO.name,
       logo: { "@type": "ImageObject", url: ORG_INFO.logo },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
   };
 }
+
 
 export function courseJsonLd(opts: {
   url: string;
