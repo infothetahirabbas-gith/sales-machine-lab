@@ -331,7 +331,8 @@ export function professionalServiceJsonLd() {
   };
 }
 
-export type FAQ = { q: string; a: string };
+export type FAQLink = { label: string; to: string };
+export type FAQ = { q: string; a: string; links?: FAQLink[] };
 
 export function faqSlug(q: string) {
   return q
