@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-shopify-commerce.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an Ecommerce Store Development Agency UK actually do?", a: "We design, build and optimise Shopify, Shopify Plus and WooCommerce stores engineered for conversion, speed, SEO and scale - not just design awards. Every build ships with CRO patterns, JSON-LD schema, sub-2s LCP and a real conversion baseline." },
   { q: "Do you build Shopify or WooCommerce stores?", a: "Both - and Shopify Plus, Hydrogen headless, or WooCommerce headless when the brand needs it. We recommend the stack that matches your product, catalogue size, ops and ambition - not the one with the biggest referral fee." },
   { q: "How long does a new store take?", a: "Standard Shopify build: 4-6 weeks. Shopify Plus or Hydrogen headless: 8-12 weeks. WooCommerce custom: 6-10 weeks. Full migration from Magento/BigCommerce/Wix: add 2-4 weeks depending on catalogue + SEO complexity." },
@@ -35,6 +36,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How much does a Shopify store rebuild cost?", a: "Shopify rebuild costs vary widely based on custom theme development, app integrations and page count, ranging from a few thousand pounds for a template-based rebuild to significantly more for fully custom, conversion-optimised builds." },
   { q: "What's the ecommerce agency process for migrating platforms?", a: "Platform migration typically follows: audit and data mapping, staged rebuild on the new platform, 301 redirect mapping to preserve SEO equity, parallel testing, then a low-traffic cutover window with post-launch monitoring for broken links and tracking gaps." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "store-development");
 
 export const Route = createFileRoute("/services/store-development/")({
   head: () => ({

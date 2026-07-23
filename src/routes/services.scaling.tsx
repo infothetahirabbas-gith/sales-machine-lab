@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-scaling.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an Ecommerce Scaling Agency UK actually do?", a: "We take profitable 6-figure Shopify and WooCommerce stores past their plateau to 7 and 8 figures by rebuilding unit economics, diversifying channel mix, engineering retention and running scaling as a CFO-grade operation - not just 'more ads'." },
   { q: "How do you scale a 6-figure store to 7 figures?", a: "Three levers, in order: unit economics (contribution margin per order), profitable acquisition mix (Meta + Google + TikTok + SEO + Klaviyo), and retention/LTV (subscription, VIP, replenishment). Scaling one without the others always breaks." },
   { q: "What's the role of retention vs acquisition in scaling?", a: "Acquisition gets you to £1m/yr. Retention gets you to £5m/yr and beyond. We rebuild LTV via Klaviyo lifecycle, subscription, VIP loyalty and post-purchase upsell where the model supports it." },
@@ -35,6 +36,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you offer fractional CMO/COO cover during scale-up?", a: "Yes - the Business tier at /pricing includes a fractional ecommerce CMO plus weekly strategy calls, forecasting reviews and hiring input." },
   { q: "Which case studies show your scaling work?", a: "See /case-studies for beauty, apparel and home brands that scaled from £80k → £330k/mo, plus multi-region UK/EU/US expansions and post-lock-in retention rebuilds." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "scaling");
 
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({

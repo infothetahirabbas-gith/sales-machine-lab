@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-seo-growth.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What makes BeingEcom a specialist Ecommerce SEO Agency UK?", a: "We're a specialist Ecommerce Marketing Agency UK - we don't touch SaaS, lead-gen or local plumbers. Every strategist has shipped SEO for 7-figure Shopify and WooCommerce brands, and every engagement is led by a senior UK SEO director, not a rotating junior." },
   { q: "How long does ecommerce SEO take to work?", a: "Technical fixes and on-page changes usually show in 4-8 weeks. Authority and category-level ranking compounding kicks in around month 4-6. Any agency promising top-3 in 30 days is selling PBNs or a lie." },
   { q: "Shopify or WooCommerce - which is better for SEO?", a: "Both can rank at the top of Google. WooCommerce gives you full URL, canonical and schema control out of the box. Shopify is faster to ship but needs apps (JSON-LD for SEO, Bulk 404 Redirect, Smart SEO) to close the same gaps. As an Ecommerce Growth Agency we handle both stacks weekly." },
@@ -39,6 +40,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What's the difference between on-page and off-page ecommerce SEO?", a: "On-page SEO covers everything on the store itself - titles, meta descriptions, content, internal linking, schema. Off-page SEO covers external signals like backlinks, digital PR and brand mentions that build domain authority beyond the site's own pages." },
   { q: "How does local SEO work for an online-only ecommerce store?", a: "Even online-only stores benefit from local SEO if they have any physical presence (showroom, warehouse pickup) or want to target city-specific searches like 'ecommerce agency Manchester.' Local SEO uses Google Business Profile optimisation and city-targeted landing pages." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "seo");
 
 export const Route = createFileRoute("/services/seo/")({
   head: () => ({

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-ai-automation.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an AI Automation Agency UK actually do for ecommerce?", a: "We build AI agents and workflows that automate support, product tagging, content generation, ad copy, abandoned-cart sequences and ops reporting for Shopify and WooCommerce brands - so your team ships more without hiring." },
   { q: "Will AI automation replace my team?", a: "No. It removes the repetitive 60-70% of the work - support tier-1, catalogue enrichment, brief-to-asset, reporting - so your team focuses on creative, strategy and customer relationships." },
   { q: "Which tools do you build on?", a: "OpenAI (GPT-5, gpt-image-1), Anthropic Claude, Gemini, n8n, Zapier, Make, Klaviyo, Shopify Flow, Gorgias, Zendesk, custom Cloudflare Workers and Supabase - chosen per use case, not per fashion." },
@@ -38,6 +39,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How fast do AI automations pay back?", a: "Most support & ops automations pay back inside 60 days on labour saved alone. Revenue-side automations (personalisation, creative iteration) compound over 90-180 days." },
   { q: "Where should we start?", a: "Free /audit surfaces the 3 highest-ROI automation opportunities in your ops stack. Most stores start with support triage + PDP copy + creative variant generation - measurable inside 30 days." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "ai-automation");
 
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-analytics.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an Ecommerce Analytics Agency UK actually do?", a: "We rebuild the measurement layer for your Shopify or WooCommerce store - GA4, GTM (server-side), Meta CAPI, Google Enhanced Conversions, Klaviyo, Shopify and post-purchase attribution - then wire it into one revenue dashboard so every marketing decision is made on real data, not vibes." },
   { q: "Why is my GA4 revenue different from Shopify?", a: "Usually attribution windows, missing CAPI events, ad blockers, duplicate orders or GA4 sampling. We reconcile GA4, Meta, Shopify and Klaviyo so one number is the source of truth - typically closing a 20-40% gap in the first sprint." },
   { q: "Do you set up GA4, Meta CAPI and Google Ads conversions?", a: "Yes - full GA4 + GTM server-side + Meta Conversions API + Google Enhanced Conversions + TikTok Events API with proper deduplication, event match quality (EMQ) tuning and consent-mode v2." },
@@ -37,6 +38,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What about attribution across channels?", a: "We layer GA4 (last-non-direct), Triple Whale (multi-touch), platform-native (Meta/Google/TikTok) and post-purchase survey attribution - reconciled into one view so decisions aren't made on one biased source." },
   { q: "How long does tracking rebuild take?", a: "Full rebuild ships in weeks 1-3 of any engagement; the /services/paid-ads and /services/email-sms teams then execute against clean data from month one." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "analytics");
 
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
