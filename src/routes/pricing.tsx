@@ -174,6 +174,13 @@ const objectionFaqs: { tag: string; q: string; a: string }[] = [
   { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
 ];
 
+const planPicker: { stage: string; revenue: string; plan: string; why: string; cta: string }[] = [
+  { stage: "Just launched", revenue: "£0-£25k / month", plan: "Starter", why: "Foundations first: tracking, one paid channel, welcome + abandoned flows, and monthly reporting. Prove unit economics before layering channels.", cta: "Starter" },
+  { stage: "Finding product-market fit", revenue: "£25k-£100k / month", plan: "Growth", why: "Meta + Google managed together, Klaviyo flows live, ongoing CRO, and weekly scorecards - the fastest path from 5-figure to 6-figure months.", cta: "Growth" },
+  { stage: "Scaling profitably", revenue: "£100k-£500k / month", plan: "Enterprise", why: "Add TikTok, SMS, digital PR, advanced CRO and AI marketing automation. Bi-weekly strategy calls with a senior growth lead.", cta: "Enterprise" },
+  { stage: "8-figure operator", revenue: "£500k+ / month", plan: "Business", why: "Fractional ecommerce CMO, full multi-channel media, creative production management, VIP priority support and custom exec reporting.", cta: "Business" },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
@@ -202,11 +209,39 @@ function PricingPage() {
         </div>
       </section>
 
+      {/* PLAN PICKER - decision helper */}
+      <Section
+        eyebrow="Which plan fits?"
+        title="Pick by revenue stage, not by feature list"
+        intro="Four decision paths - matched to your monthly revenue and growth priority. If you're between two tiers, always start on the lower one; upgrades are painless, downgrades cost momentum."
+      >
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          {planPicker.map((p) => (
+            <div key={p.plan} className="card-surface p-6 flex flex-col rounded-3xl">
+              <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{p.stage}</div>
+              <div className="mt-1 text-lg font-bold text-ink">{p.revenue}</div>
+              <div className="mt-4 inline-flex self-start items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+                Recommended: {p.plan}
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed flex-1">{p.why}</p>
+              <Link
+                to="/contact"
+                search={{ plan: p.cta }}
+                onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: p.cta, source: "plan_picker" })}
+                className="mt-5 btn btn-ghost border border-border justify-center text-sm"
+              >
+                Start with {p.plan} →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* PRICING TIERS */}
       <Section
         eyebrow="Engagement models"
-        title="Choose the plan that matches your stage"
-        intro="Every plan is month-to-month after a 90-day initial engagement. Upgrade, downgrade or pause with 30 days' notice."
+        title="Four transparent plans. No setup fees. No lock-ins."
+        intro="Every plan is month-to-month after the 90-day initial engagement - upgrade, downgrade or pause with 30 days' notice. Prices are in GBP and include a named senior operator on your account from day one."
       >
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
           {tiers.map((t) => (

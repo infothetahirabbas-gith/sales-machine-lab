@@ -968,7 +968,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
           {RESOURCE_LINKS.map((r, i) => (
             <Reveal key={r.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Link
-                to={r.to}
+                to={r.to as string}
                 className="card-surface card-hover p-5 group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-2xl"
                 aria-label={r.title}
               >
