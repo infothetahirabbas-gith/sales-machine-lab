@@ -363,6 +363,12 @@ function formatDate(iso: string) {
 const ARTICLES: Record<string, () => ReactElement> = {
   "shopify-plus-migration-uk": ShopifyPlusMigrationUK,
   "shopify-vs-woocommerce-uk": ShopifyVsWooCommerceUK,
+  "uk-ecommerce-seo-playbook-shopify": UkEcommerceSeoPlaybookShopify,
+  "shopify-duplicate-content-faceted-urls": ShopifyDuplicateContentFacetedUrls,
+  "shopify-product-page-seo-uk": ShopifyProductPageSeoUk,
+  "shopify-collection-page-seo": ShopifyCollectionPageSeo,
+  "shopify-plus-technical-seo-checklist": ShopifyPlusTechnicalSeoChecklist,
+  "local-seo-multi-location-uk-ecommerce": LocalSeoMultiLocationUkEcommerce,
 };
 
 function ShopifyPlusMigrationUK() {
