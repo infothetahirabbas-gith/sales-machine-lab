@@ -12,7 +12,7 @@ export const Route = createFileRoute("/sitemap-company.xml")({
       GET: async () => {
         // Exclude routes that 301 to canonical targets (founder, why-us, methodology)
         // so the sitemap only lists indexable, self-canonical URLs.
-        const REDIRECTED = new Set(["/company/founder", "/company/why-us", "/company/methodology"]);
+        const REDIRECTED = new Set(["/company/founder", "/company/why-us", "/company/methodology", "/company/success-stories", "/company/industries"]);
         const paths: string[] = [
           "/company",
           ...COMPANY_LINKS.filter((c) => !c.external && !REDIRECTED.has(c.to)).map((c) => c.to),
