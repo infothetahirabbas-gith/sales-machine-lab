@@ -567,6 +567,46 @@ function Home() {
         </div>
       </Section>
 
+      {/* 7b. FEATURED CASE STUDIES - direct links to distribute equity to case-study pages */}
+      <Section
+        eyebrow="More client wins"
+        title={<>Featured <span className="text-sky-gradient">case studies</span></>}
+        intro="Six recent Shopify and WooCommerce engagements across apparel, beauty, supplements, home, coffee and pet supplies. Each links straight to the full teardown."
+      >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { id: "a1",  brand: "UK Shopify apparel brand",   category: "Ads", metric: "11.9×", label: "Revenue",       blurb: "Rebuilt PDP + Meta funnel to lift revenue 11.9× in 6 months." },
+            { id: "s1",  brand: "UK skincare brand",          category: "SEO", metric: "84K",   label: "Visits/mo",     blurb: "From zero organic to 84K monthly visits with a full content engine." },
+            { id: "a4",  brand: "UK beauty DTC brand",        category: "Ads", metric: "4.1×",  label: "TikTok ROAS",   blurb: "Creator-led TikTok Spark Ads hit 4.1× ROAS in 60 days." },
+            { id: "a7",  brand: "UK supplements brand",       category: "Ads", metric: "£180k", label: "MRR",           blurb: "Scaled £25k → £180k/mo by fixing the offer, not the creative." },
+            { id: "a10", brand: "UK coffee subscription",     category: "Ads", metric: "3.9×",  label: "LTV",           blurb: "Subscription-only funnel tripled LTV and dropped CAC 22%." },
+            { id: "a5",  brand: "UK pet supplies brand",      category: "Ads", metric: "£94k",  label: "PMax MRR",      blurb: "Fixed the feed first, then PMax scaled to £94k/mo." },
+          ].map((c) => (
+            <Link
+              key={c.id}
+              to="/case-studies/$id"
+              params={{ id: c.id }}
+              className="card-surface card-hover p-5 flex flex-col group"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{c.category}</span>
+                <div className="text-right">
+                  <div className="text-xl font-bold text-foreground tabular-nums">{c.metric}</div>
+                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{c.label}</div>
+                </div>
+              </div>
+              <div className="mt-3 text-sm font-semibold text-foreground">{c.brand}</div>
+              <p className="mt-1 text-sm text-muted-foreground leading-relaxed flex-1">{c.blurb}</p>
+              <span className="mt-4 text-sm font-semibold text-primary group-hover:underline">Read the case study →</span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link to="/case-studies" className="btn btn-outline">Browse all case studies →</Link>
+        </div>
+      </Section>
+
+
       {/* 8. HOW IT WORKS */}
       <Section
         className="section-band--lavender"
