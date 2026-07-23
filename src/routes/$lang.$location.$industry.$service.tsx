@@ -35,6 +35,7 @@ export const Route = createFileRoute("/$lang/$location/$industry/$service")({
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "robots", content: "noindex, follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
       ],
