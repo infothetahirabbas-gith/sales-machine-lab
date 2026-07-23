@@ -1,68 +1,82 @@
-## What this covers
+# Phase 2: Topical Authority Clusters
 
-Your site has ~55 indexable page templates across services, locations (dynamic), industries (dynamic), company, and commercial pages. Applying the full keyword framework (title, H1, first-100-words, supporting keyword mentions, "Best" variations, internal linking, FAQ tuning) to every one of those pages in a single turn would be a large, high-risk edit. I want to agree on the mapping and rollout order before touching files.
+Build 4 topical clusters, each with a pillar page (broad, ~2,500 words) plus 5 supporting articles (deep, ~1,200 words each) that interlink tightly. This gives Google clear topical ownership signals for our highest-commercial-intent themes.
 
-## Phase 1 — Master keyword map (no code yet)
+## Cluster selection
 
-I'll produce one canonical file, `src/lib/seo-keywords.ts`, that lists per-URL:
+Chosen to reinforce commercial pages already suffering low CTR / weak rankings from the last GSC pull:
 
-- Primary keyword
-- 3–5 supporting variations (including a "Best …" variant on commercial pages)
-- Suggested SEO title (`Primary | Secondary | BeingEcom`, ≤65 chars)
-- Suggested meta description (≤160 chars)
-- Suggested H1
+1. **Ecommerce SEO for UK Shopify stores** — supports `/services/seo` + all city pages
+2. **Paid media for UK DTC brands** — supports `/services/paid-ads` + `/services/performance-marketing/*`
+3. **Conversion rate optimisation for ecommerce** — supports `/services/cro` + hub `/hub/cro`
+4. **Ecommerce email & retention (Klaviyo)** — supports `/services/email-sms`
 
-Every subsequent page edit reads from this file, so there is one source of truth and zero cannibalisation.
-
-## Phase 2 — Static commercial pages (highest priority, 12 files)
-
-Apply title, description, H1, first-100-words rewrite, and 3 internal links (to sibling money pages) on:
+## Structure per cluster
 
 ```text
-/                              Ecommerce Marketing Agency UK          (already done last turn)
-/about                         Ecommerce Marketing Agency UK — About team
-/contact                       Contact Ecommerce Marketing Agency UK
-/pricing                       Ecommerce Marketing Agency Pricing UK
-/case-studies                  Ecommerce Growth Case Studies UK
-/services                      Ecommerce Services UK
-/services/seo                  Ecommerce SEO Agency UK
-/services/cro                  Ecommerce CRO Agency UK
-/services/performance-marketing  Ecommerce PPC Agency UK
-/services/store-development/shopify     Shopify Marketing Agency UK
-/services/store-development/woocommerce WooCommerce Marketing Agency UK
-/services/email-sms            Ecommerce Email Marketing Agency UK
+/hub/{pillar-slug}                   (existing pillar page — expand + link down)
+  ├─ /blog/{cluster}-guide           (new: 2,500-word pillar article)
+  ├─ /blog/{supporting-1}            (new: 1,200-word deep dive)
+  ├─ /blog/{supporting-2}
+  ├─ /blog/{supporting-3}
+  ├─ /blog/{supporting-4}
+  └─ /blog/{supporting-5}
 ```
 
-## Phase 3 — Remaining service leaf pages (17 files)
+Each supporting post links up to the pillar and sideways to 2 sibling posts. Pillar links down to all 5. Every post also links to the related commercial `/services/*` route.
 
-Every `services.*.tsx` leaf gets its own primary keyword (e.g. `services/seo/local` → "Local Ecommerce SEO Agency UK", `services/performance-marketing/google-ads` → "Google Ads Agency for Ecommerce UK"). Same treatment as Phase 2 but scoped.
+## Deliverables
 
-## Phase 4 — Dynamic templates (2 files, cover every location & industry)
+1. **Content data model**: extend `src/lib/blog-content.ts` (create if missing) with `cluster`, `pillarSlug`, `relatedPosts`, `relatedService` fields.
+2. **Pillar + 20 supporting articles** as MDX-in-TSX under `src/routes/blog.$slug.tsx` (already dynamic).
+3. **Cluster nav component** `src/components/site/ClusterNav.tsx` — renders "Part of the {cluster} guide" box with pillar + siblings.
+4. **Schema**: `Article` + `BreadcrumbList` per post; `TechArticle` for how-to guides where appropriate.
+5. **Sitemap**: update `src/routes/sitemap-pages[.]xml.ts` (or add `sitemap-blog.xml`) with all 24 new URLs and lastmod 2026-07-23.
+6. **Internal links from commercial pages**: add "Deep dives" module on `/services/seo`, `/services/paid-ads`, `/services/cro`, `/services/email-sms` linking to that cluster's pillar + top 3 posts.
+7. **Hub page expansion**: append "Full guide" CTA on the 4 supporting hub pages pointing to the pillar article.
 
-`src/routes/locations.$slug.tsx` and `src/routes/industries.$slug.tsx` render N pages from a data file. I'll update:
+## Titles (all UK-targeted, £/UK terminology)
 
-- The `head()` builders so every location page uses `Ecommerce Agency {City}` / `Best Ecommerce Agency {City}` naturally in title, description, H1, first paragraph, and adds internal links to `London Shopify Agency`, `London Ecommerce SEO Agency`, `London PPC Agency` style siblings.
-- Industry template so every niche uses `{Industry} Ecommerce Agency UK` as primary + the 5 supporting variations.
+Cluster 1 — Ecommerce SEO
+- Pillar: The UK Ecommerce SEO Playbook for Shopify (2026)
+- How to fix Shopify duplicate content and faceted URLs
+- Product page SEO for UK Shopify stores
+- Collection page SEO: templates that rank
+- Technical SEO checklist for Shopify Plus
+- Local SEO for multi-location UK ecommerce brands
 
-This one edit fans out to every city and industry page automatically.
+Cluster 2 — Paid media
+- Pillar: The UK DTC Paid Media Playbook (Meta + Google + TikTok)
+- Meta Ads creative testing framework for UK DTC
+- Google Shopping feed optimisation for Shopify UK
+- TikTok Ads for UK beauty and fashion brands
+- iOS 17 attribution: what UK ecommerce should do now
+- MER vs ROAS: the metric UK DTC founders should track
 
-## Phase 5 — Company sub-pages (12 files)
+Cluster 3 — CRO
+- Pillar: Ecommerce CRO Playbook for UK Shopify Stores
+- PDP CRO: 14 tests that move revenue
+- Cart and checkout CRO for Shopify UK
+- Mobile CRO: fixing the 68% mobile drop-off
+- Site search CRO for UK ecommerce
+- Trust signals that convert UK shoppers
 
-`company.team`, `company.founder`, `company.methodology`, `company.why-us`, etc. — each gets a targeted primary keyword (Team → "Ecommerce Experts UK", Founder → "Ecommerce Marketing Consultant UK", etc.) and title/description/H1 update.
+Cluster 4 — Email & retention
+- Pillar: Ecommerce Email & Retention Playbook (Klaviyo, UK)
+- Klaviyo welcome flow: the UK DTC template
+- Abandoned cart flows that recover 15%+
+- Post-purchase flows for repeat revenue
+- Winback flows for lapsed UK customers
+- SMS + email: the UK compliance-safe combo
 
-## Phase 6 — Verification
+## Rollout order
 
-I'll run:
+1. Data model + `ClusterNav` component + one full cluster (Ecommerce SEO: pillar + 5 posts + linking).
+2. Ship, then repeat for clusters 2, 3, 4 in that order.
+3. After all 4 shipped: update all sitemaps + submit to GSC.
 
-1. `rg` audit — confirm every route's file contains its primary keyword in title, meta description, H1, and body copy.
-2. `node scripts/validate-jsonld.mjs` — schema still valid.
-3. `bun run build` (harness auto-runs) — no TS/route errors.
-4. A small custom script that opens each route with Playwright headless, reads `<title>` and `<h1>`, and asserts the mapping matches `seo-keywords.ts`. Result printed as a table.
+## Non-goals
 
-## Approvals I need from you
-
-1. **Scope.** OK to touch ~44 route files across Phases 2–5? (Phase 1 = 1 new file, Phase 6 = read-only verification.)
-2. **URLs.** Your prompt suggests new URLs like `/ecommerce-seo-agency/`, `/uk/london/ecommerce-agency/`, `/fashion-ecommerce-agency/`. The site already ships `/services/seo`, `/locations/london`, `/industries/fashion` — all indexed. Migrating URLs would need 301s, sitemap rewrites, and would lose current rankings. My recommendation: **keep current URLs, apply keyword targeting to them**. Confirm, or tell me to migrate.
-3. **Rollout.** Ship all six phases in one go, or phase-by-phase so you can review each batch?
-
-Once you confirm those three, I'll execute end-to-end and report the verification table.
+- No new city/location pages (Phase 1 handled).
+- No E-E-A-T author bios (that's Phase 4).
+- No backlink outreach (Phase 7).
