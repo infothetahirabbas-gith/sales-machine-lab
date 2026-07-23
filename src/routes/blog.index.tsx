@@ -31,6 +31,60 @@ const POSTS: PostMeta[] = [
     readMins: 14,
     datePublished: "2026-07-07",
   },
+  {
+    slug: "uk-ecommerce-seo-playbook-shopify",
+    title: "The UK ecommerce SEO playbook for Shopify (2026)",
+    description:
+      "The complete UK Shopify SEO playbook: technical, on-page, content and local. What actually moves organic revenue for £1M-£15M UK DTC stores.",
+    category: "Ecommerce SEO",
+    readMins: 18,
+    datePublished: "2026-07-23",
+  },
+  {
+    slug: "shopify-duplicate-content-faceted-urls",
+    title: "How to fix Shopify duplicate content and faceted URLs",
+    description:
+      "Collection filters, tags and vendor URLs quietly duplicate your Shopify store. Here's the canonical, robots and metafield fix that recovers wasted crawl budget.",
+    category: "Ecommerce SEO",
+    readMins: 10,
+    datePublished: "2026-07-23",
+  },
+  {
+    slug: "shopify-product-page-seo-uk",
+    title: "Product page SEO for UK Shopify stores",
+    description:
+      "The PDP template that ranks and converts for UK Shopify brands - copy structure, schema, reviews, UK signals and internal linking.",
+    category: "Ecommerce SEO",
+    readMins: 11,
+    datePublished: "2026-07-23",
+  },
+  {
+    slug: "shopify-collection-page-seo",
+    title: "Collection page SEO: templates that rank",
+    description:
+      "Why Shopify collection pages under-rank and the on-page template that fixes it - intro copy, faceted-nav strategy, schema and internal linking.",
+    category: "Ecommerce SEO",
+    readMins: 10,
+    datePublished: "2026-07-23",
+  },
+  {
+    slug: "shopify-plus-technical-seo-checklist",
+    title: "Technical SEO checklist for Shopify Plus",
+    description:
+      "Crawl budget, canonicals, hreflang, Core Web Vitals, JSON-LD and international - the technical SEO checklist we run on every Shopify Plus audit.",
+    category: "Ecommerce SEO",
+    readMins: 12,
+    datePublished: "2026-07-23",
+  },
+  {
+    slug: "local-seo-multi-location-uk-ecommerce",
+    title: "Local SEO for multi-location UK ecommerce brands",
+    description:
+      "How UK ecommerce brands with showrooms, pickup points or regional fulfilment rank in local packs - GBP, schema, city pages and review strategy.",
+    category: "Ecommerce SEO",
+    readMins: 11,
+    datePublished: "2026-07-23",
+  },
 ];
 
 const blogListJsonLd = {
