@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
+import ClusterNav, { buildTitlesMap } from "../components/site/ClusterNav";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
