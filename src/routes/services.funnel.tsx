@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-funnel.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an Ecommerce Funnel Agency UK actually do?", a: "We design and build the full paid-traffic journey - ad hook, advertorial or quiz bridge, landing page, PDP, cart, checkout and post-purchase upsell - engineered to maximise CVR, AOV and LTV for Shopify and WooCommerce brands." },
   { q: "What's a funnel for an ecommerce store?", a: "A guided path from ad → landing page → offer → checkout → post-purchase upsell - engineered to maximise AOV and conversion, not just clicks. It's how you turn cold traffic into repeat buyers profitably." },
   { q: "Do I need landing pages if I have a Shopify store?", a: "Yes for paid traffic. PDPs convert warm visitors; landing pages convert cold. The split typically adds 30-80% to ROAS on cold Meta and TikTok traffic." },
@@ -36,6 +37,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you rebuild the whole store or just landing pages?", a: "Either. Some brands want individual campaign funnels (ad → landing → checkout). Others need a full store rebuild - see /services/store-development for full Shopify or Woo engagements." },
   { q: "Which industries have the strongest funnel results?", a: "Beauty, supplements, apparel, home & living and consumer electronics - see /case-studies for real UK Shopify & Woo funnel builds and the exact metric lifts." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "funnel");
 
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({

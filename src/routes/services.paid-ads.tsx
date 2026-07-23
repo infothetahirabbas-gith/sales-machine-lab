@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-paid-ads.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What does an ecommerce paid ads agency actually do?", a: "A specialist Ecommerce Marketing Agency UK like BeingEcom runs your Meta, Google, TikTok and YouTube ads as one profit engine - creative production, media buying, tracking, attribution and weekly capital reallocation against blended MER." },
   { q: "Which platforms do you run ads on?", a: "Meta (Facebook/Instagram), Google (Search, Shopping, PMax, YouTube) and TikTok. As a full-stack Ecommerce Agency UK we recommend a channel mix based on margin, AOV, product and audience - never a template." },
   { q: "What's the minimum ad budget to work with you?", a: "We work best with brands spending £8k+/mo on ads. Below that a single-channel sprint from an Ecommerce Growth Agency usually beats a multi-channel retainer." },
@@ -37,6 +38,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What's the difference between media buying and performance marketing?", a: "Media buying refers specifically to purchasing and managing ad placements (bidding, budget allocation, platform selection). Performance marketing is the broader discipline that includes media buying plus creative strategy, tracking, and optimisation toward measurable outcomes like ROAS or CAC." },
   { q: "How do you lower CAC without cutting ad spend?", a: "Lowering CAC without cutting spend usually means improving conversion rate (so the same traffic converts more), refining audience targeting to cut wasted impressions, and testing new creative angles - rather than simply reducing budget, which just slows growth." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "paid-ads");
 
 export const Route = createFileRoute("/services/paid-ads")({
   head: () => ({

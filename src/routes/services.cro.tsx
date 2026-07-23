@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-cro-testing.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "What conversion rate should a Shopify store be hitting?", a: "Healthy UK DTC stores run 2.5-4% on cold traffic and 6-9% on warm. Below 1.8% almost always means PDP, offer or trust issues - not a traffic problem. We diagnose which of the three is killing you in the first two weeks." },
   { q: "How long until I see CRO results?", a: "Quick wins (PDP, checkout, trust signals) land in 2-4 weeks. Compounded gains from A/B testing show in 60-90 days. Full system uplift compounds over 6 months." },
   { q: "Do you actually run A/B tests, or just make 'best-practice' changes?", a: "Both. On Shopify we use Intelligems or Convert; on WooCommerce we use VWO or Optimizely. Every test carries a written hypothesis, sample-size target and pre-agreed stop rule. Best-practice changes only ship on validated foundations." },
@@ -34,6 +35,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What tools are used for CRO (heatmaps, session replays)?", a: "Common CRO tooling includes Hotjar or similar for heatmaps and session replays (showing exactly where users hesitate or drop off), plus dedicated A/B testing platforms and GA4 for quantifying which page variants actually lift conversion." },
   { q: "Can CRO alone fix a store with declining sales?", a: "CRO can meaningfully lift conversion rate, but if declining sales stem from insufficient traffic or product-market fit issues, CRO alone won't solve it - it needs to be paired with traffic (SEO/ads) and, in some cases, product or pricing changes." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "cro");
 
 export const Route = createFileRoute("/services/cro")({
   head: () => ({

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-creative.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "How many ad creatives do you produce per month?", a: "Standard pods ship 20-40 creatives/month - a mix of UGC, statics, founder, demo and remixes of winners. Scale pods ship 60-100." },
   { q: "Do you source UGC creators?", a: "Yes - we cast, brief, ship product, review footage and edit into ad-ready variants. You approve the briefs, we run the pipeline. 200+ UK + US creators in our roster." },
   { q: "What makes a winning ecommerce ad?", a: "Hook in the first 1.5 seconds, problem framed for the customer, proof, clear offer and a hard CTA - tested against 8-12 angles, not 1 hero. Format + hook > production quality, every time." },
@@ -32,6 +33,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How do you measure creative performance?", a: "Hook rate (3s), hold rate (15s), CTR, thumb-stop ratio, CPA, ROAS and incremental lift on scaled sets - reviewed weekly. Winners graduate, losers get killed inside 7 days on spend." },
   { q: "Can you audit our existing creative library first?", a: "Yes - the free growth audit at /audit includes a creative teardown: what's fatigued, what's under-scaled, what angles you've never tested. Delivered by a senior creative strategist, not a template." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "creative");
 
 export const Route = createFileRoute("/services/creative")({
   head: () => ({

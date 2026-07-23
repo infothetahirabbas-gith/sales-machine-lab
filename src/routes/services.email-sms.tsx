@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicePage from "../components/site/ServicePage";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo";
+import { linkServiceFaqs } from "../lib/faq-linker";
 import heroImg from "../assets/hero-email-sms.jpg";
 
-const FAQ_LIST: FAQ[] = [
+const _FAQ_RAW: FAQ[] = [
   { q: "How much extra revenue should email and SMS drive?", a: "A properly built Klaviyo account contributes 25-35% of total store revenue within 90 days. Below 15% means flows and segmentation aren't doing their job." },
   { q: "What flows do you build first?", a: "Welcome, abandoned cart, browse abandonment, post-purchase, winback, replenishment and VIP - in that order. Cart + welcome recover the fastest revenue in month one." },
   { q: "Do you write the copy and design the templates?", a: "Yes - copy, on-brand template design, segmentation logic, A/B subject lines and deliverability monitoring. Full-service, not just strategy." },
@@ -37,6 +38,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How fast can we see revenue impact?", a: "First flow rebuild ships in week 2; new welcome + abandoned cart typically add 8-15% to store revenue inside 30 days. Full retention system compounds over 90 days." },
   { q: "Which industries see the biggest retention wins?", a: "Beauty, supplements, coffee, pet and apparel - anything with reorder cadence. See /case-studies and /industries for verticals we've scaled retention in." },
 ];
+const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "email-sms");
 
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
