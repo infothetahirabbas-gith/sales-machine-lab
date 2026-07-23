@@ -174,6 +174,13 @@ const objectionFaqs: { tag: string; q: string; a: string }[] = [
   { tag: "🛡", q: "Do you offer any guarantees?", a: "Yes three. (1) A 90-day performance plan with named KPIs before we invoice month two. (2) Month-to-month after the initial engagement with 30 days' notice, no lock-ins. (3) If we miss the 90-day plan's committed baseline and it's on us, the next month is on the house. Full terms shared before you sign." },
 ];
 
+const planPicker: { stage: string; revenue: string; plan: string; why: string; cta: string }[] = [
+  { stage: "Just launched", revenue: "£0-£25k / month", plan: "Starter", why: "Foundations first: tracking, one paid channel, welcome + abandoned flows, and monthly reporting. Prove unit economics before layering channels.", cta: "Starter" },
+  { stage: "Finding product-market fit", revenue: "£25k-£100k / month", plan: "Growth", why: "Meta + Google managed together, Klaviyo flows live, ongoing CRO, and weekly scorecards - the fastest path from 5-figure to 6-figure months.", cta: "Growth" },
+  { stage: "Scaling profitably", revenue: "£100k-£500k / month", plan: "Enterprise", why: "Add TikTok, SMS, digital PR, advanced CRO and AI marketing automation. Bi-weekly strategy calls with a senior growth lead.", cta: "Enterprise" },
+  { stage: "8-figure operator", revenue: "£500k+ / month", plan: "Business", why: "Fractional ecommerce CMO, full multi-channel media, creative production management, VIP priority support and custom exec reporting.", cta: "Business" },
+];
+
 function PricingPage() {
   return (
     <PageLayout>
