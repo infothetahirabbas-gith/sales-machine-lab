@@ -29,6 +29,13 @@ const FAQ_LIST: FAQ[] = [
   { q: "How is email marketing automation different from newsletters?", a: "Newsletters are one-to-many broadcast campaigns sent on a schedule. Email marketing automation (flows) triggers individually based on customer behaviour - like abandoning a cart or making a purchase - making it far more targeted and typically higher-converting." },
   { q: "What's a good email marketing revenue share for ecommerce?", a: "25-35% of total store revenue attributed to email/SMS is considered strong for an established brand with mature flows and a healthy list; newer stores with smaller lists will see a lower share initially." },
   { q: "How do SMS and email work together for retention?", a: "SMS works best for time-sensitive, high-urgency messages (flash sales, shipping updates, cart recovery within hours), while email handles longer-form content, nurture sequences and less time-pressured offers - together they cover both immediate and considered touchpoints." },
+  { q: "Which ESPs do you build in?", a: "Klaviyo is the default for Shopify/Woo, plus Postscript and Attentive for SMS. We also migrate off Mailchimp, Omnisend and dotdigital when the retention roadmap outgrows them." },
+  { q: "How many flows should a scaling store have live?", a: "Minimum 8: welcome, abandoned browse, abandoned cart, abandoned checkout, post-purchase 1, post-purchase 2, winback, VIP. Scaling brands run 15-25 including replenishment, cross-sell and lapsed-subscriber flows." },
+  { q: "What % of revenue should come from email & SMS?", a: "Healthy DTC retention channels drive 25-40% of total revenue. Under 15% signals broken flows or thin list growth - fixable inside 60 days." },
+  { q: "How does email connect with paid ads and CRO?", a: "Retained buyers subsidise higher paid-ad CAC. Our /services/paid-ads and /services/cro teams share LTV data with email so we know how hard we can bid. Model it in /tools/ltv-calculator." },
+  { q: "Do you handle creative & copy for every send?", a: "Yes - in-house UK copywriters and designers ship every campaign and flow email. See /services/creative for the wider creative system." },
+  { q: "How fast can we see revenue impact?", a: "First flow rebuild ships in week 2; new welcome + abandoned cart typically add 8-15% to store revenue inside 30 days. Full retention system compounds over 90 days." },
+  { q: "Which industries see the biggest retention wins?", a: "Beauty, supplements, coffee, pet and apparel - anything with reorder cadence. See /case-studies and /industries for verticals we've scaled retention in." },
 ];
 
 export const Route = createFileRoute("/services/email-sms")({
