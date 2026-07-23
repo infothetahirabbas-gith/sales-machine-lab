@@ -337,7 +337,7 @@ function AuditPage() {
           ad_spend: adSpend || "",
         });
       } catch { /* no-op */ }
-      setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behaviour: "smooth" }), 100);
+      setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behavior: "smooth" }), 100);
     } catch (err) {
       const elapsedSec = Math.floor((Date.now() - startedAt) / 1000);
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
