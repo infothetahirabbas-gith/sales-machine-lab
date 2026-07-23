@@ -28,7 +28,7 @@ export const ORG_INFO = {
 // Canonical Knowledge Graph entities. Reference these by @id from other
 // schemas (Person → worksFor, Service → provider) so search engines and
 // LLMs consolidate BeingEcom as a single entity.
-export const ORG_ID = `${SITE_URL}#organization`;
+export const ORG_ID = `${SITE_URL}#organisation`;
 export const PERSON_ID_FOUNDER = `${SITE_URL}/company/founder#tahir-abbas`;
 export const PERSON_ID_CTO = `${SITE_URL}/company/team#ali-abbas`;
 export const PERSON_ID_MD = `${SITE_URL}/company/team#hasnain-abbas`;
@@ -41,8 +41,8 @@ export const ORG_KNOWS_ABOUT = [
   "Ecommerce SEO",
   "Technical SEO",
   "Programmatic SEO",
-  "Answer Engine Optimization",
-  "Generative Engine Optimization",
+  "Answer Engine Optimisation",
+  "Generative Engine Optimisation",
   "Conversion Rate Optimisation",
   "Performance Marketing",
   "Google Ads",
@@ -63,7 +63,7 @@ export const ORG_KNOWS_ABOUT = [
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
+    "@type": ["Organisation", "ProfessionalService"],
     "@id": ORG_ID,
     name: ORG_INFO.name,
     alternateName: ["Being Ecom", "BeingEcom Agency"],
@@ -121,7 +121,7 @@ export function organizationJsonLd() {
       "WooCommerce SEO",
       "Google Ads Management",
       "Meta Ads Management",
-      "Conversion Rate Optimization",
+      "Conversion Rate Optimisation",
       "Ecommerce Website Development",
       "AI Automation",
       "Email Marketing",
@@ -162,7 +162,7 @@ export function organizationJsonLd() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "WooCommerce SEO", areaServed: { "@type": "Country", name: "United Kingdom" } } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Google Ads Management", areaServed: { "@type": "Country", name: "United Kingdom" } } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads Management", areaServed: { "@type": "Country", name: "United Kingdom" } } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimization", areaServed: { "@type": "Country", name: "United Kingdom" } } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conversion Rate Optimisation", areaServed: { "@type": "Country", name: "United Kingdom" } } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ecommerce Website Development", areaServed: { "@type": "Country", name: "United Kingdom" } } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Automation", areaServed: { "@type": "Country", name: "United Kingdom" } } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Email Marketing", areaServed: { "@type": "Country", name: "United Kingdom" } } },
@@ -174,7 +174,7 @@ export function organizationJsonLd() {
 }
 
 // Canonical Person schemas imported by Founder + Team pages and referenced
-// by @id everywhere else (Organization.founder, Article.author, etc.).
+// by @id everywhere else (Organisation.founder, Article.author, etc.).
 export type TeamMember = {
   id: string;
   slug: string;         // hash used inside team page
@@ -277,7 +277,7 @@ export function contactPageJsonLd() {
     name: `Contact ${ORG_INFO.name}`,
     description: `Contact ${ORG_INFO.name} for a free ecommerce growth audit - reply within 48 hours.`,
     mainEntity: {
-      "@type": "Organization",
+      "@type": "Organisation",
       name: ORG_INFO.name,
       url: SITE_URL,
       email: ORG_INFO.email,
@@ -378,9 +378,9 @@ export function articleJsonLd(opts: {
     datePublished: opts.datePublished ?? "2024-01-15",
     dateModified: new Date().toISOString().slice(0, 10),
     about: opts.about,
-    author: { "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
+    author: { "@type": "Organisation", name: ORG_INFO.name, url: ORG_INFO.url },
     publisher: {
-      "@type": "Organization",
+      "@type": "Organisation",
       name: ORG_INFO.name,
       logo: { "@type": "ImageObject", url: ORG_INFO.logo },
     },
@@ -402,7 +402,7 @@ export function courseJsonLd(opts: {
     description: opts.description,
     url: opts.url,
     about: opts.about,
-    provider: { "@id": ORG_ID, "@type": "Organization", name: ORG_INFO.name, url: ORG_INFO.url },
+    provider: { "@id": ORG_ID, "@type": "Organisation", name: ORG_INFO.name, url: ORG_INFO.url },
     inLanguage: "en-GB",
     isAccessibleForFree: true,
     educationalLevel: "Intermediate",
@@ -490,7 +490,7 @@ export function serviceJsonLd(opts: {
     description: opts.description,
     url,
     provider: {
-      "@type": "Organization",
+      "@type": "Organisation",
       name: ORG_INFO.name,
       url: ORG_INFO.url,
     },

@@ -41,7 +41,7 @@ const STAGES = [
   {
     n: "04",
     Icon: MousePointerClick,
-    title: "Conversion Optimization",
+    title: "Conversion Optimisation",
     body: "Turn more of the traffic you already have into revenue. Structured CRO programme: heatmaps, session replay, PDP/PLP experiments, checkout friction removal, trust signals, mobile UX. Ship 2-4 tests per month against a documented hypothesis backlog.",
     outputs: ["CRO test roadmap", "Winning variants shipped", "CVR lift by device", "Documented learnings"],
   },
@@ -64,7 +64,7 @@ const STAGES = [
 const FAQS = [
   {
     q: "What is the BeingEcom Growth System™?",
-    a: "The BeingEcom Growth System™ is a six-stage operating framework for scaling ecommerce brands: Store Intelligence, Growth Foundation, Customer Acquisition, Conversion Optimization, Customer Retention, and AI Automation. Every Shopify or WooCommerce engagement moves through the same six stages, in the same order.",
+    a: "The BeingEcom Growth System™ is a six-stage operating framework for scaling ecommerce brands: Store Intelligence, Growth Foundation, Customer Acquisition, Conversion Optimisation, Customer Retention, and AI Automation. Every Shopify or WooCommerce engagement moves through the same six stages, in the same order.",
   },
   {
     q: "Why six stages and not more or fewer?",
@@ -155,7 +155,7 @@ function MethodologyPage() {
 
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
         <AISummary eyebrow="Summary">
-          The BeingEcom Growth System™ is a six-stage ecommerce growth methodology: Store Intelligence → Growth Foundation → Customer Acquisition → Conversion Optimization → Customer Retention → AI Automation. It sequences SEO, paid ads, CRO, email, and AI into one connected system that compounds - instead of running each channel as a disconnected service.
+          The BeingEcom Growth System™ is a six-stage ecommerce growth methodology: Store Intelligence → Growth Foundation → Customer Acquisition → Conversion Optimisation → Customer Retention → AI Automation. It sequences SEO, paid ads, CRO, email, and AI into one connected system that compounds - instead of running each channel as a disconnected service.
         </AISummary>
       </div>
 

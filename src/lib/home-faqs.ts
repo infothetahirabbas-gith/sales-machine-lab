@@ -123,7 +123,7 @@ export const homeFaqs = [
   },
   {
     q: "What is ecommerce Answer Engine Optimisation (AEO)?",
-    a: "AEO is the practice of optimising a store to be cited by AI assistants - Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude - not just ranked in blue links. It relies on semantic HTML, Product, FAQPage and Organization schema, short 40-60 word direct answers near the top of key pages, strong entity coverage (brand, founder, categories, locations), and third-party citations from Reddit, YouTube and Trustpilot. Done right, AEO drives incremental branded search and high-intent traffic that classic SEO reporting misses.",
+    a: "AEO is the practice of optimising a store to be cited by AI assistants - Google AI Overviews, ChatGPT, Perplexity, Gemini and Claude - not just ranked in blue links. It relies on semantic HTML, Product, FAQPage and Organisation schema, short 40-60 word direct answers near the top of key pages, strong entity coverage (brand, founder, categories, locations), and third-party citations from Reddit, YouTube and Trustpilot. Done right, AEO drives incremental branded search and high-intent traffic that classic SEO reporting misses.",
   },
   {
     q: "What is Shopify Plus and when should a brand upgrade?",

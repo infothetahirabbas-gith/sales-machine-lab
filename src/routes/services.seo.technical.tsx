@@ -17,7 +17,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Will you work with our existing Shopify or Woo dev team?", a: "Yes - we brief, PR-review and QA. Or we ship it ourselves. Whichever gets it live faster." },
   { q: "Do you fix redirect chains and 404s?", a: "Yes - full redirect audit, chain collapsing, 404 recovery via 301s, and monthly monitoring against ongoing product deletions." },
   { q: "How is BeingEcom different from a generalist Ecommerce Agency UK?", a: "We're an Ecommerce Growth Agency built for Shopify and WooCommerce specifically - we know the platforms' quirks, and our recommendations survive contact with Shopify's Liquid templating and Woo's plugin chaos." },
-  { q: "What schema do you implement?", a: "Product, Offer, AggregateRating, Review, FAQ, HowTo, Breadcrumb, Organization, WebSite and SearchAction - validated in the Rich Results Test." },
+  { q: "What schema do you implement?", a: "Product, Offer, AggregateRating, Review, FAQ, HowTo, Breadcrumb, Organisation, WebSite and SearchAction - validated in the Rich Results Test." },
   { q: "Do you use Cloudflare Workers or edge SEO?", a: "Yes when useful - edge-based meta rewrites, header injection, hreflang and 301 handling on stores where the CMS can't do it cleanly." },
   { q: "What tools do you use for technical SEO?", a: "Screaming Frog, Sitebulb, Ahrefs Site Audit, Semrush, Google Search Console, Bing Webmaster, PageSpeed Insights, WebPageTest, Chrome DevTools, and CDN log analysers." },
 ];

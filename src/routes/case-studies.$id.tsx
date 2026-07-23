@@ -179,7 +179,7 @@ function strategyBlocks(s: Study) {
               "Above-the-fold PDP rebuild with sticky add-to-cart and social proof.",
               "Trust system across checkout: badges, guarantees, reviews.",
               "Mobile-first hierarchy with progressive disclosure.",
-              "A/B test backlog prioritized by revenue impact.",
+              "A/B test backlog prioritised by revenue impact.",
             ]
         : [
             "Tightened PDP hierarchy and added trust signals near CTAs.",
@@ -218,7 +218,7 @@ function strategyBlocks(s: Study) {
       active: true,
       points: [
         "Welcome, abandonment, post-purchase and winback flows rebuilt.",
-        "Segmented broadcasts by RFM behavior, not blast-to-all.",
+        "Segmented broadcasts by RFM behaviour, not blast-to-all.",
         "SMS layer for back-in-stock and time-sensitive offers.",
         "Automation tied to subscription / repeat purchase milestones.",
       ],

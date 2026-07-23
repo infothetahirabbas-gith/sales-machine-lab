@@ -9,7 +9,7 @@ export const HUB_PILLARS: Record<string, {
 }> = {
   "shopify-growth": {
     meta: {
-      title: "Shopify Growth Hub SEO, CRO, Speed, Paid & Email | BeingEcom",
+      title: "Shopify Growth Hub UK | SEO, CRO, Speed, Paid & Email | BeingEcom",
       description: "The complete Shopify growth playbook for UK brands SEO, speed, CRO, paid ads, email flows, headless Hydrogen and scaling case studies. Written by senior Shopify Plus operators.",
     },
     props: {
@@ -72,7 +72,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "woocommerce-growth": {
     meta: {
-      title: "WooCommerce Growth Hub Speed, SEO, Checkout & Scaling | BeingEcom",
+      title: "WooCommerce Growth Hub UK | Speed, SEO, Checkout & Scaling | BeingEcom",
       description: "The complete WooCommerce growth playbook plugin audits, performance, checkout conversion, SEO, hosting choices and scaling past the WordPress bottleneck.",
     },
     props: {
@@ -134,7 +134,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "ecommerce-seo": {
     meta: {
-      title: "Ecommerce SEO Hub Technical, On-Page, Off-Page, Local, AEO | BeingEcom",
+      title: "Ecommerce SEO Hub UK | Technical, On-Page, Off-Page, Local, AEO | BeingEcom",
       description: "The complete ecommerce SEO stack technical crawl and indexation, on-page optimisation, off-page authority, local, international and Answer Engine Optimisation.",
     },
     props: {
@@ -195,7 +195,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "paid-media": {
     meta: {
-      title: "Paid Media Hub Meta, Google, TikTok, YouTube for Ecommerce | BeingEcom",
+      title: "Paid Media Hub UK | Meta, Google, TikTok, YouTube for Ecommerce | BeingEcom",
       description: "The complete paid media playbook for ecommerce Meta, Google, TikTok, YouTube, creative testing, MMM, incrementality and contribution-margin bidding.",
     },
     props: {
@@ -256,7 +256,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "cro": {
     meta: {
-      title: "CRO Hub Ecommerce Experimentation, PDP, Cart & Checkout | BeingEcom",
+      title: "CRO Hub UK | Ecommerce Experimentation, PDP, Cart & Checkout | BeingEcom",
       description: "The complete CRO playbook user research, hypothesis writing, sample sizing, guardrails and the PDP, cart and checkout patterns that actually lift ecommerce revenue.",
     },
     props: {
@@ -316,7 +316,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "ai-automation": {
     meta: {
-      title: "AI Automation Hub Ecommerce Ops, Reporting, Creative & Support | BeingEcom",
+      title: "AI Automation Hub UK | Ecommerce Ops, Reporting, Creative & Support | BeingEcom",
       description: "How senior ecommerce teams use AI for reporting, creative testing, keyword research, customer support and internal ops with the exact stacks and prompts that work.",
     },
     props: {
@@ -377,7 +377,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "email-marketing": {
     meta: {
-      title: "Email & SMS Marketing Hub Klaviyo Flows, Segmentation, LTV | BeingEcom",
+      title: "Email & SMS Marketing Hub UK | Klaviyo Flows, Segmentation, LTV | BeingEcom",
       description: "The complete ecommerce email and SMS playbook Klaviyo flow architecture, segmentation, deliverability, SMS compliance and LTV-first campaign planning.",
     },
     props: {
@@ -436,7 +436,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "analytics-tracking": {
     meta: {
-      title: "Analytics & Tracking Hub GA4, Server-Side, Attribution | BeingEcom",
+      title: "Analytics & Tracking Hub UK | GA4, Server-Side, Attribution | BeingEcom",
       description: "The complete ecommerce analytics playbook GA4 enhanced ecommerce, server-side tracking (CAPI, GTM SS), MMM, incrementality, and dashboarding for margin-first decisions.",
     },
     props: {
@@ -497,7 +497,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "ecommerce-strategy": {
     meta: {
-      title: "Ecommerce Strategy Hub Positioning, Merchandising, Scaling | BeingEcom",
+      title: "Ecommerce Strategy Hub UK | Positioning, Merchandising, Scaling | BeingEcom",
       description: "The strategic playbook for ecommerce founders brand positioning, merchandising, pricing, category expansion, market entry and building a compounding operating model.",
     },
     props: {
@@ -557,7 +557,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "ecommerce-operations": {
     meta: {
-      title: "Ecommerce Operations Hub Fulfilment, Inventory, CX, Returns | BeingEcom",
+      title: "Ecommerce Operations Hub UK | Fulfilment, Inventory, CX, Returns | BeingEcom",
       description: "The complete ecommerce operations playbook 3PL selection, inventory planning, customer experience, returns strategy, and ops KPIs that protect margin at scale.",
     },
     props: {
@@ -616,7 +616,7 @@ export const HUB_PILLARS: Record<string, {
   },
   "customer-retention": {
     meta: {
-      title: "Customer Retention Hub LTV, Subscriptions, Loyalty, Winback | BeingEcom",
+      title: "Customer Retention Hub UK | LTV, Subscriptions, Loyalty, Winback | BeingEcom",
       description: "The complete ecommerce retention playbook LTV modelling, subscriptions, loyalty programmes, winback flows and the cohort work behind every profitable DTC brand.",
     },
     props: {

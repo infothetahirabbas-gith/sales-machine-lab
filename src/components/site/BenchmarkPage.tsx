@@ -140,7 +140,7 @@ export function benchmarkDatasetJsonLd(cfg: BenchmarkConfig) {
     description: cfg.aiSummary,
     url: `https://beingecom.com/benchmarks/${cfg.slug}`,
     creator: {
-      "@type": "Organization",
+      "@type": "Organisation",
       name: "BeingEcom",
       url: "https://beingecom.com",
     },

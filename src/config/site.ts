@@ -2,7 +2,7 @@
 // and legal identity. Every page/component that renders any of these
 // values MUST import from here - never hardcode.
 //
-// Re-exported from `src/lib/seo.ts` so schema (Organization/LocalBusiness)
+// Re-exported from `src/lib/seo.ts` so schema (Organisation/LocalBusiness)
 // and UI (Footer/Contact) stay in lock-step.
 
 import { ORG_INFO, SITE_URL } from "@/lib/seo";

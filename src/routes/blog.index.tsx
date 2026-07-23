@@ -42,7 +42,7 @@ const blogListJsonLd = {
     "Playbooks, benchmarks and teardowns from the BeingEcom team on Shopify, WooCommerce, CRO, paid media and ecommerce SEO for UK DTC brands.",
   url: `${SITE_URL}/blog`,
   publisher: {
-    "@type": "Organization",
+    "@type": "Organisation",
     name: ORG_INFO.name,
     url: ORG_INFO.url,
     logo: { "@type": "ImageObject", url: ORG_INFO.logo },
@@ -53,7 +53,7 @@ const blogListJsonLd = {
     description: p.description,
     url: `${SITE_URL}/blog/${p.slug}`,
     datePublished: p.datePublished,
-    author: { "@type": "Organization", name: ORG_INFO.name },
+    author: { "@type": "Organisation", name: ORG_INFO.name },
   })),
 };
 

@@ -250,7 +250,7 @@ export const Route = createFileRoute("/services/store-development/shopify")({
         { quote: "Migrating off Magento was painless. Zero drop in organic traffic and the team actually understood our B2B pricing rules.", name: "Ecom Director", role: "Home & furniture" },
       ],
       relatedServices: [
-        { title: "Conversion Rate Optimization", body: "Test-driven CRO that lifts revenue per session on your Shopify store.", to: "/services/cro" },
+        { title: "Conversion Rate Optimisation", body: "Test-driven CRO that lifts revenue per session on your Shopify store.", to: "/services/cro" },
         { title: "Email & SMS (Klaviyo)", body: "Flows and campaigns that print predictable Shopify revenue every month.", to: "/services/email-sms" },
         { title: "Performance Marketing", body: "Meta, Google & TikTok media buying wired into your Shopify funnel.", to: "/services/performance-marketing" },
         { title: "Ecommerce SEO", body: "Rank Shopify collections and products for high-intent commercial queries.", to: "/services/seo" },
