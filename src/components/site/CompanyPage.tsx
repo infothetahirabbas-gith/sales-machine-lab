@@ -110,7 +110,7 @@ export default function CompanyPage(props: CompanyPageProps) {
       intro: "What you should be able to verify before hiring any ecommerce agency including us.",
       columns: ["Signal", "Where to find it on our site"],
       rows: [
-        ["Registered UK address", "Footer + /contact + Organization schema (Covent Garden, London)"],
+        ["Registered UK address", "Footer + /contact + Organisation schema (Covent Garden, London)"],
         ["Named leadership team", "/company/founder and /company/team"],
         ["Methodology in the open", "/company/methodology"],
         ["Case studies with real scope", "/case-studies"],
@@ -173,7 +173,7 @@ export default function CompanyPage(props: CompanyPageProps) {
   const allSections = [...sections, ...sharedSections];
 
   // Consolidated Knowledge Graph every Company page emits the same
-  // Organization + Person nodes so search engines and LLMs treat the
+  // Organisation + Person nodes so search engines and LLMs treat the
   // entire site as one entity graph.
   const kgGraph = {
     "@context": "https://schema.org",

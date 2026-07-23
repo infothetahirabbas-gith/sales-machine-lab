@@ -18,8 +18,8 @@ const scorecardJsonLd = {
   contentUrl: SCORECARD_URL,
   inLanguage: "en-GB",
   isAccessibleForFree: true,
-  author: { "@type": "Organization", name: ORG_INFO.name, url: SITE_URL },
-  publisher: { "@type": "Organization", name: ORG_INFO.name, url: SITE_URL },
+  author: { "@type": "Organisation", name: ORG_INFO.name, url: SITE_URL },
+  publisher: { "@type": "Organisation", name: ORG_INFO.name, url: SITE_URL },
 };
 
 export const Route = createFileRoute("/company/csr")({

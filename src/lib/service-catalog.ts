@@ -31,7 +31,7 @@ export const SERVICE_CATALOG: ServiceCatalogEntry[] = [
   { slug: "store-shopify", title: "Shopify Development", body: "Custom Shopify & Shopify Plus builds.", to: "/services/store-development/shopify", group: "store" },
   { slug: "store-woocommerce", title: "WooCommerce Development", body: "Scalable, secure Woo builds & migrations.", to: "/services/store-development/woocommerce", group: "store" },
 
-  { slug: "cro", title: "Conversion Rate Optimization", body: "Test-driven CRO that lifts revenue per session.", to: "/services/cro", group: "growth" },
+  { slug: "cro", title: "Conversion Rate Optimisation", body: "Test-driven CRO that lifts revenue per session.", to: "/services/cro", group: "growth" },
   { slug: "funnel", title: "Funnel Design", body: "End-to-end funnels that turn traffic into buyers.", to: "/services/funnel", group: "growth" },
   { slug: "email-sms", title: "Email & SMS", body: "Klaviyo flows & campaigns that print revenue.", to: "/services/email-sms", group: "growth" },
   { slug: "creative", title: "Creative Studio", body: "Ad creative & UGC that beats control weekly.", to: "/services/creative", group: "growth" },

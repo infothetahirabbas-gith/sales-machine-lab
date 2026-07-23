@@ -337,7 +337,7 @@ function AuditPage() {
           ad_spend: adSpend || "",
         });
       } catch { /* no-op */ }
-      setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behavior: "smooth" }), 100);
+      setTimeout(() => document.getElementById("audit-results")?.scrollIntoView({ behaviour: "smooth" }), 100);
     } catch (err) {
       const elapsedSec = Math.floor((Date.now() - startedAt) / 1000);
       const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
@@ -369,7 +369,7 @@ function AuditPage() {
             The <span className="text-sky-gradient">board-level audit</span> your ecommerce store has been missing
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto">
-            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritized 90-day action plan - powered by local signals from your live store. No signup, AI credits, or paid usage.
+            17 phases. 15 growth scores. SEO, ads, CRO, brand, psychology, competitors, revenue leakage and a prioritised 90-day action plan - powered by local signals from your live store. No signup, AI credits, or paid usage.
           </p>
 
           <form onSubmit={onSubmit} className="mt-8 card-surface p-5 lg:p-7 text-left">
@@ -479,7 +479,7 @@ function AuditPage() {
               </div>
             </div>
             <button type="submit" disabled={loading || !url} className="flex btn btn-primary btn-shimmer mt-5 w-full sm:w-auto disabled:opacity-60">
-              {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analyzing your store...</> : <>Request free audit <ArrowRight className="w-4 h-4" /></>}
+              {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Analysing your store...</> : <>Request free audit <ArrowRight className="w-4 h-4" /></>}
             </button>
             {error && (
               <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-sm text-destructive">
@@ -493,7 +493,7 @@ function AuditPage() {
               <div className="flex items-center justify-between gap-3 mb-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <Loader2 className="w-5 h-5 animate-spin text-primary shrink-0" />
-                  <span className="font-semibold text-ink truncate">Being Ecom Brain™ is analyzing…</span>
+                  <span className="font-semibold text-ink truncate">Being Ecom Brain™ is analysing…</span>
                 </div>
                 <div className="text-right shrink-0">
                   <div className="text-xs text-muted-foreground">Elapsed / Remaining</div>

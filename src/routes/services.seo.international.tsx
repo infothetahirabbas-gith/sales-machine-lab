@@ -74,7 +74,7 @@ export const Route = createFileRoute("/services/seo/international")({
         { title: "Localisation", body: "Native translation, currency, sizing, cultural CRO for each country.", tags: ["Native","Currency","Sizing"] },
         { title: "Country-level authority", body: "Local digital PR, citations and links per country.", tags: ["Local PR","Citations"] },
         { title: "Geo-targeting & GSC", body: "Search Console properties per country, geo-signals, server + CDN.", tags: ["GSC","Geo","CDN"] },
-        { title: "International schema", body: "Organization, sameAs, currency-aware Product schema per market.", tags: ["Schema","Currency","sameAs"] },
+        { title: "International schema", body: "Organisation, sameAs, currency-aware Product schema per market.", tags: ["Schema","Currency","sameAs"] },
       ],
       triggersTitle: "Markets we scale UK brands into.",
       triggers: ["United States","Canada","Germany","France","Italy","Spain","Netherlands","Australia","UAE","Ireland"],

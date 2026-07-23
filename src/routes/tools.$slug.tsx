@@ -30,7 +30,7 @@ export const Route = createFileRoute("/tools/$slug")({
       operatingSystem: "Web",
       description: cfg.metaDescription,
       offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
-      provider: { "@type": "Organization", name: "BeingEcom", url: SITE_URL },
+      provider: { "@type": "Organisation", name: "BeingEcom", url: SITE_URL },
     };
     return {
       meta: [

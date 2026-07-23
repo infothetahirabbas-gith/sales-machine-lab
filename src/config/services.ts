@@ -4,7 +4,7 @@
 // service-page schema and cross-link block MUST derive from this list -
 // never hardcode service labels or URLs anywhere else.
 //
-// Naming: canonical UK English (Optimisation, not Optimization). If a
+// Naming: canonical UK English (Optimisation, not Optimisation). If a
 // component drifts (renames, adds a legacy alias, drops one), the
 // `scripts/check-parity.mjs` guard fails so drift is caught in CI
 // before it ships.
@@ -134,6 +134,6 @@ export const SERVICE_LABEL_BY_SLUG: Readonly<Record<string, string>> =
 /** Legacy / drift-prone labels that must NEVER reappear in the source tree. */
 export const BANNED_SERVICE_STRINGS: readonly string[] = [
   "Creative Testing",
-  "Conversion Optimization", // US spelling
+  "Conversion Optimisation", // US spelling
   "Conversion Optimisation", // shortened UK - must use full "Conversion Rate Optimisation"
 ] as const;

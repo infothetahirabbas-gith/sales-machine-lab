@@ -40,7 +40,7 @@ export default function FloatingWidgets() {
   const isLoading = status === "submitted" || status === "streaming";
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
+    endRef.current?.scrollIntoView({ behaviour: "smooth" });
   }, [messages, isLoading, open]);
 
   useEffect(() => {

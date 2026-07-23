@@ -77,8 +77,8 @@ export const Route = createFileRoute("/industries/$slug")({
                 "@context": "https://schema.org",
                 "@graph": [
                   {
-                    "@type": "Organization",
-                    "@id": `${SITE_URL}#organization`,
+                    "@type": "Organisation",
+                    "@id": `${SITE_URL}#organisation`,
                     name: "Being Ecom",
                     url: SITE_URL,
                     logo: `${SITE_URL}/favicon.ico`,
@@ -115,7 +115,7 @@ export const Route = createFileRoute("/industries/$slug")({
                     serviceType: `${ind.name} ecommerce growth agency`,
                     name: `${ind.name} Ecommerce Growth`,
                     description: C.vibe,
-                    provider: { "@id": `${SITE_URL}#organization` },
+                    provider: { "@id": `${SITE_URL}#organisation` },
                     areaServed: { "@type": "Country", name: "United Kingdom" },
                     audience: { "@type": "BusinessAudience", audienceType: `${ind.name} DTC brands` },
                     image: heroImage,

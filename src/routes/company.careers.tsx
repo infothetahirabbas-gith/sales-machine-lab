@@ -14,7 +14,7 @@ const jobPostingLd = OPEN_ROLES.map((r) => ({
   "@type": "JobPosting",
   title: r.title,
   employmentType: r.type,
-  hiringOrganization: { "@type": "Organization", name: ORG_INFO.name, sameAs: ORG_INFO.url },
+  hiringOrganization: { "@type": "Organisation", name: ORG_INFO.name, sameAs: ORG_INFO.url },
   jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", ...ORG_INFO.address } },
   description: r.summary,
   datePosted: new Date().toISOString().slice(0, 10),

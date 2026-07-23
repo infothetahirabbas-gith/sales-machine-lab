@@ -14,7 +14,7 @@ const FAQS: FAQ[] = [
   { q: "Where is BeingEcom based and who do you work with?", a: "We're a UK-registered agency headquartered in Covent Garden, London, working with 7 to 9-figure ecommerce brands across the UK, Europe, US and the Middle East. Our client base is exclusively Shopify, Shopify Plus and WooCommerce we do not take on SaaS, lead-gen or marketplace-only businesses." },
   { q: "What makes your methodology different from other ecommerce agencies?", a: "Every task we run ties to a specific P&L line MER, contribution margin, AOV, CAC or CLV inside a defined window. We publish the entire methodology openly at /company/methodology, run a weekly scorecard tied to your finance data, and share a quarterly roadmap you can hold us to." },
   { q: "How senior is the team actually working on my account?", a: "Every deliverable is signed off by a lead with 6+ years of ecommerce operating experience. We deliberately stay small so the people on your Slack channel are the same people writing the strategy, running the ads, and shipping the code not account managers relaying instructions." },
-  { q: "What proof do you publish that I can actually verify?", a: "Named leadership, a registered UK address in Organization schema, certifications and partner status at /company/certifications, real case studies with scope and results at /case-studies, invitation-only public reviews on Google, Trustpilot and Clutch, and dated updates on every page so you know when we last reviewed the content." },
+  { q: "What proof do you publish that I can actually verify?", a: "Named leadership, a registered UK address in Organisation schema, certifications and partner status at /company/certifications, real case studies with scope and results at /case-studies, invitation-only public reviews on Google, Trustpilot and Clutch, and dated updates on every page so you know when we last reviewed the content." },
   { q: "How do you report on progress and communicate with clients?", a: "Weekly scorecard tied to your P&L, weekly ship review of everything we shipped, monthly strategy call and a quarterly roadmap. All comms happen in a shared Slack or Teams channel with the senior operators on your account not a ticket queue and not a junior account manager." },
   { q: "How do we start working together?", a: "Book a discovery call from any page on the site. We'll audit your store, ad account and analytics before the call, share a written diagnosis within 3 working days, and only propose an engagement if we're confident we can move a P&L line inside 90 days. If we're not, we'll tell you." },
 ];
@@ -242,7 +242,7 @@ function CompanyHub() {
               </thead>
               <tbody className="divide-y divide-border">
                 {[
-                  ["Registered UK address",       "Footer + /contact + Organization schema (Covent Garden, London)"],
+                  ["Registered UK address",       "Footer + /contact + Organisation schema (Covent Garden, London)"],
                   ["Named founder",               <Link key="l1" to="/company/founder" className="text-primary hover:underline">/company/founder</Link>],
                   ["Named leadership team",       <Link key="l2" to="/company/team" className="text-primary hover:underline">/company/team</Link>],
                   ["Public methodology",          <Link key="l3" to="/company/methodology" className="text-primary hover:underline">/company/methodology</Link>],

@@ -50,9 +50,9 @@ export const Route = createFileRoute("/compare/$slug")({
             headline: entry.h1,
             description: entry.verdict,
             about: `${entry.a} vs ${entry.b}`,
-            author: { "@type": "Organization", name: "BeingEcom", url: SITE_URL },
+            author: { "@type": "Organisation", name: "BeingEcom", url: SITE_URL },
             publisher: {
-              "@type": "Organization",
+              "@type": "Organisation",
               name: "BeingEcom",
               logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.png` },
             },
