@@ -209,11 +209,39 @@ function PricingPage() {
         </div>
       </section>
 
+      {/* PLAN PICKER - decision helper */}
+      <Section
+        eyebrow="Which plan fits?"
+        title="Pick by revenue stage, not by feature list"
+        intro="Four decision paths - matched to your monthly revenue and growth priority. If you're between two tiers, always start on the lower one; upgrades are painless, downgrades cost momentum."
+      >
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          {planPicker.map((p) => (
+            <div key={p.plan} className="card-surface p-6 flex flex-col rounded-3xl">
+              <div className="text-[11px] font-bold uppercase tracking-widest text-primary">{p.stage}</div>
+              <div className="mt-1 text-lg font-bold text-ink">{p.revenue}</div>
+              <div className="mt-4 inline-flex self-start items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+                Recommended: {p.plan}
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed flex-1">{p.why}</p>
+              <Link
+                to="/contact"
+                search={{ plan: p.cta }}
+                onClick={() => trackEvent(AnalyticsEvents.PricingPlanCtaClick, { plan: p.cta, source: "plan_picker" })}
+                className="mt-5 btn btn-ghost border border-border justify-center text-sm"
+              >
+                Start with {p.plan} →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* PRICING TIERS */}
       <Section
         eyebrow="Engagement models"
-        title="Choose the plan that matches your stage"
-        intro="Every plan is month-to-month after a 90-day initial engagement. Upgrade, downgrade or pause with 30 days' notice."
+        title="Four transparent plans. No setup fees. No lock-ins."
+        intro="Every plan is month-to-month after the 90-day initial engagement - upgrade, downgrade or pause with 30 days' notice. Prices are in GBP and include a named senior operator on your account from day one."
       >
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
           {tiers.map((t) => (
