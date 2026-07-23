@@ -606,6 +606,8 @@ function BlogPostPage() {
 
         <RelatedArticles slug={post.slug} />
 
+        <RelatedResources slug={post.slug} />
+
         <FaqSection faqs={post.faqs} title="Frequently asked questions" />
 
       </article>
