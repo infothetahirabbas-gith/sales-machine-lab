@@ -448,7 +448,7 @@ function CaseStudyDetail() {
         <section>
           <h2 className="text-2xl sm:text-3xl font-bold text-ink">Executive summary</h2>
           <p className="mt-4 text-ink/85 leading-relaxed text-base sm:text-lg">
-            {s.brand} is a {getNiche(s).toLowerCase()} brand operating on {getPlatform(s)} in the UK. They engaged BeingEcom to solve a specific problem - {firstSentence(s.problem).toLowerCase()} - and to build an operating model that would keep compounding after the engagement ended. Across {s.duration}, we shipped a full {s.category.toLowerCase()} programme (${s.strategy.length} core workstreams), instrumented measurement against a trailing 60-day baseline, and delivered {s.metric} on {s.metricLabel.toLowerCase()} alongside supporting lifts in {s.results.map((r) => r.l.toLowerCase()).join(", ")}.
+            {s.brand} is a {getNiche(s).toLowerCase()} brand operating on {getPlatform(s)} in the UK. They engaged BeingEcom to solve a specific problem - {firstSentence(s.problem).toLowerCase()} - and to build an operating model that would keep compounding after the engagement ended. Across {s.duration}, we shipped a full {s.category.toLowerCase()} programme ({s.strategy.length} core workstreams), instrumented measurement against a trailing 60-day baseline, and delivered {s.metric} on {s.metricLabel.toLowerCase()} alongside supporting lifts in {s.results.map((r) => r.l.toLowerCase()).join(", ")}.
           </p>
         </section>
 
