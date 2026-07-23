@@ -722,6 +722,19 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                     <span className="mt-1 inline-flex shrink-0 w-6 h-6 items-center justify-center rounded-full border border-border text-primary group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <p className="mt-3 text-muted-foreground leading-relaxed">{f.a}</p>
+                  {f.links && f.links.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {f.links.map((l) => (
+                        <Link
+                          key={l.to + l.label}
+                          to={l.to}
+                          className="inline-flex items-center gap-1 rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
+                        >
+                          {l.label} <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </details>
               </Reveal>
             ))}
