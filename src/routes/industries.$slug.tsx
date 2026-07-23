@@ -77,7 +77,7 @@ export const Route = createFileRoute("/industries/$slug")({
                 "@context": "https://schema.org",
                 "@graph": [
                   {
-                    "@type": "Organisation",
+                    "@type": "Organization",
                     "@id": `${SITE_URL}#organisation`,
                     name: "Being Ecom",
                     url: SITE_URL,

@@ -41,7 +41,7 @@ const offersJsonLd = {
       "@type": "Service",
       name: `BeingEcom ${t.name} plan`,
       description: t.best,
-      provider: { "@type": "Organisation", name: "BeingEcom" },
+      provider: { "@type": "Organization", name: "BeingEcom" },
       areaServed: "GB",
       offers: {
         "@type": "Offer",
