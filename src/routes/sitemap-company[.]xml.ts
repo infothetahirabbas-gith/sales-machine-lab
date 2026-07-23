@@ -10,12 +10,12 @@ export const Route = createFileRoute("/sitemap-company.xml")({
   server: {
     handlers: {
       GET: async () => {
-        // Exclude /company/founder: it renders the same component as /founder
-        // and its canonical points to /founder, so listing it here duplicates
-        // the canonical target in the sitemap.
+        // Exclude routes that 301 to canonical targets (founder, why-us, methodology)
+        // so the sitemap only lists indexable, self-canonical URLs.
+        const REDIRECTED = new Set(["/company/founder", "/company/why-us", "/company/methodology"]);
         const paths: string[] = [
           "/company",
-          ...COMPANY_LINKS.filter((c) => !c.external && c.to !== "/company/founder").map((c) => c.to),
+          ...COMPANY_LINKS.filter((c) => !c.external && !REDIRECTED.has(c.to)).map((c) => c.to),
           ...extras,
         ];
         const LASTMOD = "2026-07-22";
