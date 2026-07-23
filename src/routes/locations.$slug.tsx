@@ -962,8 +962,52 @@ function LocationPage() {
         </div>
       </Section>
 
+      {/* 21b. RELATED CASE STUDIES - push equity from location pages to specific case-study URLs */}
+      <Section eyebrow="Proof" title={`Case studies from ${loc.region} & UK ecommerce brands`} intro={`Recent Shopify and WooCommerce wins we've delivered for UK brands - the kind of work ${city} founders ask us about most.`}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {(() => {
+            const seed = loc.slug.length;
+            const pool = [
+              { id: "a1",  brand: "UK Shopify apparel brand",     category: "Ads", metric: "11.9×", label: "Revenue",     blurb: "PDP rebuild + Meta funnel took a UK apparel store from £18k to £214k/mo." },
+              { id: "s1",  brand: "UK skincare brand",            category: "SEO", metric: "84K",   label: "Visits/mo",   blurb: "Zero to 84K monthly organic visits in 9 months with a full content engine." },
+              { id: "a5",  brand: "UK pet supplies brand",        category: "Ads", metric: "£94k",  label: "PMax MRR",    blurb: "Google PMax scaled to £94k/mo once the product feed was rebuilt." },
+              { id: "a7",  brand: "UK supplements brand",         category: "Ads", metric: "£180k", label: "MRR",         blurb: "£25k → £180k/mo by fixing the offer and shipping 120 creatives in 60 days." },
+              { id: "a10", brand: "UK coffee subscription",       category: "Ads", metric: "3.9×",  label: "LTV",         blurb: "Subscription-only ad funnel tripled LTV and dropped CAC 22%." },
+              { id: "a11", brand: "UK furniture brand",           category: "Ads", metric: "£310k", label: "MRR",         blurb: "High-AOV furniture funnel with 21-day attribution hit £310k/mo." },
+              { id: "a4",  brand: "UK beauty DTC brand",          category: "Ads", metric: "4.1×",  label: "TikTok ROAS", blurb: "Creator-led TikTok Spark Ads at 4.1× ROAS in 60 days." },
+              { id: "a6",  brand: "UK WooCommerce home brand",    category: "Ads", metric: "£38k",  label: "Recovered",   blurb: "Rebuilt Meta retargeting recovered £38k in 30 days on a WooCommerce store." },
+            ];
+            const picks = [pool[seed % pool.length], pool[(seed + 3) % pool.length], pool[(seed + 5) % pool.length]];
+            return picks.map((c) => (
+              <Link
+                key={c.id}
+                to="/case-studies/$id"
+                params={{ id: c.id }}
+                className="card-surface card-hover p-5 flex flex-col group"
+                title={`${c.brand} - ${c.category} case study`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{c.category}</span>
+                  <div className="text-right">
+                    <div className="text-xl font-bold text-ink tabular-nums">{c.metric}</div>
+                    <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{c.label}</div>
+                  </div>
+                </div>
+                <div className="mt-3 text-sm font-semibold text-ink">{c.brand}</div>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed flex-1">{c.blurb}</p>
+                <span className="mt-4 text-sm font-semibold text-primary group-hover:underline">Read the case study →</span>
+              </Link>
+            ));
+          })()}
+        </div>
+        <div className="mt-6 text-center">
+          <Link to="/case-studies" className="btn btn-outline">See all UK ecommerce case studies →</Link>
+        </div>
+      </Section>
+
       {/* 21. FAQ (People Also Ask) */}
       <FaqSection faqs={faqs} title={`People also ask about ecommerce in`} highlight={city} intro={`Answers to the questions ${city} and ${loc.region} founders ask most. Structured for Google, AI Overviews and ChatGPT search.`} />
+
 
       {/* 22. CONTACT */}
       <Section eyebrow="Talk to us" title={`Book your free ${city} strategy call`} alt>
