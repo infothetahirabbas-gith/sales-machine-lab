@@ -4,6 +4,8 @@ import PageLayout from "../components/site/PageLayout";
 import { Section, CTA } from "../components/site/Section";
 import FaqSection from "../components/site/FaqSection";
 import ClusterNav, { buildTitlesMap } from "../components/site/ClusterNav";
+import { findClusterForSlug } from "../lib/blog-clusters";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -522,7 +524,10 @@ export const Route = createFileRoute("/blog/$slug")({
               description: post.description,
               image: post.ogImage,
               datePublished: post.datePublished,
+              dateModified: post.dateModified,
               about: post.about,
+              keywords: post.primaryKeyword,
+              articleSection: post.category,
             }),
           ),
         },
@@ -543,6 +548,7 @@ export const Route = createFileRoute("/blog/$slug")({
       ],
     };
   },
+
   notFoundComponent: () => (
     <PageLayout>
       <Section title="Article not found">
@@ -598,8 +604,10 @@ function BlogPostPage() {
           </div>
         </section>
 
+        <RelatedArticles slug={post.slug} />
 
         <FaqSection faqs={post.faqs} title="Frequently asked questions" />
+
       </article>
       <CTA
         heading="Not sure which platform fits your brand?"
@@ -609,7 +617,60 @@ function BlogPostPage() {
   );
 }
 
+
+function RelatedArticles({ slug }: { slug: string }) {
+  const match = findClusterForSlug(slug);
+  if (!match) return null;
+  const { cluster, role } = match;
+  const candidateSlugs =
+    role === "pillar"
+      ? cluster.supportingSlugs
+      : [cluster.pillarSlug, ...cluster.supportingSlugs.filter((s) => s !== slug)];
+  const related = candidateSlugs
+    .map((s) => POSTS[s])
+    .filter((p): p is Post => Boolean(p))
+    .slice(0, 4);
+  if (related.length === 0) return null;
+  return (
+    <section aria-labelledby="related-articles-heading" className="border-t border-border bg-muted/30 py-16 lg:py-20">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <div className="mb-8 flex flex-col gap-2">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+            More from {cluster.name}
+          </span>
+          <h2 id="related-articles-heading" className="text-2xl font-bold text-ink lg:text-3xl">
+            Related articles
+          </h2>
+        </div>
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {related.map((p) => (
+            <li key={p.slug}>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
+                className="group block h-full rounded-2xl border border-border bg-background p-6 transition-colors hover:border-primary"
+              >
+                <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  {p.category} · {p.readMins} min read
+                </div>
+                <h3 className="mt-3 text-lg font-bold text-ink group-hover:text-primary">
+                  {p.title}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.description}</p>
+                <span className="mt-4 inline-block text-sm font-semibold text-primary">
+                  Read article →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function formatDate(iso: string) {
+
   return new Date(iso).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
