@@ -2,6 +2,12 @@
 // ClusterNav renders "Part of the {name} guide" boxes to interlink them.
 export type ClusterId = "ecom-seo" | "paid-media" | "cro" | "email-retention";
 
+export interface ClusterResource {
+  to: string;
+  label: string;
+  kind: "tool" | "guide" | "glossary" | "research" | "clients";
+}
+
 export interface Cluster {
   id: ClusterId;
   name: string;
@@ -10,6 +16,7 @@ export interface Cluster {
   supportingSlugs: string[];
   relatedServicePath: string;
   relatedServiceLabel: string;
+  resources: ClusterResource[];
 }
 
 export const CLUSTERS: Record<ClusterId, Cluster> = {
@@ -27,6 +34,12 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     ],
     relatedServicePath: "/services/seo",
     relatedServiceLabel: "Ecommerce SEO service",
+    resources: [
+      { to: "/glossary", label: "Ecommerce SEO glossary", kind: "glossary" },
+      { to: "/research", label: "UK ecommerce research & benchmarks", kind: "research" },
+      { to: "/clients", label: "UK Shopify brands we've grown", kind: "clients" },
+      { to: "/methodology", label: "The BeingEcom Growth System", kind: "guide" },
+    ],
   },
   "paid-media": {
     id: "paid-media",
@@ -42,6 +55,13 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     ],
     relatedServicePath: "/services/paid-ads",
     relatedServiceLabel: "Paid media service",
+    resources: [
+      { to: "/tools/roas-calculator", label: "ROAS calculator", kind: "tool" },
+      { to: "/tools/cac-calculator", label: "CAC calculator", kind: "tool" },
+      { to: "/tools/break-even-calculator", label: "Break-even ROAS calculator", kind: "tool" },
+      { to: "/glossary", label: "Paid media glossary (ROAS, MER, CAC)", kind: "glossary" },
+      { to: "/clients", label: "UK DTC brands we run paid media for", kind: "clients" },
+    ],
   },
   cro: {
     id: "cro",
@@ -57,6 +77,13 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     ],
     relatedServicePath: "/services/cro",
     relatedServiceLabel: "CRO service",
+    resources: [
+      { to: "/tools/profit-margin-calculator", label: "Profit margin calculator", kind: "tool" },
+      { to: "/tools/break-even-calculator", label: "Break-even calculator", kind: "tool" },
+      { to: "/research", label: "UK ecommerce CRO benchmarks", kind: "research" },
+      { to: "/glossary", label: "CRO glossary", kind: "glossary" },
+      { to: "/clients", label: "Brands we've lifted conversion for", kind: "clients" },
+    ],
   },
   "email-retention": {
     id: "email-retention",
@@ -72,8 +99,14 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     ],
     relatedServicePath: "/services/email-sms",
     relatedServiceLabel: "Email & SMS service",
+    resources: [
+      { to: "/tools/ltv-calculator", label: "LTV calculator", kind: "tool" },
+      { to: "/tools/cac-calculator", label: "CAC calculator", kind: "tool" },
+      { to: "/glossary", label: "Retention & lifecycle glossary", kind: "glossary" },
+      { to: "/research", label: "UK retention benchmarks", kind: "research" },
+      { to: "/clients", label: "Retention clients we work with", kind: "clients" },
+    ],
   },
-
 };
 
 // Reverse lookup: which cluster does this slug belong to, and what role?
