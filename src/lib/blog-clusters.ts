@@ -33,7 +33,13 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     name: "UK DTC Paid Media",
     intro: "Meta, Google and TikTok playbook for UK direct-to-consumer brands.",
     pillarSlug: "uk-dtc-paid-media-playbook",
-    supportingSlugs: [],
+    supportingSlugs: [
+      "meta-ads-creative-testing-uk-dtc",
+      "google-shopping-feed-optimisation-shopify-uk",
+      "tiktok-ads-uk-beauty-fashion-brands",
+      "ios17-attribution-uk-ecommerce",
+      "mer-vs-roas-uk-dtc-founders",
+    ],
     relatedServicePath: "/services/paid-ads",
     relatedServiceLabel: "Paid media service",
   },
@@ -42,7 +48,13 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     name: "Ecommerce CRO",
     intro: "Conversion rate optimisation playbook for UK Shopify stores.",
     pillarSlug: "uk-ecommerce-cro-playbook-shopify",
-    supportingSlugs: [],
+    supportingSlugs: [
+      "pdp-cro-14-tests-that-move-revenue",
+      "cart-checkout-cro-shopify-uk",
+      "mobile-cro-fixing-mobile-dropoff",
+      "site-search-cro-uk-ecommerce",
+      "trust-signals-that-convert-uk-shoppers",
+    ],
     relatedServicePath: "/services/cro",
     relatedServiceLabel: "CRO service",
   },
@@ -51,10 +63,17 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
     name: "Ecommerce Email & Retention",
     intro: "Klaviyo playbook for UK DTC brands.",
     pillarSlug: "uk-ecommerce-email-retention-klaviyo",
-    supportingSlugs: [],
+    supportingSlugs: [
+      "klaviyo-welcome-flow-uk-dtc-template",
+      "abandoned-cart-flows-that-recover-15-percent",
+      "post-purchase-flows-for-repeat-revenue",
+      "winback-flows-for-lapsed-uk-customers",
+      "sms-email-uk-compliance-safe-combo",
+    ],
     relatedServicePath: "/services/email-sms",
     relatedServiceLabel: "Email & SMS service",
   },
+
 };
 
 // Reverse lookup: which cluster does this slug belong to, and what role?
