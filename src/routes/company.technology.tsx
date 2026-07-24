@@ -55,7 +55,7 @@ const itemListLd = {
 };
 
 export const Route = createFileRoute("/company/technology")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, jsonLd: [itemListLd] }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, jsonLd: [itemListLd], noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}
