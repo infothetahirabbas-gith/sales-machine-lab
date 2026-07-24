@@ -6,7 +6,7 @@ const TITLE = "Resources | Ecommerce Growth Guides UK | BeingEcom";
 const DESC = "Free ecommerce growth resources UK Shopify, WooCommerce, SEO, paid ads, CRO and Klaviyo email playbooks from senior operators at BeingEcom.";
 
 export const Route = createFileRoute("/company/resources")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}

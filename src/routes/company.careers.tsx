@@ -21,7 +21,7 @@ const jobPostingLd = OPEN_ROLES.map((r) => ({
 }));
 
 export const Route = createFileRoute("/company/careers")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, jsonLd: jobPostingLd }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, jsonLd: jobPostingLd, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}

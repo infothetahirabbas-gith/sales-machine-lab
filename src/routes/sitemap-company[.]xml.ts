@@ -10,12 +10,22 @@ export const Route = createFileRoute("/sitemap-company.xml")({
   server: {
     handlers: {
       GET: async () => {
-        // Exclude routes that 301 to canonical targets (founder, why-us, methodology)
-        // so the sitemap only lists indexable, self-canonical URLs.
+        // Exclude routes that 301 to canonical targets (founder, why-us, methodology,
+        // success-stories, industries) plus thin/noindexed company pages so the sitemap
+        // only lists indexable, self-canonical URLs.
         const REDIRECTED = new Set(["/company/founder", "/company/why-us", "/company/methodology", "/company/success-stories", "/company/industries"]);
+        const NOINDEXED = new Set([
+          "/company/careers",
+          "/company/press",
+          "/company/certifications",
+          "/company/community",
+          "/company/resources",
+          "/company/technology",
+          "/company/legal",
+        ]);
         const paths: string[] = [
           "/company",
-          ...COMPANY_LINKS.filter((c) => !c.external && !REDIRECTED.has(c.to)).map((c) => c.to),
+          ...COMPANY_LINKS.filter((c) => !c.external && !REDIRECTED.has(c.to) && !NOINDEXED.has(c.to)).map((c) => c.to),
           ...extras,
         ];
         const LASTMOD = "2026-07-22";
