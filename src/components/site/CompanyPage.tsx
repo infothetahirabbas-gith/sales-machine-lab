@@ -400,6 +400,7 @@ export function companyHead(opts: {
   description: string;
   ogType?: "website" | "article" | "profile";
   jsonLd?: object[];
+  noindex?: boolean;
 }) {
   const link = COMPANY_LINKS.find((c) => c.slug === opts.slug);
   const path = link?.to ?? `/company/${opts.slug}`;
@@ -408,6 +409,7 @@ export function companyHead(opts: {
     meta: [
       { title: opts.title },
       { name: "description", content: opts.description },
+      ...(opts.noindex ? [{ name: "robots", content: "noindex, follow" }] : []),
       { property: "og:title", content: opts.title },
       { property: "og:description", content: opts.description },
       { property: "og:type", content: opts.ogType ?? "website" },
