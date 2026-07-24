@@ -6,7 +6,7 @@ const TITLE = "Community | Ecommerce Founders UK | BeingEcom";
 const DESC = "Join the BeingEcom Ecommerce Founders Community UK a private space for Shopify and WooCommerce operators scaling profitably.";
 
 export const Route = createFileRoute("/company/community")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}

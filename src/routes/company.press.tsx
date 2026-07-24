@@ -6,7 +6,7 @@ const TITLE = "Press | Ecommerce Agency UK Coverage | BeingEcom";
 const DESC = "BeingEcom press coverage, features and thought leadership an Ecommerce Marketing Agency UK cited across ecommerce, Shopify and DTC media.";
 
 export const Route = createFileRoute("/company/press")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}

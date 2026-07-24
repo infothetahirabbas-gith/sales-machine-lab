@@ -6,7 +6,7 @@ const TITLE = "Certifications | Certified Ecommerce Agency UK | BeingEcom";
 const DESC = "Certified Ecommerce Agency UK Meta Business Partner, Google Partner, Klaviyo Master, TikTok Partner and GA4-certified operators working on your account.";
 
 export const Route = createFileRoute("/company/certifications")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}

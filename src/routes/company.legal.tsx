@@ -15,7 +15,7 @@ const POLICIES = [
 ];
 
 export const Route = createFileRoute("/company/legal")({
-  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC }),
+  head: () => companyHead({ slug: SLUG, title: TITLE, description: DESC, noindex: true }),
   component: () => (
     <CompanyPage
       slug={SLUG}
