@@ -83,6 +83,7 @@ const entries: SitemapEntry[] = [
   { path: "/tools/ltv-calculator", changefreq: "monthly", priority: "0.8" },
   { path: "/tools/profit-margin-calculator", changefreq: "monthly", priority: "0.8" },
   { path: "/tools/break-even-calculator", changefreq: "monthly", priority: "0.8" },
+  { path: "/tools/shopify-seo-checklist", changefreq: "monthly", priority: "0.9" },
   { path: "/author/tahir-abbas", changefreq: "monthly", priority: "0.8" },
   { path: "/about/tahir-abbas", changefreq: "monthly", priority: "0.8" },
   { path: "/methodology", changefreq: "monthly", priority: "0.9" },
