@@ -50,7 +50,7 @@ function About() {
       <Section
         eyebrow="Who we are"
         title="About Being Ecom"
-        intro="We are a results-driven ecommerce growth agency built exclusively for Shopify and WooCommerce brands."
+        intro="A UK ecommerce growth team built exclusively around Shopify, Shopify Plus and WooCommerce - founded by operators who have run and scaled DTC stores themselves, not generalists renting out playbooks."
       >
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <Reveal>

@@ -468,7 +468,7 @@ export const LOCATION_CONTENT: Record<string, LocationContent> = {
     caseStudy: { category: "Edinburgh Whisky Gifting", headline: "£41k → £267k monthly across UK, US and EU", fromRev: "£41k", toRev: "£267k", growthPct: 551, roas: 4.4, emailPct: 49, months: 9 },
     testimonials: [
       { name: "Rory D.", role: "Founder, Edinburgh luxury gifting", quote: "They protected our brand voice while doubling paid revenue. That's rare craft." },
-      { name: "Mairi F.", role: "CEO, Old Town skincare", quote: "International expansion into the US was seamless - Meta + Klaviyo done right." },
+      { name: "Mairi F.", role: "CEO, Old Town skincare", quote: "US launch went live in six weeks - Meta creatives shot for a US audience, Klaviyo split by market, and someone actually watching the CAC each morning." },
       { name: "Alex M.", role: "Marketing Director, Edinburgh DTC", quote: "Our reporting finally makes sense to the board. Contribution margin, not vanity ROAS." },
     ],
     localKeywords: ["ecommerce agency Edinburgh", "Shopify Edinburgh", "premium DTC Edinburgh", "PPC Edinburgh", "SEO Edinburgh", "Scotland ecommerce"],
