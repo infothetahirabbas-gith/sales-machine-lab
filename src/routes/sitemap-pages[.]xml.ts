@@ -94,6 +94,18 @@ const entries: SitemapEntry[] = [
   { path: "/clients", changefreq: "monthly", priority: "0.7" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms", changefreq: "yearly", priority: "0.3" },
+  { path: "/academy", changefreq: "weekly", priority: "0.9" },
+  { path: "/ecommerce-seo-pricing", changefreq: "monthly", priority: "0.9" },
+  { path: "/shopify-seo-packages", changefreq: "monthly", priority: "0.9" },
+  { path: "/ecommerce-seo-consultant", changefreq: "monthly", priority: "0.8" },
+  { path: "/ecommerce-growth-agency-uk", changefreq: "monthly", priority: "0.9" },
+  { path: "/ecommerce-marketing-agency-uk", changefreq: "monthly", priority: "0.9" },
+  { path: "/ecommerce-revenue-optimisation", changefreq: "monthly", priority: "0.9" },
+  { path: "/enterprise-ecommerce-seo", changefreq: "monthly", priority: "0.9" },
+  { path: "/ecommerce-migration-seo", changefreq: "monthly", priority: "0.9" },
+  { path: "/ecommerce-analytics", changefreq: "monthly", priority: "0.8" },
+  { path: "/ai-ecommerce-growth", changefreq: "monthly", priority: "0.9" },
+  { path: "/partners", changefreq: "monthly", priority: "0.8" },
   { path: "/cookies", changefreq: "yearly", priority: "0.3" },
 ];
 
