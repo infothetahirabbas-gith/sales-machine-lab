@@ -15,7 +15,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you help with multi-location review management?", a: "Yes - review request flows via Klaviyo and SMS, per-store response templates, negative review escalation and rating recovery playbooks." },
   { q: "Do you build citations manually?", a: "Yes - manual placements on Yell, Thomson Local, Scoot, FreeIndex, Yelp UK and industry-specific UK directories. NAP consistency is auto-monitored monthly." },
   { q: "What is LocalBusiness schema?", a: "JSON-LD structured data that tells Google your store's address, hours, geo coordinates, price range and aggregate rating - critical for map-pack ranking." },
-  { q: "How does local SEO integrate with ecommerce SEO?", a: "As an Ecommerce Growth Agency we treat local as a channel inside the broader Ecommerce SEO Agency UK strategy - city pages internally link to money collections, and organic authority flows through." },
+  { q: "How does local SEO integrate with ecommerce SEO?", a: "As an Ecommerce Growth Agency we treat local as a channel inside the broader ecommerce SEO strategy - city pages internally link to money collections, and organic authority flows through." },
   { q: "Do you handle click-and-collect stores?", a: "Yes - we optimise GBP inventory, click-and-collect messaging, store-locator schema and city landing pages that push footfall + orders." },
   { q: "What cities have you scaled brands in?", a: "London, Manchester, Birmingham, Leeds, Glasgow, Edinburgh, Bristol, Liverpool, Newcastle, Sheffield, Cardiff, Belfast and 30+ other UK cities." },
   { q: "Do you offer GBP posts and photo updates?", a: "Yes - weekly Google Posts, monthly photo uploads, Q&A management and product/service catalogue updates. Freshness signals move the map pack." },
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/local")({
         "Inconsistent NAP across Yell, TrustPilot and 40 citation sites.",
       ],
       whatIsTitle: "Local SEO is a distinct discipline.",
-      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema - not backlinks and blog posts. As an Ecommerce Growth Agency we run local as its own workstream and wire it into the broader Ecommerce SEO Agency UK strategy, so retailers win both nationally and locally.",
+      whatIsBody: "Ranking in the map pack and 'near me' results is a different game to organic blue links. It's GBP signals, proximity, reviews, citations and localBusiness schema - not backlinks and blog posts. As an Ecommerce Growth Agency we run local as its own workstream and wire it into the broader ecommerce SEO strategy, so retailers win both nationally and locally.",
       systemTitle: "Our local SEO system.",
       systemSteps: [
         { title: "GBP audit & optimisation", body: "Categories, services, products, posts, photos, Q&A." },

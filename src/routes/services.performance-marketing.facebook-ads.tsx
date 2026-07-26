@@ -17,7 +17,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How do you deal with iOS 14+ tracking loss?", a: "Server-side CAPI + Enhanced Match + Aggregated Event Measurement + post-purchase surveys to triangulate signal. We won't run an account without server-side." },
   { q: "Do you run Instagram Ads too?", a: "Yes - Instagram sits inside Meta Ads Manager. Reels and Stories placements are managed by the same team." },
   { q: "How much of my ad spend should go to retargeting?", a: "10-20% at healthy prospecting scale. If retargeting is more than 30%, you're not creating enough net-new demand." },
-  { q: "What targeting works best in 2026?", a: "Broad ASC+ with strong creative signals beats interest stacks 8/10 times. The Ecommerce SEO Agency UK team also helps identify branded intent to layer in." },
+  { q: "What targeting works best in 2026?", a: "Broad ASC+ with strong creative signals beats interest stacks 8/10 times. Our SEO team also helps identify branded intent to layer in." },
   { q: "What tools do you use?", a: "Meta Ads Manager, Motion, Foreplay, Triple Whale, Northbeam, GA4 and server-side GTM." },
   { q: "How is BeingEcom different from other Facebook Ads agencies?", a: "We're a full-stack Ecommerce Marketing Agency UK - not a media-buying box. Our creative, CRO and SEO teams share one P&L per client." },
 ];
