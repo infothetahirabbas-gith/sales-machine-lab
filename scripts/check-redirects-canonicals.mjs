@@ -19,7 +19,6 @@ const PAGES = [
   '/',
   '/services',
   '/services/seo',
-  '/services/paid-ads',
   '/services/performance-marketing',
   '/services/store-development',
   '/services/cro',
@@ -40,6 +39,7 @@ const REDIRECTS = [
   { from: 'https://www.beingecom.com/', expectHost: 'beingecom.com', external: true },
   { from: 'http://beingecom.com/', expectHost: 'beingecom.com', external: true },
   { from: `${ORIGIN}/services/`, expectPath: '/services' }, // trailing-slash strip
+  { from: `${ORIGIN}/services/paid-ads`, expectPath: '/services/performance-marketing' },
 ];
 
 const STRICT_REDIRECTS = process.env.STRICT_REDIRECTS === '1';

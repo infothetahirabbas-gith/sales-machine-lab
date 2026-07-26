@@ -810,7 +810,7 @@ function Home() {
                     className="w-[320px] md:w-[360px] shrink-0 list-none"
                     aria-hidden={isClone ? "true" : undefined}
                     {...(isClone ? { "data-nosnippet": "true" } : {})}
-                    {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                    {...(isClone ? { inert: true } : {})}
                   >
                     <figure className="card-surface card-hover p-6 h-full mx-2">
                       <div className="text-primary text-3xl font-display leading-none" aria-hidden="true">“</div>

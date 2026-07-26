@@ -865,7 +865,7 @@ function LocationPage() {
                       key={`${t.name}-${i}`}
                       aria-hidden={isClone ? "true" : undefined}
                       {...(isClone ? { "data-nosnippet": "true" } : {})}
-                      {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                      {...(isClone ? { inert: true } : {})}
                     >
                       <TestimonialCard t={t} i={i} />
                     </div>

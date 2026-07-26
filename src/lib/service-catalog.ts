@@ -18,7 +18,6 @@ export const SERVICE_CATALOG: ServiceCatalogEntry[] = [
   { slug: "seo-international", title: "International SEO", body: "Hreflang, localisation & multi-region growth.", to: "/services/seo/international", group: "seo" },
   { slug: "seo-aeo", title: "AEO / AI Search", body: "Get cited by ChatGPT, Perplexity & Google AI.", to: "/services/seo/aeo", group: "seo" },
 
-  { slug: "paid-ads", title: "Paid Ads", body: "Meta, Google & TikTok that scale profitably.", to: "/services/paid-ads", group: "ads" },
   { slug: "performance-marketing", title: "Performance Marketing", body: "Full-funnel media that hits blended ROAS goals.", to: "/services/performance-marketing", group: "ads" },
   { slug: "pm-google", title: "Google Ads", body: "Search, Shopping & PMax built for ecommerce.", to: "/services/performance-marketing/google-ads", group: "ads" },
   { slug: "pm-facebook", title: "Facebook Ads", body: "Meta creative + testing engine for scale.", to: "/services/performance-marketing/facebook-ads", group: "ads" },

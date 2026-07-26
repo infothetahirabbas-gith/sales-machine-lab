@@ -13,7 +13,6 @@ const entries: SitemapEntry[] = [
   { path: "/services", changefreq: "monthly", priority: "0.9" },
   { path: "/services/store-development", changefreq: "monthly", priority: "0.8" },
   { path: "/services/cro", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/paid-ads", changefreq: "monthly", priority: "0.8" },
   { path: "/services/performance-marketing", changefreq: "monthly", priority: "0.85" },
   { path: "/services/performance-marketing/facebook-ads", changefreq: "monthly", priority: "0.8" },
   { path: "/services/performance-marketing/google-ads", changefreq: "monthly", priority: "0.8" },

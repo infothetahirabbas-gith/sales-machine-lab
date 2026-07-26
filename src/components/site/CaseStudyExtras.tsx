@@ -96,7 +96,7 @@ export function FeaturedStoresSection() {
                     className="w-[320px] md:w-[380px] shrink-0"
                     aria-hidden={isClone ? "true" : undefined}
                     {...(isClone ? { "data-nosnippet": "true" } : {})}
-                    {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                    {...(isClone ? { inert: true } : {})}
                   >
                     <StoreCard s={s} />
                   </div>

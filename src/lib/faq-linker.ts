@@ -83,20 +83,20 @@ const CROSS_SERVICE: Record<string, FAQLinkRule[]> = {
     { label: "CRO service", to: "/services/cro", match: ["conversion", "cro", "landing page", "checkout"] },
   ],
   creative: [
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["ad", "paid", "meta", "tiktok", "google"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["ad", "paid", "meta", "tiktok", "google"] },
     { label: "CRO service", to: "/services/cro", match: ["landing page", "conversion"] },
     { label: "Email & SMS", to: "/services/email-sms", match: ["email", "klaviyo", "sms"] },
   ],
   cro: [
     { label: "Analytics & tracking", to: "/services/analytics", match: ["tracking", "ga4", "attribution", "data"] },
     { label: "Funnel design", to: "/services/funnel", match: ["funnel", "journey", "flow"] },
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["ad", "paid", "traffic"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["ad", "paid", "traffic"] },
     { label: "Store development", to: "/services/store-development", match: ["shopify", "woocommerce", "theme", "build"] },
   ],
   funnel: [
     { label: "CRO service", to: "/services/cro", match: ["conversion", "test", "cro"] },
     { label: "Email & SMS", to: "/services/email-sms", match: ["email", "flow", "sms", "klaviyo"] },
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["ad", "traffic", "paid"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["ad", "traffic", "paid"] },
     { label: "Creative Studio", to: "/services/creative", match: ["creative", "video", "ugc"] },
   ],
   "email-sms": [
@@ -108,11 +108,11 @@ const CROSS_SERVICE: Record<string, FAQLinkRule[]> = {
   scaling: [
     { label: "AI & automation", to: "/services/ai-automation", match: ["automation", "ai", "workflow", "ops"] },
     { label: "Analytics & tracking", to: "/services/analytics", match: ["data", "reporting", "dashboard"] },
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["ad", "paid", "spend"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["ad", "paid", "spend"] },
     { label: "Ecommerce SEO", to: "/services/seo", match: ["seo", "organic"] },
   ],
   analytics: [
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["ad", "paid", "meta", "google", "roas"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["ad", "paid", "meta", "google", "roas"] },
     { label: "CRO service", to: "/services/cro", match: ["conversion", "test"] },
     { label: "AI & automation", to: "/services/ai-automation", match: ["automation", "workflow", "ai"] },
   ],
@@ -128,7 +128,7 @@ const CROSS_SERVICE: Record<string, FAQLinkRule[]> = {
     { label: "Local SEO", to: "/services/seo/local", match: ["local", "map pack", "google business"] },
     { label: "International SEO", to: "/services/seo/international", match: ["international", "hreflang", "multi-region"] },
     { label: "AEO / AI search", to: "/services/seo/aeo", match: ["aeo", "chatgpt", "perplexity", "ai search", "llm"] },
-    { label: "Paid Ads service", to: "/services/paid-ads", match: ["paid", "ad", "ppc"] },
+    { label: "Performance marketing service", to: "/services/performance-marketing", match: ["paid", "ad", "ppc"] },
   ],
   "store-development": [
     { label: "Shopify builds", to: "/services/store-development/shopify", match: ["shopify"] },

@@ -146,7 +146,7 @@ export const roasCalc: CalcConfig = {
       a: "Meta reports view-through and click-through conversions across a 7-day window and often credits the same order as multiple platforms. Cross-check with Shopify order revenue in the same date range, or use GA4 with a data-driven attribution model, before making budget decisions.",
     },
   ],
-  relatedService: { title: "Paid Ads & Performance Marketing", to: "/services/paid-ads" },
+  relatedService: { title: "Paid Ads & Performance Marketing", to: "/services/performance-marketing" },
 };
 
 // ============================================================

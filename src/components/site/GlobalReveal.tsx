@@ -26,6 +26,7 @@ export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let hydrationDelay: number | undefined;
 
     // Safety net: guarantee everything becomes visible no matter what.
     const failSafe = window.setTimeout(() => {
@@ -89,11 +90,20 @@ export function GlobalReveal() {
       });
     };
 
-    // Seed FIRST (marks above-the-fold nodes as data-inview="1"), THEN
-    // enable the CSS that hides un-revealed nodes. This prevents the
-    // "heading shows → disappears → animates back" flash.
-    seed(document);
-    document.documentElement.classList.add("js-reveal");
+    // Seed after React has had a full post-hydration paint. TanStack Start can
+    // hydrate nested route chunks after the root effect fires; mutating SSR
+    // attributes too early causes production hydration mismatch warnings.
+    const start = () => {
+      seed(document);
+      document.documentElement.classList.add("js-reveal");
+      revealPassedNodes();
+    };
+
+    if ("requestIdleCallback" in window) {
+      hydrationDelay = window.requestIdleCallback(start, { timeout: 1200 });
+    } else {
+      hydrationDelay = window.setTimeout(start, 350);
+    }
 
     const mo = new MutationObserver((mutations) => {
       for (const m of mutations) {
@@ -110,6 +120,13 @@ export function GlobalReveal() {
 
     return () => {
       window.clearTimeout(failSafe);
+      if (hydrationDelay !== undefined) {
+        if ("cancelIdleCallback" in window) {
+          window.cancelIdleCallback(hydrationDelay);
+        } else {
+          window.clearTimeout(hydrationDelay);
+        }
+      }
       window.removeEventListener("scroll", revealPassedNodes);
       window.removeEventListener("resize", revealPassedNodes);
       io.disconnect();
