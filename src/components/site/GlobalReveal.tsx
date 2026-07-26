@@ -102,7 +102,7 @@ export function GlobalReveal() {
     if ("requestIdleCallback" in window) {
       hydrationDelay = window.requestIdleCallback(start, { timeout: 1200 });
     } else {
-      hydrationDelay = window.setTimeout(start, 350);
+      hydrationDelay = globalThis.setTimeout(start, 350);
     }
 
     const mo = new MutationObserver((mutations) => {
@@ -124,7 +124,7 @@ export function GlobalReveal() {
         if ("cancelIdleCallback" in window) {
           window.cancelIdleCallback(hydrationDelay);
         } else {
-          window.clearTimeout(hydrationDelay);
+          globalThis.clearTimeout(hydrationDelay);
         }
       }
       window.removeEventListener("scroll", revealPassedNodes);
