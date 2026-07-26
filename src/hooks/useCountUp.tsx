@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 /**
- * Parses values like "+192%", "1.9× → 3.6×", "$48M+", "4.8/5", "120+", "$48,200"
+ * Parses values like "+192%", "1.9× → 3.6×", "£48M+", "4.8/5", "120+", "£48,200"
  * into { prefix, num, suffix, decimals } for animated formatting.
  * For arrow values ("a → b") we animate to the final number and preserve the "a → " prefix.
  */
