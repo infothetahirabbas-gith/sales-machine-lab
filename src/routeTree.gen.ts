@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoWeHelpRouteImport } from './routes/who-we-help'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapServicesDotxmlRouteImport } from './routes/sitemap-services[.]xml'
@@ -111,6 +112,11 @@ import { Route as ApiPublicHooksGscMonitorRouteImport } from './routes/api/publi
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
+const WhoWeHelpRoute = WhoWeHelpRouteImport.update({
+  id: '/who-we-help',
+  path: '/who-we-help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -663,6 +669,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/who-we-help': typeof WhoWeHelpRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -761,6 +768,7 @@ export interface FileRoutesByTo {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/who-we-help': typeof WhoWeHelpRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -864,6 +872,7 @@ export interface FileRoutesById {
   '/sitemap-services.xml': typeof SitemapServicesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/who-we-help': typeof WhoWeHelpRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -969,6 +978,7 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/who-we-help'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1067,6 +1077,7 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/who-we-help'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1169,6 +1180,7 @@ export interface FileRouteTypes {
     | '/sitemap-services.xml'
     | '/sitemap.xml'
     | '/terms'
+    | '/who-we-help'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1273,6 +1285,7 @@ export interface RootRouteChildren {
   SitemapServicesDotxmlRoute: typeof SitemapServicesDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  WhoWeHelpRoute: typeof WhoWeHelpRoute
   AboutTahirAbbasRoute: typeof AboutTahirAbbasRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLocationPerformanceRoute: typeof AdminLocationPerformanceRoute
@@ -1322,6 +1335,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/who-we-help': {
+      id: '/who-we-help'
+      path: '/who-we-help'
+      fullPath: '/who-we-help'
+      preLoaderRoute: typeof WhoWeHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -2185,6 +2205,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapServicesDotxmlRoute: SitemapServicesDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  WhoWeHelpRoute: WhoWeHelpRoute,
   AboutTahirAbbasRoute: AboutTahirAbbasRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLocationPerformanceRoute: AdminLocationPerformanceRoute,
