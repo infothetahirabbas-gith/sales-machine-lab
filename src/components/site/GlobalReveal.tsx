@@ -1,34 +1,27 @@
 import { useEffect } from "react";
 
 /**
- * Global scroll reveal. Observes every section, heading, card, image,
- * button-pair, list item, etc. across the whole site and toggles
- * `data-inview="1"` when they enter the viewport. CSS in styles.css
- * only hides content once <html> has `.js-reveal`, so if this runtime
- * fails to load nothing is ever stuck invisible.
+ * Lightweight scroll reveal. Uses IntersectionObserver only - no scroll
+ * listeners, no getBoundingClientRect loops, no document-wide MutationObserver.
+ * The first section on every page is intentionally excluded so the hero /
+ * LCP element paints at its final position (no CLS, no render delay).
  */
 const SELECTOR = [
-  "section > *",
-  "section h1, section h2, section h3, section h4",
-  "section p",
-  "section img",
+  "section h2",
+  "section h3",
   "section .card-surface",
   "section .card-premium",
   "section [class*='rounded-2xl']",
   "section [class*='rounded-3xl']",
   "section .btn-pair",
-  "section ul > li",
-  "section ol > li",
-  "section .grid > *",
 ].join(",");
 
 export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
 
-    // Safety net: guarantee everything becomes visible no matter what.
+    // Safety net: nothing ever stays invisible.
     const failSafe = window.setTimeout(() => {
       document
         .querySelectorAll<HTMLElement>("[data-reveal]:not([data-inview='1'])")
@@ -36,95 +29,55 @@ export function GlobalReveal() {
     }, 2500);
 
     if (reduced) {
+      document
+        .querySelectorAll<HTMLElement>("[data-reveal]")
+        .forEach((n) => n.setAttribute("data-inview", "1"));
       return () => window.clearTimeout(failSafe);
     }
 
-    const observed = new WeakSet<Element>();
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            (e.target as HTMLElement).setAttribute("data-inview", "1");
-            io.unobserve(e.target);
+            const el = e.target as HTMLElement;
+            el.setAttribute("data-inview", "1");
+            // Drop will-change once animation is done so the compositor
+            // can free the layer (big memory + INP win on long pages).
+            window.setTimeout(() => {
+              el.style.willChange = "auto";
+            }, 900);
+            io.unobserve(el);
           }
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.05, rootMargin: "0px 0px -4% 0px" },
     );
 
-    const vh = () => window.innerHeight || document.documentElement.clientHeight;
-    const revealPassedNodes = () => {
-      document.querySelectorAll<HTMLElement>("[data-reveal]:not([data-inview='1'])").forEach((n) => {
-        const rect = n.getBoundingClientRect();
-        if (rect.top < vh() + 160) {
-          n.setAttribute("data-inview", "1");
-        }
-      });
-    };
+    // Exclude the first <section> on the page - that's the hero / LCP zone.
+    const firstSection = document.querySelector("main section");
+    const isInHero = (el: Element) =>
+      firstSection ? firstSection.contains(el) : false;
 
-    const seed = (root: ParentNode) => {
-      const nodes = root.querySelectorAll<HTMLElement>(SELECTOR);
-      let idx = 0;
-      nodes.forEach((n) => {
-        if (observed.has(n)) return;
-        if (n.hasAttribute("data-noreveal")) return;
-        observed.add(n);
-        // Mark already-visible elements as in-view BEFORE we flip on the
-        // hiding class, so headings above the fold never flash out.
-        const rect = n.getBoundingClientRect();
-        const inView = rect.top < vh() + 160;
-        if (inView) {
-          n.setAttribute("data-inview", "1");
-        }
-        if (!n.hasAttribute("data-reveal")) {
-          const dirs = ["up", "left", "right", "up", "zoom", "down"] as const;
-          n.setAttribute("data-reveal", dirs[idx % dirs.length]);
-        }
-        if (!n.style.getPropertyValue("--reveal-delay")) {
-          n.style.setProperty("--reveal-delay", `${(idx % 6) * 60}ms`);
-        }
-        idx++;
-        if (!inView) {
-          io.observe(n);
-        }
-      });
-    };
-
-    const mo = new MutationObserver((mutations) => {
-      for (const m of mutations) {
-        for (const node of m.addedNodes) {
-          if (node.nodeType === 1) seed(node as Element);
-        }
+    const nodes = document.querySelectorAll<HTMLElement>(SELECTOR);
+    let idx = 0;
+    nodes.forEach((n) => {
+      if (n.hasAttribute("data-noreveal")) return;
+      if (isInHero(n)) return; // hero paints instantly
+      if (!n.hasAttribute("data-reveal")) {
+        n.setAttribute("data-reveal", "up");
       }
-      revealPassedNodes();
+      if (!n.style.getPropertyValue("--reveal-delay")) {
+        n.style.setProperty("--reveal-delay", `${(idx % 4) * 50}ms`);
+      }
+      idx++;
+      io.observe(n);
     });
 
-    // Seed synchronously after hydration. Deferring caused a visible glitch:
-    // the page first rendered fully visible (no js-reveal class), then at the
-    // deferred tick .js-reveal was added and any below-fold section the user
-    // had already scrolled past would flash out and re-fade in, looking like
-    // the site was breaking. Attributes are added inside useEffect so there
-    // is no hydration mismatch.
-    const start = () => {
-      seed(document);
-      document.documentElement.classList.add("js-reveal");
-      revealPassedNodes();
-      mo.observe(document.body, { childList: true, subtree: true });
-      window.addEventListener("scroll", revealPassedNodes, { passive: true });
-      window.addEventListener("resize", revealPassedNodes);
-    };
-
-    start();
-
+    document.documentElement.classList.add("js-reveal");
 
     return () => {
       window.clearTimeout(failSafe);
-
-
-      window.removeEventListener("scroll", revealPassedNodes);
-      window.removeEventListener("resize", revealPassedNodes);
       io.disconnect();
-      mo.disconnect();
     };
   }, []);
 
