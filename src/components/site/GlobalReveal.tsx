@@ -26,7 +26,8 @@ export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let hydrationDelay: ReturnType<typeof globalThis.setTimeout> | number | undefined;
+    let idleHandle: number | undefined;
+    let timeoutHandle: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     // Safety net: guarantee everything becomes visible no matter what.
     const failSafe = window.setTimeout(() => {
@@ -100,9 +101,9 @@ export function GlobalReveal() {
     };
 
     if ("requestIdleCallback" in window) {
-      hydrationDelay = window.requestIdleCallback(start, { timeout: 1200 });
+      idleHandle = window.requestIdleCallback(start, { timeout: 1200 });
     } else {
-      hydrationDelay = globalThis.setTimeout(start, 350);
+      timeoutHandle = globalThis.setTimeout(start, 350);
     }
 
     const mo = new MutationObserver((mutations) => {
@@ -120,12 +121,11 @@ export function GlobalReveal() {
 
     return () => {
       window.clearTimeout(failSafe);
-      if (hydrationDelay !== undefined) {
-        if ("cancelIdleCallback" in window) {
-          window.cancelIdleCallback(hydrationDelay);
-        } else {
-          globalThis.clearTimeout(hydrationDelay);
-        }
+      if (idleHandle !== undefined && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleHandle);
+      }
+      if (timeoutHandle !== undefined) {
+        globalThis.clearTimeout(timeoutHandle);
       }
       window.removeEventListener("scroll", revealPassedNodes);
       window.removeEventListener("resize", revealPassedNodes);
