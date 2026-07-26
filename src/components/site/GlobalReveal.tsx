@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 /**
- * Lightweight scroll reveal. Uses IntersectionObserver only - no scroll
- * listeners, no getBoundingClientRect loops, no document-wide MutationObserver.
+ * Lightweight scroll reveal. Uses IntersectionObserver only. Re-scans on
+ * every route change so newly mounted sections get observed (SPA fix).
  * The first section on every page is intentionally excluded so the hero /
  * LCP element paints at its final position (no CLS, no render delay).
  */
@@ -17,69 +18,84 @@ const SELECTOR = [
 ].join(",");
 
 export function GlobalReveal() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Safety net: nothing ever stays invisible.
-    const failSafe = window.setTimeout(() => {
-      document
-        .querySelectorAll<HTMLElement>("[data-reveal]:not([data-inview='1'])")
-        .forEach((n) => n.setAttribute("data-inview", "1"));
-    }, 2500);
+    let io: IntersectionObserver | null = null;
+    let failSafe: number | null = null;
+    let rafId = 0;
 
-    if (reduced) {
-      document
-        .querySelectorAll<HTMLElement>("[data-reveal]")
-        .forEach((n) => n.setAttribute("data-inview", "1"));
-      return () => window.clearTimeout(failSafe);
-    }
+    const run = () => {
+      // Safety net: nothing ever stays invisible.
+      failSafe = window.setTimeout(() => {
+        document
+          .querySelectorAll<HTMLElement>("[data-reveal]:not([data-inview='1'])")
+          .forEach((n) => n.setAttribute("data-inview", "1"));
+      }, 2500);
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            const el = e.target as HTMLElement;
-            el.setAttribute("data-inview", "1");
-            // Drop will-change once animation is done so the compositor
-            // can free the layer (big memory + INP win on long pages).
-            window.setTimeout(() => {
-              el.style.willChange = "auto";
-            }, 900);
-            io.unobserve(el);
+      if (reduced) {
+        document
+          .querySelectorAll<HTMLElement>("[data-reveal]")
+          .forEach((n) => n.setAttribute("data-inview", "1"));
+        return;
+      }
+
+      io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              const el = e.target as HTMLElement;
+              el.setAttribute("data-inview", "1");
+              window.setTimeout(() => {
+                el.style.willChange = "auto";
+              }, 900);
+              io!.unobserve(el);
+            }
           }
+        },
+        { threshold: 0.05, rootMargin: "0px 0px -4% 0px" },
+      );
+
+      const firstSection = document.querySelector("main section");
+      const isInHero = (el: Element) =>
+        firstSection ? firstSection.contains(el) : false;
+
+      const nodes = document.querySelectorAll<HTMLElement>(SELECTOR);
+      let idx = 0;
+      nodes.forEach((n) => {
+        if (n.hasAttribute("data-noreveal")) return;
+        if (n.getAttribute("data-inview") === "1") return;
+        if (isInHero(n)) {
+          n.setAttribute("data-inview", "1");
+          return;
         }
-      },
-      { threshold: 0.05, rootMargin: "0px 0px -4% 0px" },
+        if (!n.hasAttribute("data-reveal")) {
+          n.setAttribute("data-reveal", "up");
+        }
+        if (!n.style.getPropertyValue("--reveal-delay")) {
+          n.style.setProperty("--reveal-delay", `${(idx % 4) * 50}ms`);
+        }
+        idx++;
+        io!.observe(n);
+      });
+
+      document.documentElement.classList.add("js-reveal");
+    };
+
+    // Wait a frame so the new route's DOM is committed before scanning.
+    rafId = window.requestAnimationFrame(() =>
+      window.requestAnimationFrame(run),
     );
 
-    // Exclude the first <section> on the page - that's the hero / LCP zone.
-    const firstSection = document.querySelector("main section");
-    const isInHero = (el: Element) =>
-      firstSection ? firstSection.contains(el) : false;
-
-    const nodes = document.querySelectorAll<HTMLElement>(SELECTOR);
-    let idx = 0;
-    nodes.forEach((n) => {
-      if (n.hasAttribute("data-noreveal")) return;
-      if (isInHero(n)) return; // hero paints instantly
-      if (!n.hasAttribute("data-reveal")) {
-        n.setAttribute("data-reveal", "up");
-      }
-      if (!n.style.getPropertyValue("--reveal-delay")) {
-        n.style.setProperty("--reveal-delay", `${(idx % 4) * 50}ms`);
-      }
-      idx++;
-      io.observe(n);
-    });
-
-    document.documentElement.classList.add("js-reveal");
-
     return () => {
-      window.clearTimeout(failSafe);
-      io.disconnect();
+      window.cancelAnimationFrame(rafId);
+      if (failSafe) window.clearTimeout(failSafe);
+      if (io) io.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
