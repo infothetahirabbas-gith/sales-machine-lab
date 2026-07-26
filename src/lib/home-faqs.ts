@@ -63,7 +63,7 @@ export const homeFaqs = [
   },
   {
     q: "What ad budget do I need to hire an ecommerce agency?",
-    a: "Most UK ecommerce agencies work with brands spending £3,000+/month on paid ads. If your budget is smaller, agencies typically start with SEO, CRO or email marketing first, since these channels don't require large media spend to show returns.",
+    a: "The £3,000+/month floor applies only to paid-ads retainers, where media budget is needed to exit the learning phase. It is not a minimum to work with us. Our Starter package from £500/month is built for new and smaller stores that want SEO, CRO, technical fixes, tracking or email — none of which require media spend to produce returns. Paid ads are added later, once revenue supports a £3k+/month test budget.",
   },
   {
     q: "How long are typical ecommerce agency contracts?",
