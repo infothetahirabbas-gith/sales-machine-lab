@@ -810,6 +810,403 @@ const COMPARE: Record<string, ComparisonEntry> = {
       { label: "Consulting", to: "/services/consulting" },
     ],
   },
+
+  "beingecom-vs-social-shepherd": {
+    slug: "beingecom-vs-social-shepherd",
+    a: "BeingEcom",
+    b: "The Social Shepherd",
+    eyebrow: "UK agency comparison",
+    h1: "BeingEcom vs The Social Shepherd (UK, 2026)",
+    verdict:
+      "BeingEcom is a full-stack ecommerce growth partner (SEO + paid + CRO + email + dev) built around Shopify and WooCommerce revenue P&Ls. The Social Shepherd is a Bath-based social-first agency known for paid social creative and TikTok/Instagram-led acquisition. Choose BeingEcom when the constraint is blended revenue growth across channels; choose Social Shepherd when the constraint is social-led brand and creative volume.",
+    bestFor: {
+      a: "UK Shopify/WooCommerce DTC brands £10k-£500k/month who need one team owning SEO, paid, CRO and email against a single revenue target.",
+      b: "Brands whose bottleneck is paid social creative volume, TikTok-led awareness and IG/TikTok organic content.",
+    },
+    rows: [
+      { criterion: "Primary specialism", a: "Full-stack ecommerce growth (SEO + paid + CRO + email + dev)", b: "Social-first paid + organic (Meta, TikTok, YouTube)", winner: "tie" },
+      { criterion: "Ecommerce SEO", a: "Core service, in-house team", b: "Not primary offer", winner: "a" },
+      { criterion: "Paid social creative", a: "In-house creative unit", b: "Public strength", winner: "b" },
+      { criterion: "Shopify / WooCommerce dev", a: "In-house", b: "Not primary offer", winner: "a" },
+      { criterion: "CRO / analytics", a: "In-house, tied to revenue P&L", b: "Available", winner: "a" },
+      { criterion: "UK market focus", a: "UK-only ICP", b: "UK HQ, international clients", winner: "tie" },
+      { criterion: "Starting engagement", a: "From £500/mo (starter tier)", b: "Enterprise-scale retainers (publicly positioned)", winner: "a" },
+    ],
+    pros: {
+      a: [
+        "One team, one revenue P&L across SEO, paid, CRO, email",
+        "Deep Shopify / WooCommerce engineering in-house",
+        "Ecommerce-only ICP - no B2B or lead-gen split focus",
+        "Tiered pricing that scales with brand stage",
+      ],
+      b: [
+        "Strong reputation for paid social creative and TikTok",
+        "Named agency awards for social-led work",
+        "Established brand recognition in UK social circles",
+        "Good fit for creative-heavy Meta/TikTok scale plays",
+      ],
+    },
+    cons: {
+      a: [
+        "Not the loudest brand - operator-led rather than PR-led",
+        "Won't take on B2B, lead-gen or non-ecommerce clients",
+      ],
+      b: [
+        "Social-first positioning means SEO, dev and CRO are not the primary strengths",
+        "Retainer floors are higher - less suited to £10k-£30k/month brands",
+      ],
+    },
+    when: {
+      a: "You want one team accountable for total ecommerce revenue, not just one channel, and you value engineering + SEO alongside paid.",
+      b: "Your growth constraint is social creative volume, TikTok-led acquisition, or brand-heavy IG content and paid social scale.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          These aren't the same offer. BeingEcom is built for a founder who wants one team owning
+          SEO, paid, CRO, email and Shopify/WooCommerce engineering against a shared revenue number.
+          The Social Shepherd is built around social-led creative and paid social scale.
+        </p>
+        <p>
+          If you're a £30k-£500k/month UK DTC brand and your bottleneck is "we don't know which
+          channel to double down on," BeingEcom's blended model fits. If your bottleneck is "we
+          can't produce enough winning paid social creative," a social-first specialist is the right
+          call. This is a positioning comparison based on publicly stated services - always evaluate
+          both directly against your own brief.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Is BeingEcom cheaper than The Social Shepherd?", a: "Different pricing models. BeingEcom's SEO/CRO/email retainers start at £500/mo for £10k-£30k/month brands and scale to £8k+/mo for £100k+ brands; paid ads has a £3k/mo minimum. Social Shepherd is publicly positioned around larger retainers. Always request a scoped quote from each." },
+      { q: "Which is better for Shopify SEO?", a: "BeingEcom - Shopify SEO is a core in-house service with a dedicated technical + content team. Social Shepherd's public positioning is paid social first, not organic search." },
+      { q: "Which is better for TikTok ads?", a: "For very heavy TikTok creative volume, Social Shepherd's social-first specialism is a strong fit. For TikTok as part of a blended paid mix with Meta, Google and email, BeingEcom's integrated setup usually converts better on blended ROAS." },
+    ],
+    meta: {
+      title: "BeingEcom vs The Social Shepherd (UK, 2026) | Honest Comparison",
+      description: "BeingEcom vs The Social Shepherd compared for UK ecommerce brands - services, ICP, pricing model, when each agency wins. Operator-written, no unsupported claims.",
+    },
+    relatedServices: [
+      { label: "See our services", to: "/services" },
+      { label: "Book a strategy call", to: "/contact" },
+    ],
+  },
+
+  "beingecom-vs-eastside-co": {
+    slug: "beingecom-vs-eastside-co",
+    a: "BeingEcom",
+    b: "Eastside Co",
+    eyebrow: "UK agency comparison",
+    h1: "BeingEcom vs Eastside Co (UK, 2026)",
+    verdict:
+      "Eastside Co is a long-established London Shopify Plus Partner best known for enterprise-grade Shopify Plus builds, migrations and app development. BeingEcom is a full-stack ecommerce growth partner covering SEO, paid, CRO, email and dev - built for £10k-£500k/month brands that want channel-agnostic revenue growth, not only a store build.",
+    bestFor: {
+      a: "Growing Shopify or WooCommerce brands who need ongoing revenue growth across SEO, paid, CRO, email and dev - not only a new build.",
+      b: "Enterprise or scaling brands whose primary need is a Shopify Plus build, replatform or custom app development.",
+    },
+    rows: [
+      { criterion: "Primary specialism", a: "Ongoing revenue growth across channels", b: "Shopify Plus builds and custom development", winner: "tie" },
+      { criterion: "Shopify Plus dev", a: "Available", b: "Public strength - Plus Partner", winner: "b" },
+      { criterion: "Ecommerce SEO", a: "Core in-house service", b: "Available", winner: "a" },
+      { criterion: "Paid media (Meta / Google / TikTok)", a: "In-house team, £3k/mo floor", b: "Available", winner: "a" },
+      { criterion: "CRO experimentation", a: "Core service, tied to revenue P&L", b: "Available", winner: "a" },
+      { criterion: "Email / Klaviyo", a: "Core service", b: "Available", winner: "a" },
+      { criterion: "Custom app dev", a: "Available", b: "Strong track record", winner: "b" },
+      { criterion: "UK focus", a: "UK-only ICP", b: "UK HQ, international clients", winner: "tie" },
+    ],
+    pros: {
+      a: [
+        "One team owning SEO, paid, CRO, email and dev against a shared revenue target",
+        "Ecommerce-only ICP - no B2B/SaaS split focus",
+        "Tiered retainers from £500/mo to £8k+/mo depending on brand stage",
+        "Direct senior operator access, not junior-account-manager led",
+      ],
+      b: [
+        "Long-established Shopify Plus Partner with enterprise build track record",
+        "Strong custom app development capability",
+        "Recognised in the UK Shopify ecosystem",
+        "Suited to large replatforming and complex Plus stack projects",
+      ],
+    },
+    cons: {
+      a: [
+        "Not the right partner if you only need a one-off Shopify Plus rebuild with no ongoing marketing engagement",
+      ],
+      b: [
+        "Build-led positioning means ongoing SEO/paid/CRO isn't the headline offer",
+        "Enterprise-scale pricing floors don't fit smaller £10k-£30k/month brands",
+      ],
+    },
+    when: {
+      a: "You already have a store that works and the constraint is 'how do we grow revenue across every channel next quarter,' not 'we need a new store.'",
+      b: "Your primary need is a Shopify Plus build, complex migration or custom app - and marketing is handled elsewhere.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          Different products for different problems. Eastside Co's public positioning is a
+          Shopify Plus development partner - a great fit if your bottleneck is the store itself.
+          BeingEcom is a growth partner - a better fit if the store works and you need SEO, paid,
+          CRO and email pulling in the same direction against a revenue P&L.
+        </p>
+        <p>
+          Many brands actually need both at different stages: a build partner to rebuild the store,
+          then a growth partner to scale traffic and conversion. This comparison is based on
+          publicly stated positioning - evaluate each directly for your specific brief.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Is BeingEcom a Shopify Plus Partner?", a: "BeingEcom builds and maintains Shopify and Shopify Plus stores. Eastside Co's public positioning is heavier on the enterprise Plus build side; BeingEcom's positioning is heavier on the ongoing growth side. Ask each agency for a scoped Plus project quote if that's your need." },
+      { q: "Which is better for a Shopify replatform?", a: "For a large, complex enterprise replatform where the build is the whole project, Eastside Co's track record fits. For a replatform tied to an ongoing SEO + paid + CRO growth plan, BeingEcom's integrated model is the closer fit." },
+      { q: "Which is better after the store is already built?", a: "BeingEcom. Ongoing revenue growth across SEO, paid, CRO and email is the core BeingEcom offer, priced from £500/mo depending on brand stage." },
+    ],
+    meta: {
+      title: "BeingEcom vs Eastside Co (UK, 2026) | Honest Comparison",
+      description: "BeingEcom vs Eastside Co compared for UK Shopify brands - services, ICP, when each agency wins. Operator-written, factual positioning only.",
+    },
+    relatedServices: [
+      { label: "See our services", to: "/services" },
+      { label: "Shopify development", to: "/services/store-development/shopify" },
+    ],
+  },
+
+  "beingecom-vs-croud": {
+    slug: "beingecom-vs-croud",
+    a: "BeingEcom",
+    b: "Croud",
+    eyebrow: "UK agency comparison",
+    h1: "BeingEcom vs Croud (UK, 2026)",
+    verdict:
+      "Croud is a large, global digital marketing agency serving enterprise brands across many verticals (B2B, B2C, ecommerce, lead-gen). BeingEcom is a UK ecommerce-only growth partner built specifically around Shopify and WooCommerce DTC brands. Choose Croud for global multi-market enterprise complexity; choose BeingEcom for focused UK DTC ecommerce revenue growth without agency layers.",
+    bestFor: {
+      a: "UK Shopify / WooCommerce DTC brands £10k-£500k/month who want senior operators embedded in the account, not passed through an account-manager layer.",
+      b: "Enterprise brands with global multi-market, multi-language, multi-vertical marketing operations that need a large agency footprint.",
+    },
+    rows: [
+      { criterion: "Vertical focus", a: "UK DTC ecommerce only", b: "B2B, B2C, ecommerce, lead-gen (broad)", winner: "a" },
+      { criterion: "Ideal brand stage", a: "£10k-£500k/month DTC", b: "Enterprise / global brands", winner: "tie" },
+      { criterion: "Team model", a: "Senior operators embedded per account", b: "Layered agency team with account managers", winner: "tie" },
+      { criterion: "Ecommerce SEO", a: "Core in-house service, Shopify/Woo-specific", b: "Available across many verticals", winner: "a" },
+      { criterion: "Paid media", a: "Ecommerce-only, in-house £3k/mo floor", b: "Public strength - enterprise scale", winner: "b" },
+      { criterion: "Global multi-market ops", a: "UK focus", b: "Public strength", winner: "b" },
+      { criterion: "Shopify / WooCommerce dev", a: "In-house", b: "Not primary offer", winner: "a" },
+      { criterion: "Founder-level access", a: "Direct", b: "Depends on account tier", winner: "a" },
+    ],
+    pros: {
+      a: [
+        "Ecommerce-only ICP - every process is built for Shopify/Woo DTC",
+        "Senior operators own the account, no junior-AM handoff",
+        "Retainers scale from £500/mo to enterprise depending on stage",
+        "One team across SEO, paid, CRO, email and dev",
+      ],
+      b: [
+        "Large-scale enterprise capability across many markets and verticals",
+        "Established brand and long client roster",
+        "Can service global multi-region marketing operations",
+        "Strong reputation in enterprise paid media",
+      ],
+    },
+    cons: {
+      a: [
+        "Not a fit for global multi-market enterprise mandates",
+        "Won't take on B2B or lead-gen work outside DTC ecommerce",
+      ],
+      b: [
+        "Broad-vertical positioning means ecommerce isn't the whole company focus",
+        "Enterprise team model can put more layers between the founder and the operator",
+      ],
+    },
+    when: {
+      a: "You're a UK DTC brand and you want the person doing the work to also be on the strategy call - with a full ecommerce stack behind them.",
+      b: "You're an enterprise brand running paid media across multiple regions, languages and business units and need agency-scale coverage.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          These agencies compete for different clients. Croud's public positioning is enterprise
+          digital marketing at scale, across many verticals and regions. BeingEcom's positioning is
+          the opposite: a focused UK ecommerce team where a senior operator owns the account and
+          the whole growth stack sits under one roof.
+        </p>
+        <p>
+          If you're evaluating both for a UK DTC brief, the real question is team model and vertical
+          focus - not headcount. Ask each agency who will actually run the account week to week.
+          This comparison is based on publicly stated positioning.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Is BeingEcom smaller than Croud?", a: "Yes - by design. BeingEcom is a specialist UK ecommerce team, not a global enterprise agency. Smaller footprint means senior operators own the account directly." },
+      { q: "Which is better for a UK-only DTC brand?", a: "For a UK-only Shopify or WooCommerce DTC brand under £1M/month, BeingEcom's specialist model usually fits better than an enterprise generalist. For £10M+/year global brands, Croud's scale is the stronger fit." },
+      { q: "Do you compete with Croud on price?", a: "Different pricing models. BeingEcom's tiered retainers start at £500/mo and scale. Enterprise generalist agencies typically operate at enterprise floors - request quotes from each." },
+    ],
+    meta: {
+      title: "BeingEcom vs Croud (UK, 2026) | Honest Comparison",
+      description: "BeingEcom vs Croud compared for UK ecommerce brands - specialist DTC agency vs enterprise generalist. Operator-written positioning comparison.",
+    },
+    relatedServices: [
+      { label: "See our services", to: "/services" },
+      { label: "Who we work with", to: "/who-we-help" },
+    ],
+  },
+
+  "beingecom-vs-genie-goals": {
+    slug: "beingecom-vs-genie-goals",
+    a: "BeingEcom",
+    b: "Genie Goals",
+    eyebrow: "UK agency comparison",
+    h1: "BeingEcom vs Genie Goals (UK, 2026)",
+    verdict:
+      "Genie Goals is a Cambridge-based paid media agency well known in the UK for Google Shopping, feed management and paid search for retail brands. BeingEcom is a full-stack ecommerce growth partner covering SEO, paid, CRO, email and dev. Choose Genie Goals when the whole brief is Google Shopping/PPC at scale; choose BeingEcom when the brief is blended revenue growth with paid as one lever.",
+    bestFor: {
+      a: "UK Shopify / WooCommerce DTC brands who want SEO, paid, CRO and email owned by one team against a single revenue P&L.",
+      b: "Retail brands whose bottleneck is Google Shopping, feed optimisation and paid search performance.",
+    },
+    rows: [
+      { criterion: "Primary specialism", a: "Full-stack ecommerce growth", b: "Google Shopping / PPC / feed management", winner: "tie" },
+      { criterion: "Google Shopping / feeds", a: "Core service within paid team", b: "Public strength", winner: "b" },
+      { criterion: "Meta / TikTok ads", a: "In-house team", b: "Available", winner: "a" },
+      { criterion: "Ecommerce SEO", a: "Core in-house service", b: "Not primary offer", winner: "a" },
+      { criterion: "CRO experimentation", a: "Core service", b: "Not primary offer", winner: "a" },
+      { criterion: "Email / retention", a: "Core service", b: "Not primary offer", winner: "a" },
+      { criterion: "Shopify / Woo dev", a: "In-house", b: "Not primary offer", winner: "a" },
+      { criterion: "UK focus", a: "UK-only ICP", b: "UK HQ", winner: "tie" },
+    ],
+    pros: {
+      a: [
+        "One team across SEO, paid, CRO, email and dev - single revenue P&L",
+        "Ecommerce-only, Shopify/Woo-specialist",
+        "Tiered pricing from £500/mo depending on brand stage",
+        "Direct senior operator access",
+      ],
+      b: [
+        "Strong public reputation for Google Shopping and feed work",
+        "Deep specialism in retail PPC",
+        "Established UK retail client base",
+        "Good fit when Google Shopping is the whole growth lever",
+      ],
+    },
+    cons: {
+      a: [
+        "Not the loudest brand in pure Google Shopping - our positioning is blended growth",
+      ],
+      b: [
+        "Paid-search-first positioning means SEO, CRO and email aren't the primary strengths",
+        "Not a fit if you need one team owning all growth channels",
+      ],
+    },
+    when: {
+      a: "You want SEO + paid + CRO + email pulling in the same direction, and you don't want to coordinate three separate agencies.",
+      b: "Your entire growth story is Google Shopping + PPC and you have separate partners for SEO, CRO and email.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          Genie Goals' public positioning is deep specialism in Google Shopping and PPC. BeingEcom
+          is a blended growth partner: paid is one of five levers, not the whole product. If your
+          brand has a healthy organic funnel and email programme and the only bottleneck is Google
+          Shopping performance, a paid specialist is the right call.
+        </p>
+        <p>
+          If the honest answer is "we don't know which channel to double down on next quarter" or
+          "we run three agencies and they don't talk to each other," an integrated partner like
+          BeingEcom removes that coordination cost. Comparison based on publicly stated positioning.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Which is better for Google Shopping?", a: "For pure Google Shopping and feed optimisation as the whole engagement, Genie Goals' public specialism is a strong fit. For Google Shopping as part of a blended paid + SEO + CRO + email plan, BeingEcom's integrated setup usually wins on blended ROAS." },
+      { q: "Do you handle feed management?", a: "Yes - feed optimisation is part of BeingEcom's paid media service, alongside campaign structure, creative testing and bid strategy." },
+      { q: "Can I use both?", a: "Some brands do - a paid-search specialist plus a growth partner for SEO, CRO and email. It works, but you pay a coordination tax. Most £10k-£500k/month brands are better served by one integrated team." },
+    ],
+    meta: {
+      title: "BeingEcom vs Genie Goals (UK, 2026) | Honest Comparison",
+      description: "BeingEcom vs Genie Goals compared for UK ecommerce brands - full-stack growth vs Google Shopping specialist. Operator-written positioning comparison.",
+    },
+    relatedServices: [
+      { label: "Paid media", to: "/services/performance-marketing" },
+      { label: "Google Ads", to: "/services/performance-marketing/google-ads" },
+    ],
+  },
+
+  "beingecom-vs-common-thread-collective": {
+    slug: "beingecom-vs-common-thread-collective",
+    a: "BeingEcom",
+    b: "Common Thread Collective",
+    eyebrow: "UK vs US agency comparison",
+    h1: "BeingEcom vs Common Thread Collective (2026)",
+    verdict:
+      "Common Thread Collective (CTC) is a well-known US-based DTC growth agency headquartered in Irvine, California, publicly focused on paid acquisition and forecasting for US DTC brands. BeingEcom is a UK-only ecommerce growth partner built around Shopify and WooCommerce brands operating in the UK market. Choose CTC for US DTC scale plays; choose BeingEcom when UK VAT, GA4 consent mode, UK payment stack and UK-hour delivery matter.",
+    bestFor: {
+      a: "UK Shopify / WooCommerce brands £10k-£500k/month who need a team operating in UK hours, UK VAT/pricing, UK compliance and UK creative context.",
+      b: "US DTC brands running large paid acquisition programmes who want a US-based team and US-hours delivery.",
+    },
+    rows: [
+      { criterion: "Market focus", a: "UK-only", b: "US-focused (public positioning)", winner: "tie" },
+      { criterion: "Time zone / delivery", a: "UK hours", b: "US Pacific hours", winner: "a" },
+      { criterion: "Currency / pricing model", a: "GBP, UK VAT native", b: "USD, US tax context", winner: "a" },
+      { criterion: "Paid media", a: "In-house, £3k/mo floor", b: "Public strength - forecasting-led", winner: "b" },
+      { criterion: "Ecommerce SEO", a: "Core in-house service", b: "Not primary offer", winner: "a" },
+      { criterion: "CRO / dev", a: "In-house", b: "Available", winner: "a" },
+      { criterion: "Email / Klaviyo", a: "Core service", b: "Available", winner: "tie" },
+      { criterion: "UK regulatory (GDPR, VAT, Consent Mode)", a: "Native", b: "US-context first", winner: "a" },
+    ],
+    pros: {
+      a: [
+        "UK-native: VAT, pricing, GA4 consent mode, UK payment methods, UK creative context",
+        "One team owning SEO, paid, CRO, email and dev - single revenue P&L",
+        "UK-hours delivery and account access",
+        "Tiered pricing from £500/mo scaling to £8k+/mo",
+      ],
+      b: [
+        "Well-known US DTC agency with strong public content and thought leadership",
+        "Forecasting-led approach to paid acquisition",
+        "Established US Shopify/DTC client base",
+        "Good fit for US brands scaling paid media",
+      ],
+    },
+    cons: {
+      a: [
+        "Not a fit for US-first brands wanting a US-based team",
+      ],
+      b: [
+        "US-market positioning means UK VAT, UK compliance and UK-hour delivery aren't the primary context",
+        "Paid-first positioning means SEO, CRO and dev aren't the headline offer",
+      ],
+    },
+    when: {
+      a: "You sell primarily to UK customers, invoice in GBP, need UK VAT handled correctly, and want the operator on your account working UK hours.",
+      b: "You're a US-based DTC brand scaling paid acquisition and want a US-based team in US hours.",
+    },
+    bottomLine: (
+      <>
+        <p>
+          The market focus is the whole story. Common Thread Collective's public positioning is US
+          DTC paid acquisition at scale. BeingEcom's positioning is UK ecommerce growth - built
+          around UK VAT, UK payment methods, UK GA4/consent mode, UK creative context and UK-hour
+          delivery.
+        </p>
+        <p>
+          A UK brand can absolutely work with a US agency, but the tax on time zones, currency,
+          compliance and cultural context is real. If the brief is "grow a UK Shopify brand," a
+          UK-native team removes that tax. Comparison based on publicly stated positioning.
+        </p>
+      </>
+    ),
+    faqs: [
+      { q: "Can a US agency run paid ads for a UK brand?", a: "Yes, technically. But UK-specific factors - VAT-inclusive pricing, GBP creative, UK payment methods like Klarna and Clearpay, UK consent mode, UK-hours reporting - are handled more natively by a UK team. That's the practical difference." },
+      { q: "Which is better for forecasting?", a: "CTC has built strong public content around forecasting-led paid media. BeingEcom builds paid forecasts as part of every retainer, tied to blended MER and channel-level ROAS - request a sample forecast from each." },
+      { q: "Do you work with US brands?", a: "No - BeingEcom is UK-only by design. It keeps every process (VAT, consent mode, creative, payment stack) native to a single market." },
+    ],
+    meta: {
+      title: "BeingEcom vs Common Thread Collective (2026) | UK vs US Agency Comparison",
+      description: "BeingEcom vs CTC compared for UK vs US DTC brands - market focus, delivery model, when each agency wins. Operator-written positioning comparison.",
+    },
+    relatedServices: [
+      { label: "See our services", to: "/services" },
+      { label: "Who we work with", to: "/who-we-help" },
+    ],
+  },
 };
 
 export const COMPARE_INDEX = Object.values(COMPARE).map((c) => ({
