@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhyBeingecomRouteImport } from './routes/why-beingecom'
 import { Route as WhoWeHelpRouteImport } from './routes/who-we-help'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -38,6 +39,7 @@ import { Route as EcommerceMarketingAgencyUkRouteImport } from './routes/ecommer
 import { Route as EcommerceGrowthAgencyUkRouteImport } from './routes/ecommerce-growth-agency-uk'
 import { Route as EcommerceAnalyticsRouteImport } from './routes/ecommerce-analytics'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as CustomerJourneyRouteImport } from './routes/customer-journey'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompareRouteImport } from './routes/compare'
@@ -126,6 +128,11 @@ import { Route as ApiPublicHooksGscMonitorRouteImport } from './routes/api/publi
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
+const WhyBeingecomRoute = WhyBeingecomRouteImport.update({
+  id: '/why-beingecom',
+  path: '/why-beingecom',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhoWeHelpRoute = WhoWeHelpRouteImport.update({
   id: '/who-we-help',
   path: '/who-we-help',
@@ -272,6 +279,11 @@ const EcommerceAnalyticsRoute = EcommerceAnalyticsRouteImport.update({
 const DisclaimerRoute = DisclaimerRouteImport.update({
   id: '/disclaimer',
   path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomerJourneyRoute = CustomerJourneyRouteImport.update({
+  id: '/customer-journey',
+  path: '/customer-journey',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiesRoute = CookiesRouteImport.update({
@@ -741,6 +753,7 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/customer-journey': typeof CustomerJourneyRoute
   '/disclaimer': typeof DisclaimerRoute
   '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
   '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
@@ -770,6 +783,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
+  '/why-beingecom': typeof WhyBeingecomRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -855,6 +869,7 @@ export interface FileRoutesByTo {
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/customer-journey': typeof CustomerJourneyRoute
   '/disclaimer': typeof DisclaimerRoute
   '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
   '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
@@ -883,6 +898,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
+  '/why-beingecom': typeof WhyBeingecomRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -972,6 +988,7 @@ export interface FileRoutesById {
   '/compare': typeof CompareRouteWithChildren
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/customer-journey': typeof CustomerJourneyRoute
   '/disclaimer': typeof DisclaimerRoute
   '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
   '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
@@ -1001,6 +1018,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
+  '/why-beingecom': typeof WhyBeingecomRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -1092,6 +1110,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/contact'
     | '/cookies'
+    | '/customer-journey'
     | '/disclaimer'
     | '/ecommerce-analytics'
     | '/ecommerce-growth-agency-uk'
@@ -1121,6 +1140,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/who-we-help'
+    | '/why-beingecom'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1206,6 +1226,7 @@ export interface FileRouteTypes {
     | '/clients'
     | '/contact'
     | '/cookies'
+    | '/customer-journey'
     | '/disclaimer'
     | '/ecommerce-analytics'
     | '/ecommerce-growth-agency-uk'
@@ -1234,6 +1255,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/who-we-help'
+    | '/why-beingecom'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1322,6 +1344,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/contact'
     | '/cookies'
+    | '/customer-journey'
     | '/disclaimer'
     | '/ecommerce-analytics'
     | '/ecommerce-growth-agency-uk'
@@ -1351,6 +1374,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/who-we-help'
+    | '/why-beingecom'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1441,6 +1465,7 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRouteWithChildren
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  CustomerJourneyRoute: typeof CustomerJourneyRoute
   DisclaimerRoute: typeof DisclaimerRoute
   EcommerceAnalyticsRoute: typeof EcommerceAnalyticsRoute
   EcommerceGrowthAgencyUkRoute: typeof EcommerceGrowthAgencyUkRoute
@@ -1470,6 +1495,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   WhoWeHelpRoute: typeof WhoWeHelpRoute
+  WhyBeingecomRoute: typeof WhyBeingecomRoute
   AboutTahirAbbasRoute: typeof AboutTahirAbbasRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLocationPerformanceRoute: typeof AdminLocationPerformanceRoute
@@ -1520,6 +1546,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/why-beingecom': {
+      id: '/why-beingecom'
+      path: '/why-beingecom'
+      fullPath: '/why-beingecom'
+      preLoaderRoute: typeof WhyBeingecomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/who-we-help': {
       id: '/who-we-help'
       path: '/who-we-help'
@@ -1721,6 +1754,13 @@ declare module '@tanstack/react-router' {
       path: '/disclaimer'
       fullPath: '/disclaimer'
       preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customer-journey': {
+      id: '/customer-journey'
+      path: '/customer-journey'
+      fullPath: '/customer-journey'
+      preLoaderRoute: typeof CustomerJourneyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookies': {
@@ -2473,6 +2513,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRouteWithChildren,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  CustomerJourneyRoute: CustomerJourneyRoute,
   DisclaimerRoute: DisclaimerRoute,
   EcommerceAnalyticsRoute: EcommerceAnalyticsRoute,
   EcommerceGrowthAgencyUkRoute: EcommerceGrowthAgencyUkRoute,
@@ -2502,6 +2543,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   WhoWeHelpRoute: WhoWeHelpRoute,
+  WhyBeingecomRoute: WhyBeingecomRoute,
   AboutTahirAbbasRoute: AboutTahirAbbasRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLocationPerformanceRoute: AdminLocationPerformanceRoute,

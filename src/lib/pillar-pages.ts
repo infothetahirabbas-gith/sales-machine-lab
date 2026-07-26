@@ -722,6 +722,131 @@ export const PILLAR_PAGES: PillarPage[] = [
     ctaHeading: "Let's talk partnerships",
     ctaSub: "Send a note and Tahir will personally reply within two working days.",
   },
+  {
+    slug: "why-beingecom",
+    path: "/why-beingecom",
+    title: "Why BeingEcom | UK Ecommerce Growth Agency Differentiators",
+    metaTitle: "Why BeingEcom - UK Ecommerce Growth Agency",
+    description:
+      "Why UK ecommerce brands pick BeingEcom: senior-only pods, a documented Growth System, revenue-linked reporting, and 10+ years running Shopify and WooCommerce stores.",
+    eyebrow: "Why us",
+    h1: "Why BeingEcom",
+    intro:
+      "The specific, checkable reasons UK ecommerce brands choose BeingEcom over other agencies, freelancers, or building in-house.",
+    summary:
+      "BeingEcom is a UK ecommerce growth agency built around senior-only pods, a documented six-stage Growth System, and revenue-linked reporting. Founded by Tahir Abbas with 10+ years running Shopify and WooCommerce brands, the team average is 7+ years - no juniors staffed on client work.",
+    pills: ["Senior-only pods", "Documented system", "UK ecommerce focus"],
+    highlights: [
+      { label: "Team average", value: "7+ yrs" },
+      { label: "Founder experience", value: "10+ yrs" },
+      { label: "Case studies", value: "30+" },
+    ],
+    sections: [
+      {
+        heading: "Senior-only pods, no juniors on your account",
+        body: "Every retainer is delivered by a pod of senior operators - SEO lead, paid lead, CRO lead, analytics lead - who each have 7+ years running ecommerce accounts. No juniors, no shadow-staffing.",
+        bullets: [
+          "Named pod for every retainer",
+          "Direct Slack access to the operators",
+          "Founder-reviewed strategy each quarter",
+        ],
+      },
+      {
+        heading: "A documented Growth System, not a monthly to-do list",
+        body: "The BeingEcom Growth System is a six-stage engagement model - Diagnose, Prioritise, Prototype, Ship, Measure, Compound. Every deliverable maps to a stage, and every stage has a written exit bar.",
+        bullets: [
+          "Same system across SEO, paid, CRO, email",
+          "Written exit criteria per stage",
+          "Public methodology at /methodology",
+        ],
+      },
+      {
+        heading: "Revenue-linked reporting",
+        body: "Reports tie work back to store revenue, not vanity metrics. Assisted conversions, incremental sessions, and margin-adjusted ROAS - not screenshots of impressions.",
+        bullets: [
+          "GA4 + Shopify + ad-platform stitched",
+          "Margin-adjusted ROAS by product line",
+          "Board-ready summary each month",
+        ],
+      },
+      {
+        heading: "UK ecommerce first",
+        body: "GBP pricing, UK VAT logic, UK courier and returns realities, and case studies from UK Shopify and WooCommerce brands. Not a US shop pretending to understand UK conditions.",
+      },
+    ],
+    related: [
+      { label: "Methodology", to: "/methodology" },
+      { label: "Who we help", to: "/who-we-help" },
+      { label: "Case studies", to: "/case-studies" },
+      { label: "About the founder", to: "/about/tahir-abbas" },
+    ],
+    faqs: [
+      { q: "How is BeingEcom different from a big agency?", a: "No juniors are staffed on client work. Every deliverable is produced by an operator with 7+ years running ecommerce accounts, and the founder personally reviews strategy each quarter." },
+      { q: "How is BeingEcom different from a freelancer?", a: "You get a pod - SEO, paid, CRO, and analytics leads working from the same Growth System - rather than one person context-switching between disciplines." },
+      { q: "Do you guarantee results?", a: "We guarantee the process and the exit bar per stage of the Growth System. We do not guarantee revenue - anyone who does is either lying or working from your data." },
+      { q: "Who's the right client for BeingEcom?", a: "UK Shopify or WooCommerce brands doing £500k-£25m in annual revenue who want a senior partner, not a junior-staffed retainer. See /who-we-help for the full profile." },
+      { q: "Who is not a good fit?", a: "Pre-revenue stores, non-ecommerce businesses, sub-£3k budgets for paid media, and brands looking to buy a rank-and-forget cheap SEO package." },
+    ],
+    ctaHeading: "See if we're the right fit",
+    ctaSub: "Book a 30-minute call with the founder - we'll tell you honestly whether BeingEcom is the right partner.",
+  },
+  {
+    slug: "customer-journey",
+    path: "/customer-journey",
+    title: "Customer Journey | Pick the Right Path for Your Ecommerce Stage",
+    metaTitle: "Customer Journey - Path by Stage | BeingEcom",
+    description:
+      "Three tailored paths through BeingEcom based on where your ecommerce brand is today: new store owner, growing brand, or established brand ready for enterprise SEO.",
+    eyebrow: "Start here",
+    h1: "Pick the path that matches your stage",
+    intro:
+      "Every ecommerce brand is at a different stage. Rather than a single funnel, we run three - education for new stores, strategy for growing brands, and enterprise growth for established brands.",
+    summary:
+      "BeingEcom runs three customer paths: new store owners get free education, checklists, and a starter consultation; growing brands get case studies and a strategy call; established brands get enterprise SEO and a growth assessment. Pick the path that matches your annual revenue and growth stage.",
+    pills: ["New store", "Growing brand", "Established brand"],
+    sections: [
+      {
+        heading: "New store owner (£0-£250k / yr)",
+        body: "You are launching or in the first year. What you need is education, a working checklist, and a short consultation - not a big retainer. Start with the free Academy and the Shopify SEO checklist.",
+        bullets: [
+          "Start: /academy",
+          "Tool: /tools/shopify-seo-checklist",
+          "Then: /contact for a starter consultation",
+        ],
+      },
+      {
+        heading: "Growing brand (£250k-£3m / yr)",
+        body: "You have product-market fit and want to compound growth. What you need is proof and a plan - real case studies at your revenue band and a strategy call with a senior operator.",
+        bullets: [
+          "Read: /case-studies",
+          "Review: /methodology",
+          "Then: book a strategy call at /contact",
+        ],
+      },
+      {
+        heading: "Established brand (£3m+ / yr)",
+        body: "You have scale, teams, and complexity. What you need is enterprise SEO and a growth assessment - not a template retainer. Start with the enterprise SEO page and the growth agency page.",
+        bullets: [
+          "Read: /enterprise-ecommerce-seo",
+          "Read: /ecommerce-growth-agency-uk",
+          "Then: request a growth assessment at /contact",
+        ],
+      },
+    ],
+    related: [
+      { label: "Who we help", to: "/who-we-help" },
+      { label: "Pricing", to: "/pricing" },
+      { label: "Case studies", to: "/case-studies" },
+      { label: "Contact", to: "/contact" },
+    ],
+    faqs: [
+      { q: "Which path is right if I'm between stages?", a: "Pick the higher stage - the guidance still applies and the strategy call will resolve any ambiguity in 30 minutes." },
+      { q: "Do you work with pre-revenue stores?", a: "Not on retainers. We point pre-revenue founders to the free Academy and the Shopify SEO checklist until they have data to work with." },
+      { q: "Can established brands still use the Academy?", a: "Yes - most of our enterprise clients send junior team members through the Academy tracks to level them up." },
+    ],
+    ctaHeading: "Not sure which path fits?",
+    ctaSub: "Book a 20-minute triage call - we'll point you to the right next step in one conversation.",
+  },
 ];
 
 export function findPillar(slug: string): PillarPage | undefined {

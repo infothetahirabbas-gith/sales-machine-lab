@@ -106,6 +106,8 @@ const entries: SitemapEntry[] = [
   { path: "/ecommerce-analytics", changefreq: "monthly", priority: "0.8" },
   { path: "/ai-ecommerce-growth", changefreq: "monthly", priority: "0.9" },
   { path: "/partners", changefreq: "monthly", priority: "0.8" },
+  { path: "/why-beingecom", changefreq: "monthly", priority: "0.9" },
+  { path: "/customer-journey", changefreq: "monthly", priority: "0.8" },
   { path: "/cookies", changefreq: "yearly", priority: "0.3" },
 ];
 
