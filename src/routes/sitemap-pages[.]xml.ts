@@ -76,6 +76,7 @@ const entries: SitemapEntry[] = [
   { path: "/compare/beingecom-vs-common-thread-collective", changefreq: "monthly", priority: "0.8" },
   { path: "/who-we-help", changefreq: "monthly", priority: "0.9" },
   { path: "/research", changefreq: "monthly", priority: "0.7" },
+  { path: "/founder-notes", changefreq: "monthly", priority: "0.8" },
   { path: "/tools", changefreq: "monthly", priority: "0.8" },
   { path: "/tools/roas-calculator", changefreq: "monthly", priority: "0.8" },
   { path: "/tools/cac-calculator", changefreq: "monthly", priority: "0.8" },

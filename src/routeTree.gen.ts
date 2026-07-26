@@ -25,6 +25,7 @@ import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as HubRouteImport } from './routes/hub'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
+import { Route as FounderNotesRouteImport } from './routes/founder-notes'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
@@ -191,6 +192,11 @@ const GlossaryRoute = GlossaryRouteImport.update({
 const GdprRoute = GdprRouteImport.update({
   id: '/gdpr',
   path: '/gdpr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderNotesRoute = FounderNotesRouteImport.update({
+  id: '/founder-notes',
+  path: '/founder-notes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FounderRoute = FounderRouteImport.update({
@@ -654,6 +660,7 @@ export interface FileRoutesByFullPath {
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/founder': typeof FounderRoute
+  '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
@@ -754,6 +761,7 @@ export interface FileRoutesByTo {
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/founder': typeof FounderRoute
+  '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/methodology': typeof MethodologyRoute
@@ -857,6 +865,7 @@ export interface FileRoutesById {
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/founder': typeof FounderRoute
+  '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
@@ -963,6 +972,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/disclaimer'
     | '/founder'
+    | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/hub'
@@ -1063,6 +1073,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/disclaimer'
     | '/founder'
+    | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/methodology'
@@ -1165,6 +1176,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/disclaimer'
     | '/founder'
+    | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/hub'
@@ -1270,6 +1282,7 @@ export interface RootRouteChildren {
   CookiesRoute: typeof CookiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
   FounderRoute: typeof FounderRoute
+  FounderNotesRoute: typeof FounderNotesRoute
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
   HubRoute: typeof HubRouteWithChildren
@@ -1445,6 +1458,13 @@ declare module '@tanstack/react-router' {
       path: '/gdpr'
       fullPath: '/gdpr'
       preLoaderRoute: typeof GdprRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder-notes': {
+      id: '/founder-notes'
+      path: '/founder-notes'
+      fullPath: '/founder-notes'
+      preLoaderRoute: typeof FounderNotesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/founder': {
@@ -2190,6 +2210,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiesRoute: CookiesRoute,
   DisclaimerRoute: DisclaimerRoute,
   FounderRoute: FounderRoute,
+  FounderNotesRoute: FounderNotesRoute,
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
   HubRoute: HubRouteWithChildren,
