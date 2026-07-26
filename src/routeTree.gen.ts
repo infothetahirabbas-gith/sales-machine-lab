@@ -18,15 +18,25 @@ import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-loc
 import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
 import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-company[.]xml'
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
+import { Route as ShopifySeoPackagesRouteImport } from './routes/shopify-seo-packages'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as HubRouteImport } from './routes/hub'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as FounderNotesRouteImport } from './routes/founder-notes'
 import { Route as FounderRouteImport } from './routes/founder'
+import { Route as EnterpriseEcommerceSeoRouteImport } from './routes/enterprise-ecommerce-seo'
+import { Route as EcommerceSeoPricingRouteImport } from './routes/ecommerce-seo-pricing'
+import { Route as EcommerceSeoConsultantRouteImport } from './routes/ecommerce-seo-consultant'
+import { Route as EcommerceRevenueOptimisationRouteImport } from './routes/ecommerce-revenue-optimisation'
+import { Route as EcommerceMigrationSeoRouteImport } from './routes/ecommerce-migration-seo'
+import { Route as EcommerceMarketingAgencyUkRouteImport } from './routes/ecommerce-marketing-agency-uk'
+import { Route as EcommerceGrowthAgencyUkRouteImport } from './routes/ecommerce-growth-agency-uk'
+import { Route as EcommerceAnalyticsRouteImport } from './routes/ecommerce-analytics'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -36,7 +46,9 @@ import { Route as ClientsRouteImport } from './routes/clients'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BenchmarksRouteImport } from './routes/benchmarks'
 import { Route as AuditRouteImport } from './routes/audit'
+import { Route as AiEcommerceGrowthRouteImport } from './routes/ai-ecommerce-growth'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -160,6 +172,11 @@ const SitemapCaseStudiesDotxmlRoute =
     path: '/sitemap-case-studies.xml',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ShopifySeoPackagesRoute = ShopifySeoPackagesRouteImport.update({
+  id: '/shopify-seo-packages',
+  path: '/shopify-seo-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
@@ -173,6 +190,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MethodologyRoute = MethodologyRouteImport.update({
@@ -203,6 +225,48 @@ const FounderNotesRoute = FounderNotesRouteImport.update({
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterpriseEcommerceSeoRoute = EnterpriseEcommerceSeoRouteImport.update({
+  id: '/enterprise-ecommerce-seo',
+  path: '/enterprise-ecommerce-seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceSeoPricingRoute = EcommerceSeoPricingRouteImport.update({
+  id: '/ecommerce-seo-pricing',
+  path: '/ecommerce-seo-pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceSeoConsultantRoute = EcommerceSeoConsultantRouteImport.update({
+  id: '/ecommerce-seo-consultant',
+  path: '/ecommerce-seo-consultant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceRevenueOptimisationRoute =
+  EcommerceRevenueOptimisationRouteImport.update({
+    id: '/ecommerce-revenue-optimisation',
+    path: '/ecommerce-revenue-optimisation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EcommerceMigrationSeoRoute = EcommerceMigrationSeoRouteImport.update({
+  id: '/ecommerce-migration-seo',
+  path: '/ecommerce-migration-seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceMarketingAgencyUkRoute =
+  EcommerceMarketingAgencyUkRouteImport.update({
+    id: '/ecommerce-marketing-agency-uk',
+    path: '/ecommerce-marketing-agency-uk',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EcommerceGrowthAgencyUkRoute = EcommerceGrowthAgencyUkRouteImport.update({
+  id: '/ecommerce-growth-agency-uk',
+  path: '/ecommerce-growth-agency-uk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceAnalyticsRoute = EcommerceAnalyticsRouteImport.update({
+  id: '/ecommerce-analytics',
+  path: '/ecommerce-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DisclaimerRoute = DisclaimerRouteImport.update({
@@ -250,9 +314,19 @@ const AuditRoute = AuditRouteImport.update({
   path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiEcommerceGrowthRoute = AiEcommerceGrowthRouteImport.update({
+  id: '/ai-ecommerce-growth',
+  path: '/ai-ecommerce-growth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademyRoute = AcademyRouteImport.update({
+  id: '/academy',
+  path: '/academy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -656,7 +730,9 @@ const LangLocationIndustryServiceRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/benchmarks': typeof BenchmarksRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
@@ -666,15 +742,25 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
+  '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
+  '/ecommerce-marketing-agency-uk': typeof EcommerceMarketingAgencyUkRoute
+  '/ecommerce-migration-seo': typeof EcommerceMigrationSeoRoute
+  '/ecommerce-revenue-optimisation': typeof EcommerceRevenueOptimisationRoute
+  '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
+  '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
+  '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -762,20 +848,32 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/clients': typeof ClientsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
+  '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
+  '/ecommerce-marketing-agency-uk': typeof EcommerceMarketingAgencyUkRoute
+  '/ecommerce-migration-seo': typeof EcommerceMigrationSeoRoute
+  '/ecommerce-revenue-optimisation': typeof EcommerceRevenueOptimisationRoute
+  '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
+  '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
+  '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/methodology': typeof MethodologyRoute
+  '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -863,7 +961,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/benchmarks': typeof BenchmarksRouteWithChildren
   '/blog': typeof BlogRouteWithChildren
@@ -873,15 +973,25 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/ecommerce-analytics': typeof EcommerceAnalyticsRoute
+  '/ecommerce-growth-agency-uk': typeof EcommerceGrowthAgencyUkRoute
+  '/ecommerce-marketing-agency-uk': typeof EcommerceMarketingAgencyUkRoute
+  '/ecommerce-migration-seo': typeof EcommerceMigrationSeoRoute
+  '/ecommerce-revenue-optimisation': typeof EcommerceRevenueOptimisationRoute
+  '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
+  '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
+  '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
   '/hub': typeof HubRouteWithChildren
   '/methodology': typeof MethodologyRoute
+  '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -971,7 +1081,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/academy'
     | '/accessibility'
+    | '/ai-ecommerce-growth'
     | '/audit'
     | '/benchmarks'
     | '/blog'
@@ -981,15 +1093,25 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/ecommerce-analytics'
+    | '/ecommerce-growth-agency-uk'
+    | '/ecommerce-marketing-agency-uk'
+    | '/ecommerce-migration-seo'
+    | '/ecommerce-revenue-optimisation'
+    | '/ecommerce-seo-consultant'
+    | '/ecommerce-seo-pricing'
+    | '/enterprise-ecommerce-seo'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/hub'
     | '/methodology'
+    | '/partners'
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1077,20 +1199,32 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/academy'
     | '/accessibility'
+    | '/ai-ecommerce-growth'
     | '/audit'
     | '/clients'
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/ecommerce-analytics'
+    | '/ecommerce-growth-agency-uk'
+    | '/ecommerce-marketing-agency-uk'
+    | '/ecommerce-migration-seo'
+    | '/ecommerce-revenue-optimisation'
+    | '/ecommerce-seo-consultant'
+    | '/ecommerce-seo-pricing'
+    | '/enterprise-ecommerce-seo'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/methodology'
+    | '/partners'
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1177,7 +1311,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/academy'
     | '/accessibility'
+    | '/ai-ecommerce-growth'
     | '/audit'
     | '/benchmarks'
     | '/blog'
@@ -1187,15 +1323,25 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/disclaimer'
+    | '/ecommerce-analytics'
+    | '/ecommerce-growth-agency-uk'
+    | '/ecommerce-marketing-agency-uk'
+    | '/ecommerce-migration-seo'
+    | '/ecommerce-revenue-optimisation'
+    | '/ecommerce-seo-consultant'
+    | '/ecommerce-seo-pricing'
+    | '/enterprise-ecommerce-seo'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
     | '/hub'
     | '/methodology'
+    | '/partners'
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1284,7 +1430,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcademyRoute: typeof AcademyRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  AiEcommerceGrowthRoute: typeof AiEcommerceGrowthRoute
   AuditRoute: typeof AuditRoute
   BenchmarksRoute: typeof BenchmarksRouteWithChildren
   BlogRoute: typeof BlogRouteWithChildren
@@ -1294,15 +1442,25 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
+  EcommerceAnalyticsRoute: typeof EcommerceAnalyticsRoute
+  EcommerceGrowthAgencyUkRoute: typeof EcommerceGrowthAgencyUkRoute
+  EcommerceMarketingAgencyUkRoute: typeof EcommerceMarketingAgencyUkRoute
+  EcommerceMigrationSeoRoute: typeof EcommerceMigrationSeoRoute
+  EcommerceRevenueOptimisationRoute: typeof EcommerceRevenueOptimisationRoute
+  EcommerceSeoConsultantRoute: typeof EcommerceSeoConsultantRoute
+  EcommerceSeoPricingRoute: typeof EcommerceSeoPricingRoute
+  EnterpriseEcommerceSeoRoute: typeof EnterpriseEcommerceSeoRoute
   FounderRoute: typeof FounderRoute
   FounderNotesRoute: typeof FounderNotesRoute
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
   HubRoute: typeof HubRouteWithChildren
   MethodologyRoute: typeof MethodologyRoute
+  PartnersRoute: typeof PartnersRoute
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
+  ShopifySeoPackagesRoute: typeof ShopifySeoPackagesRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
   SitemapCompanyDotxmlRoute: typeof SitemapCompanyDotxmlRoute
   SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
@@ -1425,6 +1583,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapCaseStudiesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shopify-seo-packages': {
+      id: '/shopify-seo-packages'
+      path: '/shopify-seo-packages'
+      fullPath: '/shopify-seo-packages'
+      preLoaderRoute: typeof ShopifySeoPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/research': {
       id: '/research'
       path: '/research'
@@ -1444,6 +1609,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/methodology': {
@@ -1486,6 +1658,62 @@ declare module '@tanstack/react-router' {
       path: '/founder'
       fullPath: '/founder'
       preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise-ecommerce-seo': {
+      id: '/enterprise-ecommerce-seo'
+      path: '/enterprise-ecommerce-seo'
+      fullPath: '/enterprise-ecommerce-seo'
+      preLoaderRoute: typeof EnterpriseEcommerceSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-seo-pricing': {
+      id: '/ecommerce-seo-pricing'
+      path: '/ecommerce-seo-pricing'
+      fullPath: '/ecommerce-seo-pricing'
+      preLoaderRoute: typeof EcommerceSeoPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-seo-consultant': {
+      id: '/ecommerce-seo-consultant'
+      path: '/ecommerce-seo-consultant'
+      fullPath: '/ecommerce-seo-consultant'
+      preLoaderRoute: typeof EcommerceSeoConsultantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-revenue-optimisation': {
+      id: '/ecommerce-revenue-optimisation'
+      path: '/ecommerce-revenue-optimisation'
+      fullPath: '/ecommerce-revenue-optimisation'
+      preLoaderRoute: typeof EcommerceRevenueOptimisationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-migration-seo': {
+      id: '/ecommerce-migration-seo'
+      path: '/ecommerce-migration-seo'
+      fullPath: '/ecommerce-migration-seo'
+      preLoaderRoute: typeof EcommerceMigrationSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-marketing-agency-uk': {
+      id: '/ecommerce-marketing-agency-uk'
+      path: '/ecommerce-marketing-agency-uk'
+      fullPath: '/ecommerce-marketing-agency-uk'
+      preLoaderRoute: typeof EcommerceMarketingAgencyUkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-growth-agency-uk': {
+      id: '/ecommerce-growth-agency-uk'
+      path: '/ecommerce-growth-agency-uk'
+      fullPath: '/ecommerce-growth-agency-uk'
+      preLoaderRoute: typeof EcommerceGrowthAgencyUkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-analytics': {
+      id: '/ecommerce-analytics'
+      path: '/ecommerce-analytics'
+      fullPath: '/ecommerce-analytics'
+      preLoaderRoute: typeof EcommerceAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/disclaimer': {
@@ -1551,11 +1779,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-ecommerce-growth': {
+      id: '/ai-ecommerce-growth'
+      path: '/ai-ecommerce-growth'
+      fullPath: '/ai-ecommerce-growth'
+      preLoaderRoute: typeof AiEcommerceGrowthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/accessibility': {
       id: '/accessibility'
       path: '/accessibility'
       fullPath: '/accessibility'
       preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academy': {
+      id: '/academy'
+      path: '/academy'
+      fullPath: '/academy'
+      preLoaderRoute: typeof AcademyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -2220,7 +2462,9 @@ const ServicesStoreDevelopmentRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcademyRoute: AcademyRoute,
   AccessibilityRoute: AccessibilityRoute,
+  AiEcommerceGrowthRoute: AiEcommerceGrowthRoute,
   AuditRoute: AuditRoute,
   BenchmarksRoute: BenchmarksRouteWithChildren,
   BlogRoute: BlogRouteWithChildren,
@@ -2230,15 +2474,25 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DisclaimerRoute: DisclaimerRoute,
+  EcommerceAnalyticsRoute: EcommerceAnalyticsRoute,
+  EcommerceGrowthAgencyUkRoute: EcommerceGrowthAgencyUkRoute,
+  EcommerceMarketingAgencyUkRoute: EcommerceMarketingAgencyUkRoute,
+  EcommerceMigrationSeoRoute: EcommerceMigrationSeoRoute,
+  EcommerceRevenueOptimisationRoute: EcommerceRevenueOptimisationRoute,
+  EcommerceSeoConsultantRoute: EcommerceSeoConsultantRoute,
+  EcommerceSeoPricingRoute: EcommerceSeoPricingRoute,
+  EnterpriseEcommerceSeoRoute: EnterpriseEcommerceSeoRoute,
   FounderRoute: FounderRoute,
   FounderNotesRoute: FounderNotesRoute,
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
   HubRoute: HubRouteWithChildren,
   MethodologyRoute: MethodologyRoute,
+  PartnersRoute: PartnersRoute,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
+  ShopifySeoPackagesRoute: ShopifySeoPackagesRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
   SitemapCompanyDotxmlRoute: SitemapCompanyDotxmlRoute,
   SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
