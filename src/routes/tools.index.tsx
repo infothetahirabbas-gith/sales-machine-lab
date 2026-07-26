@@ -105,6 +105,26 @@ function ToolsIndex() {
               </Link>
             ))}
           </div>
+
+          <div className="mt-8">
+            <Link
+              to="/tools/shopify-seo-checklist"
+              className="group block rounded-2xl border border-border bg-white p-6 lg:p-7 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold uppercase tracking-widest text-primary">Interactive checklist</div>
+                  <h2 className="mt-2 text-xl md:text-2xl font-bold text-ink leading-tight">
+                    The 30-point Shopify SEO checklist
+                  </h2>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl">
+                    Score your Shopify store across technical, on-page, content, conversion and off-page SEO. Progress saves in your browser. No signup.
+                  </p>
+                </div>
+                <ArrowRight className="size-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
     </PageLayout>

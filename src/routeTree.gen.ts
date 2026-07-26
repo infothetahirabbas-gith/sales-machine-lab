@@ -49,6 +49,7 @@ import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.inde
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BenchmarksIndexRouteImport } from './routes/benchmarks.index'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
+import { Route as ToolsShopifySeoChecklistRouteImport } from './routes/tools.shopify-seo-checklist'
 import { Route as ToolsSlugRouteImport } from './routes/tools.$slug'
 import { Route as ServicesStoreDevelopmentRouteImport } from './routes/services.store-development'
 import { Route as ServicesScalingRouteImport } from './routes/services.scaling'
@@ -314,6 +315,12 @@ const AboutIndexRoute = AboutIndexRouteImport.update({
   path: '/about/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsShopifySeoChecklistRoute =
+  ToolsShopifySeoChecklistRouteImport.update({
+    id: '/tools/shopify-seo-checklist',
+    path: '/tools/shopify-seo-checklist',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsSlugRoute = ToolsSlugRouteImport.update({
   id: '/tools/$slug',
   path: '/tools/$slug',
@@ -717,6 +724,7 @@ export interface FileRoutesByFullPath {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/shopify-seo-checklist': typeof ToolsShopifySeoChecklistRoute
   '/about/': typeof AboutIndexRoute
   '/benchmarks/': typeof BenchmarksIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -816,6 +824,7 @@ export interface FileRoutesByTo {
   '/services/paid-ads': typeof ServicesPaidAdsRoute
   '/services/scaling': typeof ServicesScalingRoute
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/shopify-seo-checklist': typeof ToolsShopifySeoChecklistRoute
   '/about': typeof AboutIndexRoute
   '/benchmarks': typeof BenchmarksIndexRoute
   '/blog': typeof BlogIndexRoute
@@ -922,6 +931,7 @@ export interface FileRoutesById {
   '/services/scaling': typeof ServicesScalingRoute
   '/services/store-development': typeof ServicesStoreDevelopmentRouteWithChildren
   '/tools/$slug': typeof ToolsSlugRoute
+  '/tools/shopify-seo-checklist': typeof ToolsShopifySeoChecklistRoute
   '/about/': typeof AboutIndexRoute
   '/benchmarks/': typeof BenchmarksIndexRoute
   '/blog/': typeof BlogIndexRoute
@@ -1029,6 +1039,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/tools/shopify-seo-checklist'
     | '/about/'
     | '/benchmarks/'
     | '/blog/'
@@ -1128,6 +1139,7 @@ export interface FileRouteTypes {
     | '/services/paid-ads'
     | '/services/scaling'
     | '/tools/$slug'
+    | '/tools/shopify-seo-checklist'
     | '/about'
     | '/benchmarks'
     | '/blog'
@@ -1233,6 +1245,7 @@ export interface FileRouteTypes {
     | '/services/scaling'
     | '/services/store-development'
     | '/tools/$slug'
+    | '/tools/shopify-seo-checklist'
     | '/about/'
     | '/benchmarks/'
     | '/blog/'
@@ -1319,6 +1332,7 @@ export interface RootRouteChildren {
   ServicesScalingRoute: typeof ServicesScalingRoute
   ServicesStoreDevelopmentRoute: typeof ServicesStoreDevelopmentRouteWithChildren
   ToolsSlugRoute: typeof ToolsSlugRoute
+  ToolsShopifySeoChecklistRoute: typeof ToolsShopifySeoChecklistRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
@@ -1626,6 +1640,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about/'
       preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/shopify-seo-checklist': {
+      id: '/tools/shopify-seo-checklist'
+      path: '/tools/shopify-seo-checklist'
+      fullPath: '/tools/shopify-seo-checklist'
+      preLoaderRoute: typeof ToolsShopifySeoChecklistRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/$slug': {
@@ -2247,6 +2268,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesScalingRoute: ServicesScalingRoute,
   ServicesStoreDevelopmentRoute: ServicesStoreDevelopmentRouteWithChildren,
   ToolsSlugRoute: ToolsSlugRoute,
+  ToolsShopifySeoChecklistRoute: ToolsShopifySeoChecklistRoute,
   AboutIndexRoute: AboutIndexRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
