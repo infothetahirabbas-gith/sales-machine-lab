@@ -34,9 +34,9 @@ const _FAQ_RAW: FAQ[] = [
   { q: "Do you set up server-side tracking?", a: "Yes - GTM server-side on Google Cloud or Stape, Meta CAPI, Google Enhanced Conversions, TikTok Events API and Klaviyo server events. Rebuilds signal quality after iOS 14 / ITP / cookie loss." },
   { q: "How is server-side different from Shopify's default pixel?", a: "Default pixels lose 20-40% of events to ad-blockers, ITP and consent tools. Server-side sends events from your infrastructure with match keys (hashed email, phone, IP) - matching rates typically jump 30-60%." },
   { q: "Do you handle GA4 rebuilds and migrations?", a: "Yes - full GA4 rebuilds with ecommerce events, custom dimensions, cross-domain, consent-mode v2 and BigQuery export. Includes a Looker Studio dashboard tied to your P&L." },
-  { q: "How does analytics connect to paid ads and SEO decisions?", a: "Clean data is the input to every ad bid, SEO priority and CRO test. Our /services/paid-ads and /services/seo teams use the same attribution model - see /tools/cac-calculator to model channel-level payback." },
+  { q: "How does analytics connect to paid ads and SEO decisions?", a: "Clean data is the input to every ad bid, SEO priority and CRO test. Our /services/performance-marketing and /services/seo teams use the same attribution model - see /tools/cac-calculator to model channel-level payback." },
   { q: "What about attribution across channels?", a: "We layer GA4 (last-non-direct), Triple Whale (multi-touch), platform-native (Meta/Google/TikTok) and post-purchase survey attribution - reconciled into one view so decisions aren't made on one biased source." },
-  { q: "How long does tracking rebuild take?", a: "Full rebuild ships in weeks 1-3 of any engagement; the /services/paid-ads and /services/email-sms teams then execute against clean data from month one." },
+  { q: "How long does tracking rebuild take?", a: "Full rebuild ships in weeks 1-3 of any engagement; the /services/performance-marketing and /services/email-sms teams then execute against clean data from month one." },
 ];
 const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "analytics");
 
@@ -205,7 +205,7 @@ export const Route = createFileRoute("/services/analytics")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "Paid Ads", body: "Analytics feeds paid - clean signal unlocks better ROAS + MER." },
+        { to: "/services/performance-marketing", title: "Paid Ads", body: "Analytics feeds paid - clean signal unlocks better ROAS + MER." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "A/B tests need clean data to hit real significance." },
         { to: "/services/email-sms", title: "Email & SMS", body: "Klaviyo segmentation and flow revenue attribution built on the same stack." },
       ],

@@ -460,7 +460,7 @@ function LocationPage() {
               { label: `Ecommerce SEO in ${city}`, to: "/services/seo" as const },
               { label: `Shopify Marketing in ${city}`, to: "/services/store-development" as const },
               { label: `WooCommerce Growth in ${city}`, to: "/services/store-development" as const },
-              { label: `Google & Meta Ads for ${city} brands`, to: "/services/paid-ads" as const },
+              { label: `Google & Meta Ads for ${city} brands`, to: "/services/performance-marketing" as const },
               { label: `CRO for ${city} stores`, to: "/services/cro" as const },
               { label: `Klaviyo email & SMS`, to: "/services/email-sms" as const },
             ].map((k) => (
@@ -569,7 +569,7 @@ function LocationPage() {
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/services/seo" className="text-ink hover:text-primary">Ecommerce SEO in {city}</Link></li>
                   <li><Link to="/services/seo/local" className="text-ink hover:text-primary">Local SEO for {city}</Link></li>
-                  <li><Link to="/services/paid-ads" className="text-ink hover:text-primary">Paid Ads for {city} brands</Link></li>
+                  <li><Link to="/services/performance-marketing" className="text-ink hover:text-primary">Paid Ads for {city} brands</Link></li>
                   <li><Link to="/services/email-sms" className="text-ink hover:text-primary">Klaviyo Email &amp; SMS</Link></li>
                   <li><Link to="/services/cro" className="text-ink hover:text-primary">CRO for {city} stores</Link></li>
                 </ul>
@@ -676,7 +676,7 @@ function LocationPage() {
               ))}
             </ul>
             <div className="mt-8 btn-pair">
-              <Link to="/services/paid-ads" className="btn btn-primary">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
+              <Link to="/services/performance-marketing" className="btn btn-primary">Explore paid ads <ArrowRight className="w-4 h-4" /></Link>
               <WhatsAppBtn label="Ask about paid ads" />
             </div>
           </div>
@@ -865,7 +865,7 @@ function LocationPage() {
                       key={`${t.name}-${i}`}
                       aria-hidden={isClone ? "true" : undefined}
                       {...(isClone ? { "data-nosnippet": "true" } : {})}
-                      {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                      {...(isClone ? { inert: true } : {})}
                     >
                       <TestimonialCard t={t} i={i} />
                     </div>
@@ -954,7 +954,7 @@ function LocationPage() {
           <span className="text-muted-foreground">·</span>
           <Link to="/services/seo" className="story-link text-primary font-semibold">SEO services</Link>
           <span className="text-muted-foreground">·</span>
-          <Link to="/services/paid-ads" className="story-link text-primary font-semibold">Paid ads</Link>
+          <Link to="/services/performance-marketing" className="story-link text-primary font-semibold">Paid ads</Link>
           <span className="text-muted-foreground">·</span>
           <Link to="/services/email-sms" className="story-link text-primary font-semibold">Email & SMS</Link>
           <span className="text-muted-foreground">·</span>

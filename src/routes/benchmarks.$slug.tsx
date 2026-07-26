@@ -104,7 +104,7 @@ const CONFIGS: Record<string, BenchmarkConfig> = {
       { q: "Google Ads vs Meta Ads for ecommerce - which is better?", a: "They serve different jobs. Google (Shopping + Search) captures existing demand at higher ROAS. Meta creates demand at lower ROAS but higher scale. Most brands need both, with roughly 60/40 Meta-to-Google spend for growth or the reverse for steady-state." },
       { q: "How often should I refresh ad creative?", a: "Meta creatives fatigue within 2-4 weeks at scale. Top-quartile ecommerce brands ship 8-15 new creatives per week to combat this. Google Shopping/PMax rely more on feed quality than fresh creative." },
     ],
-    relatedServiceHref: "/services/paid-ads",
+    relatedServiceHref: "/services/performance-marketing",
     relatedServiceLabel: "See our paid ads service",
   },
 

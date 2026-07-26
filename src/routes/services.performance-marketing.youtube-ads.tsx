@@ -121,7 +121,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
+        { to: "/services/performance-marketing", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "VAC lives inside Google Ads - pair with Shopping and Search." },
         { to: "/services/seo", title: "Ecommerce SEO", body: "Capture the branded-search lift YouTube generates." },
         { to: "/services/creative", title: "Creative Production", body: "Video + Shorts production in-house." },

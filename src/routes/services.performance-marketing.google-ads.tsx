@@ -121,7 +121,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       faqs: FAQ_LIST,
       relatedServices: [
         { to: "/services/seo", title: "Ecommerce SEO", body: "Pair Google Ads with organic Shopping and Search coverage." },
-        { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta, TikTok and YouTube - one revenue P&L." },
+        { to: "/services/performance-marketing", title: "All Paid Ads Services", body: "Meta, TikTok and YouTube - one revenue P&L." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn Google clicks into checkouts." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Enhanced Conversions, GA4 and server-side GTM." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers for every growth stage." },

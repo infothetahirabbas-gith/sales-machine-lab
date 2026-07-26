@@ -26,6 +26,7 @@ export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let timeoutHandle: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     // Safety net: guarantee everything becomes visible no matter what.
     const failSafe = window.setTimeout(() => {
@@ -89,12 +90,6 @@ export function GlobalReveal() {
       });
     };
 
-    // Seed FIRST (marks above-the-fold nodes as data-inview="1"), THEN
-    // enable the CSS that hides un-revealed nodes. This prevents the
-    // "heading shows → disappears → animates back" flash.
-    seed(document);
-    document.documentElement.classList.add("js-reveal");
-
     const mo = new MutationObserver((mutations) => {
       for (const m of mutations) {
         for (const node of m.addedNodes) {
@@ -103,13 +98,25 @@ export function GlobalReveal() {
       }
       revealPassedNodes();
     });
-    mo.observe(document.body, { childList: true, subtree: true });
 
-    window.addEventListener("scroll", revealPassedNodes, { passive: true });
-    window.addEventListener("resize", revealPassedNodes);
+    // Seed after nested route chunks have had time to hydrate. Mutating
+    // data-reveal/data-inview too early causes production hydration mismatches.
+    const start = () => {
+      seed(document);
+      document.documentElement.classList.add("js-reveal");
+      revealPassedNodes();
+      mo.observe(document.body, { childList: true, subtree: true });
+      window.addEventListener("scroll", revealPassedNodes, { passive: true });
+      window.addEventListener("resize", revealPassedNodes);
+    };
+
+    timeoutHandle = globalThis.setTimeout(start, 1800);
 
     return () => {
       window.clearTimeout(failSafe);
+      if (timeoutHandle !== undefined) {
+        globalThis.clearTimeout(timeoutHandle);
+      }
       window.removeEventListener("scroll", revealPassedNodes);
       window.removeEventListener("resize", revealPassedNodes);
       io.disconnect();

@@ -29,7 +29,7 @@ const _FAQ_RAW: FAQ[] = [
   { q: "Do you handle Google Shopping and Pmax at scale?", a: "Yes - Google Shopping, Pmax and standard Search integrated with feed optimisation (via GoDataFeed, Feedonomics or DataFeedWatch) and Enhanced Conversions for real profit signals." },
   { q: "What's a realistic MER at scale?", a: "For DTC scaling past £150k/mo: blended MER 3-4× is healthy with 55%+ CM, 2.5-3× is workable with 65%+ CM. Anything sub-2.5× without subscription revenue is dangerous at scale." },
   { q: "How do you win in AI search for scaling and growth queries?", a: "Original benchmark data (average UK ecommerce MER by vertical, CM benchmarks, cohort LTV curves) + comparison content on Meta vs Google vs TikTok vs SEO - so ChatGPT, Perplexity, Gemini and Google AI Overviews cite BeingEcom for scaling questions." },
-  { q: "At what revenue stage should we bring in scaling systems?", a: "Once you're past £100k/mo and hitting operational ceilings - inventory forecasting misses, ad spend outrunning cash cycles, retention flat. Below that, focus on /services/cro and /services/paid-ads first." },
+  { q: "At what revenue stage should we bring in scaling systems?", a: "Once you're past £100k/mo and hitting operational ceilings - inventory forecasting misses, ad spend outrunning cash cycles, retention flat. Below that, focus on /services/cro and /services/performance-marketing first." },
   { q: "Does scaling include inventory & cash-flow modelling?", a: "Yes - we model reorder points, lead-time buffers, working-capital cycles and MER-to-cash-payback windows so growth doesn't stall on stock-outs or bank balance. Free /tools/break-even-calculator gets you started." },
   { q: "How do you scale ad accounts without ROAS collapse?", a: "Account structure, budget-pacing rules, creative velocity and audience diversification - executed as a system, not one-off boosts. Detailed in /services/performance-marketing and /services/creative." },
   { q: "How is scaling different from just spending more on ads?", a: "Scaling is the P&L system that turns extra spend into extra profit: LTV lifts, retention flows, ops leverage, unit-economic gates. Pairs with /services/email-sms and /tools/ltv-calculator." },
@@ -203,7 +203,7 @@ export const Route = createFileRoute("/services/scaling")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "Paid Ads", body: "Meta + Google + TikTok scaled against MER, not vanity ROAS." },
+        { to: "/services/performance-marketing", title: "Paid Ads", body: "Meta + Google + TikTok scaled against MER, not vanity ROAS." },
         { to: "/services/email-sms", title: "Email & SMS", body: "Klaviyo lifecycle + subscription + VIP - retention that funds scale." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "CFO-grade dashboards: MER, CM, LTV, cash - the base scaling sits on." },
       ],

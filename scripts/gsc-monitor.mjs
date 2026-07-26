@@ -12,7 +12,7 @@ const PAGES = [
   "https://beingecom.com/",
   "https://beingecom.com/services",
   "https://beingecom.com/services/seo",
-  "https://beingecom.com/services/paid-ads",
+  "https://beingecom.com/services/performance-marketing",
   "https://beingecom.com/case-studies",
   "https://beingecom.com/pricing",
 ];

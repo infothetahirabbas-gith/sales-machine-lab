@@ -121,7 +121,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
+        { to: "/services/performance-marketing", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Demand harvest inside your portfolio." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Demand creation at scale." },
         { to: "/services/seo", title: "Ecommerce SEO", body: "Compound paid demand into organic revenue." },

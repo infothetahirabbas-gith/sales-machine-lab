@@ -196,7 +196,7 @@ export const Route = createFileRoute("/services/creative")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "Ecommerce Paid Ads Agency UK", body: "The paid-media team that ships and tests every creative we produce." },
+        { to: "/services/performance-marketing", title: "Ecommerce Paid Ads Agency UK", body: "The paid-media team that ships and tests every creative we produce." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "PDP + landing page rebuilds that convert the traffic creative drives." },
         { to: "/services/performance-marketing/tiktok-ads", title: "TikTok Ads", body: "Native Spark Ads + creator partnerships that scale organically." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta Ads + ASC+ scaling powered by weekly creative velocity." },

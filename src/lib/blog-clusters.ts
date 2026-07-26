@@ -53,7 +53,7 @@ export const CLUSTERS: Record<ClusterId, Cluster> = {
       "ios17-attribution-uk-ecommerce",
       "mer-vs-roas-uk-dtc-founders",
     ],
-    relatedServicePath: "/services/paid-ads",
+    relatedServicePath: "/services/performance-marketing",
     relatedServiceLabel: "Paid media service",
     resources: [
       { to: "/tools/roas-calculator", label: "ROAS calculator", kind: "tool" },

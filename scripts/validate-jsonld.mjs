@@ -36,7 +36,7 @@ const PAGES = {
   "/services":                  ["Organization", "FAQPage"],
   "/services/seo":              ["Organization", "Service"],
   "/services/cro":              ["Organization", "Service"],
-  "/services/paid-ads":         ["Organization", "Service"],
+  "/services/performance-marketing": ["Organization", "Service"],
   "/services/email-sms":        ["Organization", "Service"],
   "/services/analytics":        ["Organization", "Service"],
   "/services/store-development":["Organization", "Service"],

@@ -89,7 +89,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
-      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchpriority: "high", media: "(min-width: 768px)", imagesrcset: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w`, imagesizes: "(min-width: 1024px) 400px, (min-width: 768px) 480px, 400px" } as never,
+      { rel: "preload", as: "image", href: heroShopifyCommerceSm, fetchPriority: "high", media: "(min-width: 768px)", imageSrcSet: `${heroShopifyCommerceSm} 480w, ${heroShopifyCommerceMd} 640w`, imageSizes: "(min-width: 1024px) 400px, (min-width: 768px) 480px, 400px" } as never,
     ],
 
     scripts: [
@@ -439,7 +439,7 @@ function Home() {
         <div className="mt-6 text-center text-sm">
           <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
           <span className="mx-2 text-muted-foreground">·</span>
-          <Link to="/services/paid-ads" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
+          <Link to="/services/performance-marketing" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
 
         {/* Money-page internal linking block with exact-match anchors */}
@@ -450,7 +450,7 @@ function Home() {
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
             <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO</Link>
             <span className="text-muted-foreground">·</span>
-            <Link to="/services/paid-ads" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
+            <Link to="/services/performance-marketing" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
             <span className="text-muted-foreground">·</span>
@@ -810,7 +810,7 @@ function Home() {
                     className="w-[320px] md:w-[360px] shrink-0 list-none"
                     aria-hidden={isClone ? "true" : undefined}
                     {...(isClone ? { "data-nosnippet": "true" } : {})}
-                    {...(isClone ? { inert: "" as unknown as boolean } : {})}
+                    {...(isClone ? { inert: true } : {})}
                   >
                     <figure className="card-surface card-hover p-6 h-full mx-2">
                       <div className="text-primary text-3xl font-display leading-none" aria-hidden="true">“</div>
