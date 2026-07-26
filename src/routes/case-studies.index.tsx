@@ -382,18 +382,37 @@ function pickSeoKeywords(industry: string) {
 function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; metric: string; metricLabel: string; industry: string }) {
   const r = rng(seed + 23);
   const days = 90;
+  // Each study gets a distinct trajectory shape so no two SEO cards render the same curve.
+  // Baseline, slope, seasonality period and volatility are all seed-driven.
+  const baseline = 18 + (seed * 7) % 42;              // 18-60 starting clicks/day
+  const slope = 0.6 + ((seed * 11) % 27) / 10;        // 0.6-3.3 daily growth
+  const seasonalityPeriod = 5 + (seed % 9);           // 5-13 day cycle
+  const seasonalityAmp = 6 + ((seed * 3) % 12);       // 6-18 amplitude
+  const drift = ((seed * 17) % 13) / 10;              // 0-1.3 secondary drift
+  const volatility = 10 + ((seed * 5) % 14);          // 10-24 noise band
+  // Occasional dips (algo update / crawl issue) unique to each study
+  const dipDay = 20 + (seed % 55);
+  const dipDepth = 0.55 + ((seed % 9) / 20);
   const clickSeries = Array.from({ length: days }, (_, i) => {
-    const base = 30 + i * 1.4 + Math.sin(i / 4) * 10 + Math.cos(i / 9) * 6;
-    return Math.max(6, base + (r() - 0.5) * 18);
+    const trend = baseline + i * slope;
+    const season = Math.sin((i + seed) / seasonalityPeriod) * seasonalityAmp + Math.cos(i / (7 + drift)) * drift * 4;
+    const noise = (r() - 0.5) * volatility;
+    let v = trend + season + noise;
+    // Realistic 3-day dip somewhere in the middle
+    if (i >= dipDay && i < dipDay + 3) v *= dipDepth;
+    return Math.max(4, v);
   });
-  const imprSeries = clickSeries.map((c, i) => c * (16 + Math.sin(i / 5) * 3) + r() * 80);
+  // Impressions ratio varies per niche (skincare/beauty run higher CTR ~4-6%, B2B/tech lower)
+  const imprRatio = 14 + ((seed * 2) % 22);           // 14-35× click volume
+  const imprSeries = clickSeries.map((c, i) => c * imprRatio + Math.sin(i / 6) * 40 * (1 + drift) + r() * 120);
 
   const totalClicks = Math.round(clickSeries.reduce((a, b) => a + b, 0));
   const totalImpr = Math.round(imprSeries.reduce((a, b) => a + b, 0));
   const avgCtr = ((totalClicks / totalImpr) * 100).toFixed(1);
-  const avgPos = (5.2 + r() * 3.4).toFixed(1);
+  const avgPos = (3.8 + ((seed * 13) % 47) / 10).toFixed(1); // 3.8-8.5 realistic range
 
   const fmt = (n: number) => (n >= 1_000_000 ? `${(n / 1_000_000).toFixed(2)}M` : n >= 1000 ? `${(n / 1000).toFixed(1)}K` : `${n}`);
+
 
   const w = 320, h = 96, padL = 22, padR = 4, padT = 6, padB = 14;
   const iw = w - padL - padR;
@@ -494,18 +513,29 @@ function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; met
       {/* Queries table */}
       <div className="flex-1 min-h-0 mt-1 border-t border-[#dadce0] overflow-hidden">
         <div className="grid grid-cols-[1fr_34px_28px] px-2 py-[3px] text-[7px] font-medium text-[#5f6368] border-b border-[#dadce0] bg-[#f8f9fa] uppercase tracking-wide">
-          <span>Top queries</span>
+          <span>Top queries · Illustrative</span>
           <span className="text-right">Clicks</span>
           <span className="text-right">Pos.</span>
         </div>
-        {queries.slice(0, 3).map((q, i) => (
-          <div key={i} className="grid grid-cols-[1fr_34px_28px] items-center px-2 py-[3px] text-[8px] border-b border-[#f1f3f4] last:border-b-0 hover:bg-[#f8f9fa]">
-            <span className="truncate text-[#1a0dab]" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{q.kw}</span>
-            <span className="text-right tabular-nums text-[#202124]">{q.clicks}</span>
-            <span className="text-right tabular-nums text-[#188038] font-medium">{(q.pos + (seed % 2)).toFixed(1)}</span>
-          </div>
-        ))}
+        {queries.slice(0, 3).map((q, i) => {
+          // Salt clicks and position by seed so two studies in the same niche don't render identical rows.
+          const parseClicks = (c: string) => parseFloat(c.replace("K", "")) * (c.includes("K") ? 1000 : 1);
+          const raw = parseClicks(q.clicks);
+          const jitter = 1 + (((seed * (i + 3) * 17) % 55) - 27) / 100; // ±27%
+          const adjusted = Math.max(120, Math.round(raw * jitter));
+          const display = adjusted >= 1000 ? `${(adjusted / 1000).toFixed(1)}K` : `${adjusted}`;
+          const posJitter = ((seed * (i + 2)) % 13) / 10 - 0.6; // ±0.6
+          const pos = Math.max(1.1, q.pos + posJitter);
+          return (
+            <div key={i} className="grid grid-cols-[1fr_34px_28px] items-center px-2 py-[3px] text-[8px] border-b border-[#f1f3f4] last:border-b-0 hover:bg-[#f8f9fa]">
+              <span className="truncate text-[#1a0dab]" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{q.kw}</span>
+              <span className="text-right tabular-nums text-[#202124]">{display}</span>
+              <span className="text-right tabular-nums text-[#188038] font-medium">{pos.toFixed(1)}</span>
+            </div>
+          );
+        })}
       </div>
+
     </div>
   );
 }
