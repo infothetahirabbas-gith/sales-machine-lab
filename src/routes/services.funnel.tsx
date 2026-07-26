@@ -33,7 +33,7 @@ const _FAQ_RAW: FAQ[] = [
   { q: "Do funnels only work for paid ads?", a: "No - the same principles apply to organic landing pages, email sends, influencer campaigns and quiz flows. We build funnels for any channel where intent is known. Pairs with /services/paid-ads and /services/email-sms." },
   { q: "How do you connect funnels back to CRO and creative?", a: "Funnel promises must match the ad hook and the checkout experience. Our /services/cro and /services/creative teams share the same brief so message-market-page-checkout are one continuous story - not four disconnected teams." },
   { q: "How long does a funnel take to launch?", a: "First funnel usually live inside 2-3 weeks: research, wireframe, design, build, tracking, QA and traffic split. A/B testing starts week 4." },
-  { q: "Can I see the funnel ROI before we scale?", a: "Yes - the /tools/roas-calculator and /tools/cac-calculator model expected ROAS and payback against your AOV, margin and cold-traffic CAC before we ship a single dollar of ad spend." },
+  { q: "Can I see the funnel ROI before we scale?", a: "Yes - the /tools/roas-calculator and /tools/cac-calculator model expected ROAS and payback against your AOV, margin and cold-traffic CAC before we ship a single pound of ad spend." },
   { q: "Do you rebuild the whole store or just landing pages?", a: "Either. Some brands want individual campaign funnels (ad → landing → checkout). Others need a full store rebuild - see /services/store-development for full Shopify or Woo engagements." },
   { q: "Which industries have the strongest funnel results?", a: "Beauty, supplements, apparel, home & living and consumer electronics - see /case-studies for real UK Shopify & Woo funnel builds and the exact metric lifts." },
 ];

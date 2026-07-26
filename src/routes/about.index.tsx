@@ -91,7 +91,7 @@ function About() {
       <Section
         alt
         eyebrow="Strategic Planning"
-        title="How we plan growth before we spend a dollar."
+        title="How we plan growth before we spend a pound."
         intro="Every brand starts with a custom growth blueprint - not a templated playbook."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -192,7 +192,7 @@ function About() {
             <div className="relative card-surface p-8 lg:p-10 rounded-3xl">
               <Quote className="absolute -top-4 -left-4 w-12 h-12 text-primary/40" strokeWidth={1.5} />
               <p className="text-xl md:text-2xl font-display font-semibold text-ink leading-snug">
-                "Ecommerce isn't about hacks or hype. It's about building a system where every click, every dollar of ad spend, and every customer compounds into real, profitable growth."
+                "Ecommerce isn't about hacks or hype. It's about building a system where every click, every pound of ad spend, and every customer compounds into real, profitable growth."
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <div className="h-0.5 w-10 bg-primary rounded-full" />
