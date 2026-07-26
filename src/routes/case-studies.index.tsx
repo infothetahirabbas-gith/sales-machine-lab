@@ -513,18 +513,29 @@ function SeoPreview({ seed, metric, metricLabel, industry }: { seed: number; met
       {/* Queries table */}
       <div className="flex-1 min-h-0 mt-1 border-t border-[#dadce0] overflow-hidden">
         <div className="grid grid-cols-[1fr_34px_28px] px-2 py-[3px] text-[7px] font-medium text-[#5f6368] border-b border-[#dadce0] bg-[#f8f9fa] uppercase tracking-wide">
-          <span>Top queries</span>
+          <span>Top queries · Illustrative</span>
           <span className="text-right">Clicks</span>
           <span className="text-right">Pos.</span>
         </div>
-        {queries.slice(0, 3).map((q, i) => (
-          <div key={i} className="grid grid-cols-[1fr_34px_28px] items-center px-2 py-[3px] text-[8px] border-b border-[#f1f3f4] last:border-b-0 hover:bg-[#f8f9fa]">
-            <span className="truncate text-[#1a0dab]" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{q.kw}</span>
-            <span className="text-right tabular-nums text-[#202124]">{q.clicks}</span>
-            <span className="text-right tabular-nums text-[#188038] font-medium">{(q.pos + (seed % 2)).toFixed(1)}</span>
-          </div>
-        ))}
+        {queries.slice(0, 3).map((q, i) => {
+          // Salt clicks and position by seed so two studies in the same niche don't render identical rows.
+          const parseClicks = (c: string) => parseFloat(c.replace("K", "")) * (c.includes("K") ? 1000 : 1);
+          const raw = parseClicks(q.clicks);
+          const jitter = 1 + (((seed * (i + 3) * 17) % 55) - 27) / 100; // ±27%
+          const adjusted = Math.max(120, Math.round(raw * jitter));
+          const display = adjusted >= 1000 ? `${(adjusted / 1000).toFixed(1)}K` : `${adjusted}`;
+          const posJitter = ((seed * (i + 2)) % 13) / 10 - 0.6; // ±0.6
+          const pos = Math.max(1.1, q.pos + posJitter);
+          return (
+            <div key={i} className="grid grid-cols-[1fr_34px_28px] items-center px-2 py-[3px] text-[8px] border-b border-[#f1f3f4] last:border-b-0 hover:bg-[#f8f9fa]">
+              <span className="truncate text-[#1a0dab]" style={{ fontFamily: "Roboto, Arial, sans-serif" }}>{q.kw}</span>
+              <span className="text-right tabular-nums text-[#202124]">{display}</span>
+              <span className="text-right tabular-nums text-[#188038] font-medium">{pos.toFixed(1)}</span>
+            </div>
+          );
+        })}
       </div>
+
     </div>
   );
 }
