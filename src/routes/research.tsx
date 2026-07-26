@@ -149,6 +149,28 @@ function ResearchIndex() {
         </div>
 
         <div className="mt-14 rounded-3xl border bg-card p-8 lg:p-10">
+          <h2 className="font-display text-2xl lg:text-3xl font-bold tracking-tight">Participate in the 2026 studies</h2>
+          <p className="mt-4 text-foreground/85 leading-relaxed max-w-3xl">
+            We're actively collecting anonymised data from UK Shopify and WooCommerce brands for the studies
+            marked "Data collection". Participating stores receive the full report 30 days before public
+            release, plus a private benchmark comparing their store to the segment median.
+          </p>
+          <ul className="mt-5 grid gap-2 text-foreground/85 max-w-3xl text-sm leading-relaxed list-disc pl-5">
+            <li>Eligibility: UK-registered Shopify or WooCommerce store, £30k+/month revenue, trading 12+ months.</li>
+            <li>Data required: read-only GA4 access or an export of the 8 metrics defined in the study brief.</li>
+            <li>Governance: data is aggregated at the source, never republished at store level, and destroyed 90 days after publication.</li>
+          </ul>
+          <div className="mt-6">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+            >
+              Apply to participate <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-6 rounded-3xl border bg-card p-8 lg:p-10">
           <h2 className="font-display text-2xl lg:text-3xl font-bold tracking-tight">Methodology & data ethics</h2>
           <p className="mt-4 text-foreground/85 leading-relaxed max-w-3xl">
             Every report publishes its sample size, collection window, category segmentation and definitions.
