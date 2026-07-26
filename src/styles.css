@@ -783,6 +783,12 @@ section p a:hover::after, section li a:hover::after { right: 0; }
   }
 }
 
+/* Disable the pulse-ring loop on mobile - continuous paint is expensive
+   and does not add meaningful UX at small sizes. */
+@media (max-width: 767px) {
+  .pulse-dot::after { animation: none !important; opacity: 0 !important; }
+}
+
 /* ================================================================
    Lightweight reveal markers. Paint immediately; avoid global observers
    and heavy animation runtime on mobile performance traces.
