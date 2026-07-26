@@ -727,7 +727,7 @@ function Home() {
             { t: "One team, one revenue P&L", b: "Ecommerce SEO, Google Ads, Meta Ads, CRO, Klaviyo and analytics report to a single lead - so channels compound instead of competing.", kpi: "1 revenue owner" },
             { t: "UK-native, globally scalable", b: "Built for UK compliance, VAT, GBP margins and consumer behaviour, with international SEO and Shopify Markets when you're ready to expand.", kpi: "UK + 14 markets" },
             { t: "Transparent reporting", b: "Live dashboards across GA4, Meta Ads, Google Ads and Klaviyo - plus a weekly Loom and monthly strategy call. No black boxes.", kpi: "Weekly Loom + live dashboards" },
-            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers.", kpi: "7+ yrs avg operator experience" },
+            { t: "Senior team on every account", b: "You work directly with the people running your account - no junior handovers, no rotating account managers. Founder-led by Tahir Abbas with 10+ years operating DTC brands; team-wide average is 7+ years per operator.", kpi: "10+ yrs founder-led / 7+ yrs avg operator" },
             { t: "Month-to-month after 90 days", b: "One focused 90-day sprint to build the system, then flexible month-to-month. We stay because the numbers earn it.", kpi: "94% retain past 90 days" },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
