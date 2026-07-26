@@ -119,9 +119,8 @@ export function GlobalReveal() {
 
     return () => {
       window.clearTimeout(failSafe);
-      if (timeoutHandle !== undefined) {
-        globalThis.clearTimeout(timeoutHandle);
-      }
+
+
       window.removeEventListener("scroll", revealPassedNodes);
       window.removeEventListener("resize", revealPassedNodes);
       io.disconnect();
