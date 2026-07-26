@@ -26,7 +26,7 @@ export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let hydrationDelay: number | undefined;
+    let hydrationDelay: ReturnType<typeof globalThis.setTimeout> | number | undefined;
 
     // Safety net: guarantee everything becomes visible no matter what.
     const failSafe = window.setTimeout(() => {
