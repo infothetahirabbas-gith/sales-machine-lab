@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Can you actually rank in AI Overviews?", a: "Yes - with entity SEO, structured data, answer-first content, citation-worthy sources and topical authority. We measure it via SGE tracking tools." },
   { q: "What content structure works for AEO?", a: "Direct answer first (30-60 words), followed by supporting detail, structured lists, FAQs and schema. Answer, then explain." },
   { q: "Which AI engines matter for UK ecommerce?", a: "Google AI Overviews (biggest volume), ChatGPT Search, Perplexity, Gemini and Claude - in that order for most UK DTC brands." },
-  { q: "What makes you a specialist Ecommerce SEO Agency UK for AEO?", a: "We're a specialist Ecommerce Marketing Agency UK running AEO on 30+ Shopify and WooCommerce brands right now - most UK agencies still call it 'SGE optimisation' and pretend it's optional." },
+  { q: "What makes BeingEcom a good choice for ecommerce AEO?", a: "We're a specialist Ecommerce Marketing Agency UK running AEO on 30+ Shopify and WooCommerce brands right now - most UK agencies still call it 'SGE optimisation' and pretend it's optional." },
   { q: "Is AEO replacing traditional SEO?", a: "No - AEO stacks on top. Traditional SEO still drives the majority of clicks in the UK. AEO defends the top-of-funnel queries AI Overviews are eating." },
   { q: "How do I get my brand into ChatGPT's knowledge?", a: "Entity SEO: Wikidata entry, Knowledge Graph presence, consistent sameAs graph, Organisation schema, and high-authority editorial citations from sources ChatGPT trusts." },
   { q: "What is entity SEO?", a: "Making your brand a recognised entity in Google's Knowledge Graph and Wikidata via structured data, disambiguation, editorial mentions and cross-referenced sources." },
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
         "Content structured for humans, not answer engines.",
       ],
       whatIsTitle: "AEO is the next SEO - not a replacement.",
-      whatIsBody: "Answer engines pull citations from a smaller pool of trusted, structured, entity-verified sources. As a specialist Ecommerce SEO Agency UK, we get your brand into that pool - so you appear inside the AI answer, the new zero-click winner. It's the fastest-growing traffic surface for UK ecommerce, and most of your competitors haven't started.",
+      whatIsBody: "Answer engines pull citations from a smaller pool of trusted, structured, entity-verified sources. As a specialist ecommerce SEO team, we get your brand into that pool - so you appear inside the AI answer, the new zero-click winner. It's the fastest-growing traffic surface for UK ecommerce, and most of your competitors haven't started.",
       systemTitle: "Our AEO system.",
       systemSteps: [
         { title: "Entity foundation", body: "Wikidata, brand knowledge panel, sameAs graph, Organisation schema." },
@@ -103,7 +103,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - AEO is baked into every engagement." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service - AEO is baked into every engagement." },
         { to: "/services/seo/technical", title: "Technical SEO", body: "Organisation + Product + FAQ schema is the technical foundation of AEO." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "Quotable H2 answer blocks so AI engines cite your pages verbatim." },
         { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial mentions build the entity signals AI engines trust." },

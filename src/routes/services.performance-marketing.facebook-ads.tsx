@@ -122,7 +122,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       relatedServices: [
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/instagram-ads", title: "Instagram Ads", body: "Reels & Stories inside the same Meta account." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound Meta demand with organic search coverage." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound Meta demand with organic search coverage." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where Meta traffic actually turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and statics - 3 batches/week." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },

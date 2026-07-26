@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you rewrite product descriptions?", a: "Yes - unique, buyer-intent copy with USPs, FAQs and schema, not manufacturer boilerplate." },
   { q: "Will you fix duplicate collection and filter pages?", a: "Yes - canonicalisation, faceted-nav rules and unique intros so collections stop cannibalising each other." },
   { q: "Do you handle Shopify and WooCommerce equally?", a: "Yes - Shopify metafields/OS 2.0 and WooCommerce/Yoast/RankMath, both to the same standard." },
-  { q: "What makes you a specialist Ecommerce SEO Agency UK for on-page work?", a: "We're a specialist Ecommerce Marketing Agency UK. Every on-page rebuild is led by a senior UK SEO director who has shipped 7-figure Shopify and WooCommerce stores - not templated by a junior." },
+  { q: "What makes BeingEcom a good choice for ecommerce on-page work?", a: "We're a specialist Ecommerce Marketing Agency UK. Every on-page rebuild is led by a senior UK SEO director who has shipped 7-figure Shopify and WooCommerce stores - not templated by a junior." },
   { q: "How do you approach product title tags?", a: "Buyer-intent modifier + product + brand + differentiator, tested for SERP CTR - not just keyword-stuffed. We A/B title formats at the template level." },
   { q: "Do you handle schema markup?", a: "Yes - Product, AggregateRating, Review, FAQ, HowTo, Breadcrumb and Organisation JSON-LD, validated in Google's Rich Results Test and monitored in Search Console." },
   { q: "How do you avoid keyword cannibalisation?", a: "We map every keyword to exactly one canonical URL, redirect or canonical the duplicates, and rewrite title/H1/copy so each page owns its intent." },
@@ -104,7 +104,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service that houses on-page work inside a wider strategy." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service that houses on-page work inside a wider strategy." },
         { to: "/services/seo/technical", title: "Technical SEO", body: "Site speed, indexation and schema fixes that let on-page work rank." },
         { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial links that compound on-page rewrites into top-3 rankings." },
         { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Turn on-page copy into AI-Overview-quotable answer blocks." },

@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you handle hreflang?", a: "Yes - full hreflang mapping, x-default, sitemap-based implementation and validation. Getting this wrong tanks international rankings." },
   { q: "What about translation vs localisation?", a: "Machine translation is a starting point, never the finish line. We use native-speaker localisation for money pages, product copy, ads and email - cultural nuance sells." },
   { q: "How long until international SEO shows results?", a: "3-6 months per new region - faster if you already have brand authority to pass through subfolder structure." },
-  { q: "What makes you a specialist Ecommerce SEO Agency UK for international expansion?", a: "We're a UK-headquartered Ecommerce Marketing Agency UK that has scaled brands into US, EU, MENA and APAC from UK Shopify and WooCommerce headquarters. UK strategy, global execution." },
+  { q: "What makes BeingEcom a good choice for ecommerce international expansion?", a: "We're a UK-headquartered Ecommerce Marketing Agency UK that has scaled brands into US, EU, MENA and APAC from UK Shopify and WooCommerce headquarters. UK strategy, global execution." },
   { q: "Can you help with Shopify Markets?", a: "Yes - full Shopify Markets configuration: country routing, currency, pricing, catalogues, hreflang, checkout language and payment methods per region." },
   { q: "Do you support WooCommerce multi-region setups?", a: "Yes - WPML or Polylang, multi-currency plugins, GeoIP routing, hreflang mapping and per-region schema. Woo is more flexible but needs more engineering." },
   { q: "How do you research international keyword demand?", a: "Ahrefs + Semrush per-country databases, local Search Console data, competitor SERP scraping in-country, and native-speaker validation of intent nuances." },
@@ -103,7 +103,7 @@ export const Route = createFileRoute("/services/seo/international")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - international is a specialism inside it." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service - international is a specialism inside it." },
         { to: "/services/seo/technical", title: "Technical SEO", body: "hreflang, canonicals and Shopify Markets routing are technical work." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "Per-region PDP and PLP copy that actually ranks in each market." },
         { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Region-specific digital PR for UK, US, EU and MENA storefronts." },

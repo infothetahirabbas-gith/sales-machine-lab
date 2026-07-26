@@ -122,7 +122,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       relatedServices: [
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta demand-creation to pair with TikTok virality." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Convert branded search lift from TikTok into organic revenue." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Convert branded search lift from TikTok into organic revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC and creator video - 3 batches/week." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where TikTok traffic turns into revenue." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },

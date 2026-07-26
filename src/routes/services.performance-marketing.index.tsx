@@ -19,7 +19,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you have a minimum monthly ad spend?", a: "£10k/mo across paid media is our practical floor to run the full-funnel system properly. Below that our Ecommerce Growth Agency team usually recommends focusing on one channel deeply first." },
   { q: "Google Ads vs Meta Ads vs TikTok - which should I run?", a: "Google harvests demand (BOF, 3.5-6× ROAS). Meta creates demand at scale (TOF/MOF, 2.5-3.5×). TikTok creates viral demand (TOF, 1.8-3×). A real portfolio uses all three against blended MER." },
   { q: "How fast will performance marketing see results?", a: "14-30 days on Meta and TikTok once creative velocity kicks in. Google Search and Shopping stabilise in 30-45 days. Real compounding scale from month 3." },
-  { q: "Do you pair paid media with SEO?", a: "Yes - our sister Ecommerce SEO Agency UK team captures the branded-search halo paid creates, compounding CAC downward over time." },
+  { q: "Do you pair paid media with SEO?", a: "Yes - our sister SEO team captures the branded-search halo paid creates, compounding CAC downward over time." },
   { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes - several clients sit between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
   { q: "What contract length do you require?", a: "3-month initial commitment to hit a real testing cadence, then rolling monthly. No 12-month lock-ins." },
   { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and SEO collaboration so paid demand compounds into organic." },

@@ -204,7 +204,7 @@ export const Route = createFileRoute("/services/email-sms")({
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Get more of the traffic email drives to actually convert." },
         { to: "/services/paid-ads", title: "Ecommerce Paid Ads Agency UK", body: "Push Klaviyo audiences into Meta + Google lookalikes for lower CAC." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and Triple Whale attribution so email revenue is provable." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound the review + repeat-traffic signals email generates into organic rankings." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound the review + repeat-traffic signals email generates into organic rankings." },
       ],
     }} />
   ),

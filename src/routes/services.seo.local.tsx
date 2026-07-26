@@ -103,7 +103,7 @@ export const Route = createFileRoute("/services/seo/local")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - local is one specialism inside it." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service - local is one specialism inside it." },
         { to: "/services/seo/technical", title: "Technical SEO", body: "LocalBusiness schema and hreflang are technical prerequisites." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "City-specific PDP and landing-page copy that ranks in local packs." },
         { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Local intent queries increasingly resolve in AI Overviews first." },

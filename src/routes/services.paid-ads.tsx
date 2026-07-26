@@ -187,7 +187,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel MER, blended ROAS and full-funnel budgets." },
       ],
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound the demand paid captures with our in-house SEO team." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound the demand paid captures with our in-house SEO team." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where ad traffic actually turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product - 3 batches/week." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },

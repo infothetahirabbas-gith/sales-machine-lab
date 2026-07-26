@@ -124,7 +124,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Demand harvest inside your portfolio." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Demand creation at scale." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound paid demand into organic revenue." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound paid demand into organic revenue." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Attribution, MER dashboards and incrementality tests." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent hybrid retainer + % of spend." },
         { to: "/audit", title: "Free Media Buying Audit", body: "Book a free 30-min audit of your portfolio and MER." },
