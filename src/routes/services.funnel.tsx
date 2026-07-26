@@ -30,7 +30,7 @@ const _FAQ_RAW: FAQ[] = [
   { q: "What's the difference between a funnel and a landing page?", a: "A landing page is one screen. A funnel is a system - ad, pre-sell, landing, PDP, cart, checkout, post-purchase, email and retargeting - engineered as one journey. Landing pages win the click; funnels compound the LTV." },
   { q: "How do funnels win in AI Search (ChatGPT, Perplexity, Gemini)?", a: "Advertorial and comparison content structured with FAQ + HowTo + Product schema so ChatGPT, Perplexity, Gemini and Google AI Overviews cite BeingEcom advertorials as the source when users research the product category." },
   { q: "How does a funnel differ from a normal PDP or homepage?", a: "A funnel is a purpose-built page (or short sequence) that matches a specific traffic source and intent - ad hook, keyword, email - and removes every decision that doesn't move the buyer forward. Your homepage serves 40 audiences; a funnel serves one." },
-  { q: "Do funnels only work for paid ads?", a: "No - the same principles apply to organic landing pages, email sends, influencer campaigns and quiz flows. We build funnels for any channel where intent is known. Pairs with /services/paid-ads and /services/email-sms." },
+  { q: "Do funnels only work for paid ads?", a: "No - the same principles apply to organic landing pages, email sends, influencer campaigns and quiz flows. We build funnels for any channel where intent is known. Pairs with /services/performance-marketing and /services/email-sms." },
   { q: "How do you connect funnels back to CRO and creative?", a: "Funnel promises must match the ad hook and the checkout experience. Our /services/cro and /services/creative teams share the same brief so message-market-page-checkout are one continuous story - not four disconnected teams." },
   { q: "How long does a funnel take to launch?", a: "First funnel usually live inside 2-3 weeks: research, wireframe, design, build, tracking, QA and traffic split. A/B testing starts week 4." },
   { q: "Can I see the funnel ROI before we scale?", a: "Yes - the /tools/roas-calculator and /tools/cac-calculator model expected ROAS and payback against your AOV, margin and cold-traffic CAC before we ship a single pound of ad spend." },
@@ -204,7 +204,7 @@ export const Route = createFileRoute("/services/funnel")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/paid-ads", title: "Paid Ads", body: "The funnel only pays back if the paid layer feeds it correctly." },
+        { to: "/services/performance-marketing", title: "Paid Ads", body: "The funnel only pays back if the paid layer feeds it correctly." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "PDP + checkout CRO tuning that lifts every funnel we ship." },
         { to: "/services/email-sms", title: "Email & SMS", body: "Klaviyo abandonment flows firing in parallel with the paid funnel." },
       ],

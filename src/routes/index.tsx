@@ -439,7 +439,7 @@ function Home() {
         <div className="mt-6 text-center text-sm">
           <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
           <span className="mx-2 text-muted-foreground">·</span>
-          <Link to="/services/paid-ads" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
+          <Link to="/services/performance-marketing" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
 
         {/* Money-page internal linking block with exact-match anchors */}
@@ -450,7 +450,7 @@ function Home() {
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
             <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO</Link>
             <span className="text-muted-foreground">·</span>
-            <Link to="/services/paid-ads" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
+            <Link to="/services/performance-marketing" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
             <span className="text-muted-foreground">·</span>

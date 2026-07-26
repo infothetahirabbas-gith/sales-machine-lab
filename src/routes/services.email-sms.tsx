@@ -33,7 +33,7 @@ const _FAQ_RAW: FAQ[] = [
   { q: "Which ESPs do you build in?", a: "Klaviyo is the default for Shopify/Woo, plus Postscript and Attentive for SMS. We also migrate off Mailchimp, Omnisend and dotdigital when the retention roadmap outgrows them." },
   { q: "How many flows should a scaling store have live?", a: "Minimum 8: welcome, abandoned browse, abandoned cart, abandoned checkout, post-purchase 1, post-purchase 2, winback, VIP. Scaling brands run 15-25 including replenishment, cross-sell and lapsed-subscriber flows." },
   { q: "What % of revenue should come from email & SMS?", a: "Healthy DTC retention channels drive 25-40% of total revenue. Under 15% signals broken flows or thin list growth - fixable inside 60 days." },
-  { q: "How does email connect with paid ads and CRO?", a: "Retained buyers subsidise higher paid-ad CAC. Our /services/paid-ads and /services/cro teams share LTV data with email so we know how hard we can bid. Model it in /tools/ltv-calculator." },
+  { q: "How does email connect with paid ads and CRO?", a: "Retained buyers subsidise higher paid-ad CAC. Our /services/performance-marketing and /services/cro teams share LTV data with email so we know how hard we can bid. Model it in /tools/ltv-calculator." },
   { q: "Do you handle creative & copy for every send?", a: "Yes - in-house UK copywriters and designers ship every campaign and flow email. See /services/creative for the wider creative system." },
   { q: "How fast can we see revenue impact?", a: "First flow rebuild ships in week 2; new welcome + abandoned cart typically add 8-15% to store revenue inside 30 days. Full retention system compounds over 90 days." },
   { q: "Which industries see the biggest retention wins?", a: "Beauty, supplements, coffee, pet and apparel - anything with reorder cadence. See /case-studies and /industries for verticals we've scaled retention in." },
@@ -202,7 +202,7 @@ export const Route = createFileRoute("/services/email-sms")({
       faqs: FAQ_LIST,
       relatedServices: [
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Get more of the traffic email drives to actually convert." },
-        { to: "/services/paid-ads", title: "Ecommerce Paid Ads Agency UK", body: "Push Klaviyo audiences into Meta + Google lookalikes for lower CAC." },
+        { to: "/services/performance-marketing", title: "Ecommerce Paid Ads Agency UK", body: "Push Klaviyo audiences into Meta + Google lookalikes for lower CAC." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and Triple Whale attribution so email revenue is provable." },
         { to: "/services/seo", title: "Ecommerce SEO", body: "Compound the review + repeat-traffic signals email generates into organic rankings." },
       ],

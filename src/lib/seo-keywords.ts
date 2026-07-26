@@ -95,13 +95,6 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
     description:
       "Ecommerce PPC Agency UK managing Meta, Google, TikTok and YouTube ads as one profitable P&L for Shopify and WooCommerce brands. Senior media buyers only.",
   },
-  "/services/paid-ads": {
-    primary: "Ecommerce Paid Ads Agency UK",
-    supporting: ["Meta Ads Agency UK", "Google Ads Agency for Ecommerce UK", "Best Ecommerce Ads Agency UK"],
-    title: "Ecommerce Paid Ads Agency UK | Meta & Google Ads | BeingEcom",
-    description:
-      "Ecommerce Paid Ads Agency UK for Shopify and WooCommerce brands. Meta, Google Shopping, PMax and TikTok creative + media buying that scales profitably.",
-  },
   "/services/store-development": {
     primary: "Shopify & WooCommerce Development Agency UK",
     supporting: ["Ecommerce Store Development UK", "Shopify Plus Development UK", "WooCommerce Development UK"],

@@ -212,7 +212,7 @@ export const Route = createFileRoute("/services/store-development/")({
       relatedServices: [
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "PDP + checkout rebuilt around real conversion friction - post-launch." },
         { to: "/services/seo", title: "Ecommerce SEO", body: "Get the new store ranking on Google from day one with full schema + technical foundation." },
-        { to: "/services/paid-ads", title: "Paid Ads", body: "Drive traffic to your new store profitably from launch." },
+        { to: "/services/performance-marketing", title: "Paid Ads", body: "Drive traffic to your new store profitably from launch." },
       ],
     }} />
   ),

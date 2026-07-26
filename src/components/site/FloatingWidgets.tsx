@@ -222,7 +222,7 @@ function SmartCTAs({ messages, isLoading }: { messages: Msg[]; isLoading: boolea
   if (/(price|pricing|cost|budget|how much|fee|rates?)/.test(text)) push({ label: "See pricing", href: "/pricing" });
   if (/(book|call|consult|meeting|demo|talk|strategy)/.test(text)) push({ label: "Book a call", href: "https://beingecom.com/contact-us/", external: true });
   if (/(seo|rank|google|organic)/.test(text)) push({ label: "SEO services", href: "/services/seo" });
-  if (/(ads?|meta|facebook|google ads|tiktok|roas|paid)/.test(text)) push({ label: "Paid Ads", href: "/services/paid-ads" });
+  if (/(ads?|meta|facebook|google ads|tiktok|roas|paid)/.test(text)) push({ label: "Paid Ads", href: "/services/performance-marketing" });
   if (/(cro|conversion|checkout|pdp|cart)/.test(text)) push({ label: "CRO services", href: "/services/cro" });
   if (/(email|klaviyo|sms|flow)/.test(text)) push({ label: "Email & SMS", href: "/services/email-sms" });
   if (/(case stud|results|wins|portfolio|examples)/.test(text)) push({ label: "Case studies", href: "/case-studies" });

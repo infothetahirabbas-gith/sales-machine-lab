@@ -43,7 +43,6 @@ const CRITICAL_ROUTES = [
   "/services/seo/local",
   "/services/seo/aeo",
   "/services/seo/international",
-  "/services/paid-ads",
   "/services/performance-marketing",
   "/services/performance-marketing/google-ads",
   "/services/performance-marketing/facebook-ads",
