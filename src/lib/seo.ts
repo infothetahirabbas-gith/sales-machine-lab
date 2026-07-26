@@ -518,7 +518,7 @@ export function serviceJsonLd(opts: {
 export const aboutFaqs: FAQ[] = [
   { q: "What makes BeingEcom different from other agencies?", a: "We work only with ecommerce brands on Shopify and WooCommerce, operate like a fractional CMO/CRO team, and tie every decision to revenue - not vanity metrics." },
   { q: "How big is your team?", a: "We're a senior-only team of growth operators - ex-DTC founders, performance leads, CRO directors and SEO experts. No juniors learning on your account." },
-  { q: "Do you take equity instead of fees?", a: "Occasionally, for the right brand. Default is a 90-day fixed engagement followed by month-to-month." },
+  { q: "Do you take equity instead of fees?", a: "Occasionally, and only under strict criteria: the founder must be full-time on the brand, the store must be doing £50k+/month in revenue with clean unit economics, and there must be a clear 24-month growth path where our operational involvement moves the equity value meaningfully. We cap equity engagements at two per year, run a 30-day paid discovery before any equity is signed, and structure via vested SEIS/EIS-compatible warrants agreed with your lawyer. Default engagement is a 90-day fixed retainer followed by month-to-month." },
   { q: "Where are you based?", a: "Headquartered in London (71-75 Shelton Street, Covent Garden, WC2H 9JQ), with a UK-first senior team that operates remotely across UK time zones and coordinates with partners in Europe when a project needs it." },
 ];
 
