@@ -847,6 +847,414 @@ export const PILLAR_PAGES: PillarPage[] = [
     ctaHeading: "Not sure which path fits?",
     ctaSub: "Book a 20-minute triage call - we'll point you to the right next step in one conversation.",
   },
+
+  // ---------- BOFU objection pages ----------
+  {
+    slug: "how-long-does-ecommerce-seo-take",
+    path: "/how-long-does-ecommerce-seo-take",
+    title: "How Long Does Ecommerce SEO Take to Show Results? (UK, 2026)",
+    metaTitle: "How Long Does Ecommerce SEO Take? Realistic UK Timelines | BeingEcom",
+    description:
+      "Realistic UK ecommerce SEO timelines: what happens in months 1-3, 4-6, 7-12, and beyond. Written by senior operators who run live Shopify and WooCommerce accounts.",
+    eyebrow: "Buyer question",
+    h1: "How long does ecommerce SEO take?",
+    intro:
+      "The honest answer: most UK ecommerce stores see meaningful movement in 90-120 days on technical + on-page work, with compounding revenue impact from month 6 onwards. Here's what actually happens month by month.",
+    summary:
+      "Ecommerce SEO usually shows early technical wins in 30-60 days, meaningful ranking movement in 90-120 days, and compounding revenue growth from month 6 onwards. Timelines depend on domain authority, technical debt, catalogue size, and content maturity - not on how much you spend.",
+    pills: ["30-day wins", "90-day movement", "6-month compounding"],
+    sections: [
+      {
+        heading: "Month 1: audit, fixes, foundations",
+        body: "The first 30 days are almost never about rankings. It's technical audit, crawl analysis, indexation cleanup, faceted URL rules, and killing whatever is silently blocking growth. You'll usually see impressions climb before positions do.",
+        bullets: [
+          "Full technical + on-page audit",
+          "Indexation and crawl budget cleanup",
+          "Faceted URL and canonical fixes",
+          "Baseline analytics and tracking check",
+        ],
+      },
+      {
+        heading: "Months 2-3: on-page + content velocity",
+        body: "This is where movement starts. Category and PDP rewrites, internal linking at catalogue scale, schema, and the first cohort of supporting content. Most stores see the first ranking shifts here on medium-competition terms.",
+      },
+      {
+        heading: "Months 4-6: authority + conversion compounding",
+        body: "Digital PR, link acquisition, and CRO experiments layer on top of the technical base. This is when revenue attributable to organic starts to visibly compound - not linear, closer to a hockey stick if the fundamentals are right.",
+      },
+      {
+        heading: "Months 7-12: category ownership",
+        body: "By month 7 the SEO investment should be paying for itself and then some. From here it's about defending positions, expanding into adjacent keyword clusters, and pushing into AI Overviews and answer engines.",
+      },
+    ],
+    highlights: [
+      { label: "First technical wins", value: "30-60 days" },
+      { label: "Ranking movement", value: "90-120 days" },
+      { label: "Revenue compounding", value: "6+ months" },
+    ],
+    related: [
+      { label: "How much does ecommerce SEO cost?", to: "/how-much-does-ecommerce-seo-cost" },
+      { label: "Is SEO worth it for ecommerce?", to: "/is-seo-worth-it-for-ecommerce" },
+      { label: "Methodology", to: "/methodology" },
+      { label: "Case studies", to: "/case-studies" },
+    ],
+    faqs: [
+      { q: "Can I see faster results with a bigger budget?", a: "Slightly - but not linearly. Doubling spend does not halve the timeline. It expands the number of pages and clusters you can attack in parallel, which matters more for large catalogues." },
+      { q: "What if my site is new?", a: "New domains typically add 60-90 days to every milestone above. This is why we usually pair new stores with paid media until organic compounds." },
+      { q: "Why do some agencies promise results in 30 days?", a: "They're usually either optimising branded search, running paid ads underneath, or overselling. Real organic movement on non-brand commercial terms takes longer." },
+      { q: "What accelerates the timeline the most?", a: "In order: fixing technical debt first, having a strong internal linking model, publishing at real velocity (not one blog post a month), and building topical clusters instead of scattered pages." },
+      { q: "When should I expect the retainer to pay for itself?", a: "For most mid-market UK ecommerce stores, month 6-9 is when the organic revenue delta covers the retainer. From there it's pure ROI." },
+    ],
+    ctaHeading: "Want a realistic timeline for your store?",
+    ctaSub: "Send us your domain - we'll come back with a specific month-by-month forecast, not a template.",
+  },
+  {
+    slug: "how-much-does-ecommerce-seo-cost",
+    path: "/how-much-does-ecommerce-seo-cost",
+    title: "How Much Does Ecommerce SEO Cost in the UK? (2026 Pricing Guide)",
+    metaTitle: "Ecommerce SEO Cost UK 2026 - Realistic Pricing | BeingEcom",
+    description:
+      "Honest UK ecommerce SEO pricing: what a real retainer costs, what affects it, and what to expect at £1k, £2.5k, £5k, and £10k+ per month. No 'starts from £299' games.",
+    eyebrow: "Buyer question",
+    h1: "How much does ecommerce SEO cost in the UK?",
+    intro:
+      "Real UK ecommerce SEO retainers sit between £1,500 and £15,000 per month depending on catalogue size, competition, and scope. Here's what drives price up or down - and what you should expect at each tier.",
+    summary:
+      "UK ecommerce SEO typically costs £1,500-£15,000 per month. Price is driven by catalogue size, keyword competition, technical debt, content velocity, and whether digital PR is included. Anything under £1,000/mo is usually reporting or thin content, not real SEO delivery.",
+    pills: ["£1.5k-£15k/mo", "UK market", "Retainer model"],
+    sections: [
+      {
+        heading: "What actually drives the price",
+        body: "Ecommerce SEO pricing is not arbitrary. Five variables set the tier: catalogue size, keyword competition, current technical debt, required content velocity, and whether digital PR is scoped in.",
+        bullets: [
+          "Catalogue size (100 vs 10,000 SKUs)",
+          "Keyword competition (niche vs mainstream)",
+          "Technical debt to unwind",
+          "Content velocity per month",
+          "Digital PR and link acquisition",
+        ],
+      },
+      {
+        heading: "The tiers, in plain English",
+        body: "£1,500-£2,500/mo suits small stores with clean tech and a focused niche. £3,000-£5,000/mo is standard for growing DTC brands. £5,000-£10,000/mo covers Shopify Plus and mid-market. £10,000+ is enterprise or replatform-heavy scope.",
+      },
+      {
+        heading: "What you should not pay for",
+        body: "Retainers under £1,000/mo are almost always reporting dashboards plus a monthly blog post. That is not ecommerce SEO. Neither is any package priced without ever looking at your store.",
+      },
+    ],
+    highlights: [
+      { label: "Entry retainer", value: "£1.5k/mo" },
+      { label: "Standard DTC", value: "£3-5k/mo" },
+      { label: "Enterprise", value: "£10k+/mo" },
+    ],
+    related: [
+      { label: "Ecommerce SEO pricing (full breakdown)", to: "/ecommerce-seo-pricing" },
+      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
+      { label: "How long does SEO take?", to: "/how-long-does-ecommerce-seo-take" },
+      { label: "Agency vs in-house SEO", to: "/agency-vs-inhouse-seo" },
+    ],
+    faqs: [
+      { q: "Why is there such a wide price range?", a: "Because 'ecommerce SEO' can mean anything from a small technical audit to a 15-person team running enterprise migrations. The scope makes the price, not the label." },
+      { q: "Is a cheaper retainer just slower, or is it worse?", a: "Usually worse. Cheap retainers survive by cutting senior time and replacing it with junior writers and templated audits. You get output, not outcomes." },
+      { q: "Do you charge setup fees?", a: "For most engagements no - onboarding and audit are baked into month one. Larger migrations or replatforms are quoted separately." },
+      { q: "Can I pay per project instead?", a: "Yes for audits, migrations, and one-off technical work. No for ongoing SEO - it doesn't compound without continuity." },
+      { q: "What's included at £3-5k/mo?", a: "Senior strategist, technical fixes, monthly on-page and content velocity, internal linking, analytics reporting, and 1-2 digital PR pitches per quarter." },
+    ],
+  },
+  {
+    slug: "is-seo-worth-it-for-ecommerce",
+    path: "/is-seo-worth-it-for-ecommerce",
+    title: "Is SEO Worth It for Ecommerce in 2026? (Honest UK Answer)",
+    metaTitle: "Is Ecommerce SEO Worth It? Honest 2026 Answer | BeingEcom",
+    description:
+      "When ecommerce SEO is worth it, when it isn't, and how to tell the difference for your Shopify or WooCommerce store. No hype, no doom - written by UK operators.",
+    eyebrow: "Buyer question",
+    h1: "Is SEO worth it for ecommerce?",
+    intro:
+      "For most UK ecommerce stores with product-market fit and a 6-12 month horizon, yes. For pre-revenue stores, no. Here's the honest test we run before we recommend a retainer.",
+    summary:
+      "Ecommerce SEO is worth it when you have product-market fit, a 6-12 month horizon, and margin to reinvest. It is not worth it for pre-revenue stores, single-product hype launches, or brands that need cash-flow inside 30 days. Paid media suits that scenario better.",
+    pills: ["Worth it when...", "Not worth it when...", "Honest test"],
+    sections: [
+      {
+        heading: "When SEO is worth it",
+        body: "You have consistent revenue (£30k/mo+), margins that support reinvestment, at least a 6-9 month horizon, and a real catalogue or category structure to optimise against. AI Overviews and answer engines are also rewarding brands with clear entities - if you fit, the compounding is meaningful.",
+        bullets: [
+          "Consistent £30k+/mo revenue",
+          "Healthy contribution margin",
+          "6-12 month planning horizon",
+          "Real catalogue or category structure",
+        ],
+      },
+      {
+        heading: "When SEO is not worth it (yet)",
+        body: "Pre-revenue, single-product hype drops, brands that need cash inside 30 days, or stores with fundamental positioning or CRO problems. In all these cases paid media (or fixing conversion) will beat SEO on ROI for 6-12 months.",
+      },
+      {
+        heading: "The honest test we run",
+        body: "Before recommending a retainer we check: is search demand large enough to move revenue, is the site technically capable of ranking, and do you have the margin to fund 6 months. If any answer is no we say so and refer you to paid media or CRO first.",
+      },
+    ],
+    related: [
+      { label: "How long does SEO take?", to: "/how-long-does-ecommerce-seo-take" },
+      { label: "How much does SEO cost?", to: "/how-much-does-ecommerce-seo-cost" },
+      { label: "SEO vs paid ads", to: "/compare/seo-vs-paid-ads" },
+      { label: "Case studies", to: "/case-studies" },
+    ],
+    faqs: [
+      { q: "Is SEO dead because of AI search?", a: "No. AI Overviews still pull from indexed, ranking content - brands that own their category in traditional SERPs also dominate AI answers. SEO evolved, it didn't die." },
+      { q: "Should I do SEO or paid ads first?", a: "If you're pre-£30k/mo revenue, paid ads first - you need cash-flow proof. Above that, both in parallel, weighted to your margin structure." },
+      { q: "Can I do SEO in-house instead?", a: "Yes if you have a senior operator internally. See our agency vs in-house comparison for the honest trade-offs." },
+      { q: "What ROI should I expect from SEO?", a: "For UK ecommerce stores that stick with the plan for 12 months, a 3-6x return on retainer spend is typical. Some verticals compound to 10x+ by year two." },
+      { q: "What if my niche is tiny?", a: "SEO scales with search demand. If your niche has under 5,000 monthly searches sitewide, SEO is a supporting channel, not a lead one." },
+    ],
+  },
+  {
+    slug: "agency-vs-inhouse-seo",
+    path: "/agency-vs-inhouse-seo",
+    title: "Ecommerce SEO Agency vs In-House Team: Honest UK Comparison",
+    metaTitle: "SEO Agency vs In-House for Ecommerce (2026) | BeingEcom",
+    description:
+      "When to hire an ecommerce SEO agency, when to build in-house, and when to do both. Real cost, speed, and risk trade-offs for UK Shopify and WooCommerce brands.",
+    eyebrow: "Buyer question",
+    h1: "Ecommerce SEO agency vs in-house: which wins?",
+    intro:
+      "Both work. The question is which is cheaper, faster, and lower-risk for your specific stage. Here's the honest trade-off matrix we walk clients through before they sign.",
+    summary:
+      "An ecommerce SEO agency is faster to results and lower fixed cost, but you rent the expertise. An in-house team is cheaper long-term at £5m+ revenue but slower to build and higher management overhead. Most mid-market UK brands run a hybrid: senior agency + one in-house SEO manager.",
+    pills: ["Cost", "Speed", "Risk"],
+    sections: [
+      {
+        heading: "Agency: what you actually get",
+        body: "Senior operator time from day one, exposure to patterns across 30+ ecommerce accounts, and no NI/pension/leave overhead. Trade-off: shared attention, and you rent the knowledge - it walks out at the end of the contract.",
+        bullets: [
+          "Senior strategist from day one",
+          "Pattern-matched across many stores",
+          "No employment overhead",
+          "Rented knowledge (walks out with contract)",
+        ],
+      },
+      {
+        heading: "In-house: what you actually get",
+        body: "Full attention, deep product knowledge, and long-term compounding of institutional knowledge. Trade-off: 6-9 months to hire a real senior, £70k-£110k fully-loaded cost, and one person cannot cover technical + content + digital PR + analytics.",
+      },
+      {
+        heading: "The hybrid model most winners use",
+        body: "Senior agency running strategy, technical, and digital PR. In-house SEO manager owning content, internal briefs, and stakeholder alignment. Costs less than a full in-house team, moves faster than either alone, and de-risks succession.",
+      },
+    ],
+    highlights: [
+      { label: "Agency cost", value: "£3-10k/mo" },
+      { label: "In-house cost", value: "£70-110k/yr" },
+      { label: "Time to results", value: "Agency wins" },
+    ],
+    related: [
+      { label: "In-house vs agency (full comparison)", to: "/compare/in-house-vs-agency" },
+      { label: "How much does ecommerce SEO cost?", to: "/how-much-does-ecommerce-seo-cost" },
+      { label: "How long does SEO take?", to: "/how-long-does-ecommerce-seo-take" },
+      { label: "Methodology", to: "/methodology" },
+    ],
+    faqs: [
+      { q: "When should I go in-house?", a: "When you're consistently £5m+ in revenue, SEO is a top-three channel, and you can afford both a senior hire and 6-9 months to find them." },
+      { q: "When should I stay with an agency?", a: "Under £5m revenue, when speed matters more than long-term cost, when the internal management overhead of hiring is too high, or when you need multi-discipline coverage." },
+      { q: "Do agencies really move faster?", a: "Yes on day one. In-house teams eventually catch up on institutional knowledge, but the first 6 months are almost always slower in-house." },
+      { q: "What about a freelancer instead?", a: "Freelancers work for narrow scopes - a technical audit, one migration. For ongoing multi-discipline SEO, either agency or in-house team wins." },
+      { q: "How do you make hybrid work in practice?", a: "Agency runs strategy and technical, in-house manager owns execution and stakeholder alignment. Weekly sync, shared roadmap, and one source of truth for reporting." },
+    ],
+  },
+
+  // ---------- Persona pages ----------
+  {
+    slug: "for-founders",
+    path: "/for-founders",
+    title: "Ecommerce SEO & Growth for Founders | BeingEcom",
+    metaTitle: "Ecommerce Growth for Founders - UK Agency | BeingEcom",
+    description:
+      "Ecommerce growth built for founders: strategic, senior-led, no jargon, no fluff dashboards. Own the plan, delegate the execution, protect your time.",
+    eyebrow: "For founders",
+    h1: "Growth partnership built for founders",
+    intro:
+      "You built the brand. You don't have time to review 40-page audits or manage juniors. Here's how we work with founder-led UK ecommerce brands - senior operators, one weekly call, ownership of outcomes.",
+    summary:
+      "BeingEcom works with founder-led UK ecommerce brands as a senior growth partner. One senior strategist, one weekly call, a shared quarterly plan, and reporting that answers 'what changed and what's next' - not 40-page dashboards. You own strategy, we own execution.",
+    pills: ["Senior-led", "One weekly call", "No fluff dashboards"],
+    sections: [
+      {
+        heading: "What founders actually get",
+        body: "A senior operator who has grown other ecommerce brands, on your calendar weekly. Quarterly plan you approve once, not weekly nagging. Reporting focused on decisions, not vanity metrics.",
+        bullets: [
+          "Senior strategist as primary contact",
+          "One 60-minute weekly call",
+          "Quarterly plan you approve once",
+          "Decision-focused reporting",
+        ],
+      },
+      {
+        heading: "What we protect you from",
+        body: "Junior account managers, opaque timesheets, template audits, and 'strategy decks' that just describe what happened. Founders don't need those; you need outcomes.",
+      },
+      {
+        heading: "When we're a fit",
+        body: "Founder-led UK brands doing £30k-£3m/mo, past product-market fit, ready to reinvest into a real growth engine. If you want a big agency with account layers, we're the wrong fit and we'll tell you.",
+      },
+    ],
+    related: [
+      { label: "Who we help", to: "/who-we-help" },
+      { label: "Methodology", to: "/methodology" },
+      { label: "Case studies", to: "/case-studies" },
+      { label: "Pricing", to: "/pricing" },
+    ],
+    faqs: [
+      { q: "How much of my time will this take?", a: "One weekly 60-minute call, plus async approval on quarterly plans. Most founders spend 60-90 minutes a week on us." },
+      { q: "Who is my main contact?", a: "A senior operator who has run growth for other UK ecommerce brands. Not a junior AM." },
+      { q: "Do you work with pre-revenue founders?", a: "No. Below £30k/mo we recommend the free Academy and Shopify SEO checklist until you have data to work with." },
+      { q: "Can you work with my in-house team?", a: "Yes - the hybrid model (see /agency-vs-inhouse-seo) works well for founder-led brands scaling past £3m." },
+    ],
+  },
+  {
+    slug: "for-marketing-managers",
+    path: "/for-marketing-managers",
+    title: "Ecommerce Growth Partner for Marketing Managers | BeingEcom",
+    metaTitle: "Ecommerce Agency for Marketing Managers | BeingEcom",
+    description:
+      "An ecommerce growth partner that makes marketing managers look good: clear reporting, on-time delivery, stakeholder-ready decks, and senior operators on every call.",
+    eyebrow: "For marketing managers",
+    h1: "The agency that makes marketing managers look good",
+    intro:
+      "You need delivery you can present, forecasts your CFO trusts, and no fires on Friday afternoon. Here's how we work with UK ecommerce marketing managers - predictable output, senior thinking, stakeholder-ready reporting.",
+    summary:
+      "BeingEcom works with UK ecommerce marketing managers as a predictable delivery partner. Senior operators on every call, on-time content and reporting, and stakeholder-ready quarterly decks. Built to make you the person who gets promoted, not the one chasing the agency.",
+    pills: ["Predictable delivery", "Board-ready reporting", "No fires"],
+    sections: [
+      {
+        heading: "What marketing managers actually need",
+        body: "Delivery calendars that don't slip, reporting your board understands, and forecasts you can defend. That's what we build the engagement around - not another dashboard nobody opens.",
+        bullets: [
+          "Fixed monthly deliverables",
+          "Board-ready quarterly decks",
+          "Defensible forecasts",
+          "One escalation line",
+        ],
+      },
+      {
+        heading: "What we handle so you don't",
+        body: "Technical SEO scoping with devs, content briefs and QA, digital PR outreach, and reporting narrative. You review and approve; we execute.",
+      },
+      {
+        heading: "How the engagement runs",
+        body: "Weekly delivery stand-up, monthly performance review, quarterly strategy session with stakeholders invited. One senior lead, one project lead, no revolving door.",
+      },
+    ],
+    related: [
+      { label: "Methodology", to: "/methodology" },
+      { label: "Case studies", to: "/case-studies" },
+      { label: "Pricing", to: "/pricing" },
+      { label: "Who we help", to: "/who-we-help" },
+    ],
+    faqs: [
+      { q: "Will you attend board meetings?", a: "Yes for quarterly strategy sessions and any milestone review your board requests. Included in mid-market and enterprise retainers." },
+      { q: "Do you provide the reporting narrative or just the numbers?", a: "Both. Every monthly report includes a written 'what changed and why' section your board can quote directly." },
+      { q: "Can you brief and manage our copywriters?", a: "Yes - either brief your in-house writers or handle production end-to-end. Whichever is cheaper for you." },
+      { q: "How do you handle escalations?", a: "One senior lead, direct line, response within 4 working hours. No ticket queues." },
+    ],
+  },
+  {
+    slug: "for-ecommerce-teams",
+    path: "/for-ecommerce-teams",
+    title: "Ecommerce SEO & Growth Support for In-House Teams | BeingEcom",
+    metaTitle: "Ecommerce Growth Partner for In-House Teams | BeingEcom",
+    description:
+      "Bolt-on senior expertise for in-house ecommerce teams: SEO, paid, CRO, and analytics support without replacing your team. UK-based, senior-only.",
+    eyebrow: "For in-house teams",
+    h1: "Senior expertise, on tap, for in-house ecommerce teams",
+    intro:
+      "You have a strong in-house team. You need senior specialists in the gaps - technical SEO, digital PR, CRO experimentation, or analytics - without hiring another five people. That's exactly what we do.",
+    summary:
+      "BeingEcom bolts on to in-house UK ecommerce teams as a senior specialist layer. Fill gaps in technical SEO, digital PR, CRO experimentation, or analytics without replacing your team. Retained monthly, project-based, or as fractional CMO support.",
+    pills: ["Bolt-on model", "Senior only", "No junior overlap"],
+    sections: [
+      {
+        heading: "How the bolt-on model works",
+        body: "Your team owns day-to-day execution and channel management. We plug in as the senior specialist layer for scoped disciplines - technical SEO, digital PR, CRO, or analytics - via retainer or project.",
+        bullets: [
+          "Technical SEO specialist",
+          "Digital PR / link acquisition",
+          "CRO experimentation lead",
+          "Analytics + attribution",
+        ],
+      },
+      {
+        heading: "What we don't do",
+        body: "Compete with your in-house team, or duplicate junior work you already have covered. We come in for the senior gaps, do the work, and hand back knowledge documented for your team.",
+      },
+      {
+        heading: "Knowledge transfer built in",
+        body: "Every engagement includes documentation, playbooks, and (if you want) direct upskilling of your team. When we leave, your team is stronger than when we arrived.",
+      },
+    ],
+    related: [
+      { label: "Agency vs in-house SEO", to: "/agency-vs-inhouse-seo" },
+      { label: "Enterprise ecommerce SEO", to: "/enterprise-ecommerce-seo" },
+      { label: "Methodology", to: "/methodology" },
+      { label: "Contact", to: "/contact" },
+    ],
+    faqs: [
+      { q: "Will you replace roles on my team?", a: "No. We're built to fill senior gaps, not to threaten existing hires. In practice we usually make in-house teams look better, not worse." },
+      { q: "Can we scope a single discipline?", a: "Yes - technical SEO only, digital PR only, or CRO only are all common scopes. Retainer or fixed project." },
+      { q: "Do you upskill our team?", a: "Yes if you want it. Every playbook and framework is documented, and we offer optional monthly upskilling sessions." },
+      { q: "How do you avoid overlap with our team?", a: "Kickoff includes a joint RACI so every workstream has one owner. No duplicated work, no political friction." },
+    ],
+  },
+  {
+    slug: "for-enterprise-brands",
+    path: "/for-enterprise-brands",
+    title: "Enterprise Ecommerce SEO & Growth Partner (UK) | BeingEcom",
+    metaTitle: "Enterprise Ecommerce Growth Agency UK | BeingEcom",
+    description:
+      "Enterprise ecommerce growth for UK brands £5m+: senior-only team, replatform experience, board-level reporting, and a partner that operates at your governance standard.",
+    eyebrow: "For enterprise brands",
+    h1: "Enterprise ecommerce growth, without the enterprise agency bloat",
+    intro:
+      "You need senior operators, not account layers. Board-level reporting, not template decks. A partner that can survive a replatform, a leadership change, and a bad quarter without losing pace. That's who we are.",
+    summary:
+      "BeingEcom works with enterprise UK ecommerce brands (£5m+) as a senior-only growth partner. Replatform-experienced, board-comfortable, procurement-friendly, and structured to move faster than large agencies without the account-management tax.",
+    pills: ["£5m+ brands", "Senior only", "Board-ready"],
+    sections: [
+      {
+        heading: "What enterprise buyers actually need",
+        body: "Governance-grade process, senior operators end-to-end, and the ability to run alongside big agency partners (Shopify Plus solution partners, media agencies, PR firms) without political friction.",
+        bullets: [
+          "Governance-grade process",
+          "Senior-only delivery team",
+          "Fits alongside existing agency partners",
+          "Board-ready quarterly reporting",
+        ],
+      },
+      {
+        heading: "Replatform and migration experience",
+        body: "We've moved brands on and off Shopify Plus, Magento, and BigCommerce without losing organic traffic. Migration is the enterprise moment where the wrong partner costs 30-60% of organic revenue. We're that partner done right.",
+      },
+      {
+        heading: "How we plug into enterprise governance",
+        body: "Procurement-friendly MSA templates, ISO-aligned data handling, named senior lead with escalation SLA, and reporting that fits your existing board pack format.",
+      },
+    ],
+    related: [
+      { label: "Enterprise ecommerce SEO", to: "/enterprise-ecommerce-seo" },
+      { label: "Migration SEO", to: "/ecommerce-migration-seo" },
+      { label: "Methodology", to: "/methodology" },
+      { label: "Case studies", to: "/case-studies" },
+    ],
+    faqs: [
+      { q: "Do you sign enterprise MSAs?", a: "Yes - either yours or ours. We've been through procurement at Shopify Plus and enterprise retailers." },
+      { q: "How do you handle data and security?", a: "GDPR-compliant, ISO-aligned data handling, named DPO contact, and access controls documented per engagement." },
+      { q: "Can you work alongside our existing agencies?", a: "Yes - we regularly work alongside Shopify Plus solution partners, PR firms, and media agencies. RACI is agreed in the first two weeks." },
+      { q: "What's the minimum engagement?", a: "£8,000/mo retained or a scoped project starting at £15,000. Below that, the enterprise fit is usually wrong." },
+    ],
+    ctaHeading: "Request a growth assessment",
+    ctaSub: "A senior partner will scope your opportunity and reply within two working days.",
+  },
 ];
 
 export function findPillar(slug: string): PillarPage | undefined {
