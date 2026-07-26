@@ -75,6 +75,7 @@ export function GlobalReveal() {
         if (!n.hasAttribute("data-reveal")) {
           n.setAttribute("data-reveal", "up");
         }
+        n.setAttribute("data-reveal-ready", "1");
         if (!n.style.getPropertyValue("--reveal-delay")) {
           n.style.setProperty("--reveal-delay", `${(idx % 4) * 50}ms`);
         }

@@ -802,15 +802,15 @@ section p a:hover::after, section li a:hover::after { right: 0; }
 /* Only hide + prep for animation once the reveal runtime has taken over
    (adds .js-reveal on <html>). Without JS, content stays fully visible
    so nothing is ever stuck invisible. */
-html.js-reveal [data-reveal]:not([data-inview="1"]) {
+html.js-reveal [data-reveal][data-reveal-ready="1"]:not([data-inview="1"]) {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
 }
-html.js-reveal [data-reveal="down"]:not([data-inview="1"])  { transform: translate3d(0, -24px, 0); }
-html.js-reveal [data-reveal="left"]:not([data-inview="1"])  { transform: translate3d(-32px, 0, 0); }
-html.js-reveal [data-reveal="right"]:not([data-inview="1"]) { transform: translate3d(32px, 0, 0); }
-html.js-reveal [data-reveal="zoom"]:not([data-inview="1"])  { transform: scale(0.94); }
-html.js-reveal [data-reveal="fade"]:not([data-inview="1"])  { transform: none; }
+html.js-reveal [data-reveal="down"][data-reveal-ready="1"]:not([data-inview="1"])  { transform: translate3d(0, -24px, 0); }
+html.js-reveal [data-reveal="left"][data-reveal-ready="1"]:not([data-inview="1"])  { transform: translate3d(-32px, 0, 0); }
+html.js-reveal [data-reveal="right"][data-reveal-ready="1"]:not([data-inview="1"]) { transform: translate3d(32px, 0, 0); }
+html.js-reveal [data-reveal="zoom"][data-reveal-ready="1"]:not([data-inview="1"])  { transform: scale(0.94); }
+html.js-reveal [data-reveal="fade"][data-reveal-ready="1"]:not([data-inview="1"])  { transform: none; }
 
 
 /* Respect reduced motion - kill entrance/loop animations for users who
