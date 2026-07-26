@@ -10,7 +10,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How long should a YouTube ad be?", a: "15-60s for cold prospecting VAC; 6s bumpers for retargeting; 15-30s vertical Shorts for mobile-first reach." },
   { q: "Do I need a Google Ads account already?", a: "Yes - YouTube ads run through Google Ads. We set up Merchant Center, GA4, enhanced conversions and CAPI where needed." },
   { q: "YouTube Ads vs Meta or TikTok - where does it fit?", a: "YouTube is the biggest under-priced DR channel. It complements Meta (demand creation) and Google Search (harvest). A serious Ecommerce Growth Agency uses YouTube for incremental reach at Meta-beating CPMs." },
-  { q: "What ROAS should I expect on YouTube?", a: "2.8-3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search - measured by our Ecommerce SEO Agency UK team through query-level lift, not platform ROAS alone." },
+  { q: "What ROAS should I expect on YouTube?", a: "2.8-3.5× on VAC once creative dials in. Demand Gen commonly compounds branded search - measured by our in-house SEO team through query-level lift, not platform ROAS alone." },
   { q: "How fast will YouTube Ads see results?", a: "30-45 days to stabilise VAC learning. Real scale from month 2 with 3-5 concept refreshes." },
   { q: "Do you handle YouTube ad creative production?", a: "Yes - in-house video production, editing, hooks, voiceover and Shorts adaptations." },
   { q: "Can YouTube Shorts drive ecommerce sales?", a: "Yes - 9:16 vertical Shorts inventory is undervalued and mobile-first. Our Ecommerce Agency UK team ships Shorts adaptations of every VAC concept." },
@@ -19,7 +19,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What targeting works best on YouTube?", a: "Custom Intent (based on Google searches), Similar Audiences, In-Market and life events. Interest targeting is largely deprecated by Demand Gen." },
   { q: "Does YouTube work at low budgets?", a: "Marginally - below £3k/mo YouTube's learning can't stabilise. For sub-£3k budgets, focus on Meta or Google Shopping first." },
   { q: "What tools do you use for YouTube Ads?", a: "Google Ads, GA4, Merchant Center, Motion for editing, Triple Whale and Looker Studio dashboards." },
-  { q: "How is BeingEcom different from other YouTube Ads agencies?", a: "We're a specialist Ecommerce Marketing Agency UK - video production, media buying, feed engineering and Ecommerce SEO Agency UK measurement share one P&L per client." },
+  { q: "How is BeingEcom different from other YouTube Ads agencies?", a: "We're a specialist Ecommerce Marketing Agency UK - video production, media buying, feed engineering and SEO measurement share one P&L per client." },
 ];
 
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         "Broken enhanced conversions and no offline import.",
       ],
       whatIsTitle: "YouTube is the biggest untapped DR channel.",
-      whatIsBody: "Meta and Google Search are crowded and expensive. YouTube's inventory is huge, CPMs still competitive, and Video Action Campaigns can print acquisition when the creative is right - which is why every serious Ecommerce Growth Agency layers YouTube on top of Meta and Google, then measures branded-search lift with an Ecommerce SEO Agency UK team.",
+      whatIsBody: "Meta and Google Search are crowded and expensive. YouTube's inventory is huge, CPMs still competitive, and Video Action Campaigns can print acquisition when the creative is right - which is why every serious Ecommerce Growth Agency layers YouTube on top of Meta and Google, then measures branded-search lift with an in-house SEO team.",
       systemTitle: "Our YouTube Ads system.",
       systemSteps: [
         { title: "Account & tracking audit", body: "Google Ads, GA4, Merchant Center, enhanced conversions, CAPI." },
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         { title: "No Shorts creative", body: "Shorts inventory is huge and undervalued. Skipping it leaves 20-40% of YouTube reach on the table." },
         { title: "Broken enhanced conversions", body: "Without Enhanced Conversions, VAC signal is weak. It's the highest-leverage tracking fix on YouTube." },
         { title: "Cutting spend before learning", body: "VAC needs 30-45 days to stabilise. Judging on week one wastes the learning window." },
-        { title: "Ignoring branded search lift", body: "YouTube's true value shows in branded-search volume. Measure it via GA4 + Ecommerce SEO Agency UK reporting." },
+        { title: "Ignoring branded search lift", body: "YouTube's true value shows in branded-search volume. Measure it via GA4 + SEO reporting." },
       ],
       beforeAfter: {
         before: ["No YouTube presence","Boosted brand video only","No Shorts creative","Broken tracking"],

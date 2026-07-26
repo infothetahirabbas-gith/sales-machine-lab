@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/aeo")({
   head: () => ({
     meta: [
       { title: "AEO Agency UK | No.1 AI Search & ChatGPT Visibility | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading AEO Agency UK and specialist Ecommerce SEO Agency UK. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
+      { name: "description", content: "BeingEcom is a leading UK AEO agency for ecommerce. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
       { property: "og:title", content: "AEO Agency UK | No.1 AI Search & ChatGPT Visibility | BeingEcom" },
       { property: "og:description", content: "AEO Agency UK. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
       { property: "og:url", content: "https://beingecom.com/services/seo/aeo" },

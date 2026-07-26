@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/technical")({
   head: () => ({
     meta: [
       { title: "Technical SEO Agency UK | No.1 Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading Technical SEO Agency UK and specialist Ecommerce SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
+      { name: "description", content: "BeingEcom is a leading UK technical SEO agency for ecommerce. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
       { property: "og:title", content: "Technical SEO Agency UK | No.1 Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
       { property: "og:description", content: "Technical SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/technical" },

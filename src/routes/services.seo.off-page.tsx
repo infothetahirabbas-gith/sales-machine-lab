@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
   head: () => ({
     meta: [
       { title: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading Off-Page SEO Agency UK and specialist Ecommerce SEO Agency UK. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
+      { name: "description", content: "BeingEcom is a leading UK off-page SEO agency for ecommerce. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
       { property: "og:title", content: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
       { property: "og:description", content: "Off-Page SEO Agency UK. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/seo/off-page" },

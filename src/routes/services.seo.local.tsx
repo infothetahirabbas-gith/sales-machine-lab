@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/local")({
   head: () => ({
     meta: [
       { title: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading Local SEO Agency UK and specialist Ecommerce SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
+      { name: "description", content: "BeingEcom is a leading UK local SEO agency for ecommerce. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
       { property: "og:title", content: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
       { property: "og:description", content: "Local SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
       { property: "og:url", content: "https://beingecom.com/services/seo/local" },

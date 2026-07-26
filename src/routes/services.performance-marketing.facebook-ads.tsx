@@ -55,7 +55,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         "Scaling spend without break-even unit economics.",
       ],
       whatIsTitle: "Meta is a creative testing machine.",
-      whatIsBody: "Account structure matters, but creative wins. As a specialist Ecommerce Growth Agency we ship weekly batches of hooks, angles and formats, then scale only what crosses break-even - and pair Meta with our Ecommerce SEO Agency UK team so paid demand keeps compounding into organic.",
+      whatIsBody: "Account structure matters, but creative wins. As a specialist Ecommerce Growth Agency we ship weekly batches of hooks, angles and formats, then scale only what crosses break-even - and pair Meta with our in-house SEO team so paid demand keeps compounding into organic.",
       systemTitle: "Our Facebook Ads system.",
       systemSteps: [
         { title: "Account & pixel audit", body: "CAPI, attribution, exclusions, asset library." },

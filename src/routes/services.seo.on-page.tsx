@@ -27,7 +27,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
   head: () => ({
     meta: [
       { title: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading On-Page SEO Agency UK and specialist Ecommerce SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages - built by senior UK ecommerce SEOs." },
+      { name: "description", content: "BeingEcom is a leading UK on-page SEO agency for ecommerce. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages - built by senior UK ecommerce SEOs." },
       { property: "og:title", content: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
       { property: "og:description", content: "BeingEcom is a leading On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages, built by senior UK ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/on-page" },
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/services/seo/on-page")({
       eyebrow: "On-Page SEO Agency UK",
       heroImage: heroImg,
       heroTitle: "Specialist Ecommerce Agency UK for on-page SEO that ranks every product and collection you already own.",
-      heroSub: "As a specialist Ecommerce Marketing Agency UK and specialist Ecommerce SEO Agency UK, we turn thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
+      heroSub: "As a specialist UK ecommerce SEO agency, we turn thin product pages into ranking, converting assets - titles, schema, copy and internal links, done properly.",
       problemTitle: "Why on-page SEO quietly kills ecommerce rankings.",
       problemBullets: [
         "Product titles that read 'Buy Now - Free Shipping' instead of the keyword.",

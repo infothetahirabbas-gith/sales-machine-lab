@@ -11,7 +11,7 @@ const _FAQ_RAW: FAQ[] = [
   { q: "How do you measure success?", a: "Blended MER and contribution margin, not platform ROAS alone. Platform numbers lie; bank-account numbers don't. We report daily on new-customer CAC, payback and incremental revenue." },
   { q: "Do you handle creative?", a: "Yes - UGC, statics, motion and Reels/Shorts in-house. Creative wins more than account structure on Meta and TikTok, so we ship 3 batches per week." },
   { q: "How long is the contract?", a: "3-month initial commitment so we can hit a real testing cadence, then rolling monthly. No 12-month lock-ins." },
-  { q: "What ROAS should I expect?", a: "2.8×-4.2× blended ROAS is realistic for scaled DTC brands. Anything higher and you're probably harvesting brand demand created by your SEO - which is why we pair paid with our Ecommerce SEO Agency UK team." },
+  { q: "What ROAS should I expect?", a: "2.8×-4.2× blended ROAS is realistic for scaled DTC brands. Anything higher and you're probably harvesting brand demand created by your SEO - which is why we pair paid with our in-house SEO team." },
   { q: "How fast will I see results?", a: "Meta and TikTok move in 14-30 days once creative velocity kicks in. Google Search and Shopping stabilise inside 30-45 days. Real scale typically compounds from month 3." },
   { q: "Do you set up tracking, CAPI and server-side?", a: "Yes - Meta CAPI, Google Enhanced Conversions, GA4, server-side GTM and (optionally) Triple Whale or Hyros. Attribution is our first project week, always." },
   { q: "Can you run ads for Shopify and WooCommerce?", a: "Yes - our stack is built around Shopify, Shopify Plus and WooCommerce catalogues, feed management and post-purchase attribution." },
@@ -87,7 +87,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         "Scaling without funnel structure → ROAS collapses.",
       ],
       whatIsTitle: "Ads are a multiplier - not a savior.",
-      whatIsBody: "If your store doesn't convert, ads will just lose money faster. As a full-stack Ecommerce Growth Agency we build the creative engine, the funnel and the testing system that turns ad spend into compounding revenue - and pair it with our Ecommerce SEO Agency UK team so paid demand keeps compounding into organic.",
+      whatIsBody: "If your store doesn't convert, ads will just lose money faster. As a full-stack Ecommerce Growth Agency we build the creative engine, the funnel and the testing system that turns ad spend into compounding revenue - and pair it with our in-house SEO team so paid demand keeps compounding into organic.",
       systemTitle: "Our paid ads system.",
       systemSteps: [
         { title: "Account & funnel audit", body: "Account structure, pixels, attribution, creative inventory." },
@@ -187,7 +187,7 @@ export const Route = createFileRoute("/services/paid-ads")({
         { to: "/services/performance-marketing/media-buying", title: "Media Buying", body: "Cross-channel MER, blended ROAS and full-funnel budgets." },
       ],
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound the demand paid captures with our Ecommerce SEO Agency UK team." },
+        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound the demand paid captures with our in-house SEO team." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where ad traffic actually turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and studio product - 3 batches/week." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Server-side, CAPI and Triple Whale attribution." },

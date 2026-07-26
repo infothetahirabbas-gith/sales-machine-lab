@@ -55,7 +55,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
         "Search campaigns bleeding on broad match.",
       ],
       whatIsTitle: "Google ads are intent, not interruption.",
-      whatIsBody: "Buyers are already searching. As a specialist Ecommerce Growth Agency we structure campaigns, clean the feed and ring-fence brand so every pound chases incremental revenue - then pair Google with our Ecommerce SEO Agency UK team so paid and organic compound instead of cannibalising.",
+      whatIsBody: "Buyers are already searching. As a specialist Ecommerce Growth Agency we structure campaigns, clean the feed and ring-fence brand so every pound chases incremental revenue - then pair Google with our in-house SEO team so paid and organic compound instead of cannibalising.",
       systemTitle: "Our Google Ads system.",
       systemSteps: [
         { title: "Account & feed audit", body: "Structure, match types, feed health, conversions." },
