@@ -18,7 +18,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you handle attribution and tracking?", a: "Yes - GA4, server-side GTM, CAPI, Enhanced Conversions and (optionally) Triple Whale or Northbeam. Attribution is our first project week." },
   { q: "Do you work with brands running only one channel today?", a: "Yes - half our new clients start Meta-only. We add Google or TikTok once creative velocity supports the second channel." },
   { q: "Can you integrate with our in-house team?", a: "Yes - many clients use us as their strategic media-buying layer while in-house handles copy, brand and community." },
-  { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and Ecommerce SEO Agency UK collaboration so paid demand compounds into organic." },
+  { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and SEO collaboration so paid demand compounds into organic." },
   { q: "What tools do you use?", a: "Triple Whale, Northbeam, Hyros, Meta Ads Manager, Google Ads, TikTok Ads Manager, GA4, Looker Studio dashboards you can log into." },
   { q: "How is BeingEcom different from other media-buying agencies?", a: "We're a specialist Ecommerce Growth Agency - creative, media buying, tracking and SEO share one revenue P&L per client, with a senior media buyer owning your account personally." },
 ];
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         "Budgets stuck where last quarter worked.",
       ],
       whatIsTitle: "Media buying is capital allocation.",
-      whatIsBody: "Every channel earns or loses its budget weekly. As a specialist Ecommerce Growth Agency we manage Meta, Google, TikTok and YouTube as one portfolio against MER, incrementality and contribution margin - with our Ecommerce SEO Agency UK team compounding branded demand as paid scales.",
+      whatIsBody: "Every channel earns or loses its budget weekly. As a specialist Ecommerce Growth Agency we manage Meta, Google, TikTok and YouTube as one portfolio against MER, incrementality and contribution margin - with our in-house SEO team compounding branded demand as paid scales.",
       systemTitle: "Our media buying system.",
       systemSteps: [
         { title: "Portfolio audit", body: "Channel mix, MER baseline, attribution sanity." },
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         { title: "Ignoring contribution margin", body: "ROAS is a vanity number without COGS, shipping and fees. Report CM% weekly." },
         { title: "Static budgets", body: "Weekly reallocation is the difference between 1.8× and 3.5× MER. Yesterday's winner is often today's loser." },
         { title: "No incrementality testing", body: "Platform ROAS overstates paid contribution. Geo holdouts prove what's actually incremental." },
-        { title: "Skipping SEO handoffs", body: "Paid demand compounds into organic - but only if the Ecommerce SEO Agency UK team is capturing branded lift." },
+        { title: "Skipping SEO handoffs", body: "Paid demand compounds into organic - but only if the SEO team is capturing branded lift." },
       ],
       beforeAfter: {
         before: ["Per-channel ROAS focus","Static budgets","Double-counted revenue","Spend stuck on Meta"],
@@ -124,7 +124,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/google-ads", title: "Google Ads", body: "Demand harvest inside your portfolio." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Demand creation at scale." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound paid demand into organic revenue." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound paid demand into organic revenue." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "Attribution, MER dashboards and incrementality tests." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent hybrid retainer + % of spend." },
         { to: "/audit", title: "Free Media Buying Audit", body: "Book a free 30-min audit of your portfolio and MER." },

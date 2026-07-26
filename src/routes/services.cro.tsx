@@ -201,7 +201,7 @@ export const Route = createFileRoute("/services/cro")({
         { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and Triple Whale set up so every experiment can be trusted." },
         { to: "/services/funnel", title: "Funnels & Landing Pages", body: "Standalone landing pages that convert paid traffic without touching the core theme." },
         { to: "/services/email-sms", title: "Email Marketing Automation", body: "Cart-recovery, browse-abandon and post-purchase flows that finish the sale." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Rank the pages your CRO team has already optimised - compounding traffic AND CR." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Rank the pages your CRO team has already optimised - compounding traffic AND CR." },
       ],
     }} />
   ),

@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Will you fix Shopify's duplicate URL issues?", a: "Yes - /products/ vs /collections/x/products/, ?variant params, faceted-nav pages and pagination." },
   { q: "What about JavaScript rendering?", a: "We audit render-blocking JS, hydration issues and pre-render hero content so Google sees it in the initial HTML." },
   { q: "Do you handle migrations?", a: "Yes - full technical migration plan with 301 mapping, staging QA and post-launch monitoring." },
-  { q: "What makes you a specialist Ecommerce SEO Agency UK for technical work?", a: "We combine senior UK SEO leadership with in-house Shopify + WooCommerce developers, so technical fixes actually ship - not just get 'recommended' in a PDF." },
+  { q: "What makes BeingEcom a good choice for ecommerce technical work?", a: "We combine senior UK SEO leadership with in-house Shopify + WooCommerce developers, so technical fixes actually ship - not just get 'recommended' in a PDF." },
   { q: "How do you audit a Shopify store technically?", a: "Screaming Frog + Sitebulb crawl, log-file analysis, Chrome DevTools Lighthouse, WebPageTest, GSC coverage report and a manual JS-render QA - all cross-referenced." },
   { q: "How long do technical SEO fixes take to impact rankings?", a: "Crawl and indexation cleanups can move rankings in 2-4 weeks. Core Web Vitals improvements typically show in CrUX after 28 days of green field data." },
   { q: "What is crawl budget and does it matter?", a: "Yes - especially on Shopify stores with faceted nav or WooCommerce sites with filters. We often cut crawl waste by 80%+ so Google spends budget on money URLs." },
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/technical")({
   head: () => ({
     meta: [
       { title: "Technical SEO Agency UK | No.1 Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading Technical SEO Agency UK and specialist Ecommerce SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
+      { name: "description", content: "BeingEcom is a leading UK technical SEO agency for ecommerce. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
       { property: "og:title", content: "Technical SEO Agency UK | No.1 Shopify & Woo CWV, Crawl & Schema | BeingEcom" },
       { property: "og:description", content: "Technical SEO Agency UK. Core Web Vitals, crawl, indexation and schema fixed properly for Shopify and WooCommerce stores by senior ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/technical" },
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/services/seo/technical")({
         "Duplicate product URLs cannibalising each other.",
       ],
       whatIsTitle: "Technical SEO is force-multiplier work.",
-      whatIsBody: "You can write the best content on earth - if Google can't crawl, render or trust your store, none of it ranks. As a specialist Ecommerce SEO Agency UK we fix the plumbing so every other channel compounds: SEO, paid, email and CRO all get faster pages and cleaner data on top.",
+      whatIsBody: "You can write the best content on earth - if Google can't crawl, render or trust your store, none of it ranks. As a specialist ecommerce SEO team we fix the plumbing so every other channel compounds: SEO, paid, email and CRO all get faster pages and cleaner data on top.",
       systemTitle: "Our technical SEO system.",
       systemSteps: [
         { title: "Crawl & log audit", body: "Screaming Frog + log-file analysis to find waste and orphans." },
@@ -103,7 +103,7 @@ export const Route = createFileRoute("/services/seo/technical")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - product, collection, technical and content SEO in one system." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service - product, collection, technical and content SEO in one system." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "Sits on top of technical hygiene - PDP and PLP rewrites that rank the fixed pages." },
         { to: "/services/seo/off-page", title: "Off-Page SEO", body: "Editorial digital PR that turns technical wins into authority gains." },
         { to: "/services/seo/aeo", title: "AEO / AI Search", body: "Get cited by ChatGPT, Perplexity and Google AI Overviews once schema is clean." },

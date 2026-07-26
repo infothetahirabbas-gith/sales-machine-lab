@@ -19,10 +19,10 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you have a minimum monthly ad spend?", a: "£10k/mo across paid media is our practical floor to run the full-funnel system properly. Below that our Ecommerce Growth Agency team usually recommends focusing on one channel deeply first." },
   { q: "Google Ads vs Meta Ads vs TikTok - which should I run?", a: "Google harvests demand (BOF, 3.5-6× ROAS). Meta creates demand at scale (TOF/MOF, 2.5-3.5×). TikTok creates viral demand (TOF, 1.8-3×). A real portfolio uses all three against blended MER." },
   { q: "How fast will performance marketing see results?", a: "14-30 days on Meta and TikTok once creative velocity kicks in. Google Search and Shopping stabilise in 30-45 days. Real compounding scale from month 3." },
-  { q: "Do you pair paid media with SEO?", a: "Yes - our sister Ecommerce SEO Agency UK team captures the branded-search halo paid creates, compounding CAC downward over time." },
+  { q: "Do you pair paid media with SEO?", a: "Yes - our sister SEO team captures the branded-search halo paid creates, compounding CAC downward over time." },
   { q: "Can you scale profitably above £250k/mo ad spend?", a: "Yes - several clients sit between £250k and £1.2m/mo. At that scale, incrementality testing and MER control matter more than platform tweaks." },
   { q: "What contract length do you require?", a: "3-month initial commitment to hit a real testing cadence, then rolling monthly. No 12-month lock-ins." },
-  { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and Ecommerce SEO Agency UK collaboration so paid demand compounds into organic." },
+  { q: "How do you protect margin as spend scales?", a: "Contribution-margin reporting, per-channel MER floors, incrementality validation and SEO collaboration so paid demand compounds into organic." },
   { q: "What industries do you work with?", a: "Beauty, fashion, wellness, homewares, gadgets and food & drink DTC brands on Shopify, Shopify Plus and WooCommerce." },
   { q: "How is BeingEcom different from other performance marketing agencies?", a: "We're a specialist Ecommerce Marketing Agency UK - media buying, creative, tracking, CRO and SEO share one revenue P&L per client, with a senior media buyer owning your account personally." },
 ];
@@ -100,7 +100,7 @@ function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  The specialist Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads - one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our Ecommerce SEO Agency UK team.
+                  The specialist Ecommerce Marketing Agency UK for Facebook, Google, TikTok, Instagram and YouTube Ads - one team, one blended-ROAS operating system. Engineered for MER, LTV and profitable Shopify & WooCommerce growth by an Ecommerce Growth Agency that pairs paid with our in-house SEO team.
                 </p>
               </Reveal>
               <Reveal delay={3}>

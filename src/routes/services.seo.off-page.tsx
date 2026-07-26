@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How many links per month?", a: "Quality over volume. 6-15 editorial DR40+ links is a realistic monthly range depending on niche and budget." },
   { q: "Will off-page SEO help my product pages rank?", a: "Yes - authority passes through internal links from your money-page tier. We build to hub pages and money PDPs deliberately." },
   { q: "Is off-page SEO safe post-2024 spam updates?", a: "Yes when it's editorial and topically relevant. We avoid every pattern Google's spam updates target." },
-  { q: "What makes you a specialist Ecommerce SEO Agency UK for link building?", a: "We're a specialist Ecommerce Marketing Agency UK with in-house UK PR strategists and journalists on retainer - not offshored outreach VAs sending 500 spammy pitches a day." },
+  { q: "What makes BeingEcom a good choice for ecommerce link building?", a: "We're a specialist Ecommerce Marketing Agency UK with in-house UK PR strategists and journalists on retainer - not offshored outreach VAs sending 500 spammy pitches a day." },
   { q: "What is digital PR and how does it help ecommerce SEO?", a: "Data-led, product-led press stories placed in national and vertical publications - earning editorial DR60+ backlinks, brand mentions and referral traffic. It's the fastest ethical way to grow Domain Rating." },
   { q: "Do you help with HARO or Qwoted?", a: "Yes - we run daily founder-expert outreach on HARO, Qwoted, ResponseSource and Featured.com, placing 4-8 quotes per month in DR60+ media." },
   { q: "What kind of anchor text strategy do you use?", a: "Natural mix: mostly branded (60-70%), then generic/URL (15-20%), then partial-match (10-15%), and only a small share exact-match. Anchor patterns are a Google spam trigger; we look natural because we are." },
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
   head: () => ({
     meta: [
       { title: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading Off-Page SEO Agency UK and specialist Ecommerce SEO Agency UK. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
+      { name: "description", content: "BeingEcom is a leading UK off-page SEO agency for ecommerce. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
       { property: "og:title", content: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
       { property: "og:description", content: "Off-Page SEO Agency UK. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
       { property: "og:url", content: "https://beingecom.com/services/seo/off-page" },
@@ -103,7 +103,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
       ],
       faqs: FAQ_LIST,
       relatedServices: [
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "The parent SEO service - off-page is one of four pillars." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "The parent SEO service - off-page is one of four pillars." },
         { to: "/services/seo/technical", title: "Technical SEO", body: "Backlinks compound faster on a technically clean site." },
         { to: "/services/seo/on-page", title: "On-Page SEO", body: "Editorial links land better when target pages are optimised." },
         { to: "/services/seo/international", title: "International SEO", body: "Region-specific digital PR for UK, US and EU stores." },

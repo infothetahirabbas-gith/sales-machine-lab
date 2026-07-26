@@ -448,7 +448,7 @@ function Home() {
             Explore our specialist pages
           </div>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:text-base">
-            <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO Agency UK</Link>
+            <Link to="/services/seo" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce SEO</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/services/paid-ads" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
             <span className="text-muted-foreground">·</span>

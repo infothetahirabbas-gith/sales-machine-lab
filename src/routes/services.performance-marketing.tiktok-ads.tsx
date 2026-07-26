@@ -9,7 +9,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "Spark Ads vs in-feed - what's the difference?", a: "Spark Ads run from a real creator handle and earn 1.4-2× CTR. Our Ecommerce Agency UK team uses Spark whenever the creator allows it." },
   { q: "How fast does creative fatigue hit on TikTok?", a: "Fast - usually 7-10 days at meaningful spend. Weekly creator drops are non-negotiable." },
   { q: "Do you handle creator sourcing?", a: "Yes - full UGC pipeline: casting, briefs, shipping, footage review and editing." },
-  { q: "What ROAS is realistic on TikTok?", a: "1.8-3.2× typical, 4×+ on breakout products. TikTok is usually a top-funnel channel that lifts branded search - which is why our Ecommerce SEO Agency UK team measures it against MER, not platform ROAS." },
+  { q: "What ROAS is realistic on TikTok?", a: "1.8-3.2× typical, 4×+ on breakout products. TikTok is usually a top-funnel channel that lifts branded search - which is why our in-house SEO team measures it against MER, not platform ROAS." },
   { q: "TikTok Ads vs Meta Ads - which converts better?", a: "Meta wins for direct conversion. TikTok wins for demand creation and viral scale. A real Ecommerce Growth Agency runs both to compound each other." },
   { q: "Does TikTok work for older audiences?", a: "Yes - TikTok's 35-54 audience has grown fastest. It's no longer just a Gen-Z platform." },
   { q: "Do you set up TikTok Pixel and Events 2.0?", a: "Yes - Events 2.0, deduplication, EMQ tuning and server-side where the stack allows. Signal quality is now the difference between profit and loss on TikTok." },
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
         "Optimising for views instead of purchases.",
       ],
       whatIsTitle: "TikTok rewards native creative.",
-      whatIsBody: "Hooks win the first 1.5 seconds. As a specialist Ecommerce Growth Agency we script for scroll, brief creators and structure Spark Ads so winners scale fast - then measure lift with our Ecommerce SEO Agency UK team via branded-search uplift, not just platform ROAS.",
+      whatIsBody: "Hooks win the first 1.5 seconds. As a specialist Ecommerce Growth Agency we script for scroll, brief creators and structure Spark Ads so winners scale fast - then measure lift with our in-house SEO team via branded-search uplift, not just platform ROAS.",
       systemTitle: "Our TikTok Ads system.",
       systemSteps: [
         { title: "Pixel & events audit", body: "Events 2.0, deduplication, attribution settings." },
@@ -122,7 +122,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       relatedServices: [
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Meta demand-creation to pair with TikTok virality." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Convert branded search lift from TikTok into organic revenue." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Convert branded search lift from TikTok into organic revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC and creator video - 3 batches/week." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where TikTok traffic turns into revenue." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },

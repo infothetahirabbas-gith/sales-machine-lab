@@ -17,7 +17,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "How do you deal with iOS 14+ tracking loss?", a: "Server-side CAPI + Enhanced Match + Aggregated Event Measurement + post-purchase surveys to triangulate signal. We won't run an account without server-side." },
   { q: "Do you run Instagram Ads too?", a: "Yes - Instagram sits inside Meta Ads Manager. Reels and Stories placements are managed by the same team." },
   { q: "How much of my ad spend should go to retargeting?", a: "10-20% at healthy prospecting scale. If retargeting is more than 30%, you're not creating enough net-new demand." },
-  { q: "What targeting works best in 2026?", a: "Broad ASC+ with strong creative signals beats interest stacks 8/10 times. The Ecommerce SEO Agency UK team also helps identify branded intent to layer in." },
+  { q: "What targeting works best in 2026?", a: "Broad ASC+ with strong creative signals beats interest stacks 8/10 times. Our SEO team also helps identify branded intent to layer in." },
   { q: "What tools do you use?", a: "Meta Ads Manager, Motion, Foreplay, Triple Whale, Northbeam, GA4 and server-side GTM." },
   { q: "How is BeingEcom different from other Facebook Ads agencies?", a: "We're a full-stack Ecommerce Marketing Agency UK - not a media-buying box. Our creative, CRO and SEO teams share one P&L per client." },
 ];
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         "Scaling spend without break-even unit economics.",
       ],
       whatIsTitle: "Meta is a creative testing machine.",
-      whatIsBody: "Account structure matters, but creative wins. As a specialist Ecommerce Growth Agency we ship weekly batches of hooks, angles and formats, then scale only what crosses break-even - and pair Meta with our Ecommerce SEO Agency UK team so paid demand keeps compounding into organic.",
+      whatIsBody: "Account structure matters, but creative wins. As a specialist Ecommerce Growth Agency we ship weekly batches of hooks, angles and formats, then scale only what crosses break-even - and pair Meta with our in-house SEO team so paid demand keeps compounding into organic.",
       systemTitle: "Our Facebook Ads system.",
       systemSteps: [
         { title: "Account & pixel audit", body: "CAPI, attribution, exclusions, asset library." },
@@ -122,7 +122,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       relatedServices: [
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/instagram-ads", title: "Instagram Ads", body: "Reels & Stories inside the same Meta account." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Compound Meta demand with organic search coverage." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Compound Meta demand with organic search coverage." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where Meta traffic actually turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "UGC, motion and statics - 3 batches/week." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },

@@ -15,7 +15,7 @@ const FAQ_LIST: FAQ[] = [
   { q: "What's the difference between Reels ads and Stories ads?", a: "Reels ads sit in the discovery feed (top-of-funnel scale); Stories ads are consumed by existing followers or lookalikes (high intent, faster action)." },
   { q: "How often should Instagram creative be refreshed?", a: "Every 7-14 days at meaningful spend. Fatigue is faster on IG than Facebook because the feed is smaller." },
   { q: "Do Instagram ads work for older audiences?", a: "Yes - 35-54 is now IG's fastest-growing cohort. Match creative to audience style, not stereotype." },
-  { q: "Can Instagram drive branded search?", a: "Yes - this is why our Ecommerce SEO Agency UK team measures branded impression lift alongside platform ROAS to capture the real halo effect." },
+  { q: "Can Instagram drive branded search?", a: "Yes - this is why our in-house SEO team measures branded impression lift alongside platform ROAS to capture the real halo effect." },
   { q: "Do you handle Reels editing and creator briefs?", a: "Yes - in-house UGC editing, creator sourcing, briefs, shipping and footage review." },
   { q: "What ROAS should I expect on IG?", a: "2.5-3.5× blended ROAS is healthy. 4×+ is exceptional and usually indicates strong branded-search halo." },
   { q: "What tools do you use for Instagram Ads?", a: "Meta Ads Manager, Motion, Foreplay, Triple Whale for attribution and Looker Studio dashboards." },
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
         "Zero Stories or Reels ads - leaving the highest-intent placements empty.",
       ],
       whatIsTitle: "Instagram is a creative-native platform.",
-      whatIsBody: "You don't win on IG with better targeting - you win with creative that feels native. As a specialist Ecommerce Growth Agency we ship Reels-first, creator UGC, 9:16, sound-on - and layer in our Ecommerce SEO Agency UK team to capture the branded-search halo IG creates.",
+      whatIsBody: "You don't win on IG with better targeting - you win with creative that feels native. As a specialist Ecommerce Growth Agency we ship Reels-first, creator UGC, 9:16, sound-on - and layer in our in-house SEO team to capture the branded-search halo IG creates.",
       systemTitle: "Our Instagram Ads system.",
       systemSteps: [
         { title: "Placement audit", body: "Reels, Stories, feed, Explore - placement split by CPA + ROAS." },
@@ -123,7 +123,7 @@ export const Route = createFileRoute("/services/performance-marketing/instagram-
       relatedServices: [
         { to: "/services/paid-ads", title: "All Paid Ads Services", body: "Meta + Google + TikTok + YouTube - one revenue P&L." },
         { to: "/services/performance-marketing/facebook-ads", title: "Facebook Ads", body: "Same Meta stack, broader placements." },
-        { to: "/services/seo", title: "Ecommerce SEO Agency UK", body: "Capture the branded-search halo IG creates." },
+        { to: "/services/seo", title: "Ecommerce SEO", body: "Capture the branded-search halo IG creates." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Where IG traffic turns into revenue." },
         { to: "/services/creative", title: "Creative Production", body: "Reels-native UGC - 3 batches/week." },
         { to: "/pricing", title: "Pricing & Packages", body: "Transparent monthly retainers." },
