@@ -59,10 +59,10 @@ export const Route = createFileRoute("/industries/$slug")({
                 rel: "preload" as const,
                 as: "image" as const,
                 href: heroImage,
-                imagesrcset: unsplashSrcSet(heroImage),
-                imagesizes:
+                imageSrcSet: unsplashSrcSet(heroImage),
+                imageSizes:
                   "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px",
-                fetchpriority: "high" as const,
+                fetchPriority: "high" as const,
               },
             ]
           : []),

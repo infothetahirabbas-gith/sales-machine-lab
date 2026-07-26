@@ -333,8 +333,7 @@ function WebsitePreview({ screenshot }: { screenshot: string }) {
         alt="Website homepage"
         loading="lazy"
         decoding="async"
-        // @ts-ignore fetchpriority is a valid HTML attribute
-        fetchpriority="low"
+        fetchPriority="low"
         width={520}
         height={340}
         className="w-full h-full object-cover object-top transition-transform duration-[2400ms] ease-linear hover:[transform:translateY(-30%)]"

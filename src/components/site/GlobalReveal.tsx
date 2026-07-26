@@ -26,7 +26,6 @@ export function GlobalReveal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let idleHandle: number | undefined;
     let timeoutHandle: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     // Safety net: guarantee everything becomes visible no matter what.
@@ -91,21 +90,6 @@ export function GlobalReveal() {
       });
     };
 
-    // Seed after React has had a full post-hydration paint. TanStack Start can
-    // hydrate nested route chunks after the root effect fires; mutating SSR
-    // attributes too early causes production hydration mismatch warnings.
-    const start = () => {
-      seed(document);
-      document.documentElement.classList.add("js-reveal");
-      revealPassedNodes();
-    };
-
-    if ("requestIdleCallback" in window) {
-      idleHandle = window.requestIdleCallback(start, { timeout: 1200 });
-    } else {
-      timeoutHandle = globalThis.setTimeout(start, 350);
-    }
-
     const mo = new MutationObserver((mutations) => {
       for (const m of mutations) {
         for (const node of m.addedNodes) {
@@ -114,16 +98,22 @@ export function GlobalReveal() {
       }
       revealPassedNodes();
     });
-    mo.observe(document.body, { childList: true, subtree: true });
 
-    window.addEventListener("scroll", revealPassedNodes, { passive: true });
-    window.addEventListener("resize", revealPassedNodes);
+    // Seed after nested route chunks have had time to hydrate. Mutating
+    // data-reveal/data-inview too early causes production hydration mismatches.
+    const start = () => {
+      seed(document);
+      document.documentElement.classList.add("js-reveal");
+      revealPassedNodes();
+      mo.observe(document.body, { childList: true, subtree: true });
+      window.addEventListener("scroll", revealPassedNodes, { passive: true });
+      window.addEventListener("resize", revealPassedNodes);
+    };
+
+    timeoutHandle = globalThis.setTimeout(start, 1800);
 
     return () => {
       window.clearTimeout(failSafe);
-      if (idleHandle !== undefined && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleHandle);
-      }
       if (timeoutHandle !== undefined) {
         globalThis.clearTimeout(timeoutHandle);
       }
