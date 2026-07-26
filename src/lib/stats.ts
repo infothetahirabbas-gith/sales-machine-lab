@@ -11,7 +11,7 @@ export const SITE_STATS = {
   trackedRevenue: { v: "£48M+", l: "tracked revenue" },
   abTests: { v: "400+", l: "A/B tests run" },
   avgRoasLift: { v: "4.1×", l: "avg ROAS lift" },
-  caseStudies: { v: "53", l: "case studies published" },
+  caseStudies: { v: "30+", l: "case studies published" },
   adSpend: { v: "£120M+", l: "ad spend managed" },
   retentionLift: { v: "+38%", l: "avg retention lift" },
 } as const;
