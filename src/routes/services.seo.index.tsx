@@ -149,7 +149,7 @@ export const Route = createFileRoute("/services/seo/")({
       },
       caseStudy: {
         title: "UK home brand: 100 → 18K organic sessions in 6 months",
-        problem: "Zero organic traffic. 100% dependent on Meta ads. iOS 14 attribution killed ROAS overnight.",
+        problem: "Zero organic traffic. Store buried past page 5 for every commercial keyword. 100% dependent on paid channels with no free-traffic safety net.",
         strategy: "Full PDP + PLP rebuild with Product/FAQ/Review schema, 22 comparison and guide articles, 34 editorial backlinks over 4 months.",
         result: "18K monthly organic sessions, 96 top-10 rankings, ~£24K/mo attributable organic revenue at effectively zero CAC.",
         metrics: [{ label: "Sessions", value: "180×" }, { label: "Rankings", value: "96 top-10" }, { label: "Org. revenue", value: "£24K/mo" }],
