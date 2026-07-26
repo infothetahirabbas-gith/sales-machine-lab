@@ -91,7 +91,7 @@ function About() {
       <Section
         alt
         eyebrow="Strategic Planning"
-        title="How we plan growth before we spend a dollar."
+        title="How we plan growth before we spend a pound."
         intro="Every brand starts with a custom growth blueprint - not a templated playbook."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
