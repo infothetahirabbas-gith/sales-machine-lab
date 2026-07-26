@@ -25,11 +25,18 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as IsSeoWorthItForEcommerceRouteImport } from './routes/is-seo-worth-it-for-ecommerce'
 import { Route as HubRouteImport } from './routes/hub'
+import { Route as HowMuchDoesEcommerceSeoCostRouteImport } from './routes/how-much-does-ecommerce-seo-cost'
+import { Route as HowLongDoesEcommerceSeoTakeRouteImport } from './routes/how-long-does-ecommerce-seo-take'
 import { Route as GlossaryRouteImport } from './routes/glossary'
 import { Route as GdprRouteImport } from './routes/gdpr'
 import { Route as FounderNotesRouteImport } from './routes/founder-notes'
 import { Route as FounderRouteImport } from './routes/founder'
+import { Route as ForMarketingManagersRouteImport } from './routes/for-marketing-managers'
+import { Route as ForFoundersRouteImport } from './routes/for-founders'
+import { Route as ForEnterpriseBrandsRouteImport } from './routes/for-enterprise-brands'
+import { Route as ForEcommerceTeamsRouteImport } from './routes/for-ecommerce-teams'
 import { Route as EnterpriseEcommerceSeoRouteImport } from './routes/enterprise-ecommerce-seo'
 import { Route as EcommerceSeoPricingRouteImport } from './routes/ecommerce-seo-pricing'
 import { Route as EcommerceSeoConsultantRouteImport } from './routes/ecommerce-seo-consultant'
@@ -49,6 +56,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as BenchmarksRouteImport } from './routes/benchmarks'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AiEcommerceGrowthRouteImport } from './routes/ai-ecommerce-growth'
+import { Route as AgencyVsInhouseSeoRouteImport } from './routes/agency-vs-inhouse-seo'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as IndexRouteImport } from './routes/index'
@@ -209,11 +217,29 @@ const MethodologyRoute = MethodologyRouteImport.update({
   path: '/methodology',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IsSeoWorthItForEcommerceRoute =
+  IsSeoWorthItForEcommerceRouteImport.update({
+    id: '/is-seo-worth-it-for-ecommerce',
+    path: '/is-seo-worth-it-for-ecommerce',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HubRoute = HubRouteImport.update({
   id: '/hub',
   path: '/hub',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowMuchDoesEcommerceSeoCostRoute =
+  HowMuchDoesEcommerceSeoCostRouteImport.update({
+    id: '/how-much-does-ecommerce-seo-cost',
+    path: '/how-much-does-ecommerce-seo-cost',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HowLongDoesEcommerceSeoTakeRoute =
+  HowLongDoesEcommerceSeoTakeRouteImport.update({
+    id: '/how-long-does-ecommerce-seo-take',
+    path: '/how-long-does-ecommerce-seo-take',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GlossaryRoute = GlossaryRouteImport.update({
   id: '/glossary',
   path: '/glossary',
@@ -232,6 +258,26 @@ const FounderNotesRoute = FounderNotesRouteImport.update({
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForMarketingManagersRoute = ForMarketingManagersRouteImport.update({
+  id: '/for-marketing-managers',
+  path: '/for-marketing-managers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForFoundersRoute = ForFoundersRouteImport.update({
+  id: '/for-founders',
+  path: '/for-founders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForEnterpriseBrandsRoute = ForEnterpriseBrandsRouteImport.update({
+  id: '/for-enterprise-brands',
+  path: '/for-enterprise-brands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForEcommerceTeamsRoute = ForEcommerceTeamsRouteImport.update({
+  id: '/for-ecommerce-teams',
+  path: '/for-ecommerce-teams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnterpriseEcommerceSeoRoute = EnterpriseEcommerceSeoRouteImport.update({
@@ -329,6 +375,11 @@ const AuditRoute = AuditRouteImport.update({
 const AiEcommerceGrowthRoute = AiEcommerceGrowthRouteImport.update({
   id: '/ai-ecommerce-growth',
   path: '/ai-ecommerce-growth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgencyVsInhouseSeoRoute = AgencyVsInhouseSeoRouteImport.update({
+  id: '/agency-vs-inhouse-seo',
+  path: '/agency-vs-inhouse-seo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
@@ -744,6 +795,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/agency-vs-inhouse-seo': typeof AgencyVsInhouseSeoRoute
   '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/benchmarks': typeof BenchmarksRouteWithChildren
@@ -763,11 +815,18 @@ export interface FileRoutesByFullPath {
   '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
   '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
   '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
+  '/for-ecommerce-teams': typeof ForEcommerceTeamsRoute
+  '/for-enterprise-brands': typeof ForEnterpriseBrandsRoute
+  '/for-founders': typeof ForFoundersRoute
+  '/for-marketing-managers': typeof ForMarketingManagersRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/how-long-does-ecommerce-seo-take': typeof HowLongDoesEcommerceSeoTakeRoute
+  '/how-much-does-ecommerce-seo-cost': typeof HowMuchDoesEcommerceSeoCostRoute
   '/hub': typeof HubRouteWithChildren
+  '/is-seo-worth-it-for-ecommerce': typeof IsSeoWorthItForEcommerceRoute
   '/methodology': typeof MethodologyRoute
   '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
@@ -864,6 +923,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/agency-vs-inhouse-seo': typeof AgencyVsInhouseSeoRoute
   '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/clients': typeof ClientsRoute
@@ -879,10 +939,17 @@ export interface FileRoutesByTo {
   '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
   '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
   '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
+  '/for-ecommerce-teams': typeof ForEcommerceTeamsRoute
+  '/for-enterprise-brands': typeof ForEnterpriseBrandsRoute
+  '/for-founders': typeof ForFoundersRoute
+  '/for-marketing-managers': typeof ForMarketingManagersRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/how-long-does-ecommerce-seo-take': typeof HowLongDoesEcommerceSeoTakeRoute
+  '/how-much-does-ecommerce-seo-cost': typeof HowMuchDoesEcommerceSeoCostRoute
+  '/is-seo-worth-it-for-ecommerce': typeof IsSeoWorthItForEcommerceRoute
   '/methodology': typeof MethodologyRoute
   '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
@@ -979,6 +1046,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/academy': typeof AcademyRoute
   '/accessibility': typeof AccessibilityRoute
+  '/agency-vs-inhouse-seo': typeof AgencyVsInhouseSeoRoute
   '/ai-ecommerce-growth': typeof AiEcommerceGrowthRoute
   '/audit': typeof AuditRoute
   '/benchmarks': typeof BenchmarksRouteWithChildren
@@ -998,11 +1066,18 @@ export interface FileRoutesById {
   '/ecommerce-seo-consultant': typeof EcommerceSeoConsultantRoute
   '/ecommerce-seo-pricing': typeof EcommerceSeoPricingRoute
   '/enterprise-ecommerce-seo': typeof EnterpriseEcommerceSeoRoute
+  '/for-ecommerce-teams': typeof ForEcommerceTeamsRoute
+  '/for-enterprise-brands': typeof ForEnterpriseBrandsRoute
+  '/for-founders': typeof ForFoundersRoute
+  '/for-marketing-managers': typeof ForMarketingManagersRoute
   '/founder': typeof FounderRoute
   '/founder-notes': typeof FounderNotesRoute
   '/gdpr': typeof GdprRoute
   '/glossary': typeof GlossaryRoute
+  '/how-long-does-ecommerce-seo-take': typeof HowLongDoesEcommerceSeoTakeRoute
+  '/how-much-does-ecommerce-seo-cost': typeof HowMuchDoesEcommerceSeoCostRoute
   '/hub': typeof HubRouteWithChildren
+  '/is-seo-worth-it-for-ecommerce': typeof IsSeoWorthItForEcommerceRoute
   '/methodology': typeof MethodologyRoute
   '/partners': typeof PartnersRoute
   '/pricing': typeof PricingRoute
@@ -1101,6 +1176,7 @@ export interface FileRouteTypes {
     | '/'
     | '/academy'
     | '/accessibility'
+    | '/agency-vs-inhouse-seo'
     | '/ai-ecommerce-growth'
     | '/audit'
     | '/benchmarks'
@@ -1120,11 +1196,18 @@ export interface FileRouteTypes {
     | '/ecommerce-seo-consultant'
     | '/ecommerce-seo-pricing'
     | '/enterprise-ecommerce-seo'
+    | '/for-ecommerce-teams'
+    | '/for-enterprise-brands'
+    | '/for-founders'
+    | '/for-marketing-managers'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
+    | '/how-long-does-ecommerce-seo-take'
+    | '/how-much-does-ecommerce-seo-cost'
     | '/hub'
+    | '/is-seo-worth-it-for-ecommerce'
     | '/methodology'
     | '/partners'
     | '/pricing'
@@ -1221,6 +1304,7 @@ export interface FileRouteTypes {
     | '/'
     | '/academy'
     | '/accessibility'
+    | '/agency-vs-inhouse-seo'
     | '/ai-ecommerce-growth'
     | '/audit'
     | '/clients'
@@ -1236,10 +1320,17 @@ export interface FileRouteTypes {
     | '/ecommerce-seo-consultant'
     | '/ecommerce-seo-pricing'
     | '/enterprise-ecommerce-seo'
+    | '/for-ecommerce-teams'
+    | '/for-enterprise-brands'
+    | '/for-founders'
+    | '/for-marketing-managers'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
+    | '/how-long-does-ecommerce-seo-take'
+    | '/how-much-does-ecommerce-seo-cost'
+    | '/is-seo-worth-it-for-ecommerce'
     | '/methodology'
     | '/partners'
     | '/pricing'
@@ -1335,6 +1426,7 @@ export interface FileRouteTypes {
     | '/'
     | '/academy'
     | '/accessibility'
+    | '/agency-vs-inhouse-seo'
     | '/ai-ecommerce-growth'
     | '/audit'
     | '/benchmarks'
@@ -1354,11 +1446,18 @@ export interface FileRouteTypes {
     | '/ecommerce-seo-consultant'
     | '/ecommerce-seo-pricing'
     | '/enterprise-ecommerce-seo'
+    | '/for-ecommerce-teams'
+    | '/for-enterprise-brands'
+    | '/for-founders'
+    | '/for-marketing-managers'
     | '/founder'
     | '/founder-notes'
     | '/gdpr'
     | '/glossary'
+    | '/how-long-does-ecommerce-seo-take'
+    | '/how-much-does-ecommerce-seo-cost'
     | '/hub'
+    | '/is-seo-worth-it-for-ecommerce'
     | '/methodology'
     | '/partners'
     | '/pricing'
@@ -1456,6 +1555,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AcademyRoute: typeof AcademyRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  AgencyVsInhouseSeoRoute: typeof AgencyVsInhouseSeoRoute
   AiEcommerceGrowthRoute: typeof AiEcommerceGrowthRoute
   AuditRoute: typeof AuditRoute
   BenchmarksRoute: typeof BenchmarksRouteWithChildren
@@ -1475,11 +1575,18 @@ export interface RootRouteChildren {
   EcommerceSeoConsultantRoute: typeof EcommerceSeoConsultantRoute
   EcommerceSeoPricingRoute: typeof EcommerceSeoPricingRoute
   EnterpriseEcommerceSeoRoute: typeof EnterpriseEcommerceSeoRoute
+  ForEcommerceTeamsRoute: typeof ForEcommerceTeamsRoute
+  ForEnterpriseBrandsRoute: typeof ForEnterpriseBrandsRoute
+  ForFoundersRoute: typeof ForFoundersRoute
+  ForMarketingManagersRoute: typeof ForMarketingManagersRoute
   FounderRoute: typeof FounderRoute
   FounderNotesRoute: typeof FounderNotesRoute
   GdprRoute: typeof GdprRoute
   GlossaryRoute: typeof GlossaryRoute
+  HowLongDoesEcommerceSeoTakeRoute: typeof HowLongDoesEcommerceSeoTakeRoute
+  HowMuchDoesEcommerceSeoCostRoute: typeof HowMuchDoesEcommerceSeoCostRoute
   HubRoute: typeof HubRouteWithChildren
+  IsSeoWorthItForEcommerceRoute: typeof IsSeoWorthItForEcommerceRoute
   MethodologyRoute: typeof MethodologyRoute
   PartnersRoute: typeof PartnersRoute
   PricingRoute: typeof PricingRoute
@@ -1658,11 +1765,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MethodologyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/is-seo-worth-it-for-ecommerce': {
+      id: '/is-seo-worth-it-for-ecommerce'
+      path: '/is-seo-worth-it-for-ecommerce'
+      fullPath: '/is-seo-worth-it-for-ecommerce'
+      preLoaderRoute: typeof IsSeoWorthItForEcommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hub': {
       id: '/hub'
       path: '/hub'
       fullPath: '/hub'
       preLoaderRoute: typeof HubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-much-does-ecommerce-seo-cost': {
+      id: '/how-much-does-ecommerce-seo-cost'
+      path: '/how-much-does-ecommerce-seo-cost'
+      fullPath: '/how-much-does-ecommerce-seo-cost'
+      preLoaderRoute: typeof HowMuchDoesEcommerceSeoCostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-long-does-ecommerce-seo-take': {
+      id: '/how-long-does-ecommerce-seo-take'
+      path: '/how-long-does-ecommerce-seo-take'
+      fullPath: '/how-long-does-ecommerce-seo-take'
+      preLoaderRoute: typeof HowLongDoesEcommerceSeoTakeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/glossary': {
@@ -1691,6 +1819,34 @@ declare module '@tanstack/react-router' {
       path: '/founder'
       fullPath: '/founder'
       preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-marketing-managers': {
+      id: '/for-marketing-managers'
+      path: '/for-marketing-managers'
+      fullPath: '/for-marketing-managers'
+      preLoaderRoute: typeof ForMarketingManagersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-founders': {
+      id: '/for-founders'
+      path: '/for-founders'
+      fullPath: '/for-founders'
+      preLoaderRoute: typeof ForFoundersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-enterprise-brands': {
+      id: '/for-enterprise-brands'
+      path: '/for-enterprise-brands'
+      fullPath: '/for-enterprise-brands'
+      preLoaderRoute: typeof ForEnterpriseBrandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-ecommerce-teams': {
+      id: '/for-ecommerce-teams'
+      path: '/for-ecommerce-teams'
+      fullPath: '/for-ecommerce-teams'
+      preLoaderRoute: typeof ForEcommerceTeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/enterprise-ecommerce-seo': {
@@ -1824,6 +1980,13 @@ declare module '@tanstack/react-router' {
       path: '/ai-ecommerce-growth'
       fullPath: '/ai-ecommerce-growth'
       preLoaderRoute: typeof AiEcommerceGrowthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agency-vs-inhouse-seo': {
+      id: '/agency-vs-inhouse-seo'
+      path: '/agency-vs-inhouse-seo'
+      fullPath: '/agency-vs-inhouse-seo'
+      preLoaderRoute: typeof AgencyVsInhouseSeoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility': {
@@ -2504,6 +2667,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AcademyRoute: AcademyRoute,
   AccessibilityRoute: AccessibilityRoute,
+  AgencyVsInhouseSeoRoute: AgencyVsInhouseSeoRoute,
   AiEcommerceGrowthRoute: AiEcommerceGrowthRoute,
   AuditRoute: AuditRoute,
   BenchmarksRoute: BenchmarksRouteWithChildren,
@@ -2523,11 +2687,18 @@ const rootRouteChildren: RootRouteChildren = {
   EcommerceSeoConsultantRoute: EcommerceSeoConsultantRoute,
   EcommerceSeoPricingRoute: EcommerceSeoPricingRoute,
   EnterpriseEcommerceSeoRoute: EnterpriseEcommerceSeoRoute,
+  ForEcommerceTeamsRoute: ForEcommerceTeamsRoute,
+  ForEnterpriseBrandsRoute: ForEnterpriseBrandsRoute,
+  ForFoundersRoute: ForFoundersRoute,
+  ForMarketingManagersRoute: ForMarketingManagersRoute,
   FounderRoute: FounderRoute,
   FounderNotesRoute: FounderNotesRoute,
   GdprRoute: GdprRoute,
   GlossaryRoute: GlossaryRoute,
+  HowLongDoesEcommerceSeoTakeRoute: HowLongDoesEcommerceSeoTakeRoute,
+  HowMuchDoesEcommerceSeoCostRoute: HowMuchDoesEcommerceSeoCostRoute,
   HubRoute: HubRouteWithChildren,
+  IsSeoWorthItForEcommerceRoute: IsSeoWorthItForEcommerceRoute,
   MethodologyRoute: MethodologyRoute,
   PartnersRoute: PartnersRoute,
   PricingRoute: PricingRoute,
