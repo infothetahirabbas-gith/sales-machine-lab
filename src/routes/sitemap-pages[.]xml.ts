@@ -108,6 +108,14 @@ const entries: SitemapEntry[] = [
   { path: "/partners", changefreq: "monthly", priority: "0.8" },
   { path: "/why-beingecom", changefreq: "monthly", priority: "0.9" },
   { path: "/customer-journey", changefreq: "monthly", priority: "0.8" },
+  { path: "/how-long-does-ecommerce-seo-take", changefreq: "monthly", priority: "0.9" },
+  { path: "/how-much-does-ecommerce-seo-cost", changefreq: "monthly", priority: "0.9" },
+  { path: "/is-seo-worth-it-for-ecommerce", changefreq: "monthly", priority: "0.9" },
+  { path: "/agency-vs-inhouse-seo", changefreq: "monthly", priority: "0.9" },
+  { path: "/for-founders", changefreq: "monthly", priority: "0.8" },
+  { path: "/for-marketing-managers", changefreq: "monthly", priority: "0.8" },
+  { path: "/for-ecommerce-teams", changefreq: "monthly", priority: "0.8" },
+  { path: "/for-enterprise-brands", changefreq: "monthly", priority: "0.8" },
   { path: "/cookies", changefreq: "yearly", priority: "0.3" },
 ];
 
