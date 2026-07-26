@@ -99,8 +99,12 @@ export function GlobalReveal() {
       revealPassedNodes();
     });
 
-    // Seed after nested route chunks have had time to hydrate. Mutating
-    // data-reveal/data-inview too early causes production hydration mismatches.
+    // Seed synchronously after hydration. Deferring caused a visible glitch:
+    // the page first rendered fully visible (no js-reveal class), then at the
+    // deferred tick .js-reveal was added and any below-fold section the user
+    // had already scrolled past would flash out and re-fade in, looking like
+    // the site was breaking. Attributes are added inside useEffect so there
+    // is no hydration mismatch.
     const start = () => {
       seed(document);
       document.documentElement.classList.add("js-reveal");
@@ -110,7 +114,8 @@ export function GlobalReveal() {
       window.addEventListener("resize", revealPassedNodes);
     };
 
-    timeoutHandle = globalThis.setTimeout(start, 1800);
+    start();
+
 
     return () => {
       window.clearTimeout(failSafe);
