@@ -158,7 +158,7 @@ function buildCaseFaqs(s: Study): FAQ[] {
     },
     {
       q: `How do I get a similar plan for my ${niche.toLowerCase()} store?`,
-      a: `Book a free ecommerce growth audit at /audit. We benchmark your funnel against the ${s.brand} case and 40+ other UK Shopify and WooCommerce engagements, then send back a written 30/60/90 plan - no pitch deck, no lock-in.`,
+      a: `Book a free ecommerce growth audit at /audit. We benchmark your funnel against the ${s.brand} case and 30+ other UK Shopify and WooCommerce engagements, then send back a written 30/60/90 plan - no pitch deck, no lock-in.`,
     },
   ];
 }

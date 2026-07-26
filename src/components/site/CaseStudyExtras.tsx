@@ -418,10 +418,12 @@ export function IndustriesSection() {
 }
 
 /* ------------------- 6. AWARDS & CLIENT QUOTES ------------------- */
+// Distinct from the homepage marquee — different names, outcomes and disciplines
+// so no quote is repeated site-wide.
 const quotes = [
-  { q: "We finally have a growth team that talks revenue, not impressions. CAC down, MRR up, every month.", n: "Priya R.", r: "Founder, Pure Botanica" },
-  { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight. Our biggest unlock in 3 years.", n: "Jonas W.", r: "CEO, GearLoop" },
-  { q: "Honest reporting, senior team, weekly shipping. The opposite of every agency we've worked with before.", n: "Sara K.", r: "CMO, Lumen Beauty" },
+  { q: "The 90-day plan showed up as a written doc on day 3, not a pitch deck on day 30. That alone was worth the retainer.", n: "Nadia H.", r: "Founder, Kestrel Home" },
+  { q: "Six weeks in, organic sessions on our category pages doubled and paid CAC dropped 22%. They fixed the funnel we'd been patching for two years.", n: "Ollie P.", r: "Head of Ecommerce, Northline Apparel" },
+  { q: "Weekly scorecard, weekly Loom, senior operators actually in the Slack. It's the first agency we haven't had to babysit.", n: "Rachel D.", r: "COO, Field & Flask Beverages" },
 ];
 
 function QuoteCarousel() {
