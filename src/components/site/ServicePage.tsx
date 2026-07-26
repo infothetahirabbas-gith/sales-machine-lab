@@ -928,13 +928,13 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 <WaIcon className="size-6" />
               </div>
               <div>
-                <div className="font-bold text-ink text-lg">Ask a senior {cfg.eyebrow.toLowerCase()} operator on WhatsApp</div>
-                <div className="text-sm text-muted-foreground">Average reply time <span className="font-bold text-ink"><CountUp value="7 minutes" /></span> on UK business hours. No forms, no juniors.</div>
+                <div className="font-bold text-ink text-lg">Speak to a senior operator on WhatsApp</div>
+                <div className="text-sm text-muted-foreground">Average reply time <span className="font-bold text-ink"><CountUp value="7 minutes" /></span> during UK business hours. No forms, no juniors.</div>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href={whatsappUrl(`Hi BeingEcom - I want to talk about ${cfg.eyebrow.toLowerCase()} for my ecommerce store.`)}
+                href={whatsappUrl(`Hi BeingEcom, I'd like to chat about ${cfg.eyebrow.toLowerCase()} for my store.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn hover-scale bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-md"
