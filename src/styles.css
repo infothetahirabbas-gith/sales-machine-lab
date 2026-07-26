@@ -783,6 +783,12 @@ section p a:hover::after, section li a:hover::after { right: 0; }
   }
 }
 
+/* Disable the pulse-ring loop on mobile - continuous paint is expensive
+   and does not add meaningful UX at small sizes. */
+@media (max-width: 767px) {
+  .pulse-dot::after { animation: none !important; opacity: 0 !important; }
+}
+
 /* ================================================================
    Lightweight reveal markers. Paint immediately; avoid global observers
    and heavy animation runtime on mobile performance traces.
@@ -797,9 +803,8 @@ section p a:hover::after, section li a:hover::after { right: 0; }
    (adds .js-reveal on <html>). Without JS, content stays fully visible
    so nothing is ever stuck invisible. */
 html.js-reveal [data-reveal]:not([data-inview="1"]) {
-  opacity: 1;
+  opacity: 0;
   transform: translate3d(0, 24px, 0);
-  will-change: opacity, transform;
 }
 html.js-reveal [data-reveal="down"]:not([data-inview="1"])  { transform: translate3d(0, -24px, 0); }
 html.js-reveal [data-reveal="left"]:not([data-inview="1"])  { transform: translate3d(-32px, 0, 0); }
