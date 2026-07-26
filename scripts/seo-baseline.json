@@ -11,7 +11,7 @@
     "/": { "status": 200, "canonical": "{{BASE}}/" },
     "/services": { "status": 200, "canonical": "{{BASE}}/services" },
     "/services/seo": { "status": 200, "canonical": "{{BASE}}/services/seo" },
-    "/services/paid-ads": { "status": 200, "canonical": "{{BASE}}/services/paid-ads" },
+    
     "/services/performance-marketing": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing" },
     "/services/performance-marketing/google-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/google-ads" },
     "/services/performance-marketing/facebook-ads": { "status": 200, "canonical": "{{BASE}}/services/performance-marketing/facebook-ads" },
