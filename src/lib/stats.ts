@@ -16,6 +16,22 @@ export const SITE_STATS = {
   retentionLift: { v: "+38%", l: "avg retention lift" },
 } as const;
 
+/**
+ * Canonical experience claims. Every page must reference these - never
+ * invent a new "X+ years" figure. Founder = individual, avg = team-wide
+ * average, tiers = role structure documented on /company/team.
+ */
+export const EXPERIENCE = {
+  founder: { v: "10+", label: "years founder operating experience", noun: "a decade" },
+  avgOperator: { v: "7+", label: "yrs avg operator experience" },
+  tiers: {
+    director: "10+ years ecommerce",
+    lead: "6+ years in the discipline",
+    seniorSpecialist: "4+ years in the discipline",
+    specialist: "2+ years, always paired",
+  },
+} as const;
+
 /** Backward-compatible alias. Prefer `SITE_STATS` in new code. */
 export const GLOBAL_STATS = SITE_STATS;
 

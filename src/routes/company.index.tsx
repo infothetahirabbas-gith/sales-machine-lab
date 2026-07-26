@@ -30,7 +30,7 @@ const GROUP_META: Record<string, { icon: typeof Building2; heading: string; sub:
 const ORDER = ["Identity", "Approach", "Proof", "Community", "Legal"];
 
 const NUMBERS: { k: string; v: string; sub: string }[] = [
-  { k: "10+",   v: "Years operating",     sub: "Hands-on ecommerce Shopify, Plus and WooCommerce." },
+  { k: "10+",   v: "Yrs founder operating experience", sub: "Tahir Abbas - a decade running Shopify, Plus and WooCommerce P&Ls." },
   { k: "£120M+", v: "Client revenue influenced", sub: "Across DTC, retail-hybrid and B2B stores." },
   { k: "100%",  v: "Senior-led delivery", sub: "No junior operator ships to a client account unsupervised." },
   { k: "Weekly",v: "Reporting cadence",   sub: "Scorecard tied to your P&L MER, margin, CAC, CLV." },
