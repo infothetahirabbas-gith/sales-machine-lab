@@ -17,6 +17,7 @@ export const Route = createFileRoute("/partners")({
       { property: "og:url", content: URL },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
