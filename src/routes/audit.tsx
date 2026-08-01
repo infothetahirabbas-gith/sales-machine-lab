@@ -671,30 +671,21 @@ function AuditPage() {
                 <div className="grid lg:grid-cols-3 gap-4">
                   <SectionCard icon={Trophy} title="Performance Radar" kicker="10 growth dimensions">
                     <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <RadarChart data={radarData} outerRadius="75%">
-                          <PolarGrid stroke="oklch(0.9 0.01 250)" />
-                          <PolarAngleAxis dataKey="metric" tick={{ fill: "oklch(0.16 0.02 250)", fontSize: 10, fontWeight: 600 }} />
-                          <Radar dataKey="value" stroke="oklch(0.65 0.18 245)" fill="oklch(0.65 0.18 245)" fillOpacity={0.35} strokeWidth={2} />
-                          <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
-                        </RadarChart>
-                      </ResponsiveContainer>
+                      <Suspense fallback={<div className="h-64" aria-hidden />}>
+                        <AuditCharts kind="radar" data={radarData} />
+                      </Suspense>
                     </div>
                   </SectionCard>
 
                   <SectionCard icon={Flame} title="Issue Mix" kicker={`${total} issues found`}>
                     <div className="h-64 flex items-center justify-center">
                       {total > 0 ? (
-                        <ResponsiveContainer width="100%" height="100%">
-                          <PieChart>
-                            <Pie data={pieData} dataKey="value" nameKey="name" innerRadius={45} outerRadius={80} paddingAngle={3}>
-                              {pieData.map((d) => <Cell key={d.name} fill={d.color} />)}
-                            </Pie>
-                            <Tooltip contentStyle={{ borderRadius: 8, fontSize: 12 }} />
-                          </PieChart>
-                        </ResponsiveContainer>
+                        <Suspense fallback={<div className="h-64" aria-hidden />}>
+                          <AuditCharts kind="pie" data={pieData} />
+                        </Suspense>
                       ) : <p className="text-sm text-muted-foreground">No issues detected.</p>}
                     </div>
+
                     <div className="grid grid-cols-3 gap-2 mt-2">
                       <div className="text-center"><div className="text-lg font-bold text-destructive tabular-nums">{sh}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Super</div></div>
                       <div className="text-center"><div className="text-lg font-bold text-amber-600 tabular-nums">{ho}</div><div className="text-[9px] uppercase tracking-wider text-muted-foreground">Hot</div></div>
