@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useRouterState } from "@tanstack/react-router";
+import { useHydrated, useRouterState } from "@tanstack/react-router";
+
 
 /**
  * Lightweight scroll reveal. Uses IntersectionObserver only. Re-scans on
