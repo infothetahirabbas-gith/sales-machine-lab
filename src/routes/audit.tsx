@@ -9,7 +9,10 @@ import {
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
-import { downloadCSV, downloadXLSX, downloadPDF } from "../lib/audit-exports";
+// jsPDF + XLSX + html2canvas total ~1.1 MB. Loaded only when a user actually
+// clicks an export button, so they never touch the audit page's initial load.
+const loadExports = () => import("../lib/audit-exports");
+
 import auditPreviewAsset from "../assets/audit-report-preview.jpg.asset.json";
 
 /** UK-positioned tool - render timestamps in 24h en-GB locale everywhere. */
