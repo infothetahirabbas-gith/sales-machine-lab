@@ -585,13 +585,13 @@ function AuditPage() {
                 <span className="font-semibold text-ink">Report ready.</span> Export the full 17-phase intelligence in your preferred format.
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button onClick={() => downloadPDF(report, auditedUrl)}>
+                <Button onClick={() => loadExports().then((m) => m.downloadPDF(report, auditedUrl))}>
                   <FileText className="w-4 h-4" /> PDF
                 </Button>
-                <Button variant="secondary" onClick={() => downloadXLSX(report, auditedUrl)}>
+                <Button variant="secondary" onClick={() => loadExports().then((m) => m.downloadXLSX(report, auditedUrl))}>
                   <FileSpreadsheet className="w-4 h-4" /> Excel
                 </Button>
-                <Button variant="secondary" onClick={() => downloadCSV(report, auditedUrl)}>
+                <Button variant="secondary" onClick={() => loadExports().then((m) => m.downloadCSV(report, auditedUrl))}>
                   <FileType2 className="w-4 h-4" /> CSV
                 </Button>
                 <Button variant="secondary" onClick={() => downloadReportJson(report, auditedUrl)}>
