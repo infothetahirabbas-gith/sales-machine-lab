@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import {
   Sparkles, Loader2, AlertTriangle, TrendingUp, Search, Megaphone, MousePointerClick,
   ShoppingBag, ShieldCheck, Target, Rocket, CheckCircle2, ArrowRight, Brain, Building2,
