@@ -22,7 +22,7 @@ const INDUSTRIES = [
 ];
 
 const CANONICAL = `${SITE_URL}/clients`;
-const TITLE = "Clients & Industries Who BeingEcom Works With | UK Ecommerce Agency";
+const TITLE = "Ecommerce Clients & Industries We Serve | BeingEcom";
 const DESC =
   "BeingEcom serves Shopify and WooCommerce brands across 12 ecommerce categories in the UK, US, IE and AU beauty, fashion, health, home, food, jewellery, pet, sports and more.";
 

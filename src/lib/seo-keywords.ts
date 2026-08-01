@@ -25,7 +25,7 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
       "WooCommerce Marketing Agency UK",
       "Ecommerce Digital Marketing Agency UK",
     ],
-    title: "Ecommerce Marketing Agency UK | Shopify & WooCommerce Growth | BeingEcom",
+    title: "Ecommerce Marketing Agency UK | Shopify Growth | BeingEcom",
     description:
       "BeingEcom is an Ecommerce Marketing Agency UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies.",
     h1: "Ecommerce Marketing Agency UK Helping Shopify & WooCommerce Brands Scale",
@@ -56,7 +56,7 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
   "/case-studies": {
     primary: "Ecommerce Growth Case Studies UK",
     supporting: ["Shopify Success Stories UK", "Ecommerce Marketing Results UK", "Best Ecommerce Agency UK"],
-    title: "Ecommerce Growth Case Studies UK | Shopify & Woo Results | BeingEcom",
+    title: "Ecommerce Case Studies UK | Shopify Results | BeingEcom",
     description:
       "Real ecommerce growth case studies UK Shopify and WooCommerce brands we scaled with SEO, paid ads, CRO and Klaviyo email. Numbers, playbooks and honest takeaways.",
   },

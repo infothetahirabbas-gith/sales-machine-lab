@@ -34,7 +34,7 @@ const POSTS: Record<string, Post> = {
   "shopify-plus-migration-uk": {
     slug: "shopify-plus-migration-uk",
     title: "Shopify Plus migration for UK brands: WooCommerce to Shopify Plus without losing rankings",
-    metaTitle: "Shopify Plus Migration UK - WooCommerce to Shopify Plus | BeingEcom",
+    metaTitle: "Shopify Plus Migration UK: Woo to Shopify | BeingEcom",
     description:
       "A UK-specific Shopify Plus migration guide - when to move from WooCommerce, VAT and Markets setup, 301 redirect strategy, and a technical checklist that protects SEO and revenue.",
     datePublished: "2026-07-08",
@@ -131,7 +131,7 @@ const POSTS: Record<string, Post> = {
   "shopify-duplicate-content-faceted-urls": {
     slug: "shopify-duplicate-content-faceted-urls",
     title: "How to fix Shopify duplicate content and faceted URLs",
-    metaTitle: "Fix Shopify Duplicate Content & Faceted URLs (UK Guide) | BeingEcom",
+    metaTitle: "Fix Shopify Duplicate Content & Faceted URLs | BeingEcom",
     description:
       "Collection filters, tags and vendor URLs quietly duplicate your Shopify store. Here's the canonical, robots and metafield fix that recovers wasted crawl budget.",
     datePublished: "2026-07-23",
@@ -222,7 +222,7 @@ const POSTS: Record<string, Post> = {
   "uk-dtc-paid-media-playbook": {
     slug: "uk-dtc-paid-media-playbook",
     title: "The UK DTC paid media playbook (Meta, Google, TikTok, 2026)",
-    metaTitle: "UK DTC Paid Media Playbook 2026 - Meta, Google, TikTok | BeingEcom",
+    metaTitle: "UK Paid Media Playbook 2026 | DTC Ads | BeingEcom",
     description: "The full paid media playbook for UK DTC brands - Meta creative, Google Shopping, TikTok, iOS 17 attribution and MER-led budgeting.",
     datePublished: "2026-07-23", dateModified: "2026-07-23", readMins: 18,
     category: "Paid media", primaryKeyword: "uk dtc paid media",
@@ -349,7 +349,7 @@ const POSTS: Record<string, Post> = {
   "mobile-cro-fixing-mobile-dropoff": {
     slug: "mobile-cro-fixing-mobile-dropoff",
     title: "Mobile CRO: fixing the mobile drop-off",
-    metaTitle: "Mobile CRO for UK Shopify Stores - Fix the Mobile Drop-off | BeingEcom",
+    metaTitle: "Mobile CRO Guide: Fix Shopify Drop-off UK | BeingEcom",
     description: "UK Shopify stores lose 60%+ of mobile sessions between PDP and cart. Here's the mobile-CRO checklist that closes the gap: LCP, sticky ATC, thumb zones and forms.",
     datePublished: "2026-07-23", dateModified: "2026-07-23", readMins: 10,
     category: "CRO", primaryKeyword: "mobile cro shopify",
@@ -392,7 +392,7 @@ const POSTS: Record<string, Post> = {
   "uk-ecommerce-email-retention-klaviyo": {
     slug: "uk-ecommerce-email-retention-klaviyo",
     title: "Ecommerce email & retention playbook (Klaviyo, UK, 2026)",
-    metaTitle: "UK Ecommerce Email & Retention Playbook - Klaviyo (2026) | BeingEcom",
+    metaTitle: "Klaviyo Email & Retention Playbook UK 2026 | BeingEcom",
     description: "The Klaviyo playbook for UK DTC brands - flows, segmentation, campaigns, SMS, GDPR and the retention metrics that build repeatable revenue.",
     datePublished: "2026-07-23", dateModified: "2026-07-23", readMins: 17,
     category: "Email & retention", primaryKeyword: "klaviyo uk dtc email retention",
