@@ -68,6 +68,32 @@ export const SEO_KEYWORDS: Record<string, KeywordEntry> = {
       "Full-stack ecommerce services UK: SEO, Google & Meta Ads, CRO, Klaviyo email, Shopify development and analytics one senior team, one revenue P&L.",
   },
 
+  "/shopify-seo-agency-uk": {
+    primary: "Shopify SEO Agency UK",
+    supporting: [
+      "Shopify SEO Services UK",
+      "Shopify SEO Expert",
+      "Best Shopify SEO Agency UK",
+      "Shopify Plus SEO Agency UK",
+    ],
+    title: "Shopify SEO Agency UK | Shopify SEO Services | BeingEcom",
+    description:
+      "Shopify SEO Agency UK for DTC and Shopify Plus brands. Technical SEO, collection and product page optimisation, digital PR and AI search visibility.",
+    h1: "Shopify SEO Agency UK",
+  },
+  "/woocommerce-seo-agency-uk": {
+    primary: "WooCommerce SEO Agency UK",
+    supporting: [
+      "WooCommerce SEO Services UK",
+      "WordPress Ecommerce SEO UK",
+      "Best WooCommerce SEO Agency UK",
+    ],
+    title: "WooCommerce SEO Agency UK | WooCommerce SEO Services",
+    description:
+      "WooCommerce SEO Agency UK for WordPress stores. Core Web Vitals, plugin bloat, category and product SEO, schema and digital PR by senior UK ecommerce SEOs.",
+    h1: "WooCommerce SEO Agency UK",
+  },
+
   // ── Service leaf pages ──────────────────────────────────────────────────
   "/services/seo": {
     primary: "Ecommerce SEO Agency UK",

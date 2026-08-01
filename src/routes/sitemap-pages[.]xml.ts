@@ -112,6 +112,8 @@ const entries: SitemapEntry[] = [
   { path: "/how-much-does-ecommerce-seo-cost", changefreq: "monthly", priority: "0.9" },
   { path: "/is-seo-worth-it-for-ecommerce", changefreq: "monthly", priority: "0.9" },
   { path: "/agency-vs-inhouse-seo", changefreq: "monthly", priority: "0.9" },
+  { path: "/shopify-seo-agency-uk", changefreq: "monthly", priority: "0.9" },
+  { path: "/woocommerce-seo-agency-uk", changefreq: "monthly", priority: "0.9" },
   { path: "/for-founders", changefreq: "monthly", priority: "0.8" },
   { path: "/for-marketing-managers", changefreq: "monthly", priority: "0.8" },
   { path: "/for-ecommerce-teams", changefreq: "monthly", priority: "0.8" },
