@@ -43,10 +43,16 @@ export default function PageLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
       <RelatedHub />
       <Footer />
+      {/* Mounted here rather than in __root: routes are lazy + Suspense-wrapped,
+          so a root-level effect fires BEFORE React hydrates the page body and
+          its DOM writes caused hydration attribute mismatches. An effect inside
+          this subtree runs only after that subtree has committed. */}
+      <GlobalReveal />
       <ClientOnly fallback={null}>
         <BackToTop />
         <DeferredWidgets />
       </ClientOnly>
+
     </div>
   );
 }
