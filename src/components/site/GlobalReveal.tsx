@@ -20,10 +20,15 @@ const SELECTOR = [
 
 export function GlobalReveal() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // Only true once React has finished hydrating the root. Scanning before that
+  // rewrites nodes React is still hydrating and triggers attribute mismatches.
+  const hydrated = useHydrated();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hydrated) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
     let io: IntersectionObserver | null = null;
     let failSafe: number | null = null;
