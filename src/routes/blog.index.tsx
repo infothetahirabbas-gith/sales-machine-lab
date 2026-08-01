@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card, CTA } from "../components/site/Section";
-import { breadcrumbJsonLd, SITE_URL, ORG_INFO } from "../lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, SITE_URL, ORG_INFO } from "../lib/seo";
+import EditorialBlock from "../components/site/EditorialBlock";
+import FaqSection from "../components/site/FaqSection";
+import { BLOG_EDITORIAL, BLOG_FAQS } from "../lib/index-editorial";
 
 type PostMeta = {
   slug: string;
@@ -147,6 +150,8 @@ export const Route = createFileRoute("/blog/")({
       },
       { property: "og:url", content: `${SITE_URL}/blog` },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
     scripts: [
@@ -160,6 +165,7 @@ export const Route = createFileRoute("/blog/")({
           ]),
         ),
       },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(BLOG_FAQS, "/blog")) },
     ],
   }),
   component: BlogIndex,
@@ -199,6 +205,13 @@ function BlogIndex() {
           ))}
         </div>
       </Section>
+      <EditorialBlock editorial={BLOG_EDITORIAL} />
+      <FaqSection
+        faqs={BLOG_FAQS}
+        title="Ecommerce blog"
+        highlight="FAQs"
+        intro="Common questions about how these UK ecommerce guides are written and how to use them."
+      />
       <CTA
         heading="Want the playbook applied to your store?"
         sub="Book a 30-minute strategy call and we'll show you where the revenue is leaking - and the fastest way to plug it."
