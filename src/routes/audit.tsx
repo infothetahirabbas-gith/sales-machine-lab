@@ -23,10 +23,8 @@ import { faqJsonLd, auditFaqs, breadcrumbJsonLd } from "../lib/seo";
 import FaqSection from "../components/site/FaqSection";
 import { trackEvent } from "../lib/analytics";
 import { readLocationAttribution } from "../lib/location-attribution";
-import {
-  Radar, RadarChart, PolarGrid, PolarAngleAxis,
-  PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
-} from "recharts";
+const AuditCharts = lazy(() => import("../components/site/AuditCharts"));
+
 
 export const Route = createFileRoute("/audit")({
   component: AuditPage,
