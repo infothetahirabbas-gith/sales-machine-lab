@@ -36,7 +36,7 @@ const ITEMS: Item[] = [
 export const Route = createFileRoute("/benchmarks/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Benchmarks 2026 | Conversion, Paid Ads & Email | BeingEcom" },
+      { title: "Ecommerce Benchmarks 2026 UK | Data & Insights | BeingEcom" },
       { name: "description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion rates, paid ads (Meta & Google), and email marketing performance by industry." },
       { property: "og:title", content: "Ecommerce Benchmarks 2026 | BeingEcom" },
       { property: "og:description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion, ads, email - by industry." },
