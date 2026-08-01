@@ -119,7 +119,7 @@ export function GlobalReveal() {
       if (failSafe) window.clearTimeout(failSafe);
       if (io) io.disconnect();
     };
-  }, [pathname]);
+  }, [pathname, hydrated]);
 
 
   return null;
