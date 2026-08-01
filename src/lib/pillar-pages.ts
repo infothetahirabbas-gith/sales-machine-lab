@@ -1255,6 +1255,166 @@ export const PILLAR_PAGES: PillarPage[] = [
     ctaHeading: "Request a growth assessment",
     ctaSub: "A senior partner will scope your opportunity and reply within two working days.",
   },
+  {
+    slug: "shopify-seo-agency-uk",
+    path: "/shopify-seo-agency-uk",
+    title: "Shopify SEO Agency UK | Shopify SEO Services | BeingEcom",
+    metaTitle: "Shopify SEO Agency UK - Shopify SEO Services | BeingEcom",
+    description:
+      "Shopify SEO agency UK for DTC and Shopify Plus brands. Technical SEO, collection and product page optimisation, digital PR and AI search visibility - run by senior operators.",
+    eyebrow: "Shopify SEO",
+    h1: "Shopify SEO Agency UK",
+    intro:
+      "We run Shopify SEO for UK brands that already sell - fixing the theme, app and faceted-URL problems that cap organic revenue, then building the collection and product pages that earn it back.",
+    summary:
+      "BeingEcom is a UK Shopify SEO agency providing Shopify SEO services for Shopify and Shopify Plus stores: technical SEO, collection and product page optimisation, internal linking at catalogue scale, digital PR, and AI search visibility. Work is delivered by senior Shopify SEO specialists, not account managers.",
+    pills: ["Shopify & Shopify Plus", "UK-based seniors", "Revenue-reported"],
+    sections: [
+      {
+        heading: "What a Shopify SEO agency actually changes",
+        body: "Shopify hands you a fast checkout and a rigid URL structure. Growth comes from the parts Shopify does not solve: collection architecture, faceted navigation control, internal linking across thousands of SKUs, and content that answers buying questions before the PDP.",
+        bullets: [
+          "Collection page architecture mapped to real demand",
+          "Product page SEO that keeps merchandising intact",
+          "/collections/all and faceted duplication controlled",
+          "App bloat and Core Web Vitals cleaned up",
+        ],
+      },
+      {
+        heading: "Shopify technical SEO",
+        body: "The Shopify-specific issues that quietly suppress rankings: duplicated product URLs across collections, tag pages indexed at scale, thin filtered variants, JSON-LD conflicts between theme and apps, and render-blocking scripts injected by review or upsell apps.",
+        bullets: [
+          "Canonical and duplicate-URL control",
+          "Crawl budget and index bloat reduction",
+          "Structured data conflicts resolved",
+          "Core Web Vitals on real Shopify themes",
+        ],
+      },
+      {
+        heading: "Shopify SEO services included",
+        body: "One retained team covering the full organic surface. No separate invoices for technical, content and links - they are the same job.",
+        bullets: [
+          "Technical audit and remediation",
+          "Keyword and demand mapping by collection",
+          "Product and collection copy",
+          "Editorial digital PR and link acquisition",
+          "AI search (AEO/GEO) optimisation",
+          "Monthly reporting against revenue, not rankings alone",
+        ],
+      },
+      {
+        heading: "Shopify Plus and migrations",
+        body: "Plus brands get markets, B2B catalogues and multi-storefront complexity. We handle hreflang across markets, keep organic traffic through replatforms, and treat migration as an SEO project rather than a dev ticket.",
+      },
+      {
+        heading: "How we report",
+        body: "Organic sessions, non-brand organic revenue, indexed page ratio, and AI citation coverage. Every month, in the same format, with the decisions we made and what changes next.",
+      },
+    ],
+    highlights: [
+      { label: "Focus", value: "Shopify & Shopify Plus" },
+      { label: "Team", value: "Senior UK SEOs" },
+      { label: "Reporting", value: "Non-brand revenue" },
+    ],
+    related: [
+      { label: "Ecommerce SEO services", to: "/services/seo" },
+      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
+      { label: "Technical SEO", to: "/services/seo/technical" },
+      { label: "Shopify growth hub", to: "/hub/shopify-growth" },
+      { label: "Shopify SEO checklist", to: "/tools/shopify-seo-checklist" },
+      { label: "Migration SEO", to: "/ecommerce-migration-seo" },
+      ...STANDARD_RELATED,
+    ],
+    faqs: [
+      { q: "What does a Shopify SEO agency do?", a: "It fixes the technical constraints of the Shopify platform, builds the collection and product page structure that matches real search demand, earns editorial links, and reports organic revenue rather than rankings alone." },
+      { q: "How much do Shopify SEO services cost in the UK?", a: "Our retainers start at £1,500/mo for smaller catalogues and sit between £2,500-£6,000/mo for most growing Shopify brands. See /ecommerce-seo-pricing for the full ladder." },
+      { q: "How long does Shopify SEO take to work?", a: "Technical wins can move within 4-8 weeks. Non-brand revenue movement typically shows between months 4 and 9, depending on catalogue size and authority." },
+      { q: "Do you work with Shopify Plus?", a: "Yes. Plus brands are our most common engagement - markets, B2B catalogues, and multi-storefront setups included." },
+      { q: "Can you fix Shopify duplicate content?", a: "Yes. Collection-nested product URLs, tag pages and filtered variants are the first thing we audit on almost every Shopify store." },
+      { q: "Do you offer a Shopify SEO expert on a project basis?", a: "Yes - scoped audits and migration projects are available where a retainer is not the right fit." },
+    ],
+    ctaHeading: "Get a Shopify SEO review",
+    ctaSub: "We'll show you the three technical constraints capping your organic revenue before you commit to anything.",
+  },
+  {
+    slug: "woocommerce-seo-agency-uk",
+    path: "/woocommerce-seo-agency-uk",
+    title: "WooCommerce SEO Agency UK | WooCommerce SEO Services",
+    metaTitle: "WooCommerce SEO Agency UK - WooCommerce SEO Services | BeingEcom",
+    description:
+      "WooCommerce SEO agency UK for WordPress stores. Core Web Vitals, plugin bloat, category and product SEO, schema and digital PR - delivered by senior UK ecommerce SEOs.",
+    eyebrow: "WooCommerce SEO",
+    h1: "WooCommerce SEO Agency UK",
+    intro:
+      "WooCommerce gives you total control and total responsibility. We take on the hosting, plugin and taxonomy decisions that decide whether your WordPress store ranks - then build the content that sells.",
+    summary:
+      "BeingEcom is a UK WooCommerce SEO agency offering WooCommerce SEO services for WordPress ecommerce stores: Core Web Vitals and hosting performance, plugin and taxonomy clean-up, category and product page SEO, schema, and editorial link building. Senior UK specialists handle every engagement.",
+    pills: ["WordPress & WooCommerce", "Speed-first", "UK-based"],
+    sections: [
+      {
+        heading: "Why WooCommerce SEO is a different job",
+        body: "Unlike Shopify, nothing on WooCommerce is decided for you. Hosting, caching, plugin stack, permalink structure and taxonomy design are all yours - and all four commonly cost WordPress stores their rankings.",
+        bullets: [
+          "Permalink and taxonomy structure fixed properly",
+          "Plugin conflicts and query bloat removed",
+          "Hosting, caching and Core Web Vitals tuned",
+          "Attribute and filter pages controlled",
+        ],
+      },
+      {
+        heading: "WooCommerce technical SEO",
+        body: "Most WooCommerce performance problems are database problems. Unindexed queries, uncached admin-ajax calls, oversized product images and six overlapping SEO plugins produce slow pages Google is reluctant to crawl deeply.",
+        bullets: [
+          "Server response time and TTFB",
+          "Image pipeline and lazy loading",
+          "Duplicate schema from competing plugins",
+          "Crawl control on filters and attributes",
+        ],
+      },
+      {
+        heading: "WooCommerce SEO services included",
+        body: "A single retained team across technical, content and authority - the three levers that actually move WordPress ecommerce rankings.",
+        bullets: [
+          "Technical and speed audit with remediation",
+          "Category and product page optimisation",
+          "Buying-intent content and internal linking",
+          "Product and FAQ schema",
+          "Editorial digital PR",
+          "Monthly revenue-linked reporting",
+        ],
+      },
+      {
+        heading: "WooCommerce to Shopify (and back)",
+        body: "If a replatform is on the table, we scope it honestly. Sometimes staying on WooCommerce with a rebuilt stack is the cheaper path to the same revenue - and we'll say so.",
+      },
+      {
+        heading: "Who we work best with",
+        body: "UK WooCommerce stores turning over £30k+ a month, with a real catalogue and a willingness to change the site. Brands wanting reports without changes are the wrong fit.",
+      },
+    ],
+    highlights: [
+      { label: "Focus", value: "WooCommerce & WordPress" },
+      { label: "First win", value: "Speed & crawl" },
+      { label: "Reporting", value: "Non-brand revenue" },
+    ],
+    related: [
+      { label: "Ecommerce SEO services", to: "/services/seo" },
+      { label: "WooCommerce marketing", to: "/services/store-development/woocommerce" },
+      { label: "WooCommerce growth hub", to: "/hub/woocommerce-growth" },
+      { label: "Technical SEO", to: "/services/seo/technical" },
+      { label: "Shopify vs WooCommerce", to: "/compare/shopify-vs-woocommerce" },
+      ...STANDARD_RELATED,
+    ],
+    faqs: [
+      { q: "What does a WooCommerce SEO agency do?", a: "It resolves the hosting, plugin and taxonomy issues specific to WordPress ecommerce, optimises category and product pages for real demand, adds correct schema, and builds editorial authority." },
+      { q: "Is WooCommerce good for SEO?", a: "Yes, when it is configured well. WooCommerce gives more URL and content control than Shopify, but poor hosting and plugin bloat cause most WordPress ranking problems." },
+      { q: "How much does WooCommerce SEO cost in the UK?", a: "Retainers typically run £1,500-£5,000/mo depending on catalogue size and technical debt. Fixed-scope audits are available separately." },
+      { q: "Which SEO plugin should we use?", a: "One, not three. We usually consolidate to a single schema and meta source to remove duplicate structured data." },
+      { q: "Should we migrate to Shopify?", a: "Only if the operational case stands up on its own. We scope both paths and give a straight recommendation." },
+    ],
+    ctaHeading: "Get a WooCommerce SEO review",
+    ctaSub: "We'll benchmark your speed, crawl health and category structure before you commit to anything.",
+  },
 ];
 
 export function findPillar(slug: string): PillarPage | undefined {
