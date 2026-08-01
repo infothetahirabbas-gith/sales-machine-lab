@@ -246,6 +246,8 @@ export const Route = createFileRoute("/services/seo/")({
         { to: "/services/seo/aeo", title: "AEO (AI Search)", body: "Get cited by ChatGPT, Perplexity and Google AI Overviews - the new SERP." },
       ],
       relatedServices: [
+        { to: "/shopify-seo-agency-uk", title: "Shopify SEO Agency UK", body: "Shopify and Shopify Plus SEO services - technical, collections, PDPs and digital PR." },
+        { to: "/woocommerce-seo-agency-uk", title: "WooCommerce SEO Agency UK", body: "WordPress ecommerce SEO - speed, plugin bloat, taxonomy and category rankings." },
         { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn the organic traffic you rank for into orders." },
         { to: "/services/analytics", title: "Analytics & Tracking", body: "GA4, server-side and attribution so SEO impact is measurable." },
         { to: "/services/funnel", title: "Funnels & Landing Pages", body: "High-intent landing pages that convert SEO clicks." },

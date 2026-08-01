@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WoocommerceSeoAgencyUkRouteImport } from './routes/woocommerce-seo-agency-uk'
 import { Route as WhyBeingecomRouteImport } from './routes/why-beingecom'
 import { Route as WhoWeHelpRouteImport } from './routes/who-we-help'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -20,6 +21,7 @@ import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-in
 import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-company[.]xml'
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as ShopifySeoPackagesRouteImport } from './routes/shopify-seo-packages'
+import { Route as ShopifySeoAgencyUkRouteImport } from './routes/shopify-seo-agency-uk'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -136,6 +138,11 @@ import { Route as ApiPublicHooksGscMonitorRouteImport } from './routes/api/publi
 import { Route as ApiPublicDebugFaqJsonldRouteImport } from './routes/api.public.debug.faq-jsonld'
 import { Route as LangLocationIndustryServiceRouteImport } from './routes/$lang.$location.$industry.$service'
 
+const WoocommerceSeoAgencyUkRoute = WoocommerceSeoAgencyUkRouteImport.update({
+  id: '/woocommerce-seo-agency-uk',
+  path: '/woocommerce-seo-agency-uk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhyBeingecomRoute = WhyBeingecomRouteImport.update({
   id: '/why-beingecom',
   path: '/why-beingecom',
@@ -190,6 +197,11 @@ const SitemapCaseStudiesDotxmlRoute =
 const ShopifySeoPackagesRoute = ShopifySeoPackagesRouteImport.update({
   id: '/shopify-seo-packages',
   path: '/shopify-seo-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopifySeoAgencyUkRoute = ShopifySeoAgencyUkRouteImport.update({
+  id: '/shopify-seo-agency-uk',
+  path: '/shopify-seo-agency-uk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -832,6 +844,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
@@ -843,6 +856,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
   '/why-beingecom': typeof WhyBeingecomRoute
+  '/woocommerce-seo-agency-uk': typeof WoocommerceSeoAgencyUkRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -955,6 +969,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
@@ -966,6 +981,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
   '/why-beingecom': typeof WhyBeingecomRoute
+  '/woocommerce-seo-agency-uk': typeof WoocommerceSeoAgencyUkRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -1083,6 +1099,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
@@ -1094,6 +1111,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/who-we-help': typeof WhoWeHelpRoute
   '/why-beingecom': typeof WhyBeingecomRoute
+  '/woocommerce-seo-agency-uk': typeof WoocommerceSeoAgencyUkRoute
   '/about/tahir-abbas': typeof AboutTahirAbbasRoute
   '/admin/case-studies': typeof AdminCaseStudiesRoute
   '/admin/location-performance': typeof AdminLocationPerformanceRoute
@@ -1213,6 +1231,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
@@ -1224,6 +1243,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/who-we-help'
     | '/why-beingecom'
+    | '/woocommerce-seo-agency-uk'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1336,6 +1356,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
@@ -1347,6 +1368,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/who-we-help'
     | '/why-beingecom'
+    | '/woocommerce-seo-agency-uk'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1463,6 +1485,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
@@ -1474,6 +1497,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/who-we-help'
     | '/why-beingecom'
+    | '/woocommerce-seo-agency-uk'
     | '/about/tahir-abbas'
     | '/admin/case-studies'
     | '/admin/location-performance'
@@ -1592,6 +1616,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
+  ShopifySeoAgencyUkRoute: typeof ShopifySeoAgencyUkRoute
   ShopifySeoPackagesRoute: typeof ShopifySeoPackagesRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
   SitemapCompanyDotxmlRoute: typeof SitemapCompanyDotxmlRoute
@@ -1603,6 +1628,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   WhoWeHelpRoute: typeof WhoWeHelpRoute
   WhyBeingecomRoute: typeof WhyBeingecomRoute
+  WoocommerceSeoAgencyUkRoute: typeof WoocommerceSeoAgencyUkRoute
   AboutTahirAbbasRoute: typeof AboutTahirAbbasRoute
   AdminCaseStudiesRoute: typeof AdminCaseStudiesRoute
   AdminLocationPerformanceRoute: typeof AdminLocationPerformanceRoute
@@ -1653,6 +1679,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/woocommerce-seo-agency-uk': {
+      id: '/woocommerce-seo-agency-uk'
+      path: '/woocommerce-seo-agency-uk'
+      fullPath: '/woocommerce-seo-agency-uk'
+      preLoaderRoute: typeof WoocommerceSeoAgencyUkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/why-beingecom': {
       id: '/why-beingecom'
       path: '/why-beingecom'
@@ -1728,6 +1761,13 @@ declare module '@tanstack/react-router' {
       path: '/shopify-seo-packages'
       fullPath: '/shopify-seo-packages'
       preLoaderRoute: typeof ShopifySeoPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shopify-seo-agency-uk': {
+      id: '/shopify-seo-agency-uk'
+      path: '/shopify-seo-agency-uk'
+      fullPath: '/shopify-seo-agency-uk'
+      preLoaderRoute: typeof ShopifySeoAgencyUkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -2704,6 +2744,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
+  ShopifySeoAgencyUkRoute: ShopifySeoAgencyUkRoute,
   ShopifySeoPackagesRoute: ShopifySeoPackagesRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
   SitemapCompanyDotxmlRoute: SitemapCompanyDotxmlRoute,
@@ -2715,6 +2756,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   WhoWeHelpRoute: WhoWeHelpRoute,
   WhyBeingecomRoute: WhyBeingecomRoute,
+  WoocommerceSeoAgencyUkRoute: WoocommerceSeoAgencyUkRoute,
   AboutTahirAbbasRoute: AboutTahirAbbasRoute,
   AdminCaseStudiesRoute: AdminCaseStudiesRoute,
   AdminLocationPerformanceRoute: AdminLocationPerformanceRoute,
@@ -2772,13 +2814,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
