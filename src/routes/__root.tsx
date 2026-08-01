@@ -115,25 +115,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
     ],
     links: [
-      { rel: "preload", as: "style", href: appCss },
+      // The stylesheet is loaded normally (render-blocking) on purpose. The
+      // previous "inline critical CSS + async-inject the real sheet" setup
+      // shifted layout by ~0.4 CLS on every page when the real sheet landed
+      // 400-1000ms in. One small gzipped sheet costs far less than that.
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: faviconAsset.url },
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
     ],
-    styles: [{ children: criticalCss }],
     scripts: (() => {
       const envGaId = (import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined)?.trim();
       const gaId = envGaId && /^G-[A-Z0-9]+$/i.test(envGaId) ? envGaId : "G-4ZMG6LQQKK";
       const analyticsLoader = `(()=>{var id='${gaId}',loaded=false;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);gtag('js',new Date());gtag('config',id,{anonymize_ip:true})}['pointerdown','keydown','scroll'].forEach(function(e){addEventListener(e,load,{once:true,passive:true})});setTimeout(load,12000)})();`;
       const base: Array<Record<string, unknown>> = [
-        { children: asyncCssLoader },
         { type: "application/ld+json", children: JSON.stringify(organizationJsonLd()) },
         { type: "application/ld+json", children: JSON.stringify(websiteJsonLd()) },
         { children: analyticsLoader },
       ];
       return base;
     })(),
+
 
   }),
   shellComponent: RootShell,
