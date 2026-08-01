@@ -86,17 +86,35 @@ export function GlobalReveal() {
       document.documentElement.classList.add("js-reveal");
     };
 
-    // Wait a frame so the new route's DOM is committed before scanning.
-    rafId = window.requestAnimationFrame(() =>
-      window.requestAnimationFrame(run),
-    );
+    // Route components are lazy + Suspense-wrapped, so __root mounts (and this
+    // effect fires) BEFORE React has hydrated the page body. Mutating those
+    // nodes early produced "tree hydrated but some attributes ... didn't match"
+    // errors. Wait for the document to finish loading, then two frames, so
+    // hydration has committed before we touch any attributes.
+    let rafId2 = 0;
+    const schedule = () => {
+      rafId = window.requestAnimationFrame(() => {
+        rafId2 = window.requestAnimationFrame(run);
+      });
+    };
+
+    let onLoad: (() => void) | null = null;
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      onLoad = () => schedule();
+      window.addEventListener("load", onLoad, { once: true });
+    }
 
     return () => {
+      if (onLoad) window.removeEventListener("load", onLoad);
       window.cancelAnimationFrame(rafId);
+      window.cancelAnimationFrame(rafId2);
       if (failSafe) window.clearTimeout(failSafe);
       if (io) io.disconnect();
     };
   }, [pathname]);
+
 
   return null;
 }
