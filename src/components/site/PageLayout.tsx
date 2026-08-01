@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import RelatedHub from "./RelatedHub";
 import BackToTop from "./BackToTop";
+import { GlobalReveal } from "./GlobalReveal";
 
 // Below-the-fold widgets - never block initial render.
 const FloatingWidgets = lazy(() => import("./FloatingWidgets"));
@@ -43,10 +44,16 @@ export default function PageLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
       <RelatedHub />
       <Footer />
+      {/* Mounted here rather than in __root: routes are lazy + Suspense-wrapped,
+          so a root-level effect fires BEFORE React hydrates the page body and
+          its DOM writes caused hydration attribute mismatches. An effect inside
+          this subtree runs only after that subtree has committed. */}
+      <GlobalReveal />
       <ClientOnly fallback={null}>
         <BackToTop />
         <DeferredWidgets />
       </ClientOnly>
+
     </div>
   );
 }
