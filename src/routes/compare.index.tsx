@@ -1,22 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "@/components/site/PageLayout";
-import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/lib/seo";
+import EditorialBlock from "@/components/site/EditorialBlock";
+import FaqSection from "@/components/site/FaqSection";
+import { CTA } from "@/components/site/Section";
+import { COMPARE_EDITORIAL, COMPARE_FAQS } from "@/lib/index-editorial";
 import { COMPARE_INDEX } from "@/lib/compare-content";
 import { ArrowRight, GitCompare } from "lucide-react";
 
 export const Route = createFileRoute("/compare/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Comparisons Platforms, Channels & Tools | BeingEcom" },
+      { title: "Ecommerce Comparisons: Platforms, Ads & Tools | BeingEcom" },
       {
         name: "description",
         content:
-          "Honest, operator-written comparisons for UK ecommerce brands Shopify vs WooCommerce, Meta vs Google, Klaviyo vs Mailchimp, agency vs freelancer and more.",
+          "Honest UK ecommerce comparisons: Shopify vs WooCommerce, Meta vs Google Ads, Klaviyo vs Mailchimp and agency vs in-house - each with a clear verdict.",
       },
       { property: "og:title", content: "Ecommerce Comparisons | BeingEcom" },
       { property: "og:description", content: "Operator-written comparisons for UK Shopify and WooCommerce brands." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/compare` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/compare` }],
     scripts: [
@@ -46,6 +52,7 @@ export const Route = createFileRoute("/compare/")({
           })),
         }),
       },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(COMPARE_FAQS, "/compare")) },
     ],
   }),
   component: CompareIndex,
@@ -92,6 +99,18 @@ function CompareIndex() {
           ))}
         </div>
       </section>
+
+      <EditorialBlock editorial={COMPARE_EDITORIAL} />
+      <FaqSection
+        faqs={COMPARE_FAQS}
+        title="Comparison"
+        highlight="FAQs"
+        intro="The questions UK founders ask us most when choosing a platform, channel, tool or hiring model."
+      />
+      <CTA
+        heading="Still torn between two options?"
+        sub="Send us your numbers and we'll tell you which way we'd go - and why - on a free 30-minute call."
+      />
     </PageLayout>
   );
 }

@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import PageLayout from "@/components/site/PageLayout";
-import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "@/lib/seo";
+import EditorialBlock from "@/components/site/EditorialBlock";
+import FaqSection from "@/components/site/FaqSection";
+import { CTA } from "@/components/site/Section";
+import { HUB_EDITORIAL, HUB_FAQS } from "@/lib/index-editorial";
 import { ArrowRight, BookOpen } from "lucide-react";
 
 const PILLARS = [
@@ -64,15 +68,17 @@ const PILLARS = [
 export const Route = createFileRoute("/hub/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Knowledge Hub UK | Shopify, WooCommerce, SEO, Paid, CRO | BeingEcom" },
+      { title: "Ecommerce Knowledge Hub UK | Free Guides | BeingEcom" },
       {
         name: "description",
-        content: "Free UK ecommerce growth hub for Shopify and WooCommerce brands pillar guides, playbooks and benchmarks across SEO, paid media, CRO, email and AI automation.",
+        content: "Free UK ecommerce knowledge hub: 11 pillar guides on Shopify SEO, WooCommerce, paid media, CRO, email retention, analytics and AI automation.",
       },
       { property: "og:title", content: "Ecommerce Knowledge Hub UK | BeingEcom" },
       { property: "og:description", content: "UK pillar guides for Shopify and WooCommerce brands SEO, paid, CRO, email, AI automation." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/hub` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/hub` }],
     scripts: [
@@ -102,6 +108,7 @@ export const Route = createFileRoute("/hub/")({
           })),
         }),
       },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(HUB_FAQS, "/hub")) },
     ],
   }),
   component: HubIndex,
@@ -145,6 +152,18 @@ function HubIndex() {
           ))}
         </div>
       </section>
+
+      <EditorialBlock editorial={HUB_EDITORIAL} />
+      <FaqSection
+        faqs={HUB_FAQS}
+        title="Knowledge hub"
+        highlight="FAQs"
+        intro="How the eleven pillar hubs work and the order to read them in."
+      />
+      <CTA
+        heading="Rather have this run for you?"
+        sub="Book a free audit and we'll turn the relevant hub into a costed 90-day plan for your store."
+      />
     </PageLayout>
   );
 }
