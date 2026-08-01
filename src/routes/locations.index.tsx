@@ -1,22 +1,46 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, ArrowRight } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { Section, SplitHeading } from "../components/site/Section";
+import { Section, SplitHeading, CTA } from "../components/site/Section";
 import { LOCATIONS } from "../lib/locations-industries";
-import { breadcrumbJsonLd } from "../lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "../lib/seo";
+import EditorialBlock from "../components/site/EditorialBlock";
+import FaqSection from "../components/site/FaqSection";
+import { LOCATIONS_EDITORIAL, LOCATIONS_FAQS } from "../lib/index-editorial";
 
 export const Route = createFileRoute("/locations/")({
   head: () => ({
     meta: [
-      { title: "UK Ecommerce Agency Locations | Being Ecom" },
-      { name: "description", content: "Being Ecom serves UK ecommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Liverpool, Glasgow and Edinburgh." },
+      { title: "UK Ecommerce Agency Locations & Cities | BeingEcom" },
+      { name: "description", content: "BeingEcom serves Shopify and WooCommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Liverpool, Glasgow, Edinburgh and every UK city." },
       { property: "og:title", content: "UK Ecommerce Agency Locations | Being Ecom" },
       { property: "og:description", content: "Ecommerce growth agency serving UK cities. Performance marketing, CRO, SEO and retention for DTC brands." },
       { property: "og:url", content: "https://beingecom.com/locations" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/locations" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Locations", path: "/locations" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(LOCATIONS_FAQS, "/locations")) },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": `${SITE_URL}/locations#collection`,
+          name: "BeingEcom UK ecommerce agency locations",
+          url: `${SITE_URL}/locations`,
+          about: "UK cities served by BeingEcom's ecommerce growth team",
+          hasPart: LOCATIONS.map((l) => ({
+            "@type": "WebPage",
+            name: `Ecommerce agency in ${l.city}`,
+            url: `${SITE_URL}/locations/${l.slug}`,
+            description: `Ecommerce growth support for Shopify and WooCommerce brands in ${l.city}, ${l.region}.`,
+          })),
+        }),
+      },
     ],
   }),
   component: LocationsIndex,
@@ -73,6 +97,18 @@ function LocationsIndex() {
           ))}
         </div>
       </Section>
+
+      <EditorialBlock editorial={LOCATIONS_EDITORIAL} />
+      <FaqSection
+        faqs={LOCATIONS_FAQS}
+        title="UK locations"
+        highlight="FAQs"
+        intro="Where we're based, how remote delivery works, and when local SEO is worth funding."
+      />
+      <CTA
+        heading="Wherever you trade, we can help"
+        sub="Book a free ecommerce audit and we'll show you the fastest revenue wins in your market."
+      />
     </PageLayout>
   );
 }

@@ -6,22 +6,44 @@ import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
 import { INDUSTRIES } from "../lib/locations-industries";
 import { industryContentFor } from "../lib/industry-content";
-import { breadcrumbJsonLd } from "../lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, SITE_URL } from "../lib/seo";
+import EditorialBlock from "../components/site/EditorialBlock";
+import FaqSection from "../components/site/FaqSection";
+import { INDUSTRIES_EDITORIAL, INDUSTRIES_FAQS } from "../lib/index-editorial";
 
 export const Route = createFileRoute("/industries/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Industries We Scale in the UK | Being Ecom" },
-      { name: "description", content: "UK ecommerce agency serving fashion, beauty, health, home, electronics, food, jewellery, pets and more. Growth systems built per vertical." },
+      { title: "Ecommerce Industries We Scale in the UK | BeingEcom" },
+      { name: "description", content: "UK ecommerce agency for fashion, beauty, supplements, home, electronics, food, jewellery and pet brands - growth systems tuned to each vertical." },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: "Ecommerce Industries We Scale in the UK | Being Ecom" },
       { property: "og:description", content: "Industry-specific ecommerce growth for UK DTC brands - creative, media, CRO and retention." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/industries" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/industries" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }])) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(INDUSTRIES_FAQS, "/industries")) },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": `${SITE_URL}/industries#collection`,
+          name: "Ecommerce industries BeingEcom scales in the UK",
+          url: `${SITE_URL}/industries`,
+          about: "Industry-specific ecommerce growth programmes for UK DTC brands",
+          hasPart: INDUSTRIES.map((i) => ({
+            "@type": "WebPage",
+            name: `${i.name} ecommerce growth`,
+            url: `${SITE_URL}/industries/${i.slug}`,
+            description: i.intro,
+          })),
+        }),
+      },
     ],
   }),
   component: IndustriesIndex,
@@ -89,6 +111,14 @@ function IndustriesIndex() {
           })}
         </div>
       </Section>
+
+      <EditorialBlock editorial={INDUSTRIES_EDITORIAL} />
+      <FaqSection
+        faqs={INDUSTRIES_FAQS}
+        title="Industry"
+        highlight="FAQs"
+        intro="What changes by vertical, what stays the same, and how quickly we get up to speed."
+      />
 
       <CTA heading="Not sure which vertical fits?" sub="Book a strategy call - we'll map your growth engine live on the call." />
     </PageLayout>
