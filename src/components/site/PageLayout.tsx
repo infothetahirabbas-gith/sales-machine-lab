@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import RelatedHub from "./RelatedHub";
 import BackToTop from "./BackToTop";
+import { GlobalReveal } from "./GlobalReveal";
 
 // Below-the-fold widgets - never block initial render.
 const FloatingWidgets = lazy(() => import("./FloatingWidgets"));

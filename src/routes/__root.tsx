@@ -14,7 +14,6 @@ import appCss from "../styles.css?url";
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
 import faviconAsset from "../assets/favicon-b.png.asset.json";
-import { GlobalReveal } from "../components/site/GlobalReveal";
 
 // NOTE: Google Translate language switcher removed until proper /{lang}/
 // locale routes and hreflang are built. Serving 6 translation options without
@@ -156,7 +155,6 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <GlobalReveal />
       <Outlet />
     </QueryClientProvider>
   );
