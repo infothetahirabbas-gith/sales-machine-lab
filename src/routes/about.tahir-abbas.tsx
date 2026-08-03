@@ -197,19 +197,76 @@ function TahirAbbasPage() {
         </p>
       </Section>
 
-      <Section eyebrow="Elsewhere" title="Find Tahir online">
+      <Section eyebrow="Credentials" title="Certifications & verified experience">
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          {CREDENTIALS.map((c) => (
+            <Card key={c.name}>
+              <GraduationCap className="w-6 h-6 text-primary" />
+              <h3 className="mt-3 font-semibold text-ink">{c.name}</h3>
+              <p className="mt-1 text-xs font-bold uppercase tracking-widest text-primary">{c.issuer}</p>
+              {c.note && <p className="mt-2 text-sm text-muted-foreground">{c.note}</p>}
+              {!c.verified && (
+                <p className="mt-3 text-xs text-muted-foreground italic">Third-party verification pending.</p>
+              )}
+            </Card>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-sm text-muted-foreground max-w-2xl mx-auto">
+          We only list credentials we can evidence on request. If you need certificates, account
+          references or client verification for a procurement process, ask and we will send them.
+        </p>
+      </Section>
+
+      <Section eyebrow="Publications" title="Research, frameworks and writing" alt>
+        <div className="grid gap-3 max-w-3xl mx-auto">
+          {PUBLICATIONS.map((p) => (
+            <Link key={p.to} to={p.to} className="card-surface p-5 flex items-start gap-3 group">
+              <BookOpen className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <span className="min-w-0">
+                <span className="block text-[11px] font-bold uppercase tracking-widest text-primary">{p.kind}</span>
+                <span className="block mt-1 text-ink group-hover:text-primary transition-colors">{p.title}</span>
+              </span>
+              <ArrowRight className="w-4 h-4 text-muted-foreground shrink-0 mt-1 ml-auto" />
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Press & media" title="Interviews, commentary and press enquiries">
+        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          {MEDIA.map((m) => (
+            <Card key={m.label}>
+              <Mic className="w-6 h-6 text-primary" />
+              <h3 className="mt-3 font-semibold text-ink">{m.label}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{m.body}</p>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-6 max-w-3xl mx-auto card-surface p-5">
+          <h3 className="font-semibold text-ink flex items-center gap-2"><Award className="w-5 h-5 text-primary" /> Awards & third-party recognition</h3>
+          <p className="mt-2 text-sm text-muted-foreground">
+            BeingEcom does not claim awards it has not won. Independent recognition, published
+            press mentions and named client references are listed here as they are confirmed - and
+            each entry links to its source so you can check it yourself. For media enquiries, see the{" "}
+            <Link to="/company/press" className="text-primary underline">press room</Link>.
+          </p>
+        </div>
+      </Section>
+
+      <Section eyebrow="Elsewhere" title="Find Tahir online" alt>
         <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-3">
           <a href="https://www.linkedin.com/company/beingecom/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost inline-flex items-center gap-2">
             <Linkedin className="w-4 h-4" /> LinkedIn
           </a>
-          <Link to="/founder" className="btn btn-ghost inline-flex items-center gap-2">
-            Full founder page <ArrowRight className="w-4 h-4" />
+          <Link to="/company/press" className="btn btn-ghost inline-flex items-center gap-2">
+            Press room <ArrowRight className="w-4 h-4" />
           </Link>
           <Link to="/blog" className="btn btn-ghost inline-flex items-center gap-2">
             Articles <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </Section>
+
 
       <FaqSection title="Frequently asked questions" faqs={FAQS} />
 
