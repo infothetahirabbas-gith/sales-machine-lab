@@ -98,6 +98,16 @@ export const Route = createFileRoute("/about/tahir-abbas")({
               "Email marketing",
               "AI automation",
             ],
+            hasCredential: CREDENTIALS.filter((c) => c.verified).map((c) => ({
+              "@type": "EducationalOccupationalCredential",
+              name: c.name,
+              credentialCategory: c.issuer,
+            })),
+            subjectOf: PUBLICATIONS.map((p) => ({
+              "@type": "CreativeWork",
+              name: p.title,
+              url: `${SITE_URL}${p.to}`,
+            })),
             description:
               "Founder of BeingEcom, a UK ecommerce marketing agency helping Shopify and WooCommerce brands scale through SEO, paid ads, CRO, retention, analytics, and AI automation.",
           }),
