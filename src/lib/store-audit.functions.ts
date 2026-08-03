@@ -1,5 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import type { TechnicalAudit } from "./audit-technical.server";
+
+export type { TechnicalAudit };
 
 const inputSchema = z.object({
   url: z.string().trim().min(4),
@@ -870,6 +873,8 @@ function buildCompetitors(n: ReturnType<typeof guessNiche>): z.infer<typeof comp
   ];
 }
 
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
+
 export const runStoreAudit = createServerFn({ method: "POST" })
   .inputValidator((data) => inputSchema.parse(data))
   .handler(async ({ data }) => {
@@ -877,7 +882,44 @@ export const runStoreAudit = createServerFn({ method: "POST" })
     try { normalized = normalizeUrl(data.url); }
     catch { throw new Error("Please enter a valid store URL."); }
 
-    const { html, status } = await fetchPage(normalized);
+    const cacheKey = `${new URL(normalized).hostname.replace(/^www\./, "")}|${data.revenue ?? ""}|${data.adSpend ?? ""}|${data.country ?? ""}`;
+
+    // ---- Cache lookup (server-only, never blocks the audit if it fails) ----
+    try {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const { data: cached } = await supabaseAdmin
+        .from("audit_cache")
+        .select("payload, created_at")
+        .eq("cache_key", cacheKey)
+        .maybeSingle();
+      if (cached && Date.now() - new Date(cached.created_at as string).getTime() < CACHE_TTL_MS) {
+        const payload = cached.payload as { url: string; report: unknown; technical: unknown };
+        const revalidated = auditReportSchema.safeParse(payload.report);
+        if (revalidated.success) {
+          return {
+            url: payload.url,
+            report: revalidated.data,
+            technical: payload.technical as TechnicalAudit,
+            cached: true,
+            generatedAt: cached.created_at as string,
+          };
+        }
+      }
+    } catch (err) {
+      console.warn("[audit] cache read skipped", err);
+    }
+
+    const { runTechnicalAudit } = await import("./audit-technical.server");
+
+    const [pageResult, technical] = await Promise.all([
+      fetchPage(normalized),
+      runTechnicalAudit(normalized).catch((err) => {
+        console.error("[audit] technical audit failed", err);
+        return null;
+      }),
+    ]);
+
+    const { html, status } = pageResult;
     if (!html) {
       throw new Error(`Could not reach ${normalized}. Check the URL and try again.`);
     }
@@ -888,5 +930,54 @@ export const runStoreAudit = createServerFn({ method: "POST" })
       console.error("[audit] internal report schema failed", validated.error.issues.slice(0, 5));
       throw new Error("Audit engine returned invalid shape.");
     }
-    return { url: normalized, report: validated.data };
+
+    const result = {
+      url: normalized,
+      report: validated.data,
+      technical,
+      cached: false,
+      generatedAt: new Date().toISOString(),
+    };
+
+    try {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      await supabaseAdmin
+        .from("audit_cache")
+        .upsert(
+          { cache_key: cacheKey, url: normalized, payload: { url: normalized, report: validated.data, technical }, created_at: new Date().toISOString() },
+          { onConflict: "cache_key" },
+        );
+    } catch (err) {
+      console.warn("[audit] cache write skipped", err);
+    }
+
+    return result;
+  });
+
+const leadSchema = z.object({
+  name: z.string().trim().min(2).max(120),
+  email: z.string().trim().email().max(200),
+  company: z.string().trim().max(160).optional().nullable(),
+  website: z.string().trim().min(3).max(300),
+  goal: z.string().trim().max(400).optional().nullable(),
+  overallScore: z.number().int().min(0).max(100).optional().nullable(),
+});
+
+export const saveAuditLead = createServerFn({ method: "POST" })
+  .inputValidator((data) => leadSchema.parse(data))
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("audit_leads").insert({
+      name: data.name,
+      email: data.email,
+      company: data.company ?? null,
+      website: data.website,
+      goal: data.goal ?? null,
+      overall_score: data.overallScore ?? null,
+    });
+    if (error) {
+      console.error("[audit] lead insert failed", error);
+      throw new Error("We couldn't save your details. Please try again.");
+    }
+    return { ok: true };
   });

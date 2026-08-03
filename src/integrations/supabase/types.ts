@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_cache: {
+        Row: {
+          cache_key: string
+          created_at: string
+          id: string
+          payload: Json
+          url: string
+        }
+        Insert: {
+          cache_key: string
+          created_at?: string
+          id?: string
+          payload: Json
+          url: string
+        }
+        Update: {
+          cache_key?: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          url?: string
+        }
+        Relationships: []
+      }
+      audit_leads: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          goal: string | null
+          id: string
+          name: string
+          overall_score: number | null
+          source: string
+          website: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          goal?: string | null
+          id?: string
+          name: string
+          overall_score?: number | null
+          source?: string
+          website: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          goal?: string | null
+          id?: string
+          name?: string
+          overall_score?: number | null
+          source?: string
+          website?: string
+        }
+        Relationships: []
+      }
       case_studies: {
         Row: {
           ad_metrics: Json | null
