@@ -30,6 +30,33 @@ const SPEAKING_TOPICS = [
   "Building an ecommerce retention engine",
 ];
 
+/**
+ * Authority data. Every entry below must be independently verifiable before it
+ * ships. Items awaiting third-party evidence carry `verified: false` and are
+ * rendered as "verification pending" rather than presented as a claim.
+ */
+type Credential = { name: string; issuer: string; note?: string; verified: boolean };
+
+const CREDENTIALS: Credential[] = [
+  { name: "Shopify ecommerce operations", issuer: "Operator experience", note: "10+ years building and scaling Shopify and WooCommerce stores.", verified: true },
+  { name: "Google Analytics 4 & server-side tracking", issuer: "Applied practice", note: "GA4, Consent Mode v2 and Conversions API implementations across client accounts.", verified: true },
+  { name: "Paid media buying (Meta & Google)", issuer: "Applied practice", note: "Direct account ownership on Meta Ads and Google Ads at scale.", verified: true },
+];
+
+const PUBLICATIONS: { title: string; to: string; kind: string }[] = [
+  { title: "The BeingEcom Growth System - our six-stage operating method", to: "/methodology", kind: "Framework" },
+  { title: "UK ecommerce benchmarks - conversion, AOV and CAC by category", to: "/benchmarks", kind: "Original research" },
+  { title: "Shopify SEO checklist for UK stores", to: "/tools/shopify-seo-checklist", kind: "Practical guide" },
+  { title: "Ecommerce growth essays and playbooks", to: "/blog", kind: "Ongoing writing" },
+  { title: "Founder notes - what we're learning in the open", to: "/founder-notes", kind: "Field notes" },
+];
+
+const MEDIA: { label: string; body: string }[] = [
+  { label: "Podcasts & panels", body: "Available for interviews on ecommerce growth, Shopify SEO, paid media economics and AI in retail. Typical formats: 30-60 minute podcast, live panel, or written Q&A." },
+  { label: "Expert commentary", body: "Journalists can request quotes on UK ecommerce trends, Google algorithm changes, AI search, and DTC unit economics. Same-day turnaround where possible." },
+  { label: "Data requests", body: "Our benchmark dataset is available to journalists and researchers with attribution. Ask for the current methodology note alongside any figure." },
+];
+
 export const Route = createFileRoute("/about/tahir-abbas")({
   head: () => {
     const url = `${SITE_URL}/about/tahir-abbas`;
