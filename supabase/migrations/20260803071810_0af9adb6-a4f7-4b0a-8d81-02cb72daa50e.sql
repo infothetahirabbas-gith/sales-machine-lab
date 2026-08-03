@@ -1,0 +1,1 @@
+DELETE FROM public.audit_leads WHERE email = 'qa@example.com';

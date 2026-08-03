@@ -8,7 +8,9 @@ import {
   FileText, FileSpreadsheet, FileType2,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
-import { runStoreAudit, type AuditReport } from "../lib/store-audit.functions";
+import { runStoreAudit, type AuditReport, type TechnicalAudit } from "../lib/store-audit.functions";
+const AuditTechnical = lazy(() => import("../components/site/AuditTechnical"));
+const AuditLeadForm = lazy(() => import("../components/site/AuditLeadForm"));
 // jsPDF + XLSX + html2canvas total ~1.1 MB. Loaded only when a user actually
 // clicks an export button, so they never touch the audit page's initial load.
 const loadExports = () => import("../lib/audit-exports");
@@ -302,6 +304,8 @@ function AuditPage() {
   const [timedOut, setTimedOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<AuditReport | null>(null);
+  const [technical, setTechnical] = useState<TechnicalAudit | null>(null);
+  const [cached, setCached] = useState(false);
   const [auditedUrl, setAuditedUrl] = useState<string>("");
 
   const TIMEOUT_SECONDS = 95;
@@ -310,7 +314,7 @@ function AuditPage() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); setReport(null); setLoading(true); setStepIdx(0); setElapsed(0); setTimedOut(false);
+    setError(null); setReport(null); setTechnical(null); setCached(false); setLoading(true); setStepIdx(0); setElapsed(0); setTimedOut(false);
     const startedAt = Date.now();
     const stepTimer = setInterval(() => {
       setStepIdx((i) => Math.min(i + 1, loadingSteps.length - 1));
@@ -323,6 +327,8 @@ function AuditPage() {
     try {
       const result = await fetchAudit({ data: { url, revenue: revenue || null, adSpend: adSpend || null, country: country || null } });
       setReport(result.report);
+      setTechnical(result.technical ?? null);
+      setCached(Boolean(result.cached));
       setAuditedUrl(result.url);
       // Fire success conversion event, attributed to source city when present.
       try {
@@ -638,6 +644,24 @@ function AuditPage() {
                 {report.executiveIntelligence.revenuePotentialReasoning}
               </div>
             </div>
+
+            {/* LIVE TECHNICAL / DOMAIN / PERFORMANCE / SOCIAL / ADS DATA */}
+            {technical && (
+              <Suspense fallback={<div className="card-surface p-6 text-sm text-muted-foreground">Loading live technical data…</div>}>
+                <AuditTechnical t={technical} />
+              </Suspense>
+            )}
+
+            {/* LEAD CAPTURE */}
+            <Suspense fallback={null}>
+              <AuditLeadForm website={auditedUrl} overallScore={report.scorecard.overall} />
+            </Suspense>
+
+            {cached && (
+              <p className="text-xs text-muted-foreground">
+                Served from our audit cache (refreshed every 6 hours) so results load instantly.
+              </p>
+            )}
 
             {/* VISUAL CHARTS - Radar + Issue Mix */}
             {(() => {
