@@ -191,6 +191,9 @@ export default function Footer() {
             <Link to="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-accent transition-colors">Terms</Link>
             <Link to="/cookies" className="hover:text-accent transition-colors">Cookies</Link>
+            <Link to="/company/editorial-policy" className="hover:text-accent transition-colors">Editorial Policy</Link>
+            <Link to="/company/review-methodology" className="hover:text-accent transition-colors">Review Methodology</Link>
+            <Link to="/company/corrections" className="hover:text-accent transition-colors">Corrections</Link>
             <Link to="/glossary" className="hover:text-accent transition-colors">SEO Glossary</Link>
           </nav>
         </div>
