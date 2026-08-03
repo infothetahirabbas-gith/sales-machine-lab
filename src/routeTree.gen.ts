@@ -103,6 +103,7 @@ import { Route as CompanyMethodologyRouteImport } from './routes/company.methodo
 import { Route as CompanyLegalRouteImport } from './routes/company.legal'
 import { Route as CompanyIndustriesRouteImport } from './routes/company.industries'
 import { Route as CompanyFounderRouteImport } from './routes/company.founder'
+import { Route as CompanyEditorialPolicyRouteImport } from './routes/company.editorial-policy'
 import { Route as CompanyCsrRouteImport } from './routes/company.csr'
 import { Route as CompanyCommunityRouteImport } from './routes/company.community'
 import { Route as CompanyCertificationsRouteImport } from './routes/company.certifications'
@@ -618,6 +619,11 @@ const CompanyFounderRoute = CompanyFounderRouteImport.update({
   path: '/founder',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyEditorialPolicyRoute = CompanyEditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyCsrRoute = CompanyCsrRouteImport.update({
   id: '/csr',
   path: '/csr',
@@ -883,6 +889,7 @@ export interface FileRoutesByFullPath {
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
   '/company/csr': typeof CompanyCsrRoute
+  '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -1010,6 +1017,7 @@ export interface FileRoutesByTo {
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
   '/company/csr': typeof CompanyCsrRoute
+  '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -1142,6 +1150,7 @@ export interface FileRoutesById {
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
   '/company/csr': typeof CompanyCsrRoute
+  '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
   '/company/industries': typeof CompanyIndustriesRoute
   '/company/legal': typeof CompanyLegalRoute
@@ -1276,6 +1285,7 @@ export interface FileRouteTypes {
     | '/company/certifications'
     | '/company/community'
     | '/company/csr'
+    | '/company/editorial-policy'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -1403,6 +1413,7 @@ export interface FileRouteTypes {
     | '/company/certifications'
     | '/company/community'
     | '/company/csr'
+    | '/company/editorial-policy'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -1534,6 +1545,7 @@ export interface FileRouteTypes {
     | '/company/certifications'
     | '/company/community'
     | '/company/csr'
+    | '/company/editorial-policy'
     | '/company/founder'
     | '/company/industries'
     | '/company/legal'
@@ -2363,6 +2375,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyFounderRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/editorial-policy': {
+      id: '/company/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/company/editorial-policy'
+      preLoaderRoute: typeof CompanyEditorialPolicyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/csr': {
       id: '/company/csr'
       path: '/csr'
@@ -2649,6 +2668,7 @@ interface CompanyRouteChildren {
   CompanyCertificationsRoute: typeof CompanyCertificationsRoute
   CompanyCommunityRoute: typeof CompanyCommunityRoute
   CompanyCsrRoute: typeof CompanyCsrRoute
+  CompanyEditorialPolicyRoute: typeof CompanyEditorialPolicyRoute
   CompanyFounderRoute: typeof CompanyFounderRoute
   CompanyIndustriesRoute: typeof CompanyIndustriesRoute
   CompanyLegalRoute: typeof CompanyLegalRoute
@@ -2669,6 +2689,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyCertificationsRoute: CompanyCertificationsRoute,
   CompanyCommunityRoute: CompanyCommunityRoute,
   CompanyCsrRoute: CompanyCsrRoute,
+  CompanyEditorialPolicyRoute: CompanyEditorialPolicyRoute,
   CompanyFounderRoute: CompanyFounderRoute,
   CompanyIndustriesRoute: CompanyIndustriesRoute,
   CompanyLegalRoute: CompanyLegalRoute,
@@ -2856,3 +2877,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
