@@ -755,13 +755,13 @@ function Home() {
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {[
             { slug: "fashion-apparel", label: "Fashion & Apparel" },
-            { slug: "beauty-cosmetics", label: "Beauty & Cosmetics" },
+            { slug: "beauty-personal-care", label: "Beauty & Personal Care" },
             { slug: "health-wellness", label: "Health & Wellness" },
             { slug: "home-garden", label: "Home & Garden" },
             { slug: "food-beverage", label: "Food & Beverage" },
-            { slug: "electronics", label: "Electronics" },
-            { slug: "jewelry-accessories", label: "Jewellery & Accessories" },
-            { slug: "supplements", label: "Supplements" },
+            { slug: "electronics-technology", label: "Electronics & Technology" },
+            { slug: "jewellery-watches", label: "Jewellery & Watches" },
+            { slug: "sports-fitness", label: "Sports & Fitness" },
           ].map((v) => (
             <Link
               key={v.slug}
