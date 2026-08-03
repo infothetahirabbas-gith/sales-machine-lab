@@ -7,7 +7,7 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd, type FAQ } from "../lib/seo
 import { ArrowRight, ArrowUpRight, CheckCircle2, XCircle, Ban, Minus, Star, Quote, Calendar, Package, Wrench, Layers, Target, TrendingUp, Zap, Shield, AlertTriangle } from "lucide-react";
 import heroPM from "../assets/hero-performance-marketing.jpg?format=webp&quality=56&w=640";
 
-const FAQ_LIST: FAQ[] = [
+export const PERFORMANCE_MARKETING_FAQS: FAQ[] = [
   { q: "How is performance marketing different from just running ads?", a: "Ads is a channel. Performance marketing is a P&L. As a specialist Ecommerce Marketing Agency UK we manage blended ROAS (MER), CAC, LTV and payback across Meta, Google, TikTok and YouTube as a single portfolio - never optimising one channel in isolation." },
   { q: "What's a healthy blended ROAS (MER) for a scaling ecommerce brand?", a: "Depends on contribution margin. Most UK DTC brands need 3.0-4.5× MER to hit contribution-margin positive. Every serious Ecommerce Agency UK back-solves target MER from your unit economics - not from a vanity number." },
   { q: "How much should I spend to properly test a channel?", a: "Meta: minimum £5-8k/mo to test 15+ creatives fairly. Google: £3-6k/mo depending on category CPCs. TikTok: £3k/mo minimum with a real creator pipeline. YouTube: £2k/mo for demand capture; £6k+ for demand generation." },
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/services/performance-marketing/")({
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(serviceJsonLd({ slug: "performance-marketing", name: "Performance Marketing", description: "Facebook, Google, TikTok ads and media buying for ecommerce brands." })) },
       { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Performance Marketing", path: "/services/performance-marketing" }])) },
-      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_LIST, "/services/performance-marketing")) },
+      { type: "application/ld+json", children: JSON.stringify(faqJsonLd(PERFORMANCE_MARKETING_FAQS, "/services/performance-marketing")) },
     ],
   }),
   component: PerformanceMarketingPage,
@@ -76,7 +76,7 @@ const mistakes = [
   { title: "Killing creatives too fast", body: "Statistical significance takes 3-5 days at reasonable spend. Killing at 24h based on gut feel is how you throw winners in the bin." },
 ];
 
-function PerformanceMarketingPage() {
+export function PerformanceMarketingPage() {
   return (
     <PageLayout>
       {/* 1. HERO */}
@@ -498,7 +498,7 @@ function PerformanceMarketingPage() {
       {/* 16. FAQ */}
       <Section eyebrow="FAQ" title="Questions we get asked all the time." alt>
         <div className="mx-auto max-w-3xl space-y-4">
-          {FAQ_LIST.map((f, i) => (
+          {PERFORMANCE_MARKETING_FAQS.map((f, i) => (
             <Reveal key={f.q} delay={(i % 4) as 0 | 1 | 2 | 3}>
               <details className="group rounded-2xl border border-border bg-card/60 p-5 open:bg-card">
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-4 font-semibold text-ink">
