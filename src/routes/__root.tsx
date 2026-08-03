@@ -196,6 +196,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <IdlePrefetch />
     </QueryClientProvider>
   );
 }
