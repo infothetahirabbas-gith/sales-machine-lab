@@ -7,10 +7,10 @@ import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 
 const QUICK_REPLIES = [
-  "I have a Shopify store",
-  "I'm planning to launch",
-  "I need more traffic & sales",
-  "Book a consultation",
+  "Book a Free Audit",
+  "Explore Our Services",
+  "View Case Studies",
+  "Talk to an Expert",
 ];
 
 const transport = new DefaultChatTransport({ api: "/api/chat" });
