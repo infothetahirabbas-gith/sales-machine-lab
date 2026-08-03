@@ -97,6 +97,7 @@ import { Route as CompanyTechnologyRouteImport } from './routes/company.technolo
 import { Route as CompanyTeamRouteImport } from './routes/company.team'
 import { Route as CompanySuccessStoriesRouteImport } from './routes/company.success-stories'
 import { Route as CompanyReviewsRouteImport } from './routes/company.reviews'
+import { Route as CompanyReviewMethodologyRouteImport } from './routes/company.review-methodology'
 import { Route as CompanyResourcesRouteImport } from './routes/company.resources'
 import { Route as CompanyPressRouteImport } from './routes/company.press'
 import { Route as CompanyMethodologyRouteImport } from './routes/company.methodology'
@@ -589,6 +590,12 @@ const CompanyReviewsRoute = CompanyReviewsRouteImport.update({
   path: '/reviews',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyReviewMethodologyRoute =
+  CompanyReviewMethodologyRouteImport.update({
+    id: '/review-methodology',
+    path: '/review-methodology',
+    getParentRoute: () => CompanyRoute,
+  } as any)
 const CompanyResourcesRoute = CompanyResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
@@ -896,6 +903,7 @@ export interface FileRoutesByFullPath {
   '/company/methodology': typeof CompanyMethodologyRoute
   '/company/press': typeof CompanyPressRoute
   '/company/resources': typeof CompanyResourcesRoute
+  '/company/review-methodology': typeof CompanyReviewMethodologyRoute
   '/company/reviews': typeof CompanyReviewsRoute
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
@@ -1024,6 +1032,7 @@ export interface FileRoutesByTo {
   '/company/methodology': typeof CompanyMethodologyRoute
   '/company/press': typeof CompanyPressRoute
   '/company/resources': typeof CompanyResourcesRoute
+  '/company/review-methodology': typeof CompanyReviewMethodologyRoute
   '/company/reviews': typeof CompanyReviewsRoute
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
@@ -1157,6 +1166,7 @@ export interface FileRoutesById {
   '/company/methodology': typeof CompanyMethodologyRoute
   '/company/press': typeof CompanyPressRoute
   '/company/resources': typeof CompanyResourcesRoute
+  '/company/review-methodology': typeof CompanyReviewMethodologyRoute
   '/company/reviews': typeof CompanyReviewsRoute
   '/company/success-stories': typeof CompanySuccessStoriesRoute
   '/company/team': typeof CompanyTeamRoute
@@ -1292,6 +1302,7 @@ export interface FileRouteTypes {
     | '/company/methodology'
     | '/company/press'
     | '/company/resources'
+    | '/company/review-methodology'
     | '/company/reviews'
     | '/company/success-stories'
     | '/company/team'
@@ -1420,6 +1431,7 @@ export interface FileRouteTypes {
     | '/company/methodology'
     | '/company/press'
     | '/company/resources'
+    | '/company/review-methodology'
     | '/company/reviews'
     | '/company/success-stories'
     | '/company/team'
@@ -1552,6 +1564,7 @@ export interface FileRouteTypes {
     | '/company/methodology'
     | '/company/press'
     | '/company/resources'
+    | '/company/review-methodology'
     | '/company/reviews'
     | '/company/success-stories'
     | '/company/team'
@@ -2333,6 +2346,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyReviewsRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/review-methodology': {
+      id: '/company/review-methodology'
+      path: '/review-methodology'
+      fullPath: '/company/review-methodology'
+      preLoaderRoute: typeof CompanyReviewMethodologyRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/resources': {
       id: '/company/resources'
       path: '/resources'
@@ -2675,6 +2695,7 @@ interface CompanyRouteChildren {
   CompanyMethodologyRoute: typeof CompanyMethodologyRoute
   CompanyPressRoute: typeof CompanyPressRoute
   CompanyResourcesRoute: typeof CompanyResourcesRoute
+  CompanyReviewMethodologyRoute: typeof CompanyReviewMethodologyRoute
   CompanyReviewsRoute: typeof CompanyReviewsRoute
   CompanySuccessStoriesRoute: typeof CompanySuccessStoriesRoute
   CompanyTeamRoute: typeof CompanyTeamRoute
@@ -2696,6 +2717,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyMethodologyRoute: CompanyMethodologyRoute,
   CompanyPressRoute: CompanyPressRoute,
   CompanyResourcesRoute: CompanyResourcesRoute,
+  CompanyReviewMethodologyRoute: CompanyReviewMethodologyRoute,
   CompanyReviewsRoute: CompanyReviewsRoute,
   CompanySuccessStoriesRoute: CompanySuccessStoriesRoute,
   CompanyTeamRoute: CompanyTeamRoute,
@@ -2877,13 +2899,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
