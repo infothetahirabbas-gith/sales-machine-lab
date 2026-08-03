@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import {
   ArrowRight, Layers, CheckCircle2, TrendingUp, Target, Zap,
   BarChart3, Rocket, Sparkles, Star, Award, Calendar, LineChart,
