@@ -22,6 +22,7 @@ import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-compa
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as ShopifySeoPackagesRouteImport } from './routes/shopify-seo-packages'
 import { Route as ShopifySeoAgencyUkRouteImport } from './routes/shopify-seo-agency-uk'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -82,6 +83,7 @@ import { Route as ServicesFunnelRouteImport } from './routes/services.funnel'
 import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sms'
 import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
+import { Route as ServicesConsultingRouteImport } from './routes/services.consulting'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
@@ -202,6 +204,11 @@ const ShopifySeoPackagesRoute = ShopifySeoPackagesRouteImport.update({
 const ShopifySeoAgencyUkRoute = ShopifySeoAgencyUkRouteImport.update({
   id: '/shopify-seo-agency-uk',
   path: '/shopify-seo-agency-uk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -509,6 +516,11 @@ const ServicesCroRoute = ServicesCroRouteImport.update({
 const ServicesCreativeRoute = ServicesCreativeRouteImport.update({
   id: '/services/creative',
   path: '/services/creative',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesConsultingRoute = ServicesConsultingRouteImport.update({
+  id: '/services/consulting',
+  path: '/services/consulting',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
@@ -844,6 +856,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/resources': typeof ResourcesRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -889,6 +902,7 @@ export interface FileRoutesByFullPath {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -969,6 +983,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/resources': typeof ResourcesRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -1014,6 +1029,7 @@ export interface FileRoutesByTo {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -1099,6 +1115,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
+  '/resources': typeof ResourcesRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -1144,6 +1161,7 @@ export interface FileRoutesById {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -1231,6 +1249,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/resources'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1276,6 +1295,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1356,6 +1376,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/resources'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1401,6 +1422,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1485,6 +1507,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/research'
+    | '/resources'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1530,6 +1553,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1616,6 +1640,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
+  ResourcesRoute: typeof ResourcesRoute
   ShopifySeoAgencyUkRoute: typeof ShopifySeoAgencyUkRoute
   ShopifySeoPackagesRoute: typeof ShopifySeoPackagesRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
@@ -1641,6 +1666,7 @@ export interface RootRouteChildren {
   LocationsSlugRoute: typeof LocationsSlugRoute
   ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesConsultingRoute: typeof ServicesConsultingRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
   ServicesCroRoute: typeof ServicesCroRoute
   ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
@@ -1768,6 +1794,13 @@ declare module '@tanstack/react-router' {
       path: '/shopify-seo-agency-uk'
       fullPath: '/shopify-seo-agency-uk'
       preLoaderRoute: typeof ShopifySeoAgencyUkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -2188,6 +2221,13 @@ declare module '@tanstack/react-router' {
       path: '/services/creative'
       fullPath: '/services/creative'
       preLoaderRoute: typeof ServicesCreativeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/consulting': {
+      id: '/services/consulting'
+      path: '/services/consulting'
+      fullPath: '/services/consulting'
+      preLoaderRoute: typeof ServicesConsultingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/analytics': {
@@ -2744,6 +2784,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
+  ResourcesRoute: ResourcesRoute,
   ShopifySeoAgencyUkRoute: ShopifySeoAgencyUkRoute,
   ShopifySeoPackagesRoute: ShopifySeoPackagesRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
@@ -2769,6 +2810,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocationsSlugRoute: LocationsSlugRoute,
   ServicesAiAutomationRoute: ServicesAiAutomationRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesConsultingRoute: ServicesConsultingRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
   ServicesCroRoute: ServicesCroRoute,
   ServicesEmailSmsRoute: ServicesEmailSmsRoute,

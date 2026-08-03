@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import {
   ArrowRight, Layers, CheckCircle2, TrendingUp, Target, Zap,
   BarChart3, Rocket, Sparkles, Star, Award, Calendar, LineChart,
@@ -19,10 +19,30 @@ import { SITE_URL } from "../lib/seo";
 import { whatsappForIndustry } from "../lib/whatsapp";
 import { MessageCircle as WaIcon } from "lucide-react";
 
+/** Legacy/alias slugs kept alive with permanent redirects so old links and
+ *  indexed URLs land on the correct industry page instead of a 404. */
+const LEGACY_SLUGS: Record<string, string> = {
+  "beauty-cosmetics": "beauty-personal-care",
+  "beauty": "beauty-personal-care",
+  "electronics": "electronics-technology",
+  "jewelry-accessories": "jewellery-watches",
+  "jewellery-accessories": "jewellery-watches",
+  "supplements": "health-wellness",
+  "fashion": "fashion-apparel",
+  "furniture": "furniture-interiors",
+  "pets": "pets-supplies",
+};
+
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
     const ind = INDUSTRIES.find((l) => l.slug === params.slug);
-    if (!ind) throw notFound();
+    if (!ind) {
+      const target = LEGACY_SLUGS[params.slug];
+      if (target) {
+        throw redirect({ to: "/industries/$slug", params: { slug: target }, statusCode: 301 });
+      }
+      throw notFound();
+    }
     return { ind };
   },
   head: ({ loaderData }) => {
