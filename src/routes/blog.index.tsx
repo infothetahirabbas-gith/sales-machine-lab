@@ -5,6 +5,7 @@ import { breadcrumbJsonLd, faqJsonLd, SITE_URL, ORG_INFO } from "../lib/seo";
 import EditorialBlock from "../components/site/EditorialBlock";
 import FaqSection from "../components/site/FaqSection";
 import { BLOG_POSTS as POSTS } from "../lib/blog-posts";
+import { BLOG_EDITORIAL, BLOG_FAQS } from "../lib/index-editorial";
 
 
 
