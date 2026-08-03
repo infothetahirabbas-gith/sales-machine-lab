@@ -30,6 +30,9 @@ export const COMPANY_LINKS: readonly CompanyEntry[] = [
   { slug: "community",         to: "/company/community",        label: "Community & Events",        short: "Community",     blurb: "Workshops, live webinars, meetups and how to be part of them.",                       tag: "Community" },
   { slug: "csr",               to: "/company/csr",              label: "Corporate Social Responsibility", short: "CSR",     blurb: "How BeingEcom gives back pro-bono work, education, sustainability and community impact.", tag: "Community" },
   { slug: "resources",         to: "/company/resources",        label: "Resources & Downloads",     short: "Resources",     blurb: "Guides, checklists, templates and playbooks - all free.",                             tag: "Community" },
+  { slug: "editorial-policy",  to: "/company/editorial-policy", label: "Editorial Policy",          short: "Editorial policy", blurb: "How we research, write, review, source and update every page on this site.",       tag: "Trust" },
+  { slug: "review-methodology", to: "/company/review-methodology", label: "Review Methodology",     short: "Review methodology", blurb: "How we test tools and campaigns: thresholds, scoring and conflict-of-interest rules.", tag: "Trust" },
+  { slug: "corrections",       to: "/company/corrections",      label: "Corrections Policy",        short: "Corrections",   blurb: "How to report an error, our response times, and the public corrections log.",        tag: "Trust" },
   { slug: "legal",             to: "/company/legal",            label: "Legal & Policies",          short: "Legal",         blurb: "Privacy, terms, cookies, accessibility, GDPR and disclaimer - one place.",           tag: "Legal" },
 ];
 

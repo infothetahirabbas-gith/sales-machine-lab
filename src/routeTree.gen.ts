@@ -106,6 +106,7 @@ import { Route as CompanyIndustriesRouteImport } from './routes/company.industri
 import { Route as CompanyFounderRouteImport } from './routes/company.founder'
 import { Route as CompanyEditorialPolicyRouteImport } from './routes/company.editorial-policy'
 import { Route as CompanyCsrRouteImport } from './routes/company.csr'
+import { Route as CompanyCorrectionsRouteImport } from './routes/company.corrections'
 import { Route as CompanyCommunityRouteImport } from './routes/company.community'
 import { Route as CompanyCertificationsRouteImport } from './routes/company.certifications'
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
@@ -636,6 +637,11 @@ const CompanyCsrRoute = CompanyCsrRouteImport.update({
   path: '/csr',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyCorrectionsRoute = CompanyCorrectionsRouteImport.update({
+  id: '/corrections',
+  path: '/corrections',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyCommunityRoute = CompanyCommunityRouteImport.update({
   id: '/community',
   path: '/community',
@@ -895,6 +901,7 @@ export interface FileRoutesByFullPath {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/corrections': typeof CompanyCorrectionsRoute
   '/company/csr': typeof CompanyCsrRoute
   '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
@@ -1024,6 +1031,7 @@ export interface FileRoutesByTo {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/corrections': typeof CompanyCorrectionsRoute
   '/company/csr': typeof CompanyCsrRoute
   '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
@@ -1158,6 +1166,7 @@ export interface FileRoutesById {
   '/company/careers': typeof CompanyCareersRoute
   '/company/certifications': typeof CompanyCertificationsRoute
   '/company/community': typeof CompanyCommunityRoute
+  '/company/corrections': typeof CompanyCorrectionsRoute
   '/company/csr': typeof CompanyCsrRoute
   '/company/editorial-policy': typeof CompanyEditorialPolicyRoute
   '/company/founder': typeof CompanyFounderRoute
@@ -1294,6 +1303,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/corrections'
     | '/company/csr'
     | '/company/editorial-policy'
     | '/company/founder'
@@ -1423,6 +1433,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/corrections'
     | '/company/csr'
     | '/company/editorial-policy'
     | '/company/founder'
@@ -1556,6 +1567,7 @@ export interface FileRouteTypes {
     | '/company/careers'
     | '/company/certifications'
     | '/company/community'
+    | '/company/corrections'
     | '/company/csr'
     | '/company/editorial-policy'
     | '/company/founder'
@@ -2409,6 +2421,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyCsrRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/corrections': {
+      id: '/company/corrections'
+      path: '/corrections'
+      fullPath: '/company/corrections'
+      preLoaderRoute: typeof CompanyCorrectionsRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/community': {
       id: '/company/community'
       path: '/community'
@@ -2687,6 +2706,7 @@ interface CompanyRouteChildren {
   CompanyCareersRoute: typeof CompanyCareersRoute
   CompanyCertificationsRoute: typeof CompanyCertificationsRoute
   CompanyCommunityRoute: typeof CompanyCommunityRoute
+  CompanyCorrectionsRoute: typeof CompanyCorrectionsRoute
   CompanyCsrRoute: typeof CompanyCsrRoute
   CompanyEditorialPolicyRoute: typeof CompanyEditorialPolicyRoute
   CompanyFounderRoute: typeof CompanyFounderRoute
@@ -2709,6 +2729,7 @@ const CompanyRouteChildren: CompanyRouteChildren = {
   CompanyCareersRoute: CompanyCareersRoute,
   CompanyCertificationsRoute: CompanyCertificationsRoute,
   CompanyCommunityRoute: CompanyCommunityRoute,
+  CompanyCorrectionsRoute: CompanyCorrectionsRoute,
   CompanyCsrRoute: CompanyCsrRoute,
   CompanyEditorialPolicyRoute: CompanyEditorialPolicyRoute,
   CompanyFounderRoute: CompanyFounderRoute,
