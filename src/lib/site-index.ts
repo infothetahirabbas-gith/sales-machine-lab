@@ -87,8 +87,8 @@ export const SITE_INDEX: SiteIndexEntry[] = [
     keywords: i.highlights.join(" "),
   })),
   ...CALCULATORS.map((c) => ({
-    title: c.title,
-    description: c.description,
+    title: c.name,
+    description: c.quickAnswer,
     to: `/tools/${c.slug}`,
     section: "Tools" as const,
     keywords: "calculator tool free",
