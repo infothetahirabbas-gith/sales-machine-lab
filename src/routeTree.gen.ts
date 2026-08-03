@@ -83,6 +83,7 @@ import { Route as ServicesFunnelRouteImport } from './routes/services.funnel'
 import { Route as ServicesEmailSmsRouteImport } from './routes/services.email-sms'
 import { Route as ServicesCroRouteImport } from './routes/services.cro'
 import { Route as ServicesCreativeRouteImport } from './routes/services.creative'
+import { Route as ServicesConsultingRouteImport } from './routes/services.consulting'
 import { Route as ServicesAnalyticsRouteImport } from './routes/services.analytics'
 import { Route as ServicesAiAutomationRouteImport } from './routes/services.ai-automation'
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
@@ -517,6 +518,11 @@ const ServicesCreativeRoute = ServicesCreativeRouteImport.update({
   path: '/services/creative',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesConsultingRoute = ServicesConsultingRouteImport.update({
+  id: '/services/consulting',
+  path: '/services/consulting',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesAnalyticsRoute = ServicesAnalyticsRouteImport.update({
   id: '/services/analytics',
   path: '/services/analytics',
@@ -896,6 +902,7 @@ export interface FileRoutesByFullPath {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -1022,6 +1029,7 @@ export interface FileRoutesByTo {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -1153,6 +1161,7 @@ export interface FileRoutesById {
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/ai-automation': typeof ServicesAiAutomationRoute
   '/services/analytics': typeof ServicesAnalyticsRoute
+  '/services/consulting': typeof ServicesConsultingRoute
   '/services/creative': typeof ServicesCreativeRoute
   '/services/cro': typeof ServicesCroRoute
   '/services/email-sms': typeof ServicesEmailSmsRoute
@@ -1286,6 +1295,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1412,6 +1422,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1542,6 +1553,7 @@ export interface FileRouteTypes {
     | '/locations/$slug'
     | '/services/ai-automation'
     | '/services/analytics'
+    | '/services/consulting'
     | '/services/creative'
     | '/services/cro'
     | '/services/email-sms'
@@ -1654,6 +1666,7 @@ export interface RootRouteChildren {
   LocationsSlugRoute: typeof LocationsSlugRoute
   ServicesAiAutomationRoute: typeof ServicesAiAutomationRoute
   ServicesAnalyticsRoute: typeof ServicesAnalyticsRoute
+  ServicesConsultingRoute: typeof ServicesConsultingRoute
   ServicesCreativeRoute: typeof ServicesCreativeRoute
   ServicesCroRoute: typeof ServicesCroRoute
   ServicesEmailSmsRoute: typeof ServicesEmailSmsRoute
@@ -2208,6 +2221,13 @@ declare module '@tanstack/react-router' {
       path: '/services/creative'
       fullPath: '/services/creative'
       preLoaderRoute: typeof ServicesCreativeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/consulting': {
+      id: '/services/consulting'
+      path: '/services/consulting'
+      fullPath: '/services/consulting'
+      preLoaderRoute: typeof ServicesConsultingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/analytics': {
@@ -2790,6 +2810,7 @@ const rootRouteChildren: RootRouteChildren = {
   LocationsSlugRoute: LocationsSlugRoute,
   ServicesAiAutomationRoute: ServicesAiAutomationRoute,
   ServicesAnalyticsRoute: ServicesAnalyticsRoute,
+  ServicesConsultingRoute: ServicesConsultingRoute,
   ServicesCreativeRoute: ServicesCreativeRoute,
   ServicesCroRoute: ServicesCroRoute,
   ServicesEmailSmsRoute: ServicesEmailSmsRoute,
@@ -2835,3 +2856,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
