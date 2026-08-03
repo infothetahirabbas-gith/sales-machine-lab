@@ -10,6 +10,7 @@ import {
 
 
 import appCss from "../styles.css?url";
+import { IdlePrefetch } from "../components/site/IdlePrefetch";
 
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
@@ -149,6 +150,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // 400-1000ms in. One small gzipped sheet costs far less than that.
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: faviconAsset.url },
+      // Analytics is deferred until first interaction; resolving DNS/TLS early
+      // means it costs nothing on the main thread when it finally loads.
+      { rel: "dns-prefetch", href: "https://www.googletagmanager.com" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com", crossOrigin: "anonymous" },
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
@@ -192,6 +197,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <IdlePrefetch />
     </QueryClientProvider>
   );
 }
