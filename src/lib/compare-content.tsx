@@ -572,7 +572,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     relatedServices: [
       { label: "Shopify development", to: "/services/store-development/shopify" },
-      { label: "Consulting", to: "/services/consulting" },
+      { label: "Ecommerce scaling", to: "/services/scaling" },
     ],
   },
   "in-house-vs-agency": {
@@ -631,7 +631,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
       description: "In-house ecommerce team vs agency real cost comparison, ramp time, brand risk and the hybrid model most scaling brands actually use.",
     },
     relatedServices: [
-      { label: "Consulting", to: "/services/consulting" },
+      { label: "Ecommerce scaling", to: "/services/scaling" },
       { label: "Why BeingEcom", to: "/company/why-us" },
     ],
   },
@@ -807,7 +807,7 @@ const COMPARE: Record<string, ComparisonEntry> = {
     },
     relatedServices: [
       { label: "Shopify development", to: "/services/store-development/shopify" },
-      { label: "Consulting", to: "/services/consulting" },
+      { label: "Ecommerce scaling", to: "/services/scaling" },
     ],
   },
 

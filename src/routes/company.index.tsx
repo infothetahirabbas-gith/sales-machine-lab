@@ -308,7 +308,7 @@ function CompanyHub() {
               { to: "/industries",   h: "Industries",   b: "The verticals we specialise in beauty, fashion, food, home, electronics, B2B." },
               { to: "/case-studies", h: "Case studies", b: "Real engagements with real scope, real numbers and real founders." },
               { to: "/locations",    h: "Locations",    b: "UK cities and regions we actively serve London, Manchester, Birmingham and more." },
-              { to: "/resources",    h: "Resources",    b: "Playbooks, calculators, benchmarks and glossaries free, no email gate." },
+              { to: "/company/resources",    h: "Resources",    b: "Playbooks, calculators, benchmarks and glossaries free, no email gate." },
               { to: "/contact",      h: "Contact",      b: "Talk to a senior operator. First reply within one working day." },
             ].map((l) => (
               <Link key={l.to} to={l.to} className="card-surface p-5 rounded-2xl block hover:border-primary/50 transition-colors group">
