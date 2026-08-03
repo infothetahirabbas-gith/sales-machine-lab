@@ -149,6 +149,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // 400-1000ms in. One small gzipped sheet costs far less than that.
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: faviconAsset.url },
+      // Analytics is deferred until first interaction; resolving DNS/TLS early
+      // means it costs nothing on the main thread when it finally loads.
+      { rel: "dns-prefetch", href: "https://www.googletagmanager.com" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com", crossOrigin: "anonymous" },
 
       { rel: "alternate", hrefLang: "en-gb", href: "https://beingecom.com/" },
       { rel: "alternate", hrefLang: "x-default", href: "https://beingecom.com/" },
