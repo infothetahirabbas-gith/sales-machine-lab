@@ -22,6 +22,7 @@ import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-compa
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
 import { Route as ShopifySeoPackagesRouteImport } from './routes/shopify-seo-packages'
 import { Route as ShopifySeoAgencyUkRouteImport } from './routes/shopify-seo-agency-uk'
+import { Route as SearchRouteImport } from './routes/search'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -207,6 +208,11 @@ const ShopifySeoPackagesRoute = ShopifySeoPackagesRouteImport.update({
 const ShopifySeoAgencyUkRoute = ShopifySeoAgencyUkRouteImport.update({
   id: '/shopify-seo-agency-uk',
   path: '/shopify-seo-agency-uk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -876,6 +882,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/resources': typeof ResourcesRoute
+  '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -1006,6 +1013,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/resources': typeof ResourcesRoute
+  '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -1141,6 +1149,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/research': typeof ResearchRoute
   '/resources': typeof ResourcesRoute
+  '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
@@ -1278,6 +1287,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/resources'
+    | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1408,6 +1418,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/resources'
+    | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1542,6 +1553,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/research'
     | '/resources'
+    | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
     | '/sitemap-case-studies.xml'
@@ -1678,6 +1690,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResearchRoute: typeof ResearchRoute
   ResourcesRoute: typeof ResourcesRoute
+  SearchRoute: typeof SearchRoute
   ShopifySeoAgencyUkRoute: typeof ShopifySeoAgencyUkRoute
   ShopifySeoPackagesRoute: typeof ShopifySeoPackagesRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
@@ -1831,6 +1844,13 @@ declare module '@tanstack/react-router' {
       path: '/shopify-seo-agency-uk'
       fullPath: '/shopify-seo-agency-uk'
       preLoaderRoute: typeof ShopifySeoAgencyUkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -2849,6 +2869,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResearchRoute: ResearchRoute,
   ResourcesRoute: ResourcesRoute,
+  SearchRoute: SearchRoute,
   ShopifySeoAgencyUkRoute: ShopifySeoAgencyUkRoute,
   ShopifySeoPackagesRoute: ShopifySeoPackagesRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,

@@ -23,23 +23,59 @@ import faviconAsset from "../assets/favicon-b.png.asset.json";
 
 
 
+const NOT_FOUND_LINKS: { to: string; label: string; note: string }[] = [
+  { to: "/services", label: "Services", note: "SEO, paid media, CRO, store builds and retention" },
+  { to: "/case-studies", label: "Case studies", note: "Results from UK Shopify and WooCommerce brands" },
+  { to: "/blog", label: "Blog", note: "Playbooks and teardowns from our operators" },
+  { to: "/tools", label: "Free tools", note: "ROAS, CAC, LTV, margin and break-even calculators" },
+  { to: "/locations", label: "Locations", note: "Ecommerce support across UK cities" },
+  { to: "/pricing", label: "Pricing", note: "Retainers by growth stage, in GBP" },
+];
+
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="min-h-screen bg-background px-4 py-20">
+      <div className="mx-auto max-w-3xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">404</p>
+        <h1 className="mt-3 text-3xl font-bold text-foreground">We couldn't find that page</h1>
+        <p className="mt-3 text-sm text-muted-foreground">
+          The link may be broken or the page may have moved. Here are the places most people are
+          looking for - or search the whole site below.
         </p>
-        <div className="mt-6">
+
+        <div className="mt-6 flex flex-wrap gap-3">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
           </Link>
+          <Link
+            to="/search"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Search the site
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Contact us
+          </Link>
         </div>
+
+        <nav aria-label="Helpful links" className="mt-10 grid gap-4 sm:grid-cols-2">
+          {NOT_FOUND_LINKS.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="rounded-lg border border-border p-4 transition-colors hover:border-primary"
+            >
+              <span className="block text-base font-semibold text-foreground">{link.label}</span>
+              <span className="mt-1 block text-sm text-muted-foreground">{link.note}</span>
+            </Link>
+          ))}
+        </nav>
       </div>
     </div>
   );

@@ -28,6 +28,7 @@ const RESOURCES: { to: string; label: string }[] = [
   { to: "/methodology", label: "Growth Methodology" },
   { to: "/glossary", label: "SEO Glossary" },
   { to: "/research", label: "Research" },
+  { to: "/search", label: "Search the site" },
 ];
 
 export default function Footer() {
