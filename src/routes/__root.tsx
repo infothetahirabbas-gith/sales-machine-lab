@@ -10,6 +10,7 @@ import {
 
 
 import appCss from "../styles.css?url";
+import { IdlePrefetch } from "../components/site/IdlePrefetch";
 
 import { organizationJsonLd, websiteJsonLd } from "../lib/seo";
 import logoAsset from "../assets/being-ecom-logo.webp.asset.json";
