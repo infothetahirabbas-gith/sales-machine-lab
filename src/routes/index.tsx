@@ -214,6 +214,15 @@ function Home() {
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-xs text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              Figures are cumulative across client accounts since 2019, taken from GA4, Shopify and ad-platform
+              reporting.{" "}
+              <Link to="/company/review-methodology" className="underline underline-offset-2 hover:text-foreground">
+                How we measure and verify these numbers
+              </Link>
+              .
+            </p>
+
           </div>
           <div className="lg:col-span-5 relative">
             {/* Real ecommerce photo behind the animated dashboard for warmth + realism */}
