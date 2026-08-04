@@ -359,6 +359,34 @@ function Home() {
         </div>
       </section>
 
+      {/* 2b. PROOF & ACCOUNTABILITY - EEAT signals */}
+      <section className="border-b border-border bg-background py-10">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="text-xs uppercase tracking-widest text-muted-foreground text-center">
+            Proof, not promises
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { to: "/case-studies", t: "Documented case studies", b: "Problem, hypothesis, implementation and measured outcome for every engagement." },
+              { to: "/company/review-methodology", t: "How we measure results", b: "The attribution windows, data sources and rounding rules behind every number we publish." },
+              { to: "/company/certifications", t: "Platform accreditations", b: "The ad, analytics and store platforms our team is certified and actively working in." },
+              { to: "/company/corrections", t: "Corrections policy", b: "If we publish something inaccurate, we log the correction publicly with a date." },
+            ].map((c) => (
+              <Link
+                key={c.to}
+                to={c.to}
+                className="rounded-xl border border-border bg-card/50 p-4 transition-colors hover:border-primary/40 hover:bg-card"
+              >
+                <div className="text-sm font-semibold text-foreground">{c.t}</div>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{c.b}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
 
 
       {/* 3. PROBLEM */}
