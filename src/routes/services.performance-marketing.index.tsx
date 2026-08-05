@@ -97,7 +97,7 @@ export function PerformanceMarketingPage() {
               </Reveal>
               <Reveal delay={1}>
                 <h1 className="mt-6 text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-ink">
-                  <span className="text-gradient">No.1 Performance Marketing Agency UK</span> - full-funnel paid media, one P&L.
+                  <span className="text-gradient">Performance Marketing Agency UK</span> - full-funnel paid media, one P&L.
                 </h1>
               </Reveal>
               <Reveal delay={2}>

@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       slug: "tiktok-ads",
       eyebrow: "TikTok Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 TikTok Ads Agency UK - content-native ads that convert.",
+      heroTitle: "TikTok Ads Agency UK - content-native ads that convert.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for creator-led UGC, Spark Ads and hook-first scripting - native virality that drives real Shopify and DTC sales.",
       problemTitle: "Why most TikTok accounts flop.",
       problemBullets: [
@@ -108,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
         result: "£48K MRR at 2.8× ROAS in 90 days.",
         metrics: [{ label: "MRR", value: "£48K" }, { label: "ROAS", value: "2.8×" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Want the UK's No.1 TikTok Ads Agency running your account?",
+      ctaTitle: "Want a senior UK TikTok Ads Agency running your account?",
       impactStats: [
         { value: "2.8×", label: "Avg ROAS" },
         { value: "-62%", label: "CAC reduction" },

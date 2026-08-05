@@ -45,7 +45,7 @@ export const Route = createFileRoute("/services/seo/off-page")({
       slug: "seo-off-page",
       eyebrow: "Off-Page SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "No.1 Ecommerce Agency UK for authority that makes rankings stick.",
+      heroTitle: "Specialist UK ecommerce agency for authority that makes rankings stick.",
       heroSub: "Editorial digital PR, niche-edit link building and brand-signal off-page SEO from a specialist Ecommerce Marketing Agency UK - the kind of authority Google actually rewards.",
       problemTitle: "Why most ecommerce stores plateau in the SERP.",
       problemBullets: [

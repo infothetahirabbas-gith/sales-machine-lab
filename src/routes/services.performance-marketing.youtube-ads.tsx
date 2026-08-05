@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 YouTube Ads Agency UK - engineered for revenue, not just views.",
+      heroTitle: "YouTube Ads Agency UK - engineered for revenue, not just views.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts - profitable, measurable YouTube growth for Shopify and DTC brands.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
@@ -108,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         result: "£68K MRR at 3.1× ROAS in 90 days, incremental to Meta.",
         metrics: [{ label: "MRR", value: "£68K" }, { label: "ROAS", value: "3.1×" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Turn YouTube into a profitable channel with the UK's No.1 YouTube Ads Agency.",
+      ctaTitle: "Turn YouTube into a profitable channel with a senior UK YouTube Ads Agency.",
       impactStats: [
         { value: "3.1×", label: "VAC ROAS" },
         { value: "£68K", label: "New MRR" },

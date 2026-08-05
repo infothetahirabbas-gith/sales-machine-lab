@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
       slug: "google-ads",
       eyebrow: "Google Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 Google Ads Agency UK - capture every buying moment.",
+      heroTitle: "Google Ads Agency UK - capture every buying moment.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for Google Shopping, Performance Max, Search and brand defence - Merchant Center feed optimisation engineered for profitable intent capture.",
       problemTitle: "Why most Google accounts leak budget.",
       problemBullets: [
@@ -108,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/google-ads
         result: "4.6× ROAS at £28 CAC, 3.1× revenue lift.",
         metrics: [{ label: "ROAS", value: "4.6×" }, { label: "CAC", value: "£28" }, { label: "Days", value: "60" }],
       },
-      ctaTitle: "Want the UK's No.1 Google Ads Agency to run your account?",
+      ctaTitle: "Want a senior UK Google Ads Agency to run your account?",
       impactStats: [
         { value: "4.6×", label: "Avg ROAS" },
         { value: "-55%", label: "CAC reduction" },

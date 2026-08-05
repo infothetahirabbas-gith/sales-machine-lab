@@ -45,7 +45,7 @@ export const Route = createFileRoute("/services/seo/international")({
       slug: "seo-international",
       eyebrow: "International SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "No.1 Ecommerce Agency UK for international SEO - scale into the US, EU and beyond, profitably.",
+      heroTitle: "Specialist UK ecommerce agency for international SEO - scale into the US, EU and beyond, profitably.",
       heroSub: "International SEO from a specialist Ecommerce Marketing Agency UK - the architecture, hreflang and localisation done right the first time, for Shopify and WooCommerce brands going global.",
       problemTitle: "Why UK brands stall when they go international.",
       problemBullets: [

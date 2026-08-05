@@ -49,7 +49,7 @@ export const Route = createFileRoute("/services/performance-marketing/media-buyi
       slug: "media-buying",
       eyebrow: "Media Buying",
       heroImage: heroImg,
-      heroTitle: "No.1 Ecommerce Media Buying Agency UK - engineered for blended ROAS.",
+      heroTitle: "Ecommerce Media Buying Agency UK - engineered for blended ROAS.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for cross-channel media buying - Meta, Google, TikTok and YouTube run as one P&L, with MER targets, full-funnel allocation and weekly capital reallocation.",
       problemTitle: "Why single-channel buyers cap your scale.",
       problemBullets: [

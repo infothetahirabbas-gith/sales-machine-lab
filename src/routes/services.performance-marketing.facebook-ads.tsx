@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
       slug: "facebook-ads",
       eyebrow: "Facebook Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 Facebook Ads Agency UK - Meta ads that print revenue.",
+      heroTitle: "Facebook Ads Agency UK - Meta ads that print revenue.",
       heroSub: "Shopify and DTC Facebook Ads management by the specialist Ecommerce Marketing Agency UK. Creative volume, Advantage+ scaling and Conversions API engineered for profitable ecommerce ROAS.",
       problemTitle: "Why most Meta accounts stop scaling.",
       problemBullets: [
@@ -108,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/facebook-a
         result: "£92K MRR at 3.2× ROAS in 120 days.",
         metrics: [{ label: "MRR", value: "£92K" }, { label: "ROAS", value: "3.2×" }, { label: "Days", value: "120" }],
       },
-      ctaTitle: "Want the UK's No.1 Facebook Ads Agency to scale Meta profitably?",
+      ctaTitle: "Want a senior UK Facebook Ads Agency to scale Meta profitably?",
       impactStats: [
         { value: "3.2×", label: "Avg ROAS" },
         { value: "-50%", label: "CAC reduction" },
