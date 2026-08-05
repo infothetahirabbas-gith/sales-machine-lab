@@ -16,11 +16,13 @@ export const Route = createFileRoute("/contact")({
   }),
   head: () => ({
     meta: [
-      { title: "Contact Ecommerce Marketing Agency UK | Free Growth Audit | BeingEcom" },
-      { name: "description", content: "Contact BeingEcom, the Ecommerce Marketing Agency UK Shopify and WooCommerce founders trust. Book a free 12-point growth audit and revenue plan in 48 hours." },
-      { property: "og:title", content: "Contact Ecommerce Marketing Agency UK | Free Growth Audit | BeingEcom" },
-      { property: "og:description", content: "Contact BeingEcom, the Ecommerce Marketing Agency UK Shopify and WooCommerce founders trust. Book a free 12-point growth audit and revenue plan in 48 hours." },
+      { title: "Contact BeingEcom | Free Ecommerce Growth Audit UK" },
+      { name: "description", content: "Talk to a senior UK ecommerce operator, not a salesperson. Book a free 12-point growth audit and get your revenue plan back within 48 hours." },
+      { property: "og:title", content: "Contact BeingEcom | Free Ecommerce Growth Audit UK" },
+      { property: "og:description", content: "Talk to a senior UK ecommerce operator, not a salesperson. Book a free 12-point growth audit and get your revenue plan back within 48 hours." },
       { property: "og:url", content: "https://beingecom.com/contact" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/contact" }],
     scripts: [

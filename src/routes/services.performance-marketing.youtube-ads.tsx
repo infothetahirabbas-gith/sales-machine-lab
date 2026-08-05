@@ -25,13 +25,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
-      { name: "description", content: "Specialist YouTube Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
+      { title: "YouTube Ads Agency UK | Video Action & Demand Gen" },
+      { name: "description", content: "Video Action, Demand Gen and Shorts campaigns that grow UK Shopify and WooCommerce brands profitably. Senior buyers, creative built for the feed." },
       { name: "keywords", content: "YouTube Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads" },
-      { property: "og:title", content: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK for YouTube Ads. Video Action, Demand Gen and Shorts campaigns for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "YouTube Ads Agency UK | Video Action & Demand Gen" },
+      { property: "og:description", content: "Video Action, Demand Gen and Shorts campaigns that grow UK Shopify and WooCommerce brands profitably. Senior buyers, creative built for the feed." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/youtube-ads" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" },

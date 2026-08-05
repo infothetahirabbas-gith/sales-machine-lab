@@ -43,10 +43,10 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "analytics");
 export const Route = createFileRoute("/services/analytics")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
-      { name: "description", content: "Ecommerce Analytics Agency UK for Shopify & WooCommerce brands. GA4, server-side GTM, Meta CAPI, Google Enhanced Conversions, MER dashboards, incrementality and cohort LTV rebuilt by senior UK analytics engineers - decisions on data, not vibes." },
-      { property: "og:title", content: "Ecommerce Analytics Agency UK | GA4, CAPI & Attribution | BeingEcom" },
-      { property: "og:description", content: "GA4, server-side tracking, Meta CAPI and revenue dashboards rebuilt for Shopify & WooCommerce brands - so every scaling decision is made on real data." },
+      { title: "Ecommerce Analytics Agency UK | GA4, CAPI & MER" },
+      { name: "description", content: "GA4, server-side GTM, Meta CAPI and MER dashboards rebuilt properly for Shopify and WooCommerce brands. Make budget decisions on data, not vibes." },
+      { property: "og:title", content: "Ecommerce Analytics Agency UK | GA4, CAPI & MER" },
+      { property: "og:description", content: "GA4, server-side GTM, Meta CAPI and MER dashboards rebuilt properly for Shopify and WooCommerce brands. Make budget decisions on data, not vibes." },
       { property: "og:url", content: "https://beingecom.com/services/analytics" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

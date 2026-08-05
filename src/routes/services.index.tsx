@@ -14,6 +14,8 @@ export const Route = createFileRoute("/services/")({
       { property: "og:title", content: "Ecommerce Services UK | SEO, Ads, CRO & Klaviyo | BeingEcom" },
       { property: "og:description", content: "Full-stack ecommerce services UK: SEO, Google & Meta Ads, CRO, Klaviyo email, Shopify development and analytics one senior team, one revenue P&L." },
       { property: "og:url", content: "https://beingecom.com/services" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services" }],
     scripts: [

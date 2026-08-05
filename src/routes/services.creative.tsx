@@ -38,12 +38,13 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "creative");
 export const Route = createFileRoute("/services/creative")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
-      { name: "description", content: "Ecommerce Creative Agency UK for Shopify & WooCommerce brands. Scroll-stopping UGC, static and video ad creative shipped weekly - 20-40 creatives/month, hook-first, tested against 8-12 angles." },
-      { property: "og:title", content: "Ecommerce Creative Agency UK | UGC, Static & Video Ads | BeingEcom" },
-      { property: "og:description", content: "Specialist ecommerce Creative Agency UK. UGC, static and video ad creative shipped weekly for Shopify & WooCommerce brands scaling on Meta, Google and TikTok." },
+      { title: "Ecommerce Creative Agency UK | UGC, Static & Video" },
+      { name: "description", content: "20-40 scroll-stopping ad creatives a month for Shopify and WooCommerce brands. Hook-first UGC, static and video, tested against 8-12 angles every cycle." },
+      { property: "og:title", content: "Ecommerce Creative Agency UK | UGC, Static & Video" },
+      { property: "og:description", content: "20-40 scroll-stopping ad creatives a month for Shopify and WooCommerce brands. Hook-first UGC, static and video, tested against 8-12 angles every cycle." },
       { property: "og:url", content: "https://beingecom.com/services/creative" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/creative" }],
     scripts: [

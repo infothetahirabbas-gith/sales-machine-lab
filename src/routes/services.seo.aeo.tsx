@@ -25,12 +25,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/aeo")({
   head: () => ({
     meta: [
-      { title: "AEO Agency UK | No.1 AI Search & ChatGPT Visibility | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading UK AEO agency for ecommerce. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
-      { property: "og:title", content: "AEO Agency UK | No.1 AI Search & ChatGPT Visibility | BeingEcom" },
-      { property: "og:description", content: "AEO Agency UK. Get cited in ChatGPT, Perplexity and Google AI Overviews with structured content, schema and entity SEO built for AI search." },
+      { title: "AEO Agency UK | Get Cited in ChatGPT & AI Search" },
+      { name: "description", content: "Get your brand cited in ChatGPT, Perplexity and Google AI Overviews with entity SEO, schema and quotable content structure built for AI answer engines." },
+      { property: "og:title", content: "AEO Agency UK | Get Cited in ChatGPT & AI Search" },
+      { property: "og:description", content: "Get your brand cited in ChatGPT, Perplexity and Google AI Overviews with entity SEO, schema and quotable content structure built for AI answer engines." },
       { property: "og:url", content: "https://beingecom.com/services/seo/aeo" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/aeo" }],
     scripts: [

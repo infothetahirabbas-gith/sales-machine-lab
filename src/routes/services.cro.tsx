@@ -40,12 +40,13 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "cro");
 export const Route = createFileRoute("/services/cro")({
   head: () => ({
     meta: [
-      { title: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
-      { name: "description", content: "Ecommerce CRO Agency UK for Shopify & WooCommerce brands. Weekly A/B testing, PDP rewrites, checkout surgery and behavioural research that turns existing traffic into 2-3× more revenue. Senior UK CRO operators, no lock-ins." },
-      { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify & Woo Conversion Rate Optimisation | BeingEcom" },
-      { property: "og:description", content: "Specialist ecommerce CRO Agency UK. A/B testing, PDP & checkout optimisation, behavioural research - turning existing traffic into compounding revenue." },
+      { title: "Ecommerce CRO Agency UK | Shopify A/B Testing" },
+      { name: "description", content: "Turn the traffic you already pay for into 2-3x more revenue. Weekly A/B tests, PDP rewrites and checkout surgery by senior UK CRO operators. No lock-ins." },
+      { property: "og:title", content: "Ecommerce CRO Agency UK | Shopify A/B Testing" },
+      { property: "og:description", content: "Turn the traffic you already pay for into 2-3x more revenue. Weekly A/B tests, PDP rewrites and checkout surgery by senior UK CRO operators. No lock-ins." },
       { property: "og:url", content: "https://beingecom.com/services/cro" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/cro" }],
     scripts: [

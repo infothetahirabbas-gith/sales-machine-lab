@@ -7,6 +7,8 @@ export const Route = createFileRoute("/debug/faq-jsonld")({
     meta: [
       { title: "FAQ JSON-LD Inspector - Debug" },
       { name: "robots", content: "noindex, nofollow" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
 });

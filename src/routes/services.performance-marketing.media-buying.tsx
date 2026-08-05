@@ -26,12 +26,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/media-buying")({
   head: () => ({
     meta: [
-      { title: "No.1 Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
-      { name: "description", content: "Specialist ecommerce Media Buying Agency UK. As a specialist Ecommerce Marketing Agency UK we manage Meta, Google, TikTok and YouTube as one revenue P&L for Shopify and WooCommerce brands." },
+      { title: "Ecommerce Media Buying Agency UK | One Ad P&L" },
+      { name: "description", content: "Meta, Google, TikTok and YouTube managed as a single revenue P&L for UK Shopify and WooCommerce brands. Senior buyers, blended MER accountability." },
       { name: "keywords", content: "media buying agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, cross-channel media buying, blended ROAS agency, MER media buying, Shopify media buying" },
-      { property: "og:title", content: "No.1 Ecommerce Media Buying Agency UK | Multi-Channel P&L | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK managing Meta, Google, TikTok and YouTube as one P&L for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "Ecommerce Media Buying Agency UK | One Ad P&L" },
+      { property: "og:description", content: "Meta, Google, TikTok and YouTube managed as a single revenue P&L for UK Shopify and WooCommerce brands. Senior buyers, blended MER accountability." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/media-buying" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/media-buying" },

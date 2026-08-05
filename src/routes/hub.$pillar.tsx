@@ -21,6 +21,8 @@ export const Route = createFileRoute("/hub/$pillar")({
         meta: [
           { title: "Hub not found | BeingEcom" },
           { name: "robots", content: "noindex" },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
         ],
       };
     }

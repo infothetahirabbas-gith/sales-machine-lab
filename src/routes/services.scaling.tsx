@@ -41,10 +41,10 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "scaling");
 export const Route = createFileRoute("/services/scaling")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
-      { name: "description", content: "Ecommerce Scaling Agency UK for Shopify & WooCommerce brands. Scale from 6 to 7+ figures profitably - unit economics, channel diversification, retention and CFO-grade dashboards built by senior UK growth operators." },
-      { property: "og:title", content: "Ecommerce Scaling Agency UK | 6 to 7-Figure Shopify Growth | BeingEcom" },
-      { property: "og:description", content: "Scale from £30k/mo to £1m+/mo profitably. Unit economics, channel mix, retention and CFO-grade reporting for Shopify & WooCommerce brands - senior UK operators." },
+      { title: "Ecommerce Scaling Agency UK | 6 to 7-Figure Growth" },
+      { name: "description", content: "Scale from six to seven figures profitably: unit economics, channel diversification, retention and CFO-grade dashboards from senior UK growth operators." },
+      { property: "og:title", content: "Ecommerce Scaling Agency UK | 6 to 7-Figure Growth" },
+      { property: "og:description", content: "Scale from six to seven figures profitably: unit economics, channel diversification, retention and CFO-grade dashboards from senior UK growth operators." },
       { property: "og:url", content: "https://beingecom.com/services/scaling" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

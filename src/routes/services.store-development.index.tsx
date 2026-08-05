@@ -41,10 +41,10 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "store-development");
 export const Route = createFileRoute("/services/store-development/")({
   head: () => ({
     meta: [
-      { title: "Specialist Shopify & WooCommerce Development Agency UK | BeingEcom" },
-      { name: "description", content: "Specialist Shopify, Shopify Plus, Hydrogen and WooCommerce Development Agency UK. Conversion-engineered store builds, migrations and optimisation - sub-2s LCP, JSON-LD schema, GA4 + CAPI live on day one. Senior UK developers, no offshoring." },
-      { property: "og:title", content: "Specialist Shopify & WooCommerce Development Agency UK | BeingEcom" },
-      { property: "og:description", content: "Conversion-engineered Shopify, Shopify Plus, Hydrogen and WooCommerce store builds + migrations - sub-2s LCP, JSON-LD schema and analytics live from day one." },
+      { title: "Shopify & WooCommerce Development Agency UK" },
+      { name: "description", content: "Conversion-engineered store builds, migrations and optimisation: sub-2s LCP, JSON-LD schema and GA4 + CAPI live on day one. Senior UK developers, no offshoring." },
+      { property: "og:title", content: "Shopify & WooCommerce Development Agency UK" },
+      { property: "og:description", content: "Conversion-engineered store builds, migrations and optimisation: sub-2s LCP, JSON-LD schema and GA4 + CAPI live on day one. Senior UK developers, no offshoring." },
       { property: "og:url", content: "https://beingecom.com/services/store-development" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

@@ -11,12 +11,14 @@ import { GLOBAL_STATS } from "@/lib/stats";
 export const Route = createFileRoute("/about/")({
   head: () => ({
     meta: [
-      { title: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
-      { name: "description", content: "Meet the team behind BeingEcom a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
-      { property: "og:title", content: "About BeingEcom | Ecommerce Marketing Agency UK for Shopify & Woo" },
-      { property: "og:description", content: "Meet the team behind BeingEcom a UK Ecommerce Marketing Agency and growth partner for Shopify and WooCommerce brands. Senior operators, revenue-first, transparent." },
+      { title: "About BeingEcom | UK Shopify & WooCommerce Growth Team" },
+      { name: "description", content: "Meet the operators behind BeingEcom: a UK ecommerce growth team for Shopify and WooCommerce brands. Senior-only delivery, revenue-first, no lock-ins." },
+      { property: "og:title", content: "About BeingEcom | UK Shopify & WooCommerce Growth Team" },
+      { property: "og:description", content: "Meet the operators behind BeingEcom: a UK ecommerce growth team for Shopify and WooCommerce brands. Senior-only delivery, revenue-first, no lock-ins." },
       { property: "og:url", content: "https://beingecom.com/about" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/about" }],
     scripts: [

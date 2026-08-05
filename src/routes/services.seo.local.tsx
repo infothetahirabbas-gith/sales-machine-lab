@@ -25,12 +25,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/local")({
   head: () => ({
     meta: [
-      { title: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading UK local SEO agency for ecommerce. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
-      { property: "og:title", content: "Local SEO Agency UK | No.1 GBP, City Pages & Reviews | BeingEcom" },
-      { property: "og:description", content: "Local SEO Agency UK. Google Business Profile, city pages and reviews that win 'near me' searches for UK ecommerce and multi-location brands." },
+      { title: "Local SEO Agency UK | GBP, City Pages & Reviews" },
+      { name: "description", content: "Google Business Profile, city pages and review systems that win 'near me' searches for UK ecommerce and multi-location retail brands." },
+      { property: "og:title", content: "Local SEO Agency UK | GBP, City Pages & Reviews" },
+      { property: "og:description", content: "Google Business Profile, city pages and review systems that win 'near me' searches for UK ecommerce and multi-location retail brands." },
       { property: "og:url", content: "https://beingecom.com/services/seo/local" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/local" }],
     scripts: [

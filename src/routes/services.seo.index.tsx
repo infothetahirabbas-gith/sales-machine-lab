@@ -45,16 +45,17 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "seo");
 export const Route = createFileRoute("/services/seo/")({
   head: () => ({
     meta: [
-      { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { name: "description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Specialist technical SEO, product & collection SEO, editorial digital PR and AI-search visibility (ChatGPT, Perplexity, Google AI Overviews) that compounds free revenue. Senior UK SEO directors, no juniors, no lock-ins." },
-      { property: "og:title", content: "Ecommerce SEO Agency UK | Shopify & WooCommerce SEO | BeingEcom" },
-      { property: "og:description", content: "Ecommerce SEO Agency UK for Shopify & WooCommerce brands. Technical SEO, digital PR and AI-search visibility that compounds free revenue - senior UK operators, no juniors." },
+      { title: "Ecommerce SEO Agency UK | Shopify & WooCommerce" },
+      { name: "description", content: "Technical, product and collection SEO plus editorial digital PR and AI-search visibility for UK Shopify and WooCommerce brands. Senior SEO directors, no juniors." },
+      { property: "og:title", content: "Ecommerce SEO Agency UK | Shopify & WooCommerce" },
+      { property: "og:description", content: "Technical, product and collection SEO plus editorial digital PR and AI-search visibility for UK Shopify and WooCommerce brands. Senior SEO directors, no juniors." },
       { property: "og:url", content: "https://beingecom.com/services/seo" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
       { property: "og:image:alt", content: "BeingEcom - Ecommerce SEO Agency UK for Shopify and WooCommerce brands" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
       { name: "twitter:image:alt", content: "BeingEcom - Ecommerce SEO Agency UK for Shopify and WooCommerce brands" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo" }],
     scripts: [

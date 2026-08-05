@@ -37,6 +37,8 @@ export const Route = createFileRoute("/audit")({
       { property: "og:title", content: "Free Ecommerce Store Audit UK | Shopify & Woo | BeingEcom" },
       { property: "og:description", content: "Free AI-powered ecommerce store audit for UK Shopify and WooCommerce brands. 17-phase scan across SEO, CRO, tracking and revenue leakage - no card, no sales call." },
       { property: "og:url", content: "https://beingecom.com/audit" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/audit" }],
     scripts: [

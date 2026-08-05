@@ -42,10 +42,10 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "funnel");
 export const Route = createFileRoute("/services/funnel")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
-      { name: "description", content: "Ecommerce Funnel Agency UK for Shopify & WooCommerce brands. Advertorials, quiz funnels, landing pages, PDP upsells and post-purchase flows engineered to 2-3× cold-traffic CVR by senior UK direct-response operators." },
-      { property: "og:title", content: "Ecommerce Funnel Agency UK | Landing Pages & Advertorials | BeingEcom" },
-      { property: "og:description", content: "Advertorials, quiz funnels, landing pages and post-purchase upsells - engineered to 2-3× cold-traffic CVR for Shopify and WooCommerce brands." },
+      { title: "Ecommerce Funnel Agency UK | Advertorials & Quizzes" },
+      { name: "description", content: "Advertorials, quiz funnels, landing pages and post-purchase flows engineered to 2-3x cold-traffic conversion by senior UK direct-response operators." },
+      { property: "og:title", content: "Ecommerce Funnel Agency UK | Advertorials & Quizzes" },
+      { property: "og:description", content: "Advertorials, quiz funnels, landing pages and post-purchase flows engineered to 2-3x cold-traffic conversion by senior UK direct-response operators." },
       { property: "og:url", content: "https://beingecom.com/services/funnel" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

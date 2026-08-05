@@ -44,10 +44,10 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "ai-automation");
 export const Route = createFileRoute("/services/ai-automation")({
   head: () => ({
     meta: [
-      { title: "AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
-      { name: "description", content: "AI Automation Agency UK for Shopify & WooCommerce brands. AI agents for support deflection, catalogue enrichment, personalisation, ad creative and marketing ops - built by senior UK engineers, measured in hours saved and revenue lifted." },
-      { property: "og:title", content: "AI Automation Agency UK | Shopify & WooCommerce AI Workflows | BeingEcom" },
-      { property: "og:description", content: "AI agents and workflows for ecommerce - support, catalogue, personalisation, creative and ops. Senior UK engineers, measurable ROI, no GPT-wrapper theatre." },
+      { title: "AI Automation Agency UK | Shopify & Woo Workflows" },
+      { name: "description", content: "AI agents for support deflection, catalogue enrichment and ad creative, built by senior UK engineers. Measured in hours saved and revenue lifted, not hype." },
+      { property: "og:title", content: "AI Automation Agency UK | Shopify & Woo Workflows" },
+      { property: "og:description", content: "AI agents for support deflection, catalogue enrichment and ad creative, built by senior UK engineers. Measured in hours saved and revenue lifted, not hype." },
       { property: "og:url", content: "https://beingecom.com/services/ai-automation" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },

@@ -25,12 +25,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/off-page")({
   head: () => ({
     meta: [
-      { title: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading UK off-page SEO agency for ecommerce. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
-      { property: "og:title", content: "Off-Page SEO Agency UK | No.1 Digital PR & Link Building | BeingEcom" },
-      { property: "og:description", content: "Off-Page SEO Agency UK. Digital PR and editorial link building that grows Domain Rating and organic rankings for Shopify and WooCommerce brands." },
+      { title: "Off-Page SEO Agency UK | Digital PR & Link Building" },
+      { name: "description", content: "Editorial digital PR and manually vetted link building that grows Domain Rating and rankings for Shopify and WooCommerce brands. No PBNs, no link farms." },
+      { property: "og:title", content: "Off-Page SEO Agency UK | Digital PR & Link Building" },
+      { property: "og:description", content: "Editorial digital PR and manually vetted link building that grows Domain Rating and rankings for Shopify and WooCommerce brands. No PBNs, no link farms." },
       { property: "og:url", content: "https://beingecom.com/services/seo/off-page" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/off-page" }],
     scripts: [

@@ -25,13 +25,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/instagram-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
-      { name: "description", content: "Specialist Instagram Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Reels-first, Stories and creator UGC ads that scale Shopify and WooCommerce brands profitably." },
+      { title: "Instagram Ads Agency UK | Reels & Stories for DTC" },
+      { name: "description", content: "Reels-first, Stories and creator UGC ads that scale UK Shopify and WooCommerce brands profitably. Senior buyers, fresh creative every week." },
       { name: "keywords", content: "Instagram Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Instagram Reels Ads, Stories Ads agency, Shopify Instagram Ads, creator UGC agency" },
-      { property: "og:title", content: "No.1 Instagram Ads Agency UK | Reels & Stories for Ecommerce | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK for Instagram. Reels, Stories and creator UGC that scale Shopify and WooCommerce brands profitably." },
+      { property: "og:title", content: "Instagram Ads Agency UK | Reels & Stories for DTC" },
+      { property: "og:description", content: "Reels-first, Stories and creator UGC ads that scale UK Shopify and WooCommerce brands profitably. Senior buyers, fresh creative every week." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/instagram-ads" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/instagram-ads" },

@@ -25,12 +25,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/google-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 Google Ads Agency UK for Ecommerce | Search, Shopping & PMax | BeingEcom" },
-      { name: "description", content: "Specialist Google Ads Agency UK for ecommerce. As a specialist Ecommerce Marketing Agency UK we run Search, Shopping and Performance Max with true incrementality for Shopify & WooCommerce brands." },
+      { title: "Google Ads Agency UK | Search, Shopping & PMax" },
+      { name: "description", content: "Search, Shopping and Performance Max managed against true incrementality for UK Shopify and WooCommerce brands. Senior buyers, no juniors, no lock-ins." },
       { name: "keywords", content: "Google Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Google Shopping agency, Performance Max agency, Shopify Google Ads, Merchant Center optimisation" },
-      { property: "og:title", content: "No.1 Google Ads Agency UK for Ecommerce | Search, Shopping & PMax | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK running Search, Shopping and Performance Max with true incrementality for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "Google Ads Agency UK | Search, Shopping & PMax" },
+      { property: "og:description", content: "Search, Shopping and Performance Max managed against true incrementality for UK Shopify and WooCommerce brands. Senior buyers, no juniors, no lock-ins." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/google-ads" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/google-ads" },

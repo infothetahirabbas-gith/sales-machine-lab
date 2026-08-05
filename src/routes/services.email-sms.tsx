@@ -43,12 +43,13 @@ const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "email-sms");
 export const Route = createFileRoute("/services/email-sms")({
   head: () => ({
     meta: [
-      { title: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
-      { name: "description", content: "Ecommerce Email Marketing Agency UK for Shopify & WooCommerce brands. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of monthly revenue - senior UK strategists, no lock-ins." },
-      { property: "og:title", content: "Ecommerce Email Marketing Agency UK | Klaviyo & SMS | BeingEcom" },
-      { property: "og:description", content: "Specialist ecommerce Email Marketing Agency UK. Klaviyo flows, SMS and lifecycle campaigns that add 25-35% of revenue - senior UK strategists, no lock-ins." },
+      { title: "Ecommerce Email Agency UK | Klaviyo Flows & SMS" },
+      { name: "description", content: "Klaviyo flows, SMS and lifecycle campaigns that typically add 25-35% of monthly revenue for Shopify and WooCommerce brands. Senior UK strategists, no lock-ins." },
+      { property: "og:title", content: "Ecommerce Email Agency UK | Klaviyo Flows & SMS" },
+      { property: "og:description", content: "Klaviyo flows, SMS and lifecycle campaigns that typically add 25-35% of monthly revenue for Shopify and WooCommerce brands. Senior UK strategists, no lock-ins." },
       { property: "og:url", content: "https://beingecom.com/services/email-sms" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/email-sms" }],
     scripts: [
