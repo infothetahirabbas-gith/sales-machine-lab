@@ -41,6 +41,8 @@ export const Route = createFileRoute("/benchmarks/")({
       { property: "og:title", content: "Ecommerce Benchmarks 2026 | BeingEcom" },
       { property: "og:description", content: "Free ecommerce benchmarks for Shopify and WooCommerce brands: conversion, ads, email - by industry." },
       { property: "og:url", content: "https://beingecom.com/benchmarks" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/benchmarks" }],
     scripts: [

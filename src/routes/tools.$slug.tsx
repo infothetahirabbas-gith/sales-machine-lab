@@ -17,6 +17,8 @@ export const Route = createFileRoute("/tools/$slug")({
         meta: [
           { title: "Tool not found | BeingEcom" },
           { name: "robots", content: "noindex" },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
         ],
       };
     }

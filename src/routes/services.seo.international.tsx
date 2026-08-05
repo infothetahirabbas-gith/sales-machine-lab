@@ -25,12 +25,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/international")({
   head: () => ({
     meta: [
-      { title: "International SEO Agency UK | No.1 US, EU & Global Ecommerce | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading UK international SEO agency for ecommerce. We scale Shopify and WooCommerce brands into the US, EU and global markets - hreflang, technical & content SEO done properly." },
-      { property: "og:title", content: "International SEO Agency UK | No.1 US, EU & Global Ecommerce | BeingEcom" },
-      { property: "og:description", content: "International SEO Agency UK scaling Shopify and WooCommerce brands into the US, EU and global markets - hreflang, technical & content SEO done properly." },
+      { title: "International SEO Agency UK | US, EU & Global DTC" },
+      { name: "description", content: "Scale Shopify and WooCommerce brands into the US, EU and global markets with hreflang, technical and content SEO done properly by senior UK ecommerce SEOs." },
+      { property: "og:title", content: "International SEO Agency UK | US, EU & Global DTC" },
+      { property: "og:description", content: "Scale Shopify and WooCommerce brands into the US, EU and global markets with hreflang, technical and content SEO done properly by senior UK ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/international" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/international" }],
     scripts: [
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/services/seo/international")({
       slug: "seo-international",
       eyebrow: "International SEO Agency UK",
       heroImage: heroImg,
-      heroTitle: "No.1 Ecommerce Agency UK for international SEO - scale into the US, EU and beyond, profitably.",
+      heroTitle: "Specialist UK ecommerce agency for international SEO - scale into the US, EU and beyond, profitably.",
       heroSub: "International SEO from a specialist Ecommerce Marketing Agency UK - the architecture, hreflang and localisation done right the first time, for Shopify and WooCommerce brands going global.",
       problemTitle: "Why UK brands stall when they go international.",
       problemBullets: [

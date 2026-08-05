@@ -25,12 +25,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/tiktok-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 TikTok Ads Agency UK | Spark Ads, TikTok Shop & UGC | BeingEcom" },
-      { name: "description", content: "Specialist TikTok Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run native TikTok creative, Spark Ads and TikTok Shop that scale Shopify and WooCommerce brands profitably." },
+      { title: "TikTok Ads Agency UK | Spark Ads & TikTok Shop" },
+      { name: "description", content: "Native TikTok creative, Spark Ads and TikTok Shop that scale UK Shopify and WooCommerce brands profitably. Senior buyers, UGC shipped weekly." },
       { name: "keywords", content: "TikTok Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Spark Ads agency, TikTok Shop agency, Shopify TikTok Ads, creator UGC agency" },
-      { property: "og:title", content: "No.1 TikTok Ads Agency UK | Spark Ads & TikTok Shop | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK for TikTok Ads. Native TikTok creative, Spark Ads and TikTok Shop for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "TikTok Ads Agency UK | Spark Ads & TikTok Shop" },
+      { property: "og:description", content: "Native TikTok creative, Spark Ads and TikTok Shop that scale UK Shopify and WooCommerce brands profitably. Senior buyers, UGC shipped weekly." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/tiktok-ads" },
@@ -46,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
       slug: "tiktok-ads",
       eyebrow: "TikTok Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 TikTok Ads Agency UK - content-native ads that convert.",
+      heroTitle: "TikTok Ads Agency UK - content-native ads that convert.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for creator-led UGC, Spark Ads and hook-first scripting - native virality that drives real Shopify and DTC sales.",
       problemTitle: "Why most TikTok accounts flop.",
       problemBullets: [
@@ -106,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/tiktok-ads
         result: "£48K MRR at 2.8× ROAS in 90 days.",
         metrics: [{ label: "MRR", value: "£48K" }, { label: "ROAS", value: "2.8×" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Want the UK's No.1 TikTok Ads Agency running your account?",
+      ctaTitle: "Want a senior UK TikTok Ads Agency running your account?",
       impactStats: [
         { value: "2.8×", label: "Avg ROAS" },
         { value: "-62%", label: "CAC reduction" },

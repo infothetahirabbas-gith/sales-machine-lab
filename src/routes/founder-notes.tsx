@@ -46,7 +46,7 @@ const NOTES = [
 export const Route = createFileRoute("/founder-notes")({
   head: () => ({
     meta: [
-      { title: "Founder Notes | Tahir Abbas on UK Ecommerce Growth | BeingEcom" },
+      { title: "Founder Notes | Tahir Abbas on UK Ecommerce Growth" },
       { name: "description", content: "First-person essays from Tahir Abbas, founder of BeingEcom, on UK ecommerce SEO, paid media, CRO and measurement - written from real client engagements, not agency theory." },
       { property: "og:title", content: "Founder Notes | Tahir Abbas on UK Ecommerce Growth" },
       { property: "og:description", content: "Essays from Tahir Abbas on UK ecommerce SEO, paid media, CRO and measurement - written from real client engagements." },

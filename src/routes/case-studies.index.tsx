@@ -87,6 +87,8 @@ export const Route = createFileRoute("/case-studies/")({
       { property: "og:title", content: "Ecommerce Case Studies UK | Shopify Results | BeingEcom" },
       { property: "og:description", content: "Real ecommerce growth case studies UK Shopify and WooCommerce brands we scaled with SEO, paid ads, CRO and Klaviyo email. Numbers, playbooks and honest takeaways." },
       { property: "og:url", content: "https://beingecom.com/case-studies" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/case-studies" }],
     scripts: [

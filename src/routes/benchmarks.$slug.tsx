@@ -185,6 +185,7 @@ export const Route = createFileRoute("/benchmarks/$slug")({
         { property: "og:description", content: cfg.aiSummary },
         { property: "og:url", content: url },
         { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

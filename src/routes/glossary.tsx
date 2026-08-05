@@ -27,24 +27,25 @@ export const Route = createFileRoute("/glossary")({
     meta: [
       {
         title:
-          "Ecommerce Glossary 2026 Shopify, SEO, CRO, Paid, Email & AI Terms | BeingEcom",
+          "Ecommerce Glossary 2026 | 100+ SEO, CRO & Ads Terms",
       },
       {
         name: "description",
         content:
-          "The plain-English ecommerce glossary for UK Shopify & WooCommerce founders 100+ SEO, CRO, paid media, email, analytics, platform and AI terms with real examples.",
+          "100+ ecommerce terms explained in plain English for UK Shopify and WooCommerce founders: SEO, CRO, paid media, email, analytics and AI, with real examples.",
       },
       {
         property: "og:title",
-        content: "Ecommerce Glossary 2026 | BeingEcom",
+        content: "Ecommerce Glossary 2026 | 100+ SEO, CRO & Ads Terms",
       },
       {
         property: "og:description",
         content:
-          "100+ plain-English definitions for SEO, CRO, paid media, email, analytics, platform and AI ecommerce terms.",
+          "100+ ecommerce terms explained in plain English for UK Shopify and WooCommerce founders: SEO, CRO, paid media, email, analytics and AI, with real examples.",
       },
       { property: "og:type", content: "article" },
       { property: "og:url", content: GLOSSARY_URL },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: GLOSSARY_URL }],
     scripts: [

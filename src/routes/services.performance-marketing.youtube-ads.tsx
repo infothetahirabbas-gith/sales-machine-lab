@@ -25,13 +25,14 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/youtube-ads")({
   head: () => ({
     meta: [
-      { title: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
-      { name: "description", content: "Specialist YouTube Ads Agency UK. As a specialist Ecommerce Marketing Agency UK we run Video Action, Demand Gen and Shorts campaigns that grow Shopify and WooCommerce brands profitably." },
+      { title: "YouTube Ads Agency UK | Video Action & Demand Gen" },
+      { name: "description", content: "Video Action, Demand Gen and Shorts campaigns that grow UK Shopify and WooCommerce brands profitably. Senior buyers, creative built for the feed." },
       { name: "keywords", content: "YouTube Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Video Action Campaigns agency, Demand Gen YouTube, YouTube Shorts Ads, Shopify YouTube Ads" },
-      { property: "og:title", content: "No.1 YouTube Ads Agency UK | Video, Shorts & Demand Gen | BeingEcom" },
-      { property: "og:description", content: "Specialist Ecommerce Agency UK for YouTube Ads. Video Action, Demand Gen and Shorts campaigns for Shopify and WooCommerce brands." },
+      { property: "og:title", content: "YouTube Ads Agency UK | Video Action & Demand Gen" },
+      { property: "og:description", content: "Video Action, Demand Gen and Shorts campaigns that grow UK Shopify and WooCommerce brands profitably. Senior buyers, creative built for the feed." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/youtube-ads" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/services/performance-marketing/youtube-ads" },
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
       slug: "youtube-ads",
       eyebrow: "YouTube Ads",
       heroImage: heroImg,
-      heroTitle: "No.1 YouTube Ads Agency UK - engineered for revenue, not just views.",
+      heroTitle: "YouTube Ads Agency UK - engineered for revenue, not just views.",
       heroSub: "The specialist Ecommerce Marketing Agency UK for Video Action Campaigns, Demand Gen and YouTube Shorts - profitable, measurable YouTube growth for Shopify and DTC brands.",
       problemTitle: "Why most YouTube ad accounts burn cash.",
       problemBullets: [
@@ -107,7 +108,7 @@ export const Route = createFileRoute("/services/performance-marketing/youtube-ad
         result: "£68K MRR at 3.1× ROAS in 90 days, incremental to Meta.",
         metrics: [{ label: "MRR", value: "£68K" }, { label: "ROAS", value: "3.1×" }, { label: "Days", value: "90" }],
       },
-      ctaTitle: "Turn YouTube into a profitable channel with the UK's No.1 YouTube Ads Agency.",
+      ctaTitle: "Turn YouTube into a profitable channel with a senior UK YouTube Ads Agency.",
       impactStats: [
         { value: "3.1×", label: "VAC ROAS" },
         { value: "£68K", label: "New MRR" },

@@ -17,12 +17,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/store-development/shopify")({
   head: () => ({
     meta: [
-      { title: "Shopify Marketing Agency UK | Shopify Plus Development | BeingEcom" },
-      { name: "description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email one revenue-focused team." },
-      { property: "og:title", content: "Shopify Marketing Agency UK | Shopify Plus Development | BeingEcom" },
-      { property: "og:description", content: "Shopify Marketing Agency UK for growing DTC brands. Shopify & Shopify Plus development, SEO, paid ads, CRO and Klaviyo email one revenue-focused team." },
+      { title: "Shopify Marketing Agency UK | Plus Development" },
+      { name: "description", content: "Shopify and Shopify Plus development, SEO, paid ads, CRO and Klaviyo email from one revenue-focused UK team. Senior operators, no lock-ins." },
+      { property: "og:title", content: "Shopify Marketing Agency UK | Plus Development" },
+      { property: "og:description", content: "Shopify and Shopify Plus development, SEO, paid ads, CRO and Klaviyo email from one revenue-focused UK team. Senior operators, no lock-ins." },
       { property: "og:url", content: "https://beingecom.com/services/store-development/shopify" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/store-development/shopify" }],
     scripts: [

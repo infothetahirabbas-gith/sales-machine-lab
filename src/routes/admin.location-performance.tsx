@@ -27,6 +27,8 @@ export const Route = createFileRoute("/admin/location-performance")({
     meta: [
       { title: "Admin · Location Performance" },
       { name: "robots", content: "noindex, nofollow" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: LocationPerformanceDashboard,

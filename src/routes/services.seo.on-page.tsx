@@ -26,12 +26,13 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/seo/on-page")({
   head: () => ({
     meta: [
-      { title: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
-      { name: "description", content: "BeingEcom is a leading UK on-page SEO agency for ecommerce. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages - built by senior UK ecommerce SEOs." },
-      { property: "og:title", content: "On-Page SEO Agency UK | No.1 Shopify & Woo Product SEO | BeingEcom" },
-      { property: "og:description", content: "BeingEcom is a leading On-Page SEO Agency UK. Titles, schema, copy and internal links that rank Shopify and WooCommerce product & collection pages, built by senior UK ecommerce SEOs." },
+      { title: "On-Page SEO Agency UK | Shopify Product & Category" },
+      { name: "description", content: "Titles, schema, copy and internal links that rank Shopify and WooCommerce product and collection pages, built by senior UK ecommerce SEOs." },
+      { property: "og:title", content: "On-Page SEO Agency UK | Shopify Product & Category" },
+      { property: "og:description", content: "Titles, schema, copy and internal links that rank Shopify and WooCommerce product and collection pages, built by senior UK ecommerce SEOs." },
       { property: "og:url", content: "https://beingecom.com/services/seo/on-page" },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/services/seo/on-page" }],
     scripts: [

@@ -24,6 +24,7 @@ export const Route = createFileRoute("/compare/$slug")({
         { property: "og:description", content: entry.meta.description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

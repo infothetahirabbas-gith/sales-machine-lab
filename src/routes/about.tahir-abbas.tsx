@@ -68,6 +68,7 @@ export const Route = createFileRoute("/about/tahir-abbas")({
         { property: "og:description", content: "Founder of BeingEcom. Ecommerce growth expert scaling Shopify and WooCommerce brands." },
         { property: "og:url", content: url },
         { property: "og:type", content: "profile" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

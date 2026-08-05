@@ -11,6 +11,8 @@ export const Route = createFileRoute("/terms")({
       { property: "og:title", content: "Terms of Service - BeingEcom UK" },
       { property: "og:description", content: "Terms governing use of BeingEcom’s website and services." },
       { property: "og:url", content: "https://beingecom.com/terms" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/terms" }],
     scripts: [

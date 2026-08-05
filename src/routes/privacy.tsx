@@ -11,6 +11,8 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:title", content: "Privacy Policy - BeingEcom UK" },
       { property: "og:description", content: "How BeingEcom collects, uses and protects your data under UK GDPR." },
       { property: "og:url", content: "https://beingecom.com/privacy" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://beingecom.com/privacy" }],
     scripts: [

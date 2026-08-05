@@ -57,6 +57,7 @@ export const Route = createFileRoute("/clients")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:url", content: CANONICAL },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: jsonLd.map((obj) => ({ type: "application/ld+json", children: JSON.stringify(obj) })),

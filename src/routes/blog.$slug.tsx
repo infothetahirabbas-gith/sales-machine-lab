@@ -489,6 +489,8 @@ export const Route = createFileRoute("/blog/$slug")({
         meta: [
           { title: "Article not found - BeingEcom" },
           { name: "robots", content: "noindex" },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
         ],
       };
     }
