@@ -14,8 +14,8 @@ export const homeFaqs = [
     a: "An ecommerce marketing agency is a specialist team that grows online stores by combining ecommerce SEO, paid advertising, conversion rate optimisation (CRO), email and SMS, and analytics against a single revenue P&L. BeingEcom is a UK-based ecommerce marketing agency for Shopify, Shopify Plus and WooCommerce brands - we plan and run technical SEO, Google Ads (Search, Shopping, Performance Max), Meta Ads (Facebook and Instagram), TikTok Ads, Klaviyo email flows, GA4 and server-side tracking, and monthly CRO experiments, all measured against ROAS, AOV, CAC, contribution margin and LTV rather than vanity clicks.",
   },
   {
-    q: "Why choose an ecommerce marketing agency UK over a general digital agency?",
-    a: "A UK ecommerce marketing agency lives inside Shopify, WooCommerce, Google Ads, Meta Ads and Klaviyo every day, so strategy is built around basket economics - AOV, CAC, contribution margin, LTV - not vanity impressions. Generalist digital agencies split the same budget across brochureware sites, B2B lead-gen and social content, so ecommerce revenue rarely gets a specialist. BeingEcom is 100% ecommerce, works only with UK DTC brands, and hits payback faster because every senior consultant has scaled Shopify Plus and WooCommerce stores before.",
+    q: "Why choose an Ecommerce Marketing Agency UK over a general digital agency?",
+    a: "An Ecommerce Marketing Agency UK lives inside Shopify, WooCommerce, Google Ads, Meta Ads and Klaviyo every day, so strategy is built around basket economics - AOV, CAC, contribution margin, LTV - not vanity impressions. Generalist digital agencies split the same budget across brochure sites, B2B lead-gen and social content, so ecommerce revenue rarely gets a specialist. BeingEcom is 100% ecommerce, works only with UK DTC brands, and reaches payback faster because every senior consultant has scaled Shopify Plus and WooCommerce stores before.",
   },
   {
     q: "How much does hiring a UK ecommerce marketing agency cost?",
@@ -30,8 +30,8 @@ export const homeFaqs = [
     a: "The lift comes from creative, offer and destination - not just bidding. As an ecommerce ads agency UK, we rebuild the creative testing engine on Meta Ads and TikTok Ads (Advantage+ Shopping Campaigns, Spark Ads, UGC), restructure Google Ads Search, Shopping and Performance Max around product-margin tiers, and pair every campaign with a CRO-optimised landing page and clean GA4 + server-side tracking. That combination typically lifts blended ROAS 20-60% before spend goes up, because we fix conversion rate and creative fatigue first.",
   },
   {
-    q: "Why choose a Shopify agency UK for a growing DTC brand?",
-    a: "Shopify and Shopify Plus reward teams that understand theme architecture (Dawn, Sections Everywhere), checkout extensibility, Shop Pay, Shopify Markets and the app stack (Klaviyo, Recharge, Yotpo, Judge.me). As a Shopify agency UK, BeingEcom builds fast, conversion-first Shopify stores, integrates subscriptions and reviews cleanly, and ships weekly CRO experiments - so the store itself becomes a growth lever rather than a bottleneck. We also migrate legacy WooCommerce, Magento and BigCommerce stores to Shopify Plus without losing SEO equity.",
+    q: "Why choose a Shopify Marketing Agency UK for a growing DTC brand?",
+    a: "Shopify and Shopify Plus reward teams that understand theme architecture (Dawn, Sections Everywhere), checkout extensibility, Shop Pay, Shopify Markets and the app stack (Klaviyo, Recharge, Yotpo, Judge.me). As a Shopify Marketing Agency UK, BeingEcom builds fast, conversion-first Shopify stores, integrates subscriptions and reviews cleanly, and ships weekly CRO experiments - so the store itself becomes a growth lever rather than a bottleneck. We also migrate legacy WooCommerce, Magento and BigCommerce stores to Shopify Plus without losing SEO equity.",
   },
   {
     q: "Do you also work with WooCommerce and other ecommerce platforms?",
@@ -39,7 +39,7 @@ export const homeFaqs = [
   },
   {
     q: "Can BeingEcom manage ecommerce SEO and paid advertising together?",
-    a: "Yes, and that's the point of a full-stack ecommerce marketing agency. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence between Google Ads Search and organic collections, shared creative between Meta Ads and content, one GA4 + server-side tracking implementation, and a single attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same Klaviyo email and SMS retention engine - dropping blended CAC and lifting LTV in parallel.",
+    a: "Yes, and that's the point of hiring a full-stack Ecommerce Digital Marketing Agency UK rather than two suppliers. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence between Google Ads Search and organic collections, shared creative between Meta Ads and content, one GA4 and server-side tracking implementation, and a single attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same Klaviyo email and SMS retention engine - dropping blended CAC and lifting LTV in parallel.",
   },
   {
     q: "How long does ecommerce SEO take to show measurable results?",

@@ -43,7 +43,7 @@ export default function Footer() {
           </Link>
 
           <p className="mt-6 text-background/80 leading-relaxed max-w-xs">
-            The growth operating system for Shopify & WooCommerce stores. Ads, CRO, SEO, automation done right.
+            BeingEcom is an Ecommerce Marketing Agency UK building growth systems for Shopify and WooCommerce stores - paid ads, CRO, ecommerce SEO, Klaviyo and automation under one senior team.
           </p>
           <div className="mt-6 flex items-center gap-3">
             {[
