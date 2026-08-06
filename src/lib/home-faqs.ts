@@ -14,8 +14,8 @@ export const homeFaqs = [
     a: "An ecommerce marketing agency is a specialist team that grows online stores by combining ecommerce SEO, paid advertising, conversion rate optimisation (CRO), email and SMS, and analytics against a single revenue P&L. BeingEcom is a UK-based ecommerce marketing agency for Shopify, Shopify Plus and WooCommerce brands - we plan and run technical SEO, Google Ads (Search, Shopping, Performance Max), Meta Ads (Facebook and Instagram), TikTok Ads, Klaviyo email flows, GA4 and server-side tracking, and monthly CRO experiments, all measured against ROAS, AOV, CAC, contribution margin and LTV rather than vanity clicks.",
   },
   {
-    q: "Why choose an ecommerce marketing agency UK over a general digital agency?",
-    a: "A UK ecommerce marketing agency lives inside Shopify, WooCommerce, Google Ads, Meta Ads and Klaviyo every day, so strategy is built around basket economics - AOV, CAC, contribution margin, LTV - not vanity impressions. Generalist digital agencies split the same budget across brochureware sites, B2B lead-gen and social content, so ecommerce revenue rarely gets a specialist. BeingEcom is 100% ecommerce, works only with UK DTC brands, and hits payback faster because every senior consultant has scaled Shopify Plus and WooCommerce stores before.",
+    q: "Why choose an Ecommerce Marketing Agency UK over a general digital agency?",
+    a: "An Ecommerce Marketing Agency UK lives inside Shopify, WooCommerce, Google Ads, Meta Ads and Klaviyo every day, so strategy is built around basket economics - AOV, CAC, contribution margin, LTV - not vanity impressions. Generalist digital agencies split the same budget across brochure sites, B2B lead-gen and social content, so ecommerce revenue rarely gets a specialist. BeingEcom is 100% ecommerce, works only with UK DTC brands, and reaches payback faster because every senior consultant has scaled Shopify Plus and WooCommerce stores before.",
   },
   {
     q: "How much does hiring a UK ecommerce marketing agency cost?",
