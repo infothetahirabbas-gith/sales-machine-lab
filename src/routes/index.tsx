@@ -786,7 +786,7 @@ function Home() {
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
-        intro="As a category-fluent ecommerce digital agency, we've scaled Shopify and WooCommerce brands across the verticals British consumers spend on most. Each niche gets its own SEO map, creative playbook and retention model."
+        intro="Category knowledge is half the job. As a Shopify Marketing Agency UK working across the verticals British consumers spend on most, each niche gets its own keyword map, creative playbook and retention model - not a recycled template."
 
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
