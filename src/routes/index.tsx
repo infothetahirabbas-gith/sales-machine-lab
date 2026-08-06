@@ -174,23 +174,23 @@ function Home() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Ecommerce Marketing Agency · UK-based Growth Team
+              Ecommerce Growth Agency UK · Senior in-house team
             </div>
             <h1 className="hero-headline mt-5 font-black tracking-tight">
-              <span className="hero-mobile text-primary">Ecommerce Growth</span>
-              <span className="hero-mobile text-primary">Marketing Agency UK</span>
+              <span className="hero-mobile text-primary">Ecommerce Marketing</span>
+              <span className="hero-mobile text-primary">Agency UK</span>
               <span className="hero-mobile text-ink mt-1">Driving More Traffic,</span>
               <span className="hero-mobile text-ink">Sales &amp; Revenue for</span>
               <span className="hero-mobile text-primary">Shopify &amp; WooCommerce Brands</span>
-              <span className="hero-desktop text-primary">Ecommerce Growth</span>
-              <span className="hero-desktop text-primary">Marketing Agency UK</span>
+              <span className="hero-desktop text-primary">Ecommerce Marketing</span>
+              <span className="hero-desktop text-primary">Agency UK</span>
               <span className="hero-desktop text-ink mt-1">Driving More Traffic,</span>
               <span className="hero-desktop text-ink">Sales &amp; Revenue for</span>
               <span className="hero-desktop text-primary">Shopify &amp; WooCommerce Brands</span>
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom runs SEO, paid media, CRO, Klaviyo and analytics for UK Shopify and WooCommerce stores as one team on one revenue P&amp;L. Senior operators only, weekly Loom reporting against contribution margin, and a 90-day fixed engagement before anything rolls month-to-month.
+              BeingEcom is an Ecommerce Marketing Agency UK running ecommerce SEO, paid media, CRO, Klaviyo lifecycle marketing and GA4 analytics for Shopify and WooCommerce stores as one team on one revenue P&amp;L. Senior operators only, weekly Loom reporting against contribution margin, and a 90-day fixed engagement before anything rolls month-to-month.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
