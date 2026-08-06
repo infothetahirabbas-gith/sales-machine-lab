@@ -912,7 +912,7 @@ function Home() {
             <span className="block text-primary mt-1 md:mt-2">Let's build your revenue engine.</span>
           </>
         }
-        sub="Book a free strategy call with our senior Shopify and WooCommerce team. We'll show you exactly how to scale revenue across paid, SEO, CRO and email."
+        sub="Book a free strategy call with the senior team. You'll get a straight read on where revenue is leaking and what we'd do first as your Ecommerce Marketing Agency UK - and, if paid media is the bottleneck, as your Ecommerce Advertising Agency UK across Meta, Google and TikTok."
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}
