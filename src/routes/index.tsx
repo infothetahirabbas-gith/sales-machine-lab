@@ -681,7 +681,7 @@ function Home() {
         center
         eyebrow="Stack"
         title="The tools we run on every store."
-        intro="One integrated stack - platform, paid media, analytics, retention and automation wired together so revenue, spend and LTV live in the same view."
+        intro="One integrated stack - Shopify, Google Ads, Meta Ads, GA4, Klaviyo and automation wired together so revenue, spend and lifetime value live in the same view. It's the stack any serious Shopify Marketing Agency UK should be able to run without a third-party middleman."
       >
         <div className="grid gap-5 md:grid-cols-2">
           {[
