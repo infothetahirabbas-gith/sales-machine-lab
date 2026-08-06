@@ -30,8 +30,8 @@ export const homeFaqs = [
     a: "The lift comes from creative, offer and destination - not just bidding. As an ecommerce ads agency UK, we rebuild the creative testing engine on Meta Ads and TikTok Ads (Advantage+ Shopping Campaigns, Spark Ads, UGC), restructure Google Ads Search, Shopping and Performance Max around product-margin tiers, and pair every campaign with a CRO-optimised landing page and clean GA4 + server-side tracking. That combination typically lifts blended ROAS 20-60% before spend goes up, because we fix conversion rate and creative fatigue first.",
   },
   {
-    q: "Why choose a Shopify agency UK for a growing DTC brand?",
-    a: "Shopify and Shopify Plus reward teams that understand theme architecture (Dawn, Sections Everywhere), checkout extensibility, Shop Pay, Shopify Markets and the app stack (Klaviyo, Recharge, Yotpo, Judge.me). As a Shopify agency UK, BeingEcom builds fast, conversion-first Shopify stores, integrates subscriptions and reviews cleanly, and ships weekly CRO experiments - so the store itself becomes a growth lever rather than a bottleneck. We also migrate legacy WooCommerce, Magento and BigCommerce stores to Shopify Plus without losing SEO equity.",
+    q: "Why choose a Shopify Marketing Agency UK for a growing DTC brand?",
+    a: "Shopify and Shopify Plus reward teams that understand theme architecture (Dawn, Sections Everywhere), checkout extensibility, Shop Pay, Shopify Markets and the app stack (Klaviyo, Recharge, Yotpo, Judge.me). As a Shopify Marketing Agency UK, BeingEcom builds fast, conversion-first Shopify stores, integrates subscriptions and reviews cleanly, and ships weekly CRO experiments - so the store itself becomes a growth lever rather than a bottleneck. We also migrate legacy WooCommerce, Magento and BigCommerce stores to Shopify Plus without losing SEO equity.",
   },
   {
     q: "Do you also work with WooCommerce and other ecommerce platforms?",
