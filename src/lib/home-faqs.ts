@@ -39,7 +39,7 @@ export const homeFaqs = [
   },
   {
     q: "Can BeingEcom manage ecommerce SEO and paid advertising together?",
-    a: "Yes, and that's the point of a full-stack ecommerce marketing agency. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence between Google Ads Search and organic collections, shared creative between Meta Ads and content, one GA4 + server-side tracking implementation, and a single attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same Klaviyo email and SMS retention engine - dropping blended CAC and lifting LTV in parallel.",
+    a: "Yes, and that's the point of hiring a full-stack Ecommerce Digital Marketing Agency UK rather than two suppliers. Running ecommerce SEO and paid ads under one roof means shared keyword intelligence between Google Ads Search and organic collections, shared creative between Meta Ads and content, one GA4 and server-side tracking implementation, and a single attribution model. Paid pays for the fast wins while SEO compounds free traffic, and both feed the same Klaviyo email and SMS retention engine - dropping blended CAC and lifting LTV in parallel.",
   },
   {
     q: "How long does ecommerce SEO take to show measurable results?",
