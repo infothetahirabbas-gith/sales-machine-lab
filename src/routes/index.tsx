@@ -756,7 +756,7 @@ function Home() {
         center
         eyebrow="Why UK brands choose BeingEcom"
         title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
-        intro="Senior operators, transparent reporting and one integrated growth system - not siloed retainers. Here's what UK Shopify and WooCommerce brands hire us for."
+        intro="Senior operators, transparent reporting and one integrated system rather than siloed retainers - the reason UK Shopify and WooCommerce founders keep an Ecommerce Growth Agency UK on retainer past the first 90 days."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
