@@ -421,14 +421,14 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated ecommerce growth team &mdash; Shopify and WooCommerce specialists working from a single plan. No more disconnected agencies blaming each other."
+        intro="One integrated Ecommerce Growth Agency UK &mdash; Shopify and WooCommerce specialists working from a single plan. Most brands come to us after juggling three suppliers; here it's one Ecommerce Digital Marketing Agency UK team, one roadmap, no finger-pointing."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { t: "Traffic", b: "Profitable paid ads across Meta, Google & TikTok - managed by a paid ads agency UK that knows ecommerce.", Icon: Megaphone },
-            { t: "Conversion", b: "Store, product page & checkout optimised for sales with proven CRO services UK.", Icon: MousePointerClick },
-            { t: "Organic", b: "Ecommerce SEO services UK that compound free revenue and dominate AI search overviews.", Icon: Search },
-            { t: "Scale", b: "Email, retention & data systems that multiply LTV through Klaviyo email marketing automation.", Icon: Rocket },
+            { t: "Traffic", b: "Profitable Meta, Google and TikTok campaigns run by an Ecommerce Advertising Agency UK team that lives in ecommerce accounts daily.", Icon: Megaphone },
+            { t: "Conversion", b: "Store, product page and checkout rebuilt around ecommerce CRO so more of the traffic you already pay for buys.", Icon: MousePointerClick },
+            { t: "Organic", b: "Ecommerce SEO that compounds free revenue and earns citations in AI Overviews and ChatGPT answers.", Icon: Search },
+            { t: "Scale", b: "Klaviyo email, retention and analytics systems that lift customer lifetime value month after month.", Icon: Rocket },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
               <Card className="relative overflow-hidden h-full">
