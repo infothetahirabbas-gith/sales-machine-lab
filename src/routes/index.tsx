@@ -391,7 +391,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads - they need to fix the leaks in their funnel before scaling spend.">
+      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads - they need the leaks in the funnel fixed before scaling spend. That is where an Ecommerce Marketing Agency UK earns its fee: diagnosing what breaks revenue, then rebuilding it in the right order.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
