@@ -608,7 +608,7 @@ function Home() {
       <Section
         eyebrow="More client wins"
         title={<>Featured <span className="text-sky-gradient">case studies</span></>}
-        intro="Six recent Shopify and WooCommerce engagements across apparel, beauty, supplements, home, coffee and pet supplies. Each links straight to the full teardown."
+        intro="Six recent Shopify and WooCommerce engagements across apparel, beauty, supplements, home, coffee and pet supplies. They're the reason founders hire us as their Ecommerce Marketing Agency UK and, in four of these six, as their Ecommerce Advertising Agency UK too. Each links straight to the full teardown."
       >
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
