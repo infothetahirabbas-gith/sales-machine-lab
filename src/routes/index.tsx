@@ -103,7 +103,7 @@ const services = [
   { to: "/services/store-development", title: "Store Development", body: "Shopify & WooCommerce stores engineered for conversion.", Icon: ShoppingCart },
   { to: "/services/cro", title: "Conversion Rate Optimisation", body: "Turn existing traffic into 2-3× more sales.", Icon: TrendingUp },
   { to: "/services/performance-marketing", title: "Performance Marketing", body: "Meta, Google & TikTok ads built to scale profitably.", Icon: Megaphone },
-  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google - free traffic forever.", Icon: Search },
+  { to: "/services/seo", title: "Ecommerce SEO", body: "Rank products and collections on Google - Build organic traffic that compounds over time..", Icon: Search },
   { to: "/services/email-sms", title: "Email Marketing Automation", body: "Recover lost sales. Multiply repeat customers.", Icon: Mail },
   { to: "/services/creative", title: "Creative Production", body: "Scroll-stopping ad creatives that actually sell.", Icon: Palette },
   { to: "/services/ai-automation", title: "AI Automation", body: "Agentic workflows that cut manual work and lift LTV.", Icon: Sparkles },
@@ -391,7 +391,7 @@ function Home() {
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
             { t: "High ad spend, low ROAS", b: "You're burning budget on bad creatives and lazy targeting." },
-            { t: "Poor conversion rate", b: "Product pages don't sell. Checkout drops 70%+." },
+            { t: "Poor conversion rate", b: "Product pages don't sell. High checkout abandonment can quietly destroy revenue." },
             { t: "Weak branding", b: "Looks generic. Feels untrustworthy. People bounce on instinct." },
           ].map((p) => (
             <Card key={p.t}>
@@ -422,7 +422,7 @@ function Home() {
           {[
             { t: "Traffic", b: "Profitable Meta, Google and TikTok campaigns run by an Ecommerce Advertising Agency UK team that lives in ecommerce accounts daily.", Icon: Megaphone },
             { t: "Conversion", b: "Store, product page and checkout rebuilt around ecommerce CRO so more of the traffic you already pay for buys.", Icon: MousePointerClick },
-            { t: "Organic", b: "Ecommerce SEO that compounds free revenue and earns citations in AI Overviews and ChatGPT answers.", Icon: Search },
+            { t: "Organic", b: "Ecommerce SEO that compounds free revenue and builds content and entity signals for greater visibility across AI-assisted search.", Icon: Search },
             { t: "Scale", b: "Klaviyo email, retention and analytics systems that lift customer lifetime value month after month.", Icon: Rocket },
           ].map((p, i) => (
             <Reveal key={p.t} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -453,7 +453,7 @@ function Home() {
         className="section-band--warm"
         center
         eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
-        title="One senior team. Nine growth services. Every operator owns your P&L."
+        title="One senior team. 10 growth services. Every operator owns your P&L."
         intro="We are your Ecommerce Marketing Agency UK under one roof: SEO that compounds, Shopify and WooCommerce builds that convert, Meta and Google Ads managed for profit, CRO that lifts revenue per session, and AI automation that removes the busywork. No hand-offs, no vanity metrics, just one accountable team moving your numbers every week."
       >
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
@@ -469,7 +469,7 @@ function Home() {
           ))}
         </div>
         <div className="mt-6 text-center text-sm">
-          <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
+          <Link to="/services" className="font-semibold text-primary hover:underline">See all 10 services →</Link>
           <span className="mx-2 text-muted-foreground">·</span>
           <Link to="/services/performance-marketing" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
