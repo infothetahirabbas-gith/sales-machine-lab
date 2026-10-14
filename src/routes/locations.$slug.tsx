@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowRight, MapPin, CheckCircle2, TrendingUp, Target, Zap, Users,
-  BarChart3, Rocket, ShieldCheck, Sparkles, Star, Clock, Award,
+  BarChart3, Rocket, ShieldCheck, Sparkles, Clock, Award,
   Phone, Calendar, LineChart, ShoppingBag, Search, Megaphone,
   Layers, PieChart, Globe2, Handshake, Play, MessageCircle,
 } from "lucide-react";
@@ -21,6 +21,7 @@ import AISummary from "../components/site/AISummary";
 import { metaFor, variantForSlug } from "../lib/location-seo-meta";
 import { trackEvent } from "../lib/analytics";
 import { buildLocationLink, withLocationUtm, stashLocationAttribution, type LocationCtx } from "../lib/location-attribution";
+import { nearbySlugs } from "../lib/uk-geo";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -67,11 +68,11 @@ const GA4Icon = () => (
 
 const TRUST_LOGOS = [
   { name: "Shopify Plus",    Icon: ShopifyIcon },
-  { name: "Klaviyo Master",  Icon: KlaviyoIcon },
-  { name: "Meta Partner",    Icon: MetaIcon },
-  { name: "Google Partner",  Icon: GoogleIcon },
-  { name: "TikTok Partner",  Icon: TikTokIcon },
-  { name: "GA4 Certified",   Icon: GA4Icon },
+  { name: "Klaviyo",         Icon: KlaviyoIcon },
+  { name: "Meta Ads",        Icon: MetaIcon },
+  { name: "Google Ads",      Icon: GoogleIcon },
+  { name: "TikTok Ads",      Icon: TikTokIcon },
+  { name: "GA4",             Icon: GA4Icon },
 ];
 
 
@@ -98,7 +99,7 @@ export const Route = createFileRoute("/locations/$slug")({
       { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30-60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3-6.` },
-      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes - we're a Google Partner and Meta Business Partner running Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands, all managed by senior UK media buyers.` },
+      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes - our senior UK media buyers run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands day-to-day.` },
       { q: `Do you handle ecommerce SEO for ${loc.city} Shopify stores?`, a: `Yes. We deliver technical SEO, Shopify SEO, local SEO for ${loc.city}, product and collection page optimisation, schema markup and Core Web Vitals fixes to grow organic revenue month over month.` },
       { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
@@ -147,7 +148,6 @@ export const Route = createFileRoute("/locations/$slug")({
             serviceType: ["Ecommerce Agency", "Shopify Development", "SEO Agency", "Google Ads", "Meta Ads", "Klaviyo Email Marketing", "CRO"],
             address: { "@type": "PostalAddress", addressLocality: loc.city, addressRegion: loc.region, addressCountry: "GB" },
             ...(geo ? { geo: { "@type": "GeoCoordinates", latitude: geo.latitude, longitude: geo.longitude } } : {}),
-            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "120", bestRating: "5" },
             sameAs: [SITE_URL],
           }),
         },
@@ -245,7 +245,6 @@ function LocationPage() {
   const stats = [
     { end: 120, suffix: "+", label: "UK DTC brands scaled" },
     { end: 47, suffix: "M+", prefix: "£", label: "Client revenue driven" },
-    { end: 4.9, decimals: 1, suffix: "/5", label: "Average client rating" },
     { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Top ${city} client ROAS` },
   ];
 
@@ -258,19 +257,21 @@ function LocationPage() {
     { title: "Report & Iterate", body: `Weekly Loom updates, monthly strategy calls and a live dashboard - no reporting theatre.` },
   ];
 
-  const industries: { name: string; emoji: string; tint: string }[] = [
-    { name: "Fashion & Apparel",      emoji: "👗", tint: "from-pink-500/15 to-rose-500/5   text-pink-600" },
-    { name: "Beauty & Skincare",      emoji: "💄", tint: "from-fuchsia-500/15 to-pink-500/5 text-fuchsia-600" },
-    { name: "Health & Supplements",   emoji: "🌿", tint: "from-emerald-500/15 to-teal-500/5 text-emerald-600" },
-    { name: "Home & Furniture",       emoji: "🛋️", tint: "from-amber-500/15 to-orange-500/5 text-amber-700" },
-    { name: "Food & Beverage",        emoji: "🍫", tint: "from-orange-500/15 to-red-500/5   text-orange-600" },
-    { name: "Jewellery & Accessories",emoji: "💎", tint: "from-indigo-500/15 to-violet-500/5 text-indigo-600" },
-    { name: "Fitness & Sports",       emoji: "🏋️", tint: "from-red-500/15 to-orange-500/5   text-red-600" },
-    { name: "Baby & Kids",            emoji: "🧸", tint: "from-sky-500/15 to-cyan-500/5     text-sky-600" },
-    { name: "Pet Products",           emoji: "🐾", tint: "from-yellow-500/15 to-amber-500/5 text-yellow-700" },
-    { name: "Tech & Gadgets",         emoji: "🎧", tint: "from-slate-500/15 to-zinc-500/5   text-slate-700" },
-    { name: "Sustainable Brands",     emoji: "♻️", tint: "from-lime-500/15 to-green-500/5   text-lime-700" },
-    { name: "Premium & Luxury",       emoji: "👑", tint: "from-amber-500/15 to-yellow-500/5 text-amber-700" },
+  // Industry cards link to the matching industry landing page so location
+  // pages pass equity to (and receive relevance from) the industry hub.
+  const industries: { name: string; emoji: string; tint: string; to: string }[] = [
+    { name: "Fashion & Apparel",       emoji: "👗", tint: "from-pink-500/15 to-rose-500/5   text-pink-600",       to: "/industries/fashion-apparel" },
+    { name: "Beauty & Skincare",       emoji: "💄", tint: "from-fuchsia-500/15 to-pink-500/5 text-fuchsia-600",    to: "/industries/beauty-personal-care" },
+    { name: "Health & Supplements",    emoji: "🌿", tint: "from-emerald-500/15 to-teal-500/5 text-emerald-600",   to: "/industries/health-wellness" },
+    { name: "Home & Furniture",        emoji: "🛋️", tint: "from-amber-500/15 to-orange-500/5 text-amber-700",    to: "/industries/furniture-interiors" },
+    { name: "Food & Beverage",         emoji: "🍫", tint: "from-orange-500/15 to-red-500/5   text-orange-600",     to: "/industries/food-beverage" },
+    { name: "Jewellery & Accessories", emoji: "💎", tint: "from-indigo-500/15 to-violet-500/5 text-indigo-600",   to: "/industries/jewellery-watches" },
+    { name: "Fitness & Sports",        emoji: "🏋️", tint: "from-red-500/15 to-orange-500/5   text-red-600",       to: "/industries/sports-fitness" },
+    { name: "Baby & Kids",             emoji: "🧸", tint: "from-sky-500/15 to-cyan-500/5     text-sky-600",       to: "/industries/baby-kids" },
+    { name: "Pet Products",            emoji: "🐾", tint: "from-yellow-500/15 to-amber-500/5 text-yellow-700",    to: "/industries/pets-supplies" },
+    { name: "Tech & Gadgets",          emoji: "🎧", tint: "from-slate-500/15 to-zinc-500/5   text-slate-700",     to: "/industries/electronics-technology" },
+    { name: "Sustainable Brands",      emoji: "♻️", tint: "from-lime-500/15 to-green-500/5   text-lime-700",      to: "/industries" },
+    { name: "Premium & Luxury",        emoji: "👑", tint: "from-amber-500/15 to-yellow-500/5 text-amber-700",     to: "/industries" },
   ];
 
 
@@ -285,11 +286,11 @@ function LocationPage() {
     { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
     { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
     { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes - technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
-    { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. As a Google Partner and Meta Business Partner we run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands, managed by senior UK media buyers.` },
+    { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. Our senior UK media buyers run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands day-to-day.` },
     { q: `Can you manage Klaviyo email marketing for our ${city} brand?`, a: `Absolutely. Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for ${city} DTC brands, with segmentation and post-purchase automations built for LTV.` },
     { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30-60 days as we rebuild tracking, creative and offers. Compounding SEO, CRO and retention gains follow in months 3-6.` },
     { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
-    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior ${city} team directly - usually a reply within an hour on UK business days.` },
+    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior team directly - usually a reply within an hour on UK business days.` },
   ];
 
   const variant = variantForSlug(loc.slug);
@@ -390,9 +391,8 @@ function LocationPage() {
             </Reveal>
             <Reveal delay={3}>
               <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground flex-wrap justify-center lg:justify-start">
-                <div className="flex items-center gap-2"><Star className="w-4 h-4 fill-primary text-primary" /> 4.9/5 rating</div>
-                <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary" /> Shopify Partner</div>
-                <div className="flex items-center gap-2"><Award className="w-4 h-4 text-primary" /> Meta Business Partner</div>
+                <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary" /> Shopify & Shopify Plus</div>
+                <div className="flex items-center gap-2"><Award className="w-4 h-4 text-primary" /> Meta & Google Ads</div>
               </div>
             </Reveal>
 
@@ -423,7 +423,7 @@ function LocationPage() {
       <section className="border-y border-border bg-secondary/40 py-8">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="text-center mb-5">
-            <span className="text-sm font-semibold text-ink">Trusted by {city} ecommerce brands · certified partners</span>
+            <span className="text-sm font-semibold text-ink">The platforms we run for {city} ecommerce brands every day</span>
           </div>
           <div
             className="relative overflow-hidden"
@@ -453,7 +453,7 @@ function LocationPage() {
               Our team combines <strong className="text-ink">ecommerce SEO</strong>, <strong className="text-ink">Google Ads</strong>, <strong className="text-ink">Meta Ads</strong>, <strong className="text-ink">TikTok Ads</strong>, <strong className="text-ink">Klaviyo</strong> email &amp; SMS, <strong className="text-ink">conversion rate optimisation</strong> and <strong className="text-ink">GA4 analytics</strong> into one accountable growth engine. Every decision is tied back to blended ROAS, contribution margin and customer LTV - not platform vanity metrics.
             </p>
             <p>
-              As a Shopify Partner, Google Partner, Meta Business Partner and Klaviyo Master, we bring proven playbooks to {city} ecommerce brands across fashion, beauty, wellness, homeware, food &amp; drink and premium DTC. Whether you need a <strong className="text-ink">Shopify marketing agency in {city}</strong>, a <strong className="text-ink">WooCommerce partner</strong>, or a full-service <strong className="text-ink">ecommerce ads agency in {city}</strong>, our senior operators build the strategy and ship the work themselves.
+              We run Shopify and Shopify Plus builds, Google Ads, Meta Ads, TikTok Ads and Klaviyo email &amp; SMS day in, day out — bringing proven playbooks to {city} ecommerce brands across fashion, beauty, wellness, homeware, food &amp; drink and premium DTC. Whether you need a <strong className="text-ink">Shopify marketing agency in {city}</strong>, a <strong className="text-ink">WooCommerce partner</strong>, or a full-service <strong className="text-ink">ecommerce ads agency in {city}</strong>, our senior operators build the strategy and ship the work themselves.
             </p>
           </div>
           <div className="space-y-3">
@@ -547,22 +547,19 @@ function LocationPage() {
               <div className="rounded-2xl border border-border bg-white p-5">
                 <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">Nearby cities we serve</h3>
                 <ul className="space-y-2">
-                  {narrative.nearby.map((slug) => {
-                    const nearby = LOCATIONS.find((l) => l.slug === slug);
-                    if (!nearby) return null;
-                    return (
-                      <li key={slug}>
-                        <Link
-                          to="/locations/$slug"
-                          params={{ slug }}
-                          className="text-sm text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
-                        >
-                          <ArrowRight className="w-3.5 h-3.5 text-primary" />
-                          Ecommerce Agency {nearby.city}
-                        </Link>
-                      </li>
-                    );
-                  })}
+                  {/* Deterministic: 3 nearest cities by verified coordinates (uk-geo.ts). */}
+                  {nearbySlugs(loc.slug, 3).map((nearby) => (
+                    <li key={nearby.slug}>
+                      <Link
+                        to="/locations/$slug"
+                        params={{ slug: nearby.slug }}
+                        className="text-sm text-ink hover:text-primary transition-colors inline-flex items-center gap-1"
+                      >
+                        <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                        Ecommerce Agency {nearby.city}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 border border-primary/20 p-5">
@@ -807,8 +804,10 @@ function LocationPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {industries.map((ind, i) => (
             <Reveal key={ind.name} delay={Math.min(i % 4, 3) as 0 | 1 | 2 | 3}>
-              <div
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${ind.tint} p-4 sm:p-5 flex items-center gap-3 sm:gap-4 card-hover cursor-default`}
+              <Link
+                to={ind.to}
+                title={`${ind.name} ecommerce agency - ${city}`}
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${ind.tint} p-4 sm:p-5 flex items-center gap-3 sm:gap-4 card-hover`}
               >
                 <span
                   className="shrink-0 grid place-items-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white shadow-sm text-2xl sm:text-[26px] transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6"
@@ -821,7 +820,7 @@ function LocationPage() {
                   <div className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 truncate">{city} DTC & ecommerce</div>
                 </div>
                 <span className="pointer-events-none absolute -right-6 -bottom-6 w-20 h-20 rounded-full bg-white/40 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -841,45 +840,14 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 18. TESTIMONIALS */}
-      <Section eyebrow="Loved by founders" title={`What ${city} clients say`} alt>
-        {(() => {
-          const TestimonialCard = ({ t, i }: { t: (typeof C.testimonials)[number]; i: number }) => (
-            <div className="card-surface card-hover p-6 h-full flex flex-col w-[85vw] sm:w-[380px] md:w-[360px] shrink-0">
-              <div className="flex gap-1 mb-3">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-primary text-primary" />)}</div>
-              <p className="text-ink flex-1">"{t.quote}"</p>
-              <div className="mt-5 flex items-center gap-3">
-                <SafeImg src={IMG.founders[i % 3]} alt={`${t.name} - ${city} ecommerce founder testimonial`} title={`${city} ecommerce founder testimonial`} loading="lazy" decoding="async" width={500} height={500} data-location={city} data-geo={LOCATION_GEO[loc.slug] ? `${LOCATION_GEO[loc.slug].latitude},${LOCATION_GEO[loc.slug].longitude}` : undefined} className="w-11 h-11 rounded-full object-cover shrink-0" />
-                <div className="min-w-0"><div className="font-semibold text-ink text-sm truncate">{t.name}</div><div className="text-xs text-muted-foreground truncate">{t.role}</div></div>
-              </div>
-            </div>
-          );
-          const originals = C.testimonials.length;
-          const items = [...C.testimonials, ...C.testimonials, ...C.testimonials];
-          return (
-            <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-              <div className="marquee-track">
-                {items.map((t, i) => {
-                  const isClone = i >= originals;
-                  return (
-                    <div
-                      key={`${t.name}-${i}`}
-                      aria-hidden={isClone ? "true" : undefined}
-                      {...(isClone ? { "data-nosnippet": "true" } : {})}
-                      {...(isClone ? { inert: true } : {})}
-                    >
-                      <TestimonialCard t={t} i={i} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-
-          );
-        })()}
-      </Section>
-
+      {/* 18. TESTIMONIALS — SUPPRESSED Oct 2026.
+          The per-city testimonials rendered here (names, quotes, 5-star
+          visuals) come from location-content.ts and are UNVERIFIED — e.g.
+          "Amelia H., Founder, Shoreditch skincare brand" and "Marcus O.,
+          CEO, Kensington fashion label" plus their revenue figures have no
+          recorded permission or substantiation. Removed rather than shown
+          until each quote is verified. To restore: re-add the Section from
+          git history once verified testimonials exist. */}
       {/* 19. CASE STUDY */}
       <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
         <Reveal>
@@ -929,20 +897,20 @@ function LocationPage() {
         </div>
       </Section>
 
-      {/* 21a. NEARBY LOCATIONS - internal linking / topical authority */}
+      {/* 21a. NEARBY LOCATIONS - deterministic: 3 nearest cities by verified coordinates */}
       <Section eyebrow="Nearby cities" title={`Ecommerce agency serving cities near ${city}`} intro={`We work with DTC and Shopify brands across ${loc.region} and the wider UK. Explore our nearest ecommerce agency locations to ${city}.`} alt>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {LOCATIONS.filter((l) => l.slug !== loc.slug).slice(0, 8).map((l) => (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {nearbySlugs(loc.slug, 3).map((l) => (
             <Link
               key={l.slug}
               to="/locations/$slug"
               params={{ slug: l.slug }}
               className="group flex items-center justify-between gap-3 rounded-2xl border border-border bg-white p-4 card-hover"
-              title={`Ecommerce agency in ${l.city}, ${l.region}`}
+              title={`Ecommerce agency in ${l.city}`}
             >
               <div className="min-w-0">
                 <div className="flex items-center gap-2 text-ink font-semibold truncate"><MapPin className="w-4 h-4 text-primary shrink-0" />{l.city}</div>
-                <div className="text-xs text-muted-foreground truncate">Ecommerce agency · {l.region}</div>
+                <div className="text-xs text-muted-foreground truncate">Ecommerce agency · nearest to {city}</div>
               </div>
               <ArrowRight className="w-4 h-4 text-primary shrink-0 transition-transform group-hover:translate-x-1" />
             </Link>

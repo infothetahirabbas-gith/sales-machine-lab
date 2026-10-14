@@ -74,6 +74,66 @@ export type Database = {
         }
         Relationships: []
       }
+      strategy_call_leads: {
+        Row: {
+          city: string | null
+          city_slug: string | null
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          idempotency_key: string
+          message: string | null
+          name: string
+          notification_status: string
+          placement: string | null
+          plan: string | null
+          region: string | null
+          revenue: string | null
+          source: string
+          spend: string | null
+          store_url: string
+        }
+        Insert: {
+          city?: string | null
+          city_slug?: string | null
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          idempotency_key: string
+          message?: string | null
+          name: string
+          notification_status?: string
+          placement?: string | null
+          plan?: string | null
+          region?: string | null
+          revenue?: string | null
+          source?: string
+          spend?: string | null
+          store_url: string
+        }
+        Update: {
+          city?: string | null
+          city_slug?: string | null
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          idempotency_key?: string
+          message?: string | null
+          name?: string
+          notification_status?: string
+          placement?: string | null
+          plan?: string | null
+          region?: string | null
+          revenue?: string | null
+          source?: string
+          spend?: string | null
+          store_url?: string
+        }
+        Relationships: []
+      }
       case_studies: {
         Row: {
           ad_metrics: Json | null
