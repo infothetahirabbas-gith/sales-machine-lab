@@ -33,6 +33,105 @@ const LEGACY_SLUGS: Record<string, string> = {
   "pets": "pets-supplies",
 };
 
+/**
+ * Per-industry title/description overrides matching the exact phrases
+ * Search Console shows shoppers typing (Oct 2026 export): "fashion ecommerce
+ * agency", "beauty ecommerce growth agency", "food and drink ecommerce",
+ * "wellness ecommerce agency", "fitness ecommerce agency", "home and garden
+ * ecommerce", "jewellery ecommerce agency", "furniture ecommerce marketing
+ * agency uk", "baby ecommerce cro agency". Industries without a strong
+ * query signal keep the templated title/description.
+ */
+const INDUSTRY_META_OVERRIDES: Record<string, { title: string; description: string }> = {
+  "fashion-apparel": {
+    title: "Fashion Ecommerce Agency UK | Shopify Growth | BeingEcom",
+    description:
+      "Fashion ecommerce agency for UK fashion & apparel brands. Paid social, TikTok Shop, CRO and Klaviyo retention that grows revenue without discounting.",
+  },
+  "beauty-personal-care": {
+    title: "Beauty Ecommerce Agency UK | Skincare & Cosmetics Growth",
+    description:
+      "Beauty ecommerce agency for UK skincare, cosmetics and personal care brands. Full-funnel paid media, CRO and Klaviyo retention built for repeat purchase.",
+  },
+  "food-beverage": {
+    title: "Food & Drink Ecommerce Agency UK | DTC Growth | BeingEcom",
+    description:
+      "Food and drink ecommerce agency for UK DTC brands. Subscription-first CRO, paid media and Klaviyo retention that turn one-off buyers into repeat customers.",
+  },
+  "health-wellness": {
+    title: "Wellness Ecommerce Agency UK | Health & Wellness Growth",
+    description:
+      "Wellness ecommerce agency for UK health & wellness brands. Compliant creative, subscription-first CRO and Klaviyo retention that scale profitably.",
+  },
+  "sports-fitness": {
+    title: "Fitness Ecommerce Agency UK | Sports & Fitness Growth",
+    description:
+      "Fitness ecommerce agency for UK sports & fitness brands. Creative-led paid social, community UGC and retention systems built for repeat purchase.",
+  },
+  "home-garden": {
+    title: "Home & Garden Ecommerce Agency UK | Interiors Growth",
+    description:
+      "Home and garden ecommerce agency for UK homeware & interiors brands. Google Shopping, Pinterest and premium landing page CRO for higher-AOV baskets.",
+  },
+  "jewellery-watches": {
+    title: "Jewellery Ecommerce Agency UK | Watches & Fine Jewellery",
+    description:
+      "Jewellery ecommerce agency for UK jewellery & watch brands. High-consideration paid social, story-driven creative and margin-safe scaling.",
+  },
+  "furniture-interiors": {
+    title: "Furniture Ecommerce Agency UK | Interiors & Homeware Growth",
+    description:
+      "Furniture ecommerce agency for UK furniture & interiors brands. Google Shopping, Pinterest and premium PDP CRO for high-AOV baskets.",
+  },
+  "baby-kids": {
+    title: "Baby & Kids Ecommerce Agency UK | Parent-Focused Growth",
+    description:
+      "Baby and kids ecommerce agency for UK brands. Trust-led creative, community UGC and lifecycle marketing tuned to parent buying cycles.",
+  },
+};
+
+/** One keyword-targeted FAQ per overridden industry, appended to the
+ *  page's FAQ list (rendered section + FAQPage schema) so the exact
+ *  search phrase appears in natural body copy. */
+const INDUSTRY_KEYWORD_FAQS: Record<string, { q: string; a: string }> = {
+  "fashion-apparel": {
+    q: "What does a fashion ecommerce agency do?",
+    a: "A fashion ecommerce agency runs the full growth system for clothing brands: creative-led paid social and TikTok, PDP and fit-focused CRO, and Klaviyo retention that lifts lifetime value without training customers to wait for a sale.",
+  },
+  "beauty-personal-care": {
+    q: "What does a beauty ecommerce agency do?",
+    a: "A beauty ecommerce agency grows skincare, cosmetics and personal care brands with full-funnel paid media, before/after and UGC creative, subscription CRO, and Klaviyo flows that turn first orders into repeat purchases.",
+  },
+  "food-beverage": {
+    q: "What does a food and drink ecommerce agency do?",
+    a: "A food and drink ecommerce agency grows DTC food brands with subscription-first CRO, paid media that sells the first box, and Klaviyo retention that turns one-off buyers into subscribers.",
+  },
+  "health-wellness": {
+    q: "What does a wellness ecommerce agency do?",
+    a: "A wellness ecommerce agency grows health and wellness brands with compliant creative, subscription-first CRO and Klaviyo retention - scaling vitamins, supplements, sports nutrition and wellness products without breaching ASA or MHRA rules.",
+  },
+  "sports-fitness": {
+    q: "What does a fitness ecommerce agency do?",
+    a: "A fitness ecommerce agency grows sports and fitness brands with creative-led paid social, community and UGC content, and retention systems built for repeat purchase of equipment, activewear and nutrition.",
+  },
+  "home-garden": {
+    q: "What does a home and garden ecommerce agency do?",
+    a: "A home and garden ecommerce agency grows homeware, garden and interiors brands with Google Shopping, Pinterest, premium landing page CRO and Klaviyo retention tuned to higher-AOV, considered purchases.",
+  },
+  "jewellery-watches": {
+    q: "What does a jewellery ecommerce agency do?",
+    a: "A jewellery ecommerce agency grows jewellery and watch brands with high-consideration paid social, story-driven creative and margin-safe scaling - because a £300 purchase needs trust, not discounting.",
+  },
+  "furniture-interiors": {
+    q: "What does a furniture ecommerce agency do?",
+    a: "A furniture ecommerce agency grows furniture and interiors brands with Google Shopping, Pinterest, premium PDP CRO and delivery-reassurance messaging that turns considered browsers into high-AOV buyers.",
+  },
+  "baby-kids": {
+    q: "What does a baby and kids ecommerce agency do?",
+    a: "A baby and kids ecommerce agency grows baby and kids brands with trust-led creative, community UGC and lifecycle marketing tuned to parent buying cycles - from first purchase through gifting and replenishment.",
+  },
+};
+
 export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
     const ind = INDUSTRIES.find((l) => l.slug === params.slug);
@@ -47,13 +146,19 @@ export const Route = createFileRoute("/industries/$slug")({
   },
   head: ({ loaderData }) => {
     const ind = loaderData?.ind;
-    const title = ind
-      ? `${ind.name} Ecommerce Agency UK | Best ${ind.name} Shopify Agency | BeingEcom`
-      : "Industry - Being Ecom";
-    const desc = ind
-      ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
-      : "UK ecommerce agency by industry.";
+    const override = ind ? INDUSTRY_META_OVERRIDES[ind.slug] : undefined;
+    const title =
+      override?.title ??
+      (ind
+        ? `${ind.name} Ecommerce Agency UK | Best ${ind.name} Shopify Agency | BeingEcom`
+        : "Industry - Being Ecom");
+    const desc =
+      override?.description ??
+      (ind
+        ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
+        : "UK ecommerce agency by industry.");
     const C = ind ? industryContentFor(ind.slug, ind.name) : undefined;
+    const faqs = [...(C?.faqs ?? []), ...(ind && INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : [])];
     const heroImage = C?.images.hero;
     const pageUrl = ind ? `${SITE_URL}/industries/${ind.slug}` : SITE_URL;
     return {
@@ -150,12 +255,12 @@ export const Route = createFileRoute("/industries/$slug")({
                       })),
                     },
                   },
-                  ...(C.faqs && C.faqs.length
+                  ...(faqs.length
                     ? [
                         {
                           "@type": "FAQPage",
                           "@id": `${pageUrl}#faq`,
-                          mainEntity: C.faqs.map((f) => ({
+                          mainEntity: faqs.map((f) => ({
                             "@type": "Question",
                             name: f.q,
                             acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -190,6 +295,7 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
+  const faqs = [...C.faqs, ...(INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : [])];
   const wa = whatsappForIndustry(ind.name);
   const related = INDUSTRIES.filter((i) => i.slug !== ind.slug).slice(0, 4);
 
@@ -909,7 +1015,7 @@ function IndustryPage() {
 
       {/* 20. FAQ */}
       <FaqSection
-        faqs={C.faqs}
+        faqs={faqs}
         eyebrow={`${ind.name} FAQ`}
         title={`Questions ${ind.name.toLowerCase()} founders`}
         highlight="ask us"

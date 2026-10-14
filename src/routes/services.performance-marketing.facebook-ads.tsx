@@ -25,11 +25,11 @@ const FAQ_LIST: FAQ[] = [
 export const Route = createFileRoute("/services/performance-marketing/facebook-ads")({
   head: () => ({
     meta: [
-      { title: "Facebook Ads Agency UK | Meta Ads for Shopify" },
-      { name: "description", content: "ASC+, UGC creative and CAPI-clean Meta scaling for UK Shopify and WooCommerce brands. Senior buyers on your P&L, weekly creative, transparent reporting." },
+      { title: "Meta Ads Agency UK | Facebook Ads Specialist for Ecommerce" },
+      { name: "description", content: "Meta ads specialist for UK ecommerce brands. Facebook & Instagram ads with ASC+, UGC creative and CAPI-clean tracking for Shopify and WooCommerce stores. Senior buyers, weekly creative." },
       { name: "keywords", content: "Facebook Ads agency UK, Ecommerce Marketing Agency UK, Ecommerce Agency UK, Ecommerce Growth Agency, Meta Ads agency, Shopify Facebook Ads, Advantage+ Shopping, Meta Conversions API" },
-      { property: "og:title", content: "Facebook Ads Agency UK | Meta Ads for Shopify" },
-      { property: "og:description", content: "ASC+, UGC creative and CAPI-clean Meta scaling for UK Shopify and WooCommerce brands. Senior buyers on your P&L, weekly creative, transparent reporting." },
+      { property: "og:title", content: "Meta Ads Agency UK | Facebook Ads Specialist for Ecommerce" },
+      { property: "og:description", content: "Meta ads specialist for UK ecommerce brands. Facebook & Instagram ads with ASC+, UGC creative and CAPI-clean tracking for Shopify and WooCommerce stores. Senior buyers, weekly creative." },
       { property: "og:url", content: "https://beingecom.com/services/performance-marketing/facebook-ads" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
