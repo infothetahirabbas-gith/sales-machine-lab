@@ -387,8 +387,13 @@ export function articleJsonLd(opts: {
     headline: opts.headline,
     description: opts.description,
     image: opts.image,
-    datePublished: opts.datePublished ?? "2024-01-15",
-    dateModified: opts.dateModified ?? opts.datePublished ?? new Date().toISOString().slice(0, 10),
+    // Dates are only emitted when the caller passes them. A hardcoded
+    // fallback date would ship stale metadata to Google, and defaulting
+    // dateModified to today would change on every render.
+    ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
+    ...((opts.dateModified ?? opts.datePublished)
+      ? { dateModified: opts.dateModified ?? opts.datePublished }
+      : {}),
     about: opts.about,
     keywords: opts.keywords,
     articleSection: opts.articleSection,

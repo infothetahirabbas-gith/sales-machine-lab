@@ -125,7 +125,7 @@ export const Route = createFileRoute("/sitemap-pages.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const LASTMOD = "2026-07-22";
+        const LASTMOD = new Date().toISOString().slice(0, 10); // generated today — matches sitemap-locations pattern
         const urls = entries.map((e) =>
           [
             `  <url>`,

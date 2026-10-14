@@ -16,7 +16,7 @@ export const Route = createFileRoute("/sitemap-case-studies.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const LASTMOD = "2026-07-22";
+        const LASTMOD = new Date().toISOString().slice(0, 10); // generated today — matches sitemap-locations pattern
         const urls: string[] = [
           `  <url>\n    <loc>${BASE_URL}/case-studies</loc>\n    <lastmod>${LASTMOD}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           ...IDS.map(
