@@ -36,7 +36,12 @@ export const CITY_GEO: CityGeo[] = [
   { slug: "edinburgh", city: "Edinburgh", latitude: 55.95438, longitude: -3.20144 },
   { slug: "sheffield", city: "Sheffield", latitude: 53.38311, longitude: -1.46453 },
   { slug: "poole", city: "Poole", latitude: 50.71433, longitude: -1.98664 },
-  { slug: "newcastle-upon-tyne", city: "Newcastle upon Tyne", latitude: 54.97789, longitude: -1.61162 },
+  {
+    slug: "newcastle-upon-tyne",
+    city: "Newcastle upon Tyne",
+    latitude: 54.97789,
+    longitude: -1.61162,
+  },
   { slug: "bradford", city: "Bradford", latitude: 53.79572, longitude: -1.7583 },
 ];
 
@@ -47,9 +52,7 @@ function haversineKm(aLat: number, aLon: number, bLat: number, bLon: number): nu
   const dLon = ((bLon - aLon) * Math.PI) / 180;
   const s1 = Math.sin(dLat / 2);
   const s2 = Math.sin(dLon / 2);
-  const h =
-    s1 * s1 +
-    Math.cos((aLat * Math.PI) / 180) * Math.cos((bLat * Math.PI) / 180) * s2 * s2;
+  const h = s1 * s1 + Math.cos((aLat * Math.PI) / 180) * Math.cos((bLat * Math.PI) / 180) * s2 * s2;
   return 2 * EARTH_KM * Math.asin(Math.sqrt(h));
 }
 

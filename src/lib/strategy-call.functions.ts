@@ -21,7 +21,11 @@ import { z } from "zod";
 const REVENUE_OPTIONS = ["£0 - £5K", "£5K - £25K", "£25K - £100K", "£100K+"] as const;
 const SPEND_OPTIONS = ["£0 - £1K", "£1K - £5K", "£5K - £25K", "£25K+"] as const;
 
-const stripTags = (s: string) => s.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+const stripTags = (s: string) =>
+  s
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const normalizeStoreUrl = (raw: string): string | null => {
   const v = raw.trim();
@@ -43,7 +47,9 @@ const leadSchema = z.object({
   spend: z.enum(SPEND_OPTIONS).optional().nullable(),
   message: z.string().trim().max(2000).optional().nullable(),
   plan: z.string().trim().max(60).optional().nullable(),
-  consent: z.literal(true, { errorMap: () => ({ message: "Please accept the privacy consent to send your enquiry." }) }),
+  consent: z.literal(true, {
+    errorMap: () => ({ message: "Please accept the privacy consent to send your enquiry." }),
+  }),
   idempotencyKey: z.string().uuid(),
   // Honeypot — genuine browsers leave it empty; bots fill it.
   website: z.string().max(0).optional().nullable(),
@@ -100,7 +106,9 @@ export const saveStrategyCallLead = createServerFn({ method: "POST" })
     // 2. Rate limit.
     const ip = await clientIp();
     if (!checkRateLimit(ip)) {
-      throw new Error("Too many enquiries from your connection. Please wait a few minutes and try again.");
+      throw new Error(
+        "Too many enquiries from your connection. Please wait a few minutes and try again.",
+      );
     }
 
     // 3. Normalize + sanitize.
@@ -151,9 +159,16 @@ export const saveStrategyCallLead = createServerFn({ method: "POST" })
           .select("id")
           .eq("idempotency_key", data.idempotencyKey)
           .single();
-        return { ok: true as const, id: (existing?.id as string | undefined) ?? null, duplicate: true };
+        return {
+          ok: true as const,
+          id: (existing?.id as string | undefined) ?? null,
+          duplicate: true,
+        };
       }
-      console.error("[strategy-call] lead insert failed", { code: error.code, message: error.message });
+      console.error("[strategy-call] lead insert failed", {
+        code: error.code,
+        message: error.message,
+      });
       // Missing table (migration not applied yet) → honest error, never false success.
       if (error.code === "42P01") {
         throw new Error("Lead capture is not configured yet. Please email us directly instead.");
@@ -166,5 +181,9 @@ export const saveStrategyCallLead = createServerFn({ method: "POST" })
     // flagged `notification_status = 'pending'` for the owner to follow up.
     // (Owner: wire STRATEGY_CALL_NOTIFY_* / a Resend webhook when ready.)
 
-    return { ok: true as const, id: inserted?.id as string | undefined ?? null, duplicate: false };
+    return {
+      ok: true as const,
+      id: (inserted?.id as string | undefined) ?? null,
+      duplicate: false,
+    };
   });
