@@ -11,8 +11,8 @@ import { LOCATIONS_EDITORIAL, LOCATIONS_FAQS } from "../lib/index-editorial";
 export const Route = createFileRoute("/locations/")({
   head: () => ({
     meta: [
-      { title: "UK Ecommerce Agency Locations & Cities | BeingEcom" },
-      { name: "description", content: "BeingEcom serves Shopify and WooCommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Liverpool, Glasgow, Edinburgh and every UK city." },
+      { title: "Ecommerce Agency Near Me | UK Locations | BeingEcom" },
+      { name: "description", content: "Find an ecommerce agency near you. BeingEcom works with Shopify and WooCommerce brands across London, Manchester, Birmingham, Leeds, Bristol, Liverpool, Glasgow, Edinburgh and every UK city." },
       { property: "og:title", content: "UK Ecommerce Agency Locations | Being Ecom" },
       { property: "og:description", content: "Ecommerce growth agency serving UK cities. Performance marketing, CRO, SEO and retention for DTC brands." },
       { property: "og:url", content: "https://beingecom.com/locations" },
@@ -56,7 +56,7 @@ function LocationsIndex() {
             <MapPin className="size-3.5" /> UK-wide
           </div>
           <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05] text-ink max-w-3xl">
-            <SplitHeading value="Ecommerce growth, everywhere in the UK" />
+            <SplitHeading value="An ecommerce agency near you, everywhere in the UK" />
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
             We work with UK DTC and Shopify brands across every major city - London to Edinburgh - with a fully remote, senior operator team.

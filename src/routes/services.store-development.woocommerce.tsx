@@ -10,6 +10,8 @@ const FAQ_LIST: FAQ[] = [
   { q: "Do you migrate from Shopify or Magento to WooCommerce?", a: "Yes - products, customers, orders, categories, redirects and SEO metadata all preserved. Full 301 mapping so rankings don't drop." },
   { q: "What hosting do you recommend for WooCommerce?", a: "Kinsta, WP Engine or Cloudways for most brands. Dedicated / Cloudflare Enterprise for £500K+/month stores. We handle the setup and tuning." },
   { q: "Can you build custom WooCommerce plugins?", a: "Yes - bespoke plugins, REST API integrations with ERPs/3PLs/CRMs, and Gutenberg blocks tailored to your merchandising." },
+  { q: "Are you a WooCommerce agency, or just a development shop?", a: "A full WooCommerce agency. Builds are one part of it - we also run WooCommerce SEO, paid ads, CRO and Klaviyo retention for the stores we build, so the store keeps growing after launch." },
+  { q: "Do you run WooCommerce SEO and paid ads as well as builds?", a: "Yes. Most WooCommerce clients stay on a growth retainer after launch: technical and collection SEO, Google Shopping and Meta ads, checkout CRO and email flows - one team owning the whole revenue equation." },
 ];
 
 export const Route = createFileRoute("/services/store-development/woocommerce")({

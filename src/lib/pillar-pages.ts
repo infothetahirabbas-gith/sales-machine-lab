@@ -1014,11 +1014,11 @@ export const PILLAR_PAGES: PillarPage[] = [
     slug: "agency-vs-inhouse-seo",
     path: "/agency-vs-inhouse-seo",
     title: "Ecommerce SEO Agency vs In-House Team: Honest UK Comparison",
-    metaTitle: "SEO Agency vs In-House for Ecommerce (2026) | BeingEcom",
+    metaTitle: "SEO Agency vs In-House Team for Ecommerce (2026) | BeingEcom",
     description:
       "When to hire an ecommerce SEO agency, when to build in-house, and when to do both. Real cost, speed, and risk trade-offs for UK Shopify and WooCommerce brands.",
     eyebrow: "Buyer question",
-    h1: "Ecommerce SEO agency vs in-house: which wins?",
+    h1: "SEO agency vs in-house team for ecommerce: which wins?",
     intro:
       "Both work. The question is which is cheaper, faster, and lower-risk for your specific stage. Here's the honest trade-off matrix we walk clients through before they sign.",
     summary:

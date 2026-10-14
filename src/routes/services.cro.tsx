@@ -34,6 +34,8 @@ const _FAQ_RAW: FAQ[] = [
   { q: "Do CRO agencies use A/B testing, and how many tests per month?", a: "Yes - structured CRO programmes typically run 2-6 A/B tests per month depending on traffic volume, since tests need enough visitors to reach statistical significance before conclusions can be trusted." },
   { q: "What tools are used for CRO (heatmaps, session replays)?", a: "Common CRO tooling includes Hotjar or similar for heatmaps and session replays (showing exactly where users hesitate or drop off), plus dedicated A/B testing platforms and GA4 for quantifying which page variants actually lift conversion." },
   { q: "Can CRO alone fix a store with declining sales?", a: "CRO can meaningfully lift conversion rate, but if declining sales stem from insufficient traffic or product-market fit issues, CRO alone won't solve it - it needs to be paired with traffic (SEO/ads) and, in some cases, product or pricing changes." },
+  { q: "What is mobile CRO?", a: "Mobile CRO is conversion rate optimisation focused on the phone: most UK ecommerce traffic is mobile, but mobile conversion is usually half of desktop. It covers thumb-zone CTAs, sticky add-to-cart, simplified forms, faster mobile load and a checkout that works one-handed." },
+  { q: "What does a mobile CRO audit cover?", a: "We audit the full mobile journey - product page, cart and checkout - for tap-target size, form friction, page speed, trust signals and payment options, then prioritise fixes by revenue impact. Most stores see their biggest quick wins on mobile." },
 ];
 const FAQ_LIST: FAQ[] = linkServiceFaqs(_FAQ_RAW, "cro");
 

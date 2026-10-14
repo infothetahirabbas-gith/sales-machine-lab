@@ -63,6 +63,16 @@ export const LOCATION_META_A: Record<string, LocationMeta> = {
     description:
       "Poole ecommerce agency scaling Dorset & South Coast Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO. Free 45-min growth audit.",
   },
+  sheffield: {
+    title: "Ecommerce Agency Sheffield | Shopify & WooCommerce Growth",
+    description:
+      "Sheffield ecommerce agency for South Yorkshire Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO by senior UK operators. Free audit.",
+  },
+  "newcastle-upon-tyne": {
+    title: "Ecommerce Agency Newcastle | Shopify & WooCommerce",
+    description:
+      "Newcastle ecommerce agency for North East Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO by senior operators. Free 45-min audit.",
+  },
   bradford: {
     title: "Ecommerce Agency Bradford | Yorkshire DTC Growth Team",
     description:
@@ -131,6 +141,16 @@ export const LOCATION_META_B: Record<string, LocationMeta> = {
     title: "Bradford Shopify Growth Agency | West Yorkshire DTC Team",
     description:
       "West Yorkshire ecommerce brand? BeingEcom scales Bradford Shopify & WooCommerce stores with paid ads, SEO and Klaviyo. Free growth audit.",
+  },
+  sheffield: {
+    title: "Sheffield Shopify Growth Agency | Free 45-min Audit",
+    description:
+      "South Yorkshire DTC brand? We scale Sheffield Shopify & WooCommerce stores with paid ads, SEO, Klaviyo & CRO. Book a free 45-min audit.",
+  },
+  "newcastle-upon-tyne": {
+    title: "Newcastle Shopify Growth Agency | Free 45-min Audit",
+    description:
+      "North East DTC brand? We scale Newcastle Shopify & WooCommerce stores with paid ads, SEO, Klaviyo & CRO. Book a free 45-min audit.",
   },
 };
 
