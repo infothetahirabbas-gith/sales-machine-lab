@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import PageLayout from "../components/site/PageLayout";
 import { Section, Card } from "../components/site/Section";
 import { faqJsonLd, contactFaqs, breadcrumbJsonLd, contactPageJsonLd } from "../lib/seo";
@@ -7,6 +8,7 @@ import FaqSection from "../components/site/FaqSection";
 import { SITE } from "@/config/site";
 import { trackEvent, AnalyticsEvents } from "../lib/analytics";
 import { readLocationAttribution } from "../lib/location-attribution";
+import { saveStrategyCallLead } from "../lib/strategy-call.functions";
 
 
 export const Route = createFileRoute("/contact")({
@@ -36,7 +38,69 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [leadRef, setLeadRef] = useState<string | null>(null);
+  // One idempotency key per form instance: retries and double-submits
+  // reuse it, so the server never stores the same enquiry twice.
+  const idempotencyKey = useRef<string>(crypto.randomUUID());
+  const saveLead = useServerFn(saveStrategyCallLead);
   const { plan } = Route.useSearch();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (sending) return;
+    setError(null);
+    setSending(true);
+    trackEvent(AnalyticsEvents.ContactFormSubmit, { plan: plan ?? "none", has_plan: !!plan });
+    try {
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      const attr = readLocationAttribution();
+      const result = await saveLead({
+        data: {
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          store: String(data.get("store") ?? ""),
+          revenue: (data.get("revenue") as string) || null,
+          spend: (data.get("spend") as string) || null,
+          message: (data.get("message") as string) || null,
+          plan: plan ?? null,
+          consent: (data.get("consent") === "on") as true,
+          idempotencyKey: idempotencyKey.current,
+          website: (data.get("website") as string) || null,
+          city: attr?.city ?? null,
+          citySlug: attr?.slug ?? null,
+          region: attr?.region ?? null,
+          placement: attr?.placement ?? null,
+        },
+      });
+      if (!result?.ok) throw new Error("We couldn't save your enquiry. Please try again in a moment.");
+      // Success analytics ONLY after the backend confirms durable storage,
+      // and only once — never on a deduplicated retry. No personal data.
+      if (!result.duplicate) {
+        trackEvent(AnalyticsEvents.ContactFormSubmitSuccess, { plan: plan ?? "none", has_plan: !!plan });
+      }
+      if (attr) {
+        trackEvent("location_call_booked", {
+          city: attr.city || "",
+          city_slug: attr.slug,
+          region: attr.region || "",
+          placement: attr.placement,
+          experiment_variant: attr.variant ?? "unknown",
+          plan: plan ?? "none",
+        });
+      }
+      setLeadRef(result.id ? result.id.slice(0, 8) : null);
+      setSent(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "We couldn't save your enquiry. Please try again in a moment.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <PageLayout>
       <section className="relative pt-20 pb-10 lg:pt-28 overflow-hidden">
@@ -64,42 +128,15 @@ function Contact() {
             {sent ? (
               <div className="py-16 text-center" role="status" aria-live="polite">
                 <div className="text-5xl mb-4" aria-hidden="true">✓</div>
-                <h3 className="text-2xl font-bold">Got it.</h3>
-                <p className="mt-2 text-muted-foreground">We'll be in touch within 24 hours with next steps.</p>
+                <h3 className="text-2xl font-bold">Enquiry saved.</h3>
+                <p className="mt-2 text-muted-foreground">Thanks — we'll be in touch within 24 hours, and your 12-point loss-recovery plan follows within 48 hours.</p>
+                {leadRef && <p className="mt-3 text-xs text-muted-foreground">Reference: {leadRef}</p>}
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-                  const data = new FormData(form);
-                  trackEvent(AnalyticsEvents.ContactFormSubmit, { plan: plan ?? "none", has_plan: !!plan });
-                  try {
-                    trackEvent(AnalyticsEvents.ContactFormSubmitSuccess, {
-                      plan: plan ?? "none",
-                      revenue: String(data.get("revenue") ?? ""),
-                      spend: String(data.get("spend") ?? ""),
-                    });
-                    // Per-city conversion tracking (call booking).
-                    try {
-                      const attr = readLocationAttribution();
-                      if (attr) {
-                        trackEvent("location_call_booked", {
-                          city: attr.city || "",
-                          city_slug: attr.slug,
-                          region: attr.region || "",
-                          placement: attr.placement,
-                          experiment_variant: attr.variant ?? "unknown",
-                          plan: plan ?? "none",
-                        });
-                      }
-                    } catch { /* no-op */ }
-                  } catch { /* no-op */ }
-                  setSent(true);
-                }}
+                onSubmit={handleSubmit}
                 className="grid gap-4"
                 aria-label="Book a strategy call"
-                noValidate
               >
                 <h3 className="text-2xl font-bold">Book Strategy Call</h3>
                 {plan && (
@@ -148,7 +185,22 @@ function Contact() {
                   <input required type="checkbox" name="consent" className="mt-0.5 h-4 w-4 rounded border-border accent-primary" />
                   <span>I agree to be contacted by BeingEcom about my enquiry and accept the <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>. We never share or sell your data.</span>
                 </label>
-                <button type="submit" className="btn btn-primary btn-shimmer justify-center">Send Audit Request →</button>
+                {/* Honeypot — visually hidden from humans; bots that fill it are silently discarded server-side. */}
+                <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="c-website">Website</label>
+                  <input id="c-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+                {error && (
+                  <div role="alert" className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-ink">
+                    {error} You can also reach us directly using the details on this page.
+                  </div>
+                )}
+                <button type="submit" disabled={sending} className="btn btn-primary btn-shimmer justify-center disabled:opacity-60 disabled:cursor-not-allowed">
+                  {sending ? "Sending…" : "Send Audit Request →"}
+                </button>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  We store your name, email, store URL and message to handle your enquiry — and only for that purpose. We never share or sell your data.
+                </p>
               </form>
             )}
           </div>
