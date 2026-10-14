@@ -30,7 +30,6 @@ export const Route = createFileRoute("/sitemap-company.xml")({
         ];
         const urls = paths.map(
           (p) =>
-            `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${p === "/company" ? "0.9" : "0.7"}</priority>\n  </url>`,
         );
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,

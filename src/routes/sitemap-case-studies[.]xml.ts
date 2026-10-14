@@ -17,10 +17,8 @@ export const Route = createFileRoute("/sitemap-case-studies.xml")({
     handlers: {
       GET: async () => {
         const urls: string[] = [
-          `  <url>\n    <loc>${BASE_URL}/case-studies</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           ...IDS.map(
             (id) =>
-              `  <url>\n    <loc>${BASE_URL}/case-studies/${id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`,
           ),
         ];
         const xml = [
