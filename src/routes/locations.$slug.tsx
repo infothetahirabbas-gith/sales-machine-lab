@@ -12,6 +12,7 @@ import CountUp from "../components/site/CountUp";
 import FaqSection from "../components/site/FaqSection";
 import { LOCATIONS } from "../lib/locations-industries";
 import { contentFor, imageAlt, imageSeoProps, IMAGE_SLOT_LABELS, LOCATION_GEO, whatsappUrl, narrativeFor } from "../lib/location-content";
+import { EXTRA_NARRATIVES } from "../lib/location-narratives-extra";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
@@ -90,10 +91,10 @@ export const Route = createFileRoute("/locations/$slug")({
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
-    const narrative = loc ? narrativeFor(loc.slug) : undefined;
+    const narrative = loc ? (narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug]) : undefined;
     const faqData = loc ? [
       { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
-      { q: `Are you actually based in ${loc.city}?`, a: `Yes - we serve ${loc.city} and ${loc.region} clients daily with UK-based senior operators, in-person strategy days and full-remote sprints.` },
+      { q: `Do you work with ecommerce brands in ${loc.city}?`, a: `Yes - we work with ecommerce brands in ${loc.city} and across ${loc.region}. Our UK-based senior operators run the full growth stack remotely, with in-person strategy days available for ${loc.city} engagements.` },
       { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30-60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3-6.` },
@@ -101,7 +102,7 @@ export const Route = createFileRoute("/locations/$slug")({
       { q: `Do you handle ecommerce SEO for ${loc.city} Shopify stores?`, a: `Yes. We deliver technical SEO, Shopify SEO, local SEO for ${loc.city}, product and collection page optimisation, schema markup and Core Web Vitals fixes to grow organic revenue month over month.` },
       { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
       { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
-      { q: `Can I reach the ${loc.city} team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior ${loc.city} team directly, usually with a reply within an hour on UK business days.` },
+      { q: `Can I reach the team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior team directly, usually with a reply within an hour on UK business days.` },
       ...(narrative?.localFaqs ?? []),
     ] : [];
     return {
@@ -226,7 +227,7 @@ function LocationPage() {
   const { loc } = Route.useLoaderData();
   const city = loc.city;
   const C = contentFor(loc.slug, city);
-  const narrative = narrativeFor(loc.slug);
+  const narrative = narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug];
   const IMG = C.images;
   const WA = whatsappUrl(city, loc.slug);
 
