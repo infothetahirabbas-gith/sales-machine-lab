@@ -10,10 +10,17 @@ export const Route = createFileRoute("/sitemap-company.xml")({
   server: {
     handlers: {
       GET: async () => {
-        // Exclude routes that 301 to canonical targets (founder, why-us, methodology,
-        // success-stories, industries) plus thin/noindexed company pages so the sitemap
-        // only lists indexable, self-canonical URLs.
-        const REDIRECTED = new Set(["/company/founder", "/company/why-us", "/company/methodology", "/company/success-stories", "/company/industries"]);
+        // Exclude routes that 301 to canonical targets (founder, why-us, why-beingecom,
+        // methodology, success-stories, industries) plus thin/noindexed company pages
+        // so the sitemap only lists indexable, self-canonical URLs.
+        const REDIRECTED = new Set([
+          "/company/founder",
+          "/company/why-us",
+          "/company/why-beingecom",
+          "/company/methodology",
+          "/company/success-stories",
+          "/company/industries",
+        ]);
         const NOINDEXED = new Set([
           "/company/careers",
           "/company/press",
@@ -25,11 +32,14 @@ export const Route = createFileRoute("/sitemap-company.xml")({
         ]);
         const paths: string[] = [
           "/company",
-          ...COMPANY_LINKS.filter((c) => !c.external && !REDIRECTED.has(c.to) && !NOINDEXED.has(c.to)).map((c) => c.to),
+          ...COMPANY_LINKS.filter(
+            (c) => !c.external && !REDIRECTED.has(c.to) && !NOINDEXED.has(c.to),
+          ).map((c) => c.to),
           ...extras,
         ];
         const urls = paths.map(
           (p) =>
+            `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${p === "/company" ? "0.9" : "0.7"}</priority>\n  </url>`,
         );
         const xml = [
           `<?xml version="1.0" encoding="UTF-8"?>`,
