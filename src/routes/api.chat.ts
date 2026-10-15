@@ -63,7 +63,7 @@ export const Route = createFileRoute("/api/chat")({
             return new Response("Messages are required", { status: 400 });
           }
           const key = process.env.LOVABLE_API_KEY;
-          if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+          if (!key) return new Response("Chat is temporarily unavailable", { status: 503 });
 
           const gateway = createLovableAiGatewayProvider(key);
           const result = streamText({
