@@ -9,11 +9,14 @@ export const Route = createFileRoute("/sitemap-industries.xml")({
     handlers: {
       GET: async () => {
         const urls: string[] = [
+          `  <url>\n    <loc>${BASE_URL}/industries</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
         ];
+        // NOTE: /industries/{slug}/paid-ads pages are intentionally excluded.
+        // They canonicalize to their parent /industries/{slug} page, and
+        // sitemaps must list only canonical URLs.
         for (const ind of INDUSTRIES) {
           urls.push(
-          );
-          urls.push(
+            `  <url>\n    <loc>${BASE_URL}/industries/${ind.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.75</priority>\n  </url>`,
           );
         }
         // Optional: lang × location × industry × service - kept out to avoid
