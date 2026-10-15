@@ -16,6 +16,7 @@ import { INDUSTRIES } from "../lib/locations-industries";
 import { studies } from "./case-studies.index";
 import { industryContentFor, whyNoSalesFor, whySeoMattersFor, industryProcessFor } from "../lib/industry-content";
 import { SITE_URL } from "../lib/seo";
+import { industryUkGuideFor } from "../lib/industry-uk-guide";
 import { whatsappForIndustry } from "../lib/whatsapp";
 import { MessageCircle as WaIcon } from "lucide-react";
 
@@ -158,7 +159,7 @@ export const Route = createFileRoute("/industries/$slug")({
         ? `Best ${ind.name} Ecommerce Agency UK. ${ind.name} Ecommerce Marketing Agency UK for Shopify & WooCommerce SEO, paid ads, CRO and Klaviyo email built for ${ind.name.toLowerCase()} DTC brands.`
         : "UK ecommerce agency by industry.");
     const C = ind ? industryContentFor(ind.slug, ind.name) : undefined;
-    const faqs = [...(C?.faqs ?? []), ...(ind && INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : [])];
+    const faqs = [...(C?.faqs ?? []), ...(ind && INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : []), ...((ind && industryUkGuideFor(ind.slug)?.paa) ?? [])];
     const heroImage = C?.images.hero;
     const pageUrl = ind ? `${SITE_URL}/industries/${ind.slug}` : SITE_URL;
     return {
@@ -295,7 +296,8 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryPage() {
   const { ind } = Route.useLoaderData();
   const C = industryContentFor(ind.slug, ind.name);
-  const faqs = [...C.faqs, ...(INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : [])];
+  const ukGuide = industryUkGuideFor(ind.slug);
+  const faqs = [...C.faqs, ...(INDUSTRY_KEYWORD_FAQS[ind.slug] ? [INDUSTRY_KEYWORD_FAQS[ind.slug]] : []), ...(ukGuide?.paa ?? [])];
   const wa = whatsappForIndustry(ind.name);
   const related = INDUSTRIES.filter((i) => i.slug !== ind.slug).slice(0, 4);
 
@@ -1012,6 +1014,42 @@ function IndustryPage() {
           ))}
         </div>
       </Section>
+
+      {/* 19b. UK SEARCH + COMPLIANCE GUIDE (GSC content work 2026-10-15) */}
+      {ukGuide && (
+        <Section eyebrow="UK guide" title={`Selling ${ind.name.toLowerCase()} online in the UK`} intro="Answers to what UK founders in this category search for, plus the rules and market realities that shape marketing here." alt>
+          <div className="max-w-6xl space-y-8">
+            <div className="grid md:grid-cols-2 gap-5">
+              {ukGuide.searches.map((s) => (
+                <article key={s.query} className="card-surface p-6">
+                  <h3 className="text-lg font-bold text-ink">{s.heading}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                </article>
+              ))}
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-ink mb-4">UK rules and realities to plan around</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {ukGuide.uk.map((u) => (
+                  <div key={u.title} className="rounded-2xl border border-border bg-white p-5">
+                    <div className="flex items-start gap-2">
+                      <AlertTriangle className="w-4 h-4 text-primary shrink-0 mt-1" />
+                      <h4 className="font-semibold text-ink">{u.title}</h4>
+                    </div>
+                    <p className="mt-2 text-sm text-muted-foreground">{u.body}</p>
+                    {u.source && (
+                      <a href={u.source.href} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-xs underline text-muted-foreground hover:text-primary">
+                        Source: {u.source.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">Regulatory notes are general information, not legal advice. Check the linked guidance or take professional advice for your products.</p>
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* 20. FAQ */}
       <FaqSection
