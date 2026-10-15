@@ -16,7 +16,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 
-const MARKER = "<!-- lovable-seo-summary -->";
+const MARKER = "<!-- beingecom-seo-summary -->";
 const args = process.argv.slice(2);
 function all(flag) { return args.reduce((acc, a, i) => (a === flag && args[i + 1] ? [...acc, args[i + 1]] : acc), []); }
 function one(flag) { const i = args.indexOf(flag); return i >= 0 ? args[i + 1] : null; }
