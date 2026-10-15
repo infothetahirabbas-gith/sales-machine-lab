@@ -1,0 +1,25 @@
+name: Build check
+
+# Type-checks and builds every pull request so broken code (like the
+# sitemap generator regression in 4e00ba7) can't reach main unnoticed.
+# ESLint is not gated yet: the existing codebase is not Prettier-clean.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile || bun install
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Build
+        run: npx vite build

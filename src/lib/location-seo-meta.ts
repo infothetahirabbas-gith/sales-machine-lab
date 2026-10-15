@@ -9,34 +9,34 @@ export type LocationMeta = { title: string; description: string };
 
 export const LOCATION_META_A: Record<string, LocationMeta> = {
   london: {
-    title: "Ecommerce Agency London | Shopify Growth · 120+ Brands",
+    title: "Ecommerce Agency London | Shopify, SEO & Paid Ads",
     description:
-      "London ecommerce agency scaling Shopify & WooCommerce brands. 120+ UK brands, £47M+ revenue driven. Free 45-min audit, no sales pitch.",
+      "London ecommerce agency for Shopify & WooCommerce brands: SEO, Google Shopping, Meta & TikTok ads, Klaviyo and CRO. Senior team, no lock-ins. Free audit.",
   },
   manchester: {
-    title: "Ecommerce Agency Manchester | Shopify & WooCommerce Growth",
+    title: "Ecommerce Agency Manchester | SEO, Design & Shopify",
     description:
-      "Manchester ecommerce agency growing Shopify & WooCommerce revenue with SEO, Google Ads, Meta Ads, Klaviyo & CRO. Senior operators. Free audit.",
+      "Manchester ecommerce agency: ecommerce SEO, Shopify design & builds, content, paid social and Klaviyo for Greater Manchester brands. Free growth audit.",
   },
   birmingham: {
-    title: "Ecommerce Agency Birmingham | Scale Shopify Profitably",
+    title: "Ecommerce Agency Birmingham | Shopify & Ecommerce SEO",
     description:
-      "Birmingham ecommerce agency for Shopify & WooCommerce brands. Google Ads, Meta Ads, SEO, CRO & Klaviyo run by senior UK operators. Free audit.",
+      "Birmingham ecommerce agency for Shopify brands and Jewellery Quarter makers: ecommerce SEO, Google Shopping, Meta ads, Klaviyo & CRO. Free audit.",
   },
   glasgow: {
-    title: "Ecommerce Agency Glasgow | Scotland Shopify Growth Team",
+    title: "Shopify & Ecommerce Agency Glasgow | Websites & Growth",
     description:
-      "Glasgow ecommerce agency for Scottish Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO by senior operators. Free 45-min growth audit.",
+      "Glasgow Shopify agency: ecommerce websites, migrations, SEO, paid social and Klaviyo email for Scottish brands. Senior UK team. Free growth audit.",
   },
   bristol: {
-    title: "Ecommerce Agency Bristol | Shopify & WooCommerce Growth",
+    title: "Ecommerce Agency Bristol | Shopify, Klaviyo & SEO",
     description:
-      "Bristol ecommerce agency scaling sustainable Shopify & WooCommerce brands. SEO, Google Ads, Meta Ads, Klaviyo & CRO. Free 45-min growth audit.",
+      "Bristol ecommerce agency for independent & sustainable brands: Shopify builds, Klaviyo email, ecommerce SEO, paid ads and CRO. Free growth audit.",
   },
   leeds: {
-    title: "Ecommerce Agency Leeds | Yorkshire Shopify Growth Team",
+    title: "Ecommerce Agency Leeds | Shopify, CRO & Magento Migration",
     description:
-      "Leeds ecommerce agency turning traffic into repeat revenue. SEO, Klaviyo, Meta Ads, Google Ads & CRO for Yorkshire DTC brands. Free audit.",
+      "Leeds ecommerce agency: Shopify builds, CRO, ecommerce SEO and paid ads for Yorkshire brands - plus safe Magento to Shopify migrations. Free audit.",
   },
   liverpool: {
     title: "Ecommerce Agency Liverpool | Measurable Shopify Growth",
@@ -44,39 +44,39 @@ export const LOCATION_META_A: Record<string, LocationMeta> = {
       "Liverpool ecommerce agency. Clean GA4 tracking, SEO, Google Ads, Meta Ads & Klaviyo for Merseyside Shopify & WooCommerce brands. Free audit.",
   },
   leicester: {
-    title: "Ecommerce Agency Leicester | Midlands Shopify Growth",
+    title: "Ecommerce Marketing Agency Leicester | SEO, AEO & Ads",
     description:
-      "Leicester ecommerce agency for East Midlands Shopify & WooCommerce brands. Creative-led paid social, CRO, Klaviyo & UK creative. Free audit.",
+      "Leicester marketing agency for online shops: ecommerce SEO, AEO for AI search, Google Shopping, Meta & TikTok ads and Klaviyo. Free growth audit.",
   },
   nottingham: {
-    title: "Ecommerce Agency Nottingham | Shopify & WooCommerce",
+    title: "Ecommerce & Shopify SEO Agency Nottingham | WooCommerce",
     description:
-      "Nottingham ecommerce agency lowering CAC and lifting AOV for East Midlands DTC brands. Paid ads, SEO, Klaviyo & CRO. Free 45-min growth audit.",
+      "Nottingham ecommerce SEO agency for Shopify & WooCommerce stores: technical SEO, content, paid ads, Klaviyo & CRO for East Midlands brands. Free audit.",
   },
   edinburgh: {
-    title: "Ecommerce Agency Edinburgh | Scotland DTC Growth Team",
+    title: "Ecommerce Agency Edinburgh | WooCommerce & Shopify SEO",
     description:
-      "Edinburgh ecommerce agency for premium Shopify & WooCommerce brands. CRO, SEO, Google Ads, Meta Ads & Klaviyo. Senior operators. Free audit.",
+      "Edinburgh ecommerce agency: WooCommerce & Shopify SEO, store development, paid social and Klaviyo for premium Scottish brands. Free growth audit.",
   },
   poole: {
-    title: "Ecommerce Agency Poole | Dorset Shopify Growth Team",
+    title: "Ecommerce SEO & Social Ads Agency Poole, Dorset",
     description:
-      "Poole ecommerce agency scaling Dorset & South Coast Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO. Free 45-min growth audit.",
+      "SEO and social media ads in Poole for businesses that sell online: ecommerce SEO, Meta & Instagram ads and Shopify stores across Dorset. Free audit.",
   },
   sheffield: {
-    title: "Ecommerce Agency Sheffield | Shopify & WooCommerce Growth",
+    title: "Ecommerce Marketing Agency Sheffield | Content & TikTok",
     description:
-      "Sheffield ecommerce agency for South Yorkshire Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO by senior UK operators. Free audit.",
+      "Sheffield ecommerce marketing for makers & outdoor brands: content-led SEO, TikTok & Meta ads, Google Shopping and Klaviyo. Free growth audit.",
   },
   "newcastle-upon-tyne": {
-    title: "Ecommerce Agency Newcastle | Shopify & WooCommerce",
+    title: "Ecommerce Agency Newcastle | WooCommerce & Shopify",
     description:
-      "Newcastle ecommerce agency for North East Shopify & WooCommerce brands. Paid ads, SEO, Klaviyo & CRO by senior operators. Free 45-min audit.",
+      "Newcastle ecommerce agency for North East brands: WooCommerce & Shopify development, ecommerce SEO, paid ads and Klaviyo. Free growth audit.",
   },
   bradford: {
-    title: "Ecommerce Agency Bradford | Yorkshire DTC Growth Team",
+    title: "Ecommerce SEO & PPC Agency Bradford | West Yorkshire",
     description:
-      "Bradford ecommerce agency for West Yorkshire Shopify & WooCommerce brands. Google Ads, Meta Ads, SEO, Klaviyo & CRO. Free 45-min audit.",
+      "Bradford ecommerce agency: SEO, Google Ads & PPC, paid social and Klaviyo for West Yorkshire businesses selling online. Free growth audit.",
   },
 };
 
@@ -160,22 +160,24 @@ export const LOCATION_META = LOCATION_META_A;
 // A/B experiment cohort: which variant each city serves to Google + users.
 // Half serve A, half serve B for a 28-day CTR test. After the window closes,
 // admin dashboard reports CTR by variant and we roll the winner globally.
-// Started 2026-07-22; ends 2026-08-19.
+// Started 2026-07-22; ended 2026-08-19. All cities serve variant A since
+// 2026-10-15: A titles were rewritten from the GSC query export so each title
+// carries the city's highest-impression query cluster (see location-local-guide.ts).
 export const EXPERIMENT_START = "2026-07-22";
 export const EXPERIMENT_END = "2026-08-19";
 export const EXPERIMENT_ASSIGNMENT: Record<string, "A" | "B"> = {
   london: "A",
-  manchester: "B",
+  manchester: "A",
   birmingham: "A",
-  glasgow: "B",
+  glasgow: "A",
   bristol: "A",
-  leeds: "B",
+  leeds: "A",
   liverpool: "A",
-  leicester: "B",
+  leicester: "A",
   nottingham: "A",
-  edinburgh: "B",
+  edinburgh: "A",
   poole: "A",
-  bradford: "B",
+  bradford: "A",
 };
 
 export function variantForSlug(slug: string): "A" | "B" {

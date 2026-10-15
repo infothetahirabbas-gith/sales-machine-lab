@@ -48,7 +48,7 @@ const errors = [];
 const warnings = [];
 
 async function head(url) {
-  const res = await fetch(url, { method: 'GET', redirect: 'manual', headers: { 'user-agent': 'lovable-redirect-check/1.0' } });
+  const res = await fetch(url, { method: 'GET', redirect: 'manual', headers: { 'user-agent': 'beingecom-redirect-check/1.0' } });
   return { status: res.status, location: res.headers.get('location'), body: res };
 }
 

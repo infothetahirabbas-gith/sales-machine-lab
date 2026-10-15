@@ -3,7 +3,7 @@ import {
   ArrowRight, MapPin, CheckCircle2, TrendingUp, Target, Zap, Users,
   BarChart3, Rocket, ShieldCheck, Sparkles, Clock, Award,
   Phone, Calendar, LineChart, ShoppingBag, Search, Megaphone,
-  Layers, PieChart, Globe2, Handshake, Play, MessageCircle,
+  Layers, PieChart, Globe2, Handshake, Play, MessageCircle, AlertTriangle,
 } from "lucide-react";
 import PageLayout from "../components/site/PageLayout";
 import { Section, SplitHeading, Card, Pill, NumberedList, CTA } from "../components/site/Section";
@@ -22,6 +22,7 @@ import { metaFor, variantForSlug } from "../lib/location-seo-meta";
 import { trackEvent } from "../lib/analytics";
 import { buildLocationLink, withLocationUtm, stashLocationAttribution, type LocationCtx } from "../lib/location-attribution";
 import { nearbySlugs } from "../lib/uk-geo";
+import { guideFor, UK_ECOM_PAIN_POINTS, UK_SHARED_PAA, PAIN_SOURCES } from "../lib/location-local-guide";
 
 // Colored partner/brand logos for the running trust bar
 const ShopifyIcon = () => (
@@ -76,6 +77,30 @@ const TRUST_LOGOS = [
 ];
 
 
+// One FAQ list feeds both the visible FAQ section and the FAQPage JSON-LD, so
+// structured data always matches on-page content (previously the schema
+// carried narrative FAQs the page never rendered, and quoted retainer prices
+// that contradicted /pricing).
+function buildLocationFaqs(loc: { slug: string; city: string; region: string }): FAQ[] {
+  const city = loc.city;
+  const narrative = narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug];
+  const guide = guideFor(loc.slug);
+  const base: FAQ[] = [
+    { q: `What does an ecommerce agency in ${city} do?`, a: `An ecommerce agency grows online sales for businesses that sell products. For ${city} brands, Being Ecom covers ecommerce SEO, Google Shopping and Search, Meta and TikTok ads, Klaviyo email and SMS, conversion rate optimisation and analytics for Shopify and WooCommerce stores - measured against revenue and margin, not clicks.` },
+    { q: `Are you based in ${city}?`, a: `We're a UK-based team that works remotely with brands in ${city} and across ${loc.region}. We don't claim a ${city} office; in-person strategy sessions can be arranged for ${city} engagements, and day-to-day work runs through video calls, WhatsApp and a shared dashboard.` },
+    { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Shopify and Shopify Plus, and WooCommerce. We also migrate ${city} retailers from Magento and older platforms to Shopify or WooCommerce while protecting their search rankings.` },
+    { q: `How long does ecommerce SEO take to work for a ${city} store?`, a: `Technical fixes and product page improvements can show movement within 6-12 weeks. Competitive category rankings usually take 4-9 months, depending on your site's authority and how contested the ${city} and national searches are.` },
+    { q: `Do you offer a free ecommerce audit for ${city} brands?`, a: `Yes. We review your store, ad accounts, GA4 tracking, email and SEO and send back the priority fixes - no obligation.` },
+    { q: `Can I contact the team on WhatsApp?`, a: `Yes. Use any WhatsApp button on this page to message the team directly; we usually reply within an hour on UK business days.` },
+  ];
+  return [
+    ...base,
+    ...(guide?.paa ?? []),
+    ...(narrative?.localFaqs ?? []),
+    ...UK_SHARED_PAA(),
+  ];
+}
+
 export const Route = createFileRoute("/locations/$slug")({
   loader: ({ params }) => {
     const loc = LOCATIONS.find((l) => l.slug === params.slug);
@@ -92,20 +117,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const geo = loc ? LOCATION_GEO[loc.slug] : undefined;
     const imageSlots = ["hero", "ads", "seo", "shopify", "cro", "email", "creative", "analytics", "caseStudy", "meeting"] as const;
     const pageUrl = loc ? `${SITE_URL}/locations/${loc.slug}` : SITE_URL;
-    const narrative = loc ? (narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug]) : undefined;
-    const faqData = loc ? [
-      { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
-      { q: `Do you work with ecommerce brands in ${loc.city}?`, a: `Yes - we work with ecommerce brands in ${loc.city} and across ${loc.region}. Our UK-based senior operators run the full growth stack remotely, with in-person strategy days available for ${loc.city} engagements.` },
-      { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
-      { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
-      { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30-60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3-6.` },
-      { q: `Do you offer Google Ads and Meta Ads management in ${loc.city}?`, a: `Yes - our senior UK media buyers run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${loc.city} ecommerce brands day-to-day.` },
-      { q: `Do you handle ecommerce SEO for ${loc.city} Shopify stores?`, a: `Yes. We deliver technical SEO, Shopify SEO, local SEO for ${loc.city}, product and collection page optimisation, schema markup and Core Web Vitals fixes to grow organic revenue month over month.` },
-      { q: `Can you manage Klaviyo email marketing for our ${loc.city} brand?`, a: `Absolutely - Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for our ${loc.city} clients, with segmentation and post-purchase automations built for LTV.` },
-      { q: `Do you offer a free ${loc.city} ecommerce audit?`, a: `Yes. Book a free ${loc.city} ecommerce audit and we'll review your store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
-      { q: `Can I reach the team on WhatsApp?`, a: `Absolutely - tap any WhatsApp button on this page and you'll message our senior team directly, usually with a reply within an hour on UK business days.` },
-      ...(narrative?.localFaqs ?? []),
-    ] : [];
+    const faqData = loc ? buildLocationFaqs(loc) : [];
     return {
       meta: [
         { title },
@@ -133,9 +145,9 @@ export const Route = createFileRoute("/locations/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@type": "ProfessionalService",
             "@id": `${pageUrl}#business`,
-            name: `Being Ecom - Ecommerce Agency in ${loc.city}`,
+            name: `Being Ecom - Ecommerce Agency serving ${loc.city}`,
             description: desc,
             url: pageUrl,
             image: heroImage,
@@ -146,7 +158,6 @@ export const Route = createFileRoute("/locations/$slug")({
               { "@type": "Country", name: "United Kingdom" },
             ],
             serviceType: ["Ecommerce Agency", "Shopify Development", "SEO Agency", "Google Ads", "Meta Ads", "Klaviyo Email Marketing", "CRO"],
-            address: { "@type": "PostalAddress", addressLocality: loc.city, addressRegion: loc.region, addressCountry: "GB" },
             ...(geo ? { geo: { "@type": "GeoCoordinates", latitude: geo.latitude, longitude: geo.longitude } } : {}),
             sameAs: [SITE_URL],
           }),
@@ -228,6 +239,7 @@ function LocationPage() {
   const city = loc.city;
   const C = contentFor(loc.slug, city);
   const narrative = narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug];
+  const guide = guideFor(loc.slug);
   const IMG = C.images;
   const WA = whatsappUrl(city, loc.slug);
 
@@ -280,18 +292,7 @@ function LocationPage() {
     "GA4", "Triple Whale", "Northbeam", "Recharge", "Yotpo", "Gorgias",
   ];
 
-  const faqs: FAQ[] = [
-    { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
-    { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
-    { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
-    { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes - technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
-    { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. Our senior UK media buyers run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands day-to-day.` },
-    { q: `Can you manage Klaviyo email marketing for our ${city} brand?`, a: `Absolutely. Klaviyo flows, campaigns, SMS and lifecycle marketing typically drive 30-45% of monthly revenue for ${city} DTC brands, with segmentation and post-purchase automations built for LTV.` },
-    { q: `How fast do you typically see results?`, a: `Most ${city} clients see meaningful ROAS lift within 30-60 days as we rebuild tracking, creative and offers. Compounding SEO, CRO and retention gains follow in months 3-6.` },
-    { q: `Do you offer a free ${city} ecommerce audit?`, a: `Yes. Book a free ecommerce audit and we'll review your ${city} store, ads, GA4 analytics, email and SEO - no obligation, no sales pitch.` },
-    { q: `Can I reach you on WhatsApp?`, a: `Absolutely. Tap any WhatsApp button on this page and you'll message our senior team directly - usually a reply within an hour on UK business days.` },
-  ];
+  const faqs: FAQ[] = buildLocationFaqs(loc);
 
   const variant = variantForSlug(loc.slug);
   const baseCtx: Omit<LocationCtx, "placement"> = {
@@ -608,6 +609,87 @@ function LocationPage() {
         </Section>
       )}
 
+      {/* 4c. LOCAL SEARCH GUIDE - hyper-local entities + answers to the real
+          GSC query cluster for this city (see lib/location-local-guide.ts). */}
+      {guide && (
+        <Section eyebrow={`Ecommerce in ${city}`} title={`What ${city} online sellers search for - answered`}>
+          <div className="max-w-6xl space-y-10">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                <p className="text-ink text-lg leading-relaxed">{guide.market}</p>
+                <div className="rounded-2xl border border-primary/25 bg-primary/5 p-5">
+                  <h3 className="font-bold text-ink">The problem {city} founders raise most: {guide.localPain.title}</h3>
+                  <p className="mt-2 text-sm">{guide.localPain.body}</p>
+                </div>
+              </div>
+              <aside className="rounded-2xl border border-border bg-white p-5 text-sm">
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mb-3">Areas we serve around {city}</h3>
+                <p className="text-muted-foreground">{guide.towns.join(" · ")}</p>
+                <h3 className="font-bold text-ink text-sm uppercase tracking-wider mt-5 mb-2">Postcodes</h3>
+                <p className="text-muted-foreground">{guide.postcodes.join(", ")} and surrounding areas</p>
+              </aside>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-ink mb-4">The {city} ecommerce landscape</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {guide.entities.map((e) => (
+                  <div key={e.name} className="rounded-2xl border border-border bg-white p-5">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-primary shrink-0" />
+                      <span className="font-semibold text-ink">{e.name}</span>
+                    </div>
+                    <div className="mt-1 text-[11px] font-bold uppercase tracking-widest text-primary">{e.kind}</div>
+                    <p className="mt-2 text-sm text-muted-foreground">{e.note}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5">
+              {guide.queryAnswers.map((qa) => (
+                <article key={qa.query} className="card-surface p-6">
+                  <h3 className="text-lg font-bold text-ink">{qa.heading}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{qa.body}</p>
+                  <Link to={qa.to} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                    {qa.linkLabel} <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
+      {/* 4d. PAIN POINTS - recurring UK ecommerce owner problems (founder forums
+          + cited research), each mapped to the service that fixes it. */}
+      <Section eyebrow="Common problems" title={`Problems ${city} ecommerce owners bring to us`} intro={`These are the issues UK store owners raise most often in founder communities and on calls with us - and how we fix each one for ${city} brands.`} alt>
+        <div className="grid md:grid-cols-2 gap-5 max-w-6xl">
+          {UK_ECOM_PAIN_POINTS.map((p) => (
+            <div key={p.pain} className="rounded-2xl border border-border bg-white p-6">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <h3 className="font-bold text-ink">{p.pain}</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground"><strong className="text-ink">What owners say:</strong> {p.owners}</p>
+              <p className="mt-2 text-sm text-muted-foreground"><strong className="text-ink">How we fix it:</strong> {p.fix}</p>
+              <Link to={p.to} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 max-w-6xl text-xs text-muted-foreground">
+          Sources:{" "}
+          {PAIN_SOURCES.map((src, i) => (
+            <span key={src.href}>
+              <a href={src.href} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">{src.label}</a>
+              {i < PAIN_SOURCES.length - 1 ? "; " : "."}
+            </span>
+          ))}
+        </p>
+      </Section>
+
       {/* 5. NEIGHBOURHOODS */}
       <Section eyebrow={`${city} coverage`} title={`Serving DTC brands across ${city}`} intro={`From founders in ${C.neighbourhoods[0]} to warehouses in ${C.neighbourhoods[C.neighbourhoods.length - 1]}, we partner with ecommerce brands across every corner of ${city} and ${loc.region}.`}>
 
@@ -795,7 +877,7 @@ function LocationPage() {
       </Section>
 
       {/* 15. PROCESS */}
-      <Section eyebrow="Process" title={`How we scale ${city} ecommerce brands`} intro="A repeatable 6-step system built from 120+ UK engagements.">
+      <Section eyebrow="Process" title={`How we scale ${city} ecommerce brands`} intro="A repeatable 6-step system we run on every engagement.">
         <NumberedList items={process} />
       </Section>
 
