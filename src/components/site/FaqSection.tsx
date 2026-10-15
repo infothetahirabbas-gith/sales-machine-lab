@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { type FAQ, faqSlug } from "@/lib/seo";
 import { Reveal, StaggerGroup } from "@/hooks/useReveal";
 
@@ -81,21 +81,20 @@ export default function FaqSection({
                       <Plus className="w-4 h-4" />
                     </m.span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <m.div
-                        id={`${id}-answer`}
-                        key="content"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
-                      </m.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Answers stay in the DOM when collapsed (SEO fix 2026-10-15):
+                      previously closed answers were unmounted, so crawlers only
+                      saw the first answer while FAQPage schema listed them all. */}
+                  <m.div
+                    id={`${id}-answer`}
+                    role="region"
+                    initial={false}
+                    animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden"
+                    aria-hidden={!isOpen}
+                  >
+                    <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                  </m.div>
                 </m.div>
               );
             })}
