@@ -1,6 +1,8 @@
 // Rich per-industry content for /industries/$slug and its sub-pages.
 // Every Unsplash ID here is checked at prebuild by scripts/check-location-images.mjs.
 
+import { PRICING_TIERS } from "./pricing";
+
 export const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -79,10 +81,10 @@ const KPI_DEFAULT = [
 const FAQ_BASE = (name: string) => [
   { q: `Do you specialise in ${name.toLowerCase()} brands?`, a: `Yes. We ring-fence a senior pod that only works on ${name.toLowerCase()} accounts, so creative, media and CRO are all tuned to how your customers actually shop.` },
   { q: `How fast can we see results?`, a: `Most ${name.toLowerCase()} clients see meaningful ROAS lift within 30-60 days as tracking, creative and offers are rebuilt. Compound gains land months 3-6.` },
-  { q: `What size of ${name.toLowerCase()} brand do you work with?`, a: `We're a fit from £30k/month revenue up to £3M/month. Below that we recommend our free growth audit and DIY playbooks first.` },
+  { q: `What size of ${name.toLowerCase()} brand do you work with?`, a: `We work with new stores on our Starter plan through to established brands turning over millions a year - the plan and team size scale with you.` },
   { q: `Which platforms do you run?`, a: `Shopify & Shopify Plus by default, WooCommerce migrations when needed, plus Meta, Google, TikTok, Klaviyo, GA4 and Triple Whale.` },
   { q: `Do you provide creative production?`, a: `Yes - in-house UGC, studio product photography and motion graphics. No waiting on external agencies to ship new ad variants.` },
-  { q: `What does pricing look like?`, a: `Three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for stores ready to scale, and £10,000+/mo Scale for full dedicated growth teams. See /pricing for what's included.` },
+  { q: `What does pricing look like?`, a: `Published monthly retainers: ${PRICING_TIERS.map((t) => `${t.name} ${t.price}/mo`).join(", ")}. Each starts with a 90-day initial engagement, then runs month-to-month with 30 days' notice. Ad spend is paid directly to the platforms. See /pricing for what's included.` },
 ];
 
 // ── per-industry content ──
