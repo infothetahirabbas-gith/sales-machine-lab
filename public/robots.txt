@@ -8,6 +8,7 @@ Disallow: /api/
 
 Sitemap: https://beingecom.com/sitemap.xml
 Sitemap: https://beingecom.com/sitemap-pages.xml
+Sitemap: https://beingecom.com/sitemap-blog.xml
 Sitemap: https://beingecom.com/sitemap-services.xml
 Sitemap: https://beingecom.com/sitemap-locations.xml
 Sitemap: https://beingecom.com/sitemap-industries.xml
