@@ -19,7 +19,7 @@ export const homeFaqs = [
   },
   {
     q: "How much does hiring a UK ecommerce marketing agency cost?",
-    a: "Most UK ecommerce marketing agencies charge £2,500-£15,000 per month depending on scope, ad spend and platforms managed. BeingEcom prices custom by revenue and channel mix - a Shopify SEO-only retainer typically starts around £2,500/month, a full-stack Growth engagement (SEO + Google Ads + Meta Ads + Klaviyo + CRO) sits between £5,000 and £12,000/month, and Scale plans for 7-figure Shopify Plus brands are quoted per project. There are no 12-month lock-ins and no percentage-of-ad-spend billing.",
+    a: "Most UK ecommerce marketing agencies charge £2,500-£15,000 per month depending on scope, ad spend and platforms managed. BeingEcom prices custom by revenue and channel mix - an SEO-only plan starts at £500/month (Starter) and most growing Shopify brands sit between £1,000 and £2,000/month, a full-stack Growth engagement (SEO + Google Ads + Meta Ads + Klaviyo + CRO) sits between £5,000 and £12,000/month, and Scale plans for 7-figure Shopify Plus brands are quoted per project. There are no 12-month lock-ins and no percentage-of-ad-spend billing.",
   },
   {
     q: "Why hire an ecommerce SEO agency UK instead of doing SEO in-house?",

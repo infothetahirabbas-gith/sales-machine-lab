@@ -191,7 +191,7 @@ export const BLOG_EDITORIAL: IndexEditorial = {
         { label: "Shopify development", href: "/services/store-development/shopify" },
         { label: "WooCommerce development", href: "/services/store-development/woocommerce" },
         { label: "Shopify vs WooCommerce comparison", href: "/compare" },
-        { label: "Shopify SEO packages", href: "/shopify-seo-packages" },
+        { label: "Shopify SEO agency UK", href: "/shopify-seo-agency-uk" },
       ],
     },
     {
@@ -408,7 +408,7 @@ export const COMPARE_EDITORIAL: IndexEditorial = {
         { label: "WooCommerce development services", href: "/services/store-development/woocommerce" },
         { label: "Store development overview", href: "/services/store-development" },
         { label: "Migration SEO", href: "/ecommerce-migration-seo" },
-        { label: "Enterprise ecommerce SEO", href: "/enterprise-ecommerce-seo" },
+        { label: "Ecommerce SEO services", href: "/services/seo" },
       ],
     },
     {
@@ -431,7 +431,7 @@ export const COMPARE_EDITORIAL: IndexEditorial = {
         { label: "Benchmarks", href: "/benchmarks" },
         { label: "Case studies", href: "/case-studies" },
         { label: "Free calculators", href: "/tools" },
-        { label: "Agency vs in-house SEO", href: "/agency-vs-inhouse-seo" },
+        { label: "Agency vs in-house SEO", href: "/compare/in-house-vs-agency" },
       ],
     },
   ],
@@ -1083,7 +1083,7 @@ export const INDUSTRIES_EDITORIAL: IndexEditorial = {
         { label: "WooCommerce development", href: "/services/store-development/woocommerce" },
         { label: "Scaling programmes", href: "/services/scaling" },
         { label: "Analytics and tracking", href: "/services/analytics" },
-        { label: "Enterprise ecommerce SEO", href: "/enterprise-ecommerce-seo" },
+        { label: "Ecommerce SEO services", href: "/services/seo" },
       ],
     },
     {
@@ -1293,7 +1293,7 @@ export const LOCATIONS_EDITORIAL: IndexEditorial = {
         { label: "Technical SEO", href: "/services/seo/technical" },
         { label: "On-page SEO", href: "/services/seo/on-page" },
         { label: "International SEO", href: "/services/seo/international" },
-        { label: "Ecommerce SEO consultant", href: "/ecommerce-seo-consultant" },
+        { label: "Ecommerce SEO services", href: "/services/seo" },
       ],
     },
     {
@@ -1316,7 +1316,7 @@ export const LOCATIONS_EDITORIAL: IndexEditorial = {
         { label: "Comparisons", href: "/compare" },
         { label: "Case studies", href: "/case-studies" },
         { label: "Ecommerce blog", href: "/blog" },
-        { label: "Ecommerce growth agency UK", href: "/ecommerce-growth-agency-uk" },
+        { label: "Ecommerce marketing agency UK", href: "/" },
       ],
     },
   ],

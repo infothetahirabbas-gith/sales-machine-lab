@@ -171,8 +171,8 @@ export const PILLAR_PAGES: PillarPage[] = [
     related: [
       { label: "Pricing", to: "/pricing" },
       { label: "Ecommerce SEO service", to: "/services/seo" },
-      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
-      { label: "Ecommerce SEO consultant", to: "/ecommerce-seo-consultant" },
+      { label: "Shopify SEO agency UK", to: "/shopify-seo-agency-uk" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
     ],
     faqs: [
       { q: "What's the minimum realistic ecommerce SEO budget?", a: "For a small UK Shopify store in a low-competition niche, £1,500-£2,500 per month can produce measurable progress. Below that you're buying reports, not results." },
@@ -247,7 +247,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       { label: "Shopify growth hub", to: "/hub/shopify-growth" },
       { label: "Ecommerce SEO service", to: "/services/seo" },
       { label: "Migration SEO", to: "/ecommerce-migration-seo" },
-      { label: "Pricing", to: "/ecommerce-seo-pricing" },
+      { label: "Pricing", to: "/pricing" },
     ],
     faqs: [
       { q: "Do you only work with Shopify?", a: "No - most of our Shopify work is Shopify or Shopify Plus, but we also work on WooCommerce, headless Shopify and enterprise stacks." },
@@ -305,7 +305,7 @@ export const PILLAR_PAGES: PillarPage[] = [
     related: [
       { label: "About the founder", to: "/about/tahir-abbas" },
       { label: "Methodology", to: "/methodology" },
-      { label: "Ecommerce SEO pricing", to: "/ecommerce-seo-pricing" },
+      { label: "SEO pricing plans", to: "/pricing" },
       { label: "Case studies", to: "/case-studies" },
     ],
     faqs: [
@@ -403,7 +403,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       { label: "Performance marketing", to: "/services/performance-marketing" },
       { label: "CRO", to: "/services/cro" },
       { label: "Email & SMS", to: "/services/email-sms" },
-      { label: "Growth agency UK", to: "/ecommerce-growth-agency-uk" },
+      { label: "Ecommerce marketing agency UK", to: "/" },
     ],
     faqs: [
       { q: "Do you specialise in one channel or all of them?", a: "We're deliberately full-funnel. Single-channel agencies can only ever optimise inside their box; ecommerce growth lives in the trade-offs between channels." },
@@ -455,7 +455,7 @@ export const PILLAR_PAGES: PillarPage[] = [
     related: [
       { label: "CRO", to: "/services/cro" },
       { label: "Analytics", to: "/services/analytics" },
-      { label: "Growth agency UK", to: "/ecommerce-growth-agency-uk" },
+      { label: "Ecommerce marketing agency UK", to: "/" },
       { label: "Free tools", to: "/tools" },
     ],
     faqs: [
@@ -506,8 +506,8 @@ export const PILLAR_PAGES: PillarPage[] = [
     related: [
       { label: "Migration SEO", to: "/ecommerce-migration-seo" },
       { label: "Ecommerce analytics", to: "/ecommerce-analytics" },
-      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
-      { label: "Consulting", to: "/ecommerce-seo-consultant" },
+      { label: "Shopify SEO agency UK", to: "/shopify-seo-agency-uk" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
     ],
     faqs: [
       { q: "What size brand is enterprise for you?", a: "Typically UK ecommerce brands doing £5m-£100m+ in revenue, running Shopify Plus, headless, or enterprise platforms with catalogues of 10,000+ SKUs." },
@@ -555,8 +555,8 @@ export const PILLAR_PAGES: PillarPage[] = [
       },
     ],
     related: [
-      { label: "Enterprise SEO", to: "/enterprise-ecommerce-seo" },
-      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
+      { label: "Shopify SEO agency UK", to: "/shopify-seo-agency-uk" },
       { label: "Shopify Plus migration blog", to: "/blog/shopify-plus-migration-uk" },
       { label: "Case studies", to: "/case-studies" },
     ],
@@ -603,7 +603,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       { label: "Analytics service", to: "/services/analytics" },
       { label: "Free tools", to: "/tools" },
       { label: "Benchmarks", to: "/benchmarks" },
-      { label: "Enterprise SEO", to: "/enterprise-ecommerce-seo" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
     ],
     faqs: [
       { q: "Do we need server-side tracking?", a: "If you're spending materially on paid ads on a UK Shopify store post-2024, yes - or you're making acquisition decisions on missing data." },
@@ -709,7 +709,7 @@ export const PILLAR_PAGES: PillarPage[] = [
     ],
     related: [
       { label: "About", to: "/about" },
-      { label: "Growth agency UK", to: "/ecommerce-growth-agency-uk" },
+      { label: "Ecommerce marketing agency UK", to: "/" },
       { label: "Contact", to: "/contact" },
       { label: "Case studies", to: "/case-studies" },
     ],
@@ -827,8 +827,8 @@ export const PILLAR_PAGES: PillarPage[] = [
         heading: "Established brand (£3m+ / yr)",
         body: "You have scale, teams, and complexity. What you need is enterprise SEO and a growth assessment - not a template retainer. Start with the enterprise SEO page and the growth agency page.",
         bullets: [
-          "Read: /enterprise-ecommerce-seo",
-          "Read: /ecommerce-growth-agency-uk",
+          "Read: /services/seo",
+          "Read: /",
           "Then: request a growth assessment at /contact",
         ],
       },
@@ -918,10 +918,10 @@ export const PILLAR_PAGES: PillarPage[] = [
     eyebrow: "Buyer question",
     h1: "How much does ecommerce SEO cost in the UK?",
     intro:
-      "Real UK ecommerce SEO retainers sit between £1,500 and £15,000 per month depending on catalogue size, competition, and scope. Here's what drives price up or down - and what you should expect at each tier.",
+      "UK ecommerce SEO retainers range from around £500 to £15,000 per month depending on catalogue size, competition, and scope. Here's what drives price up or down - and what you should expect at each tier.",
     summary:
-      "UK ecommerce SEO typically costs £1,500-£15,000 per month. Price is driven by catalogue size, keyword competition, technical debt, content velocity, and whether digital PR is included. Anything under £1,000/mo is usually reporting or thin content, not real SEO delivery.",
-    pills: ["£1.5k-£15k/mo", "UK market", "Retainer model"],
+      "UK ecommerce SEO typically costs £500-£15,000 per month. Price is driven by catalogue size, keyword competition, technical debt, content velocity, and whether digital PR is included. Entry retainers (BeingEcom's starts at £500/mo) cover technical foundations, on-page work and reporting; competitive categories and digital PR need a bigger budget to move faster.",
+    pills: ["£500-£15k/mo", "UK market", "Retainer model"],
     sections: [
       {
         heading: "What actually drives the price",
@@ -936,23 +936,23 @@ export const PILLAR_PAGES: PillarPage[] = [
       },
       {
         heading: "The tiers, in plain English",
-        body: "£1,500-£2,500/mo suits small stores with clean tech and a focused niche. £3,000-£5,000/mo is standard for growing DTC brands. £5,000-£10,000/mo covers Shopify Plus and mid-market. £10,000+ is enterprise or replatform-heavy scope.",
+        body: "£500-£1,500/mo suits small stores with clean tech and a focused niche (our Starter, Growth and Enterprise plans). £3,000-£5,000/mo is standard for growing DTC brands. £5,000-£10,000/mo covers Shopify Plus and mid-market. £10,000+ is enterprise or replatform-heavy scope.",
       },
       {
         heading: "What you should not pay for",
-        body: "Retainers under £1,000/mo are almost always reporting dashboards plus a monthly blog post. That is not ecommerce SEO. Neither is any package priced without ever looking at your store.",
+        body: "A low retainer is fine if it buys real work - technical fixes and on-page changes - not just a dashboard and a monthly blog post. Ask exactly what ships each month, and avoid any package priced without anyone looking at your store.",
       },
     ],
     highlights: [
-      { label: "Entry retainer", value: "£1.5k/mo" },
+      { label: "Entry retainer", value: "£500/mo" },
       { label: "Standard DTC", value: "£3-5k/mo" },
       { label: "Enterprise", value: "£10k+/mo" },
     ],
     related: [
-      { label: "Ecommerce SEO pricing (full breakdown)", to: "/ecommerce-seo-pricing" },
-      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
+      { label: "SEO pricing plans", to: "/pricing" },
+      { label: "Shopify SEO agency UK", to: "/shopify-seo-agency-uk" },
       { label: "How long does SEO take?", to: "/how-long-does-ecommerce-seo-take" },
-      { label: "Agency vs in-house SEO", to: "/agency-vs-inhouse-seo" },
+      { label: "Agency vs in-house SEO", to: "/compare/in-house-vs-agency" },
     ],
     faqs: [
       { q: "Why is there such a wide price range?", a: "Because 'ecommerce SEO' can mean anything from a small technical audit to a 15-person team running enterprise migrations. The scope makes the price, not the label." },
@@ -1109,7 +1109,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       { q: "How much of my time will this take?", a: "One weekly 60-minute call, plus async approval on quarterly plans. Most founders spend 60-90 minutes a week on us." },
       { q: "Who is my main contact?", a: "A senior operator who has run growth for other UK ecommerce brands. Not a junior AM." },
       { q: "Do you work with pre-revenue founders?", a: "No. Below £30k/mo we recommend the free Academy and Shopify SEO checklist until you have data to work with." },
-      { q: "Can you work with my in-house team?", a: "Yes - the hybrid model (see /agency-vs-inhouse-seo) works well for founder-led brands scaling past £3m." },
+      { q: "Can you work with my in-house team?", a: "Yes - the hybrid model (see /compare/in-house-vs-agency) works well for founder-led brands scaling past £3m." },
     ],
   },
   {
@@ -1194,8 +1194,8 @@ export const PILLAR_PAGES: PillarPage[] = [
       },
     ],
     related: [
-      { label: "Agency vs in-house SEO", to: "/agency-vs-inhouse-seo" },
-      { label: "Enterprise ecommerce SEO", to: "/enterprise-ecommerce-seo" },
+      { label: "Agency vs in-house SEO", to: "/compare/in-house-vs-agency" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
       { label: "Methodology", to: "/methodology" },
       { label: "Contact", to: "/contact" },
     ],
@@ -1241,7 +1241,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       },
     ],
     related: [
-      { label: "Enterprise ecommerce SEO", to: "/enterprise-ecommerce-seo" },
+      { label: "Ecommerce SEO services", to: "/services/seo" },
       { label: "Migration SEO", to: "/ecommerce-migration-seo" },
       { label: "Methodology", to: "/methodology" },
       { label: "Case studies", to: "/case-studies" },
@@ -1318,7 +1318,7 @@ export const PILLAR_PAGES: PillarPage[] = [
     ],
     related: [
       { label: "Ecommerce SEO services", to: "/services/seo" },
-      { label: "Shopify SEO packages", to: "/shopify-seo-packages" },
+      { label: "Shopify SEO agency UK", to: "/shopify-seo-agency-uk" },
       { label: "Technical SEO", to: "/services/seo/technical" },
       { label: "Shopify growth hub", to: "/hub/shopify-growth" },
       { label: "Shopify SEO checklist", to: "/tools/shopify-seo-checklist" },
@@ -1327,7 +1327,7 @@ export const PILLAR_PAGES: PillarPage[] = [
     ],
     faqs: [
       { q: "What does a Shopify SEO agency do?", a: "It fixes the technical constraints of the Shopify platform, builds the collection and product page structure that matches real search demand, earns editorial links, and reports organic revenue rather than rankings alone." },
-      { q: "How much do Shopify SEO services cost in the UK?", a: "Our retainers start at £1,500/mo for smaller catalogues and sit between £2,500-£6,000/mo for most growing Shopify brands. See /ecommerce-seo-pricing for the full ladder." },
+      { q: "How much do Shopify SEO services cost in the UK?", a: "Our SEO plans start at £500/mo (Starter) for smaller catalogues; most growing Shopify brands sit on Growth (£1,000/mo) or Enterprise (£1,500/mo), with Business from £2,000/mo. See /pricing for the full ladder." },
       { q: "How long does Shopify SEO take to work?", a: "Technical wins can move within 4-8 weeks. Non-brand revenue movement typically shows between months 4 and 9, depending on catalogue size and authority." },
       { q: "Do you work with Shopify Plus?", a: "Yes. Plus brands are our most common engagement - markets, B2B catalogues, and multi-storefront setups included." },
       { q: "Can you fix Shopify duplicate content?", a: "Yes. Collection-nested product URLs, tag pages and filtered variants are the first thing we audit on almost every Shopify store." },
@@ -1402,7 +1402,7 @@ export const PILLAR_PAGES: PillarPage[] = [
       { label: "WooCommerce marketing", to: "/services/store-development/woocommerce" },
       { label: "WooCommerce growth hub", to: "/hub/woocommerce-growth" },
       { label: "Technical SEO", to: "/services/seo/technical" },
-      { label: "Shopify vs WooCommerce", to: "/compare/shopify-vs-woocommerce" },
+      { label: "Shopify vs WooCommerce", to: "/blog/shopify-vs-woocommerce-uk" },
       ...STANDARD_RELATED,
     ],
     faqs: [

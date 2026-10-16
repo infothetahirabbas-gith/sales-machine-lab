@@ -1209,7 +1209,10 @@ const COMPARE: Record<string, ComparisonEntry> = {
   },
 };
 
-export const COMPARE_INDEX = Object.values(COMPARE).map((c) => ({
+// /compare/shopify-vs-woocommerce 301s to the full blog guide (SEO audit 2026-10-16).
+const REDIRECTED_COMPARE = new Set(["shopify-vs-woocommerce"]);
+
+export const COMPARE_INDEX = Object.values(COMPARE).filter((c) => !REDIRECTED_COMPARE.has(c.slug)).map((c) => ({
   slug: c.slug,
   a: c.a,
   b: c.b,

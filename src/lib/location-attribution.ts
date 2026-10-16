@@ -17,32 +17,21 @@ export type LocationCtx = {
   variant?: "A" | "B";
 };
 
-/** Build a UTM-tagged URL for a same-origin path. */
+/**
+ * SEO audit 2026-10-16: internal links no longer carry UTM params. UTMs on same-site
+ * links start a new GA4 session and overwrite the real traffic source, and they create
+ * duplicate crawlable URLs. Attribution now relies on stashLocationAttribution()
+ * (sessionStorage) which /contact and /audit already read on submit.
+ */
 export function buildLocationLink(path: string, ctx: LocationCtx): string {
-  const params = new URLSearchParams({
-    utm_source: "beingecom",
-    utm_medium: "location_page",
-    utm_campaign: `location_${ctx.slug}`,
-    utm_content: ctx.placement,
-  });
-  if (ctx.variant) params.set("utm_term", `meta_${ctx.variant.toLowerCase()}`);
-  const sep = path.includes("?") ? "&" : "?";
-  return `${path}${sep}${params.toString()}`;
+  void ctx;
+  return path;
 }
 
-/** Append UTM params to an external URL (e.g. WhatsApp wa.me). */
+/** External links (e.g. wa.me) - left untouched; wa.me strips query params anyway. */
 export function withLocationUtm(url: string, ctx: LocationCtx): string {
-  try {
-    const u = new URL(url);
-    u.searchParams.set("utm_source", "beingecom");
-    u.searchParams.set("utm_medium", "location_page");
-    u.searchParams.set("utm_campaign", `location_${ctx.slug}`);
-    u.searchParams.set("utm_content", ctx.placement);
-    if (ctx.variant) u.searchParams.set("utm_term", `meta_${ctx.variant.toLowerCase()}`);
-    return u.toString();
-  } catch {
-    return url;
-  }
+  void ctx;
+  return url;
 }
 
 /** Persist attribution so /contact and /audit can read it on submit. */

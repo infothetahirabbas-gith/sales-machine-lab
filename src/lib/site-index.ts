@@ -3,6 +3,16 @@
 
 import { SERVICE_CATALOG } from "./service-catalog";
 import { PILLAR_PAGES } from "./pillar-pages";
+
+const REDIRECTED_PILLARS = new Set([
+  "/ecommerce-marketing-agency-uk",
+  "/ecommerce-growth-agency-uk",
+  "/ecommerce-seo-pricing",
+  "/shopify-seo-packages",
+  "/enterprise-ecommerce-seo",
+  "/ecommerce-seo-consultant",
+  "/agency-vs-inhouse-seo",
+]);
 import { LOCATIONS, INDUSTRIES } from "./locations-industries";
 import { CALCULATORS } from "./calculators";
 import { BLOG_POSTS } from "./blog-posts";
@@ -34,7 +44,7 @@ const CORE: SiteIndexEntry[] = [
   { title: "Contact BeingEcom", description: "Talk to the team about ecommerce growth - London office, UK-wide clients.", to: "/contact", section: "Company" },
   { title: "The BeingEcom Growth System", description: "Our six-stage methodology for taking a store from leaky to compounding.", to: "/methodology", section: "Company", keywords: "process framework methodology" },
   { title: "About BeingEcom", description: "Who we are, how we work, and the standards we hold our work to.", to: "/about", section: "Company" },
-  { title: "Tahir Abbas, founder", description: "Founder profile: background, operating principles and published work.", to: "/company/founder", section: "Company" },
+  { title: "Tahir Abbas, founder", description: "Founder profile: background, operating principles and published work.", to: "/about/tahir-abbas", section: "Company" },
   { title: "Our team", description: "The senior practitioners who run BeingEcom client accounts.", to: "/company/team", section: "Company" },
   { title: "Editorial policy", description: "How we research, source, review and update everything we publish.", to: "/company/editorial-policy", section: "Company" },
   { title: "Review methodology", description: "How we test tools and platforms, score them, and handle conflicts of interest.", to: "/company/review-methodology", section: "Company" },
@@ -59,7 +69,8 @@ export const SITE_INDEX: SiteIndexEntry[] = [
     to: s.to,
     section: "Services" as const,
   })),
-  ...PILLAR_PAGES.map((p) => ({
+  // Skip pillar pages that now 301 to a consolidated owner URL (SEO audit 2026-10-16).
+  ...PILLAR_PAGES.filter((p) => !REDIRECTED_PILLARS.has(p.path)).map((p) => ({
     title: p.h1,
     description: p.description,
     to: p.path,

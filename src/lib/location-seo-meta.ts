@@ -148,7 +148,7 @@ export const LOCATION_META_B: Record<string, LocationMeta> = {
       "South Yorkshire DTC brand? We scale Sheffield Shopify & WooCommerce stores with paid ads, SEO, Klaviyo & CRO. Book a free 45-min audit.",
   },
   "newcastle-upon-tyne": {
-    title: "Newcastle Shopify Growth Agency | Free 45-min Audit",
+    title: "Ecommerce Agency Newcastle | Shopify & WooCommerce",
     description:
       "North East DTC brand? We scale Newcastle Shopify & WooCommerce stores with paid ads, SEO, Klaviyo & CRO. Book a free 45-min audit.",
   },
@@ -178,8 +178,12 @@ export const EXPERIMENT_ASSIGNMENT: Record<string, "A" | "B"> = {
   bradford: "B",
 };
 
+// Experiment closed 2026-08-19. SEO audit 2026-10-16: variant B titles ("Scale Your
+// Manchester Shopify Store") omitted "agency"/"ecommerce" and matched the wrong intent,
+// so every city now serves variant A ("Ecommerce Agency {City} | ...").
 export function variantForSlug(slug: string): "A" | "B" {
-  return EXPERIMENT_ASSIGNMENT[slug] ?? "A";
+  void slug;
+  return "A";
 }
 
 export function metaFor(slug: string, city: string, region: string): LocationMeta {

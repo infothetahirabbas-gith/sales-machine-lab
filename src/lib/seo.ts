@@ -29,7 +29,7 @@ export const ORG_INFO = {
 // schemas (Person → worksFor, Service → provider) so search engines and
 // LLMs consolidate BeingEcom as a single entity.
 export const ORG_ID = `${SITE_URL}#organisation`;
-export const PERSON_ID_FOUNDER = `${SITE_URL}/company/founder#tahir-abbas`;
+export const PERSON_ID_FOUNDER = `${SITE_URL}/about/tahir-abbas#tahir-abbas`;
 export const PERSON_ID_CTO = `${SITE_URL}/company/team#ali-abbas`;
 export const PERSON_ID_MD = `${SITE_URL}/company/team#hasnain-abbas`;
 
@@ -248,7 +248,7 @@ export function personJsonLd(member: TeamMember) {
     description: member.bio,
     image: member.image,
     url: member.slug === "tahir-abbas"
-      ? `${SITE_URL}/company/founder`
+      ? `${SITE_URL}/about/tahir-abbas`
       : `${SITE_URL}/company/team#${member.slug}`,
     worksFor: { "@id": ORG_ID },
     memberOf: { "@id": ORG_ID },
