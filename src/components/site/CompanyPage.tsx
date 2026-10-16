@@ -111,8 +111,8 @@ export default function CompanyPage(props: CompanyPageProps) {
       columns: ["Signal", "Where to find it on our site"],
       rows: [
         ["Registered UK address", "Footer + /contact + Organisation schema (Covent Garden, London)"],
-        ["Named leadership team", "/company/founder and /company/team"],
-        ["Methodology in the open", "/company/methodology"],
+        ["Named leadership team", "/about/tahir-abbas and /company/team"],
+        ["Methodology in the open", "/methodology"],
         ["Case studies with real scope", "/case-studies"],
         ["Certifications & partner status", "/company/certifications"],
         ["Public reviews", "/company/reviews"],

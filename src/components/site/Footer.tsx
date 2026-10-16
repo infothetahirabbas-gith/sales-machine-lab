@@ -3,22 +3,10 @@ import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 
 import { SITE } from "@/config/site";
 import { COMPANY_LINKS } from "@/config/company";
 import { SERVICES } from "@/config/services";
-import { LOCATIONS, INDUSTRIES } from "@/lib/locations-industries";
 import logoAsset from "@/assets/being-ecom-logo.webp.asset.json";
 
-// Hub pillars, tools and comparisons - keeps every deep page ≤2 clicks from home
-// so Google can crawl them and they don't end up "Discovered - currently not indexed".
-const HUB_PILLARS: { to: string; label: string }[] = [
-  { to: "/hub/shopify-growth", label: "Shopify Growth" },
-  { to: "/hub/woocommerce-growth", label: "WooCommerce Growth" },
-  { to: "/hub/ecommerce-seo", label: "Ecommerce SEO" },
-  { to: "/hub/paid-media", label: "Paid Media" },
-  { to: "/hub/cro", label: "CRO" },
-  { to: "/hub/email-marketing", label: "Email Marketing" },
-  { to: "/hub/ai-automation", label: "AI Automation" },
-  { to: "/hub/analytics-tracking", label: "Analytics & Tracking" },
-];
-
+// SEO audit 2026-10-16: footer trimmed from ~70 to ~30 links. City, industry and hub
+// pages are reached via their index pages (/locations, /industries, /hub) and the header.
 const RESOURCES: { to: string; label: string }[] = [
   { to: "/blog", label: "Blog" },
   { to: "/case-studies", label: "Case Studies" },
@@ -28,7 +16,6 @@ const RESOURCES: { to: string; label: string }[] = [
   { to: "/methodology", label: "Growth Methodology" },
   { to: "/glossary", label: "SEO Glossary" },
   { to: "/research", label: "Research" },
-  { to: "/search", label: "Search the site" },
 ];
 
 export default function Footer() {
@@ -101,13 +88,6 @@ export default function Footer() {
         <div className="lg:col-span-4">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">LOCATIONS</div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
-            {LOCATIONS.map((l) => (
-              <li key={l.slug}>
-                <Link to="/locations/$slug" params={{ slug: l.slug }} className="hover:text-accent transition-colors">
-                  Ecommerce Agency {l.city}
-                </Link>
-              </li>
-            ))}
             <li className="pt-1 col-span-2">
               <Link to="/locations" className="inline-flex items-center gap-1 font-semibold text-accent hover:text-background transition-colors">
                 All UK locations <ArrowUpRight className="size-3.5" />
@@ -120,13 +100,6 @@ export default function Footer() {
         <div className="lg:col-span-4">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">INDUSTRIES</div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
-            {INDUSTRIES.map((i) => (
-              <li key={i.slug}>
-                <Link to="/industries/$slug" params={{ slug: i.slug }} className="hover:text-accent transition-colors">
-                  {i.name}
-                </Link>
-              </li>
-            ))}
             <li className="pt-1 col-span-2">
               <Link to="/industries" className="inline-flex items-center gap-1 font-semibold text-accent hover:text-background transition-colors">
                 All industries <ArrowUpRight className="size-3.5" />
@@ -139,11 +112,9 @@ export default function Footer() {
         <div className="lg:col-span-4">
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-5">GROWTH HUBS</div>
           <ul className="grid grid-cols-1 gap-y-2.5 text-background/60 mb-6">
-            {HUB_PILLARS.map((h) => (
-              <li key={h.to}>
-                <Link to={h.to} className="hover:text-accent transition-colors">{h.label}</Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/hub" className="hover:text-accent transition-colors">All growth hubs</Link>
+            </li>
           </ul>
           <div className="text-background font-bold tracking-[0.16em] text-xs mb-4">RESOURCES</div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-background/60">
@@ -179,8 +150,8 @@ export default function Footer() {
           </ul>
           <ul className="space-y-3 text-background/60 flex flex-col items-center lg:items-start">
             <li><Link to="/company" className="hover:text-accent transition-colors">Company hub →</Link></li>
-            <li><Link to="/company/founder" className="hover:text-accent transition-colors">Meet the founder →</Link></li>
-            <li><Link to="/company/methodology" className="hover:text-accent transition-colors">Our methodology →</Link></li>
+            <li><Link to="/about/tahir-abbas" className="hover:text-accent transition-colors">Meet the founder →</Link></li>
+            <li><Link to="/methodology" className="hover:text-accent transition-colors">Our methodology →</Link></li>
           </ul>
         </div>
       </div>

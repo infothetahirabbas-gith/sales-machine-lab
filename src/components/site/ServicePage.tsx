@@ -87,11 +87,13 @@ export type ServiceConfig = {
     rows: { criterion: string; us: string; agency: string; inhouse: string }[];
   };
   /** Optional mid-page CTA block (rendered after deep blocks). */
-  midCta?: { title: string; body: string; primary: string; secondary?: string };
+  midCta?: { title: string; body: string; primary: string; secondary?: string; primaryTo?: string; secondaryTo?: string };
+  /** Natural-language topic used in template headings (e.g. "ecommerce SEO"). Derived from eyebrow when omitted. */
+  topic?: string;
   /** Optional configurable timeline (falls back to default 90-day plan). */
   timeline?: { w: string; t: string; b: string }[];
   /** Optional industry-impact grid - pain × outcome per vertical. */
-  industryImpact?: { industry: string; pain: string; outcome: string }[];
+  industryImpact?: { industry: string; pain: string; outcome?: string }[];
   /** Long-form intro block rendered under the hero (200-300 words). Supports paragraphs + highlight bullets. */
   intro?: {
     eyebrow?: string;
@@ -114,7 +116,22 @@ export type ServiceConfig = {
 
 const moduleIcons = [Layers, Target, Rocket, TrendingUp, Shield, Zap, Sparkles, Star];
 
+const capitalise = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+
+/** "Ecommerce SEO Agency UK" -> "ecommerce SEO" (keeps acronyms, drops agency/UK filler). */
+function deriveTopic(eyebrow: string): string {
+  const cleaned = eyebrow
+    .replace(/\b(agency|agencies|uk|services?|specialists?|company)\b/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return cleaned
+    .split(" ")
+    .map((w) => (w === w.toUpperCase() && w.length > 1 ? w : w.toLowerCase()))
+    .join(" ");
+}
+
 export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
+  const topic = cfg.topic ?? deriveTopic(cfg.eyebrow);
   return (
     <PageLayout>
       {/* 1. HERO */}
@@ -184,7 +201,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                   <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border shadow-2xl">
                     <SafeImg
                       src={cfg.heroImage}
-                      alt={`${cfg.eyebrow} - ${cfg.heroTitle}`}
+                      alt={`${capitalise(topic)} work for a Shopify or WooCommerce store`}
                       width={640}
                       height={480}
                       className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover"
@@ -208,7 +225,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 1a. AI SUMMARY - entity-first answer block for AEO / AI search extractability */}
       <AISummary>
-        {cfg.aiSummary ?? `BeingEcom is a UK ecommerce marketing agency helping Shopify and WooCommerce brands scale through ${cfg.eyebrow.toLowerCase()}. ${cfg.heroSub}`}
+        {cfg.aiSummary ?? `BeingEcom is a UK ecommerce agency helping Shopify and WooCommerce brands grow with ${topic}. ${cfg.heroSub}`}
       </AISummary>
 
       {/* 1b. LONG-FORM INTRO (optional) */}
@@ -428,12 +445,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                 <h3 className="text-2xl md:text-4xl font-bold text-ink leading-tight">{cfg.midCta.title}</h3>
                 <p className="mt-4 text-lg text-muted-foreground">{cfg.midCta.body}</p>
                 <div className="mt-8 btn-pair justify-center">
-                  <Link to="/contact" className="btn btn-primary btn-shimmer group">
+                  <Link to={(cfg.midCta.primaryTo ?? "/contact") as "/contact"} className="btn btn-primary btn-shimmer group">
                     {cfg.midCta.primary}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                   {cfg.midCta.secondary && (
-                    <Link to="/audit" className="btn btn-ghost border border-border bg-white/60 backdrop-blur">
+                    <Link to={(cfg.midCta.secondaryTo ?? "/audit") as "/audit"} className="btn btn-ghost border border-border bg-white/60 backdrop-blur">
                       {cfg.midCta.secondary}
                     </Link>
                   )}
@@ -447,7 +464,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 12c. MISTAKES (optional) */}
       {cfg.mistakes && cfg.mistakes.length > 0 && (
-        <Section eyebrow="Avoid these" title={`Mistakes that quietly kill ${cfg.eyebrow.toLowerCase()} performance.`} alt>
+        <Section eyebrow="Avoid these" title={`${capitalise(topic)} mistakes that quietly cost you revenue.`} alt>
           <div className="grid md:grid-cols-2 gap-4">
             {cfg.mistakes.map((m, i) => (
               <Reveal key={m.title} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -513,7 +530,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 12e. INDUSTRY IMPACT (optional) */}
       {cfg.industryImpact && cfg.industryImpact.length > 0 && (
-        <Section eyebrow="Vertical impact" title={`How ${cfg.eyebrow.toLowerCase()} moves the needle in your industry.`} alt>
+        <Section eyebrow="Vertical impact" title={`What ${topic} changes in your industry.`} alt>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {cfg.industryImpact.map((it, i) => (
               <Reveal key={it.industry} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -524,10 +541,12 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
                       <XCircle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
                       <p className="text-muted-foreground leading-relaxed"><span className="font-semibold text-ink">Pain:</span> {it.pain}</p>
                     </div>
+                    {it.outcome && (
                     <div className="mt-3 flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       <p className="text-ink leading-relaxed"><span className="font-semibold">Outcome:</span> {it.outcome}</p>
                     </div>
+                    )}
                   </div>
                 </div>
               </Reveal>
@@ -745,7 +764,7 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
 
       {/* 17. SUB-SERVICES - linked out to child service pages */}
       {cfg.subServices && cfg.subServices.length > 0 && (
-        <Section eyebrow="Go deeper" title={`Everything inside ${cfg.eyebrow.toLowerCase()}`} alt>
+        <Section eyebrow="Go deeper" title={`Every part of our ${topic} service`} alt>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {cfg.subServices.map((s, i) => (
               <Reveal key={s.to} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
@@ -856,30 +875,9 @@ export default function ServicePage({ cfg }: { cfg: ServiceConfig }) {
         </div>
       </Section>
 
-      {/* 22. TESTIMONIALS */}
-      <Section eyebrow="Real founders" title="What our clients actually say">
-        <div className="grid md:grid-cols-3 gap-5">
-          {(cfg.testimonials ?? [
-            { quote: "Blended ROAS 1.9 → 4.3 in 90 days. Compliant, converting creative shipped weekly.", name: "Amelia H.", role: "Founder, Shoreditch skincare" },
-            { quote: "They rebuilt our Google Shopping in three weeks. Non-brand Search finally became a profit centre.", name: "Daniel R.", role: "Founder, wearables startup" },
-            { quote: "Ad fatigue used to break us in a week. Now we get three UGC batches a week and ROAS holds.", name: "Sara J.", role: "Founder, women's fashion" },
-          ]).map((t, i) => (
-            <Reveal key={t.name} delay={Math.min(i, 3) as 0 | 1 | 2 | 3}>
-              <div className="card-surface p-6 h-full relative group hover:shadow-xl transition-shadow">
-                <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/20" />
-                <div className="flex gap-1 text-primary mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                </div>
-                <p className="text-ink leading-relaxed">"{t.quote}"</p>
-                <footer className="mt-5 pt-4 border-t border-border">
-                  <div className="font-semibold text-ink text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
-                </footer>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+      {/* 22. TESTIMONIALS - removed (SEO audit 2026-10-16): the shared quote set reused the same
+          names with different results on every service page. Publish only attributed, client-approved
+          quotes via /case-studies. */}
 
       {/* 23. PACKAGES / PRICING TIERS */}
       <Section eyebrow="Investment" title="Simple, transparent packages" alt>
