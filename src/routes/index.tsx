@@ -11,7 +11,7 @@ import { faqJsonLd, professionalServiceJsonLd } from "../lib/seo";
 import { HERO_STATS } from "../lib/stats";
 import { Reveal } from "../hooks/useReveal";
 import { SafeImg } from "../components/SafeImg";
-import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG, FOUNDER_PHOTOS } from "../lib/home-images";
+import { HERO_PHONE, HOME_BENTO, CASE_STUDY_IMG } from "../lib/home-images";
 import caseStudyGrowth from "../assets/case-study-growth-v2.jpg.asset.json";
 
 // WebP variants generated at build time by vite-imagetools - ~60-70% smaller than the JPGs.
@@ -75,17 +75,17 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Ecommerce Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
-      { name: "description", content: "BeingEcom is an ecommerce agency and marketing partner in the UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
-      { property: "og:title", content: "Ecommerce Agency UK | Shopify & WooCommerce Growth | BeingEcom" },
+      { title: "Ecommerce Marketing Agency UK for Shopify & Woo | BeingEcom" },
+      { name: "description", content: "UK ecommerce marketing agency for Shopify and WooCommerce brands: SEO, paid ads, CRO and Klaviyo run by one senior team. Free 30-min growth audit." },
+      { property: "og:title", content: "Ecommerce Marketing Agency UK for Shopify & Woo | BeingEcom" },
       { property: "og:description", content: "BeingEcom is an ecommerce agency and marketing partner in the UK helping Shopify and WooCommerce brands grow with SEO, paid ads, CRO, email marketing and AI-powered ecommerce strategies." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://beingecom.com/" },
       { property: "og:image", content: "https://beingecom.com/og-image.png" },
-      { property: "og:image:alt", content: "BeingEcom - Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
+      { property: "og:image:alt", content: "BeingEcom - ecommerce agency for UK Shopify and WooCommerce brands" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://beingecom.com/og-image.png" },
-      { name: "twitter:image:alt", content: "BeingEcom - Ecommerce Marketing Agency UK for Shopify and WooCommerce brands" },
+      { name: "twitter:image:alt", content: "BeingEcom - ecommerce agency for UK Shopify and WooCommerce brands" },
     ],
     links: [
       { rel: "canonical", href: "https://beingecom.com/" },
@@ -174,7 +174,7 @@ function Home() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
               <span className="relative w-1.5 h-1.5 rounded-full bg-primary pulse-dot" />
-              Ecommerce Growth Agency UK · Senior in-house team
+              Shopify &amp; WooCommerce specialists · Senior team
             </div>
             <h1 className="hero-headline mt-5 font-black tracking-tight">
               <span className="text-primary">Ecommerce Marketing</span>
@@ -185,7 +185,7 @@ function Home() {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              BeingEcom is an Ecommerce Marketing Agency UK running ecommerce SEO, paid media, CRO, Klaviyo lifecycle marketing and GA4 analytics for Shopify and WooCommerce stores as one team on one revenue P&amp;L. Senior operators only, weekly Loom reporting against contribution margin, and a 90-day fixed engagement before anything rolls month-to-month.
+              BeingEcom runs ecommerce SEO, paid media, CRO, Klaviyo lifecycle marketing and GA4 analytics for Shopify and WooCommerce stores as one team on one revenue P&amp;L. Senior operators only, weekly Loom reporting against contribution margin, and a 90-day fixed engagement before anything rolls month-to-month.
             </p>
             <div className="mt-8 btn-pair justify-center lg:justify-start">
 
@@ -386,7 +386,7 @@ function Home() {
 
       {/* 3. PROBLEM */}
 
-      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads - they need the leaks in the funnel fixed before scaling spend. That is where an Ecommerce Marketing Agency UK earns its fee: diagnosing what breaks revenue, then rebuilding it in the right order.">
+      <Section className="section-band--alt" center eyebrow="Why most stores fail" title="Traffic isn't your problem. Conversion is." intro="Most founders don't need more paid ads - they need the leaks in the funnel fixed before scaling spend. That is where a specialist ecommerce agency earns its fee: diagnosing what breaks revenue, then rebuilding it in the right order.">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
             { t: "No sales despite traffic", b: "Visitors land, browse, leave. Funnel is leaking everywhere." },
@@ -416,11 +416,11 @@ function Home() {
         center
         eyebrow="The system"
         title={<>The 4 pillars that fix what's <span className="text-sky-gradient">stopping your store from selling</span></>}
-        intro="One integrated Ecommerce Growth Agency UK &mdash; Shopify and WooCommerce specialists working from a single plan. Most brands come to us after juggling three suppliers; here it's one Ecommerce Digital Marketing Agency UK team, one roadmap, no finger-pointing."
+        intro="One integrated team of Shopify and WooCommerce specialists working from a single plan. Most brands come to us after juggling three suppliers; here it's one team, one roadmap, no finger-pointing."
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {[
-            { t: "Traffic", b: "Profitable Meta, Google and TikTok campaigns run by an Ecommerce Advertising Agency UK team that lives in ecommerce accounts daily.", Icon: Megaphone },
+            { t: "Traffic", b: "Profitable Meta, Google and TikTok campaigns run by paid-media specialists who live in ecommerce accounts daily.", Icon: Megaphone },
             { t: "Conversion", b: "Store, product page and checkout rebuilt around ecommerce CRO so more of the traffic you already pay for buys.", Icon: MousePointerClick },
             { t: "Organic", b: "Ecommerce SEO that compounds free revenue and earns citations in AI Overviews and ChatGPT answers.", Icon: Search },
             { t: "Scale", b: "Klaviyo email, retention and analytics systems that lift customer lifetime value month after month.", Icon: Rocket },
@@ -453,8 +453,8 @@ function Home() {
         className="section-band--warm"
         center
         eyebrow="Ecommerce SEO · Shopify · WooCommerce · Paid Ads · CRO · Automation"
-        title="One senior team. Nine growth services. Every operator owns your P&L."
-        intro="We are your Ecommerce Marketing Agency UK under one roof: SEO that compounds, Shopify and WooCommerce builds that convert, Meta and Google Ads managed for profit, CRO that lifts revenue per session, and AI automation that removes the busywork. No hand-offs, no vanity metrics, just one accountable team moving your numbers every week."
+        title="One senior team. Every growth service. Every operator owns your P&L."
+        intro="Everything under one roof: SEO that compounds, Shopify and WooCommerce builds that convert, Meta and Google Ads managed for profit, CRO that lifts revenue per session, and AI automation that removes the busywork. No hand-offs, no vanity metrics, just one accountable team moving your numbers every week."
       >
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 justify-items-stretch mx-auto">
           {services.map((s, i) => (
@@ -469,7 +469,7 @@ function Home() {
           ))}
         </div>
         <div className="mt-6 text-center text-sm">
-          <Link to="/services" className="font-semibold text-primary hover:underline">See all 9 services →</Link>
+          <Link to="/services" className="font-semibold text-primary hover:underline">See all services →</Link>
           <span className="mx-2 text-muted-foreground">·</span>
           <Link to="/services/performance-marketing" className="font-semibold text-primary hover:underline">Ecommerce paid ads →</Link>
         </div>
@@ -484,11 +484,13 @@ function Home() {
             <span className="text-muted-foreground">·</span>
             <Link to="/services/performance-marketing" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce Paid Ads Agency</Link>
             <span className="text-muted-foreground">·</span>
-            <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify Marketing Agency UK</Link>
+            <Link to="/services/store-development/shopify" className="font-semibold text-ink hover:text-primary hover:underline">Shopify development</Link>
             <span className="text-muted-foreground">·</span>
-            <Link to="/services/store-development/woocommerce" className="font-semibold text-ink hover:text-primary hover:underline">WooCommerce Marketing Agency UK</Link>
+            <Link to="/shopify-seo-agency-uk" className="font-semibold text-ink hover:text-primary hover:underline">Shopify SEO agency UK</Link>
             <span className="text-muted-foreground">·</span>
-            <Link to="/services/cro" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce CRO Agency UK</Link>
+            <Link to="/services/store-development/woocommerce" className="font-semibold text-ink hover:text-primary hover:underline">WooCommerce development</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/services/cro" className="font-semibold text-ink hover:text-primary hover:underline">Ecommerce CRO</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/pricing" className="font-semibold text-ink hover:text-primary hover:underline">View Growth Plans</Link>
           </div>
@@ -603,7 +605,7 @@ function Home() {
       <Section
         eyebrow="More client wins"
         title={<>Featured <span className="text-sky-gradient">case studies</span></>}
-        intro="Six recent Shopify and WooCommerce engagements across apparel, beauty, supplements, home, coffee and pet supplies. They're the reason founders hire us as their Ecommerce Marketing Agency UK and, in four of these six, as their Ecommerce Advertising Agency UK too. Each links straight to the full teardown."
+        intro="Six recent Shopify and WooCommerce engagements across apparel, beauty, supplements, home, coffee and pet supplies. In four of the six we also run paid media. Each links straight to the full teardown."
       >
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -645,7 +647,7 @@ function Home() {
         center
         eyebrow="The process"
         title={<>3 steps to a store that <span className="text-sky-gradient">prints revenue</span></>}
-        intro="The same 3-step system we run as an Ecommerce Growth Agency UK for every Shopify and WooCommerce brand we onboard - audit first, fix what's costing money, then scale."
+        intro="The same 3-step system we run for every Shopify and WooCommerce brand we onboard - audit first, fix what's costing money, then scale."
 
       >
         <div className="relative grid md:grid-cols-3 gap-4">
@@ -750,8 +752,8 @@ function Home() {
         className="section-band--cool"
         center
         eyebrow="Why UK brands choose BeingEcom"
-        title={<>The <span className="text-sky-gradient">Ecommerce Marketing Agency UK</span> founders actually recommend</>}
-        intro="Senior operators, transparent reporting and one integrated system rather than siloed retainers - the reason UK Shopify and WooCommerce founders keep an Ecommerce Growth Agency UK on retainer past the first 90 days."
+        title={<>Why UK founders <span className="text-sky-gradient">stay with us</span> past 90 days</>}
+        intro="Senior operators, transparent reporting and one integrated system rather than siloed retainers - the reason UK Shopify and WooCommerce founders keep us on past the first 90 days."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -781,7 +783,7 @@ function Home() {
         center
         eyebrow="Industries we serve"
         title="Ecommerce marketing built around your category."
-        intro="Category knowledge is half the job. As a Shopify Marketing Agency UK working across the verticals British consumers spend on most, each niche gets its own keyword map, creative playbook and retention model - not a recycled template."
+        intro="Category knowledge is half the job. Working across the verticals British consumers spend on most, each niche gets its own keyword map, creative playbook and retention model - not a recycled template."
 
       >
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
@@ -817,57 +819,12 @@ function Home() {
         </Suspense>
       </WhenVisible>
 
-      {/* 10. TESTIMONIALS - visual marquee (duplicate track is aria-hidden so
-          screen readers and crawlers only see each quote once). */}
-      <Section className="section-band--slate" center eyebrow="What store owners say" title="Operators. Not influencers." intro="Real quotes from British founders who brought us in as their Ecommerce Growth Agency UK for Shopify builds, WooCommerce migrations and paid-media scaling.">
-        <div className="relative overflow-hidden">
-          <ul role="list" className="marquee-track" style={{ animationDuration: "44s" }}>
-            {Array.from({ length: 2 }).flatMap((_, k) =>
-              [
-                { q: "We went from praying for sales to forecasting them. CRO work paid for itself in 3 weeks.", n: "Arjun M.", r: "Founder, Velo Apparel" },
-                { q: "Their ad funnel cut our CAC almost in half. Email flows added 28% in pure revenue.", n: "Sara K.", r: "CMO, Lumen Beauty" },
-                { q: "Finally an agency that understands ecommerce - not just 'digital marketing'. Numbers speak.", n: "David L.", r: "Owner, Hearthline Home" },
-                { q: "ROAS jumped from 1.8x to 4.2x in 60 days without raising budget. Wild.", n: "Priya R.", r: "Founder, Pure Botanica" },
-                { q: "Checkout abandonment dropped 38%. They actually know ecommerce under the hood.", n: "Marco T.", r: "CEO, Stridelab Footwear" },
-                { q: "Klaviyo flows alone added £42K MRR. Set up in 3 weeks, not 3 months.", n: "Elena V.", r: "Growth Lead, Velour Skincare" },
-                { q: "We finally have one dashboard, one team, one P&L. No more agency blame games.", n: "Tom B.", r: "Owner, Ridgeline Outdoors" },
-                { q: "Scaled from £30K to £180K/mo in 5 months. Unit economics still healthy.", n: "Aisha N.", r: "Founder, Aurum Jewelry" },
-                { q: "They rebuilt our PDP and conversion went from 1.2% to 3.6% overnight.", n: "Jonas W.", r: "CEO, GearLoop Electronics" },
-              ].map((t, i) => {
-                const photo = FOUNDER_PHOTOS[(k * 10 + i) % FOUNDER_PHOTOS.length];
-                const isClone = k > 0;
-                return (
-                  <li
-                    key={`${k}-${i}`}
-                    className="w-[320px] md:w-[360px] shrink-0 list-none"
-                    aria-hidden={isClone ? "true" : undefined}
-                    {...(isClone ? { "data-nosnippet": "true" } : {})}
-                    {...(isClone ? { inert: true } : {})}
-                  >
-                    <figure className="card-surface card-hover p-6 h-full mx-2">
-                      <div className="text-primary text-3xl font-display leading-none" aria-hidden="true">“</div>
-                      <blockquote className="text-sm text-ink mt-2 min-h-[88px]">{t.q}</blockquote>
-                      <figcaption className="mt-5 flex items-center gap-3">
-                        <SafeImg
-                          src={photo}
-                          alt=""
-                          loading="lazy"
-                          decoding="async"
-                          width={88}
-                          height={88}
-                          className="w-11 h-11 rounded-full object-cover shadow-md ring-2 ring-white shrink-0"
-                        />
-                        <div className="min-w-0">
-                          <div className="text-sm font-semibold text-ink truncate">{t.n}</div>
-                          <div className="text-[11px] text-muted-foreground truncate">{t.r}</div>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </li>
-                );
-              })
-            )}
-          </ul>
+      {/* 10. PROOF - SEO audit 2026-10-16: stock-photo, unattributed testimonials removed.
+          Only verifiable, client-approved proof is shown; see /case-studies. */}
+      <Section className="section-band--slate" center eyebrow="Proof you can check" title="Results, documented - not anonymous quotes." intro="We only publish client results we can back with data and the client's permission. Each case study shows the starting point, what we changed and the outcome.">
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link to="/case-studies" className="btn btn-primary">Read the case studies <span>→</span></Link>
+          <Link to="/company/reviews" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">How we collect reviews</Link>
         </div>
       </Section>
 
@@ -907,7 +864,7 @@ function Home() {
             <span className="block text-primary mt-1 md:mt-2">Let's build your revenue engine.</span>
           </>
         }
-        sub="Book a free strategy call with the senior team. You'll get a straight read on where revenue is leaking and what we'd do first as your Ecommerce Marketing Agency UK - and, if paid media is the bottleneck, as your Ecommerce Advertising Agency UK across Meta, Google and TikTok."
+        sub="Book a free strategy call with the senior team. You'll get a straight read on where revenue is leaking and what we'd fix first - including Meta, Google and TikTok if paid media is the bottleneck."
       />
 
       {/* 14. HOMEPAGE FAQ - AI Overview & LLM optimised */}

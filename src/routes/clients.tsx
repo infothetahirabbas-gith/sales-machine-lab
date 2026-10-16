@@ -140,7 +140,7 @@ function ClientsPage() {
             <Link to="/company/industries" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">Industries we serve</Link>
             <Link to="/company/success-stories" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">Success stories</Link>
             <Link to="/company/why-us" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">Why BeingEcom</Link>
-            <Link to="/company/founder" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">Meet the founder</Link>
+            <Link to="/about/tahir-abbas" className="rounded-full border bg-card px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary transition-colors">Meet the founder</Link>
           </div>
         </div>
       </section>

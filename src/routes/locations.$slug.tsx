@@ -16,6 +16,7 @@ import { EXTRA_NARRATIVES } from "../lib/location-narratives-extra";
 import { breadcrumbJsonLd, SITE_URL } from "../lib/seo";
 import type { FAQ } from "../lib/seo";
 import { PRICING_TIERS } from "../lib/pricing";
+
 import { SafeImg } from "../components/SafeImg";
 import AISummary from "../components/site/AISummary";
 import { metaFor, variantForSlug } from "../lib/location-seo-meta";
@@ -95,7 +96,7 @@ export const Route = createFileRoute("/locations/$slug")({
     const narrative = loc ? (narrativeFor(loc.slug) ?? EXTRA_NARRATIVES[loc.slug]) : undefined;
     const faqData = loc ? [
       { q: `What does an ecommerce marketing agency in ${loc.city} actually do?`, a: `As an ecommerce marketing agency in ${loc.city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
-      { q: `Do you work with ecommerce brands in ${loc.city}?`, a: `Yes - we work with ecommerce brands in ${loc.city} and across ${loc.region}. Our UK-based senior operators run the full growth stack remotely, with in-person strategy days available for ${loc.city} engagements.` },
+      { q: `Do you work with ecommerce brands in ${loc.city}?`, a: `Yes - we work with ecommerce brands in ${loc.city} and across ${loc.region}. Our UK-based senior operators run the full growth stack remotely, over video calls, Loom and Slack.` },
       { q: `How much does an ecommerce marketing agency in ${loc.city} cost?`, a: `Our ${loc.city} engagements follow three transparent tiers: £2,500/mo Starter for foundations, £5,500/mo Growth for scaling brands, and £10,000+/mo Scale for full dedicated growth teams. Same pricing published on /pricing.` },
       { q: `Which ecommerce platforms do you work with in ${loc.city}?`, a: `Primarily Shopify and Shopify Plus for ${loc.city} DTC brands, plus WooCommerce builds, migrations and headless Hydrogen storefronts.` },
       { q: `How fast do ${loc.city} brands see results?`, a: `Most ${loc.city} clients see meaningful ROAS lift within 30-60 days as tracking, creative and offers are rebuilt. SEO, CRO and retention gains compound in months 3-6.` },
@@ -223,6 +224,16 @@ export const Route = createFileRoute("/locations/$slug")({
   ),
 });
 
+// SEO audit 2026-10-16: per-city case studies were unverifiable. Every location page now
+// shows the same, documented flagship case study (see /case-studies, id a1).
+const FLAGSHIP_CASE = {
+  category: "UK Shopify apparel brand",
+  headline: "£18k → £214k/month in 6 months",
+  growthPct: 1089,
+  roas: 3.8,
+  months: 6,
+};
+
 function LocationPage() {
   const { loc } = Route.useLoaderData();
   const city = loc.city;
@@ -245,7 +256,7 @@ function LocationPage() {
   const stats = [
     { end: 120, suffix: "+", label: "UK DTC brands scaled" },
     { end: 47, suffix: "M+", prefix: "£", label: "Client revenue driven" },
-    { end: C.caseStudy.roas, decimals: 1, suffix: "×", label: `Top ${city} client ROAS` },
+    { end: FLAGSHIP_CASE.roas, decimals: 1, suffix: "×", label: "Blended ROAS, flagship case study" },
   ];
 
   const process = [
@@ -282,8 +293,8 @@ function LocationPage() {
 
   const faqs: FAQ[] = [
     { q: `What does an ecommerce marketing agency in ${city} actually do?`, a: `As an ecommerce marketing agency in ${city}, Being Ecom runs the full growth stack for Shopify and WooCommerce brands: technical and local SEO, Google Ads, Meta Ads, TikTok Ads, Klaviyo email and SMS, CRO, GA4 analytics and AI automation - all built to grow profitable revenue, not vanity metrics.` },
-    { q: `Are you actually based in ${city}?`, a: `We serve ${city} and ${loc.region} clients daily with UK-based senior operators. We run in-person strategy days across the UK and full-remote sprints for day-to-day execution.` },
-    { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `Three transparent tiers for ${city} brands: £2,500/mo Starter, £5,500/mo Growth, £10,000+/mo Scale. Same pricing published on /pricing.` },
+    { q: `Are you actually based in ${city}?`, a: `No - BeingEcom is a remote-first UK team, and our registered office is in London. We work with ${city} and ${loc.region} brands over video calls, Loom and Slack, so you get the same senior operators wherever you're based.` },
+    { q: `How much does an ecommerce marketing agency in ${city} cost?`, a: `The same published pricing applies everywhere in the UK: ${PRICING_TIERS.map((t) => `${t.name} ${t.price}/mo`).join(", ")}. See /pricing for what each plan includes.` },
     { q: `Which ecommerce platforms do you work with in ${city}?`, a: `Primarily Shopify and Shopify Plus for ${city} DTC brands, plus WooCommerce builds and migrations. On paid we cover Meta, Google, TikTok, YouTube and Pinterest.` },
     { q: `Do you handle ecommerce SEO for ${city} Shopify stores?`, a: `Yes - technical SEO, Shopify SEO, local SEO for ${city}, product and collection page optimisation, schema markup, Core Web Vitals and digital PR link building to grow organic revenue month over month.` },
     { q: `Do you offer Google Ads and Meta Ads management in ${city}?`, a: `Yes. Our senior UK media buyers run Google Ads, Google Shopping, Performance Max, Meta Ads and TikTok Ads for ${city} ecommerce brands day-to-day.` },
@@ -319,7 +330,7 @@ function LocationPage() {
     buildLocationLink(path, { ...baseCtx, placement });
   const waHref = (placement: string) => withLocationUtm(WA, { ...baseCtx, placement });
 
-  const WhatsAppBtn = ({ label = `WhatsApp ${city} team`, placement = "generic" }: { label?: string; placement?: string }) => (
+  const WhatsAppBtn = ({ label = "WhatsApp our team", placement = "generic" }: { label?: string; placement?: string }) => (
     <a
       href={waHref(placement)}
       target="_blank"
@@ -403,7 +414,7 @@ function LocationPage() {
                 className="rounded-3xl shadow-2xl w-full h-[460px] object-cover" loading="eager" fetchPriority="high" decoding="async" width={1600} height={1067} sizes="(min-width: 1024px) 640px, 100vw" />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-border animate-fade-in">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><TrendingUp className="w-6 h-6 text-primary" /></div>
-                <div><div className="text-2xl font-bold text-ink"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Top {city} client growth</div></div>
+                <div><div className="text-2xl font-bold text-ink"><CountUp end={FLAGSHIP_CASE.growthPct} suffix="%" /></div><div className="text-xs text-muted-foreground">Revenue growth, flagship case study</div></div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-border animate-fade-in">
                 <div className="flex items-center gap-2 text-xs font-semibold text-primary"><ShieldCheck className="w-3.5 h-3.5" /> {loc.region} coverage</div>
@@ -706,7 +717,7 @@ function LocationPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal><SafeImg src={IMG.shopify} {...imageSeoProps(loc.slug, city, "shopify")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
-            <p className="text-lg text-muted-foreground">From migrations to headless builds, our {city} Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
+            <p className="text-lg text-muted-foreground">From migrations to headless builds, our Shopify Plus team delivers fast, conversion-obsessed stores that make your paid spend work harder.</p>
             <div className="grid grid-cols-2 gap-4 mt-6">
               {[`Shopify Plus builds`, `Theme customisation`, `Headless (Hydrogen)`, `App development`, `Migrations`, `Speed optimisation`].map(x => (
                 <div key={x} className="p-4 rounded-xl border border-border bg-white text-sm font-medium text-ink card-hover">{x}</div>
@@ -742,7 +753,7 @@ function LocationPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <Reveal><SafeImg src={IMG.email} {...imageSeoProps(loc.slug, city, "email")} loading="lazy" decoding="async" width={1600} height={900} className="rounded-3xl shadow-xl w-full h-[380px] object-cover" /></Reveal>
           <div>
-            <p className="text-lg text-muted-foreground">Email and SMS drive {C.caseStudy.emailPct}% of revenue for our best {city} clients - automations, campaigns and lifecycle flows built to compound LTV.</p>
+            <p className="text-lg text-muted-foreground">Email and SMS commonly drive 25-40% of revenue for established DTC brands - automations, campaigns and lifecycle flows built to compound LTV.</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["Welcome flow", "Abandoned cart", "Browse abandonment", "Post-purchase", "Winback", "VIP loyalty", "SMS campaigns", "Segmentation"].map(x => <Pill key={x}>{x}</Pill>)}
             </div>
@@ -849,30 +860,29 @@ function LocationPage() {
           until each quote is verified. To restore: re-add the Section from
           git history once verified testimonials exist. */}
       {/* 19. CASE STUDY */}
-      <Section eyebrow="Case study" title={`A ${city} brand doing 7 figures on Shopify`}>
+      <Section eyebrow="Case study" title="Our flagship case study">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-border">
             <SafeImg src={IMG.caseStudy} {...imageSeoProps(loc.slug, city, "caseStudy")} loading="lazy" decoding="async" width={1600} height={900} className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/75 to-ink/50" />
             <div className="absolute inset-0 bg-ink/25" />
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{C.caseStudy.category}</div>
-              <h3 className="mt-3 text-2xl md:text-4xl font-bold max-w-2xl">{C.caseStudy.headline}</h3>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-widest">{FLAGSHIP_CASE.category}</div>
+              <h3 className="mt-3 text-2xl md:text-4xl font-bold max-w-2xl">{FLAGSHIP_CASE.headline}</h3>
               <div className="mt-6 flex flex-wrap gap-6 text-sm">
-                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.growthPct} suffix="%" /></div><div className="opacity-80">Revenue growth</div></div>
-                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.roas} decimals={1} suffix="×" /></div><div className="opacity-80">Blended ROAS</div></div>
-                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.emailPct} suffix="%" /></div><div className="opacity-80">Email revenue</div></div>
-                <div><div className="text-2xl font-bold"><CountUp end={C.caseStudy.months} suffix=" mo" /></div><div className="opacity-80">Timeframe</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={FLAGSHIP_CASE.growthPct} suffix="%" /></div><div className="opacity-80">Revenue growth</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={FLAGSHIP_CASE.roas} decimals={1} suffix="×" /></div><div className="opacity-80">Blended ROAS</div></div>
+                <div><div className="text-2xl font-bold"><CountUp end={FLAGSHIP_CASE.months} suffix=" mo" /></div><div className="opacity-80">Timeframe</div></div>
               </div>
               <div className="mt-6 btn-pair">
                 <Link to="/case-studies" className="btn btn-primary">Read case studies <ArrowRight className="w-4 h-4" /></Link>
-                <WhatsAppBtn label={`Talk to ${city} team`} />
+                <WhatsAppBtn label="Talk to our team" />
               </div>
             </div>
           </div>
         </Reveal>
         <p className="mt-4 text-xs text-muted-foreground italic text-center max-w-3xl mx-auto">
-          Methodology: results based on client-reported Shopify and GA4 data over the stated engagement window. Individual results vary by category, margin and starting baseline. Client name withheld under NDA - anonymised case study details available on request.
+          Methodology: results based on client-reported Shopify and GA4 data over the stated engagement window. Individual results vary by category, margin and starting baseline. UK Shopify apparel brand (not location-specific); client name withheld under NDA. Full teardown on our case studies page.
         </p>
       </Section>
 
@@ -1006,7 +1016,7 @@ function LocationPage() {
               >
                 Book strategy call <ArrowRight className="w-4 h-4" />
               </a>
-              <WhatsAppBtn label={`WhatsApp ${city} team`} placement="contact_section" />
+              <WhatsAppBtn label="WhatsApp our team" placement="contact_section" />
               <a
                 href={ctaHref("/audit", "contact_section")}
                 className="btn btn-ghost border border-border hover-scale"

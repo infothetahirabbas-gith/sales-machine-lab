@@ -12,7 +12,7 @@ const URL = `${SITE_URL}/company`;
 const FAQS: FAQ[] = [
   { q: "Who owns and runs BeingEcom?", a: "BeingEcom is founded and led by Tahir Abbas, an ecommerce operator with a decade of hands-on experience across Shopify, Shopify Plus and WooCommerce. Every client account is directly overseen by a senior lead no junior operator works unsupervised on your revenue." },
   { q: "Where is BeingEcom based and who do you work with?", a: "We're a UK-registered agency headquartered in Covent Garden, London, working with 7 to 9-figure ecommerce brands across the UK, Europe, US and the Middle East. Our client base is exclusively Shopify, Shopify Plus and WooCommerce we do not take on SaaS, lead-gen or marketplace-only businesses." },
-  { q: "What makes your methodology different from other ecommerce agencies?", a: "Every task we run ties to a specific P&L line MER, contribution margin, AOV, CAC or CLV inside a defined window. We publish the entire methodology openly at /company/methodology, run a weekly scorecard tied to your finance data, and share a quarterly roadmap you can hold us to." },
+  { q: "What makes your methodology different from other ecommerce agencies?", a: "Every task we run ties to a specific P&L line MER, contribution margin, AOV, CAC or CLV inside a defined window. We publish the entire methodology openly at /methodology, run a weekly scorecard tied to your finance data, and share a quarterly roadmap you can hold us to." },
   { q: "How senior is the team actually working on my account?", a: "Every deliverable is signed off by a lead with 6+ years of ecommerce operating experience. We deliberately stay small so the people on your Slack channel are the same people writing the strategy, running the ads, and shipping the code not account managers relaying instructions." },
   { q: "What proof do you publish that I can actually verify?", a: "Named leadership, a registered UK address in Organisation schema, certifications and partner status at /company/certifications, real case studies with scope and results at /case-studies, invitation-only public reviews on Google, Trustpilot and Clutch, and dated updates on every page so you know when we last reviewed the content." },
   { q: "How do you report on progress and communicate with clients?", a: "Weekly scorecard tied to your P&L, weekly ship review of everything we shipped, monthly strategy call and a quarterly roadmap. All comms happen in a shared Slack or Teams channel with the senior operators on your account not a ticket queue and not a junior account manager." },
@@ -54,7 +54,7 @@ const PROCESS: { step: string; title: string; body: string }[] = [
 
 const DIFFERENTIATORS: { k: string; body: string }[] = [
   { k: "P&L-native reporting",  body: "We report in MER, contribution margin and CLV the metrics your CFO cares about not last-click ROAS screenshots." },
-  { k: "Public methodology",    body: "Our entire operating system is published at /company/methodology. You can read it, question it, or hand it to another agency to audit." },
+  { k: "Public methodology",    body: "Our entire operating system is published at /methodology. You can read it, question it, or hand it to another agency to audit." },
   { k: "Named humans",          body: "Every page names the operators behind the work founder, team, author bylines. No anonymous \"our team\" stock photos." },
   { k: "Category depth",        body: "Deep specialisation in health & beauty, fashion, home & garden, food & drink, electronics and B2B ecommerce playbooks per vertical, not generic decks." },
   { k: "Risk reversal",         body: "First 30 days include a written diagnosis and a clear exit path. If we can't move a P&L line inside 90 days, we say so before you sign." },
@@ -243,9 +243,9 @@ function CompanyHub() {
               <tbody className="divide-y divide-border">
                 {[
                   ["Registered UK address",       "Footer + /contact + Organisation schema (Covent Garden, London)"],
-                  ["Named founder",               <Link key="l1" to="/company/founder" className="text-primary hover:underline">/company/founder</Link>],
+                  ["Named founder",               <Link key="l1" to="/about/tahir-abbas" className="text-primary hover:underline">/about/tahir-abbas</Link>],
                   ["Named leadership team",       <Link key="l2" to="/company/team" className="text-primary hover:underline">/company/team</Link>],
-                  ["Public methodology",          <Link key="l3" to="/company/methodology" className="text-primary hover:underline">/company/methodology</Link>],
+                  ["Public methodology",          <Link key="l3" to="/methodology" className="text-primary hover:underline">/methodology</Link>],
                   ["Real case studies with scope",<Link key="l4" to="/case-studies" className="text-primary hover:underline">/case-studies</Link>],
                   ["Certifications & partners",   <Link key="l5" to="/company/certifications" className="text-primary hover:underline">/company/certifications</Link>],
                   ["Public reviews",              <Link key="l6" to="/company/reviews" className="text-primary hover:underline">/company/reviews</Link>],

@@ -82,7 +82,7 @@ export const Route = createFileRoute("/company/team")({
                       ))}
                     </div>
                     {m.slug === "tahir-abbas" && (
-                      <Link to="/company/founder" className="mt-4 inline-flex text-sm font-semibold text-primary">
+                      <Link to="/about/tahir-abbas" className="mt-4 inline-flex text-sm font-semibold text-primary">
                         Read the founder story →
                       </Link>
                     )}
@@ -158,7 +158,7 @@ export const Route = createFileRoute("/company/team")({
       ]}
       faqs={[
         { q: "Who leads BeingEcom?", a: "The leadership team is Tahir Abbas (Founder & CEO), Ali Abbas (Chief Technology Officer) and Hasnain Abbas (Managing Director). All three are involved in client strategy at the leadership level." },
-        { q: "Who is the CEO of BeingEcom?", a: "Tahir Abbas is the founder and CEO. See the /company/founder page for his full background." },
+        { q: "Who is the CEO of BeingEcom?", a: "Tahir Abbas is the founder and CEO. See the /about/tahir-abbas page for his full background." },
         { q: "Who is the CTO of BeingEcom?", a: "Ali Abbas is the CTO, leading engineering headless Shopify (Hydrogen), WooCommerce development, server-side tracking, GA4 and the AI automation pipelines used across every engagement." },
         { q: "Who is the Managing Director of BeingEcom?", a: "Hasnain Abbas is the Managing Director, running operations, delivery and client success across every account onboarding, pod assembly, weekly reporting rituals and quarterly strategic reviews." },
         { q: "Do juniors work on my account?", a: "No junior operates unsupervised on a client account. Specialists with less than four years of experience are always paired with a senior or lead operator who signs off on every deliverable." },

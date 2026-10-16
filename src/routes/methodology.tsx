@@ -225,7 +225,7 @@ function MethodologyPage() {
               <div className="text-sm text-muted-foreground mt-1">See the six stages applied on real Shopify and WooCommerce brands, with diagnosis and outcome.</div>
             </div>
           </Link>
-          <Link to="/company/methodology" className="card-surface card-hover p-6 flex items-start gap-4">
+          <Link to="/methodology" className="card-surface card-hover p-6 flex items-start gap-4">
             <ArrowRight className="w-5 h-5 text-primary shrink-0 mt-1" />
             <div>
               <div className="font-semibold text-ink">The 13-phase delivery detail</div>

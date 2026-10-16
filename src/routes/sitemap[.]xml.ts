@@ -5,6 +5,7 @@ const BASE_URL = "https://beingecom.com";
 
 const children = [
   { loc: `${BASE_URL}/sitemap-pages.xml` },
+  { loc: `${BASE_URL}/sitemap-blog.xml` },
   { loc: `${BASE_URL}/sitemap-services.xml` },
   { loc: `${BASE_URL}/sitemap-locations.xml` },
   { loc: `${BASE_URL}/sitemap-industries.xml` },

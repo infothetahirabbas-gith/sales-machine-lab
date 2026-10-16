@@ -220,7 +220,7 @@ function About() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
-              <Link to="/company/founder" className="btn btn-primary btn-shimmer">Meet the Founder <span>→</span></Link>
+              <Link to="/about/tahir-abbas" className="btn btn-primary btn-shimmer">Meet the Founder <span>→</span></Link>
               <Link to="/company/team" className="btn btn-ghost">See the Team</Link>
             </div>
           </div>
