@@ -25,6 +25,21 @@ function brandedErrorResponse(): Response {
   });
 }
 
+export const CONSOLIDATED_REDIRECTS: Record<string, string> = {
+  "/ecommerce-marketing-agency-uk": "/",
+  "/ecommerce-growth-agency-uk": "/",
+  "/ecommerce-seo-pricing": "/pricing",
+  "/shopify-seo-packages": "/shopify-seo-agency-uk",
+  "/enterprise-ecommerce-seo": "/services/seo",
+  "/ecommerce-seo-consultant": "/services/seo",
+  "/compare/shopify-vs-woocommerce": "/blog/shopify-vs-woocommerce-uk",
+  "/agency-vs-inhouse-seo": "/compare/in-house-vs-agency",
+  "/author/tahir-abbas": "/about/tahir-abbas",
+  "/company/founder": "/about/tahir-abbas",
+  "/founder": "/about/tahir-abbas",
+  "/company/methodology": "/methodology",
+};
+
 function canonicalRedirect(request: Request): Response | null {
   const url = new URL(request.url);
   const host = url.hostname.toLowerCase();
@@ -47,6 +62,15 @@ function canonicalRedirect(request: Request): Response | null {
 
   if (shouldNormalizePath && isPagePath && /[A-Z]/.test(url.pathname)) {
     url.pathname = url.pathname.toLowerCase();
+    changed = true;
+  }
+
+  // SEO audit 2026-10-16: one URL per search intent. Duplicates 301 to the owner.
+  const consolidated = CONSOLIDATED_REDIRECTS[url.pathname.toLowerCase().replace(/\/+$/, "")];
+  if (isPagePath && consolidated) {
+    url.protocol = "https:";
+    url.hostname = shouldCanonicalizeHost || host === "beingecom.com" ? "beingecom.com" : url.hostname;
+    url.pathname = consolidated;
     changed = true;
   }
 

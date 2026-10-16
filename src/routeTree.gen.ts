@@ -20,6 +20,7 @@ import { Route as SitemapLocationsDotxmlRouteImport } from './routes/sitemap-loc
 import { Route as SitemapIndustriesDotxmlRouteImport } from './routes/sitemap-industries[.]xml'
 import { Route as SitemapCompanyDotxmlRouteImport } from './routes/sitemap-company[.]xml'
 import { Route as SitemapCaseStudiesDotxmlRouteImport } from './routes/sitemap-case-studies[.]xml'
+import { Route as SitemapBlogDotxmlRouteImport } from './routes/sitemap-blog[.]xml'
 import { Route as ShopifySeoPackagesRouteImport } from './routes/shopify-seo-packages'
 import { Route as ShopifySeoAgencyUkRouteImport } from './routes/shopify-seo-agency-uk'
 import { Route as SearchRouteImport } from './routes/search'
@@ -192,6 +193,11 @@ const SitemapIndustriesDotxmlRoute = SitemapIndustriesDotxmlRouteImport.update({
 const SitemapCompanyDotxmlRoute = SitemapCompanyDotxmlRouteImport.update({
   id: '/sitemap-company.xml',
   path: '/sitemap-company.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapBlogDotxmlRoute = SitemapBlogDotxmlRouteImport.update({
+  id: '/sitemap-blog.xml',
+  path: '/sitemap-blog.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapCaseStudiesDotxmlRoute =
@@ -885,6 +891,7 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -1016,6 +1023,7 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -1152,6 +1160,7 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/shopify-seo-agency-uk': typeof ShopifySeoAgencyUkRoute
   '/shopify-seo-packages': typeof ShopifySeoPackagesRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-case-studies.xml': typeof SitemapCaseStudiesDotxmlRoute
   '/sitemap-company.xml': typeof SitemapCompanyDotxmlRoute
   '/sitemap-industries.xml': typeof SitemapIndustriesDotxmlRoute
@@ -1290,6 +1299,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
+    | '/sitemap-blog.xml'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1421,6 +1431,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
+    | '/sitemap-blog.xml'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1556,6 +1567,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/shopify-seo-agency-uk'
     | '/shopify-seo-packages'
+    | '/sitemap-blog.xml'
     | '/sitemap-case-studies.xml'
     | '/sitemap-company.xml'
     | '/sitemap-industries.xml'
@@ -1693,6 +1705,7 @@ export interface RootRouteChildren {
   SearchRoute: typeof SearchRoute
   ShopifySeoAgencyUkRoute: typeof ShopifySeoAgencyUkRoute
   ShopifySeoPackagesRoute: typeof ShopifySeoPackagesRoute
+  SitemapBlogDotxmlRoute: typeof SitemapBlogDotxmlRoute
   SitemapCaseStudiesDotxmlRoute: typeof SitemapCaseStudiesDotxmlRoute
   SitemapCompanyDotxmlRoute: typeof SitemapCompanyDotxmlRoute
   SitemapIndustriesDotxmlRoute: typeof SitemapIndustriesDotxmlRoute
@@ -1823,6 +1836,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-company.xml'
       fullPath: '/sitemap-company.xml'
       preLoaderRoute: typeof SitemapCompanyDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-blog.xml': {
+      id: '/sitemap-blog.xml'
+      path: '/sitemap-blog.xml'
+      fullPath: '/sitemap-blog.xml'
+      preLoaderRoute: typeof SitemapBlogDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-case-studies.xml': {
@@ -2872,6 +2892,7 @@ const rootRouteChildren: RootRouteChildren = {
   SearchRoute: SearchRoute,
   ShopifySeoAgencyUkRoute: ShopifySeoAgencyUkRoute,
   ShopifySeoPackagesRoute: ShopifySeoPackagesRoute,
+  SitemapBlogDotxmlRoute: SitemapBlogDotxmlRoute,
   SitemapCaseStudiesDotxmlRoute: SitemapCaseStudiesDotxmlRoute,
   SitemapCompanyDotxmlRoute: SitemapCompanyDotxmlRoute,
   SitemapIndustriesDotxmlRoute: SitemapIndustriesDotxmlRoute,
